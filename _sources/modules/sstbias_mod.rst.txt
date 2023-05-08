@@ -1,0 +1,22 @@
+==========================================
+sstbias_mod
+==========================================
+
+    :doc:`link to source code <sstbias_mod_src>`
+
+
+    **Dependency Diagrams:**
+
+    .. figure:: /sstbias_mod.svg
+        :height: 100px
+
+        Direct Dependency Diagram
+
+    .. figure:: /sstbias_mod_rev.svg
+        :height: 100px
+
+        Reverse Dependency Diagram
+
+
+    .. f:automodule:: sstbias_mod
+

@@ -1,0 +1,8 @@
+==========================================
+globalspectraltransform_mod source
+==========================================
+
+    .. literalinclude:: ../_src_files/globalspectraltransform_mod.f90
+       :language: fortran
+       :linenos:
+

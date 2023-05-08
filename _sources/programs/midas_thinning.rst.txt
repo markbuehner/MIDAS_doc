@@ -1,0 +1,17 @@
+==========================================
+midas_thinning
+==========================================
+
+    :doc:`link to source code <midas_thinning_src>`
+
+
+    **Dependency Diagrams:**
+
+    .. figure:: /midas_thinning.svg
+        :height: 100px
+
+        Direct Dependency Diagram
+
+
+    .. f:autoprogram:: midas_thinning
+

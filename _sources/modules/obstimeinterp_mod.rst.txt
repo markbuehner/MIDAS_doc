@@ -1,0 +1,22 @@
+==========================================
+obstimeinterp_mod
+==========================================
+
+    :doc:`link to source code <obstimeinterp_mod_src>`
+
+
+    **Dependency Diagrams:**
+
+    .. figure:: /obstimeinterp_mod.svg
+        :height: 100px
+
+        Direct Dependency Diagram
+
+    .. figure:: /obstimeinterp_mod_rev.svg
+        :height: 100px
+
+        Reverse Dependency Diagram
+
+
+    .. f:automodule:: obstimeinterp_mod
+

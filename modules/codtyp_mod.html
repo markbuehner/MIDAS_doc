@@ -1,0 +1,242 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>codtyp_mod &mdash; MIDAS  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="MIDAS  documentation" href="../index.html" />
+    <link rel="next" title="earthconstants_mod" href="earthconstants_mod.html" />
+    <link rel="prev" title="codeprecision_mod" href="codeprecision_mod.html" /> 
+  </head>
+  <body>
+  <div>
+    <img src="../_static/MIDAS_header.png" alt="MIDAS" />
+  </div>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="earthconstants_mod.html" title="earthconstants_mod"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="codeprecision_mod.html" title="codeprecision_mod"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="codeprecision_mod.html"
+                          title="previous chapter">codeprecision_mod</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="earthconstants_mod.html"
+                          title="next chapter">earthconstants_mod</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/modules/codtyp_mod.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <section id="codtyp-mod">
+<h1>codtyp_mod<a class="headerlink" href="#codtyp-mod" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><p><a class="reference internal" href="codtyp_mod_src.html"><span class="doc">link to source code</span></a></p>
+<p><strong>Dependency Diagrams:</strong></p>
+<figure class="align-default" id="id1">
+<a class="reference internal image-reference" href="codtyp_mod.svg"><img alt="codtyp_mod.svg" height="100px" src="codtyp_mod.svg" /></a>
+<figcaption>
+<p><span class="caption-text">Direct Dependency Diagram</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id2">
+<a class="reference internal image-reference" href="codtyp_mod_rev.svg"><img alt="codtyp_mod_rev.svg" height="100px" src="codtyp_mod_rev.svg" /></a>
+<figcaption>
+<p><span class="caption-text">Reverse Dependency Diagram</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<span class="target" id="f/codtyp_mod"></span><p class="rubric">Description</p>
+<p>MODULE codtyp_mod (prefix=’codtyp’ category=’8. Low-level utilities and constants’)</p>
+<dl class="field-list">
+<dt class="field-odd">Purpose</dt>
+<dd class="field-odd"><p>To read a list of codtype definitions (codes that define various
+types of observations) from the namelist and to make them available
+through functions.</p>
+<p>Definitions are taken from:
+<a class="reference external" href="https://wiki.cmc.ec.gc.ca/wiki/Description_exhaustive_du_format_BURP">https://wiki.cmc.ec.gc.ca/wiki/Description_exhaustive_du_format_BURP</a></p>
+</dd>
+</dl>
+<p class="rubric">Quick access</p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/codtyp_mod/codtyp_name_length" title="f/codtyp_mod/codtyp_name_length"><code class="xref f f-var docutils literal notranslate"><span class="pre">codtyp_name_length</span></code></a></p>
+</dd>
+<dt class="field-even">Routines</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/codtyp_mod/codtyp_get_codtyp" title="f/codtyp_mod/codtyp_get_codtyp"><code class="xref f f-func docutils literal notranslate"><span class="pre">codtyp_get_codtyp()</span></code></a>, <a class="reference internal" href="#f/codtyp_mod/codtyp_get_name" title="f/codtyp_mod/codtyp_get_name"><code class="xref f f-func docutils literal notranslate"><span class="pre">codtyp_get_name()</span></code></a>, <a class="reference internal" href="#f/codtyp_mod/codtyp_initialize" title="f/codtyp_mod/codtyp_initialize"><code class="xref f f-func docutils literal notranslate"><span class="pre">codtyp_initialize()</span></code></a></p>
+</dd>
+</dl>
+<p class="rubric">Needed modules</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod" title="f/utilities_mod: MODULE utilities_mod (prefix='utl' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">utilities_mod</span></code></a>: MODULE utilities_mod (prefix=’utl’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="midasmpi_mod.html#f/midasmpi_mod" title="f/midasmpi_mod: MODULE midasMpi_mod (prefix='mmpi' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">midasmpi_mod</span></code></a>: MODULE midasMpi_mod (prefix=’mmpi’ category=’8. Low-level utilities and constants’)</p></li>
+</ul>
+<p class="rubric">Variables</p>
+<ul>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/codtyp_mod/codtyp_name_length">
+<span class="sig-prename descclassname"><span class="pre">codtyp_mod/</span></span><span class="sig-name descname"><span class="pre">codtyp_name_length</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/codtyp_mod/codtyp_name_length" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+</ul>
+<p class="rubric">Subroutines and functions</p>
+<dl>
+<dt class="sig sig-object f" id="f/codtyp_mod/codtyp_initialize">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">codtyp_mod/</span></span><span class="sig-name descname"><span class="pre">codtyp_initialize</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#f/codtyp_mod/codtyp_initialize" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>To initialize the NAMCODTYP namelist variables</p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/codtyp_mod/codtyp_get_codtyp" title="f/codtyp_mod/codtyp_get_codtyp"><code class="xref f f-func docutils literal notranslate"><span class="pre">codtyp_get_codtyp()</span></code></a>, <a class="reference internal" href="#f/codtyp_mod/codtyp_get_name" title="f/codtyp_mod/codtyp_get_name"><code class="xref f f-func docutils literal notranslate"><span class="pre">codtyp_get_name()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_isnamelistpresent" title="f/utilities_mod/utl_isnamelistpresent"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_isnamelistpresent()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/codtyp_mod/codtyp_get_codtyp">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">codtyp_mod/</span></span><span class="sig-name descname"><span class="pre">codtyp_get_codtyp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">name</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/codtyp_mod/codtyp_get_codtyp" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Given a family name, return the codtyp</p>
+<p>NEW information from namelist NAMCODTYP</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>name</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em></p>
+</dd>
+<dt class="field-odd">Return</dt>
+<dd class="field-odd"><p><strong>codtyp_get_codtyp</strong><em> [</em><em>integer </em><em>]</em></p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="bgckocean_mod.html#f/bgckocean_mod/ocebg_bgchecksst" title="f/bgckocean_mod/ocebg_bgchecksst"><code class="xref f f-func docutils literal notranslate"><span class="pre">ocebg_bgchecksst()</span></code></a>, <a class="reference internal" href="biascorrectionconv_mod.html#f/biascorrectionconv_mod/bcc_uaphase" title="f/biascorrectionconv_mod/bcc_uaphase"><code class="xref f f-func docutils literal notranslate"><span class="pre">bcc_uaphase()</span></code></a>, <a class="reference internal" href="burpread_mod.html#f/burpread_mod/brpr_updateburp" title="f/burpread_mod/brpr_updateburp"><code class="xref f f-func docutils literal notranslate"><span class="pre">brpr_updateburp()</span></code></a>, <a class="reference internal" href="costfunction_mod.html#f/costfunction_mod/cfn_sumjo" title="f/costfunction_mod/cfn_sumjo"><code class="xref f f-func docutils literal notranslate"><span class="pre">cfn_sumjo()</span></code></a>, <a class="reference internal" href="enkf_mod.html#f/enkf_mod/enkf_modifyamsubobserror" title="f/enkf_mod/enkf_modifyamsubobserror"><code class="xref f f-func docutils literal notranslate"><span class="pre">enkf_modifyamsubobserror()</span></code></a>, <a class="reference internal" href="obsspaceerrorstddev_mod.html#f/obsspaceerrorstddev_mod/ose_calcompstddevch" title="f/obsspaceerrorstddev_mod/ose_calcompstddevch"><code class="xref f f-func docutils literal notranslate"><span class="pre">ose_calcompstddevch()</span></code></a>, <a class="reference internal" href="obsspaceerrorstddev_mod.html#f/obsspaceerrorstddev_mod/ose_fillompstddevch" title="f/obsspaceerrorstddev_mod/ose_fillompstddevch"><code class="xref f f-func docutils literal notranslate"><span class="pre">ose_fillompstddevch()</span></code></a>, <a class="reference internal" href="obsspaceerrorstddev_mod.html#f/obsspaceerrorstddev_mod/ose_ompstddevexistsforallch" title="f/obsspaceerrorstddev_mod/ose_ompstddevexistsforallch"><code class="xref f f-func docutils literal notranslate"><span class="pre">ose_ompstddevexistsforallch()</span></code></a>, <a class="reference internal" href="obsutil_mod.html#f/obsutil_mod/codtypfam" title="f/obsutil_mod/codtypfam"><code class="xref f f-func docutils literal notranslate"><span class="pre">codtypfam()</span></code></a>, <a class="reference internal" href="obsdbfiles_mod.html#f/obsdbfiles_mod/odbf_copytoobsspaceheadchar" title="f/obsdbfiles_mod/odbf_copytoobsspaceheadchar"><code class="xref f f-func docutils literal notranslate"><span class="pre">odbf_copytoobsspaceheadchar()</span></code></a>, <a class="reference internal" href="obsdbfiles_mod.html#f/obsdbfiles_mod/odbf_adjustvalues" title="f/obsdbfiles_mod/odbf_adjustvalues"><code class="xref f f-func docutils literal notranslate"><span class="pre">odbf_adjustvalues()</span></code></a>, <a class="reference internal" href="obsdiagfiles_mod.html#f/obsdiagfiles_mod/diaf_writesqldiagfile" title="f/obsdiagfiles_mod/diaf_writesqldiagfile"><code class="xref f f-func docutils literal notranslate"><span class="pre">diaf_writesqldiagfile()</span></code></a>, <a class="reference internal" href="obserrors_mod.html#f/obserrors_mod/oer_fillobserrors" title="f/obserrors_mod/oer_fillobserrors"><code class="xref f f-func docutils literal notranslate"><span class="pre">oer_fillobserrors()</span></code></a>, <a class="reference internal" href="obsfilter_mod.html#f/obsfilter_mod/filt_suprep" title="f/obsfilter_mod/filt_suprep"><code class="xref f f-func docutils literal notranslate"><span class="pre">filt_suprep()</span></code></a>, <a class="reference internal" href="obsspacediag_mod.html#f/obsspacediag_mod/osd_getindices" title="f/obsspacediag_mod/osd_getindices"><code class="xref f f-func docutils literal notranslate"><span class="pre">osd_getindices()</span></code></a>, <a class="reference internal" href="obsspacediag_mod.html#f/obsspacediag_mod/osd_obspostproc" title="f/obsspacediag_mod/osd_obspostproc"><code class="xref f f-func docutils literal notranslate"><span class="pre">osd_obspostproc()</span></code></a>, <a class="reference internal" href="oceanobservations_mod.html#f/oceanobservations_mod/oobs_computeobsdata" title="f/oceanobservations_mod/oobs_computeobsdata"><code class="xref f f-func docutils literal notranslate"><span class="pre">oobs_computeobsdata()</span></code></a>, <a class="reference internal" href="slantprofilelatlon_mod.html#f/slantprofilelatlon_mod/slp_calclatlontovs" title="f/slantprofilelatlon_mod/slp_calclatlontovs"><code class="xref f f-func docutils literal notranslate"><span class="pre">slp_calclatlontovs()</span></code></a>, <a class="reference internal" href="sqliteread_mod.html#f/sqliteread_mod/sqlr_readsqlite" title="f/sqliteread_mod/sqlr_readsqlite"><code class="xref f f-func docutils literal notranslate"><span class="pre">sqlr_readsqlite()</span></code></a>, <a class="reference internal" href="sstbias_mod.html#f/sstbias_mod/sstb_getgriddedobs" title="f/sstbias_mod/sstb_getgriddedobs"><code class="xref f f-func docutils literal notranslate"><span class="pre">sstb_getgriddedobs()</span></code></a>, <a class="reference internal" href="statetocolumn_mod.html#f/statetocolumn_mod/s2c_setupinterpinfo" title="f/statetocolumn_mod/s2c_setupinterpinfo"><code class="xref f f-func docutils literal notranslate"><span class="pre">s2c_setupinterpinfo()</span></code></a>, <a class="reference internal" href="thinning_mod.html#f/thinning_mod/thn_thintovs" title="f/thinning_mod/thn_thintovs"><code class="xref f f-func docutils literal notranslate"><span class="pre">thn_thintovs()</span></code></a>, <a class="reference internal" href="thinning_mod.html#f/thinning_mod/thn_thinhyper" title="f/thinning_mod/thn_thinhyper"><code class="xref f f-func docutils literal notranslate"><span class="pre">thn_thinhyper()</span></code></a>, <a class="reference internal" href="thinning_mod.html#f/thinning_mod/thn_surfaceintime" title="f/thinning_mod/thn_surfaceintime"><code class="xref f f-func docutils literal notranslate"><span class="pre">thn_surfaceintime()</span></code></a>, <a class="reference internal" href="tovs_nl_mod.html#f/tovs_nl_mod/tvs_getallidburptovs" title="f/tovs_nl_mod/tvs_getallidburptovs"><code class="xref f f-func docutils literal notranslate"><span class="pre">tvs_getallidburptovs()</span></code></a>, <a class="reference internal" href="tovs_nl_mod.html#f/tovs_nl_mod/tvs_isidburptovs" title="f/tovs_nl_mod/tvs_isidburptovs"><code class="xref f f-func docutils literal notranslate"><span class="pre">tvs_isidburptovs()</span></code></a>, <a class="reference internal" href="tovs_nl_mod.html#f/tovs_nl_mod/tvs_isidburphyperspectral" title="f/tovs_nl_mod/tvs_isidburphyperspectral"><code class="xref f f-func docutils literal notranslate"><span class="pre">tvs_isidburphyperspectral()</span></code></a>, <a class="reference internal" href="tovs_nl_mod.html#f/tovs_nl_mod/tvs_isidburpinst" title="f/tovs_nl_mod/tvs_isidburpinst"><code class="xref f f-func docutils literal notranslate"><span class="pre">tvs_isidburpinst()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/codtyp_mod/codtyp_initialize" title="f/codtyp_mod/codtyp_initialize"><code class="xref f f-func docutils literal notranslate"><span class="pre">codtyp_initialize()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/codtyp_mod/codtyp_get_name">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">codtyp_mod/</span></span><span class="sig-name descname"><span class="pre">codtyp_get_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">codtyp</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/codtyp_mod/codtyp_get_name" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Given a codtyp, return the family name</p>
+<p>NEW information from namelist NAMCODTYP</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>codtyp</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p>
+</dd>
+<dt class="field-odd">Return</dt>
+<dd class="field-odd"><p><strong>codtyp_get_name</strong><em> [</em><em>character </em><em>]</em></p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="bgckmicrowave_mod.html#f/bgckmicrowave_mod/mwbg_updateobsspaceafterqc" title="f/bgckmicrowave_mod/mwbg_updateobsspaceafterqc"><code class="xref f f-func docutils literal notranslate"><span class="pre">mwbg_updateobsspaceafterqc()</span></code></a>, <a class="reference internal" href="bgckmicrowave_mod.html#f/bgckmicrowave_mod/mwbg_readobsfromobsspace" title="f/bgckmicrowave_mod/mwbg_readobsfromobsspace"><code class="xref f f-func docutils literal notranslate"><span class="pre">mwbg_readobsfromobsspace()</span></code></a>, <a class="reference internal" href="biascorrectionconv_mod.html#f/biascorrectionconv_mod/bcc_applyaibcor" title="f/biascorrectionconv_mod/bcc_applyaibcor"><code class="xref f f-func docutils literal notranslate"><span class="pre">bcc_applyaibcor()</span></code></a>, <a class="reference internal" href="biascorrectionsat_mod.html#f/biascorrectionsat_mod/bcs_filterobs" title="f/biascorrectionsat_mod/bcs_filterobs"><code class="xref f f-func docutils literal notranslate"><span class="pre">bcs_filterobs()</span></code></a>, <a class="reference internal" href="biascorrectionsat_mod.html#f/biascorrectionsat_mod/getobsfilename" title="f/biascorrectionsat_mod/getobsfilename"><code class="xref f f-func docutils literal notranslate"><span class="pre">getobsfilename()</span></code></a>, <a class="reference internal" href="burpread_mod.html#f/burpread_mod/brpr_addcloudparametersandemissivity" title="f/burpread_mod/brpr_addcloudparametersandemissivity"><code class="xref f f-func docutils literal notranslate"><span class="pre">brpr_addcloudparametersandemissivity()</span></code></a>, <a class="reference internal" href="burpread_mod.html#f/burpread_mod/brpr_addelementstoburp" title="f/burpread_mod/brpr_addelementstoburp"><code class="xref f f-func docutils literal notranslate"><span class="pre">brpr_addelementstoburp()</span></code></a>, <a class="reference internal" href="obsdiagfiles_mod.html#f/obsdiagfiles_mod/diaf_getobsfilename" title="f/obsdiagfiles_mod/diaf_getobsfilename"><code class="xref f f-func docutils literal notranslate"><span class="pre">diaf_getobsfilename()</span></code></a>, <a class="reference internal" href="obsfilter_mod.html#f/obsfilter_mod/filt_iceconcentration" title="f/obsfilter_mod/filt_iceconcentration"><code class="xref f f-func docutils literal notranslate"><span class="pre">filt_iceconcentration()</span></code></a>, <a class="reference internal" href="statetocolumn_mod.html#f/statetocolumn_mod/s2c_getfootprintradius" title="f/statetocolumn_mod/s2c_getfootprintradius"><code class="xref f f-func docutils literal notranslate"><span class="pre">s2c_getfootprintradius()</span></code></a>, <a class="reference internal" href="statetocolumn_mod.html#f/statetocolumn_mod/gettovsfootprintradius" title="f/statetocolumn_mod/gettovsfootprintradius"><code class="xref f f-func docutils literal notranslate"><span class="pre">gettovsfootprintradius()</span></code></a>, <a class="reference internal" href="varqc_mod.html#f/varqc_mod/vqc_listrej" title="f/varqc_mod/vqc_listrej"><code class="xref f f-func docutils literal notranslate"><span class="pre">vqc_listrej()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/codtyp_mod/codtyp_initialize" title="f/codtyp_mod/codtyp_initialize"><code class="xref f f-func docutils literal notranslate"><span class="pre">codtyp_initialize()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div></blockquote>
+</section>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="earthconstants_mod.html" title="earthconstants_mod"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="codeprecision_mod.html" title="codeprecision_mod"
+             >previous</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2018, ECCC.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.
+    </div>
+  </body>
+</html>

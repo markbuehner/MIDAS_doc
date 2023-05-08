@@ -1,0 +1,8 @@
+==========================================
+midas_ominusf source
+==========================================
+
+    .. literalinclude:: ../_src_files/oMinusF.f90
+       :language: fortran
+       :linenos:
+

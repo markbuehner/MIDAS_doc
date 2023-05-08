@@ -1,0 +1,582 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>biascorrectionconv_mod &mdash; MIDAS  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="MIDAS  documentation" href="../index.html" />
+    <link rel="next" title="biascorrectionsat_mod" href="biascorrectionsat_mod.html" />
+    <link rel="prev" title="bgckssmis_mod" href="bgckssmis_mod.html" /> 
+  </head>
+  <body>
+  <div>
+    <img src="../_static/MIDAS_header.png" alt="MIDAS" />
+  </div>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="biascorrectionsat_mod.html" title="biascorrectionsat_mod"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="bgckssmis_mod.html" title="bgckssmis_mod"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="bgckssmis_mod.html"
+                          title="previous chapter">bgckssmis_mod</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="biascorrectionsat_mod.html"
+                          title="next chapter">biascorrectionsat_mod</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/modules/biascorrectionconv_mod.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <section id="biascorrectionconv-mod">
+<h1>biascorrectionconv_mod<a class="headerlink" href="#biascorrectionconv-mod" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><p><a class="reference internal" href="biascorrectionconv_mod_src.html"><span class="doc">link to source code</span></a></p>
+<p><strong>Dependency Diagrams:</strong></p>
+<figure class="align-default" id="id1">
+<a class="reference internal image-reference" href="biascorrectionconv_mod.svg"><img alt="biascorrectionconv_mod.svg" height="100px" src="biascorrectionconv_mod.svg" /></a>
+<figcaption>
+<p><span class="caption-text">Direct Dependency Diagram</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id2">
+<a class="reference internal image-reference" href="biascorrectionconv_mod_rev.svg"><img alt="biascorrectionconv_mod_rev.svg" height="100px" src="biascorrectionconv_mod_rev.svg" /></a>
+<figcaption>
+<p><span class="caption-text">Reverse Dependency Diagram</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<span class="target" id="f/biascorrectionconv_mod"></span><p class="rubric">Description</p>
+<p>MODULE biasCorrectionConv_mod (prefix=”bcc” category=’1. High-level functionality’)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Purpose</dt>
+<dd class="field-odd"><p>Performs bias correction for conventional observations</p>
+</dd>
+</dl>
+<p class="rubric">Quick access</p>
+<dl class="field-list simple">
+<dt class="field-odd">Types</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/biascorrectionconv_mod/sondetype" title="f/biascorrectionconv_mod/sondetype"><code class="xref f f-type docutils literal notranslate"><span class="pre">sondetype</span></code></a></p>
+</dd>
+<dt class="field-even">Routines</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/biascorrectionconv_mod/bcc_applyaibcor" title="f/biascorrectionconv_mod/bcc_applyaibcor"><code class="xref f f-func docutils literal notranslate"><span class="pre">bcc_applyaibcor()</span></code></a>, <a class="reference internal" href="#f/biascorrectionconv_mod/bcc_applygpbcor" title="f/biascorrectionconv_mod/bcc_applygpbcor"><code class="xref f f-func docutils literal notranslate"><span class="pre">bcc_applygpbcor()</span></code></a>, <a class="reference internal" href="#f/biascorrectionconv_mod/bcc_applyuabcor" title="f/biascorrectionconv_mod/bcc_applyuabcor"><code class="xref f f-func docutils literal notranslate"><span class="pre">bcc_applyuabcor()</span></code></a>, <a class="reference internal" href="#f/biascorrectionconv_mod/bcc_biasactive" title="f/biascorrectionconv_mod/bcc_biasactive"><code class="xref f f-func docutils literal notranslate"><span class="pre">bcc_biasactive()</span></code></a>, <a class="reference internal" href="#f/biascorrectionconv_mod/bcc_getsolarelevation" title="f/biascorrectionconv_mod/bcc_getsolarelevation"><code class="xref f f-func docutils literal notranslate"><span class="pre">bcc_getsolarelevation()</span></code></a>, <a class="reference internal" href="#f/biascorrectionconv_mod/bcc_getsondetype" title="f/biascorrectionconv_mod/bcc_getsondetype"><code class="xref f f-func docutils literal notranslate"><span class="pre">bcc_getsondetype()</span></code></a>, <a class="reference internal" href="#f/biascorrectionconv_mod/bcc_gettimeofday" title="f/biascorrectionconv_mod/bcc_gettimeofday"><code class="xref f f-func docutils literal notranslate"><span class="pre">bcc_gettimeofday()</span></code></a>, <a class="reference internal" href="#f/biascorrectionconv_mod/bcc_getuacorrection" title="f/biascorrectionconv_mod/bcc_getuacorrection"><code class="xref f f-func docutils literal notranslate"><span class="pre">bcc_getuacorrection()</span></code></a>, <a class="reference internal" href="#f/biascorrectionconv_mod/bcc_latband" title="f/biascorrectionconv_mod/bcc_latband"><code class="xref f f-func docutils literal notranslate"><span class="pre">bcc_latband()</span></code></a>, <a class="reference internal" href="#f/biascorrectionconv_mod/bcc_readaibiases" title="f/biascorrectionconv_mod/bcc_readaibiases"><code class="xref f f-func docutils literal notranslate"><span class="pre">bcc_readaibiases()</span></code></a>, <a class="reference internal" href="#f/biascorrectionconv_mod/bcc_readconfig" title="f/biascorrectionconv_mod/bcc_readconfig"><code class="xref f f-func docutils literal notranslate"><span class="pre">bcc_readconfig()</span></code></a>, <a class="reference internal" href="#f/biascorrectionconv_mod/bcc_readgpbiases" title="f/biascorrectionconv_mod/bcc_readgpbiases"><code class="xref f f-func docutils literal notranslate"><span class="pre">bcc_readgpbiases()</span></code></a>, <a class="reference internal" href="#f/biascorrectionconv_mod/bcc_readuabcorstn" title="f/biascorrectionconv_mod/bcc_readuabcorstn"><code class="xref f f-func docutils literal notranslate"><span class="pre">bcc_readuabcorstn()</span></code></a>, <a class="reference internal" href="#f/biascorrectionconv_mod/bcc_readuabcorstype" title="f/biascorrectionconv_mod/bcc_readuabcorstype"><code class="xref f f-func docutils literal notranslate"><span class="pre">bcc_readuabcorstype()</span></code></a>, <a class="reference internal" href="#f/biascorrectionconv_mod/bcc_sondeindex" title="f/biascorrectionconv_mod/bcc_sondeindex"><code class="xref f f-func docutils literal notranslate"><span class="pre">bcc_sondeindex()</span></code></a>, <a class="reference internal" href="#f/biascorrectionconv_mod/bcc_stationindex" title="f/biascorrectionconv_mod/bcc_stationindex"><code class="xref f f-func docutils literal notranslate"><span class="pre">bcc_stationindex()</span></code></a>, <a class="reference internal" href="#f/biascorrectionconv_mod/bcc_uacorrection" title="f/biascorrectionconv_mod/bcc_uacorrection"><code class="xref f f-func docutils literal notranslate"><span class="pre">bcc_uacorrection()</span></code></a>, <a class="reference internal" href="#f/biascorrectionconv_mod/bcc_uaphase" title="f/biascorrectionconv_mod/bcc_uaphase"><code class="xref f f-func docutils literal notranslate"><span class="pre">bcc_uaphase()</span></code></a></p>
+</dd>
+</dl>
+<p class="rubric">Needed modules</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod" title="f/utilities_mod: MODULE utilities_mod (prefix='utl' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">utilities_mod</span></code></a>: MODULE utilities_mod (prefix=’utl’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod" title="f/obsspacedata_mod: MODULE obsSpaceData_mod (prefix='obs' category='6. High-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">obsspacedata_mod</span></code></a>: MODULE obsSpaceData_mod (prefix=’obs’ category=’6. High-level data objects’)</p></li>
+<li><p><a class="reference internal" href="mathphysconstants_mod.html#f/mathphysconstants_mod" title="f/mathphysconstants_mod: MODULE MathPhysConstants_mod (prefix='mpc' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">mathphysconstants_mod</span></code></a>: MODULE MathPhysConstants_mod (prefix=’mpc’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="midasmpi_mod.html#f/midasmpi_mod" title="f/midasmpi_mod: MODULE midasMpi_mod (prefix='mmpi' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">midasmpi_mod</span></code></a>: MODULE midasMpi_mod (prefix=’mmpi’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="bufr_mod.html#f/bufr_mod" title="f/bufr_mod: MODULE bufr_mod (prefix='bufr' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">bufr_mod</span></code></a>: MODULE bufr_mod (prefix=’bufr’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="codtyp_mod.html#f/codtyp_mod" title="f/codtyp_mod: MODULE codtyp_mod (prefix='codtyp' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">codtyp_mod</span></code></a>: MODULE codtyp_mod (prefix=’codtyp’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="timecoord_mod.html#f/timecoord_mod" title="f/timecoord_mod: MODULE timeCoord (prefix='tim' category='7. Low-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">timecoord_mod</span></code></a>: MODULE timeCoord (prefix=’tim’ category=’7. Low-level data objects’)</p></li>
+</ul>
+<p class="rubric">Types</p>
+<ul>
+<li><dl>
+<dt class="sig sig-object f" id="f/biascorrectionconv_mod/sondetype">
+<em class="property"><span class="pre">type</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">biascorrectionconv_mod/</span></span><span class="sig-name descname"><span class="pre">sondetype</span></span><a class="headerlink" href="#f/biascorrectionconv_mod/sondetype" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type fields</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">codes</span> (20)<em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">name</span><em> [</em><em>character </em><em>]</em></p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</li>
+</ul>
+<p class="rubric">Variables</p>
+<p class="rubric">Subroutines and functions</p>
+<dl>
+<dt class="sig sig-object f" id="f/biascorrectionconv_mod/bcc_readconfig">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">biascorrectionconv_mod/</span></span><span class="sig-name descname"><span class="pre">bcc_readconfig</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#f/biascorrectionconv_mod/bcc_readconfig" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Read NAMBIASCONV namelist section and NAMSONDETYPES section if uaBiasActive=true</p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/biascorrectionconv_mod/bcc_readaibiases" title="f/biascorrectionconv_mod/bcc_readaibiases"><code class="xref f f-func docutils literal notranslate"><span class="pre">bcc_readaibiases()</span></code></a>, <a class="reference internal" href="#f/biascorrectionconv_mod/bcc_applyaibcor" title="f/biascorrectionconv_mod/bcc_applyaibcor"><code class="xref f f-func docutils literal notranslate"><span class="pre">bcc_applyaibcor()</span></code></a>, <a class="reference internal" href="#f/biascorrectionconv_mod/bcc_readgpbiases" title="f/biascorrectionconv_mod/bcc_readgpbiases"><code class="xref f f-func docutils literal notranslate"><span class="pre">bcc_readgpbiases()</span></code></a>, <a class="reference internal" href="#f/biascorrectionconv_mod/bcc_applygpbcor" title="f/biascorrectionconv_mod/bcc_applygpbcor"><code class="xref f f-func docutils literal notranslate"><span class="pre">bcc_applygpbcor()</span></code></a>, <a class="reference internal" href="#f/biascorrectionconv_mod/bcc_biasactive" title="f/biascorrectionconv_mod/bcc_biasactive"><code class="xref f f-func docutils literal notranslate"><span class="pre">bcc_biasactive()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_isnamelistpresent" title="f/utilities_mod/utl_isnamelistpresent"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_isnamelistpresent()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/biascorrectionconv_mod/bcc_uacorrection">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">biascorrectionconv_mod/</span></span><span class="sig-name descname"><span class="pre">bcc_uacorrection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">timeofdayx</span></em>, <em class="sig-param"><span class="pre">corrnight</span></em>, <em class="sig-param"><span class="pre">corrday</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/biascorrectionconv_mod/bcc_uacorrection" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Returns a UA bias correction from day and night corrections</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>timeofdayx</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: 0.0 (night) &lt;= timeOfDayX &lt;= 1.0 (day), depends on solar_elev</p></li>
+<li><p><strong>corrnight</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: night bias correction</p></li>
+<li><p><strong>corrday</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: day bias correction</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Return</dt>
+<dd class="field-odd"><p><strong>uacorrection</strong><em> [</em><em>real </em><em>]</em></p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/biascorrectionconv_mod/bcc_getuacorrection" title="f/biascorrectionconv_mod/bcc_getuacorrection"><code class="xref f f-func docutils literal notranslate"><span class="pre">bcc_getuacorrection()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/biascorrectionconv_mod/bcc_getuacorrection">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">biascorrectionconv_mod/</span></span><span class="sig-name descname"><span class="pre">bcc_getuacorrection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">varname</span></em>, <em class="sig-param"><span class="pre">stnindex</span></em>, <em class="sig-param"><span class="pre">sondetypeindex</span></em>, <em class="sig-param"><span class="pre">sondetype</span></em>, <em class="sig-param"><span class="pre">biasprofilecategory</span></em>, <em class="sig-param"><span class="pre">timeofdayx</span></em>, <em class="sig-param"><span class="pre">latband</span></em>, <em class="sig-param"><span class="pre">obspressure</span></em>, <em class="sig-param"><span class="pre">corr</span></em>, <em class="sig-param"><span class="pre">sourcecorr</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/biascorrectionconv_mod/bcc_getuacorrection" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Return a TT or TD bias correction (corr)</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>varname</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>stnindex</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>sondetypeindex</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>sondetype</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>biasprofilecategory</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>timeofdayx</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>latband</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>obspressure</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>corr</strong><em> [</em><em>real </em><em>,</em><em>out</em><em>]</em></p></li>
+<li><p><strong>sourcecorr</strong><em> [</em><em>character </em><em>,</em><em>out</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/biascorrectionconv_mod/bcc_applyuabcor" title="f/biascorrectionconv_mod/bcc_applyuabcor"><code class="xref f f-func docutils literal notranslate"><span class="pre">bcc_applyuabcor()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="#f/biascorrectionconv_mod/bcc_uacorrection" title="f/biascorrectionconv_mod/bcc_uacorrection"><code class="xref f f-func docutils literal notranslate"><span class="pre">bcc_uacorrection()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/biascorrectionconv_mod/bcc_stationindex">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">biascorrectionconv_mod/</span></span><span class="sig-name descname"><span class="pre">bcc_stationindex</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">station</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/biascorrectionconv_mod/bcc_stationindex" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Return the station index (order in array uaStations) corresponding to station
+Returns -1 if station is not found in uaStations.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>station</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em></p>
+</dd>
+<dt class="field-odd">Return</dt>
+<dd class="field-odd"><p><strong>stationindexout</strong><em> [</em><em>integer </em><em>]</em></p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/biascorrectionconv_mod/bcc_applyuabcor" title="f/biascorrectionconv_mod/bcc_applyuabcor"><code class="xref f f-func docutils literal notranslate"><span class="pre">bcc_applyuabcor()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/biascorrectionconv_mod/bcc_sondeindex">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">biascorrectionconv_mod/</span></span><span class="sig-name descname"><span class="pre">bcc_sondeindex</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">sondetype</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/biascorrectionconv_mod/bcc_sondeindex" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Return the Sonde Type index (order in array rsTypes) corresponding to the SondeType
+Requires array of sondeType structures (rsTypes) to be allocated and filled.
+Returns -1 if SondeType is not found in rsTypes.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>sondetype</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em></p>
+</dd>
+<dt class="field-odd">Return</dt>
+<dd class="field-odd"><p><strong>sondeindex</strong><em> [</em><em>integer </em><em>]</em></p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/biascorrectionconv_mod/bcc_readuabcorstype" title="f/biascorrectionconv_mod/bcc_readuabcorstype"><code class="xref f f-func docutils literal notranslate"><span class="pre">bcc_readuabcorstype()</span></code></a>, <a class="reference internal" href="#f/biascorrectionconv_mod/bcc_readuabcorstn" title="f/biascorrectionconv_mod/bcc_readuabcorstn"><code class="xref f f-func docutils literal notranslate"><span class="pre">bcc_readuabcorstn()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/biascorrectionconv_mod/bcc_getsondetype">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">biascorrectionconv_mod/</span></span><span class="sig-name descname"><span class="pre">bcc_getsondetype</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">sondetypecode</span></em>, <em class="sig-param"><span class="pre">sondetype</span></em>, <em class="sig-param"><span class="pre">sondetypeindex</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/biascorrectionconv_mod/bcc_getsondetype" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Returns the sonde type and index given a BUFR table sondeTypeCode (BUFR elem 002011)
+Returns sondeType=’unknown’, sondeTypeIndex=0 if sondeTypeCode is not found.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>sondetypecode</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>sondetype</strong><em> [</em><em>character </em><em>,</em><em>out</em><em>]</em></p></li>
+<li><p><strong>sondetypeindex</strong><em> [</em><em>integer </em><em>,</em><em>out</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/biascorrectionconv_mod/bcc_applyuabcor" title="f/biascorrectionconv_mod/bcc_applyuabcor"><code class="xref f f-func docutils literal notranslate"><span class="pre">bcc_applyuabcor()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/biascorrectionconv_mod/bcc_getsolarelevation">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">biascorrectionconv_mod/</span></span><span class="sig-name descname"><span class="pre">bcc_getsolarelevation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">lat</span></em>, <em class="sig-param"><span class="pre">lon</span></em>, <em class="sig-param"><span class="pre">date</span></em>, <em class="sig-param"><span class="pre">time</span></em>, <em class="sig-param"><span class="pre">solarelev</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/biascorrectionconv_mod/bcc_getsolarelevation" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Returns the solar elevation angle (degrees) given lat,lon,date(yyyymmdd),time(hhmm)</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>lat</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: radians</p></li>
+<li><p><strong>lon</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: radians</p></li>
+<li><p><strong>date</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em> :: yyyymmdd</p></li>
+<li><p><strong>time</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em> :: hhmm</p></li>
+<li><p><strong>solarelev</strong><em> [</em><em>real </em><em>,</em><em>out</em><em>]</em> :: degrees</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/biascorrectionconv_mod/bcc_applyuabcor" title="f/biascorrectionconv_mod/bcc_applyuabcor"><code class="xref f f-func docutils literal notranslate"><span class="pre">bcc_applyuabcor()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/biascorrectionconv_mod/bcc_gettimeofday">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">biascorrectionconv_mod/</span></span><span class="sig-name descname"><span class="pre">bcc_gettimeofday</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">solarelev</span></em>, <em class="sig-param"><span class="pre">timeofdayx</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/biascorrectionconv_mod/bcc_gettimeofday" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Returns the time-of-day x value (0.0(night) &lt;= x &lt;= 1.0(day))</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>solarelev</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: degrees</p></li>
+<li><p><strong>timeofdayx</strong><em> [</em><em>real </em><em>,</em><em>out</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/biascorrectionconv_mod/bcc_applyuabcor" title="f/biascorrectionconv_mod/bcc_applyuabcor"><code class="xref f f-func docutils literal notranslate"><span class="pre">bcc_applyuabcor()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/biascorrectionconv_mod/bcc_uaphase">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">biascorrectionconv_mod/</span></span><span class="sig-name descname"><span class="pre">bcc_uaphase</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">codetype</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/biascorrectionconv_mod/bcc_uaphase" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Returns the radiosonde phase (1=ascent, 2=descent) given a header code type</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>codetype</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p>
+</dd>
+<dt class="field-odd">Return</dt>
+<dd class="field-odd"><p><strong>uaphase</strong><em> [</em><em>integer </em><em>]</em></p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/biascorrectionconv_mod/bcc_applyuabcor" title="f/biascorrectionconv_mod/bcc_applyuabcor"><code class="xref f f-func docutils literal notranslate"><span class="pre">bcc_applyuabcor()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="codtyp_mod.html#f/codtyp_mod/codtyp_get_codtyp" title="f/codtyp_mod/codtyp_get_codtyp"><code class="xref f f-func docutils literal notranslate"><span class="pre">codtyp_get_codtyp()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/biascorrectionconv_mod/bcc_latband">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">biascorrectionconv_mod/</span></span><span class="sig-name descname"><span class="pre">bcc_latband</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">latinradians</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/biascorrectionconv_mod/bcc_latband" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Returns latitude band number given latitude (radians)</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>latinradians</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p>
+</dd>
+<dt class="field-odd">Return</dt>
+<dd class="field-odd"><p><strong>latband</strong><em> [</em><em>integer </em><em>]</em></p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/biascorrectionconv_mod/bcc_applyuabcor" title="f/biascorrectionconv_mod/bcc_applyuabcor"><code class="xref f f-func docutils literal notranslate"><span class="pre">bcc_applyuabcor()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/biascorrectionconv_mod/bcc_readaibiases">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">biascorrectionconv_mod/</span></span><span class="sig-name descname"><span class="pre">bcc_readaibiases</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">biasestimatefile</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/biascorrectionconv_mod/bcc_readaibiases" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Read aircraft (AI) TT bias estimates from bias file and fill bias correction array ttCorrections.
+The first line of the file is the number of aircraft plus one.
+The rest of the file gives 15 values of Mean O-A for each aircraft, with each (AC,value) line written in format “a9,1x,f6.2”.
+The order is the same as what is written by genbiascorr script genbc.aircraft_bcor.py.
+The first “aircraft” (AC name = BULKBCORS) values are the bulk biases by layer for All-AC (first 5 values), AIREP/ADS
+(second 5 values) and AMDAR/BUFR (last 5 values).
+Missing value = 99.0.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>biasestimatefile</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em></p>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/biascorrectionconv_mod/bcc_applyaibcor" title="f/biascorrectionconv_mod/bcc_applyaibcor"><code class="xref f f-func docutils literal notranslate"><span class="pre">bcc_applyaibcor()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/biascorrectionconv_mod/bcc_readconfig" title="f/biascorrectionconv_mod/bcc_readconfig"><code class="xref f f-func docutils literal notranslate"><span class="pre">bcc_readconfig()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/biascorrectionconv_mod/bcc_applyaibcor">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">biascorrectionconv_mod/</span></span><span class="sig-name descname"><span class="pre">bcc_applyaibcor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">obsspacedata</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/biascorrectionconv_mod/bcc_applyaibcor" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>to apply aircraft (AI) bias corrections to observations in ObsSpaceData</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>obsspacedata</strong><em> [</em><em>struct_obs </em><em>]</em></p>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="ominusf_mod.html#f/ominusf_mod/omf_ominusf" title="f/ominusf_mod/omf_ominusf"><code class="xref f f-func docutils literal notranslate"><span class="pre">omf_ominusf()</span></code></a>, <a class="reference internal" href="ominusf_mod.html#f/ominusf_mod/omf_ominusfens" title="f/ominusf_mod/omf_ominusfens"><code class="xref f f-func docutils literal notranslate"><span class="pre">omf_ominusfens()</span></code></a>, <a class="reference internal" href="../programs/midas_obsselection.html#f/midas_obsselection" title="f/midas_obsselection"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_obsselection</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/biascorrectionconv_mod/bcc_readconfig" title="f/biascorrectionconv_mod/bcc_readconfig"><code class="xref f f-func docutils literal notranslate"><span class="pre">bcc_readconfig()</span></code></a>, <a class="reference internal" href="#f/biascorrectionconv_mod/bcc_readaibiases" title="f/biascorrectionconv_mod/bcc_readaibiases"><code class="xref f f-func docutils literal notranslate"><span class="pre">bcc_readaibiases()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_getheaderindex" title="f/obsspacedata_mod/obs_getheaderindex"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_getheaderindex()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_headelem_i" title="f/obsspacedata_mod/obs_headelem_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_headelem_i()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyelem_i" title="f/obsspacedata_mod/obs_bodyelem_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyelem_i()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyelem_r" title="f/obsspacedata_mod/obs_bodyelem_r"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyelem_r()</span></code></a>, <a class="reference internal" href="codtyp_mod.html#f/codtyp_mod/codtyp_get_name" title="f/codtyp_mod/codtyp_get_name"><code class="xref f f-func docutils literal notranslate"><span class="pre">codtyp_get_name()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_elem_c" title="f/obsspacedata_mod/obs_elem_c"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_elem_c()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyset_i" title="f/obsspacedata_mod/obs_bodyset_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyset_i()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_headset_i" title="f/obsspacedata_mod/obs_headset_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_headset_i()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/biascorrectionconv_mod/bcc_readgpbiases">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">biascorrectionconv_mod/</span></span><span class="sig-name descname"><span class="pre">bcc_readgpbiases</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">biasestimatefile</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/biascorrectionconv_mod/bcc_readgpbiases" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Read GB-GPS bias estimates (mean ZTD O-A [mm] by station) and fill bias correction array ztdCorrections.
+Missing value = -999.00</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>biasestimatefile</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em></p>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/biascorrectionconv_mod/bcc_applygpbcor" title="f/biascorrectionconv_mod/bcc_applygpbcor"><code class="xref f f-func docutils literal notranslate"><span class="pre">bcc_applygpbcor()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/biascorrectionconv_mod/bcc_readconfig" title="f/biascorrectionconv_mod/bcc_readconfig"><code class="xref f f-func docutils literal notranslate"><span class="pre">bcc_readconfig()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/biascorrectionconv_mod/bcc_applygpbcor">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">biascorrectionconv_mod/</span></span><span class="sig-name descname"><span class="pre">bcc_applygpbcor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">obsspacedata</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/biascorrectionconv_mod/bcc_applygpbcor" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>to apply GB-GPS (GP) ZTD bias corrections to ZTD observations in ObsSpaceData</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>obsspacedata</strong><em> [</em><em>struct_obs </em><em>]</em></p>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="ominusf_mod.html#f/ominusf_mod/omf_ominusf" title="f/ominusf_mod/omf_ominusf"><code class="xref f f-func docutils literal notranslate"><span class="pre">omf_ominusf()</span></code></a>, <a class="reference internal" href="ominusf_mod.html#f/ominusf_mod/omf_ominusfens" title="f/ominusf_mod/omf_ominusfens"><code class="xref f f-func docutils literal notranslate"><span class="pre">omf_ominusfens()</span></code></a>, <a class="reference internal" href="../programs/midas_obsselection.html#f/midas_obsselection" title="f/midas_obsselection"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_obsselection</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/biascorrectionconv_mod/bcc_readconfig" title="f/biascorrectionconv_mod/bcc_readconfig"><code class="xref f f-func docutils literal notranslate"><span class="pre">bcc_readconfig()</span></code></a>, <a class="reference internal" href="#f/biascorrectionconv_mod/bcc_readgpbiases" title="f/biascorrectionconv_mod/bcc_readgpbiases"><code class="xref f f-func docutils literal notranslate"><span class="pre">bcc_readgpbiases()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_getheaderindex" title="f/obsspacedata_mod/obs_getheaderindex"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_getheaderindex()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyelem_i" title="f/obsspacedata_mod/obs_bodyelem_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyelem_i()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyelem_r" title="f/obsspacedata_mod/obs_bodyelem_r"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyelem_r()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_elem_c" title="f/obsspacedata_mod/obs_elem_c"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_elem_c()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyset_i" title="f/obsspacedata_mod/obs_bodyset_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyset_i()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/biascorrectionconv_mod/bcc_readuabcorstype">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">biascorrectionconv_mod/</span></span><span class="sig-name descname"><span class="pre">bcc_readuabcorstype</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">biascorrectionfilename</span></em>, <em class="sig-param"><span class="pre">ngroups</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/biascorrectionconv_mod/bcc_readuabcorstype" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Read night and day TT, TD biases by SONDE TYPE and latitude band on 16 mandatory levels for UA family.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>biascorrectionfilename</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>ngroups</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/biascorrectionconv_mod/bcc_applyuabcor" title="f/biascorrectionconv_mod/bcc_applyuabcor"><code class="xref f f-func docutils literal notranslate"><span class="pre">bcc_applyuabcor()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="#f/biascorrectionconv_mod/bcc_sondeindex" title="f/biascorrectionconv_mod/bcc_sondeindex"><code class="xref f f-func docutils literal notranslate"><span class="pre">bcc_sondeindex()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/biascorrectionconv_mod/bcc_readuabcorstn">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">biascorrectionconv_mod/</span></span><span class="sig-name descname"><span class="pre">bcc_readuabcorstn</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">biascorrectionfilename</span></em>, <em class="sig-param"><span class="pre">nprofsmin</span></em>, <em class="sig-param"><span class="pre">ngroups</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/biascorrectionconv_mod/bcc_readuabcorstn" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Read TT, TD biases by STATION/sonde-type on 16 mandatory levels for UA family.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>biascorrectionfilename</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>nprofsmin</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>ngroups</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/biascorrectionconv_mod/bcc_applyuabcor" title="f/biascorrectionconv_mod/bcc_applyuabcor"><code class="xref f f-func docutils literal notranslate"><span class="pre">bcc_applyuabcor()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="#f/biascorrectionconv_mod/bcc_sondeindex" title="f/biascorrectionconv_mod/bcc_sondeindex"><code class="xref f f-func docutils literal notranslate"><span class="pre">bcc_sondeindex()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/biascorrectionconv_mod/bcc_applyuabcor">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">biascorrectionconv_mod/</span></span><span class="sig-name descname"><span class="pre">bcc_applyuabcor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">obsspacedata</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/biascorrectionconv_mod/bcc_applyuabcor" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>To apply bias corrections to radiosonde TT and ES observationa in obsSpaceData
+This public routine is called by external routines.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>obsspacedata</strong><em> [</em><em>struct_obs </em><em>,</em><em>inout</em><em>]</em></p>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="ominusf_mod.html#f/ominusf_mod/omf_ominusf" title="f/ominusf_mod/omf_ominusf"><code class="xref f f-func docutils literal notranslate"><span class="pre">omf_ominusf()</span></code></a>, <a class="reference internal" href="ominusf_mod.html#f/ominusf_mod/omf_ominusfens" title="f/ominusf_mod/omf_ominusfens"><code class="xref f f-func docutils literal notranslate"><span class="pre">omf_ominusfens()</span></code></a>, <a class="reference internal" href="../programs/midas_obsselection.html#f/midas_obsselection" title="f/midas_obsselection"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_obsselection</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/biascorrectionconv_mod/bcc_readuabcorstype" title="f/biascorrectionconv_mod/bcc_readuabcorstype"><code class="xref f f-func docutils literal notranslate"><span class="pre">bcc_readuabcorstype()</span></code></a>, <a class="reference internal" href="#f/biascorrectionconv_mod/bcc_readuabcorstn" title="f/biascorrectionconv_mod/bcc_readuabcorstn"><code class="xref f f-func docutils literal notranslate"><span class="pre">bcc_readuabcorstn()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_getheaderindex" title="f/obsspacedata_mod/obs_getheaderindex"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_getheaderindex()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_elem_c" title="f/obsspacedata_mod/obs_elem_c"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_elem_c()</span></code></a>, <a class="reference internal" href="#f/biascorrectionconv_mod/bcc_stationindex" title="f/biascorrectionconv_mod/bcc_stationindex"><code class="xref f f-func docutils literal notranslate"><span class="pre">bcc_stationindex()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_headelem_i" title="f/obsspacedata_mod/obs_headelem_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_headelem_i()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_headelem_r" title="f/obsspacedata_mod/obs_headelem_r"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_headelem_r()</span></code></a>, <a class="reference internal" href="#f/biascorrectionconv_mod/bcc_uaphase" title="f/biascorrectionconv_mod/bcc_uaphase"><code class="xref f f-func docutils literal notranslate"><span class="pre">bcc_uaphase()</span></code></a>, <a class="reference internal" href="#f/biascorrectionconv_mod/bcc_getsondetype" title="f/biascorrectionconv_mod/bcc_getsondetype"><code class="xref f f-func docutils literal notranslate"><span class="pre">bcc_getsondetype()</span></code></a>, <a class="reference internal" href="#f/biascorrectionconv_mod/bcc_getsolarelevation" title="f/biascorrectionconv_mod/bcc_getsolarelevation"><code class="xref f f-func docutils literal notranslate"><span class="pre">bcc_getsolarelevation()</span></code></a>, <a class="reference internal" href="#f/biascorrectionconv_mod/bcc_gettimeofday" title="f/biascorrectionconv_mod/bcc_gettimeofday"><code class="xref f f-func docutils literal notranslate"><span class="pre">bcc_gettimeofday()</span></code></a>, <a class="reference internal" href="#f/biascorrectionconv_mod/bcc_latband" title="f/biascorrectionconv_mod/bcc_latband"><code class="xref f f-func docutils literal notranslate"><span class="pre">bcc_latband()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyelem_i" title="f/obsspacedata_mod/obs_bodyelem_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyelem_i()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyelem_r" title="f/obsspacedata_mod/obs_bodyelem_r"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyelem_r()</span></code></a>, <a class="reference internal" href="#f/biascorrectionconv_mod/bcc_getuacorrection" title="f/biascorrectionconv_mod/bcc_getuacorrection"><code class="xref f f-func docutils literal notranslate"><span class="pre">bcc_getuacorrection()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyset_i" title="f/obsspacedata_mod/obs_bodyset_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyset_i()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/biascorrectionconv_mod/bcc_biasactive">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">biascorrectionconv_mod/</span></span><span class="sig-name descname"><span class="pre">bcc_biasactive</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">obsfam</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/biascorrectionconv_mod/bcc_biasactive" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>returns True if bias correction is active for the given conventional observation family</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>obsfam</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em></p>
+</dd>
+<dt class="field-odd">Return</dt>
+<dd class="field-odd"><p><strong>biasactive</strong><em> [</em><em>logical </em><em>]</em></p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="obsfiles_mod.html#f/obsfiles_mod/obsf_readfiles" title="f/obsfiles_mod/obsf_readfiles"><code class="xref f f-func docutils literal notranslate"><span class="pre">obsf_readfiles()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/biascorrectionconv_mod/bcc_readconfig" title="f/biascorrectionconv_mod/bcc_readconfig"><code class="xref f f-func docutils literal notranslate"><span class="pre">bcc_readconfig()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div></blockquote>
+</section>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="biascorrectionsat_mod.html" title="biascorrectionsat_mod"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="bgckssmis_mod.html" title="bgckssmis_mod"
+             >previous</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2018, ECCC.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.
+    </div>
+  </body>
+</html>

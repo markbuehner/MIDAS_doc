@@ -1,0 +1,22 @@
+==========================================
+oceanbackground_mod
+==========================================
+
+    :doc:`link to source code <oceanbackground_mod_src>`
+
+
+    **Dependency Diagrams:**
+
+    .. figure:: /oceanbackground_mod.svg
+        :height: 100px
+
+        Direct Dependency Diagram
+
+    .. figure:: /oceanbackground_mod_rev.svg
+        :height: 100px
+
+        Reverse Dependency Diagram
+
+
+    .. f:automodule:: oceanbackground_mod
+

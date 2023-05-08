@@ -1,0 +1,843 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>bmatrixensemble_mod &mdash; MIDAS  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="MIDAS  documentation" href="../index.html" />
+    <link rel="next" title="bmatrixhi_mod" href="bmatrixhi_mod.html" />
+    <link rel="prev" title="bmatrixdiff_mod" href="bmatrixdiff_mod.html" /> 
+  </head>
+  <body>
+  <div>
+    <img src="../_static/MIDAS_header.png" alt="MIDAS" />
+  </div>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="bmatrixhi_mod.html" title="bmatrixhi_mod"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="bmatrixdiff_mod.html" title="bmatrixdiff_mod"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="bmatrixdiff_mod.html"
+                          title="previous chapter">bmatrixdiff_mod</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="bmatrixhi_mod.html"
+                          title="next chapter">bmatrixhi_mod</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/modules/bmatrixensemble_mod.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <section id="bmatrixensemble-mod">
+<h1>bmatrixensemble_mod<a class="headerlink" href="#bmatrixensemble-mod" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><p><a class="reference internal" href="bmatrixensemble_mod_src.html"><span class="doc">link to source code</span></a></p>
+<p><strong>Dependency Diagrams:</strong></p>
+<figure class="align-default" id="id1">
+<a class="reference internal image-reference" href="bmatrixensemble_mod.svg"><img alt="bmatrixensemble_mod.svg" height="100px" src="bmatrixensemble_mod.svg" /></a>
+<figcaption>
+<p><span class="caption-text">Direct Dependency Diagram</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id2">
+<a class="reference internal image-reference" href="bmatrixensemble_mod_rev.svg"><img alt="bmatrixensemble_mod_rev.svg" height="100px" src="bmatrixensemble_mod_rev.svg" /></a>
+<figcaption>
+<p><span class="caption-text">Reverse Dependency Diagram</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<span class="target" id="f/bmatrixensemble_mod"></span><p class="rubric">Description</p>
+<p>MODULE BmatrixEnsemble_mod (prefix=’ben’ category=’2. B and R matrices’)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Purpose</dt>
+<dd class="field-odd"><p>Performs transformation from control vector to analysis increment
+using the spatially localized ensemble covariance matrix. This
+module works for both global and limited-area applications.</p>
+</dd>
+</dl>
+<p class="rubric">Quick access</p>
+<dl class="field-list simple">
+<dt class="field-odd">Routines</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/bmatrixensemble_mod/addensmember" title="f/bmatrixensemble_mod/addensmember"><code class="xref f f-func docutils literal notranslate"><span class="pre">addensmember()</span></code></a>, <a class="reference internal" href="#f/bmatrixensemble_mod/addensmemberad" title="f/bmatrixensemble_mod/addensmemberad"><code class="xref f f-func docutils literal notranslate"><span class="pre">addensmemberad()</span></code></a>, <a class="reference internal" href="#f/bmatrixensemble_mod/ben_bsqrt" title="f/bmatrixensemble_mod/ben_bsqrt"><code class="xref f f-func docutils literal notranslate"><span class="pre">ben_bsqrt()</span></code></a>, <a class="reference internal" href="#f/bmatrixensemble_mod/ben_bsqrtad" title="f/bmatrixensemble_mod/ben_bsqrtad"><code class="xref f f-func docutils literal notranslate"><span class="pre">ben_bsqrtad()</span></code></a>, <a class="reference internal" href="#f/bmatrixensemble_mod/ben_expandtompiglobal" title="f/bmatrixensemble_mod/ben_expandtompiglobal"><code class="xref f f-func docutils literal notranslate"><span class="pre">ben_expandtompiglobal()</span></code></a>, <a class="reference internal" href="#f/bmatrixensemble_mod/ben_expandtompiglobal_r4" title="f/bmatrixensemble_mod/ben_expandtompiglobal_r4"><code class="xref f f-func docutils literal notranslate"><span class="pre">ben_expandtompiglobal_r4()</span></code></a>, <a class="reference internal" href="#f/bmatrixensemble_mod/ben_finalize" title="f/bmatrixensemble_mod/ben_finalize"><code class="xref f f-func docutils literal notranslate"><span class="pre">ben_finalize()</span></code></a>, <a class="reference internal" href="#f/bmatrixensemble_mod/ben_getamp3dstepindexassimwindow" title="f/bmatrixensemble_mod/ben_getamp3dstepindexassimwindow"><code class="xref f f-func docutils literal notranslate"><span class="pre">ben_getamp3dstepindexassimwindow()</span></code></a>, <a class="reference internal" href="#f/bmatrixensemble_mod/ben_getamplitudeassimwindow" title="f/bmatrixensemble_mod/ben_getamplitudeassimwindow"><code class="xref f f-func docutils literal notranslate"><span class="pre">ben_getamplitudeassimwindow()</span></code></a>, <a class="reference internal" href="#f/bmatrixensemble_mod/ben_getensmean" title="f/bmatrixensemble_mod/ben_getensmean"><code class="xref f f-func docutils literal notranslate"><span class="pre">ben_getensmean()</span></code></a>, <a class="reference internal" href="#f/bmatrixensemble_mod/ben_getloc" title="f/bmatrixensemble_mod/ben_getloc"><code class="xref f f-func docutils literal notranslate"><span class="pre">ben_getloc()</span></code></a>, <a class="reference internal" href="#f/bmatrixensemble_mod/ben_getnens" title="f/bmatrixensemble_mod/ben_getnens"><code class="xref f f-func docutils literal notranslate"><span class="pre">ben_getnens()</span></code></a>, <a class="reference internal" href="#f/bmatrixensemble_mod/ben_getnuminstance" title="f/bmatrixensemble_mod/ben_getnuminstance"><code class="xref f f-func docutils literal notranslate"><span class="pre">ben_getnuminstance()</span></code></a>, <a class="reference internal" href="#f/bmatrixensemble_mod/ben_getnumloc" title="f/bmatrixensemble_mod/ben_getnumloc"><code class="xref f f-func docutils literal notranslate"><span class="pre">ben_getnumloc()</span></code></a>, <a class="reference internal" href="#f/bmatrixensemble_mod/ben_getnumstepamplitudeassimwindow" title="f/bmatrixensemble_mod/ben_getnumstepamplitudeassimwindow"><code class="xref f f-func docutils literal notranslate"><span class="pre">ben_getnumstepamplitudeassimwindow()</span></code></a>, <a class="reference internal" href="#f/bmatrixensemble_mod/ben_getperturbation" title="f/bmatrixensemble_mod/ben_getperturbation"><code class="xref f f-func docutils literal notranslate"><span class="pre">ben_getperturbation()</span></code></a>, <a class="reference internal" href="#f/bmatrixensemble_mod/ben_getscalefactor" title="f/bmatrixensemble_mod/ben_getscalefactor"><code class="xref f f-func docutils literal notranslate"><span class="pre">ben_getscalefactor()</span></code></a>, <a class="reference internal" href="#f/bmatrixensemble_mod/ben_reducetompilocal" title="f/bmatrixensemble_mod/ben_reducetompilocal"><code class="xref f f-func docutils literal notranslate"><span class="pre">ben_reducetompilocal()</span></code></a>, <a class="reference internal" href="#f/bmatrixensemble_mod/ben_reducetompilocal_r4" title="f/bmatrixensemble_mod/ben_reducetompilocal_r4"><code class="xref f f-func docutils literal notranslate"><span class="pre">ben_reducetompilocal_r4()</span></code></a>, <a class="reference internal" href="#f/bmatrixensemble_mod/ben_setfsoleadtime" title="f/bmatrixensemble_mod/ben_setfsoleadtime"><code class="xref f f-func docutils literal notranslate"><span class="pre">ben_setfsoleadtime()</span></code></a>, <a class="reference internal" href="#f/bmatrixensemble_mod/ben_setinstanceindex" title="f/bmatrixensemble_mod/ben_setinstanceindex"><code class="xref f f-func docutils literal notranslate"><span class="pre">ben_setinstanceindex()</span></code></a>, <a class="reference internal" href="#f/bmatrixensemble_mod/ben_setup" title="f/bmatrixensemble_mod/ben_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">ben_setup()</span></code></a>, <a class="reference internal" href="#f/bmatrixensemble_mod/ben_setuponeinstance" title="f/bmatrixensemble_mod/ben_setuponeinstance"><code class="xref f f-func docutils literal notranslate"><span class="pre">ben_setuponeinstance()</span></code></a>, <a class="reference internal" href="#f/bmatrixensemble_mod/ben_writeamplitude" title="f/bmatrixensemble_mod/ben_writeamplitude"><code class="xref f f-func docutils literal notranslate"><span class="pre">ben_writeamplitude()</span></code></a>, <a class="reference internal" href="#f/bmatrixensemble_mod/ensemblediagnostic" title="f/bmatrixensemble_mod/ensemblediagnostic"><code class="xref f f-func docutils literal notranslate"><span class="pre">ensemblediagnostic()</span></code></a>, <a class="reference internal" href="#f/bmatrixensemble_mod/ensemblescaledecomposition" title="f/bmatrixensemble_mod/ensemblescaledecomposition"><code class="xref f f-func docutils literal notranslate"><span class="pre">ensemblescaledecomposition()</span></code></a>, <a class="reference internal" href="#f/bmatrixensemble_mod/setupensemble" title="f/bmatrixensemble_mod/setupensemble"><code class="xref f f-func docutils literal notranslate"><span class="pre">setupensemble()</span></code></a></p>
+</dd>
+</dl>
+<p class="rubric">Needed modules</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="midasmpi_mod.html#f/midasmpi_mod" title="f/midasmpi_mod: MODULE midasMpi_mod (prefix='mmpi' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">midasmpi_mod</span></code></a>: MODULE midasMpi_mod (prefix=’mmpi’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="filenames_mod.html#f/filenames_mod" title="f/filenames_mod: MODULE fileNames_mod (prefix='fln' category='7. Low-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">filenames_mod</span></code></a>: MODULE fileNames_mod (prefix=’fln’ category=’7. Low-level data objects’)</p></li>
+<li><p><a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod" title="f/gridstatevector_mod: MODULE gridStateVector_mod (prefix='gsv' category='6. High-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">gridstatevector_mod</span></code></a>: MODULE gridStateVector_mod (prefix=’gsv’ category=’6. High-level data objects’)</p></li>
+<li><p><a class="reference internal" href="gridstatevectorfileio_mod.html#f/gridstatevectorfileio_mod" title="f/gridstatevectorfileio_mod: MODULE gridStateVectorFile_mod (prefix='gio' category='4. Data Object transformations')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">gridstatevectorfileio_mod</span></code></a>: MODULE gridStateVectorFile_mod (prefix=’gio’ category=’4. Data Object transformations’)</p></li>
+<li><p><a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod" title="f/ensemblestatevector_mod: MODULE ensembleStateVector_mod (prefix='ens' category='6. High-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">ensemblestatevector_mod</span></code></a>: MODULE ensembleStateVector_mod (prefix=’ens’ category=’6. High-level data objects’)</p></li>
+<li><p><a class="reference internal" href="horizontalcoord_mod.html#f/horizontalcoord_mod" title="f/horizontalcoord_mod: MODULE HorizontalCoord_mod (prefix='hco' category='7. Low-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">horizontalcoord_mod</span></code></a>: MODULE HorizontalCoord_mod (prefix=’hco’ category=’7. Low-level data objects’)</p></li>
+<li><p><a class="reference internal" href="verticalcoord_mod.html#f/verticalcoord_mod" title="f/verticalcoord_mod: MODULE verticalcoord (prefix='vco' category='7. Low-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">verticalcoord_mod</span></code></a>: MODULE verticalcoord (prefix=’vco’ category=’7. Low-level data objects’)</p></li>
+<li><p><a class="reference internal" href="timecoord_mod.html#f/timecoord_mod" title="f/timecoord_mod: MODULE timeCoord (prefix='tim' category='7. Low-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">timecoord_mod</span></code></a>: MODULE timeCoord (prefix=’tim’ category=’7. Low-level data objects’)</p></li>
+<li><p><a class="reference internal" href="localization_mod.html#f/localization_mod" title="f/localization_mod: MODULE localization_mod (prefix='loc' category='2. B and R matrices')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">localization_mod</span></code></a>: MODULE localization_mod (prefix=’loc’ category=’2. B and R matrices’)</p></li>
+<li><p><a class="reference internal" href="mathphysconstants_mod.html#f/mathphysconstants_mod" title="f/mathphysconstants_mod: MODULE MathPhysConstants_mod (prefix='mpc' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">mathphysconstants_mod</span></code></a>: MODULE MathPhysConstants_mod (prefix=’mpc’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="gridvariabletransforms_mod.html#f/gridvariabletransforms_mod" title="f/gridvariabletransforms_mod: MODULE gridVariableTransforms (prefix='gvt' category='4. Data Object transformations')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">gridvariabletransforms_mod</span></code></a>: MODULE gridVariableTransforms (prefix=’gvt’ category=’4. Data Object transformations’)</p></li>
+<li><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod" title="f/utilities_mod: MODULE utilities_mod (prefix='utl' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">utilities_mod</span></code></a>: MODULE utilities_mod (prefix=’utl’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="globalspectraltransform_mod.html#f/globalspectraltransform_mod" title="f/globalspectraltransform_mod: MODULE globalSpectralTransform_mod (prefix='gst' category='4. Data Object transformations')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">globalspectraltransform_mod</span></code></a>: MODULE globalSpectralTransform_mod (prefix=’gst’ category=’4. Data Object transformations’)</p></li>
+<li><p><a class="reference internal" href="lamspectraltransform_mod.html#f/lamspectraltransform_mod" title="f/lamspectraltransform_mod: MODULE lamSpectralTransform_mod (prefix='lst' category='4. Data Object transformations')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">lamspectraltransform_mod</span></code></a>: MODULE lamSpectralTransform_mod (prefix=’lst’ category=’4. Data Object transformations’)</p></li>
+<li><p><a class="reference internal" href="spectralfilter_mod.html#f/spectralfilter_mod" title="f/spectralfilter_mod: MODULE spectralFilter_mod (prefix='spf' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">spectralfilter_mod</span></code></a>: MODULE spectralFilter_mod (prefix=’spf’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="varnamelist_mod.html#f/varnamelist_mod" title="f/varnamelist_mod: MODULE varNameList (prefix='vnl' category='7. Low-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">varnamelist_mod</span></code></a>: MODULE varNameList (prefix=’vnl’ category=’7. Low-level data objects’)</p></li>
+<li><p><a class="reference internal" href="advection_mod.html#f/advection_mod" title="f/advection_mod: MODULE advection_mod (prefix=&quot;adv&quot; category='4. Data Object transformations')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">advection_mod</span></code></a>: MODULE advection_mod (prefix=”adv” category=’4. Data Object transformations’)</p></li>
+<li><p><a class="reference internal" href="gridbinning_mod.html#f/gridbinning_mod" title="f/gridbinning_mod: MODULE gridBinning_mod (prefix='gbi' category='4. Data Object transformations')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">gridbinning_mod</span></code></a>: MODULE gridBinning_mod (prefix=’gbi’ category=’4. Data Object transformations’)</p></li>
+<li><p><a class="reference internal" href="humiditylimits_mod.html#f/humiditylimits_mod" title="f/humiditylimits_mod: MODULE humidityLimits_mod (prefix='qlim' category='4. Data Object transformations')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">humiditylimits_mod</span></code></a>: MODULE humidityLimits_mod (prefix=’qlim’ category=’4. Data Object transformations’)</p></li>
+<li><p><a class="reference internal" href="analysisgrid_mod.html#f/analysisgrid_mod" title="f/analysisgrid_mod: MODULE analysisGrid_mod (prefix='agd' category='7. Low-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">analysisgrid_mod</span></code></a>: MODULE analysisGrid_mod (prefix=’agd’ category=’7. Low-level data objects’)</p></li>
+<li><p><a class="reference internal" href="calcheightandpressure_mod.html#f/calcheightandpressure_mod" title="f/calcheightandpressure_mod: MODULE czp_calcHeightAndPressure (prefix='czp' category='4. Data Object transformations')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">calcheightandpressure_mod</span></code></a>: MODULE czp_calcHeightAndPressure (prefix=’czp’ category=’4. Data Object transformations’)</p></li>
+</ul>
+<p class="rubric">Types</p>
+<ul>
+<li><dl>
+<dt class="sig sig-object f" id="f/bmatrixensemble_mod/unknown_type">
+<em class="property"><span class="pre">type</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">bmatrixensemble_mod/</span></span><span class="sig-name descname"><span class="pre">unknown_type</span></span><a class="headerlink" href="#f/bmatrixensemble_mod/unknown_type" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type fields</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">adv_amplitudeassimwindow</span><em> [</em><em>struct_adv </em><em>,</em><em>pointer</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">adv_amplitudefsofcst</span><em> [</em><em>struct_adv </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">adv_analinc</span><em> [</em><em>struct_adv </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">adv_ensperts</span><em> [</em><em>struct_adv </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">advdiagnostic</span><em> [</em><em>logical </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">advectamplitudeassimwindow</span><em> [</em><em>logical </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">advectamplitudefsofcst</span><em> [</em><em>logical </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">advectenspertanlinc</span><em> [</em><em>logical </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">advectfactorassimwindow</span> (<a class="reference internal" href="verticalcoord_mod.html#f/verticalcoord_mod/vco_maxnumlevels" title="f/verticalcoord_mod/vco_maxnumlevels">vco_maxnumlevels</a>)<em> [</em><em>real </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">advectfactorfsofcst</span> (<a class="reference internal" href="verticalcoord_mod.html#f/verticalcoord_mod/vco_maxnumlevels" title="f/verticalcoord_mod/vco_maxnumlevels">vco_maxnumlevels</a>)<em> [</em><em>real </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">advectstarttimeindexassimwindow</span><em> [</em><em>character </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">advecttypeassimwindow</span><em> [</em><em>character </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">amp3dstepindexassimwindow</span><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">amp3dstepindexfsofcst</span><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">ctrlvarhumidity</span><em> [</em><em>character </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">cvdim_mpiglobal</span><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">cvdim_mpilocal</span><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">datestamplist</span> (*)<em> [</em><em>integer </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">datestamplistadvectedfields</span> (*)<em> [</em><em>integer </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">ensamplitudestorage</span><em> [</em><em>struct_ens </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">enscontainsfullfield</span><em> [</em><em>logical </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">ensdateofvalidity</span><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">ensdiagnostic</span><em> [</em><em>logical </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">enspathname</span><em> [</em><em>character </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">ensperts</span> (*)<em> [</em><em>struct_ens </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">enspertsnormalized</span><em> [</em><em>logical </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">ensshouldnotcontainlqvarname</span><em> [</em><em>logical </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">footprintradius</span><em> [</em><em>real </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">footprinttopothreshold</span><em> [</em><em>real </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">fsoleadtime</span><em> [</em><em>real </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">gsvhucontainslq</span><em> [</em><em>logical </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">hco_core</span><em> [</em><em>struct_hco </em><em>,</em><em>pointer</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">hco_ens</span><em> [</em><em>struct_hco </em><em>,</em><em>pointer</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">hco_file</span><em> [</em><em>struct_hco </em><em>,</em><em>pointer</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">hinterpolationdegree</span><em> [</em><em>character </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">hlocalize</span> (maxnumlocallength)<em> [</em><em>real </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">huminvalue</span><em> [</em><em>real </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">includeanlvar</span> (<a class="reference internal" href="varnamelist_mod.html#f/varnamelist_mod/vnl_numvarmax" title="f/varnamelist_mod/vnl_numvarmax">vnl_numvarmax</a>)<em> [</em><em>character </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">initialized</span><em> [</em><em>logical </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">keepamplitude</span><em> [</em><em>logical </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">localizationtype</span><em> [</em><em>character </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">locstorage</span> (*)<em> [</em><em>struct_loc </em><em>,</em><em>pointer</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">mylatbeg</span><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">mylatend</span><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">mylonbeg</span><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">mylonend</span><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">nens</span><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">nensoverdimension</span><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">ni</span><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">nj</span><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">nlevens_dp</span><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">nlevens_m</span><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">nlevens_t</span><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">nlevinc_dp</span><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">nlevinc_m</span><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">nlevinc_t</span><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">ntrunc</span><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">null</span><em> [</em><em>struct_vco </em><em>,</em><em>pointer</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">numincludeanlvar</span><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">numstep</span><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">numstepadvectassimwindow</span><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">numstepadvectfsofcst</span><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">numstepamplitudeassimwindow</span><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">numstepamplitudefsofcst</span><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">numstepassimwindow</span><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">numsubens</span><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">nwaveband</span><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">nwavebandforfiltering</span><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">removesubensmeans</span><em> [</em><em>logical </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">scalefactor</span> (<a class="reference internal" href="verticalcoord_mod.html#f/verticalcoord_mod/vco_maxnumlevels" title="f/verticalcoord_mod/vco_maxnumlevels">vco_maxnumlevels</a>)<em> [</em><em>real </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">scalefactor_dp</span> (*)<em> [</em><em>real </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">scalefactor_m</span> (*)<em> [</em><em>real </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">scalefactor_sf</span><em> [</em><em>real </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">scalefactor_t</span> (*)<em> [</em><em>real </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">scalefactorhumidity</span> (<a class="reference internal" href="verticalcoord_mod.html#f/verticalcoord_mod/vco_maxnumlevels" title="f/verticalcoord_mod/vco_maxnumlevels">vco_maxnumlevels</a>)<em> [</em><em>real </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">statevector_ensstddev</span><em> [</em><em>struct_gsv </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">toplevindex_dp</span><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">toplevindex_m</span><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">toplevindex_t</span><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">transformvarkindch</span><em> [</em><em>character </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">usecmatrixonly</span><em> [</em><em>logical </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">usesaveamp</span><em> [</em><em>logical </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">variancesmoothing</span><em> [</em><em>character </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">varnamealfa</span> (1)<em> [</em><em>character </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">vco_anl</span><em> [</em><em>struct_vco </em><em>,</em><em>pointer</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">vco_ens</span><em> [</em><em>struct_vco </em><em>,</em><em>pointer</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">vco_file</span><em> [</em><em>struct_vco </em><em>,</em><em>pointer</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">vlocalize</span> (maxnumlocallength)<em> [</em><em>real </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">wavebandindexselected</span><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">wavebandpeaks</span> (maxnumlocallength)<em> [</em><em>integer </em><em>]</em></p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</li>
+</ul>
+<p class="rubric">Variables</p>
+<p class="rubric">Subroutines and functions</p>
+<dl>
+<dt class="sig sig-object f" id="f/bmatrixensemble_mod/ben_setup">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">bmatrixensemble_mod/</span></span><span class="sig-name descname"><span class="pre">ben_setup</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">hco_anl_in</span></em>, <em class="sig-param"><span class="pre">hco_core_in</span></em>, <em class="sig-param"><span class="pre">vco_anl_in</span></em>, <em class="sig-param"><span class="pre">cvdimperinstance</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">mode_opt</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/bmatrixensemble_mod/ben_setup" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>To configure the ensemble B matrix</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>hco_anl_in</strong><em> [</em><em>struct_hco </em><em>,</em><em>in,pointer</em><em>]</em></p></li>
+<li><p><strong>hco_core_in</strong><em> [</em><em>struct_hco </em><em>,</em><em>in,pointer</em><em>]</em></p></li>
+<li><p><strong>vco_anl_in</strong><em> [</em><em>struct_vco </em><em>,</em><em>in,pointer</em><em>]</em></p></li>
+<li><p><strong>cvdimperinstance</strong> (*)<em> [</em><em>integer </em><em>,</em><em>out,allocatable</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Options</dt>
+<dd class="field-odd"><p><strong>mode_opt</strong><em> [</em><em>character </em><em>,</em><em>in,</em><em>]</em></p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="bmatrix_mod.html#f/bmatrix_mod/bmat_setup" title="f/bmatrix_mod/bmat_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">bmat_setup()</span></code></a>, <a class="reference internal" href="obsspaceerrorstddev_mod.html#f/obsspaceerrorstddev_mod/ose_compute_hbht_ensemble" title="f/obsspaceerrorstddev_mod/ose_compute_hbht_ensemble"><code class="xref f f-func docutils literal notranslate"><span class="pre">ose_compute_hbht_ensemble()</span></code></a>, <a class="reference internal" href="../programs/midas_adjointtest.html#f/midas_adjointtest" title="f/midas_adjointtest"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_adjointtest</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_start" title="f/utilities_mod/utl_tmg_start"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_start()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_varexist" title="f/gridstatevector_mod/gsv_varexist"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_varexist()</span></code></a>, <a class="reference internal" href="analysisgrid_mod.html#f/analysisgrid_mod/agd_setupfromhco" title="f/analysisgrid_mod/agd_setupfromhco"><code class="xref f f-func docutils literal notranslate"><span class="pre">agd_setupfromhco()</span></code></a>, <a class="reference internal" href="#f/bmatrixensemble_mod/ben_setuponeinstance" title="f/bmatrixensemble_mod/ben_setuponeinstance"><code class="xref f f-func docutils literal notranslate"><span class="pre">ben_setuponeinstance()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_stop" title="f/utilities_mod/utl_tmg_stop"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_stop()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/bmatrixensemble_mod/ben_setuponeinstance">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">bmatrixensemble_mod/</span></span><span class="sig-name descname"><span class="pre">ben_setuponeinstance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">instanceindex</span></em>, <em class="sig-param"><span class="pre">cvdim</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/bmatrixensemble_mod/ben_setuponeinstance" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>To configure a single instance of the ensemble B matrix</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>instanceindex</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>cvdim</strong><em> [</em><em>integer </em><em>,</em><em>out</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/bmatrixensemble_mod/ben_setup" title="f/bmatrixensemble_mod/ben_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">ben_setup()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="timecoord_mod.html#f/timecoord_mod/tim_getdatestamp" title="f/timecoord_mod/tim_getdatestamp"><code class="xref f f-func docutils literal notranslate"><span class="pre">tim_getdatestamp()</span></code></a>, <a class="reference internal" href="timecoord_mod.html#f/timecoord_mod/tim_getstamplist" title="f/timecoord_mod/tim_getstamplist"><code class="xref f f-func docutils literal notranslate"><span class="pre">tim_getstamplist()</span></code></a>, <a class="reference internal" href="filenames_mod.html#f/filenames_mod/fln_ensfilename" title="f/filenames_mod/fln_ensfilename"><code class="xref f f-func docutils literal notranslate"><span class="pre">fln_ensfilename()</span></code></a>, <a class="reference internal" href="verticalcoord_mod.html#f/verticalcoord_mod/vco_setupfromfile" title="f/verticalcoord_mod/vco_setupfromfile"><code class="xref f f-func docutils literal notranslate"><span class="pre">vco_setupfromfile()</span></code></a>, <a class="reference internal" href="verticalcoord_mod.html#f/verticalcoord_mod/vco_mpibcast" title="f/verticalcoord_mod/vco_mpibcast"><code class="xref f f-func docutils literal notranslate"><span class="pre">vco_mpibcast()</span></code></a>, <a class="reference internal" href="verticalcoord_mod.html#f/verticalcoord_mod/vco_subsetornot" title="f/verticalcoord_mod/vco_subsetornot"><code class="xref f f-func docutils literal notranslate"><span class="pre">vco_subsetornot()</span></code></a>, <a class="reference internal" href="verticalcoord_mod.html#f/verticalcoord_mod/vco_deallocate" title="f/verticalcoord_mod/vco_deallocate"><code class="xref f f-func docutils literal notranslate"><span class="pre">vco_deallocate()</span></code></a>, <a class="reference internal" href="midasmpi_mod.html#f/midasmpi_mod/mmpi_setup_latbands" title="f/midasmpi_mod/mmpi_setup_latbands"><code class="xref f f-func docutils literal notranslate"><span class="pre">mmpi_setup_latbands()</span></code></a>, <a class="reference internal" href="midasmpi_mod.html#f/midasmpi_mod/mmpi_setup_lonbands" title="f/midasmpi_mod/mmpi_setup_lonbands"><code class="xref f f-func docutils literal notranslate"><span class="pre">mmpi_setup_lonbands()</span></code></a>, <a class="reference internal" href="midasmpi_mod.html#f/midasmpi_mod/mmpi_setup_levels" title="f/midasmpi_mod/mmpi_setup_levels"><code class="xref f f-func docutils literal notranslate"><span class="pre">mmpi_setup_levels()</span></code></a>, <a class="reference internal" href="localization_mod.html#f/localization_mod/loc_setup" title="f/localization_mod/loc_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">loc_setup()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_varexist" title="f/gridstatevector_mod/gsv_varexist"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_varexist()</span></code></a>, <a class="reference internal" href="#f/bmatrixensemble_mod/setupensemble" title="f/bmatrixensemble_mod/setupensemble"><code class="xref f f-func docutils literal notranslate"><span class="pre">setupensemble()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_computestddev" title="f/ensemblestatevector_mod/ens_computestddev"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_computestddev()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_normalize" title="f/ensemblestatevector_mod/ens_normalize"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_normalize()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_copyensstddev" title="f/ensemblestatevector_mod/ens_copyensstddev"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_copyensstddev()</span></code></a>, <a class="reference internal" href="gridstatevectorfileio_mod.html#f/gridstatevectorfileio_mod/gio_writetofile" title="f/gridstatevectorfileio_mod/gio_writetofile"><code class="xref f f-func docutils literal notranslate"><span class="pre">gio_writetofile()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_power" title="f/gridstatevector_mod/gsv_power"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_power()</span></code></a>, <a class="reference internal" href="gridbinning_mod.html#f/gridbinning_mod/gbi_setup" title="f/gridbinning_mod/gbi_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">gbi_setup()</span></code></a>, <a class="reference internal" href="gridbinning_mod.html#f/gridbinning_mod/gbi_deallocate" title="f/gridbinning_mod/gbi_deallocate"><code class="xref f f-func docutils literal notranslate"><span class="pre">gbi_deallocate()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_smoothhorizontal" title="f/gridstatevector_mod/gsv_smoothhorizontal"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_smoothhorizontal()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_getheightsfc" title="f/gridstatevector_mod/gsv_getheightsfc"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_getheightsfc()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_start" title="f/utilities_mod/utl_tmg_start"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_start()</span></code></a>, <a class="reference internal" href="advection_mod.html#f/advection_mod/adv_setup" title="f/advection_mod/adv_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">adv_setup()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_stop" title="f/utilities_mod/utl_tmg_stop"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_stop()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_allocate" title="f/gridstatevector_mod/gsv_allocate"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_allocate()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_copyensmean" title="f/ensemblestatevector_mod/ens_copyensmean"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_copyensmean()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_deallocate" title="f/gridstatevector_mod/gsv_deallocate"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_deallocate()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_copymember" title="f/ensemblestatevector_mod/ens_copymember"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_copymember()</span></code></a>, <a class="reference internal" href="advection_mod.html#f/advection_mod/adv_ensemble_tl" title="f/advection_mod/adv_ensemble_tl"><code class="xref f f-func docutils literal notranslate"><span class="pre">adv_ensemble_tl()</span></code></a>, <a class="reference internal" href="#f/bmatrixensemble_mod/ensemblediagnostic" title="f/bmatrixensemble_mod/ensemblediagnostic"><code class="xref f f-func docutils literal notranslate"><span class="pre">ensemblediagnostic()</span></code></a>, <a class="reference internal" href="#f/bmatrixensemble_mod/ensemblescaledecomposition" title="f/bmatrixensemble_mod/ensemblescaledecomposition"><code class="xref f f-func docutils literal notranslate"><span class="pre">ensemblescaledecomposition()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_allocate" title="f/ensemblestatevector_mod/ens_allocate"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_allocate()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_zero" title="f/ensemblestatevector_mod/ens_zero"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_zero()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/bmatrixensemble_mod/ben_finalize">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">bmatrixensemble_mod/</span></span><span class="sig-name descname"><span class="pre">ben_finalize</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#f/bmatrixensemble_mod/ben_finalize" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="bmatrix_mod.html#f/bmatrix_mod/bmat_finalize" title="f/bmatrix_mod/bmat_finalize"><code class="xref f f-func docutils literal notranslate"><span class="pre">bmat_finalize()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_deallocate" title="f/ensemblestatevector_mod/ens_deallocate"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_deallocate()</span></code></a>, <a class="reference internal" href="localization_mod.html#f/localization_mod/loc_finalize" title="f/localization_mod/loc_finalize"><code class="xref f f-func docutils literal notranslate"><span class="pre">loc_finalize()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/bmatrixensemble_mod/ben_getscalefactor">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">bmatrixensemble_mod/</span></span><span class="sig-name descname"><span class="pre">ben_getscalefactor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">scalefactor_out</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">instanceindex_opt</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/bmatrixensemble_mod/ben_getscalefactor" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><p><strong>scalefactor_out</strong> (*)<em> [</em><em>real </em><em>,</em><em>out</em><em>]</em></p>
+</dd>
+<dt class="field-even">Options</dt>
+<dd class="field-even"><p><strong>instanceindex_opt</strong><em> [</em><em>integer </em><em>,</em><em>in,</em><em>]</em></p>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="obsspacediag_mod.html#f/obsspacediag_mod/osd_calcinflation" title="f/obsspacediag_mod/osd_calcinflation"><code class="xref f f-func docutils literal notranslate"><span class="pre">osd_calcinflation()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/bmatrixensemble_mod/ben_setinstanceindex" title="f/bmatrixensemble_mod/ben_setinstanceindex"><code class="xref f f-func docutils literal notranslate"><span class="pre">ben_setinstanceindex()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/bmatrixensemble_mod/ben_setinstanceindex">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">bmatrixensemble_mod/</span></span><span class="sig-name descname"><span class="pre">ben_setinstanceindex</span></span><span class="sig-paren">(</span><span class="optional">[</span><em class="sig-param"><span class="pre">instanceindex_opt</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/bmatrixensemble_mod/ben_setinstanceindex" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>To return the appropriate instance index</p>
+</dd>
+<dt class="field-even">Options</dt>
+<dd class="field-even"><p><strong>instanceindex_opt</strong><em> [</em><em>integer </em><em>]</em></p>
+</dd>
+<dt class="field-odd">Return</dt>
+<dd class="field-odd"><p><strong>instanceindex</strong><em> [</em><em>integer </em><em>]</em></p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/bmatrixensemble_mod/ben_getscalefactor" title="f/bmatrixensemble_mod/ben_getscalefactor"><code class="xref f f-func docutils literal notranslate"><span class="pre">ben_getscalefactor()</span></code></a>, <a class="reference internal" href="#f/bmatrixensemble_mod/ben_getnens" title="f/bmatrixensemble_mod/ben_getnens"><code class="xref f f-func docutils literal notranslate"><span class="pre">ben_getnens()</span></code></a>, <a class="reference internal" href="#f/bmatrixensemble_mod/ben_getperturbation" title="f/bmatrixensemble_mod/ben_getperturbation"><code class="xref f f-func docutils literal notranslate"><span class="pre">ben_getperturbation()</span></code></a>, <a class="reference internal" href="#f/bmatrixensemble_mod/ben_getensmean" title="f/bmatrixensemble_mod/ben_getensmean"><code class="xref f f-func docutils literal notranslate"><span class="pre">ben_getensmean()</span></code></a>, <a class="reference internal" href="#f/bmatrixensemble_mod/ben_writeamplitude" title="f/bmatrixensemble_mod/ben_writeamplitude"><code class="xref f f-func docutils literal notranslate"><span class="pre">ben_writeamplitude()</span></code></a>, <a class="reference internal" href="#f/bmatrixensemble_mod/ben_setfsoleadtime" title="f/bmatrixensemble_mod/ben_setfsoleadtime"><code class="xref f f-func docutils literal notranslate"><span class="pre">ben_setfsoleadtime()</span></code></a>, <a class="reference internal" href="#f/bmatrixensemble_mod/ben_getnumstepamplitudeassimwindow" title="f/bmatrixensemble_mod/ben_getnumstepamplitudeassimwindow"><code class="xref f f-func docutils literal notranslate"><span class="pre">ben_getnumstepamplitudeassimwindow()</span></code></a>, <a class="reference internal" href="#f/bmatrixensemble_mod/ben_getamplitudeassimwindow" title="f/bmatrixensemble_mod/ben_getamplitudeassimwindow"><code class="xref f f-func docutils literal notranslate"><span class="pre">ben_getamplitudeassimwindow()</span></code></a>, <a class="reference internal" href="#f/bmatrixensemble_mod/ben_getamp3dstepindexassimwindow" title="f/bmatrixensemble_mod/ben_getamp3dstepindexassimwindow"><code class="xref f f-func docutils literal notranslate"><span class="pre">ben_getamp3dstepindexassimwindow()</span></code></a>, <a class="reference internal" href="#f/bmatrixensemble_mod/ben_getnumloc" title="f/bmatrixensemble_mod/ben_getnumloc"><code class="xref f f-func docutils literal notranslate"><span class="pre">ben_getnumloc()</span></code></a>, <a class="reference internal" href="#f/bmatrixensemble_mod/ben_getloc" title="f/bmatrixensemble_mod/ben_getloc"><code class="xref f f-func docutils literal notranslate"><span class="pre">ben_getloc()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/bmatrixensemble_mod/ben_getnens">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">bmatrixensemble_mod/</span></span><span class="sig-name descname"><span class="pre">ben_getnens</span></span><span class="sig-paren">(</span><span class="optional">[</span><em class="sig-param"><span class="pre">instanceindex_opt</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/bmatrixensemble_mod/ben_getnens" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>To return the number of ensemble members</p>
+</dd>
+<dt class="field-even">Options</dt>
+<dd class="field-even"><p><strong>instanceindex_opt</strong><em> [</em><em>integer </em><em>,</em><em>in,</em><em>]</em></p>
+</dd>
+<dt class="field-odd">Return</dt>
+<dd class="field-odd"><p><strong>ben_getnens</strong><em> [</em><em>integer </em><em>]</em></p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="obsspaceerrorstddev_mod.html#f/obsspaceerrorstddev_mod/ose_compute_hbht_ensemble" title="f/obsspaceerrorstddev_mod/ose_compute_hbht_ensemble"><code class="xref f f-func docutils literal notranslate"><span class="pre">ose_compute_hbht_ensemble()</span></code></a>, <a class="reference internal" href="../programs/midas_diagbmatrix.html#f/midas_diagbmatrix" title="f/midas_diagbmatrix"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_diagbmatrix</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/bmatrixensemble_mod/ben_setinstanceindex" title="f/bmatrixensemble_mod/ben_setinstanceindex"><code class="xref f f-func docutils literal notranslate"><span class="pre">ben_setinstanceindex()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/bmatrixensemble_mod/setupensemble">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">bmatrixensemble_mod/</span></span><span class="sig-name descname"><span class="pre">setupensemble</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">instanceindex</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/bmatrixensemble_mod/setupensemble" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><p><strong>instanceindex</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/bmatrixensemble_mod/ben_setuponeinstance" title="f/bmatrixensemble_mod/ben_setuponeinstance"><code class="xref f f-func docutils literal notranslate"><span class="pre">ben_setuponeinstance()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_allocate" title="f/ensemblestatevector_mod/ens_allocate"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_allocate()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_readensemble" title="f/ensemblestatevector_mod/ens_readensemble"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_readensemble()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_varexist" title="f/ensemblestatevector_mod/ens_varexist"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_varexist()</span></code></a>, <a class="reference internal" href="varnamelist_mod.html#f/varnamelist_mod/vnl_varkindfromvarname" title="f/varnamelist_mod/vnl_varkindfromvarname"><code class="xref f f-func docutils literal notranslate"><span class="pre">vnl_varkindfromvarname()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_computemean" title="f/ensemblestatevector_mod/ens_computemean"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_computemean()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_removemean" title="f/ensemblestatevector_mod/ens_removemean"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_removemean()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_getnumk" title="f/ensemblestatevector_mod/ens_getnumk"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_getnumk()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_getvarnamefromk" title="f/ensemblestatevector_mod/ens_getvarnamefromk"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_getvarnamefromk()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_getlevfromk" title="f/ensemblestatevector_mod/ens_getlevfromk"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_getlevfromk()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_getonelev_r4" title="f/ensemblestatevector_mod/ens_getonelev_r4"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_getonelev_r4()</span></code></a>, <a class="reference internal" href="varnamelist_mod.html#f/varnamelist_mod/vnl_varlevelfromvarname" title="f/varnamelist_mod/vnl_varlevelfromvarname"><code class="xref f f-func docutils literal notranslate"><span class="pre">vnl_varlevelfromvarname()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/bmatrixensemble_mod/ben_getperturbation">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">bmatrixensemble_mod/</span></span><span class="sig-name descname"><span class="pre">ben_getperturbation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">statevector</span></em>, <em class="sig-param"><span class="pre">memberindexwanted</span></em>, <em class="sig-param"><span class="pre">upwardextrapolationmethod</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">wavebandindexwanted_opt</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">undonormalization_opt</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">instanceindex_opt</span></em><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/bmatrixensemble_mod/ben_getperturbation" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>statevector</strong><em> [</em><em>struct_gsv </em><em>]</em></p></li>
+<li><p><strong>memberindexwanted</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>upwardextrapolationmethod</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Options</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>wavebandindexwanted_opt</strong><em> [</em><em>integer </em><em>,</em><em>in,</em><em>]</em></p></li>
+<li><p><strong>undonormalization_opt</strong><em> [</em><em>logical </em><em>]</em></p></li>
+<li><p><strong>instanceindex_opt</strong><em> [</em><em>integer </em><em>,</em><em>in,</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/bmatrixensemble_mod/ensemblediagnostic" title="f/bmatrixensemble_mod/ensemblediagnostic"><code class="xref f f-func docutils literal notranslate"><span class="pre">ensemblediagnostic()</span></code></a>, <a class="reference internal" href="obsspaceerrorstddev_mod.html#f/obsspaceerrorstddev_mod/ose_compute_hbht_ensemble" title="f/obsspaceerrorstddev_mod/ose_compute_hbht_ensemble"><code class="xref f f-func docutils literal notranslate"><span class="pre">ose_compute_hbht_ensemble()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/bmatrixensemble_mod/ben_setinstanceindex" title="f/bmatrixensemble_mod/ben_setinstanceindex"><code class="xref f f-func docutils literal notranslate"><span class="pre">ben_setinstanceindex()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_getnumk" title="f/ensemblestatevector_mod/ens_getnumk"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_getnumk()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_getvarnamefromk" title="f/ensemblestatevector_mod/ens_getvarnamefromk"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_getvarnamefromk()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_getlevfromk" title="f/ensemblestatevector_mod/ens_getlevfromk"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_getlevfromk()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_getonelev_r4" title="f/ensemblestatevector_mod/ens_getonelev_r4"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_getonelev_r4()</span></code></a>, <a class="reference internal" href="varnamelist_mod.html#f/varnamelist_mod/vnl_varlevelfromvarname" title="f/varnamelist_mod/vnl_varlevelfromvarname"><code class="xref f f-func docutils literal notranslate"><span class="pre">vnl_varlevelfromvarname()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/bmatrixensemble_mod/ben_getensmean">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">bmatrixensemble_mod/</span></span><span class="sig-name descname"><span class="pre">ben_getensmean</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">statevector</span></em>, <em class="sig-param"><span class="pre">upwardextrapolationmethod</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">instanceindex_opt</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/bmatrixensemble_mod/ben_getensmean" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>statevector</strong><em> [</em><em>struct_gsv </em><em>]</em></p></li>
+<li><p><strong>upwardextrapolationmethod</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Options</dt>
+<dd class="field-even"><p><strong>instanceindex_opt</strong><em> [</em><em>integer </em><em>,</em><em>in,</em><em>]</em></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/bmatrixensemble_mod/ben_setinstanceindex" title="f/bmatrixensemble_mod/ben_setinstanceindex"><code class="xref f f-func docutils literal notranslate"><span class="pre">ben_setinstanceindex()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_zero" title="f/gridstatevector_mod/gsv_zero"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_zero()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_getnumk" title="f/ensemblestatevector_mod/ens_getnumk"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_getnumk()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_getvarnamefromk" title="f/ensemblestatevector_mod/ens_getvarnamefromk"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_getvarnamefromk()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_getlevfromk" title="f/ensemblestatevector_mod/ens_getlevfromk"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_getlevfromk()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_getonelevmean_r8" title="f/ensemblestatevector_mod/ens_getonelevmean_r8"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_getonelevmean_r8()</span></code></a>, <a class="reference internal" href="varnamelist_mod.html#f/varnamelist_mod/vnl_varlevelfromvarname" title="f/varnamelist_mod/vnl_varlevelfromvarname"><code class="xref f f-func docutils literal notranslate"><span class="pre">vnl_varlevelfromvarname()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/bmatrixensemble_mod/ensemblescaledecomposition">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">bmatrixensemble_mod/</span></span><span class="sig-name descname"><span class="pre">ensemblescaledecomposition</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">instanceindex</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/bmatrixensemble_mod/ensemblescaledecomposition" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><p><strong>instanceindex</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/bmatrixensemble_mod/ben_setuponeinstance" title="f/bmatrixensemble_mod/ben_setuponeinstance"><code class="xref f f-func docutils literal notranslate"><span class="pre">ben_setuponeinstance()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="globalspectraltransform_mod.html#f/globalspectraltransform_mod/gst_setup" title="f/globalspectraltransform_mod/gst_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">gst_setup()</span></code></a>, <a class="reference internal" href="globalspectraltransform_mod.html#f/globalspectraltransform_mod/gst_getnla" title="f/globalspectraltransform_mod/gst_getnla"><code class="xref f f-func docutils literal notranslate"><span class="pre">gst_getnla()</span></code></a>, <a class="reference internal" href="midasmpi_mod.html#f/midasmpi_mod/mmpi_setup_m" title="f/midasmpi_mod/mmpi_setup_m"><code class="xref f f-func docutils literal notranslate"><span class="pre">mmpi_setup_m()</span></code></a>, <a class="reference internal" href="midasmpi_mod.html#f/midasmpi_mod/mmpi_setup_n" title="f/midasmpi_mod/mmpi_setup_n"><code class="xref f f-func docutils literal notranslate"><span class="pre">mmpi_setup_n()</span></code></a>, <a class="reference internal" href="lamspectraltransform_mod.html#f/lamspectraltransform_mod/lst_setup" title="f/lamspectraltransform_mod/lst_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">lst_setup()</span></code></a>, <a class="reference internal" href="spectralfilter_mod.html#f/spectralfilter_mod/spf_filterresponsefunction" title="f/spectralfilter_mod/spf_filterresponsefunction"><code class="xref f f-func docutils literal notranslate"><span class="pre">spf_filterresponsefunction()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_getnumk" title="f/ensemblestatevector_mod/ens_getnumk"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_getnumk()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_getonelev_r4" title="f/ensemblestatevector_mod/ens_getonelev_r4"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_getonelev_r4()</span></code></a>, <a class="reference internal" href="globalspectraltransform_mod.html#f/globalspectraltransform_mod/gst_setid" title="f/globalspectraltransform_mod/gst_setid"><code class="xref f f-func docutils literal notranslate"><span class="pre">gst_setid()</span></code></a>, <a class="reference internal" href="globalspectraltransform_mod.html#f/globalspectraltransform_mod/gst_reespe_kij" title="f/globalspectraltransform_mod/gst_reespe_kij"><code class="xref f f-func docutils literal notranslate"><span class="pre">gst_reespe_kij()</span></code></a>, <a class="reference internal" href="lamspectraltransform_mod.html#f/lamspectraltransform_mod/lst_vartransform" title="f/lamspectraltransform_mod/lst_vartransform"><code class="xref f f-func docutils literal notranslate"><span class="pre">lst_vartransform()</span></code></a>, <a class="reference internal" href="globalspectraltransform_mod.html#f/globalspectraltransform_mod/gst_speree_kij" title="f/globalspectraltransform_mod/gst_speree_kij"><code class="xref f f-func docutils literal notranslate"><span class="pre">gst_speree_kij()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/bmatrixensemble_mod/ben_reducetompilocal">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">bmatrixensemble_mod/</span></span><span class="sig-name descname"><span class="pre">ben_reducetompilocal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">cv_mpilocal</span></em>, <em class="sig-param"><span class="pre">cv_mpiglobal</span></em>, <em class="sig-param"><span class="pre">instanceindex</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/bmatrixensemble_mod/ben_reducetompilocal" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>cv_mpilocal</strong> (bens(instanceindex)%cvdim_mpilocal)<em> [</em><em>real </em><em>,</em><em>out</em><em>]</em></p></li>
+<li><p><strong>cv_mpiglobal</strong> (*)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>instanceindex</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="bmatrix_mod.html#f/bmatrix_mod/bmat_reducetompilocal" title="f/bmatrix_mod/bmat_reducetompilocal"><code class="xref f f-func docutils literal notranslate"><span class="pre">bmat_reducetompilocal()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="localization_mod.html#f/localization_mod/loc_reducetompilocal" title="f/localization_mod/loc_reducetompilocal"><code class="xref f f-func docutils literal notranslate"><span class="pre">loc_reducetompilocal()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/bmatrixensemble_mod/ben_reducetompilocal_r4">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">bmatrixensemble_mod/</span></span><span class="sig-name descname"><span class="pre">ben_reducetompilocal_r4</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">cv_mpilocal</span></em>, <em class="sig-param"><span class="pre">cv_mpiglobal</span></em>, <em class="sig-param"><span class="pre">instanceindex</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/bmatrixensemble_mod/ben_reducetompilocal_r4" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>cv_mpilocal</strong> (bens(instanceindex)%cvdim_mpilocal)<em> [</em><em>real </em><em>,</em><em>out</em><em>]</em></p></li>
+<li><p><strong>cv_mpiglobal</strong> (*)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>instanceindex</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="bmatrix_mod.html#f/bmatrix_mod/bmat_reducetompilocal_r4" title="f/bmatrix_mod/bmat_reducetompilocal_r4"><code class="xref f f-func docutils literal notranslate"><span class="pre">bmat_reducetompilocal_r4()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="localization_mod.html#f/localization_mod/loc_reducetompilocal_r4" title="f/localization_mod/loc_reducetompilocal_r4"><code class="xref f f-func docutils literal notranslate"><span class="pre">loc_reducetompilocal_r4()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/bmatrixensemble_mod/ben_expandtompiglobal">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">bmatrixensemble_mod/</span></span><span class="sig-name descname"><span class="pre">ben_expandtompiglobal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">cv_mpilocal</span></em>, <em class="sig-param"><span class="pre">cv_mpiglobal</span></em>, <em class="sig-param"><span class="pre">instanceindex</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/bmatrixensemble_mod/ben_expandtompiglobal" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>cv_mpilocal</strong> (bens(instanceindex)%cvdim_mpilocal)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>cv_mpiglobal</strong> (*)<em> [</em><em>real </em><em>,</em><em>out</em><em>]</em></p></li>
+<li><p><strong>instanceindex</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="bmatrix_mod.html#f/bmatrix_mod/bmat_expandtompiglobal" title="f/bmatrix_mod/bmat_expandtompiglobal"><code class="xref f f-func docutils literal notranslate"><span class="pre">bmat_expandtompiglobal()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="localization_mod.html#f/localization_mod/loc_expandtompiglobal" title="f/localization_mod/loc_expandtompiglobal"><code class="xref f f-func docutils literal notranslate"><span class="pre">loc_expandtompiglobal()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/bmatrixensemble_mod/ben_expandtompiglobal_r4">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">bmatrixensemble_mod/</span></span><span class="sig-name descname"><span class="pre">ben_expandtompiglobal_r4</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">cv_mpilocal</span></em>, <em class="sig-param"><span class="pre">cv_mpiglobal</span></em>, <em class="sig-param"><span class="pre">instanceindex</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/bmatrixensemble_mod/ben_expandtompiglobal_r4" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>cv_mpilocal</strong> (bens(instanceindex)%cvdim_mpilocal)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>cv_mpiglobal</strong> (*)<em> [</em><em>real </em><em>,</em><em>out</em><em>]</em></p></li>
+<li><p><strong>instanceindex</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="bmatrix_mod.html#f/bmatrix_mod/bmat_expandtompiglobal_r4" title="f/bmatrix_mod/bmat_expandtompiglobal_r4"><code class="xref f f-func docutils literal notranslate"><span class="pre">bmat_expandtompiglobal_r4()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="localization_mod.html#f/localization_mod/loc_expandtompiglobal_r4" title="f/localization_mod/loc_expandtompiglobal_r4"><code class="xref f f-func docutils literal notranslate"><span class="pre">loc_expandtompiglobal_r4()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/bmatrixensemble_mod/ben_bsqrt">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">bmatrixensemble_mod/</span></span><span class="sig-name descname"><span class="pre">ben_bsqrt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">instanceindex</span></em>, <em class="sig-param"><span class="pre">controlvector_in</span></em>, <em class="sig-param"><span class="pre">statevector</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">usefsofcst_opt</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">statevectorref_opt</span></em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/bmatrixensemble_mod/ben_bsqrt" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>instanceindex</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>controlvector_in</strong> (bens(instanceindex)%cvdim_mpilocal)<em> [</em><em>real </em><em>]</em> :: OUT</p></li>
+<li><p><strong>statevector</strong><em> [</em><em>struct_gsv </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Options</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>usefsofcst_opt</strong><em> [</em><em>logical </em><em>]</em></p></li>
+<li><p><strong>statevectorref_opt</strong><em> [</em><em>struct_gsv </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="bmatrix_mod.html#f/bmatrix_mod/bmat_sqrtb" title="f/bmatrix_mod/bmat_sqrtb"><code class="xref f f-func docutils literal notranslate"><span class="pre">bmat_sqrtb()</span></code></a>, <a class="reference internal" href="../programs/midas_adjointtest.html#f/midas_adjointtest" title="f/midas_adjointtest"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_adjointtest</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_allocate" title="f/ensemblestatevector_mod/ens_allocate"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_allocate()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_zero" title="f/gridstatevector_mod/gsv_zero"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_zero()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_start" title="f/utilities_mod/utl_tmg_start"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_start()</span></code></a>, <a class="reference internal" href="localization_mod.html#f/localization_mod/loc_lsqrt" title="f/localization_mod/loc_lsqrt"><code class="xref f f-func docutils literal notranslate"><span class="pre">loc_lsqrt()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_stop" title="f/utilities_mod/utl_tmg_stop"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_stop()</span></code></a>, <a class="reference internal" href="advection_mod.html#f/advection_mod/adv_ensemble_tl" title="f/advection_mod/adv_ensemble_tl"><code class="xref f f-func docutils literal notranslate"><span class="pre">adv_ensemble_tl()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_copy" title="f/ensemblestatevector_mod/ens_copy"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_copy()</span></code></a>, <a class="reference internal" href="#f/bmatrixensemble_mod/addensmember" title="f/bmatrixensemble_mod/addensmember"><code class="xref f f-func docutils literal notranslate"><span class="pre">addensmember()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_deallocate" title="f/ensemblestatevector_mod/ens_deallocate"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_deallocate()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_schurproduct" title="f/gridstatevector_mod/gsv_schurproduct"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_schurproduct()</span></code></a>, <a class="reference internal" href="advection_mod.html#f/advection_mod/adv_statevector_tl" title="f/advection_mod/adv_statevector_tl"><code class="xref f f-func docutils literal notranslate"><span class="pre">adv_statevector_tl()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_varexist" title="f/gridstatevector_mod/gsv_varexist"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_varexist()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/bmatrixensemble_mod/ben_bsqrtad">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">bmatrixensemble_mod/</span></span><span class="sig-name descname"><span class="pre">ben_bsqrtad</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">instanceindex</span></em>, <em class="sig-param"><span class="pre">statevector</span></em>, <em class="sig-param"><span class="pre">controlvector_out</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">usefsofcst_opt</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">statevectorref_opt</span></em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/bmatrixensemble_mod/ben_bsqrtad" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>instanceindex</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>statevector</strong><em> [</em><em>struct_gsv </em><em>]</em></p></li>
+<li><p><strong>controlvector_out</strong> (bens(instanceindex)%cvdim_mpilocal)<em> [</em><em>real </em><em>]</em> :: OUT</p></li>
+</ul>
+</dd>
+<dt class="field-even">Options</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>usefsofcst_opt</strong><em> [</em><em>logical </em><em>]</em></p></li>
+<li><p><strong>statevectorref_opt</strong><em> [</em><em>struct_gsv </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="bmatrix_mod.html#f/bmatrix_mod/bmat_sqrtbt" title="f/bmatrix_mod/bmat_sqrtbt"><code class="xref f f-func docutils literal notranslate"><span class="pre">bmat_sqrtbt()</span></code></a>, <a class="reference internal" href="../programs/midas_adjointtest.html#f/midas_adjointtest" title="f/midas_adjointtest"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_adjointtest</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_varexist" title="f/gridstatevector_mod/gsv_varexist"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_varexist()</span></code></a>, <a class="reference internal" href="advection_mod.html#f/advection_mod/adv_statevector_ad" title="f/advection_mod/adv_statevector_ad"><code class="xref f f-func docutils literal notranslate"><span class="pre">adv_statevector_ad()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_schurproduct" title="f/gridstatevector_mod/gsv_schurproduct"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_schurproduct()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_allocate" title="f/ensemblestatevector_mod/ens_allocate"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_allocate()</span></code></a>, <a class="reference internal" href="#f/bmatrixensemble_mod/addensmemberad" title="f/bmatrixensemble_mod/addensmemberad"><code class="xref f f-func docutils literal notranslate"><span class="pre">addensmemberad()</span></code></a>, <a class="reference internal" href="advection_mod.html#f/advection_mod/adv_ensemble_ad" title="f/advection_mod/adv_ensemble_ad"><code class="xref f f-func docutils literal notranslate"><span class="pre">adv_ensemble_ad()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_start" title="f/utilities_mod/utl_tmg_start"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_start()</span></code></a>, <a class="reference internal" href="localization_mod.html#f/localization_mod/loc_lsqrtad" title="f/localization_mod/loc_lsqrtad"><code class="xref f f-func docutils literal notranslate"><span class="pre">loc_lsqrtad()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_stop" title="f/utilities_mod/utl_tmg_stop"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_stop()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_deallocate" title="f/ensemblestatevector_mod/ens_deallocate"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_deallocate()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/bmatrixensemble_mod/addensmember">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">bmatrixensemble_mod/</span></span><span class="sig-name descname"><span class="pre">addensmember</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">ensamplitude</span></em>, <em class="sig-param"><span class="pre">statevector_out</span></em>, <em class="sig-param"><span class="pre">instanceindex</span></em>, <em class="sig-param"><span class="pre">wavebandindex</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">usefsofcst_opt</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/bmatrixensemble_mod/addensmember" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ensamplitude</strong><em> [</em><em>struct_ens </em><em>]</em></p></li>
+<li><p><strong>statevector_out</strong><em> [</em><em>struct_gsv </em><em>]</em></p></li>
+<li><p><strong>instanceindex</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>wavebandindex</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Options</dt>
+<dd class="field-even"><p><strong>usefsofcst_opt</strong><em> [</em><em>logical </em><em>]</em></p>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/bmatrixensemble_mod/ben_bsqrt" title="f/bmatrixensemble_mod/ben_bsqrt"><code class="xref f f-func docutils literal notranslate"><span class="pre">ben_bsqrt()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_start" title="f/utilities_mod/utl_tmg_start"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_start()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_getnumk" title="f/ensemblestatevector_mod/ens_getnumk"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_getnumk()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_getlevfromk" title="f/ensemblestatevector_mod/ens_getlevfromk"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_getlevfromk()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_getvarnamefromk" title="f/ensemblestatevector_mod/ens_getvarnamefromk"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_getvarnamefromk()</span></code></a>, <a class="reference internal" href="varnamelist_mod.html#f/varnamelist_mod/vnl_varlevelfromvarname" title="f/varnamelist_mod/vnl_varlevelfromvarname"><code class="xref f f-func docutils literal notranslate"><span class="pre">vnl_varlevelfromvarname()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_getonelev_r8" title="f/ensemblestatevector_mod/ens_getonelev_r8"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_getonelev_r8()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_getonelev_r4" title="f/ensemblestatevector_mod/ens_getonelev_r4"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_getonelev_r4()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_stop" title="f/utilities_mod/utl_tmg_stop"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_stop()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_getdatakind" title="f/gridstatevector_mod/gsv_getdatakind"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_getdatakind()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/bmatrixensemble_mod/addensmemberad">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">bmatrixensemble_mod/</span></span><span class="sig-name descname"><span class="pre">addensmemberad</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">statevector_in</span></em>, <em class="sig-param"><span class="pre">ensamplitude</span></em>, <em class="sig-param"><span class="pre">instanceindex</span></em>, <em class="sig-param"><span class="pre">wavebandindex</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">usefsofcst_opt</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/bmatrixensemble_mod/addensmemberad" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>statevector_in</strong><em> [</em><em>struct_gsv </em><em>]</em></p></li>
+<li><p><strong>ensamplitude</strong><em> [</em><em>struct_ens </em><em>]</em></p></li>
+<li><p><strong>instanceindex</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>wavebandindex</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Options</dt>
+<dd class="field-even"><p><strong>usefsofcst_opt</strong><em> [</em><em>logical </em><em>]</em></p>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/bmatrixensemble_mod/ben_bsqrtad" title="f/bmatrixensemble_mod/ben_bsqrtad"><code class="xref f f-func docutils literal notranslate"><span class="pre">ben_bsqrtad()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_start" title="f/utilities_mod/utl_tmg_start"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_start()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_getnumlev" title="f/ensemblestatevector_mod/ens_getnumlev"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_getnumlev()</span></code></a>, <a class="reference internal" href="varnamelist_mod.html#f/varnamelist_mod/vnl_varlevelfromvarname" title="f/varnamelist_mod/vnl_varlevelfromvarname"><code class="xref f f-func docutils literal notranslate"><span class="pre">vnl_varlevelfromvarname()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_getonelev_r8" title="f/ensemblestatevector_mod/ens_getonelev_r8"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_getonelev_r8()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_getnumk" title="f/ensemblestatevector_mod/ens_getnumk"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_getnumk()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_getlevfromk" title="f/ensemblestatevector_mod/ens_getlevfromk"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_getlevfromk()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_getvarnamefromk" title="f/ensemblestatevector_mod/ens_getvarnamefromk"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_getvarnamefromk()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_getdatakind" title="f/gridstatevector_mod/gsv_getdatakind"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_getdatakind()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_getonelev_r4" title="f/ensemblestatevector_mod/ens_getonelev_r4"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_getonelev_r4()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_stop" title="f/utilities_mod/utl_tmg_stop"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_stop()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/bmatrixensemble_mod/ensemblediagnostic">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">bmatrixensemble_mod/</span></span><span class="sig-name descname"><span class="pre">ensemblediagnostic</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">instanceindex</span></em>, <em class="sig-param"><span class="pre">mode</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/bmatrixensemble_mod/ensemblediagnostic" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>instanceindex</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>mode</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/bmatrixensemble_mod/ben_setuponeinstance" title="f/bmatrixensemble_mod/ben_setuponeinstance"><code class="xref f f-func docutils literal notranslate"><span class="pre">ben_setuponeinstance()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_allocate" title="f/gridstatevector_mod/gsv_allocate"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_allocate()</span></code></a>, <a class="reference internal" href="timecoord_mod.html#f/timecoord_mod/tim_getdatestamp" title="f/timecoord_mod/tim_getdatestamp"><code class="xref f f-func docutils literal notranslate"><span class="pre">tim_getdatestamp()</span></code></a>, <a class="reference internal" href="#f/bmatrixensemble_mod/ben_getperturbation" title="f/bmatrixensemble_mod/ben_getperturbation"><code class="xref f f-func docutils literal notranslate"><span class="pre">ben_getperturbation()</span></code></a>, <a class="reference internal" href="gridstatevectorfileio_mod.html#f/gridstatevectorfileio_mod/gio_writetofile" title="f/gridstatevectorfileio_mod/gio_writetofile"><code class="xref f f-func docutils literal notranslate"><span class="pre">gio_writetofile()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_deallocate" title="f/gridstatevector_mod/gsv_deallocate"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_deallocate()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_getdatakind" title="f/ensemblestatevector_mod/ens_getdatakind"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_getdatakind()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_zero" title="f/gridstatevector_mod/gsv_zero"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_zero()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_copymember" title="f/ensemblestatevector_mod/ens_copymember"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_copymember()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_power" title="f/gridstatevector_mod/gsv_power"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_power()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_add" title="f/gridstatevector_mod/gsv_add"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_add()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/bmatrixensemble_mod/ben_writeamplitude">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">bmatrixensemble_mod/</span></span><span class="sig-name descname"><span class="pre">ben_writeamplitude</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">enspathname</span></em>, <em class="sig-param"><span class="pre">ensfilenameprefix</span></em>, <em class="sig-param"><span class="pre">ip3</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">instanceindex_opt</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/bmatrixensemble_mod/ben_writeamplitude" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>enspathname</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>ensfilenameprefix</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>ip3</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Options</dt>
+<dd class="field-even"><p><strong>instanceindex_opt</strong><em> [</em><em>integer </em><em>,</em><em>in,</em><em>]</em></p>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../programs/midas_diagbmatrix.html#f/midas_diagbmatrix" title="f/midas_diagbmatrix"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_diagbmatrix</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/bmatrixensemble_mod/ben_setinstanceindex" title="f/bmatrixensemble_mod/ben_setinstanceindex"><code class="xref f f-func docutils literal notranslate"><span class="pre">ben_setinstanceindex()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_writeensemble" title="f/ensemblestatevector_mod/ens_writeensemble"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_writeensemble()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/bmatrixensemble_mod/ben_setfsoleadtime">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">bmatrixensemble_mod/</span></span><span class="sig-name descname"><span class="pre">ben_setfsoleadtime</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">fsoleadtime_in</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">instanceindex_opt</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/bmatrixensemble_mod/ben_setfsoleadtime" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><p><strong>fsoleadtime_in</strong><em> [</em><em>real </em><em>]</em></p>
+</dd>
+<dt class="field-even">Options</dt>
+<dd class="field-even"><p><strong>instanceindex_opt</strong><em> [</em><em>integer </em><em>,</em><em>in,</em><em>]</em></p>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="fsoi_mod.html#f/fsoi_mod/fso_setup" title="f/fsoi_mod/fso_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">fso_setup()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/bmatrixensemble_mod/ben_setinstanceindex" title="f/bmatrixensemble_mod/ben_setinstanceindex"><code class="xref f f-func docutils literal notranslate"><span class="pre">ben_setinstanceindex()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/bmatrixensemble_mod/ben_getnumstepamplitudeassimwindow">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">bmatrixensemble_mod/</span></span><span class="sig-name descname"><span class="pre">ben_getnumstepamplitudeassimwindow</span></span><span class="sig-paren">(</span><span class="optional">[</span><em class="sig-param"><span class="pre">instanceindex_opt</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/bmatrixensemble_mod/ben_getnumstepamplitudeassimwindow" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Options</dt>
+<dd class="field-odd"><p><strong>instanceindex_opt</strong><em> [</em><em>integer </em><em>,</em><em>in,</em><em>]</em></p>
+</dd>
+<dt class="field-even">Return</dt>
+<dd class="field-even"><p><strong>numstepamplitude</strong><em> [</em><em>integer </em><em>]</em></p>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../programs/midas_adjointtest.html#f/midas_adjointtest" title="f/midas_adjointtest"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_adjointtest</span></code></a>, <a class="reference internal" href="../programs/midas_diagbmatrix.html#f/midas_diagbmatrix" title="f/midas_diagbmatrix"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_diagbmatrix</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/bmatrixensemble_mod/ben_setinstanceindex" title="f/bmatrixensemble_mod/ben_setinstanceindex"><code class="xref f f-func docutils literal notranslate"><span class="pre">ben_setinstanceindex()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/bmatrixensemble_mod/ben_getamplitudeassimwindow">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">bmatrixensemble_mod/</span></span><span class="sig-name descname"><span class="pre">ben_getamplitudeassimwindow</span></span><span class="sig-paren">(</span><span class="optional">[</span><em class="sig-param"><span class="pre">instanceindex_opt</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/bmatrixensemble_mod/ben_getamplitudeassimwindow" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Options</dt>
+<dd class="field-odd"><p><strong>instanceindex_opt</strong><em> [</em><em>integer </em><em>,</em><em>in,</em><em>]</em></p>
+</dd>
+<dt class="field-even">Return</dt>
+<dd class="field-even"><p><strong>adv_amplitude</strong><em> [</em><em>struct_adv </em><em>,</em><em>pointer</em><em>]</em></p>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../programs/midas_diagbmatrix.html#f/midas_diagbmatrix" title="f/midas_diagbmatrix"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_diagbmatrix</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/bmatrixensemble_mod/ben_setinstanceindex" title="f/bmatrixensemble_mod/ben_setinstanceindex"><code class="xref f f-func docutils literal notranslate"><span class="pre">ben_setinstanceindex()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/bmatrixensemble_mod/ben_getamp3dstepindexassimwindow">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">bmatrixensemble_mod/</span></span><span class="sig-name descname"><span class="pre">ben_getamp3dstepindexassimwindow</span></span><span class="sig-paren">(</span><span class="optional">[</span><em class="sig-param"><span class="pre">instanceindex_opt</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/bmatrixensemble_mod/ben_getamp3dstepindexassimwindow" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Options</dt>
+<dd class="field-odd"><p><strong>instanceindex_opt</strong><em> [</em><em>integer </em><em>,</em><em>in,</em><em>]</em></p>
+</dd>
+<dt class="field-even">Return</dt>
+<dd class="field-even"><p><strong>stepindex</strong><em> [</em><em>integer </em><em>]</em></p>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../programs/midas_adjointtest.html#f/midas_adjointtest" title="f/midas_adjointtest"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_adjointtest</span></code></a>, <a class="reference internal" href="../programs/midas_diagbmatrix.html#f/midas_diagbmatrix" title="f/midas_diagbmatrix"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_diagbmatrix</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/bmatrixensemble_mod/ben_setinstanceindex" title="f/bmatrixensemble_mod/ben_setinstanceindex"><code class="xref f f-func docutils literal notranslate"><span class="pre">ben_setinstanceindex()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/bmatrixensemble_mod/ben_getnuminstance">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">bmatrixensemble_mod/</span></span><span class="sig-name descname"><span class="pre">ben_getnuminstance</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#f/bmatrixensemble_mod/ben_getnuminstance" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return</dt>
+<dd class="field-odd"><p><strong>numinstance</strong><em> [</em><em>integer </em><em>]</em></p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="../programs/midas_diagbmatrix.html#f/midas_diagbmatrix" title="f/midas_diagbmatrix"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_diagbmatrix</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/bmatrixensemble_mod/ben_getnumloc">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">bmatrixensemble_mod/</span></span><span class="sig-name descname"><span class="pre">ben_getnumloc</span></span><span class="sig-paren">(</span><span class="optional">[</span><em class="sig-param"><span class="pre">instanceindex_opt</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/bmatrixensemble_mod/ben_getnumloc" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Options</dt>
+<dd class="field-odd"><p><strong>instanceindex_opt</strong><em> [</em><em>integer </em><em>,</em><em>in,</em><em>]</em></p>
+</dd>
+<dt class="field-even">Return</dt>
+<dd class="field-even"><p><strong>numloc</strong><em> [</em><em>integer </em><em>]</em></p>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../programs/midas_diagbmatrix.html#f/midas_diagbmatrix" title="f/midas_diagbmatrix"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_diagbmatrix</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/bmatrixensemble_mod/ben_setinstanceindex" title="f/bmatrixensemble_mod/ben_setinstanceindex"><code class="xref f f-func docutils literal notranslate"><span class="pre">ben_setinstanceindex()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/bmatrixensemble_mod/ben_getloc">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">bmatrixensemble_mod/</span></span><span class="sig-name descname"><span class="pre">ben_getloc</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">locindex</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">instanceindex_opt</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/bmatrixensemble_mod/ben_getloc" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><p><strong>locindex</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p>
+</dd>
+<dt class="field-even">Options</dt>
+<dd class="field-even"><p><strong>instanceindex_opt</strong><em> [</em><em>integer </em><em>,</em><em>in,</em><em>]</em></p>
+</dd>
+<dt class="field-odd">Return</dt>
+<dd class="field-odd"><p><strong>loc</strong><em> [</em><em>struct_loc </em><em>,</em><em>pointer</em><em>]</em></p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="../programs/midas_adjointtest.html#f/midas_adjointtest" title="f/midas_adjointtest"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_adjointtest</span></code></a>, <a class="reference internal" href="../programs/midas_diagbmatrix.html#f/midas_diagbmatrix" title="f/midas_diagbmatrix"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_diagbmatrix</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/bmatrixensemble_mod/ben_setinstanceindex" title="f/bmatrixensemble_mod/ben_setinstanceindex"><code class="xref f f-func docutils literal notranslate"><span class="pre">ben_setinstanceindex()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div></blockquote>
+</section>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="bmatrixhi_mod.html" title="bmatrixhi_mod"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="bmatrixdiff_mod.html" title="bmatrixdiff_mod"
+             >previous</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2018, ECCC.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.
+    </div>
+  </body>
+</html>

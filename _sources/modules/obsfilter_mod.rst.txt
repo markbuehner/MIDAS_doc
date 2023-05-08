@@ -1,0 +1,22 @@
+==========================================
+obsfilter_mod
+==========================================
+
+    :doc:`link to source code <obsfilter_mod_src>`
+
+
+    **Dependency Diagrams:**
+
+    .. figure:: /obsfilter_mod.svg
+        :height: 100px
+
+        Direct Dependency Diagram
+
+    .. figure:: /obsfilter_mod_rev.svg
+        :height: 100px
+
+        Reverse Dependency Diagram
+
+
+    .. f:automodule:: obsfilter_mod
+

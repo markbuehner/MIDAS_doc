@@ -1,0 +1,22 @@
+==========================================
+timecoord_mod
+==========================================
+
+    :doc:`link to source code <timecoord_mod_src>`
+
+
+    **Dependency Diagrams:**
+
+    .. figure:: /timecoord_mod.svg
+        :height: 100px
+
+        Direct Dependency Diagram
+
+    .. figure:: /timecoord_mod_rev.svg
+        :height: 100px
+
+        Reverse Dependency Diagram
+
+
+    .. f:automodule:: timecoord_mod
+

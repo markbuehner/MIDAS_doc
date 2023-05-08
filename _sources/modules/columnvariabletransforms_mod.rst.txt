@@ -1,0 +1,22 @@
+==========================================
+columnvariabletransforms_mod
+==========================================
+
+    :doc:`link to source code <columnvariabletransforms_mod_src>`
+
+
+    **Dependency Diagrams:**
+
+    .. figure:: /columnvariabletransforms_mod.svg
+        :height: 100px
+
+        Direct Dependency Diagram
+
+    .. figure:: /columnvariabletransforms_mod_rev.svg
+        :height: 100px
+
+        Reverse Dependency Diagram
+
+
+    .. f:automodule:: columnvariabletransforms_mod
+

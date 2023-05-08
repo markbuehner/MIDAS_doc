@@ -1,0 +1,8 @@
+==========================================
+midas_gencoeff source
+==========================================
+
+    .. literalinclude:: ../_src_files/genCoeff.f90
+       :language: fortran
+       :linenos:
+

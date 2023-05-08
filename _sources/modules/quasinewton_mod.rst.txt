@@ -1,0 +1,22 @@
+==========================================
+quasinewton_mod
+==========================================
+
+    :doc:`link to source code <quasinewton_mod_src>`
+
+
+    **Dependency Diagrams:**
+
+    .. figure:: /quasinewton_mod.svg
+        :height: 100px
+
+        Direct Dependency Diagram
+
+    .. figure:: /quasinewton_mod_rev.svg
+        :height: 100px
+
+        Reverse Dependency Diagram
+
+
+    .. f:automodule:: quasinewton_mod
+

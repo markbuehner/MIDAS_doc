@@ -1,0 +1,147 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>MIDAS design philosophy &mdash; MIDAS  documentation</title>
+    
+    <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="top" title="MIDAS  documentation" href="index.html" /> 
+  </head>
+  <body>
+  <div>
+    <img src="_static/MIDAS_header.png" alt="MIDAS" />
+  </div>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li><a href="index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/midas_design_philosophy.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <section id="midas-design-philosophy">
+<h1>MIDAS design philosophy<a class="headerlink" href="#midas-design-philosophy" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>MIDAS uses the <strong>FORTRAN</strong> programming language exclusively.</p></li>
+</ul>
+<ul class="simple">
+<li><p>We aim to apply <strong>an incremental approach</strong> to improving the design and
+programming style of the MIDAS code. In particular, it is required that any
+new code and significantly modified existing code is consistent with the
+desired MIDAS code design and programming style. Otherwise, making arbitrary
+changes to code design and style should be avoided, except for specific gitlab
+issues focused soley on such improvements</p></li>
+</ul>
+<ul class="simple">
+<li><p><strong>Object-oriented design:</strong> To the extent possible, data (i.e. derived type
+definition and module variables) and related code (subroutines and functions)
+should be grouped together within a FORTRAN module. Where appropriate, the
+composition type of inheritance (i.e. “has a” inheritance) is used to
+construct more complex object by combining several simpler objects. For
+example, the <code class="docutils literal notranslate"><span class="pre">gridStateVector</span></code> object is composed of the objects defined in
+the <code class="docutils literal notranslate"><span class="pre">horizontalCoord_mod</span></code>, <code class="docutils literal notranslate"><span class="pre">verticalCoord_mod</span></code> and <code class="docutils literal notranslate"><span class="pre">timeCoord_mod</span></code>
+modules.</p></li>
+</ul>
+<ul class="simple">
+<li><p><strong>Modularity and encapsulation:</strong> In FORTRAN this means avoiding the use of
+<code class="docutils literal notranslate"><span class="pre">public</span></code> variables, except for very limited cases. In addition, subroutines
+and functions should be <code class="docutils literal notranslate"><span class="pre">private</span></code> whenever appropriate. All subroutines,
+functions and variables accessible by code outside of the module must be
+explicitly defined as <code class="docutils literal notranslate"><span class="pre">public</span></code> at the beginning of the module, while the
+default is set to <code class="docutils literal notranslate"><span class="pre">private</span></code> for all variables, subroutines and functions.</p></li>
+</ul>
+<ul class="simple">
+<li><p><strong>Clear relationship between MIDAS modules:</strong> Each FORTRAN module in MIDAS has
+a short (preferrably 3 letters) prefix associated with it to clearly identify
+all public subroutines/functions/variables. In addition, public derived types
+defined in a module are usually named with the prefix <code class="docutils literal notranslate"><span class="pre">struct_</span></code> followed by
+the module prefix, for example, <code class="docutils literal notranslate"><span class="pre">struct_hco</span></code> for the module
+<code class="docutils literal notranslate"><span class="pre">horizontalCoord_mod</span></code>. To make obvious the relationship between a FORTRAN
+module and the rest of the MIDAS code, all <code class="docutils literal notranslate"><span class="pre">use</span></code> statements appear at the
+beginning of the module declaration (and not within contained
+subroutines/functions). For a similar reason, all public entities are
+explicitly declared <code class="docutils literal notranslate"><span class="pre">public</span></code> near the beginning of the source file just
+after the <code class="docutils literal notranslate"><span class="pre">use</span></code> statements.</p></li>
+</ul>
+</section>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li><a href="index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2018, ECCC.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.
+    </div>
+  </body>
+</html>

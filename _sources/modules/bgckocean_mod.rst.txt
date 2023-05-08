@@ -1,0 +1,22 @@
+==========================================
+bgckocean_mod
+==========================================
+
+    :doc:`link to source code <bgckocean_mod_src>`
+
+
+    **Dependency Diagrams:**
+
+    .. figure:: /bgckocean_mod.svg
+        :height: 100px
+
+        Direct Dependency Diagram
+
+    .. figure:: /bgckocean_mod_rev.svg
+        :height: 100px
+
+        Reverse Dependency Diagram
+
+
+    .. f:automodule:: bgckocean_mod
+

@@ -1,0 +1,8 @@
+==========================================
+bmatrixdiff_mod source
+==========================================
+
+    .. literalinclude:: ../_src_files/bmatrixdiff_mod.f90
+       :language: fortran
+       :linenos:
+

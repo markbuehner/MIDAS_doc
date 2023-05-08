@@ -1,0 +1,17 @@
+==========================================
+midas_gencoeff
+==========================================
+
+    :doc:`link to source code <midas_gencoeff_src>`
+
+
+    **Dependency Diagrams:**
+
+    .. figure:: /midas_gencoeff.svg
+        :height: 100px
+
+        Direct Dependency Diagram
+
+
+    .. f:autoprogram:: midas_gencoeff
+

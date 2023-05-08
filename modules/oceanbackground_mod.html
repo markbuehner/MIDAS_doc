@@ -1,0 +1,227 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>oceanbackground_mod &mdash; MIDAS  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="MIDAS  documentation" href="../index.html" />
+    <link rel="next" title="oceanobservations_mod" href="oceanobservations_mod.html" />
+    <link rel="prev" title="obsspaceerrorstddev_mod" href="obsspaceerrorstddev_mod.html" /> 
+  </head>
+  <body>
+  <div>
+    <img src="../_static/MIDAS_header.png" alt="MIDAS" />
+  </div>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="oceanobservations_mod.html" title="oceanobservations_mod"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="obsspaceerrorstddev_mod.html" title="obsspaceerrorstddev_mod"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="obsspaceerrorstddev_mod.html"
+                          title="previous chapter">obsspaceerrorstddev_mod</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="oceanobservations_mod.html"
+                          title="next chapter">oceanobservations_mod</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/modules/oceanbackground_mod.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <section id="oceanbackground-mod">
+<h1>oceanbackground_mod<a class="headerlink" href="#oceanbackground-mod" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><p><a class="reference internal" href="oceanbackground_mod_src.html"><span class="doc">link to source code</span></a></p>
+<p><strong>Dependency Diagrams:</strong></p>
+<figure class="align-default" id="id1">
+<a class="reference internal image-reference" href="oceanbackground_mod.svg"><img alt="oceanbackground_mod.svg" height="100px" src="oceanbackground_mod.svg" /></a>
+<figcaption>
+<p><span class="caption-text">Direct Dependency Diagram</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id2">
+<a class="reference internal image-reference" href="oceanbackground_mod_rev.svg"><img alt="oceanbackground_mod_rev.svg" height="100px" src="oceanbackground_mod_rev.svg" /></a>
+<figcaption>
+<p><span class="caption-text">Reverse Dependency Diagram</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<span class="target" id="f/oceanbackground_mod"></span><p class="rubric">Description</p>
+<p>MODULE oceanBackground_mod (prefix=’obgd’ category=’1. High-level functionality’)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Purpose</dt>
+<dd class="field-odd"><p>storage for ocean background related subroutines</p>
+</dd>
+</dl>
+<p class="rubric">Quick access</p>
+<dl class="field-list simple">
+<dt class="field-odd">Routines</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/oceanbackground_mod/obgd_computesstrial" title="f/oceanbackground_mod/obgd_computesstrial"><code class="xref f f-func docutils literal notranslate"><span class="pre">obgd_computesstrial()</span></code></a>, <a class="reference internal" href="#f/oceanbackground_mod/obgd_getclimatology" title="f/oceanbackground_mod/obgd_getclimatology"><code class="xref f f-func docutils literal notranslate"><span class="pre">obgd_getclimatology()</span></code></a></p>
+</dd>
+</dl>
+<p class="rubric">Needed modules</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="codtyp_mod.html#f/codtyp_mod" title="f/codtyp_mod: MODULE codtyp_mod (prefix='codtyp' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">codtyp_mod</span></code></a>: MODULE codtyp_mod (prefix=’codtyp’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod" title="f/gridstatevector_mod: MODULE gridStateVector_mod (prefix='gsv' category='6. High-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">gridstatevector_mod</span></code></a>: MODULE gridStateVector_mod (prefix=’gsv’ category=’6. High-level data objects’)</p></li>
+<li><p><a class="reference internal" href="gridstatevectorfileio_mod.html#f/gridstatevectorfileio_mod" title="f/gridstatevectorfileio_mod: MODULE gridStateVectorFile_mod (prefix='gio' category='4. Data Object transformations')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">gridstatevectorfileio_mod</span></code></a>: MODULE gridStateVectorFile_mod (prefix=’gio’ category=’4. Data Object transformations’)</p></li>
+<li><p><a class="reference internal" href="horizontalcoord_mod.html#f/horizontalcoord_mod" title="f/horizontalcoord_mod: MODULE HorizontalCoord_mod (prefix='hco' category='7. Low-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">horizontalcoord_mod</span></code></a>: MODULE HorizontalCoord_mod (prefix=’hco’ category=’7. Low-level data objects’)</p></li>
+<li><p><a class="reference internal" href="verticalcoord_mod.html#f/verticalcoord_mod" title="f/verticalcoord_mod: MODULE verticalcoord (prefix='vco' category='7. Low-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">verticalcoord_mod</span></code></a>: MODULE verticalcoord (prefix=’vco’ category=’7. Low-level data objects’)</p></li>
+<li><p><a class="reference internal" href="timecoord_mod.html#f/timecoord_mod" title="f/timecoord_mod: MODULE timeCoord (prefix='tim' category='7. Low-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">timecoord_mod</span></code></a>: MODULE timeCoord (prefix=’tim’ category=’7. Low-level data objects’)</p></li>
+</ul>
+<p class="rubric">Variables</p>
+<p class="rubric">Subroutines and functions</p>
+<dl>
+<dt class="sig sig-object f" id="f/oceanbackground_mod/obgd_computesstrial">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">oceanbackground_mod/</span></span><span class="sig-name descname"><span class="pre">obgd_computesstrial</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">hco</span></em>, <em class="sig-param"><span class="pre">vco</span></em>, <em class="sig-param"><span class="pre">trialdatestamp</span></em>, <em class="sig-param"><span class="pre">analysisdatestamp</span></em>, <em class="sig-param"><span class="pre">nmonthsclim</span></em>, <em class="sig-param"><span class="pre">datestampclim</span></em>, <em class="sig-param"><span class="pre">alphaclim</span></em>, <em class="sig-param"><span class="pre">etiket</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/oceanbackground_mod/obgd_computesstrial" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>: Purpose: to compute SST background</dt><dd><p>xb(t) = (xa(t-1) - xclim(t-1))*alpha + xclim(t)</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>hco</strong><em> [</em><em>struct_hco </em><em>,</em><em>in,pointer</em><em>]</em> :: horizontal grid</p></li>
+<li><p><strong>vco</strong><em> [</em><em>struct_vco </em><em>,</em><em>in,pointer</em><em>]</em> :: vertical grid</p></li>
+<li><p><strong>trialdatestamp</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em> :: trial datestamp</p></li>
+<li><p><strong>analysisdatestamp</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em> :: datestamp for last analysis</p></li>
+<li><p><strong>nmonthsclim</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em> :: number of climatological fields (= 12)</p></li>
+<li><p><strong>datestampclim</strong> (*)<em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em> :: datestamps of input climatology fields</p></li>
+<li><p><strong>alphaclim</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: scalling factor to relax towards climatology</p></li>
+<li><p><strong>etiket</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em> :: etiket from namelist and for trial</p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="../programs/midas_ssttrial.html#f/midas_ssttrial" title="f/midas_ssttrial"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_ssttrial</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_allocate" title="f/gridstatevector_mod/gsv_allocate"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_allocate()</span></code></a>, <a class="reference internal" href="gridstatevectorfileio_mod.html#f/gridstatevectorfileio_mod/gio_readfromfile" title="f/gridstatevectorfileio_mod/gio_readfromfile"><code class="xref f f-func docutils literal notranslate"><span class="pre">gio_readfromfile()</span></code></a>, <a class="reference internal" href="#f/oceanbackground_mod/obgd_getclimatology" title="f/oceanbackground_mod/obgd_getclimatology"><code class="xref f f-func docutils literal notranslate"><span class="pre">obgd_getclimatology()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_modifydate" title="f/gridstatevector_mod/gsv_modifydate"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_modifydate()</span></code></a>, <a class="reference internal" href="gridstatevectorfileio_mod.html#f/gridstatevectorfileio_mod/gio_writetofile" title="f/gridstatevectorfileio_mod/gio_writetofile"><code class="xref f f-func docutils literal notranslate"><span class="pre">gio_writetofile()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_deallocate" title="f/gridstatevector_mod/gsv_deallocate"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_deallocate()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/oceanbackground_mod/obgd_getclimatology">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">oceanbackground_mod/</span></span><span class="sig-name descname"><span class="pre">obgd_getclimatology</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">datestamp</span></em>, <em class="sig-param"><span class="pre">hco</span></em>, <em class="sig-param"><span class="pre">vco</span></em>, <em class="sig-param"><span class="pre">nmonthsclim</span></em>, <em class="sig-param"><span class="pre">datestampclim</span></em>, <em class="sig-param"><span class="pre">output</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/oceanbackground_mod/obgd_getclimatology" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>: Purpose: 1) to read SST climatological fields from a std file</dt><dd><p>2) to interpolate the field in time using the current day (t) in current month (m)
+SST(t) = SST_clim(m) + (t-1)/(ndays-1) * (SST_clim(m+1) - SST_clim(m)),
+where ndays is a number of days in current month</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>datestamp</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em> :: date stamp for the current day</p></li>
+<li><p><strong>hco</strong><em> [</em><em>struct_hco </em><em>,</em><em>in,pointer</em><em>]</em> :: horizontal grid</p></li>
+<li><p><strong>vco</strong><em> [</em><em>struct_vco </em><em>,</em><em>in,pointer</em><em>]</em> :: vertical grid</p></li>
+<li><p><strong>nmonthsclim</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em> :: number of records in the climatology file</p></li>
+<li><p><strong>datestampclim</strong> (*)<em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em> :: datestamps in the climatology file</p></li>
+<li><p><strong>output</strong> (*,*)<em> [</em><em>real </em><em>,</em><em>inout</em><em>]</em> :: interpolated SST field from climatology</p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/oceanbackground_mod/obgd_computesstrial" title="f/oceanbackground_mod/obgd_computesstrial"><code class="xref f f-func docutils literal notranslate"><span class="pre">obgd_computesstrial()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="timecoord_mod.html#f/timecoord_mod/tim_datestamptoyyyymmddhh" title="f/timecoord_mod/tim_datestamptoyyyymmddhh"><code class="xref f f-func docutils literal notranslate"><span class="pre">tim_datestamptoyyyymmddhh()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_allocate" title="f/gridstatevector_mod/gsv_allocate"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_allocate()</span></code></a>, <a class="reference internal" href="gridstatevectorfileio_mod.html#f/gridstatevectorfileio_mod/gio_readfromfile" title="f/gridstatevectorfileio_mod/gio_readfromfile"><code class="xref f f-func docutils literal notranslate"><span class="pre">gio_readfromfile()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_deallocate" title="f/gridstatevector_mod/gsv_deallocate"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_deallocate()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div></blockquote>
+</section>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="oceanobservations_mod.html" title="oceanobservations_mod"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="obsspaceerrorstddev_mod.html" title="obsspaceerrorstddev_mod"
+             >previous</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2018, ECCC.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.
+    </div>
+  </body>
+</html>

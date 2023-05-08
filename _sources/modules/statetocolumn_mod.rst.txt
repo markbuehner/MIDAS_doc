@@ -1,0 +1,22 @@
+==========================================
+statetocolumn_mod
+==========================================
+
+    :doc:`link to source code <statetocolumn_mod_src>`
+
+
+    **Dependency Diagrams:**
+
+    .. figure:: /statetocolumn_mod.svg
+        :height: 100px
+
+        Direct Dependency Diagram
+
+    .. figure:: /statetocolumn_mod_rev.svg
+        :height: 100px
+
+        Reverse Dependency Diagram
+
+
+    .. f:automodule:: statetocolumn_mod
+

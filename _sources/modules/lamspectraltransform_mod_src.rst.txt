@@ -1,0 +1,8 @@
+==========================================
+lamspectraltransform_mod source
+==========================================
+
+    .. literalinclude:: ../_src_files/lamspectraltransform_mod.f90
+       :language: fortran
+       :linenos:
+

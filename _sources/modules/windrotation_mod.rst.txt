@@ -1,0 +1,22 @@
+==========================================
+windrotation_mod
+==========================================
+
+    :doc:`link to source code <windrotation_mod_src>`
+
+
+    **Dependency Diagrams:**
+
+    .. figure:: /windrotation_mod.svg
+        :height: 100px
+
+        Direct Dependency Diagram
+
+    .. figure:: /windrotation_mod_rev.svg
+        :height: 100px
+
+        Reverse Dependency Diagram
+
+
+    .. f:automodule:: windrotation_mod
+

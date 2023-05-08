@@ -1,0 +1,189 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>columnvariabletransforms_mod &mdash; MIDAS  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="MIDAS  documentation" href="../index.html" />
+    <link rel="next" title="diffusion_mod" href="diffusion_mod.html" />
+    <link rel="prev" title="calcheightandpressure_mod" href="calcheightandpressure_mod.html" /> 
+  </head>
+  <body>
+  <div>
+    <img src="../_static/MIDAS_header.png" alt="MIDAS" />
+  </div>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="diffusion_mod.html" title="diffusion_mod"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="calcheightandpressure_mod.html" title="calcheightandpressure_mod"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="calcheightandpressure_mod.html"
+                          title="previous chapter">calcheightandpressure_mod</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="diffusion_mod.html"
+                          title="next chapter">diffusion_mod</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/modules/columnvariabletransforms_mod.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <section id="columnvariabletransforms-mod">
+<h1>columnvariabletransforms_mod<a class="headerlink" href="#columnvariabletransforms-mod" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><p><a class="reference internal" href="columnvariabletransforms_mod_src.html"><span class="doc">link to source code</span></a></p>
+<p><strong>Dependency Diagrams:</strong></p>
+<figure class="align-default" id="id1">
+<a class="reference internal image-reference" href="columnvariabletransforms_mod.svg"><img alt="columnvariabletransforms_mod.svg" height="100px" src="columnvariabletransforms_mod.svg" /></a>
+<figcaption>
+<p><span class="caption-text">Direct Dependency Diagram</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id2">
+<a class="reference internal image-reference" href="columnvariabletransforms_mod_rev.svg"><img alt="columnvariabletransforms_mod_rev.svg" height="100px" src="columnvariabletransforms_mod_rev.svg" /></a>
+<figcaption>
+<p><span class="caption-text">Reverse Dependency Diagram</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<span class="target" id="f/columnvariabletransforms_mod"></span><p class="rubric">Description</p>
+<p>MODULE columnVariableTransforms (prefix=’cvt’ category=’4. Data Object transformations’)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Purpose</dt>
+<dd class="field-odd"><p>To store various functions for variable transforms using inputs
+from column(s). Outputs are also placed in a column.</p>
+</dd>
+</dl>
+<p class="rubric">Quick access</p>
+<dl class="field-list simple">
+<dt class="field-odd">Routines</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/columnvariabletransforms_mod/cvt_transform" title="f/columnvariabletransforms_mod/cvt_transform"><code class="xref f f-func docutils literal notranslate"><span class="pre">cvt_transform()</span></code></a></p>
+</dd>
+</dl>
+<p class="rubric">Needed modules</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="columndata_mod.html#f/columndata_mod" title="f/columndata_mod: MODULE columnData_mod (prefix='col' category='6. High-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">columndata_mod</span></code></a>: MODULE columnData_mod (prefix=’col’ category=’6. High-level data objects’)</p></li>
+<li><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod" title="f/utilities_mod: MODULE utilities_mod (prefix='utl' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">utilities_mod</span></code></a>: MODULE utilities_mod (prefix=’utl’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="calcheightandpressure_mod.html#f/calcheightandpressure_mod" title="f/calcheightandpressure_mod: MODULE czp_calcHeightAndPressure (prefix='czp' category='4. Data Object transformations')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">calcheightandpressure_mod</span></code></a>: MODULE czp_calcHeightAndPressure (prefix=’czp’ category=’4. Data Object transformations’)</p></li>
+</ul>
+<p class="rubric">Variables</p>
+<p class="rubric">Subroutines and functions</p>
+<dl>
+<dt class="sig sig-object f" id="f/columnvariabletransforms_mod/cvt_transform">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">columnvariabletransforms_mod/</span></span><span class="sig-name descname"><span class="pre">cvt_transform</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">columninc</span></em>, <em class="sig-param"><span class="pre">transform</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">columnrefoninclev_opt</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/columnvariabletransforms_mod/cvt_transform" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>columninc</strong><em> [</em><em>struct_columndata </em><em>,</em><em>inout</em><em>]</em></p></li>
+<li><p><strong>transform</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Options</dt>
+<dd class="field-even"><p><strong>columnrefoninclev_opt</strong><em> [</em><em>struct_columndata </em><em>,</em><em>in,</em><em>]</em></p>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="bmatrix1dvar_mod.html#f/bmatrix1dvar_mod/bmat1d_get1dvarincrement" title="f/bmatrix1dvar_mod/bmat1d_get1dvarincrement"><code class="xref f f-func docutils literal notranslate"><span class="pre">bmat1d_get1dvarincrement()</span></code></a>, <a class="reference internal" href="minimization_mod.html#f/minimization_mod/simvar" title="f/minimization_mod/simvar"><code class="xref f f-func docutils literal notranslate"><span class="pre">simvar()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div></blockquote>
+</section>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="diffusion_mod.html" title="diffusion_mod"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="calcheightandpressure_mod.html" title="calcheightandpressure_mod"
+             >previous</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2018, ECCC.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.
+    </div>
+  </body>
+</html>

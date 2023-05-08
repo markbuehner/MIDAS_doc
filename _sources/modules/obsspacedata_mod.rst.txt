@@ -1,0 +1,22 @@
+==========================================
+obsspacedata_mod
+==========================================
+
+    :doc:`link to source code <obsspacedata_mod_src>`
+
+
+    **Dependency Diagrams:**
+
+    .. figure:: /obsspacedata_mod.svg
+        :height: 100px
+
+        Direct Dependency Diagram
+
+    .. figure:: /obsspacedata_mod_rev.svg
+        :height: 100px
+
+        Reverse Dependency Diagram
+
+
+    .. f:automodule:: obsspacedata_mod
+

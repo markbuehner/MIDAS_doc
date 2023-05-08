@@ -1,0 +1,559 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>obsdatacolumn_mod &mdash; MIDAS  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="MIDAS  documentation" href="../index.html" />
+    <link rel="next" title="obsfamilylist_mod" href="obsfamilylist_mod.html" />
+    <link rel="prev" title="obscolumnnames_mod" href="obscolumnnames_mod.html" /> 
+  </head>
+  <body>
+  <div>
+    <img src="../_static/MIDAS_header.png" alt="MIDAS" />
+  </div>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="obsfamilylist_mod.html" title="obsfamilylist_mod"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="obscolumnnames_mod.html" title="obscolumnnames_mod"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="obscolumnnames_mod.html"
+                          title="previous chapter">obscolumnnames_mod</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="obsfamilylist_mod.html"
+                          title="next chapter">obsfamilylist_mod</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/modules/obsdatacolumn_mod.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <section id="obsdatacolumn-mod">
+<h1>obsdatacolumn_mod<a class="headerlink" href="#obsdatacolumn-mod" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><p><a class="reference internal" href="obsdatacolumn_mod_src.html"><span class="doc">link to source code</span></a></p>
+<p><strong>Dependency Diagrams:</strong></p>
+<figure class="align-default" id="id1">
+<a class="reference internal image-reference" href="obsdatacolumn_mod.svg"><img alt="obsdatacolumn_mod.svg" height="100px" src="obsdatacolumn_mod.svg" /></a>
+<figcaption>
+<p><span class="caption-text">Direct Dependency Diagram</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id2">
+<a class="reference internal image-reference" href="obsdatacolumn_mod_rev.svg"><img alt="obsdatacolumn_mod_rev.svg" height="100px" src="obsdatacolumn_mod_rev.svg" /></a>
+<figcaption>
+<p><span class="caption-text">Reverse Dependency Diagram</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<span class="target" id="f/obsdatacolumn_mod"></span><dl class="field-list simple">
+<dt class="field-odd">Purpose</dt>
+<dd class="field-odd"><p>This module is used exclusively by the obsSpaceData module which follows
+in this file. The derived type is used to represent a “column” of
+observation data in an instance of the struct_obs defined in obsSpaceData.
+It contains a pointer for each possible type of data stored in a column,
+but only one should be allocated at any time.</p>
+</dd>
+</dl>
+<p class="rubric">Quick access</p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/obsdatacolumn_mod/odc_enkf_bdy_int_column_list" title="f/obsdatacolumn_mod/odc_enkf_bdy_int_column_list"><code class="xref f f-var docutils literal notranslate"><span class="pre">odc_enkf_bdy_int_column_list</span></code></a>, <a class="reference internal" href="#f/obsdatacolumn_mod/odc_enkf_bdy_real_column_list" title="f/obsdatacolumn_mod/odc_enkf_bdy_real_column_list"><code class="xref f f-var docutils literal notranslate"><span class="pre">odc_enkf_bdy_real_column_list</span></code></a>, <a class="reference internal" href="#f/obsdatacolumn_mod/odc_flavour_ib" title="f/obsdatacolumn_mod/odc_flavour_ib"><code class="xref f f-var docutils literal notranslate"><span class="pre">odc_flavour_ib</span></code></a>, <a class="reference internal" href="#f/obsdatacolumn_mod/odc_flavour_ih" title="f/obsdatacolumn_mod/odc_flavour_ih"><code class="xref f f-var docutils literal notranslate"><span class="pre">odc_flavour_ih</span></code></a>, <a class="reference internal" href="#f/obsdatacolumn_mod/odc_flavour_rb" title="f/obsdatacolumn_mod/odc_flavour_rb"><code class="xref f f-var docutils literal notranslate"><span class="pre">odc_flavour_rb</span></code></a>, <a class="reference internal" href="#f/obsdatacolumn_mod/odc_flavour_rh" title="f/obsdatacolumn_mod/odc_flavour_rh"><code class="xref f f-var docutils literal notranslate"><span class="pre">odc_flavour_rh</span></code></a></p>
+</dd>
+<dt class="field-even">Routines</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/obsdatacolumn_mod/odc_abort" title="f/obsdatacolumn_mod/odc_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">odc_abort()</span></code></a>, <a class="reference internal" href="#f/obsdatacolumn_mod/odc_activatecolumn" title="f/obsdatacolumn_mod/odc_activatecolumn"><code class="xref f f-func docutils literal notranslate"><span class="pre">odc_activatecolumn()</span></code></a>, <a class="reference internal" href="#f/obsdatacolumn_mod/odc_activeindexfromcolumnindex" title="f/obsdatacolumn_mod/odc_activeindexfromcolumnindex"><code class="xref f f-func docutils literal notranslate"><span class="pre">odc_activeindexfromcolumnindex()</span></code></a>, <a class="reference internal" href="#f/obsdatacolumn_mod/odc_allocate" title="f/obsdatacolumn_mod/odc_allocate"><code class="xref f f-func docutils literal notranslate"><span class="pre">odc_allocate()</span></code></a>, <a class="reference internal" href="#f/obsdatacolumn_mod/odc_class_initialize" title="f/obsdatacolumn_mod/odc_class_initialize"><code class="xref f f-func docutils literal notranslate"><span class="pre">odc_class_initialize()</span></code></a>, <a class="reference internal" href="#f/obsdatacolumn_mod/odc_columnelem" title="f/obsdatacolumn_mod/odc_columnelem"><code class="xref f f-func docutils literal notranslate"><span class="pre">odc_columnelem()</span></code></a>, <a class="reference internal" href="#f/obsdatacolumn_mod/odc_columnindexfromactiveindex" title="f/obsdatacolumn_mod/odc_columnindexfromactiveindex"><code class="xref f f-func docutils literal notranslate"><span class="pre">odc_columnindexfromactiveindex()</span></code></a>, <a class="reference internal" href="#f/obsdatacolumn_mod/odc_columnset" title="f/obsdatacolumn_mod/odc_columnset"><code class="xref f f-func docutils literal notranslate"><span class="pre">odc_columnset()</span></code></a>, <a class="reference internal" href="#f/obsdatacolumn_mod/odc_deallocate" title="f/obsdatacolumn_mod/odc_deallocate"><code class="xref f f-func docutils literal notranslate"><span class="pre">odc_deallocate()</span></code></a>, <a class="reference internal" href="#f/obsdatacolumn_mod/odc_initallcolumnflavours" title="f/obsdatacolumn_mod/odc_initallcolumnflavours"><code class="xref f f-func docutils literal notranslate"><span class="pre">odc_initallcolumnflavours()</span></code></a>, <a class="reference internal" href="#f/obsdatacolumn_mod/odc_initcolumnflavour" title="f/obsdatacolumn_mod/odc_initcolumnflavour"><code class="xref f f-func docutils literal notranslate"><span class="pre">odc_initcolumnflavour()</span></code></a>, <a class="reference internal" href="#f/obsdatacolumn_mod/odc_numactivecolumn" title="f/obsdatacolumn_mod/odc_numactivecolumn"><code class="xref f f-func docutils literal notranslate"><span class="pre">odc_numactivecolumn()</span></code></a></p>
+</dd>
+</dl>
+<p class="rubric">Needed modules</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="codeprecision_mod.html#f/codeprecision_mod" title="f/codeprecision_mod: MODULE codePrecision_mod (prefix='pre' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">codeprecision_mod</span></code></a>: MODULE codePrecision_mod (prefix=’pre’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="obscolumnnames_mod.html#f/obscolumnnames_mod" title="f/obscolumnnames_mod: MODULE obsColumnNames_mod (prefix='ocn' category='7. Low-level data objects and utilities')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">obscolumnnames_mod</span></code></a>: MODULE obsColumnNames_mod (prefix=’ocn’ category=’7. Low-level data objects and utilities’)</p></li>
+</ul>
+<p class="rubric">Types</p>
+<ul>
+<li><dl>
+<dt class="sig sig-object f" id="f/obsdatacolumn_mod/unknown_type">
+<em class="property"><span class="pre">type</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obsdatacolumn_mod/</span></span><span class="sig-name descname"><span class="pre">unknown_type</span></span><a class="headerlink" href="#f/obsdatacolumn_mod/unknown_type" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type fields</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">activeindexfromcolumnindex</span> (*)<em> [</em><em>integer </em><em>,</em><em>pointer</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">activeindexfromcolumnindex_defined</span><em> [</em><em>logical </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">columnactive</span> (*)<em> [</em><em>logical </em><em>,</em><em>pointer</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">columnindexfromactiveindex</span> (*)<em> [</em><em>integer </em><em>,</em><em>pointer</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">columnindexfromactiveindex_defined</span><em> [</em><em>logical </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">columnnamelist</span> (*)<em> [</em><em>character </em><em>,</em><em>pointer</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">datatype</span><em> [</em><em>character </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">headorbody</span><em> [</em><em>character </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">ncol_beg</span><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">ncol_end</span><em> [</em><em>integer </em><em>]</em></p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</li>
+<li><dl>
+<dt class="sig sig-object f">
+<em class="property"><span class="pre">type</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obsdatacolumn_mod/</span></span><span class="sig-name descname"><span class="pre">unknown_type</span></span></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type fields</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">allocated</span><em> [</em><em>logical </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">datatype</span><em> [</em><em>character </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">null</span><em> [</em><em>integer </em><em>,</em><em>pointer</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">value_i</span> (*)<em> [</em><em>integer </em><em>,</em><em>pointer</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">value_r</span> (*)<em> [</em><em>real </em><em>,</em><em>pointer</em><em>]</em></p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</li>
+<li><dl>
+<dt class="sig sig-object f">
+<em class="property"><span class="pre">type</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obsdatacolumn_mod/</span></span><span class="sig-name descname"><span class="pre">unknown_type</span></span></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type fields</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">columns</span> (*)<em> [</em><em>struct_obsdatacolumn </em><em>,</em><em>pointer</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">null</span><em> [</em><em>struct_odc_flavour </em><em>,</em><em>pointer</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">odc_flavour</span><em> [</em><em>struct_odc_flavour </em><em>,</em><em>pointer</em><em>]</em></p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</li>
+</ul>
+<p class="rubric">Variables</p>
+<ul>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obsdatacolumn_mod/odc_enkf_bdy_int_column_list">
+<span class="sig-prename descclassname"><span class="pre">obsdatacolumn_mod/</span></span><span class="sig-name descname"><span class="pre">odc_enkf_bdy_int_column_list</span></span> <span class="pre">(</span><span class="pre">8</span><span class="pre">)</span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">parameter/public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obsdatacolumn_mod/odc_enkf_bdy_int_column_list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obsdatacolumn_mod/odc_enkf_bdy_real_column_list">
+<span class="sig-prename descclassname"><span class="pre">obsdatacolumn_mod/</span></span><span class="sig-name descname"><span class="pre">odc_enkf_bdy_real_column_list</span></span> <span class="pre">(</span><span class="pre">15</span><span class="pre">)</span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">parameter/public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obsdatacolumn_mod/odc_enkf_bdy_real_column_list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obsdatacolumn_mod/odc_flavour_ib">
+<span class="sig-prename descclassname"><span class="pre">obsdatacolumn_mod/</span></span><span class="sig-name descname"><span class="pre">odc_flavour_ib</span></span><em> <span class="pre">[</span></em><em><span class="pre">struct_odc_flavour</span></em><em><span class="pre">,</span></em><em><span class="pre">target/public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obsdatacolumn_mod/odc_flavour_ib" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obsdatacolumn_mod/odc_flavour_ih">
+<span class="sig-prename descclassname"><span class="pre">obsdatacolumn_mod/</span></span><span class="sig-name descname"><span class="pre">odc_flavour_ih</span></span><em> <span class="pre">[</span></em><em><span class="pre">struct_odc_flavour</span></em><em><span class="pre">,</span></em><em><span class="pre">target/public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obsdatacolumn_mod/odc_flavour_ih" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obsdatacolumn_mod/odc_flavour_rb">
+<span class="sig-prename descclassname"><span class="pre">obsdatacolumn_mod/</span></span><span class="sig-name descname"><span class="pre">odc_flavour_rb</span></span><em> <span class="pre">[</span></em><em><span class="pre">struct_odc_flavour</span></em><em><span class="pre">,</span></em><em><span class="pre">target/public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obsdatacolumn_mod/odc_flavour_rb" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obsdatacolumn_mod/odc_flavour_rh">
+<span class="sig-prename descclassname"><span class="pre">obsdatacolumn_mod/</span></span><span class="sig-name descname"><span class="pre">odc_flavour_rh</span></span><em> <span class="pre">[</span></em><em><span class="pre">struct_odc_flavour</span></em><em><span class="pre">,</span></em><em><span class="pre">target/public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obsdatacolumn_mod/odc_flavour_rh" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+</ul>
+<p class="rubric">Subroutines and functions</p>
+<dl>
+<dt class="sig sig-object f" id="f/obsdatacolumn_mod/odc_abort">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obsdatacolumn_mod/</span></span><span class="sig-name descname"><span class="pre">odc_abort</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">cdmessage</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/obsdatacolumn_mod/odc_abort" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Abort a job on error (same as OBS_ABORT)</p>
+</dd>
+<dt class="field-even">Arguments </dt>
+<dd class="field-even"><p></p></dd>
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><p><strong>cdmessage</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em> :: message to be printed</p>
+</dd>
+<dt class="field-even">Note </dt>
+<dd class="field-even"><p>For debugging (i.e. UNIT_TESTING is defined), obs_abort should
+generally be followed by a ‘return’ in the calling routine.</p>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/obsdatacolumn_mod/odc_activeindexfromcolumnindex" title="f/obsdatacolumn_mod/odc_activeindexfromcolumnindex"><code class="xref f f-func docutils literal notranslate"><span class="pre">odc_activeindexfromcolumnindex()</span></code></a>, <a class="reference internal" href="#f/obsdatacolumn_mod/odc_allocate" title="f/obsdatacolumn_mod/odc_allocate"><code class="xref f f-func docutils literal notranslate"><span class="pre">odc_allocate()</span></code></a>, <a class="reference internal" href="#f/obsdatacolumn_mod/odc_columnelem" title="f/obsdatacolumn_mod/odc_columnelem"><code class="xref f f-func docutils literal notranslate"><span class="pre">odc_columnelem()</span></code></a>, <a class="reference internal" href="#f/obsdatacolumn_mod/odc_columnset" title="f/obsdatacolumn_mod/odc_columnset"><code class="xref f f-func docutils literal notranslate"><span class="pre">odc_columnset()</span></code></a>, <a class="reference internal" href="#f/obsdatacolumn_mod/odc_deallocate" title="f/obsdatacolumn_mod/odc_deallocate"><code class="xref f f-func docutils literal notranslate"><span class="pre">odc_deallocate()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/obsdatacolumn_mod/odc_activeindexfromcolumnindex">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obsdatacolumn_mod/</span></span><span class="sig-name descname"><span class="pre">odc_activeindexfromcolumnindex</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">odc_flavour</span></em>, <em class="sig-param"><span class="pre">column_index_in</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">recompute</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/obsdatacolumn_mod/odc_activeindexfromcolumnindex" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>The list of active columns is only a subset of all possible
+columns.  Return the index into the list of active columns, given
+the index into the list of all columns.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>odc_flavour</strong><em> [</em><em>struct_odc_flavour </em><em>,</em><em>inout</em><em>]</em></p></li>
+<li><p><strong>column_index_in</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Options</dt>
+<dd class="field-odd"><p><strong>recompute</strong><em> [</em><em>logical </em><em>,</em><em>in,</em><em>]</em></p>
+</dd>
+<dt class="field-even">Return</dt>
+<dd class="field-even"><p><strong>active_index_out</strong><em> [</em><em>integer </em><em>]</em></p>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/obsdatacolumn_mod/odc_activatecolumn" title="f/obsdatacolumn_mod/odc_activatecolumn"><code class="xref f f-func docutils literal notranslate"><span class="pre">odc_activatecolumn()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_reducetompilocal" title="f/obsspacedata_mod/obs_reducetompilocal"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_reducetompilocal()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_squeeze" title="f/obsspacedata_mod/obs_squeeze"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_squeeze()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_mpiredistribute" title="f/obsspacedata_mod/obs_mpiredistribute"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_mpiredistribute()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/obsdatacolumn_mod/odc_abort" title="f/obsdatacolumn_mod/odc_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">odc_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/obsdatacolumn_mod/odc_allocate">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obsdatacolumn_mod/</span></span><span class="sig-name descname"><span class="pre">odc_allocate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">odc</span></em>, <em class="sig-param"><span class="pre">numrows</span></em>, <em class="sig-param"><span class="pre">name</span></em>, <em class="sig-param"><span class="pre">datatype</span></em>, <em class="sig-param"><span class="pre">scratchreal</span></em>, <em class="sig-param"><span class="pre">scratchint</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/obsdatacolumn_mod/odc_allocate" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Allocate a single column of obs data according to
+specifications in input arguments</p>
+</dd>
+<dt class="field-even">Arguments </dt>
+<dd class="field-even"><p></p></dd>
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>odc</strong><em> [</em><em>struct_obsdatacolumn </em><em>,</em><em>inout</em><em>]</em> :: instance of the obsDataColumn type
+:numRows:    number of column rows to allocate</p></li>
+<li><p><strong>name</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em> :: character string name of column
+:dataType:   character string type of column data: REAL or INT
+:headOrBody: character string indicating HEAD or BODY</p></li>
+<li><p><strong>numrows</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>datatype</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>scratchreal</strong> (*)<em> [</em><em>real </em><em>,</em><em>in,pointer</em><em>]</em></p></li>
+<li><p><strong>scratchint</strong> (*)<em> [</em><em>integer </em><em>,</em><em>in,pointer</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_allocate" title="f/obsspacedata_mod/obs_allocate"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_allocate()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/obsdatacolumn_mod/odc_abort" title="f/obsdatacolumn_mod/odc_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">odc_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/obsdatacolumn_mod/odc_activatecolumn">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obsdatacolumn_mod/</span></span><span class="sig-name descname"><span class="pre">odc_activatecolumn</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">odc_flavour</span></em>, <em class="sig-param"><span class="pre">column_index</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/obsdatacolumn_mod/odc_activatecolumn" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Set the ‘active’ flag for the indicated column.  This enables memory
+allocation for this column without actually allocating the memory.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>odc_flavour</strong><em> [</em><em>struct_odc_flavour </em><em>,</em><em>inout</em><em>]</em></p></li>
+<li><p><strong>column_index</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/obsdatacolumn_mod/odc_class_initialize" title="f/obsdatacolumn_mod/odc_class_initialize"><code class="xref f f-func docutils literal notranslate"><span class="pre">odc_class_initialize()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/obsdatacolumn_mod/odc_activeindexfromcolumnindex" title="f/obsdatacolumn_mod/odc_activeindexfromcolumnindex"><code class="xref f f-func docutils literal notranslate"><span class="pre">odc_activeindexfromcolumnindex()</span></code></a>, <a class="reference internal" href="#f/obsdatacolumn_mod/odc_columnindexfromactiveindex" title="f/obsdatacolumn_mod/odc_columnindexfromactiveindex"><code class="xref f f-func docutils literal notranslate"><span class="pre">odc_columnindexfromactiveindex()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/obsdatacolumn_mod/odc_initcolumnflavour">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obsdatacolumn_mod/</span></span><span class="sig-name descname"><span class="pre">odc_initcolumnflavour</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">odc_flavour</span></em>, <em class="sig-param"><span class="pre">datatype_in</span></em>, <em class="sig-param"><span class="pre">headorbody_in</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/obsdatacolumn_mod/odc_initcolumnflavour" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Set pointers according to the four column flavours (header /
+body, integer / real).</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>odc_flavour</strong><em> [</em><em>struct_odc_flavour </em><em>,</em><em>inout</em><em>]</em></p></li>
+<li><p><strong>datatype_in</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em> :: REAL or INT</p></li>
+<li><p><strong>headorbody_in</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em> :: HEAD or BODY</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/obsdatacolumn_mod/odc_initallcolumnflavours" title="f/obsdatacolumn_mod/odc_initallcolumnflavours"><code class="xref f f-func docutils literal notranslate"><span class="pre">odc_initallcolumnflavours()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/obsdatacolumn_mod/odc_initallcolumnflavours">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obsdatacolumn_mod/</span></span><span class="sig-name descname"><span class="pre">odc_initallcolumnflavours</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#f/obsdatacolumn_mod/odc_initallcolumnflavours" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Initialize the 4 flavours of odc</p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/obsdatacolumn_mod/odc_class_initialize" title="f/obsdatacolumn_mod/odc_class_initialize"><code class="xref f f-func docutils literal notranslate"><span class="pre">odc_class_initialize()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_iscolumnnamevalid" title="f/obsspacedata_mod/obs_iscolumnnamevalid"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_iscolumnnamevalid()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/obsdatacolumn_mod/odc_initcolumnflavour" title="f/obsdatacolumn_mod/odc_initcolumnflavour"><code class="xref f f-func docutils literal notranslate"><span class="pre">odc_initcolumnflavour()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/obsdatacolumn_mod/odc_class_initialize">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obsdatacolumn_mod/</span></span><span class="sig-name descname"><span class="pre">odc_class_initialize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">obscolumnmode</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/obsdatacolumn_mod/odc_class_initialize" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Set variables that use the same values for all instances of the class.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>obscolumnmode</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em></p>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_class_initialize" title="f/obsspacedata_mod/obs_class_initialize"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_class_initialize()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/obsdatacolumn_mod/odc_initallcolumnflavours" title="f/obsdatacolumn_mod/odc_initallcolumnflavours"><code class="xref f f-func docutils literal notranslate"><span class="pre">odc_initallcolumnflavours()</span></code></a>, <a class="reference internal" href="#f/obsdatacolumn_mod/odc_activatecolumn" title="f/obsdatacolumn_mod/odc_activatecolumn"><code class="xref f f-func docutils literal notranslate"><span class="pre">odc_activatecolumn()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/obsdatacolumn_mod/odc_columnelem">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obsdatacolumn_mod/</span></span><span class="sig-name descname"><span class="pre">odc_columnelem</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">odc_array</span></em>, <em class="sig-param"><span class="pre">column_index</span></em>, <em class="sig-param"><span class="pre">row_index</span></em>, <em class="sig-param"><span class="pre">value_i</span></em>, <em class="sig-param"><span class="pre">value_r</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/obsdatacolumn_mod/odc_columnelem" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Returns the value of the row_index’th element in the column array
+with the indicated column_index.</p>
+<p>The column array can be of any one of the four possible column-array
+flavours.  The flavour is selected by one of four wrappers to this
+method.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>odc_array</strong><em> [</em><em>struct_obsdatacolumn_array </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>column_index</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>row_index</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>value_i</strong><em> [</em><em>integer </em><em>,</em><em>out</em><em>]</em></p></li>
+<li><p><strong>value_r</strong><em> [</em><em>real </em><em>,</em><em>out</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyelem_i" title="f/obsspacedata_mod/obs_bodyelem_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyelem_i()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyelem_r" title="f/obsspacedata_mod/obs_bodyelem_r"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyelem_r()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_headelem_i" title="f/obsspacedata_mod/obs_headelem_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_headelem_i()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_headelem_r" title="f/obsspacedata_mod/obs_headelem_r"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_headelem_r()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/obsdatacolumn_mod/odc_abort" title="f/obsdatacolumn_mod/odc_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">odc_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/obsdatacolumn_mod/odc_columnindexfromactiveindex">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obsdatacolumn_mod/</span></span><span class="sig-name descname"><span class="pre">odc_columnindexfromactiveindex</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">odc_flavour</span></em>, <em class="sig-param"><span class="pre">active_index_in</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">recompute</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/obsdatacolumn_mod/odc_columnindexfromactiveindex" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>The list of active columns is only a subset of all possible
+columns.  Return the index into the list of all columns, given
+the index into the list of active columns, and given the column
+flavour.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>odc_flavour</strong><em> [</em><em>struct_odc_flavour </em><em>,</em><em>inout</em><em>]</em></p></li>
+<li><p><strong>active_index_in</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Options</dt>
+<dd class="field-odd"><p><strong>recompute</strong><em> [</em><em>logical </em><em>,</em><em>in,</em><em>]</em></p>
+</dd>
+<dt class="field-even">Return</dt>
+<dd class="field-even"><p><strong>column_index_out</strong><em> [</em><em>integer </em><em>]</em></p>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/obsdatacolumn_mod/odc_activatecolumn" title="f/obsdatacolumn_mod/odc_activatecolumn"><code class="xref f f-func docutils literal notranslate"><span class="pre">odc_activatecolumn()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_clean" title="f/obsspacedata_mod/obs_clean"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_clean()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_clean2" title="f/obsspacedata_mod/obs_clean2"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_clean2()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_expandtompiglobal" title="f/obsspacedata_mod/obs_expandtompiglobal"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_expandtompiglobal()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_reducetompilocal" title="f/obsspacedata_mod/obs_reducetompilocal"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_reducetompilocal()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_squeeze" title="f/obsspacedata_mod/obs_squeeze"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_squeeze()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_mpiredistribute" title="f/obsspacedata_mod/obs_mpiredistribute"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_mpiredistribute()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_write_hdr" title="f/obsspacedata_mod/obs_write_hdr"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_write_hdr()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/obsdatacolumn_mod/odc_columnset">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obsdatacolumn_mod/</span></span><span class="sig-name descname"><span class="pre">odc_columnset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">odc_array</span></em>, <em class="sig-param"><span class="pre">column_index</span></em>, <em class="sig-param"><span class="pre">row_index</span></em>, <em class="sig-param"><span class="pre">value_i</span></em>, <em class="sig-param"><span class="pre">value_r</span></em>, <em class="sig-param"><span class="pre">numelements</span></em>, <em class="sig-param"><span class="pre">numelements_max</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/obsdatacolumn_mod/odc_columnset" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Sets the value of the row_index’th element in the column array with
+the indicated column_index.</p>
+<p>The column array can be of any one of the four possible column-array
+flavours.  The flavour is selected by one of four wrappers to this
+method.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>odc_array</strong><em> [</em><em>struct_obsdatacolumn_array </em><em>,</em><em>inout</em><em>]</em></p></li>
+<li><p><strong>column_index</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>row_index</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>value_i</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>value_r</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>numelements</strong><em> [</em><em>integer </em><em>,</em><em>inout</em><em>]</em></p></li>
+<li><p><strong>numelements_max</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyset_i" title="f/obsspacedata_mod/obs_bodyset_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyset_i()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyset_r4" title="f/obsspacedata_mod/obs_bodyset_r4"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyset_r4()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyset_r8" title="f/obsspacedata_mod/obs_bodyset_r8"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyset_r8()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_headset_i" title="f/obsspacedata_mod/obs_headset_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_headset_i()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_headset_r4" title="f/obsspacedata_mod/obs_headset_r4"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_headset_r4()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_headset_r8" title="f/obsspacedata_mod/obs_headset_r8"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_headset_r8()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/obsdatacolumn_mod/odc_abort" title="f/obsdatacolumn_mod/odc_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">odc_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/obsdatacolumn_mod/odc_deallocate">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obsdatacolumn_mod/</span></span><span class="sig-name descname"><span class="pre">odc_deallocate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">odc</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/obsdatacolumn_mod/odc_deallocate" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Deallocate a single column of obs data</p>
+</dd>
+<dt class="field-even">Arguments </dt>
+<dd class="field-even"><p></p></dd>
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><p><strong>odc</strong><em> [</em><em>struct_obsdatacolumn </em><em>,</em><em>inout</em><em>]</em> :: instance of the obsDataColumn type</p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_deallocate" title="f/obsspacedata_mod/obs_deallocate"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_deallocate()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/obsdatacolumn_mod/odc_abort" title="f/obsdatacolumn_mod/odc_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">odc_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/obsdatacolumn_mod/odc_numactivecolumn">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obsdatacolumn_mod/</span></span><span class="sig-name descname"><span class="pre">odc_numactivecolumn</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">odc_array</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/obsdatacolumn_mod/odc_numactivecolumn" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Return the number of active columns that are contained in the given
+column array.</p>
+<p>The column array can be of any one of the four possible column-array
+flavours.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>odc_array</strong><em> [</em><em>struct_obsdatacolumn_array </em><em>,</em><em>in</em><em>]</em></p>
+</dd>
+<dt class="field-odd">Return</dt>
+<dd class="field-odd"><p><strong>numactivecolumn</strong><em> [</em><em>integer </em><em>]</em></p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_clean" title="f/obsspacedata_mod/obs_clean"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_clean()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_clean2" title="f/obsspacedata_mod/obs_clean2"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_clean2()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_expandtompiglobal" title="f/obsspacedata_mod/obs_expandtompiglobal"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_expandtompiglobal()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_reducetompilocal" title="f/obsspacedata_mod/obs_reducetompilocal"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_reducetompilocal()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_squeeze" title="f/obsspacedata_mod/obs_squeeze"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_squeeze()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_mpiredistribute" title="f/obsspacedata_mod/obs_mpiredistribute"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_mpiredistribute()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_write_hdr" title="f/obsspacedata_mod/obs_write_hdr"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_write_hdr()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div></blockquote>
+</section>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="obsfamilylist_mod.html" title="obsfamilylist_mod"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="obscolumnnames_mod.html" title="obscolumnnames_mod"
+             >previous</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2018, ECCC.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.
+    </div>
+  </body>
+</html>

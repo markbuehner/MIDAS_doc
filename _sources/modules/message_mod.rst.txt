@@ -1,0 +1,22 @@
+==========================================
+message_mod
+==========================================
+
+    :doc:`link to source code <message_mod_src>`
+
+
+    **Dependency Diagrams:**
+
+    .. figure:: /message_mod.svg
+        :height: 100px
+
+        Direct Dependency Diagram
+
+    .. figure:: /message_mod_rev.svg
+        :height: 100px
+
+        Reverse Dependency Diagram
+
+
+    .. f:automodule:: message_mod
+

@@ -1,0 +1,22 @@
+==========================================
+analysisgrid_mod
+==========================================
+
+    :doc:`link to source code <analysisgrid_mod_src>`
+
+
+    **Dependency Diagrams:**
+
+    .. figure:: /analysisgrid_mod.svg
+        :height: 100px
+
+        Direct Dependency Diagram
+
+    .. figure:: /analysisgrid_mod_rev.svg
+        :height: 100px
+
+        Reverse Dependency Diagram
+
+
+    .. f:automodule:: analysisgrid_mod
+

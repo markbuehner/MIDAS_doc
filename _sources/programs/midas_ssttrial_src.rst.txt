@@ -1,0 +1,8 @@
+==========================================
+midas_ssttrial source
+==========================================
+
+    .. literalinclude:: ../_src_files/SSTtrial.f90
+       :language: fortran
+       :linenos:
+

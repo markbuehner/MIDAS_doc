@@ -1,0 +1,350 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>sstbias_mod &mdash; MIDAS  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="MIDAS  documentation" href="../index.html" />
+    <link rel="next" title="thinning_mod" href="thinning_mod.html" />
+    <link rel="prev" title="residual_mod" href="residual_mod.html" /> 
+  </head>
+  <body>
+  <div>
+    <img src="../_static/MIDAS_header.png" alt="MIDAS" />
+  </div>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="thinning_mod.html" title="thinning_mod"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="residual_mod.html" title="residual_mod"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="residual_mod.html"
+                          title="previous chapter">residual_mod</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="thinning_mod.html"
+                          title="next chapter">thinning_mod</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/modules/sstbias_mod.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <section id="sstbias-mod">
+<h1>sstbias_mod<a class="headerlink" href="#sstbias-mod" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><p><a class="reference internal" href="sstbias_mod_src.html"><span class="doc">link to source code</span></a></p>
+<p><strong>Dependency Diagrams:</strong></p>
+<figure class="align-default" id="id1">
+<a class="reference internal image-reference" href="sstbias_mod.svg"><img alt="sstbias_mod.svg" height="100px" src="sstbias_mod.svg" /></a>
+<figcaption>
+<p><span class="caption-text">Direct Dependency Diagram</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id2">
+<a class="reference internal image-reference" href="sstbias_mod_rev.svg"><img alt="sstbias_mod_rev.svg" height="100px" src="sstbias_mod_rev.svg" /></a>
+<figcaption>
+<p><span class="caption-text">Reverse Dependency Diagram</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<span class="target" id="f/sstbias_mod"></span><p class="rubric">Quick access</p>
+<dl class="field-list simple">
+<dt class="field-odd">Routines</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/sstbias_mod/readnml" title="f/sstbias_mod/readnml"><code class="xref f f-func docutils literal notranslate"><span class="pre">readnml()</span></code></a>, <a class="reference internal" href="#f/sstbias_mod/sstb_applysatellitesstbiascorrection" title="f/sstbias_mod/sstb_applysatellitesstbiascorrection"><code class="xref f f-func docutils literal notranslate"><span class="pre">sstb_applysatellitesstbiascorrection()</span></code></a>, <a class="reference internal" href="#f/sstbias_mod/sstb_computebias" title="f/sstbias_mod/sstb_computebias"><code class="xref f f-func docutils literal notranslate"><span class="pre">sstb_computebias()</span></code></a>, <a class="reference internal" href="#f/sstbias_mod/sstb_getbiascorrection" title="f/sstbias_mod/sstb_getbiascorrection"><code class="xref f f-func docutils literal notranslate"><span class="pre">sstb_getbiascorrection()</span></code></a>, <a class="reference internal" href="#f/sstbias_mod/sstb_getbiasfrompreviousstate" title="f/sstbias_mod/sstb_getbiasfrompreviousstate"><code class="xref f f-func docutils literal notranslate"><span class="pre">sstb_getbiasfrompreviousstate()</span></code></a>, <a class="reference internal" href="#f/sstbias_mod/sstb_getgriddedbias" title="f/sstbias_mod/sstb_getgriddedbias"><code class="xref f f-func docutils literal notranslate"><span class="pre">sstb_getgriddedbias()</span></code></a>, <a class="reference internal" href="#f/sstbias_mod/sstb_getgriddedobs" title="f/sstbias_mod/sstb_getgriddedobs"><code class="xref f f-func docutils literal notranslate"><span class="pre">sstb_getgriddedobs()</span></code></a></p>
+</dd>
+</dl>
+<p class="rubric">Needed modules</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod" title="f/obsspacedata_mod: MODULE obsSpaceData_mod (prefix='obs' category='6. High-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">obsspacedata_mod</span></code></a>: MODULE obsSpaceData_mod (prefix=’obs’ category=’6. High-level data objects’)</p></li>
+<li><p><a class="reference internal" href="horizontalcoord_mod.html#f/horizontalcoord_mod" title="f/horizontalcoord_mod: MODULE HorizontalCoord_mod (prefix='hco' category='7. Low-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">horizontalcoord_mod</span></code></a>: MODULE HorizontalCoord_mod (prefix=’hco’ category=’7. Low-level data objects’)</p></li>
+<li><p><a class="reference internal" href="verticalcoord_mod.html#f/verticalcoord_mod" title="f/verticalcoord_mod: MODULE verticalcoord (prefix='vco' category='7. Low-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">verticalcoord_mod</span></code></a>: MODULE verticalcoord (prefix=’vco’ category=’7. Low-level data objects’)</p></li>
+<li><p><a class="reference internal" href="timecoord_mod.html#f/timecoord_mod" title="f/timecoord_mod: MODULE timeCoord (prefix='tim' category='7. Low-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">timecoord_mod</span></code></a>: MODULE timeCoord (prefix=’tim’ category=’7. Low-level data objects’)</p></li>
+<li><p><a class="reference internal" href="kdtree2_mod.html#f/kdtree2_mod" title="f/kdtree2_mod: MODULE kdtree2_mod (prefix='kdtree2' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">kdtree2_mod</span></code></a>: MODULE kdtree2_mod (prefix=’kdtree2’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="codeprecision_mod.html#f/codeprecision_mod" title="f/codeprecision_mod: MODULE codePrecision_mod (prefix='pre' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">codeprecision_mod</span></code></a>: MODULE codePrecision_mod (prefix=’pre’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="mathphysconstants_mod.html#f/mathphysconstants_mod" title="f/mathphysconstants_mod: MODULE MathPhysConstants_mod (prefix='mpc' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">mathphysconstants_mod</span></code></a>: MODULE MathPhysConstants_mod (prefix=’mpc’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod" title="f/utilities_mod: MODULE utilities_mod (prefix='utl' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">utilities_mod</span></code></a>: MODULE utilities_mod (prefix=’utl’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="midasmpi_mod.html#f/midasmpi_mod" title="f/midasmpi_mod: MODULE midasMpi_mod (prefix='mmpi' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">midasmpi_mod</span></code></a>: MODULE midasMpi_mod (prefix=’mmpi’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="codtyp_mod.html#f/codtyp_mod" title="f/codtyp_mod: MODULE codtyp_mod (prefix='codtyp' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">codtyp_mod</span></code></a>: MODULE codtyp_mod (prefix=’codtyp’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod" title="f/gridstatevector_mod: MODULE gridStateVector_mod (prefix='gsv' category='6. High-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">gridstatevector_mod</span></code></a>: MODULE gridStateVector_mod (prefix=’gsv’ category=’6. High-level data objects’)</p></li>
+<li><p><a class="reference internal" href="gridstatevectorfileio_mod.html#f/gridstatevectorfileio_mod" title="f/gridstatevectorfileio_mod: MODULE gridStateVectorFile_mod (prefix='gio' category='4. Data Object transformations')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">gridstatevectorfileio_mod</span></code></a>: MODULE gridStateVectorFile_mod (prefix=’gio’ category=’4. Data Object transformations’)</p></li>
+<li><p><a class="reference internal" href="oceanmask_mod.html#f/oceanmask_mod" title="f/oceanmask_mod: MODULE oceanMask_mod (prefix='ocm' category='7. Low-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">oceanmask_mod</span></code></a>: MODULE oceanMask_mod (prefix=’ocm’ category=’7. Low-level data objects’)</p></li>
+<li><p><a class="reference internal" href="localizationfunction_mod.html#f/localizationfunction_mod" title="f/localizationfunction_mod: MODULE localizationFunction_mod (prefix='lfn' category='2. B and R matrices')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">localizationfunction_mod</span></code></a>: MODULE localizationFunction_mod (prefix=’lfn’ category=’2. B and R matrices’)</p></li>
+<li><p><a class="reference internal" href="columndata_mod.html#f/columndata_mod" title="f/columndata_mod: MODULE columnData_mod (prefix='col' category='6. High-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">columndata_mod</span></code></a>: MODULE columnData_mod (prefix=’col’ category=’6. High-level data objects’)</p></li>
+<li><p><a class="reference internal" href="statetocolumn_mod.html#f/statetocolumn_mod" title="f/statetocolumn_mod: MODULE stateToColumn (prefix='s2c' category='4. Data Object transformations')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">statetocolumn_mod</span></code></a>: MODULE stateToColumn (prefix=’s2c’ category=’4. Data Object transformations’)</p></li>
+</ul>
+<p class="rubric">Variables</p>
+<p class="rubric">Subroutines and functions</p>
+<dl>
+<dt class="sig sig-object f" id="f/sstbias_mod/sstb_computebias">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">sstbias_mod/</span></span><span class="sig-name descname"><span class="pre">sstb_computebias</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">obsdata</span></em>, <em class="sig-param"><span class="pre">hco</span></em>, <em class="sig-param"><span class="pre">vco</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/sstbias_mod/sstb_computebias" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>compute bias for SST satellite data with respect to insitu data</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>obsdata</strong><em> [</em><em>struct_obs </em><em>,</em><em>inout</em><em>]</em> :: obsSpaceData</p></li>
+<li><p><strong>hco</strong><em> [</em><em>struct_hco </em><em>,</em><em>inout,pointer</em><em>]</em> :: horizontal grid structure</p></li>
+<li><p><strong>vco</strong><em> [</em><em>struct_vco </em><em>,</em><em>in,pointer</em><em>]</em> :: vertical grid structure</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../programs/midas_sstbias.html#f/midas_sstbias" title="f/midas_sstbias"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_sstbias</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/sstbias_mod/readnml" title="f/sstbias_mod/readnml"><code class="xref f f-func docutils literal notranslate"><span class="pre">readnml()</span></code></a>, <a class="reference internal" href="midasmpi_mod.html#f/midasmpi_mod/mmpi_setup_lonbands" title="f/midasmpi_mod/mmpi_setup_lonbands"><code class="xref f f-func docutils literal notranslate"><span class="pre">mmpi_setup_lonbands()</span></code></a>, <a class="reference internal" href="midasmpi_mod.html#f/midasmpi_mod/mmpi_setup_latbands" title="f/midasmpi_mod/mmpi_setup_latbands"><code class="xref f f-func docutils literal notranslate"><span class="pre">mmpi_setup_latbands()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_allocate" title="f/gridstatevector_mod/gsv_allocate"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_allocate()</span></code></a>, <a class="reference internal" href="gridstatevectorfileio_mod.html#f/gridstatevectorfileio_mod/gio_readfromfile" title="f/gridstatevectorfileio_mod/gio_readfromfile"><code class="xref f f-func docutils literal notranslate"><span class="pre">gio_readfromfile()</span></code></a>, <a class="reference internal" href="oceanmask_mod.html#f/oceanmask_mod/ocm_readmaskfromfile" title="f/oceanmask_mod/ocm_readmaskfromfile"><code class="xref f f-func docutils literal notranslate"><span class="pre">ocm_readmaskfromfile()</span></code></a>, <a class="reference internal" href="oceanmask_mod.html#f/oceanmask_mod/ocm_deallocate" title="f/oceanmask_mod/ocm_deallocate"><code class="xref f f-func docutils literal notranslate"><span class="pre">ocm_deallocate()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_deallocate" title="f/gridstatevector_mod/gsv_deallocate"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_deallocate()</span></code></a>, <a class="reference internal" href="#f/sstbias_mod/sstb_getgriddedobs" title="f/sstbias_mod/sstb_getgriddedobs"><code class="xref f f-func docutils literal notranslate"><span class="pre">sstb_getgriddedobs()</span></code></a>, <a class="reference internal" href="#f/sstbias_mod/sstb_getgriddedbias" title="f/sstbias_mod/sstb_getgriddedbias"><code class="xref f f-func docutils literal notranslate"><span class="pre">sstb_getgriddedbias()</span></code></a>, <a class="reference internal" href="#f/sstbias_mod/sstb_getbiasfrompreviousstate" title="f/sstbias_mod/sstb_getbiasfrompreviousstate"><code class="xref f f-func docutils literal notranslate"><span class="pre">sstb_getbiasfrompreviousstate()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/sstbias_mod/sstb_getgriddedobs">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">sstbias_mod/</span></span><span class="sig-name descname"><span class="pre">sstb_getgriddedobs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">obsdata</span></em>, <em class="sig-param"><span class="pre">obsgrid</span></em>, <em class="sig-param"><span class="pre">countobsglob</span></em>, <em class="sig-param"><span class="pre">countobsloc</span></em>, <em class="sig-param"><span class="pre">hco</span></em>, <em class="sig-param"><span class="pre">openwater</span></em>, <em class="sig-param"><span class="pre">instrument</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">dayornight_opt</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/sstbias_mod/sstb_getgriddedobs" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>put observations of a given family on the grid</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>obsdata</strong><em> [</em><em>struct_obs </em><em>,</em><em>inout</em><em>]</em> :: obsSpaceData</p></li>
+<li><p><strong>obsgrid</strong> (*,*)<em> [</em><em>real </em><em>,</em><em>inout</em><em>]</em> :: observations on the grid</p></li>
+<li><p><strong>countobsglob</strong><em> [</em><em>integer </em><em>,</em><em>out</em><em>]</em> :: global number of data found (all procs)</p></li>
+<li><p><strong>countobsloc</strong><em> [</em><em>integer </em><em>,</em><em>out</em><em>]</em> :: number of data found (current MPI proc)</p></li>
+<li><p><strong>hco</strong><em> [</em><em>struct_hco </em><em>,</em><em>in,pointer</em><em>]</em> :: horizontal grid structure</p></li>
+<li><p><strong>openwater</strong> (*,*)<em> [</em><em>logical </em><em>,</em><em>in</em><em>]</em> :: open water points (.true.)</p></li>
+<li><p><strong>instrument</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em> :: name of instrument</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Options</dt>
+<dd class="field-odd"><p><strong>dayornight_opt</strong><em> [</em><em>character </em><em>,</em><em>in,</em><em>]</em> :: look for daytime or nighttime obs</p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/sstbias_mod/sstb_computebias" title="f/sstbias_mod/sstb_computebias"><code class="xref f f-func docutils literal notranslate"><span class="pre">sstb_computebias()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_numheader" title="f/obsspacedata_mod/obs_numheader"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_numheader()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_headelem_i" title="f/obsspacedata_mod/obs_headelem_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_headelem_i()</span></code></a>, <a class="reference internal" href="codtyp_mod.html#f/codtyp_mod/codtyp_get_codtyp" title="f/codtyp_mod/codtyp_get_codtyp"><code class="xref f f-func docutils literal notranslate"><span class="pre">codtyp_get_codtyp()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_elem_c" title="f/obsspacedata_mod/obs_elem_c"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_elem_c()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_headelem_r" title="f/obsspacedata_mod/obs_headelem_r"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_headelem_r()</span></code></a>, <a class="reference internal" href="kdtree2_mod.html#f/kdtree2_mod/kdtree2_3dposition" title="f/kdtree2_mod/kdtree2_3dposition"><code class="xref f f-func docutils literal notranslate"><span class="pre">kdtree2_3dposition()</span></code></a>, <a class="reference internal" href="kdtree2_mod.html#f/kdtree2_mod/kdtree2_create" title="f/kdtree2_mod/kdtree2_create"><code class="xref f f-func docutils literal notranslate"><span class="pre">kdtree2_create()</span></code></a>, <a class="reference internal" href="kdtree2_mod.html#f/kdtree2_mod/kdtree2_r_nearest" title="f/kdtree2_mod/kdtree2_r_nearest"><code class="xref f f-func docutils literal notranslate"><span class="pre">kdtree2_r_nearest()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyelem_r" title="f/obsspacedata_mod/obs_bodyelem_r"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyelem_r()</span></code></a>, <a class="reference internal" href="midasmpi_mod.html#f/midasmpi_mod/mmpi_allreduce_sumreal8scalar" title="f/midasmpi_mod/mmpi_allreduce_sumreal8scalar"><code class="xref f f-func docutils literal notranslate"><span class="pre">mmpi_allreduce_sumreal8scalar()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/sstbias_mod/sstb_getgriddedbias">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">sstbias_mod/</span></span><span class="sig-name descname"><span class="pre">sstb_getgriddedbias</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">satellitegrid</span></em>, <em class="sig-param"><span class="pre">insitugrid</span></em>, <em class="sig-param"><span class="pre">nobsglob</span></em>, <em class="sig-param"><span class="pre">nobsloc</span></em>, <em class="sig-param"><span class="pre">hco</span></em>, <em class="sig-param"><span class="pre">vco</span></em>, <em class="sig-param"><span class="pre">mask</span></em>, <em class="sig-param"><span class="pre">openwater</span></em>, <em class="sig-param"><span class="pre">sensor</span></em>, <em class="sig-param"><span class="pre">numberopenwaterpoints</span></em>, <em class="sig-param"><span class="pre">dayornight</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/sstbias_mod/sstb_getgriddedbias" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>compute the satellite SST data bias estimation field on a grid</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>satellitegrid</strong> (*,*)<em> [</em><em>real </em><em>,</em><em>inout</em><em>]</em> :: gridded satellite data</p></li>
+<li><p><strong>insitugrid</strong> (*,*)<em> [</em><em>real </em><em>,</em><em>inout</em><em>]</em> :: gridded insitu data</p></li>
+<li><p><strong>nobsglob</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em> :: number of data on all procs</p></li>
+<li><p><strong>nobsloc</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em> :: number of data on the current MPI proc</p></li>
+<li><p><strong>hco</strong><em> [</em><em>struct_hco </em><em>,</em><em>in,pointer</em><em>]</em> :: horizontal grid structure</p></li>
+<li><p><strong>vco</strong><em> [</em><em>struct_vco </em><em>,</em><em>in,pointer</em><em>]</em> :: vertical grid structure</p></li>
+<li><p><strong>mask</strong> (*,*)<em> [</em><em>logical </em><em>,</em><em>in</em><em>]</em> :: land-ocean mask</p></li>
+<li><p><strong>openwater</strong> (*,*)<em> [</em><em>logical </em><em>,</em><em>in</em><em>]</em> :: open water points (.true.)</p></li>
+<li><p><strong>sensor</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em> :: current sensor name</p></li>
+<li><p><strong>numberopenwaterpoints</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em> :: number of open water points to allocate kd-tree work arrays</p></li>
+<li><p><strong>dayornight</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em> :: look for daytime or nighttime obs</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/sstbias_mod/sstb_computebias" title="f/sstbias_mod/sstb_computebias"><code class="xref f f-func docutils literal notranslate"><span class="pre">sstb_computebias()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="localizationfunction_mod.html#f/localizationfunction_mod/lfn_setup" title="f/localizationfunction_mod/lfn_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">lfn_setup()</span></code></a>, <a class="reference internal" href="kdtree2_mod.html#f/kdtree2_mod/kdtree2_3dposition" title="f/kdtree2_mod/kdtree2_3dposition"><code class="xref f f-func docutils literal notranslate"><span class="pre">kdtree2_3dposition()</span></code></a>, <a class="reference internal" href="kdtree2_mod.html#f/kdtree2_mod/kdtree2_create" title="f/kdtree2_mod/kdtree2_create"><code class="xref f f-func docutils literal notranslate"><span class="pre">kdtree2_create()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_allocate" title="f/gridstatevector_mod/gsv_allocate"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_allocate()</span></code></a>, <a class="reference internal" href="gridstatevectorfileio_mod.html#f/gridstatevectorfileio_mod/gio_readfromfile" title="f/gridstatevectorfileio_mod/gio_readfromfile"><code class="xref f f-func docutils literal notranslate"><span class="pre">gio_readfromfile()</span></code></a>, <a class="reference internal" href="timecoord_mod.html#f/timecoord_mod/tim_getdatestamp" title="f/timecoord_mod/tim_getdatestamp"><code class="xref f f-func docutils literal notranslate"><span class="pre">tim_getdatestamp()</span></code></a>, <a class="reference internal" href="kdtree2_mod.html#f/kdtree2_mod/kdtree2_r_nearest" title="f/kdtree2_mod/kdtree2_r_nearest"><code class="xref f f-func docutils literal notranslate"><span class="pre">kdtree2_r_nearest()</span></code></a>, <a class="reference internal" href="localizationfunction_mod.html#f/localizationfunction_mod/lfn_response" title="f/localizationfunction_mod/lfn_response"><code class="xref f f-func docutils literal notranslate"><span class="pre">lfn_response()</span></code></a>, <a class="reference internal" href="gridstatevectorfileio_mod.html#f/gridstatevectorfileio_mod/gio_writetofile" title="f/gridstatevectorfileio_mod/gio_writetofile"><code class="xref f f-func docutils literal notranslate"><span class="pre">gio_writetofile()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_deallocate" title="f/gridstatevector_mod/gsv_deallocate"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_deallocate()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/sstbias_mod/sstb_getbiascorrection">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">sstbias_mod/</span></span><span class="sig-name descname"><span class="pre">sstb_getbiascorrection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">statevector</span></em>, <em class="sig-param"><span class="pre">column</span></em>, <em class="sig-param"><span class="pre">obsdata</span></em>, <em class="sig-param"><span class="pre">hco</span></em>, <em class="sig-param"><span class="pre">sensor</span></em>, <em class="sig-param"><span class="pre">dayornight</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/sstbias_mod/sstb_getbiascorrection" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>To compute bias correction and put it into obsSpace data.
+Columns from input field are interpolated to obs location</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>statevector</strong><em> [</em><em>struct_gsv </em><em>,</em><em>inout</em><em>]</em> :: state vector containing bias estimation field</p></li>
+<li><p><strong>column</strong><em> [</em><em>struct_columndata </em><em>,</em><em>in</em><em>]</em> :: column data</p></li>
+<li><p><strong>obsdata</strong><em> [</em><em>struct_obs </em><em>,</em><em>inout</em><em>]</em> :: obsSpaceData</p></li>
+<li><p><strong>hco</strong><em> [</em><em>struct_hco </em><em>,</em><em>in,pointer</em><em>]</em> :: horizontal grid</p></li>
+<li><p><strong>sensor</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em> :: current sensor name</p></li>
+<li><p><strong>dayornight</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em> :: look for daytime or nighttime obs</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/sstbias_mod/sstb_applysatellitesstbiascorrection" title="f/sstbias_mod/sstb_applysatellitesstbiascorrection"><code class="xref f f-func docutils literal notranslate"><span class="pre">sstb_applysatellitesstbiascorrection()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="statetocolumn_mod.html#f/statetocolumn_mod/s2c_nl" title="f/statetocolumn_mod/s2c_nl"><code class="xref f f-func docutils literal notranslate"><span class="pre">s2c_nl()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_numheader" title="f/obsspacedata_mod/obs_numheader"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_numheader()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_elem_c" title="f/obsspacedata_mod/obs_elem_c"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_elem_c()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_headelem_i" title="f/obsspacedata_mod/obs_headelem_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_headelem_i()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyelem_r" title="f/obsspacedata_mod/obs_bodyelem_r"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyelem_r()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_headelem_r" title="f/obsspacedata_mod/obs_headelem_r"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_headelem_r()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_getelem" title="f/columndata_mod/col_getelem"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_getelem()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/sstbias_mod/readnml">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">sstbias_mod/</span></span><span class="sig-name descname"><span class="pre">readnml</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#f/sstbias_mod/readnml" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Read the namelist <cite>namSSTbiasEstimate</cite></p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="gridstatevectorfileio_mod.html#f/gridstatevectorfileio_mod/gio_readfile" title="f/gridstatevectorfileio_mod/gio_readfile"><code class="xref f f-func docutils literal notranslate"><span class="pre">gio_readfile()</span></code></a>, <a class="reference internal" href="gridstatevectorfileio_mod.html#f/gridstatevectorfileio_mod/gio_writetofile" title="f/gridstatevectorfileio_mod/gio_writetofile"><code class="xref f f-func docutils literal notranslate"><span class="pre">gio_writetofile()</span></code></a>, <a class="reference internal" href="obsdbfiles_mod.html#f/obsdbfiles_mod/odbf_setup" title="f/obsdbfiles_mod/odbf_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">odbf_setup()</span></code></a>, <a class="reference internal" href="#f/sstbias_mod/sstb_computebias" title="f/sstbias_mod/sstb_computebias"><code class="xref f f-func docutils literal notranslate"><span class="pre">sstb_computebias()</span></code></a>, <a class="reference internal" href="#f/sstbias_mod/sstb_applysatellitesstbiascorrection" title="f/sstbias_mod/sstb_applysatellitesstbiascorrection"><code class="xref f f-func docutils literal notranslate"><span class="pre">sstb_applysatellitesstbiascorrection()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/sstbias_mod/sstb_applysatellitesstbiascorrection">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">sstbias_mod/</span></span><span class="sig-name descname"><span class="pre">sstb_applysatellitesstbiascorrection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">obsdata</span></em>, <em class="sig-param"><span class="pre">hco</span></em>, <em class="sig-param"><span class="pre">vco</span></em>, <em class="sig-param"><span class="pre">column</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/sstbias_mod/sstb_applysatellitesstbiascorrection" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>To apply bias satellite SST data bias correction and put it into obsSpace data.
+Columns from input field are interpolated to obs location</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>obsdata</strong><em> [</em><em>struct_obs </em><em>,</em><em>inout</em><em>]</em> :: obsSpaceData</p></li>
+<li><p><strong>hco</strong><em> [</em><em>struct_hco </em><em>,</em><em>inout,pointer</em><em>]</em> :: horizontal grid structure</p></li>
+<li><p><strong>vco</strong><em> [</em><em>struct_vco </em><em>,</em><em>in,pointer</em><em>]</em> :: vertical grid structure</p></li>
+<li><p><strong>column</strong><em> [</em><em>struct_columndata </em><em>,</em><em>in</em><em>]</em> :: column data</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../programs/midas_obsselection.html#f/midas_obsselection" title="f/midas_obsselection"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_obsselection</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/sstbias_mod/readnml" title="f/sstbias_mod/readnml"><code class="xref f f-func docutils literal notranslate"><span class="pre">readnml()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_allocate" title="f/gridstatevector_mod/gsv_allocate"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_allocate()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="gridstatevectorfileio_mod.html#f/gridstatevectorfileio_mod/gio_readfromfile" title="f/gridstatevectorfileio_mod/gio_readfromfile"><code class="xref f f-func docutils literal notranslate"><span class="pre">gio_readfromfile()</span></code></a>, <a class="reference internal" href="#f/sstbias_mod/sstb_getbiascorrection" title="f/sstbias_mod/sstb_getbiascorrection"><code class="xref f f-func docutils literal notranslate"><span class="pre">sstb_getbiascorrection()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_deallocate" title="f/gridstatevector_mod/gsv_deallocate"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_deallocate()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/sstbias_mod/sstb_getbiasfrompreviousstate">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">sstbias_mod/</span></span><span class="sig-name descname"><span class="pre">sstb_getbiasfrompreviousstate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">hco</span></em>, <em class="sig-param"><span class="pre">vco</span></em>, <em class="sig-param"><span class="pre">sensor</span></em>, <em class="sig-param"><span class="pre">dayornight</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/sstbias_mod/sstb_getbiasfrompreviousstate" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>to get a satellite SST data bias estimate from the previous state if data is missing.
+or there are no insitu data for the current dateStamp,
+hence, unable to compute bias estimates for the satellite data.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>hco</strong><em> [</em><em>struct_hco </em><em>,</em><em>inout,pointer</em><em>]</em> :: horizontal grid structure</p></li>
+<li><p><strong>vco</strong><em> [</em><em>struct_vco </em><em>,</em><em>in,pointer</em><em>]</em> :: vertical grid structure</p></li>
+<li><p><strong>sensor</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em> :: sensor name</p></li>
+<li><p><strong>dayornight</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em> :: look for daytime or nighttime bias estimation</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/sstbias_mod/sstb_computebias" title="f/sstbias_mod/sstb_computebias"><code class="xref f f-func docutils literal notranslate"><span class="pre">sstb_computebias()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_allocate" title="f/gridstatevector_mod/gsv_allocate"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_allocate()</span></code></a>, <a class="reference internal" href="gridstatevectorfileio_mod.html#f/gridstatevectorfileio_mod/gio_readfromfile" title="f/gridstatevectorfileio_mod/gio_readfromfile"><code class="xref f f-func docutils literal notranslate"><span class="pre">gio_readfromfile()</span></code></a>, <a class="reference internal" href="timecoord_mod.html#f/timecoord_mod/tim_getdatestamp" title="f/timecoord_mod/tim_getdatestamp"><code class="xref f f-func docutils literal notranslate"><span class="pre">tim_getdatestamp()</span></code></a>, <a class="reference internal" href="gridstatevectorfileio_mod.html#f/gridstatevectorfileio_mod/gio_writetofile" title="f/gridstatevectorfileio_mod/gio_writetofile"><code class="xref f f-func docutils literal notranslate"><span class="pre">gio_writetofile()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_deallocate" title="f/gridstatevector_mod/gsv_deallocate"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_deallocate()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div></blockquote>
+</section>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="thinning_mod.html" title="thinning_mod"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="residual_mod.html" title="residual_mod"
+             >previous</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2018, ECCC.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.
+    </div>
+  </body>
+</html>

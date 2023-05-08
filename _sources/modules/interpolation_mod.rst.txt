@@ -1,0 +1,22 @@
+==========================================
+interpolation_mod
+==========================================
+
+    :doc:`link to source code <interpolation_mod_src>`
+
+
+    **Dependency Diagrams:**
+
+    .. figure:: /interpolation_mod.svg
+        :height: 100px
+
+        Direct Dependency Diagram
+
+    .. figure:: /interpolation_mod_rev.svg
+        :height: 100px
+
+        Reverse Dependency Diagram
+
+
+    .. f:automodule:: interpolation_mod
+

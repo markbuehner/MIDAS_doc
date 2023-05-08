@@ -1,0 +1,478 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>midas_obsselection &mdash; MIDAS  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="MIDAS  documentation" href="../index.html" />
+    <link rel="next" title="midas_ominusf" href="midas_ominusf.html" />
+    <link rel="prev" title="midas_obsimpact" href="midas_obsimpact.html" /> 
+  </head>
+  <body>
+  <div>
+    <img src="../_static/MIDAS_header.png" alt="MIDAS" />
+  </div>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="midas_ominusf.html" title="midas_ominusf"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="midas_obsimpact.html" title="midas_obsimpact"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="midas_obsimpact.html"
+                          title="previous chapter">midas_obsimpact</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="midas_ominusf.html"
+                          title="next chapter">midas_ominusf</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/programs/midas_obsselection.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <section id="midas-obsselection">
+<h1>midas_obsselection<a class="headerlink" href="#midas-obsselection" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><p><a class="reference internal" href="midas_obsselection_src.html"><span class="doc">link to source code</span></a></p>
+<p><strong>Dependency Diagrams:</strong></p>
+<figure class="align-default" id="id1">
+<a class="reference internal image-reference" href="midas_obsselection.svg"><img alt="midas_obsselection.svg" height="100px" src="midas_obsselection.svg" /></a>
+<figcaption>
+<p><span class="caption-text">Direct Dependency Diagram</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<dl>
+<dt class="sig sig-object f" id="f/midas_obsselection">
+<em class="property"><span class="pre">program</span>&#160; </em><span class="sig-name descname"><span class="pre">midas_obsselection</span></span><a class="headerlink" href="#f/midas_obsselection" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="field-list">
+<dt class="field-odd">Purpose</dt>
+<dd class="field-odd"><p>Main program for background check, and thinning of all observation types.</p>
+<p>—</p>
+</dd>
+<dt class="field-even">Algorithm</dt>
+<dd class="field-even"><p>For background check of each observation type, several quality control tests
+specific to that observation type are performed on each available observation
+to determine if the observation meets the standard to be assimilated later.
+Observation flags are modified for rejected observations as well as for the
+assimilated observations of inferior quality.The thinning is performed afterwards
+to reduce the number of observation data for assimilation. This is to reduce the
+1) computational cost, and 2) observation error correlation during
+assimilation stage. The background-checked thinned observations are written
+to new files, ready for assimilation.</p>
+<p>–</p>
+<p>The computed bias correction values are applied to the observation before the
+background check step for certain observation types (e.g. radiances). One of quality
+control tests during background check is the <code class="docutils literal notranslate"><span class="pre">rogue</span> <span class="pre">check</span></code> which is the allowed
+distance of the observation from the background state. Innovation vector
+<code class="docutils literal notranslate"><span class="pre">y-H(xb)</span></code> is required to measure this distance. The innovations are
+computed at the beginning of the program before the background check starts.</p>
+<p>–</p>
+</dd>
+</dl>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 41%" />
+<col style="width: 59%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Input and Output Files</p></th>
+<th class="head"><p>Description of file</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">flnml</span></code></p></td>
+<td><p>In - Main namelist file with parameters that user may modify</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">flnml_static</span></code></p></td>
+<td><p>In - The “static” namelist that should not be modified</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">trlm_$NN</span></code> (e.g. <code class="docutils literal notranslate"><span class="pre">trlm_01</span></code>)</p></td>
+<td><p>In - Background state (a.k.a. trial) files for each timestep</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">analysisgrid</span></code></p></td>
+<td><p>In - File defining grid for computing the analysis increment</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">obsfiles_$FAM/obs$FAM_$NNNN_$NNNN</span></code></p></td>
+<td><p>In - Observation file for each “family” and MPI task</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">obserr</span></code></p></td>
+<td><p>In - Observation error statistics</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">obsfiles_$FAM.updated/obs$FAM_$NNNN_$NNNN</span></code></p></td>
+<td><p>Out - Updated obs file for each “family” and MPI task</p></td>
+</tr>
+<tr class="row-odd"><td><p>Remainder are files related to radiance obs:</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">stats_$SENSOR_assim</span></code></p></td>
+<td><p>In - Satellite radiance observation errors of difference sensors</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">stats_tovs</span></code></p></td>
+<td><p>In - Satellite radiance observation errors</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">stats_tovs_symmetricObsErr</span></code></p></td>
+<td><p>In - User-defined symmetric TOVS errors for all sky</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">Cmat_$PLATFORM_$SENSOR.dat</span></code></p></td>
+<td><p>In - Inter-channel observation-error correlations</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">dynbcor.coeffs.$SENSOR.*.coeffs_$SENSOR</span></code></p></td>
+<td><p>In - Dynamic bias correction file</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">ceres_global.std</span></code></p></td>
+<td><p>In - High-res surface type and water fraction for radiance obs</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">rtcoef_$PLATFORM_$SENSOR.dat</span></code></p></td>
+<td><p>In - RTTOV coefficient files</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">rttov_h2o_limits.dat</span></code></p></td>
+<td><p>In - Min/max humidity limits applied to analysis</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">ozoneclim98</span></code></p></td>
+<td><p>In - Ozone climatology</p></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<div><p>–</p>
+</div></blockquote>
+<dl class="field-list">
+<dt class="field-odd">Synopsis</dt>
+<dd class="field-odd"><p>Below is a summary of the <code class="docutils literal notranslate"><span class="pre">obsSelection</span></code> program calling sequence:</p>
+<ul class="simple">
+<li><p><strong>Initial setups:</strong></p>
+<ul>
+<li><p>Read the NAMOBSSELECTION namelist and check/modify some values.</p></li>
+<li><p>Various modules are setup: <code class="docutils literal notranslate"><span class="pre">obsFiles_mod</span></code>, <code class="docutils literal notranslate"><span class="pre">timeCoord_mod</span></code>.</p></li>
+<li><p>Setup horizontal and vertical grid objects for “analysis
+grid” from <code class="docutils literal notranslate"><span class="pre">analysisgrid</span></code> file.</p></li>
+<li><p>Setup <code class="docutils literal notranslate"><span class="pre">obsSpaceData</span></code> object and read observations from
+files: <code class="docutils literal notranslate"><span class="pre">inn_setupObs</span></code>.</p></li>
+<li><p>Compute and update the stored surface type for some satellite
+radiance instruments.</p></li>
+<li><p>Setup <code class="docutils literal notranslate"><span class="pre">columnData</span></code> module (read list of analysis variables
+from namelist) and allocate column object for storing trial
+on analysis levels.</p></li>
+<li><p>Setup the observation error statistics in <code class="docutils literal notranslate"><span class="pre">obsSpaceData</span></code>
+object: <code class="docutils literal notranslate"><span class="pre">oer_setObsErrors</span></code></p></li>
+<li><p>Setup <code class="docutils literal notranslate"><span class="pre">gridStateVector</span></code> module to initialize the gridstatevector
+objects.</p></li>
+<li><p>Applying optional bias corrections to some observation types.</p></li>
+<li><p>Setup horizontal and vertical grid objects for “trial grid” from
+first trial file: <code class="docutils literal notranslate"><span class="pre">trlm_01</span></code>.</p></li>
+<li><p>Allocate a stateVector object on the trial grid and then
+read the trials: <code class="docutils literal notranslate"><span class="pre">gio_readTrials</span></code>.</p></li>
+</ul>
+</li>
+<li><p><strong>Computation</strong></p>
+<ul>
+<li><p>Compute <code class="docutils literal notranslate"><span class="pre">columnTrlOnTrlLev</span></code> and <code class="docutils literal notranslate"><span class="pre">columnTrlOnAnlIncLev</span></code> from
+background state: <code class="docutils literal notranslate"><span class="pre">inn_setupColumnsOnTrlLev</span></code>,
+<code class="docutils literal notranslate"><span class="pre">inn_setupColumnsOnAnlIncLev</span></code>.</p></li>
+<li><p>Compute innovation from background state: <code class="docutils literal notranslate"><span class="pre">inn_computeInnovation</span></code>.</p></li>
+<li><p>Do background check for conventional observation:
+<code class="docutils literal notranslate"><span class="pre">bgck_bgCheck_conv</span></code>.</p></li>
+<li><p>Update radiance bias correction in <code class="docutils literal notranslate"><span class="pre">obsSpaceData</span></code> and apply
+the bias corrections to the observations and innovations for
+radiances: <code class="docutils literal notranslate"><span class="pre">bcs_calcBias</span></code>, <code class="docutils literal notranslate"><span class="pre">bcs_applyBiasCorrection</span></code>.</p></li>
+<li><p>Perform background check for multiple observation types.</p></li>
+<li><p>If thinning was requested:</p>
+<ul>
+<li><p>add some cloud parameters and set missing observation flags in
+observation files (specific for radiances) and</p></li>
+<li><p>perform thinning for different observation types.</p></li>
+</ul>
+</li>
+<li><p>Write the final background-checked bias corrected results (either
+thinned or not thinned) into the observation file.</p></li>
+<li><p>If thinning was requested, remove observations which were flagged
+not to be assimilated from the observation file.</p></li>
+</ul>
+</li>
+</ul>
+<p>–</p>
+</dd>
+<dt class="field-even">Options</dt>
+<dd class="field-even"><p><a class="reference external" href="../namelists_in_each_program.html#obsSelection">List of namelist blocks</a>
+that can affect the <code class="docutils literal notranslate"><span class="pre">obsSelection</span></code> program.</p>
+<ul class="simple">
+<li><p>The use of <code class="docutils literal notranslate"><span class="pre">obsSelection</span></code> program is controlled by the namelist block</p></li>
+</ul>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">&amp;NAMOBSSELECTION</span></code> read by the <code class="docutils literal notranslate"><span class="pre">obsSelection</span></code> program.</p>
+</div></blockquote>
+<ul class="simple">
+<li><p>Some of the other relevant namelist blocks used to configure the
+<code class="docutils literal notranslate"><span class="pre">obsSelection</span></code> are listed in the following table:</p></li>
+</ul>
+</dd>
+</dl>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 29%" />
+<col style="width: 27%" />
+<col style="width: 44%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Module</p></th>
+<th class="head"><p>Namelist</p></th>
+<th class="head"><p>Description of what is controlled</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">midas_obsSelection</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">NAMOBSSELECTION</span></code></p></td>
+<td><p>whether thinning is performed or not.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">biasCorrectionConv_mod</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">NAMBIASCONV</span></code></p></td>
+<td><p>variables to perform bias correction
+for conventional observations.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">biasCorrectionConv_mod</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">NAMSONDETYPES</span></code></p></td>
+<td><p>additional variables to perform bias
+correction for radiosondes conventional
+observations.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">backgroundCheck_mod</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">NAMBGCKCONV</span></code></p></td>
+<td><p>variables to perform background check
+for conventional observations.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">SSTbias_mod</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">NAMSSTBIASESTIMATE</span></code></p></td>
+<td><p>variables to perform bias estimation
+and bias correction for satellite SST.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">biasCorrectionSat_mod</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">NAMBIASSAT</span></code></p></td>
+<td><p>variables to perform bias correction
+for satellite radiances.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">multi_ir_bgck_mod</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">NAMBGCKIR</span></code></p></td>
+<td><p>Variables to perform background check
+for hyperspectral infrared radiances.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">bgckmicrowave_mod</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">NAMBGCK</span></code></p></td>
+<td><p>Variables to perform background check
+for microwave radiances.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">bgckcsr_mod</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">NAMCSR</span></code></p></td>
+<td><p>Variables To perform background check
+for CSR radiances.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">bgckssmis_mod</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">NAMBGCK</span></code></p></td>
+<td><p>Variables to perform background check
+for SSMIS radiances.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">bgckOcean_mod</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">NAMOCEANBGCHECK</span></code></p></td>
+<td><p>Variables to perform background check
+for ocean data.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">bgckOcean_mod</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">NAMICEBGCHECK</span></code></p></td>
+<td><p>Variables to perform background check
+for SST data.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">burpread_mod</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">NAMADDTOBURP</span></code></p></td>
+<td><p>element IDs to add to the BURP file</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">thinning_mod</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">THIN_HYPER</span></code></p></td>
+<td><p>variables to perform thinning on
+hyperspectral infrared radiances.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">thinning_mod</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">THIN_TOVS</span></code></p></td>
+<td><p>variables to perform thinning on
+microwave radiances.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">thinning_mod</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">thin_csr</span></code></p></td>
+<td><p>variables to perform thinning on
+CSR radiances.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">thinning_mod</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">thin_raobs</span></code></p></td>
+<td><p>variables to perform thinning on
+radiosonde observations.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">thinning_mod</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">thin_scat</span></code></p></td>
+<td><p>variables to perform thinning on
+scatterometer wind observations.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">thinning_mod</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">thin_aircraft</span></code></p></td>
+<td><p>variables to perform thinning on
+aircraft observations.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">thinning_mod</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">thin_surface</span></code></p></td>
+<td><p>variables to perform thinning on
+surface observations.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">thinning_mod</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">thin_gbgps</span></code></p></td>
+<td><p>variables to perform thinning on
+ground-based GPS observations.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">thinning_mod</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">thin_gpsro</span></code></p></td>
+<td><p>variables to perform thinning on
+GPS radio-occultation observations.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">thinning_mod</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">thin_aladin</span></code></p></td>
+<td><p>variables to perform thinning on
+aladin wind observations.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">thinning_mod</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">thin_aladin</span></code></p></td>
+<td><p>variables to perform thinning on
+aladin wind observations.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">timeCoord_mod</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">NAMTIME</span></code></p></td>
+<td><p>assimilation time window length,
+temporal resolution of the background
+state.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Needed modules</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../modules/version_mod.html#f/version_mod" title="f/version_mod: MODULE version_mod (prefix='ver' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">version_mod</span></code></a>: MODULE version_mod (prefix=’ver’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="../modules/codeprecision_mod.html#f/codeprecision_mod" title="f/codeprecision_mod: MODULE codePrecision_mod (prefix='pre' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">codeprecision_mod</span></code></a>: MODULE codePrecision_mod (prefix=’pre’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="../modules/ramdisk_mod.html#f/ramdisk_mod" title="f/ramdisk_mod: MODULE ramDisk_mod (prefix='ram' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">ramdisk_mod</span></code></a>: MODULE ramDisk_mod (prefix=’ram’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="../modules/midasmpi_mod.html#f/midasmpi_mod" title="f/midasmpi_mod: MODULE midasMpi_mod (prefix='mmpi' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">midasmpi_mod</span></code></a>: MODULE midasMpi_mod (prefix=’mmpi’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="../modules/utilities_mod.html#f/utilities_mod" title="f/utilities_mod: MODULE utilities_mod (prefix='utl' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">utilities_mod</span></code></a>: MODULE utilities_mod (prefix=’utl’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="../modules/mathphysconstants_mod.html#f/mathphysconstants_mod" title="f/mathphysconstants_mod: MODULE MathPhysConstants_mod (prefix='mpc' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">mathphysconstants_mod</span></code></a>: MODULE MathPhysConstants_mod (prefix=’mpc’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="../modules/horizontalcoord_mod.html#f/horizontalcoord_mod" title="f/horizontalcoord_mod: MODULE HorizontalCoord_mod (prefix='hco' category='7. Low-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">horizontalcoord_mod</span></code></a>: MODULE HorizontalCoord_mod (prefix=’hco’ category=’7. Low-level data objects’)</p></li>
+<li><p><a class="reference internal" href="../modules/verticalcoord_mod.html#f/verticalcoord_mod" title="f/verticalcoord_mod: MODULE verticalcoord (prefix='vco' category='7. Low-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">verticalcoord_mod</span></code></a>: MODULE verticalcoord (prefix=’vco’ category=’7. Low-level data objects’)</p></li>
+<li><p><a class="reference internal" href="../modules/timecoord_mod.html#f/timecoord_mod" title="f/timecoord_mod: MODULE timeCoord (prefix='tim' category='7. Low-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">timecoord_mod</span></code></a>: MODULE timeCoord (prefix=’tim’ category=’7. Low-level data objects’)</p></li>
+<li><p><a class="reference internal" href="../modules/gridstatevector_mod.html#f/gridstatevector_mod" title="f/gridstatevector_mod: MODULE gridStateVector_mod (prefix='gsv' category='6. High-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">gridstatevector_mod</span></code></a>: MODULE gridStateVector_mod (prefix=’gsv’ category=’6. High-level data objects’)</p></li>
+<li><p><a class="reference internal" href="../modules/gridstatevectorfileio_mod.html#f/gridstatevectorfileio_mod" title="f/gridstatevectorfileio_mod: MODULE gridStateVectorFile_mod (prefix='gio' category='4. Data Object transformations')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">gridstatevectorfileio_mod</span></code></a>: MODULE gridStateVectorFile_mod (prefix=’gio’ category=’4. Data Object transformations’)</p></li>
+<li><p><a class="reference internal" href="../modules/backgroundcheck_mod.html#f/backgroundcheck_mod" title="f/backgroundcheck_mod: MODULE backgroundCheck_mod (prefix='bgck' category='1. High-level functionality')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">backgroundcheck_mod</span></code></a>: MODULE backgroundCheck_mod (prefix=’bgck’ category=’1. High-level functionality’)</p></li>
+<li><p><a class="reference internal" href="../modules/multi_ir_bgck_mod.html#f/multi_ir_bgck_mod" title="f/multi_ir_bgck_mod: MODULE multi_ir_bgck_mod (prefix='irbg' category='1. High-level functionality')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">multi_ir_bgck_mod</span></code></a>: MODULE multi_ir_bgck_mod (prefix=’irbg’ category=’1. High-level functionality’)</p></li>
+<li><p><a class="reference internal" href="../modules/innovation_mod.html#f/innovation_mod" title="f/innovation_mod: MODULE innovation_mod (prefix='inn' category='1. High-level functionality')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">innovation_mod</span></code></a>: MODULE innovation_mod (prefix=’inn’ category=’1. High-level functionality’)</p></li>
+<li><p><a class="reference internal" href="../modules/obsspacedata_mod.html#f/obsspacedata_mod" title="f/obsspacedata_mod: MODULE obsSpaceData_mod (prefix='obs' category='6. High-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">obsspacedata_mod</span></code></a>: MODULE obsSpaceData_mod (prefix=’obs’ category=’6. High-level data objects’)</p></li>
+<li><p><a class="reference internal" href="../modules/columndata_mod.html#f/columndata_mod" title="f/columndata_mod: MODULE columnData_mod (prefix='col' category='6. High-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">columndata_mod</span></code></a>: MODULE columnData_mod (prefix=’col’ category=’6. High-level data objects’)</p></li>
+<li><p><a class="reference internal" href="../modules/obsfiles_mod.html#f/obsfiles_mod" title="f/obsfiles_mod: MODULE obsFiles_mod (prefix='obsf' category='3. Observation input/output')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">obsfiles_mod</span></code></a>: MODULE obsFiles_mod (prefix=’obsf’ category=’3. Observation input/output’)</p></li>
+<li><p><a class="reference internal" href="../modules/obserrors_mod.html#f/obserrors_mod" title="f/obserrors_mod: MODULE obsErrors_mod (prefix='oer' category='2. B and R matrices')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">obserrors_mod</span></code></a>: MODULE obsErrors_mod (prefix=’oer’ category=’2. B and R matrices’)</p></li>
+<li><p><a class="reference internal" href="../modules/biascorrectionsat_mod.html#f/biascorrectionsat_mod" title="f/biascorrectionsat_mod: MODULE biasCorrectionSat_mod (prefix=&quot;bcs&quot; category='1. High-level functionality')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">biascorrectionsat_mod</span></code></a>: MODULE biasCorrectionSat_mod (prefix=”bcs” category=’1. High-level functionality’)</p></li>
+<li><p><a class="reference internal" href="../modules/biascorrectionconv_mod.html#f/biascorrectionconv_mod" title="f/biascorrectionconv_mod: MODULE biasCorrectionConv_mod (prefix=&quot;bcc&quot; category='1. High-level functionality')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">biascorrectionconv_mod</span></code></a>: MODULE biasCorrectionConv_mod (prefix=”bcc” category=’1. High-level functionality’)</p></li>
+<li><p><a class="reference internal" href="../modules/thinning_mod.html#f/thinning_mod" title="f/thinning_mod: MODULE thinning (prefix='thn' category='1. High-level functionality')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">thinning_mod</span></code></a>: MODULE thinning (prefix=’thn’ category=’1. High-level functionality’)</p></li>
+<li><p><a class="reference internal" href="../modules/bgckmicrowave_mod.html#f/bgckmicrowave_mod" title="f/bgckmicrowave_mod: MODULE bgckmicrowave_mod (prefix='mwbg' category='1. High-level functionality')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">bgckmicrowave_mod</span></code></a>: MODULE bgckmicrowave_mod (prefix=’mwbg’ category=’1. High-level functionality’)</p></li>
+<li><p><a class="reference internal" href="../modules/bgckssmis_mod.html#f/bgckssmis_mod" title="f/bgckssmis_mod: MODULE bgckssmis_mod (prefix='ssbg' category='1. High-level functionality')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">bgckssmis_mod</span></code></a>: MODULE bgckssmis_mod (prefix=’ssbg’ category=’1. High-level functionality’)</p></li>
+<li><p><a class="reference internal" href="../modules/bgckcsr_mod.html#f/bgckcsr_mod" title="f/bgckcsr_mod: MODULE bgckcsr_mod (prefix='csrbg' category='1. High-level functionality')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">bgckcsr_mod</span></code></a>: MODULE bgckcsr_mod (prefix=’csrbg’ category=’1. High-level functionality’)</p></li>
+<li><p><a class="reference internal" href="../modules/bgckocean_mod.html#f/bgckocean_mod" title="f/bgckocean_mod: MODULE bgckOcean_mod (prefix='ocebg' category='1. High-level functionality')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">bgckocean_mod</span></code></a>: MODULE bgckOcean_mod (prefix=’ocebg’ category=’1. High-level functionality’)</p></li>
+<li><p><a class="reference internal" href="../modules/sstbias_mod.html#f/sstbias_mod" title="f/sstbias_mod"><code class="xref f f-mod docutils literal notranslate"><span class="pre">sstbias_mod</span></code></a></p></li>
+</ul>
+<p class="rubric">Routines called</p>
+<p><a class="reference internal" href="../modules/version_mod.html#f/version_mod/ver_printnameandversion" title="f/version_mod/ver_printnameandversion"><code class="xref f f-func docutils literal notranslate"><span class="pre">ver_printnameandversion()</span></code></a>, <a class="reference internal" href="../modules/midasmpi_mod.html#f/midasmpi_mod/mmpi_initialize" title="f/midasmpi_mod/mmpi_initialize"><code class="xref f f-func docutils literal notranslate"><span class="pre">mmpi_initialize()</span></code></a>, <a class="reference internal" href="../modules/utilities_mod.html#f/utilities_mod/utl_tmg_start" title="f/utilities_mod/utl_tmg_start"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_start()</span></code></a>, <a class="reference internal" href="../modules/utilities_mod.html#f/utilities_mod/utl_isnamelistpresent" title="f/utilities_mod/utl_isnamelistpresent"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_isnamelistpresent()</span></code></a>, <a class="reference internal" href="../modules/utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="../modules/ramdisk_mod.html#f/ramdisk_mod/ram_setup" title="f/ramdisk_mod/ram_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">ram_setup()</span></code></a>, <a class="reference internal" href="../modules/obsfiles_mod.html#f/obsfiles_mod/obsf_setup" title="f/obsfiles_mod/obsf_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">obsf_setup()</span></code></a>, <a class="reference internal" href="../modules/timecoord_mod.html#f/timecoord_mod/tim_setup" title="f/timecoord_mod/tim_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">tim_setup()</span></code></a>, <a class="reference internal" href="../modules/mathphysconstants_mod.html#f/mathphysconstants_mod/mpc_printconstants" title="f/mathphysconstants_mod/mpc_printconstants"><code class="xref f f-func docutils literal notranslate"><span class="pre">mpc_printconstants()</span></code></a>, <a class="reference internal" href="../modules/codeprecision_mod.html#f/codeprecision_mod/pre_printprecisions" title="f/codeprecision_mod/pre_printprecisions"><code class="xref f f-func docutils literal notranslate"><span class="pre">pre_printprecisions()</span></code></a>, <a class="reference internal" href="../modules/horizontalcoord_mod.html#f/horizontalcoord_mod/hco_setupfromfile" title="f/horizontalcoord_mod/hco_setupfromfile"><code class="xref f f-func docutils literal notranslate"><span class="pre">hco_setupfromfile()</span></code></a>, <a class="reference internal" href="../modules/verticalcoord_mod.html#f/verticalcoord_mod/vco_setupfromfile" title="f/verticalcoord_mod/vco_setupfromfile"><code class="xref f f-func docutils literal notranslate"><span class="pre">vco_setupfromfile()</span></code></a>, <a class="reference internal" href="../modules/columndata_mod.html#f/columndata_mod/col_setvco" title="f/columndata_mod/col_setvco"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_setvco()</span></code></a>, <a class="reference internal" href="../modules/innovation_mod.html#f/innovation_mod/inn_setupobs" title="f/innovation_mod/inn_setupobs"><code class="xref f f-func docutils literal notranslate"><span class="pre">inn_setupobs()</span></code></a>, <a class="reference internal" href="../modules/bgckssmis_mod.html#f/bgckssmis_mod/ssbg_computessmissurfacetype" title="f/bgckssmis_mod/ssbg_computessmissurfacetype"><code class="xref f f-func docutils literal notranslate"><span class="pre">ssbg_computessmissurfacetype()</span></code></a>, <a class="reference internal" href="../modules/obsspacedata_mod.html#f/obsspacedata_mod/obs_famexist" title="f/obsspacedata_mod/obs_famexist"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_famexist()</span></code></a>, <a class="reference internal" href="../modules/bgckmicrowave_mod.html#f/bgckmicrowave_mod/mwbg_computemwhs2surfacetype" title="f/bgckmicrowave_mod/mwbg_computemwhs2surfacetype"><code class="xref f f-func docutils literal notranslate"><span class="pre">mwbg_computemwhs2surfacetype()</span></code></a>, <a class="reference internal" href="../modules/columndata_mod.html#f/columndata_mod/col_setup" title="f/columndata_mod/col_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_setup()</span></code></a>, <a class="reference internal" href="../modules/columndata_mod.html#f/columndata_mod/col_allocate" title="f/columndata_mod/col_allocate"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_allocate()</span></code></a>, <a class="reference internal" href="../modules/obsspacedata_mod.html#f/obsspacedata_mod/obs_numheader" title="f/obsspacedata_mod/obs_numheader"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_numheader()</span></code></a>, <a class="reference internal" href="../modules/obserrors_mod.html#f/obserrors_mod/oer_setobserrors" title="f/obserrors_mod/oer_setobserrors"><code class="xref f f-func docutils literal notranslate"><span class="pre">oer_setobserrors()</span></code></a>, <a class="reference internal" href="../modules/gridstatevector_mod.html#f/gridstatevector_mod/gsv_setup" title="f/gridstatevector_mod/gsv_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_setup()</span></code></a>, <a class="reference internal" href="../modules/sstbias_mod.html#f/sstbias_mod/sstb_applysatellitesstbiascorrection" title="f/sstbias_mod/sstb_applysatellitesstbiascorrection"><code class="xref f f-func docutils literal notranslate"><span class="pre">sstb_applysatellitesstbiascorrection()</span></code></a>, <a class="reference internal" href="../modules/biascorrectionconv_mod.html#f/biascorrectionconv_mod/bcc_applyaibcor" title="f/biascorrectionconv_mod/bcc_applyaibcor"><code class="xref f f-func docutils literal notranslate"><span class="pre">bcc_applyaibcor()</span></code></a>, <a class="reference internal" href="../modules/biascorrectionconv_mod.html#f/biascorrectionconv_mod/bcc_applygpbcor" title="f/biascorrectionconv_mod/bcc_applygpbcor"><code class="xref f f-func docutils literal notranslate"><span class="pre">bcc_applygpbcor()</span></code></a>, <a class="reference internal" href="../modules/biascorrectionconv_mod.html#f/biascorrectionconv_mod/bcc_applyuabcor" title="f/biascorrectionconv_mod/bcc_applyuabcor"><code class="xref f f-func docutils literal notranslate"><span class="pre">bcc_applyuabcor()</span></code></a>, <a class="reference internal" href="../modules/innovation_mod.html#f/innovation_mod/inn_gethcovcofromtrlmfile" title="f/innovation_mod/inn_gethcovcofromtrlmfile"><code class="xref f f-func docutils literal notranslate"><span class="pre">inn_gethcovcofromtrlmfile()</span></code></a>, <a class="reference internal" href="../modules/gridstatevector_mod.html#f/gridstatevector_mod/gsv_allocate" title="f/gridstatevector_mod/gsv_allocate"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_allocate()</span></code></a>, <a class="reference internal" href="../modules/timecoord_mod.html#f/timecoord_mod/tim_getdatestamp" title="f/timecoord_mod/tim_getdatestamp"><code class="xref f f-func docutils literal notranslate"><span class="pre">tim_getdatestamp()</span></code></a>, <a class="reference internal" href="../modules/gridstatevector_mod.html#f/gridstatevector_mod/gsv_zero" title="f/gridstatevector_mod/gsv_zero"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_zero()</span></code></a>, <a class="reference internal" href="../modules/gridstatevectorfileio_mod.html#f/gridstatevectorfileio_mod/gio_readtrials" title="f/gridstatevectorfileio_mod/gio_readtrials"><code class="xref f f-func docutils literal notranslate"><span class="pre">gio_readtrials()</span></code></a>, <a class="reference internal" href="../modules/innovation_mod.html#f/innovation_mod/inn_setupcolumnsontrllev" title="f/innovation_mod/inn_setupcolumnsontrllev"><code class="xref f f-func docutils literal notranslate"><span class="pre">inn_setupcolumnsontrllev()</span></code></a>, <a class="reference internal" href="../modules/innovation_mod.html#f/innovation_mod/inn_setupcolumnsonanlinclev" title="f/innovation_mod/inn_setupcolumnsonanlinclev"><code class="xref f f-func docutils literal notranslate"><span class="pre">inn_setupcolumnsonanlinclev()</span></code></a>, <a class="reference internal" href="../modules/innovation_mod.html#f/innovation_mod/inn_computeinnovation" title="f/innovation_mod/inn_computeinnovation"><code class="xref f f-func docutils literal notranslate"><span class="pre">inn_computeinnovation()</span></code></a>, <a class="reference internal" href="../modules/backgroundcheck_mod.html#f/backgroundcheck_mod/bgck_bgcheck_conv" title="f/backgroundcheck_mod/bgck_bgcheck_conv"><code class="xref f f-func docutils literal notranslate"><span class="pre">bgck_bgcheck_conv()</span></code></a>, <a class="reference internal" href="../modules/biascorrectionsat_mod.html#f/biascorrectionsat_mod/bcs_calcbias" title="f/biascorrectionsat_mod/bcs_calcbias"><code class="xref f f-func docutils literal notranslate"><span class="pre">bcs_calcbias()</span></code></a>, <a class="reference internal" href="../modules/biascorrectionsat_mod.html#f/biascorrectionsat_mod/bcs_applybiascorrection" title="f/biascorrectionsat_mod/bcs_applybiascorrection"><code class="xref f f-func docutils literal notranslate"><span class="pre">bcs_applybiascorrection()</span></code></a>, <a class="reference internal" href="../modules/multi_ir_bgck_mod.html#f/multi_ir_bgck_mod/irbg_bgcheckir" title="f/multi_ir_bgck_mod/irbg_bgcheckir"><code class="xref f f-func docutils literal notranslate"><span class="pre">irbg_bgcheckir()</span></code></a>, <a class="reference internal" href="../modules/bgckmicrowave_mod.html#f/bgckmicrowave_mod/mwbg_bgcheckmw" title="f/bgckmicrowave_mod/mwbg_bgcheckmw"><code class="xref f f-func docutils literal notranslate"><span class="pre">mwbg_bgcheckmw()</span></code></a>, <a class="reference internal" href="../modules/bgckcsr_mod.html#f/bgckcsr_mod/csrbg_bgcheckcsr" title="f/bgckcsr_mod/csrbg_bgcheckcsr"><code class="xref f f-func docutils literal notranslate"><span class="pre">csrbg_bgcheckcsr()</span></code></a>, <a class="reference internal" href="../modules/bgckssmis_mod.html#f/bgckssmis_mod/ssbg_bgcheckssmis" title="f/bgckssmis_mod/ssbg_bgcheckssmis"><code class="xref f f-func docutils literal notranslate"><span class="pre">ssbg_bgcheckssmis()</span></code></a>, <a class="reference internal" href="../modules/bgckocean_mod.html#f/bgckocean_mod/ocebg_bgchecksst" title="f/bgckocean_mod/ocebg_bgchecksst"><code class="xref f f-func docutils literal notranslate"><span class="pre">ocebg_bgchecksst()</span></code></a>, <a class="reference internal" href="../modules/bgckocean_mod.html#f/bgckocean_mod/ocebg_bgcheckseaice" title="f/bgckocean_mod/ocebg_bgcheckseaice"><code class="xref f f-func docutils literal notranslate"><span class="pre">ocebg_bgcheckseaice()</span></code></a>, <a class="reference internal" href="../modules/obsfiles_mod.html#f/obsfiles_mod/obsf_copyobsdirectory" title="f/obsfiles_mod/obsf_copyobsdirectory"><code class="xref f f-func docutils literal notranslate"><span class="pre">obsf_copyobsdirectory()</span></code></a>, <a class="reference internal" href="../modules/obsfiles_mod.html#f/obsfiles_mod/obsf_writefiles" title="f/obsfiles_mod/obsf_writefiles"><code class="xref f f-func docutils literal notranslate"><span class="pre">obsf_writefiles()</span></code></a>, <a class="reference internal" href="../modules/obsfiles_mod.html#f/obsfiles_mod/obsf_updatemissingobsflags" title="f/obsfiles_mod/obsf_updatemissingobsflags"><code class="xref f f-func docutils literal notranslate"><span class="pre">obsf_updatemissingobsflags()</span></code></a>, <a class="reference internal" href="../modules/obsfiles_mod.html#f/obsfiles_mod/obsf_addcloudparametersandemissivity" title="f/obsfiles_mod/obsf_addcloudparametersandemissivity"><code class="xref f f-func docutils literal notranslate"><span class="pre">obsf_addcloudparametersandemissivity()</span></code></a>, <a class="reference internal" href="../modules/thinning_mod.html#f/thinning_mod/thn_thinhyper" title="f/thinning_mod/thn_thinhyper"><code class="xref f f-func docutils literal notranslate"><span class="pre">thn_thinhyper()</span></code></a>, <a class="reference internal" href="../modules/thinning_mod.html#f/thinning_mod/thn_thintovs" title="f/thinning_mod/thn_thintovs"><code class="xref f f-func docutils literal notranslate"><span class="pre">thn_thintovs()</span></code></a>, <a class="reference internal" href="../modules/thinning_mod.html#f/thinning_mod/thn_thincsr" title="f/thinning_mod/thn_thincsr"><code class="xref f f-func docutils literal notranslate"><span class="pre">thn_thincsr()</span></code></a>, <a class="reference internal" href="../modules/thinning_mod.html#f/thinning_mod/thn_thinraobs" title="f/thinning_mod/thn_thinraobs"><code class="xref f f-func docutils literal notranslate"><span class="pre">thn_thinraobs()</span></code></a>, <a class="reference internal" href="../modules/thinning_mod.html#f/thinning_mod/thn_thinscat" title="f/thinning_mod/thn_thinscat"><code class="xref f f-func docutils literal notranslate"><span class="pre">thn_thinscat()</span></code></a>, <a class="reference internal" href="../modules/thinning_mod.html#f/thinning_mod/thn_thinsatwinds" title="f/thinning_mod/thn_thinsatwinds"><code class="xref f f-func docutils literal notranslate"><span class="pre">thn_thinsatwinds()</span></code></a>, <a class="reference internal" href="../modules/thinning_mod.html#f/thinning_mod/thn_thinaircraft" title="f/thinning_mod/thn_thinaircraft"><code class="xref f f-func docutils literal notranslate"><span class="pre">thn_thinaircraft()</span></code></a>, <a class="reference internal" href="../modules/thinning_mod.html#f/thinning_mod/thn_thinsurface" title="f/thinning_mod/thn_thinsurface"><code class="xref f f-func docutils literal notranslate"><span class="pre">thn_thinsurface()</span></code></a>, <a class="reference internal" href="../modules/thinning_mod.html#f/thinning_mod/thn_thingbgps" title="f/thinning_mod/thn_thingbgps"><code class="xref f f-func docutils literal notranslate"><span class="pre">thn_thingbgps()</span></code></a>, <a class="reference internal" href="../modules/thinning_mod.html#f/thinning_mod/thn_thingpsro" title="f/thinning_mod/thn_thingpsro"><code class="xref f f-func docutils literal notranslate"><span class="pre">thn_thingpsro()</span></code></a>, <a class="reference internal" href="../modules/thinning_mod.html#f/thinning_mod/thn_thinaladin" title="f/thinning_mod/thn_thinaladin"><code class="xref f f-func docutils literal notranslate"><span class="pre">thn_thinaladin()</span></code></a>, <a class="reference internal" href="../modules/biascorrectionsat_mod.html#f/biascorrectionsat_mod/bcs_dumpbiastosqliteafterthinning" title="f/biascorrectionsat_mod/bcs_dumpbiastosqliteafterthinning"><code class="xref f f-func docutils literal notranslate"><span class="pre">bcs_dumpbiastosqliteafterthinning()</span></code></a>, <a class="reference internal" href="../modules/obsspacedata_mod.html#f/obsspacedata_mod/obs_prnthdr" title="f/obsspacedata_mod/obs_prnthdr"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_prnthdr()</span></code></a>, <a class="reference internal" href="../modules/obsspacedata_mod.html#f/obsspacedata_mod/obs_prntbdy" title="f/obsspacedata_mod/obs_prntbdy"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_prntbdy()</span></code></a>, <a class="reference internal" href="../modules/obsfiles_mod.html#f/obsfiles_mod/obsf_cleanobsfiles" title="f/obsfiles_mod/obsf_cleanobsfiles"><code class="xref f f-func docutils literal notranslate"><span class="pre">obsf_cleanobsfiles()</span></code></a>, <a class="reference internal" href="../modules/obsspacedata_mod.html#f/obsspacedata_mod/obs_finalize" title="f/obsspacedata_mod/obs_finalize"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_finalize()</span></code></a>, <a class="reference internal" href="../modules/utilities_mod.html#f/utilities_mod/utl_tmg_stop" title="f/utilities_mod/utl_tmg_stop"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_stop()</span></code></a></p>
+</div></blockquote>
+</section>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="midas_ominusf.html" title="midas_ominusf"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="midas_obsimpact.html" title="midas_obsimpact"
+             >previous</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2018, ECCC.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.
+    </div>
+  </body>
+</html>

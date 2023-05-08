@@ -1,0 +1,406 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>enspostprocess_mod &mdash; MIDAS  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="MIDAS  documentation" href="../index.html" />
+    <link rel="next" title="fsoi_mod" href="fsoi_mod.html" />
+    <link rel="prev" title="enkf_mod" href="enkf_mod.html" /> 
+  </head>
+  <body>
+  <div>
+    <img src="../_static/MIDAS_header.png" alt="MIDAS" />
+  </div>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="fsoi_mod.html" title="fsoi_mod"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="enkf_mod.html" title="enkf_mod"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="enkf_mod.html"
+                          title="previous chapter">enkf_mod</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="fsoi_mod.html"
+                          title="next chapter">fsoi_mod</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/modules/enspostprocess_mod.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <section id="enspostprocess-mod">
+<h1>enspostprocess_mod<a class="headerlink" href="#enspostprocess-mod" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><p><a class="reference internal" href="enspostprocess_mod_src.html"><span class="doc">link to source code</span></a></p>
+<p><strong>Dependency Diagrams:</strong></p>
+<figure class="align-default" id="id1">
+<a class="reference internal image-reference" href="enspostprocess_mod.svg"><img alt="enspostprocess_mod.svg" height="100px" src="enspostprocess_mod.svg" /></a>
+<figcaption>
+<p><span class="caption-text">Direct Dependency Diagram</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id2">
+<a class="reference internal image-reference" href="enspostprocess_mod_rev.svg"><img alt="enspostprocess_mod_rev.svg" height="100px" src="enspostprocess_mod_rev.svg" /></a>
+<figcaption>
+<p><span class="caption-text">Reverse Dependency Diagram</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<span class="target" id="f/enspostprocess_mod"></span><p class="rubric">Description</p>
+<p>MODULE ensPostProcess_mod (prefix=’epp’ category=’1. High-level functionality’)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Purpose</dt>
+<dd class="field-odd"><p>Various routines that are used to modify or process
+ensembles, usually produced by the LETKF.</p>
+</dd>
+</dl>
+<p class="rubric">Quick access</p>
+<dl class="field-list simple">
+<dt class="field-odd">Routines</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/enspostprocess_mod/epp_addrandompert" title="f/enspostprocess_mod/epp_addrandompert"><code class="xref f f-func docutils literal notranslate"><span class="pre">epp_addrandompert()</span></code></a>, <a class="reference internal" href="#f/enspostprocess_mod/epp_hybridrecentering" title="f/enspostprocess_mod/epp_hybridrecentering"><code class="xref f f-func docutils literal notranslate"><span class="pre">epp_hybridrecentering()</span></code></a>, <a class="reference internal" href="#f/enspostprocess_mod/epp_postprocess" title="f/enspostprocess_mod/epp_postprocess"><code class="xref f f-func docutils literal notranslate"><span class="pre">epp_postprocess()</span></code></a>, <a class="reference internal" href="#f/enspostprocess_mod/epp_printrmsstats" title="f/enspostprocess_mod/epp_printrmsstats"><code class="xref f f-func docutils literal notranslate"><span class="pre">epp_printrmsstats()</span></code></a>, <a class="reference internal" href="#f/enspostprocess_mod/epp_rtpp" title="f/enspostprocess_mod/epp_rtpp"><code class="xref f f-func docutils literal notranslate"><span class="pre">epp_rtpp()</span></code></a>, <a class="reference internal" href="#f/enspostprocess_mod/epp_rtps" title="f/enspostprocess_mod/epp_rtps"><code class="xref f f-func docutils literal notranslate"><span class="pre">epp_rtps()</span></code></a>, <a class="reference internal" href="#f/enspostprocess_mod/epp_selectsubsample" title="f/enspostprocess_mod/epp_selectsubsample"><code class="xref f f-func docutils literal notranslate"><span class="pre">epp_selectsubsample()</span></code></a>, <a class="reference internal" href="#f/enspostprocess_mod/epp_writetoallmembers" title="f/enspostprocess_mod/epp_writetoallmembers"><code class="xref f f-func docutils literal notranslate"><span class="pre">epp_writetoallmembers()</span></code></a></p>
+</dd>
+</dl>
+<p class="rubric">Needed modules</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="midasmpi_mod.html#f/midasmpi_mod" title="f/midasmpi_mod: MODULE midasMpi_mod (prefix='mmpi' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">midasmpi_mod</span></code></a>: MODULE midasMpi_mod (prefix=’mmpi’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod" title="f/utilities_mod: MODULE utilities_mod (prefix='utl' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">utilities_mod</span></code></a>: MODULE utilities_mod (prefix=’utl’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="mathphysconstants_mod.html#f/mathphysconstants_mod" title="f/mathphysconstants_mod: MODULE MathPhysConstants_mod (prefix='mpc' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">mathphysconstants_mod</span></code></a>: MODULE MathPhysConstants_mod (prefix=’mpc’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="timecoord_mod.html#f/timecoord_mod" title="f/timecoord_mod: MODULE timeCoord (prefix='tim' category='7. Low-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">timecoord_mod</span></code></a>: MODULE timeCoord (prefix=’tim’ category=’7. Low-level data objects’)</p></li>
+<li><p><a class="reference internal" href="verticalcoord_mod.html#f/verticalcoord_mod" title="f/verticalcoord_mod: MODULE verticalcoord (prefix='vco' category='7. Low-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">verticalcoord_mod</span></code></a>: MODULE verticalcoord (prefix=’vco’ category=’7. Low-level data objects’)</p></li>
+<li><p><a class="reference internal" href="horizontalcoord_mod.html#f/horizontalcoord_mod" title="f/horizontalcoord_mod: MODULE HorizontalCoord_mod (prefix='hco' category='7. Low-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">horizontalcoord_mod</span></code></a>: MODULE HorizontalCoord_mod (prefix=’hco’ category=’7. Low-level data objects’)</p></li>
+<li><p><a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod" title="f/ensemblestatevector_mod: MODULE ensembleStateVector_mod (prefix='ens' category='6. High-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">ensemblestatevector_mod</span></code></a>: MODULE ensembleStateVector_mod (prefix=’ens’ category=’6. High-level data objects’)</p></li>
+<li><p><a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod" title="f/gridstatevector_mod: MODULE gridStateVector_mod (prefix='gsv' category='6. High-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">gridstatevector_mod</span></code></a>: MODULE gridStateVector_mod (prefix=’gsv’ category=’6. High-level data objects’)</p></li>
+<li><p><a class="reference internal" href="gridstatevectorfileio_mod.html#f/gridstatevectorfileio_mod" title="f/gridstatevectorfileio_mod: MODULE gridStateVectorFile_mod (prefix='gio' category='4. Data Object transformations')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">gridstatevectorfileio_mod</span></code></a>: MODULE gridStateVectorFile_mod (prefix=’gio’ category=’4. Data Object transformations’)</p></li>
+<li><p><a class="reference internal" href="interpolation_mod.html#f/interpolation_mod" title="f/interpolation_mod: MODULE interpolation_mod (prefix='int' category='4. Data Object transformations')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">interpolation_mod</span></code></a>: MODULE interpolation_mod (prefix=’int’ category=’4. Data Object transformations’)</p></li>
+<li><p><a class="reference internal" href="randomnumber_mod.html#f/randomnumber_mod" title="f/randomnumber_mod: MODULE randomNumber_mod (prefix='rng' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">randomnumber_mod</span></code></a>: MODULE randomNumber_mod (prefix=’rng’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="controlvector_mod.html#f/controlvector_mod" title="f/controlvector_mod: MODULE controlVector_mod (prefix='cvm' category='6. High-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">controlvector_mod</span></code></a>: MODULE controlVector_mod (prefix=’cvm’ category=’6. High-level data objects’)</p></li>
+<li><p><a class="reference internal" href="gridvariabletransforms_mod.html#f/gridvariabletransforms_mod" title="f/gridvariabletransforms_mod: MODULE gridVariableTransforms (prefix='gvt' category='4. Data Object transformations')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">gridvariabletransforms_mod</span></code></a>: MODULE gridVariableTransforms (prefix=’gvt’ category=’4. Data Object transformations’)</p></li>
+<li><p><a class="reference internal" href="bmatrix_mod.html#f/bmatrix_mod" title="f/bmatrix_mod: MODULE BMatrix_mod (prefix='bmat' category='2. B and R matrices')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">bmatrix_mod</span></code></a>: MODULE BMatrix_mod (prefix=’bmat’ category=’2. B and R matrices’)</p></li>
+<li><p><a class="reference internal" href="humiditylimits_mod.html#f/humiditylimits_mod" title="f/humiditylimits_mod: MODULE humidityLimits_mod (prefix='qlim' category='4. Data Object transformations')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">humiditylimits_mod</span></code></a>: MODULE humidityLimits_mod (prefix=’qlim’ category=’4. Data Object transformations’)</p></li>
+<li><p><a class="reference internal" href="varnamelist_mod.html#f/varnamelist_mod" title="f/varnamelist_mod: MODULE varNameList (prefix='vnl' category='7. Low-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">varnamelist_mod</span></code></a>: MODULE varNameList (prefix=’vnl’ category=’7. Low-level data objects’)</p></li>
+<li><p><a class="reference internal" href="filenames_mod.html#f/filenames_mod" title="f/filenames_mod: MODULE fileNames_mod (prefix='fln' category='7. Low-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">filenames_mod</span></code></a>: MODULE fileNames_mod (prefix=’fln’ category=’7. Low-level data objects’)</p></li>
+<li><p><a class="reference internal" href="clib_interfaces_mod.html#f/clib_interfaces_mod" title="f/clib_interfaces_mod: MODULE clib_interfaces_mod (prefix='' category='9. Global interfaces')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">clib_interfaces_mod</span></code></a>: MODULE clib_interfaces_mod (prefix=’’ category=’9. Global interfaces’)</p></li>
+<li><p><a class="reference internal" href="calcheightandpressure_mod.html#f/calcheightandpressure_mod" title="f/calcheightandpressure_mod: MODULE czp_calcHeightAndPressure (prefix='czp' category='4. Data Object transformations')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">calcheightandpressure_mod</span></code></a>: MODULE czp_calcHeightAndPressure (prefix=’czp’ category=’4. Data Object transformations’)</p></li>
+</ul>
+<p class="rubric">Variables</p>
+<p class="rubric">Subroutines and functions</p>
+<dl>
+<dt class="sig sig-object f" id="f/enspostprocess_mod/epp_postprocess">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">enspostprocess_mod/</span></span><span class="sig-name descname"><span class="pre">epp_postprocess</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">ensembletrl</span></em>, <em class="sig-param"><span class="pre">ensembleanl</span></em>, <em class="sig-param"><span class="pre">statevectorheightsfc</span></em>, <em class="sig-param"><span class="pre">statevectorctrltrl</span></em>, <em class="sig-param"><span class="pre">writetrlensemble</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">outputonlyensmean_opt</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/enspostprocess_mod/epp_postprocess" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Perform numerous post-processing steps to the ensemble
+produced by the LETKF algorithm.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>ensembletrl</strong><em> [</em><em>struct_ens </em><em>,</em><em>inout</em><em>]</em></p></li>
+<li><p><strong>ensembleanl</strong><em> [</em><em>struct_ens </em><em>,</em><em>inout</em><em>]</em></p></li>
+<li><p><strong>statevectorheightsfc</strong><em> [</em><em>struct_gsv </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>statevectorctrltrl</strong><em> [</em><em>struct_gsv </em><em>,</em><em>inout</em><em>]</em></p></li>
+<li><p><strong>writetrlensemble</strong><em> [</em><em>logical </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Options</dt>
+<dd class="field-odd"><p><strong>outputonlyensmean_opt</strong><em> [</em><em>logical </em><em>,</em><em>in,</em><em>]</em></p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="../programs/midas_enspostprocess.html#f/midas_enspostprocess" title="f/midas_enspostprocess"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_enspostprocess</span></code></a>, <a class="reference internal" href="../programs/midas_letkf.html#f/midas_letkf" title="f/midas_letkf"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_letkf</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_isallocated" title="f/ensemblestatevector_mod/ens_isallocated"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_isallocated()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_gethco" title="f/ensemblestatevector_mod/ens_gethco"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_gethco()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_getvco" title="f/ensemblestatevector_mod/ens_getvco"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_getvco()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_getnummembers" title="f/ensemblestatevector_mod/ens_getnummembers"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_getnummembers()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_allocate" title="f/gridstatevector_mod/gsv_allocate"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_allocate()</span></code></a>, <a class="reference internal" href="timecoord_mod.html#f/timecoord_mod/tim_getdatestamp" title="f/timecoord_mod/tim_getdatestamp"><code class="xref f f-func docutils literal notranslate"><span class="pre">tim_getdatestamp()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_zero" title="f/gridstatevector_mod/gsv_zero"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_zero()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_computemean" title="f/ensemblestatevector_mod/ens_computemean"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_computemean()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_copyensmean" title="f/ensemblestatevector_mod/ens_copyensmean"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_copyensmean()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_computestddev" title="f/ensemblestatevector_mod/ens_computestddev"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_computestddev()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_copyensstddev" title="f/ensemblestatevector_mod/ens_copyensstddev"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_copyensstddev()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_copy" title="f/gridstatevector_mod/gsv_copy"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_copy()</span></code></a>, <a class="reference internal" href="#f/enspostprocess_mod/epp_rtpp" title="f/enspostprocess_mod/epp_rtpp"><code class="xref f f-func docutils literal notranslate"><span class="pre">epp_rtpp()</span></code></a>, <a class="reference internal" href="#f/enspostprocess_mod/epp_rtps" title="f/enspostprocess_mod/epp_rtps"><code class="xref f f-func docutils literal notranslate"><span class="pre">epp_rtps()</span></code></a>, <a class="reference internal" href="#f/enspostprocess_mod/epp_hybridrecentering" title="f/enspostprocess_mod/epp_hybridrecentering"><code class="xref f f-func docutils literal notranslate"><span class="pre">epp_hybridrecentering()</span></code></a>, <a class="reference internal" href="#f/enspostprocess_mod/epp_selectsubsample" title="f/enspostprocess_mod/epp_selectsubsample"><code class="xref f f-func docutils literal notranslate"><span class="pre">epp_selectsubsample()</span></code></a>, <a class="reference internal" href="#f/enspostprocess_mod/epp_addrandompert" title="f/enspostprocess_mod/epp_addrandompert"><code class="xref f f-func docutils literal notranslate"><span class="pre">epp_addrandompert()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_recenter" title="f/ensemblestatevector_mod/ens_recenter"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_recenter()</span></code></a>, <a class="reference internal" href="gridstatevectorfileio_mod.html#f/gridstatevectorfileio_mod/gio_getmasklam" title="f/gridstatevectorfileio_mod/gio_getmasklam"><code class="xref f f-func docutils literal notranslate"><span class="pre">gio_getmasklam()</span></code></a>, <a class="reference internal" href="timecoord_mod.html#f/timecoord_mod/tim_getstamplist" title="f/timecoord_mod/tim_getstamplist"><code class="xref f f-func docutils literal notranslate"><span class="pre">tim_getstamplist()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_varnameslist" title="f/ensemblestatevector_mod/ens_varnameslist"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_varnameslist()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_allocate" title="f/ensemblestatevector_mod/ens_allocate"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_allocate()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_copy" title="f/ensemblestatevector_mod/ens_copy"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_copy()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_add" title="f/ensemblestatevector_mod/ens_add"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_add()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_applymasklam" title="f/ensemblestatevector_mod/ens_applymasklam"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_applymasklam()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_varnameslist" title="f/gridstatevector_mod/gsv_varnameslist"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_varnameslist()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_add" title="f/gridstatevector_mod/gsv_add"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_add()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_applymasklam" title="f/gridstatevector_mod/gsv_applymasklam"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_applymasklam()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_start" title="f/utilities_mod/utl_tmg_start"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_start()</span></code></a>, <a class="reference internal" href="filenames_mod.html#f/filenames_mod/fln_enstrlfilename" title="f/filenames_mod/fln_enstrlfilename"><code class="xref f f-func docutils literal notranslate"><span class="pre">fln_enstrlfilename()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_copymasktogsv" title="f/ensemblestatevector_mod/ens_copymasktogsv"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_copymasktogsv()</span></code></a>, <a class="reference internal" href="gridstatevectorfileio_mod.html#f/gridstatevectorfileio_mod/gio_writetofile" title="f/gridstatevectorfileio_mod/gio_writetofile"><code class="xref f f-func docutils literal notranslate"><span class="pre">gio_writetofile()</span></code></a>, <a class="reference internal" href="#f/enspostprocess_mod/epp_printrmsstats" title="f/enspostprocess_mod/epp_printrmsstats"><code class="xref f f-func docutils literal notranslate"><span class="pre">epp_printrmsstats()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_stop" title="f/utilities_mod/utl_tmg_stop"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_stop()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_writeensemble" title="f/ensemblestatevector_mod/ens_writeensemble"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_writeensemble()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_isallocated" title="f/gridstatevector_mod/gsv_isallocated"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_isallocated()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_copyheightsfc" title="f/gridstatevector_mod/gsv_copyheightsfc"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_copyheightsfc()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_transposetilestompiglobal" title="f/gridstatevector_mod/gsv_transposetilestompiglobal"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_transposetilestompiglobal()</span></code></a>, <a class="reference internal" href="filenames_mod.html#f/filenames_mod/fln_ensanlfilename" title="f/filenames_mod/fln_ensanlfilename"><code class="xref f f-func docutils literal notranslate"><span class="pre">fln_ensanlfilename()</span></code></a>, <a class="reference internal" href="#f/enspostprocess_mod/epp_writetoallmembers" title="f/enspostprocess_mod/epp_writetoallmembers"><code class="xref f f-func docutils literal notranslate"><span class="pre">epp_writetoallmembers()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/enspostprocess_mod/epp_writetoallmembers">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">enspostprocess_mod/</span></span><span class="sig-name descname"><span class="pre">epp_writetoallmembers</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">statevector</span></em>, <em class="sig-param"><span class="pre">nens</span></em>, <em class="sig-param"><span class="pre">etiket</span></em>, <em class="sig-param"><span class="pre">typvar</span></em>, <em class="sig-param"><span class="pre">filenamesuffix</span></em>, <em class="sig-param"><span class="pre">enspath</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/enspostprocess_mod/epp_writetoallmembers" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Write the contents of the supplied stateVector to all
+ensemble member files in an efficient parallel way.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>statevector</strong><em> [</em><em>struct_gsv </em><em>]</em></p></li>
+<li><p><strong>nens</strong><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><strong>etiket</strong><em> [</em><em>character </em><em>]</em></p></li>
+<li><p><strong>typvar</strong><em> [</em><em>character </em><em>]</em></p></li>
+<li><p><strong>filenamesuffix</strong><em> [</em><em>character </em><em>]</em></p></li>
+<li><p><strong>enspath</strong><em> [</em><em>character </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/enspostprocess_mod/epp_postprocess" title="f/enspostprocess_mod/epp_postprocess"><code class="xref f f-func docutils literal notranslate"><span class="pre">epp_postprocess()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="filenames_mod.html#f/filenames_mod/fln_ensanlfilename" title="f/filenames_mod/fln_ensanlfilename"><code class="xref f f-func docutils literal notranslate"><span class="pre">fln_ensanlfilename()</span></code></a>, <a class="reference internal" href="timecoord_mod.html#f/timecoord_mod/tim_getdatestamp" title="f/timecoord_mod/tim_getdatestamp"><code class="xref f f-func docutils literal notranslate"><span class="pre">tim_getdatestamp()</span></code></a>, <a class="reference internal" href="gridstatevectorfileio_mod.html#f/gridstatevectorfileio_mod/gio_writetofile" title="f/gridstatevectorfileio_mod/gio_writetofile"><code class="xref f f-func docutils literal notranslate"><span class="pre">gio_writetofile()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/enspostprocess_mod/epp_rtps">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">enspostprocess_mod/</span></span><span class="sig-name descname"><span class="pre">epp_rtps</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">ensembleanl</span></em>, <em class="sig-param"><span class="pre">statevectorstddevanl</span></em>, <em class="sig-param"><span class="pre">statevectorstddevtrl</span></em>, <em class="sig-param"><span class="pre">statevectormeananl</span></em>, <em class="sig-param"><span class="pre">alphartps</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/enspostprocess_mod/epp_rtps" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Apply Relaxation To Prior Spread ensemble inflation according
+to the factor alphaRTPS (usually between 0 and 1).</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>ensembleanl</strong><em> [</em><em>struct_ens </em><em>]</em></p></li>
+<li><p><strong>statevectorstddevanl</strong><em> [</em><em>struct_gsv </em><em>]</em></p></li>
+<li><p><strong>statevectorstddevtrl</strong><em> [</em><em>struct_gsv </em><em>]</em></p></li>
+<li><p><strong>statevectormeananl</strong><em> [</em><em>struct_gsv </em><em>]</em></p></li>
+<li><p><strong>alphartps</strong><em> [</em><em>real </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/enspostprocess_mod/epp_postprocess" title="f/enspostprocess_mod/epp_postprocess"><code class="xref f f-func docutils literal notranslate"><span class="pre">epp_postprocess()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_getnummembers" title="f/ensemblestatevector_mod/ens_getnummembers"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_getnummembers()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_getnumk" title="f/ensemblestatevector_mod/ens_getnumk"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_getnumk()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_getlatlonbounds" title="f/ensemblestatevector_mod/ens_getlatlonbounds"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_getlatlonbounds()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_getonelev_r4" title="f/ensemblestatevector_mod/ens_getonelev_r4"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_getonelev_r4()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/enspostprocess_mod/epp_rtpp">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">enspostprocess_mod/</span></span><span class="sig-name descname"><span class="pre">epp_rtpp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">ensembleanl</span></em>, <em class="sig-param"><span class="pre">ensembletrl</span></em>, <em class="sig-param"><span class="pre">statevectormeananl</span></em>, <em class="sig-param"><span class="pre">statevectormeantrl</span></em>, <em class="sig-param"><span class="pre">alphartpp</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/enspostprocess_mod/epp_rtpp" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Apply Relaxation To Prior Perturbation ensemble inflation according
+to the factor alphaRTPP (usually between 0 and 1).</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>ensembleanl</strong><em> [</em><em>struct_ens </em><em>]</em></p></li>
+<li><p><strong>ensembletrl</strong><em> [</em><em>struct_ens </em><em>]</em></p></li>
+<li><p><strong>statevectormeananl</strong><em> [</em><em>struct_gsv </em><em>]</em></p></li>
+<li><p><strong>statevectormeantrl</strong><em> [</em><em>struct_gsv </em><em>]</em></p></li>
+<li><p><strong>alphartpp</strong><em> [</em><em>real </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/enspostprocess_mod/epp_postprocess" title="f/enspostprocess_mod/epp_postprocess"><code class="xref f f-func docutils literal notranslate"><span class="pre">epp_postprocess()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_getnummembers" title="f/ensemblestatevector_mod/ens_getnummembers"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_getnummembers()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_getnumk" title="f/ensemblestatevector_mod/ens_getnumk"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_getnumk()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_getlatlonbounds" title="f/ensemblestatevector_mod/ens_getlatlonbounds"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_getlatlonbounds()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_getonelev_r4" title="f/ensemblestatevector_mod/ens_getonelev_r4"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_getonelev_r4()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/enspostprocess_mod/epp_addrandompert">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">enspostprocess_mod/</span></span><span class="sig-name descname"><span class="pre">epp_addrandompert</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">ensembleanl</span></em>, <em class="sig-param"><span class="pre">statevectorrefstate</span></em>, <em class="sig-param"><span class="pre">alpharandompert</span></em>, <em class="sig-param"><span class="pre">randomseed</span></em>, <em class="sig-param"><span class="pre">usememberashurefstate</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/enspostprocess_mod/epp_addrandompert" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Apply additive inflation using random perturbations from sampling
+the B matrix as defined by the regular namelist block NAMBHI, NAMBEN, etc.
+The scale factor alphaRandomPert (usually between 0 and 1) is used
+to simply multiply the resulting perturbations before adding to the original
+members. The perturbations have zero ensemble mean.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>ensembleanl</strong><em> [</em><em>struct_ens </em><em>,</em><em>inout</em><em>]</em></p></li>
+<li><p><strong>statevectorrefstate</strong><em> [</em><em>struct_gsv </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>alpharandompert</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>randomseed</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>usememberashurefstate</strong><em> [</em><em>logical </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/enspostprocess_mod/epp_postprocess" title="f/enspostprocess_mod/epp_postprocess"><code class="xref f f-func docutils literal notranslate"><span class="pre">epp_postprocess()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_start" title="f/utilities_mod/utl_tmg_start"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_start()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_getnummembers" title="f/ensemblestatevector_mod/ens_getnummembers"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_getnummembers()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_getnumk" title="f/ensemblestatevector_mod/ens_getnumk"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_getnumk()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_getlatlonbounds" title="f/ensemblestatevector_mod/ens_getlatlonbounds"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_getlatlonbounds()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_getvco" title="f/ensemblestatevector_mod/ens_getvco"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_getvco()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_gethco" title="f/ensemblestatevector_mod/ens_gethco"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_gethco()</span></code></a>, <a class="reference internal" href="horizontalcoord_mod.html#f/horizontalcoord_mod/hco_setupfromfile" title="f/horizontalcoord_mod/hco_setupfromfile"><code class="xref f f-func docutils literal notranslate"><span class="pre">hco_setupfromfile()</span></code></a>, <a class="reference internal" href="verticalcoord_mod.html#f/verticalcoord_mod/vco_setupfromfile" title="f/verticalcoord_mod/vco_setupfromfile"><code class="xref f f-func docutils literal notranslate"><span class="pre">vco_setupfromfile()</span></code></a>, <a class="reference internal" href="verticalcoord_mod.html#f/verticalcoord_mod/vco_getnumlev" title="f/verticalcoord_mod/vco_getnumlev"><code class="xref f f-func docutils literal notranslate"><span class="pre">vco_getnumlev()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_varnameslist" title="f/ensemblestatevector_mod/ens_varnameslist"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_varnameslist()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_varexist" title="f/ensemblestatevector_mod/ens_varexist"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_varexist()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_stop" title="f/utilities_mod/utl_tmg_stop"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_stop()</span></code></a>, <a class="reference internal" href="bmatrix_mod.html#f/bmatrix_mod/bmat_setup" title="f/bmatrix_mod/bmat_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">bmat_setup()</span></code></a>, <a class="reference internal" href="gridvariabletransforms_mod.html#f/gridvariabletransforms_mod/gvt_setup" title="f/gridvariabletransforms_mod/gvt_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">gvt_setup()</span></code></a>, <a class="reference internal" href="randomnumber_mod.html#f/randomnumber_mod/rng_setup" title="f/randomnumber_mod/rng_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">rng_setup()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_allocate" title="f/gridstatevector_mod/gsv_allocate"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_allocate()</span></code></a>, <a class="reference internal" href="timecoord_mod.html#f/timecoord_mod/tim_getdatestamp" title="f/timecoord_mod/tim_getdatestamp"><code class="xref f f-func docutils literal notranslate"><span class="pre">tim_getdatestamp()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_copy" title="f/gridstatevector_mod/gsv_copy"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_copy()</span></code></a>, <a class="reference internal" href="interpolation_mod.html#f/interpolation_mod/int_interp_gsv" title="f/interpolation_mod/int_interp_gsv"><code class="xref f f-func docutils literal notranslate"><span class="pre">int_interp_gsv()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_deallocate" title="f/gridstatevector_mod/gsv_deallocate"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_deallocate()</span></code></a>, <a class="reference internal" href="randomnumber_mod.html#f/randomnumber_mod/rng_gaussian" title="f/randomnumber_mod/rng_gaussian"><code class="xref f f-func docutils literal notranslate"><span class="pre">rng_gaussian()</span></code></a>, <a class="reference internal" href="bmatrix_mod.html#f/bmatrix_mod/bmat_reducetompilocal" title="f/bmatrix_mod/bmat_reducetompilocal"><code class="xref f f-func docutils literal notranslate"><span class="pre">bmat_reducetompilocal()</span></code></a>, <a class="reference internal" href="bmatrix_mod.html#f/bmatrix_mod/bmat_sqrtb" title="f/bmatrix_mod/bmat_sqrtb"><code class="xref f f-func docutils literal notranslate"><span class="pre">bmat_sqrtb()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_copymember" title="f/ensemblestatevector_mod/ens_copymember"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_copymember()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_scale" title="f/gridstatevector_mod/gsv_scale"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_scale()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_getvarnamefromk" title="f/ensemblestatevector_mod/ens_getvarnamefromk"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_getvarnamefromk()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_getonelev_r4" title="f/ensemblestatevector_mod/ens_getonelev_r4"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_getonelev_r4()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_isallocated" title="f/gridstatevector_mod/gsv_isallocated"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_isallocated()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/enspostprocess_mod/epp_selectsubsample">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">enspostprocess_mod/</span></span><span class="sig-name descname"><span class="pre">epp_selectsubsample</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">ensembleanl</span></em>, <em class="sig-param"><span class="pre">ensembleanlsubsample</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">ensembletrl_opt</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">ensembletrlsubsample_opt</span></em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/enspostprocess_mod/epp_selectsubsample" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Create sub-sampled ensembles of analyses and trials based on
+the contents of the ascii files ‘sampletable’ which lists
+the member indices for the subsample.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>ensembleanl</strong><em> [</em><em>struct_ens </em><em>]</em></p></li>
+<li><p><strong>ensembleanlsubsample</strong><em> [</em><em>struct_ens </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Options</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ensembletrl_opt</strong><em> [</em><em>struct_ens </em><em>]</em></p></li>
+<li><p><strong>ensembletrlsubsample_opt</strong><em> [</em><em>struct_ens </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/enspostprocess_mod/epp_postprocess" title="f/enspostprocess_mod/epp_postprocess"><code class="xref f f-func docutils literal notranslate"><span class="pre">epp_postprocess()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="timecoord_mod.html#f/timecoord_mod/tim_getstamplist" title="f/timecoord_mod/tim_getstamplist"><code class="xref f f-func docutils literal notranslate"><span class="pre">tim_getstamplist()</span></code></a>, <a class="reference internal" href="timecoord_mod.html#f/timecoord_mod/tim_getdatestamp" title="f/timecoord_mod/tim_getdatestamp"><code class="xref f f-func docutils literal notranslate"><span class="pre">tim_getdatestamp()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_allocate" title="f/ensemblestatevector_mod/ens_allocate"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_allocate()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_gethco" title="f/ensemblestatevector_mod/ens_gethco"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_gethco()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_getvco" title="f/ensemblestatevector_mod/ens_getvco"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_getvco()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_allocate" title="f/gridstatevector_mod/gsv_allocate"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_allocate()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_copymember" title="f/ensemblestatevector_mod/ens_copymember"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_copymember()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_insertmember" title="f/ensemblestatevector_mod/ens_insertmember"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_insertmember()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_deallocate" title="f/gridstatevector_mod/gsv_deallocate"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_deallocate()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/enspostprocess_mod/epp_hybridrecentering">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">enspostprocess_mod/</span></span><span class="sig-name descname"><span class="pre">epp_hybridrecentering</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">ensembleanl</span></em>, <em class="sig-param"><span class="pre">weightrecenter</span></em>, <em class="sig-param"><span class="pre">weightrecenterland</span></em>, <em class="sig-param"><span class="pre">useoptiontablerecenter</span></em>, <em class="sig-param"><span class="pre">nummemberstorecenter</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/enspostprocess_mod/epp_hybridrecentering" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Modify an ensemble by recentering the members on a state provided
+in the file “recentering_analysis”.
+The “weightRecenter” and “numMembersToRecenter” are used in the calculation
+to determine the amount of recentering and how many members it is
+applied to. Alternatively the information in the “optiontable” file
+can be used to perform a different amount of recentering on each
+member.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>ensembleanl</strong><em> [</em><em>struct_ens </em><em>]</em></p></li>
+<li><p><strong>weightrecenter</strong> (*)<em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>weightrecenterland</strong><em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>useoptiontablerecenter</strong><em> [</em><em>logical </em><em>]</em></p></li>
+<li><p><strong>nummemberstorecenter</strong><em> [</em><em>integer </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/enspostprocess_mod/epp_postprocess" title="f/enspostprocess_mod/epp_postprocess"><code class="xref f f-func docutils literal notranslate"><span class="pre">epp_postprocess()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_gethco" title="f/ensemblestatevector_mod/ens_gethco"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_gethco()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_getvco" title="f/ensemblestatevector_mod/ens_getvco"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_getvco()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_getnummembers" title="f/ensemblestatevector_mod/ens_getnummembers"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_getnummembers()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_parsecolumns" title="f/utilities_mod/utl_parsecolumns"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_parsecolumns()</span></code></a>, <a class="reference internal" href="verticalcoord_mod.html#f/verticalcoord_mod/vco_getnumlev" title="f/verticalcoord_mod/vco_getnumlev"><code class="xref f f-func docutils literal notranslate"><span class="pre">vco_getnumlev()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_allocate" title="f/gridstatevector_mod/gsv_allocate"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_allocate()</span></code></a>, <a class="reference internal" href="timecoord_mod.html#f/timecoord_mod/tim_getdatestamp" title="f/timecoord_mod/tim_getdatestamp"><code class="xref f f-func docutils literal notranslate"><span class="pre">tim_getdatestamp()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_zero" title="f/gridstatevector_mod/gsv_zero"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_zero()</span></code></a>, <a class="reference internal" href="gridstatevectorfileio_mod.html#f/gridstatevectorfileio_mod/gio_readfromfile" title="f/gridstatevectorfileio_mod/gio_readfromfile"><code class="xref f f-func docutils literal notranslate"><span class="pre">gio_readfromfile()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_recenter" title="f/ensemblestatevector_mod/ens_recenter"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_recenter()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_deallocate" title="f/gridstatevector_mod/gsv_deallocate"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_deallocate()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/enspostprocess_mod/epp_printrmsstats">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">enspostprocess_mod/</span></span><span class="sig-name descname"><span class="pre">epp_printrmsstats</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">statevectorstddev</span></em>, <em class="sig-param"><span class="pre">filename</span></em>, <em class="sig-param"><span class="pre">elapsed</span></em>, <em class="sig-param"><span class="pre">ftype</span></em>, <em class="sig-param"><span class="pre">nens</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/enspostprocess_mod/epp_printrmsstats" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Print statistics of a field to an ASCII output file</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>statevectorstddev</strong><em> [</em><em>struct_gsv </em><em>]</em></p></li>
+<li><p><strong>filename</strong><em> [</em><em>character </em><em>]</em></p></li>
+<li><p><strong>elapsed</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>ftype</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>nens</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/enspostprocess_mod/epp_postprocess" title="f/enspostprocess_mod/epp_postprocess"><code class="xref f f-func docutils literal notranslate"><span class="pre">epp_postprocess()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_getvco" title="f/gridstatevector_mod/gsv_getvco"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_getvco()</span></code></a>, <a class="reference internal" href="verticalcoord_mod.html#f/verticalcoord_mod/vco_getnumlev" title="f/verticalcoord_mod/vco_getnumlev"><code class="xref f f-func docutils literal notranslate"><span class="pre">vco_getnumlev()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_getnumk" title="f/gridstatevector_mod/gsv_getnumk"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_getnumk()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_gethco" title="f/gridstatevector_mod/gsv_gethco"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_gethco()</span></code></a>, <a class="reference internal" href="horizontalcoord_mod.html#f/horizontalcoord_mod/hco_weight" title="f/horizontalcoord_mod/hco_weight"><code class="xref f f-func docutils literal notranslate"><span class="pre">hco_weight()</span></code></a>, <a class="reference internal" href="midasmpi_mod.html#f/midasmpi_mod/mmpi_allreduce_sumreal8scalar" title="f/midasmpi_mod/mmpi_allreduce_sumreal8scalar"><code class="xref f f-func docutils literal notranslate"><span class="pre">mmpi_allreduce_sumreal8scalar()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_getlevfromk" title="f/gridstatevector_mod/gsv_getlevfromk"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_getlevfromk()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_getvarnamefromk" title="f/gridstatevector_mod/gsv_getvarnamefromk"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_getvarnamefromk()</span></code></a>, <a class="reference internal" href="varnamelist_mod.html#f/varnamelist_mod/vnl_varlevelfromvarname" title="f/varnamelist_mod/vnl_varlevelfromvarname"><code class="xref f f-func docutils literal notranslate"><span class="pre">vnl_varlevelfromvarname()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div></blockquote>
+</section>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="fsoi_mod.html" title="fsoi_mod"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="enkf_mod.html" title="enkf_mod"
+             >previous</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2018, ECCC.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.
+    </div>
+  </body>
+</html>

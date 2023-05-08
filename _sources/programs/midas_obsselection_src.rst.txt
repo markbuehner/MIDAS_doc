@@ -1,0 +1,8 @@
+==========================================
+midas_obsselection source
+==========================================
+
+    .. literalinclude:: ../_src_files/obsSelection.f90
+       :language: fortran
+       :linenos:
+

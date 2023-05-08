@@ -1,0 +1,352 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>localizationfunction_mod &mdash; MIDAS  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="MIDAS  documentation" href="../index.html" />
+    <link rel="next" title="localization_mod" href="localization_mod.html" />
+    <link rel="prev" title="lambmatrixhi_mod" href="lambmatrixhi_mod.html" /> 
+  </head>
+  <body>
+  <div>
+    <img src="../_static/MIDAS_header.png" alt="MIDAS" />
+  </div>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="localization_mod.html" title="localization_mod"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="lambmatrixhi_mod.html" title="lambmatrixhi_mod"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="lambmatrixhi_mod.html"
+                          title="previous chapter">lambmatrixhi_mod</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="localization_mod.html"
+                          title="next chapter">localization_mod</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/modules/localizationfunction_mod.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <section id="localizationfunction-mod">
+<h1>localizationfunction_mod<a class="headerlink" href="#localizationfunction-mod" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><p><a class="reference internal" href="localizationfunction_mod_src.html"><span class="doc">link to source code</span></a></p>
+<p><strong>Dependency Diagrams:</strong></p>
+<figure class="align-default" id="id1">
+<a class="reference internal image-reference" href="localizationfunction_mod.svg"><img alt="localizationfunction_mod.svg" height="100px" src="localizationfunction_mod.svg" /></a>
+<figcaption>
+<p><span class="caption-text">Direct Dependency Diagram</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id2">
+<a class="reference internal image-reference" href="localizationfunction_mod_rev.svg"><img alt="localizationfunction_mod_rev.svg" height="100px" src="localizationfunction_mod_rev.svg" /></a>
+<figcaption>
+<p><span class="caption-text">Reverse Dependency Diagram</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<span class="target" id="f/localizationfunction_mod"></span><p class="rubric">Description</p>
+<p>MODULE localizationFunction_mod (prefix=’lfn’ category=’2. B and R matrices’)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Purpose</dt>
+<dd class="field-odd"><p>To store various functions for horizontal and vertical covariance
+localization. Length-scale estimation for function available in
+this module is also possible through curve fitting using
+pre-computed optimal separation-distance localization values.</p>
+</dd>
+</dl>
+<p class="rubric">Quick access</p>
+<dl class="field-list simple">
+<dt class="field-odd">Routines</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/localizationfunction_mod/lfn_createbiperfunction" title="f/localizationfunction_mod/lfn_createbiperfunction"><code class="xref f f-func docutils literal notranslate"><span class="pre">lfn_createbiperfunction()</span></code></a>, <a class="reference internal" href="#f/localizationfunction_mod/lfn_curvefit" title="f/localizationfunction_mod/lfn_curvefit"><code class="xref f f-func docutils literal notranslate"><span class="pre">lfn_curvefit()</span></code></a>, <a class="reference internal" href="#f/localizationfunction_mod/lfn_fifthorderfunction" title="f/localizationfunction_mod/lfn_fifthorderfunction"><code class="xref f f-func docutils literal notranslate"><span class="pre">lfn_fifthorderfunction()</span></code></a>, <a class="reference internal" href="#f/localizationfunction_mod/lfn_fifthorderfunctiongradient" title="f/localizationfunction_mod/lfn_fifthorderfunctiongradient"><code class="xref f f-func docutils literal notranslate"><span class="pre">lfn_fifthorderfunctiongradient()</span></code></a>, <a class="reference internal" href="#f/localizationfunction_mod/lfn_gradient" title="f/localizationfunction_mod/lfn_gradient"><code class="xref f f-func docutils literal notranslate"><span class="pre">lfn_gradient()</span></code></a>, <a class="reference internal" href="#f/localizationfunction_mod/lfn_lengthscale" title="f/localizationfunction_mod/lfn_lengthscale"><code class="xref f f-func docutils literal notranslate"><span class="pre">lfn_lengthscale()</span></code></a>, <a class="reference internal" href="#f/localizationfunction_mod/lfn_response" title="f/localizationfunction_mod/lfn_response"><code class="xref f f-func docutils literal notranslate"><span class="pre">lfn_response()</span></code></a>, <a class="reference internal" href="#f/localizationfunction_mod/lfn_setup" title="f/localizationfunction_mod/lfn_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">lfn_setup()</span></code></a></p>
+</dd>
+</dl>
+<p class="rubric">Needed modules</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod" title="f/utilities_mod: MODULE utilities_mod (prefix='utl' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">utilities_mod</span></code></a>: MODULE utilities_mod (prefix=’utl’ category=’8. Low-level utilities and constants’)</p></li>
+</ul>
+<p class="rubric">Variables</p>
+<p class="rubric">Subroutines and functions</p>
+<dl>
+<dt class="sig sig-object f" id="f/localizationfunction_mod/lfn_setup">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">localizationfunction_mod/</span></span><span class="sig-name descname"><span class="pre">lfn_setup</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">locfunctionwanted</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/localizationfunction_mod/lfn_setup" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><p><strong>locfunctionwanted</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em></p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="biascorrectionsat_mod.html#f/biascorrectionsat_mod/bcs_setup" title="f/biascorrectionsat_mod/bcs_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">bcs_setup()</span></code></a>, <a class="reference internal" href="bmatrix1dvar_mod.html#f/bmatrix1dvar_mod/bmat1d_setupbens" title="f/bmatrix1dvar_mod/bmat1d_setupbens"><code class="xref f f-func docutils literal notranslate"><span class="pre">bmat1d_setupbens()</span></code></a>, <a class="reference internal" href="calcstatslam_mod.html#f/calcstatslam_mod/applyhorizloc" title="f/calcstatslam_mod/applyhorizloc"><code class="xref f f-func docutils literal notranslate"><span class="pre">applyhorizloc()</span></code></a>, <a class="reference internal" href="calcstatslam_mod.html#f/calcstatslam_mod/applyvertloc" title="f/calcstatslam_mod/applyvertloc"><code class="xref f f-func docutils literal notranslate"><span class="pre">applyvertloc()</span></code></a>, <a class="reference internal" href="enkf_mod.html#f/enkf_mod/enkf_letkfanalyses" title="f/enkf_mod/enkf_letkfanalyses"><code class="xref f f-func docutils literal notranslate"><span class="pre">enkf_letkfanalyses()</span></code></a>, <a class="reference internal" href="enkf_mod.html#f/enkf_mod/getmodulationfactor" title="f/enkf_mod/getmodulationfactor"><code class="xref f f-func docutils literal notranslate"><span class="pre">getmodulationfactor()</span></code></a>, <a class="reference internal" href="localizationspectral_mod.html#f/localizationspectral_mod/lsp_setup" title="f/localizationspectral_mod/lsp_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">lsp_setup()</span></code></a>, <a class="reference internal" href="menetrierdiag_mod.html#f/menetrierdiag_mod/calchorizlocalizationradii" title="f/menetrierdiag_mod/calchorizlocalizationradii"><code class="xref f f-func docutils literal notranslate"><span class="pre">calchorizlocalizationradii()</span></code></a>, <a class="reference internal" href="menetrierdiag_mod.html#f/menetrierdiag_mod/calcvertlocalizationradii" title="f/menetrierdiag_mod/calcvertlocalizationradii"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcvertlocalizationradii()</span></code></a>, <a class="reference internal" href="sstbias_mod.html#f/sstbias_mod/sstb_getgriddedbias" title="f/sstbias_mod/sstb_getgriddedbias"><code class="xref f f-func docutils literal notranslate"><span class="pre">sstb_getgriddedbias()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/localizationfunction_mod/lfn_response">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">localizationfunction_mod/</span></span><span class="sig-name descname"><span class="pre">lfn_response</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">distance</span></em>, <em class="sig-param"><span class="pre">lengthscale</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/localizationfunction_mod/lfn_response" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>distance</strong><em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>lengthscale</strong><em> [</em><em>real </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Return</dt>
+<dd class="field-even"><p><strong>correlation</strong><em> [</em><em>real </em><em>]</em></p>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="biascorrectionsat_mod.html#f/biascorrectionsat_mod/bcs_setup" title="f/biascorrectionsat_mod/bcs_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">bcs_setup()</span></code></a>, <a class="reference internal" href="bmatrix1dvar_mod.html#f/bmatrix1dvar_mod/bmat1d_setupbens" title="f/bmatrix1dvar_mod/bmat1d_setupbens"><code class="xref f f-func docutils literal notranslate"><span class="pre">bmat1d_setupbens()</span></code></a>, <a class="reference internal" href="calcstatslam_mod.html#f/calcstatslam_mod/applyvertloc" title="f/calcstatslam_mod/applyvertloc"><code class="xref f f-func docutils literal notranslate"><span class="pre">applyvertloc()</span></code></a>, <a class="reference internal" href="enkf_mod.html#f/enkf_mod/enkf_letkfanalyses" title="f/enkf_mod/enkf_letkfanalyses"><code class="xref f f-func docutils literal notranslate"><span class="pre">enkf_letkfanalyses()</span></code></a>, <a class="reference internal" href="enkf_mod.html#f/enkf_mod/getmodulationfactor" title="f/enkf_mod/getmodulationfactor"><code class="xref f f-func docutils literal notranslate"><span class="pre">getmodulationfactor()</span></code></a>, <a class="reference internal" href="#f/localizationfunction_mod/lfn_createbiperfunction" title="f/localizationfunction_mod/lfn_createbiperfunction"><code class="xref f f-func docutils literal notranslate"><span class="pre">lfn_createbiperfunction()</span></code></a>, <a class="reference internal" href="#f/localizationfunction_mod/lfn_curvefit" title="f/localizationfunction_mod/lfn_curvefit"><code class="xref f f-func docutils literal notranslate"><span class="pre">lfn_curvefit()</span></code></a>, <a class="reference internal" href="localizationspectral_mod.html#f/localizationspectral_mod/setuplocalizationmatrices" title="f/localizationspectral_mod/setuplocalizationmatrices"><code class="xref f f-func docutils literal notranslate"><span class="pre">setuplocalizationmatrices()</span></code></a>, <a class="reference internal" href="localizationspectral_mod.html#f/localizationspectral_mod/setupglobalspectralhloc" title="f/localizationspectral_mod/setupglobalspectralhloc"><code class="xref f f-func docutils literal notranslate"><span class="pre">setupglobalspectralhloc()</span></code></a>, <a class="reference internal" href="sstbias_mod.html#f/sstbias_mod/sstb_getgriddedbias" title="f/sstbias_mod/sstb_getgriddedbias"><code class="xref f f-func docutils literal notranslate"><span class="pre">sstb_getgriddedbias()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="#f/localizationfunction_mod/lfn_fifthorderfunction" title="f/localizationfunction_mod/lfn_fifthorderfunction"><code class="xref f f-func docutils literal notranslate"><span class="pre">lfn_fifthorderfunction()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/localizationfunction_mod/lfn_gradient">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">localizationfunction_mod/</span></span><span class="sig-name descname"><span class="pre">lfn_gradient</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">distance</span></em>, <em class="sig-param"><span class="pre">lengthscale</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/localizationfunction_mod/lfn_gradient" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>distance</strong><em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>lengthscale</strong><em> [</em><em>real </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Return</dt>
+<dd class="field-even"><p><strong>gradient</strong><em> [</em><em>real </em><em>]</em></p>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/localizationfunction_mod/lfn_curvefit" title="f/localizationfunction_mod/lfn_curvefit"><code class="xref f f-func docutils literal notranslate"><span class="pre">lfn_curvefit()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="#f/localizationfunction_mod/lfn_fifthorderfunctiongradient" title="f/localizationfunction_mod/lfn_fifthorderfunctiongradient"><code class="xref f f-func docutils literal notranslate"><span class="pre">lfn_fifthorderfunctiongradient()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/localizationfunction_mod/lfn_fifthorderfunction">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">localizationfunction_mod/</span></span><span class="sig-name descname"><span class="pre">lfn_fifthorderfunction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">distance</span></em>, <em class="sig-param"><span class="pre">lengthscale</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/localizationfunction_mod/lfn_fifthorderfunction" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>distance</strong><em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>lengthscale</strong><em> [</em><em>real </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Return</dt>
+<dd class="field-even"><p><strong>correlation</strong><em> [</em><em>real </em><em>]</em></p>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/localizationfunction_mod/lfn_response" title="f/localizationfunction_mod/lfn_response"><code class="xref f f-func docutils literal notranslate"><span class="pre">lfn_response()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/localizationfunction_mod/lfn_fifthorderfunctiongradient">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">localizationfunction_mod/</span></span><span class="sig-name descname"><span class="pre">lfn_fifthorderfunctiongradient</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">distance</span></em>, <em class="sig-param"><span class="pre">lengthscale</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/localizationfunction_mod/lfn_fifthorderfunctiongradient" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>distance</strong><em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>lengthscale</strong><em> [</em><em>real </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Return</dt>
+<dd class="field-even"><p><strong>gradient</strong><em> [</em><em>real </em><em>]</em></p>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/localizationfunction_mod/lfn_gradient" title="f/localizationfunction_mod/lfn_gradient"><code class="xref f f-func docutils literal notranslate"><span class="pre">lfn_gradient()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/localizationfunction_mod/lfn_createbiperfunction">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">localizationfunction_mod/</span></span><span class="sig-name descname"><span class="pre">lfn_createbiperfunction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">gridpoint</span></em>, <em class="sig-param"><span class="pre">correllength</span></em>, <em class="sig-param"><span class="pre">dlon</span></em>, <em class="sig-param"><span class="pre">ni</span></em>, <em class="sig-param"><span class="pre">nj</span></em>, <em class="sig-param"><span class="pre">nk</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/localizationfunction_mod/lfn_createbiperfunction" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>gridpoint</strong> (ni,nj,nk)<em> [</em><em>real </em><em>,</em><em>out</em><em>]</em></p></li>
+<li><p><strong>correllength</strong> (nk)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: in km</p></li>
+<li><p><strong>dlon</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: in radian</p></li>
+<li><p><strong>ni</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>nj</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>nk</strong><em> [</em><em>integer </em><em>,</em><em>in,</em><em>]</em></p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Needed modules</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="earthconstants_mod.html#f/earthconstants_mod" title="f/earthconstants_mod: MODULE earthConstants_mod (prefix='ec' category='8. Low-level utilities and constants') Prefixes: ec_ (Earth constants), for miscellaneous values from diverse sources"><code class="xref f f-mod docutils literal notranslate"><span class="pre">earthconstants_mod</span></code></a>: MODULE earthConstants_mod (prefix=’ec’ category=’8. Low-level utilities and constants’) Prefixes: <a href="#id3"><span class="problematic" id="id4">ec_</span></a> (Earth constants), for miscellaneous values from diverse sources</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="calcstatslam_mod.html#f/calcstatslam_mod/applyhorizloc" title="f/calcstatslam_mod/applyhorizloc"><code class="xref f f-func docutils literal notranslate"><span class="pre">applyhorizloc()</span></code></a>, <a class="reference internal" href="localizationspectral_mod.html#f/localizationspectral_mod/setuplamspectralhloc" title="f/localizationspectral_mod/setuplamspectralhloc"><code class="xref f f-func docutils literal notranslate"><span class="pre">setuplamspectralhloc()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/localizationfunction_mod/lfn_response" title="f/localizationfunction_mod/lfn_response"><code class="xref f f-func docutils literal notranslate"><span class="pre">lfn_response()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/localizationfunction_mod/lfn_lengthscale">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">localizationfunction_mod/</span></span><span class="sig-name descname"><span class="pre">lfn_lengthscale</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">lengthscale</span></em>, <em class="sig-param"><span class="pre">rmse</span></em>, <em class="sig-param"><span class="pre">localizationvalues</span></em>, <em class="sig-param"><span class="pre">distance</span></em>, <em class="sig-param"><span class="pre">weight</span></em>, <em class="sig-param"><span class="pre">numbins</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/localizationfunction_mod/lfn_lengthscale" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>lengthscale</strong><em> [</em><em>real </em><em>,</em><em>inout</em><em>]</em> :: INOUT</p></li>
+<li><p><strong>rmse</strong><em> [</em><em>real </em><em>,</em><em>out</em><em>]</em></p></li>
+<li><p><strong>localizationvalues</strong> (numbins)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: IN</p></li>
+<li><p><strong>distance</strong> (numbins)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>weight</strong> (numbins)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>numbins</strong><em> [</em><em>integer </em><em>,</em><em>in,</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="menetrierdiag_mod.html#f/menetrierdiag_mod/calchorizlocalizationradii" title="f/menetrierdiag_mod/calchorizlocalizationradii"><code class="xref f f-func docutils literal notranslate"><span class="pre">calchorizlocalizationradii()</span></code></a>, <a class="reference internal" href="menetrierdiag_mod.html#f/menetrierdiag_mod/calcvertlocalizationradii" title="f/menetrierdiag_mod/calcvertlocalizationradii"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcvertlocalizationradii()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/localizationfunction_mod/lfn_curvefit" title="f/localizationfunction_mod/lfn_curvefit"><code class="xref f f-func docutils literal notranslate"><span class="pre">lfn_curvefit()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/localizationfunction_mod/lfn_curvefit">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">localizationfunction_mod/</span></span><span class="sig-name descname"><span class="pre">lfn_curvefit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">nn</span></em>, <em class="sig-param"><span class="pre">x</span></em>, <em class="sig-param"><span class="pre">y</span></em>, <em class="sig-param"><span class="pre">w</span></em>, <em class="sig-param"><span class="pre">nmax</span></em>, <em class="sig-param"><span class="pre">param</span></em>, <em class="sig-param"><span class="pre">minv</span></em>, <em class="sig-param"><span class="pre">ilist</span></em>, <em class="sig-param"><span class="pre">ierr</span></em>, <em class="sig-param"><span class="pre">ssq</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/localizationfunction_mod/lfn_curvefit" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>This subroutine computes the lengthscale (sl, here: param) of a
+FUNCTION that best fits (in a least-square perspective) a
+data set. The method follows routine CURVEFIT from:
+Heeswijk, M.V., and C.G. Fox, 1988: Iterative Method and Fortran
+Code for Nonlinear Curve Fitting, Computers and Geosciences, 14,
+4, pp. 489-503.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>nn</strong><em> [</em><em>integer </em><em>,</em><em>in,</em><em>]</em></p></li>
+<li><p><strong>x</strong> (nn)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>y</strong> (nn)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>w</strong> (nn)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>nmax</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>param</strong><em> [</em><em>real </em><em>,</em><em>inout</em><em>]</em></p></li>
+<li><p><strong>minv</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>ilist</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>ierr</strong><em> [</em><em>integer </em><em>,</em><em>inout</em><em>]</em></p></li>
+<li><p><strong>ssq</strong><em> [</em><em>real </em><em>,</em><em>out</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/localizationfunction_mod/lfn_lengthscale" title="f/localizationfunction_mod/lfn_lengthscale"><code class="xref f f-func docutils literal notranslate"><span class="pre">lfn_lengthscale()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/localizationfunction_mod/lfn_response" title="f/localizationfunction_mod/lfn_response"><code class="xref f f-func docutils literal notranslate"><span class="pre">lfn_response()</span></code></a>, <a class="reference internal" href="#f/localizationfunction_mod/lfn_gradient" title="f/localizationfunction_mod/lfn_gradient"><code class="xref f f-func docutils literal notranslate"><span class="pre">lfn_gradient()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div></blockquote>
+</section>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="localization_mod.html" title="localization_mod"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="lambmatrixhi_mod.html" title="lambmatrixhi_mod"
+             >previous</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2018, ECCC.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.
+    </div>
+  </body>
+</html>

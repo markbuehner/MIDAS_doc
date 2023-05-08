@@ -1,0 +1,254 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>midas_ssttrial &mdash; MIDAS  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="MIDAS  documentation" href="../index.html" />
+    <link rel="next" title="midas_thinning" href="midas_thinning.html" />
+    <link rel="prev" title="midas_sstbias" href="midas_sstbias.html" /> 
+  </head>
+  <body>
+  <div>
+    <img src="../_static/MIDAS_header.png" alt="MIDAS" />
+  </div>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="midas_thinning.html" title="midas_thinning"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="midas_sstbias.html" title="midas_sstbias"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="midas_sstbias.html"
+                          title="previous chapter">midas_sstbias</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="midas_thinning.html"
+                          title="next chapter">midas_thinning</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/programs/midas_ssttrial.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <section id="midas-ssttrial">
+<h1>midas_ssttrial<a class="headerlink" href="#midas-ssttrial" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><p><a class="reference internal" href="midas_ssttrial_src.html"><span class="doc">link to source code</span></a></p>
+<p><strong>Dependency Diagrams:</strong></p>
+<figure class="align-default" id="id1">
+<a class="reference internal image-reference" href="midas_ssttrial.svg"><img alt="midas_ssttrial.svg" height="100px" src="midas_ssttrial.svg" /></a>
+<figcaption>
+<p><span class="caption-text">Direct Dependency Diagram</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<dl>
+<dt class="sig sig-object f" id="f/midas_ssttrial">
+<em class="property"><span class="pre">program</span>&#160; </em><span class="sig-name descname"><span class="pre">midas_ssttrial</span></span><a class="headerlink" href="#f/midas_ssttrial" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="field-list">
+<dt class="field-odd">Purpose</dt>
+<dd class="field-odd"><p>Main program to compute SST background state.</p>
+<p>—</p>
+</dd>
+<dt class="field-even">Algorithm</dt>
+<dd class="field-even"><p>The background state of SST is computed from the previous SST analysis field
+using a relaxation towards climatology as follows:
+<span class="math notranslate nohighlight">\(X_{b}(t) = (X_{a}(t-1) - X_{clim}(t-1)) * \alpha + X_{clim}(t)\)</span>,
+where <span class="math notranslate nohighlight">\(X_{b}(t)\)</span> is a resulting background state at time <span class="math notranslate nohighlight">\(t\)</span>,
+<span class="math notranslate nohighlight">\(X_{a}(t-1)\)</span> is analysis state at time <span class="math notranslate nohighlight">\(t-1\)</span>,
+<span class="math notranslate nohighlight">\(\alpha\)</span> is a relaxation coefficient,
+<span class="math notranslate nohighlight">\(X_{clim}(t)\)</span> is a climatology state at time <span class="math notranslate nohighlight">\(t\)</span>,
+computed as an interpolation in time
+between climatological field of the current and the following month
+for the current day of the month.</p>
+<p>–</p>
+</dd>
+</dl>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 52%" />
+<col style="width: 48%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Input and Output Files</p></th>
+<th class="head"><p>Description of file</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">analysis</span></code></p></td>
+<td><p>In - SST analysis field</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">climatology</span></code></p></td>
+<td><p>In - 12 monthly climatological SST fields</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">trial</span></code></p></td>
+<td><p>Out - SST background (trial) field</p></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<div><p>–</p>
+</div></blockquote>
+<dl class="field-list">
+<dt class="field-odd">Synopsis</dt>
+<dd class="field-odd"><p>Below is a summary of the <code class="docutils literal notranslate"><span class="pre">SSTtrial</span></code> program calling sequence:</p>
+<ul class="simple">
+<li><p><strong>Initial setups:</strong></p></li>
+</ul>
+<blockquote>
+<div><ul class="simple">
+<li><p>Setup horizontal and vertical grid objects for “analysis
+grid” from <code class="docutils literal notranslate"><span class="pre">analysis</span></code>.</p></li>
+<li><p>Setup <code class="docutils literal notranslate"><span class="pre">gridStateVector</span></code> modules.</p></li>
+<li><p>Initialize a time objects <code class="docutils literal notranslate"><span class="pre">tim_setup</span></code></p></li>
+<li><p>Initialize datastamps from climatology file</p></li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li><p><strong>Computation</strong></p></li>
+</ul>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">obgd_getClimatology</span></code> to read SST climatological fields from a standard file,
+to interpolate the field in time fot the current day <span class="math notranslate nohighlight">\(t\)</span> in current month <span class="math notranslate nohighlight">\(m\)</span> as follows
+<span class="math notranslate nohighlight">\(X_{clim}(t) = X_{clim}(m) + (t - 1) /(N - 1) * (X_{clim}(m+1) - X_{clim}(m))\)</span>,
+where <span class="math notranslate nohighlight">\(N\)</span> is a number of days in the current month</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">obgd_computeSSTrial</span></code> to compute the background field and save it into a standard file</p></li>
+</ul>
+</div></blockquote>
+<p>–</p>
+</dd>
+<dt class="field-even">Options</dt>
+<dd class="field-even"><p><a class="reference external" href="../namelists_in_each_program.html#ssttrial">List of namelist blocks</a>
+that can affect the <code class="docutils literal notranslate"><span class="pre">SSTtrial</span></code> program.</p>
+<blockquote>
+<div><ul>
+<li><p>The use of <code class="docutils literal notranslate"><span class="pre">SSTtrial</span></code> program is controlled by the namelist block
+<code class="docutils literal notranslate"><span class="pre">&amp;NAMSSTTRIAL</span></code> read by the <code class="docutils literal notranslate"><span class="pre">SSTtrial</span></code> program.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">etiketAnalysis</span></code> etiket to put into output standard file</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">datestampClim</span></code> list of twelve datestamps of climatological fields
+in the <code class="docutils literal notranslate"><span class="pre">climatology</span></code> file</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">alphaClim</span></code> a parameter defining the relaxation towards climatology.</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<p>–</p>
+</div></blockquote>
+</dd>
+</dl>
+<p class="rubric">Needed modules</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../modules/version_mod.html#f/version_mod" title="f/version_mod: MODULE version_mod (prefix='ver' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">version_mod</span></code></a>: MODULE version_mod (prefix=’ver’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="../modules/ramdisk_mod.html#f/ramdisk_mod" title="f/ramdisk_mod: MODULE ramDisk_mod (prefix='ram' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">ramdisk_mod</span></code></a>: MODULE ramDisk_mod (prefix=’ram’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="../modules/utilities_mod.html#f/utilities_mod" title="f/utilities_mod: MODULE utilities_mod (prefix='utl' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">utilities_mod</span></code></a>: MODULE utilities_mod (prefix=’utl’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="../modules/midasmpi_mod.html#f/midasmpi_mod" title="f/midasmpi_mod: MODULE midasMpi_mod (prefix='mmpi' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">midasmpi_mod</span></code></a>: MODULE midasMpi_mod (prefix=’mmpi’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="../modules/horizontalcoord_mod.html#f/horizontalcoord_mod" title="f/horizontalcoord_mod: MODULE HorizontalCoord_mod (prefix='hco' category='7. Low-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">horizontalcoord_mod</span></code></a>: MODULE HorizontalCoord_mod (prefix=’hco’ category=’7. Low-level data objects’)</p></li>
+<li><p><a class="reference internal" href="../modules/verticalcoord_mod.html#f/verticalcoord_mod" title="f/verticalcoord_mod: MODULE verticalcoord (prefix='vco' category='7. Low-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">verticalcoord_mod</span></code></a>: MODULE verticalcoord (prefix=’vco’ category=’7. Low-level data objects’)</p></li>
+<li><p><a class="reference internal" href="../modules/timecoord_mod.html#f/timecoord_mod" title="f/timecoord_mod: MODULE timeCoord (prefix='tim' category='7. Low-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">timecoord_mod</span></code></a>: MODULE timeCoord (prefix=’tim’ category=’7. Low-level data objects’)</p></li>
+<li><p><a class="reference internal" href="../modules/gridstatevector_mod.html#f/gridstatevector_mod" title="f/gridstatevector_mod: MODULE gridStateVector_mod (prefix='gsv' category='6. High-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">gridstatevector_mod</span></code></a>: MODULE gridStateVector_mod (prefix=’gsv’ category=’6. High-level data objects’)</p></li>
+<li><p><a class="reference internal" href="../modules/analysisgrid_mod.html#f/analysisgrid_mod" title="f/analysisgrid_mod: MODULE analysisGrid_mod (prefix='agd' category='7. Low-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">analysisgrid_mod</span></code></a>: MODULE analysisGrid_mod (prefix=’agd’ category=’7. Low-level data objects’)</p></li>
+<li><p><a class="reference internal" href="../modules/oceanbackground_mod.html#f/oceanbackground_mod" title="f/oceanbackground_mod: MODULE oceanBackground_mod (prefix='obgd' category='1. High-level functionality')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">oceanbackground_mod</span></code></a>: MODULE oceanBackground_mod (prefix=’obgd’ category=’1. High-level functionality’)</p></li>
+</ul>
+<p class="rubric">Routines called</p>
+<p><a class="reference internal" href="../modules/version_mod.html#f/version_mod/ver_printnameandversion" title="f/version_mod/ver_printnameandversion"><code class="xref f f-func docutils literal notranslate"><span class="pre">ver_printnameandversion()</span></code></a>, <a class="reference internal" href="../modules/midasmpi_mod.html#f/midasmpi_mod/mmpi_initialize" title="f/midasmpi_mod/mmpi_initialize"><code class="xref f f-func docutils literal notranslate"><span class="pre">mmpi_initialize()</span></code></a>, <a class="reference internal" href="../modules/utilities_mod.html#f/utilities_mod/utl_tmg_start" title="f/utilities_mod/utl_tmg_start"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_start()</span></code></a>, <a class="reference internal" href="../modules/ramdisk_mod.html#f/ramdisk_mod/ram_setup" title="f/ramdisk_mod/ram_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">ram_setup()</span></code></a>, <a class="reference internal" href="../modules/oceanbackground_mod.html#f/oceanbackground_mod/obgd_computesstrial" title="f/oceanbackground_mod/obgd_computesstrial"><code class="xref f f-func docutils literal notranslate"><span class="pre">obgd_computesstrial()</span></code></a>, <a class="reference internal" href="../modules/utilities_mod.html#f/utilities_mod/utl_tmg_stop" title="f/utilities_mod/utl_tmg_stop"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_stop()</span></code></a>, <a class="reference internal" href="../modules/utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="../modules/timecoord_mod.html#f/timecoord_mod/tim_setup" title="f/timecoord_mod/tim_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">tim_setup()</span></code></a>, <a class="reference internal" href="../modules/timecoord_mod.html#f/timecoord_mod/tim_getdatestamp" title="f/timecoord_mod/tim_getdatestamp"><code class="xref f f-func docutils literal notranslate"><span class="pre">tim_getdatestamp()</span></code></a>, <a class="reference internal" href="../modules/gridstatevector_mod.html#f/gridstatevector_mod/gsv_setup" title="f/gridstatevector_mod/gsv_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_setup()</span></code></a>, <a class="reference internal" href="../modules/horizontalcoord_mod.html#f/horizontalcoord_mod/hco_setupfromfile" title="f/horizontalcoord_mod/hco_setupfromfile"><code class="xref f f-func docutils literal notranslate"><span class="pre">hco_setupfromfile()</span></code></a>, <a class="reference internal" href="../modules/analysisgrid_mod.html#f/analysisgrid_mod/agd_setupfromhco" title="f/analysisgrid_mod/agd_setupfromhco"><code class="xref f f-func docutils literal notranslate"><span class="pre">agd_setupfromhco()</span></code></a>, <a class="reference internal" href="../modules/verticalcoord_mod.html#f/verticalcoord_mod/vco_setupfromfile" title="f/verticalcoord_mod/vco_setupfromfile"><code class="xref f f-func docutils literal notranslate"><span class="pre">vco_setupfromfile()</span></code></a></p>
+</div></blockquote>
+</section>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="midas_thinning.html" title="midas_thinning"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="midas_sstbias.html" title="midas_sstbias"
+             >previous</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2018, ECCC.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.
+    </div>
+  </body>
+</html>

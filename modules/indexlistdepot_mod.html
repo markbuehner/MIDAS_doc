@@ -1,0 +1,351 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>indexlistdepot_mod &mdash; MIDAS  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="MIDAS  documentation" href="../index.html" />
+    <link rel="next" title="obscolumnnames_mod" href="obscolumnnames_mod.html" />
+    <link rel="prev" title="horizontalcoord_mod" href="horizontalcoord_mod.html" /> 
+  </head>
+  <body>
+  <div>
+    <img src="../_static/MIDAS_header.png" alt="MIDAS" />
+  </div>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="obscolumnnames_mod.html" title="obscolumnnames_mod"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="horizontalcoord_mod.html" title="horizontalcoord_mod"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="horizontalcoord_mod.html"
+                          title="previous chapter">horizontalcoord_mod</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="obscolumnnames_mod.html"
+                          title="next chapter">obscolumnnames_mod</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/modules/indexlistdepot_mod.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <section id="indexlistdepot-mod">
+<h1>indexlistdepot_mod<a class="headerlink" href="#indexlistdepot-mod" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><p><a class="reference internal" href="indexlistdepot_mod_src.html"><span class="doc">link to source code</span></a></p>
+<p><strong>Dependency Diagrams:</strong></p>
+<blockquote>
+<div><p>No Direct Dependency</p>
+</div></blockquote>
+<figure class="align-default" id="id1">
+<a class="reference internal image-reference" href="indexlistdepot_mod_rev.svg"><img alt="indexlistdepot_mod_rev.svg" height="100px" src="indexlistdepot_mod_rev.svg" /></a>
+<figcaption>
+<p><span class="caption-text">Reverse Dependency Diagram</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<span class="target" id="f/indexlistdepot_mod"></span><p class="rubric">Description</p>
+<p>MODULE indexListDepot_mod (prefix=’ild’ category=’7. Low-level data objects and utilities’)</p>
+<dl class="field-list">
+<dt class="field-odd">Purpose</dt>
+<dd class="field-odd"><p>The raison d’etre of this module is to support ObsSpaceData_mod in
+facilitating the traversal of a selection of the rows in its table.
+The selection of rows could be from either the header table or the
+body table. ObsSpaceData_mod currently populates the list with one
+of:</p>
+<blockquote>
+<div><p>all header members of a given family
+all   body members of a given family
+all   body members of a given header row index</p>
+</div></blockquote>
+</dd>
+<dt class="field-even">Usage</dt>
+<dd class="field-even"><p>An ObsSpaceData_mod client must first call either
+obs_set_current_body_list or obs_set_current_header_list, specifying
+either the family of interest or the header row index of interest.
+This does not return the list directly to the caller, but rather writes
+the list, as a struct_index_list, to the private contents of the obs
+oject that is returned to the caller but which cannot be examined by the
+caller.  Two lists can be active simultaneously:  one header list and
+one body list.</p>
+<p>In order to access the indices that are in the list, the
+ObsSpaceData_mod client must call either obs_getHeaderIndex or
+obs_getBodyIndex, giving the ObsSpaceData object as the only argument.
+On each call, one index is returned.  On calls after the last index in
+the list, a value of -1 is returned.</p>
+<p>This is not a fully fledged module.  It is better described as a
+structure definition with a couple of helpful methods.  It is intended
+that the client, ObsSpaceData_mod, read/write directly from/to instances
+of these structures.</p>
+</dd>
+</dl>
+<p class="rubric">Quick access</p>
+<dl class="field-list simple">
+<dt class="field-odd">Types</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/indexlistdepot_mod/struct_index_list" title="f/indexlistdepot_mod/struct_index_list"><code class="xref f f-type docutils literal notranslate"><span class="pre">struct_index_list</span></code></a>, <a class="reference internal" href="#f/indexlistdepot_mod/struct_index_list_depot" title="f/indexlistdepot_mod/struct_index_list_depot"><code class="xref f f-type docutils literal notranslate"><span class="pre">struct_index_list_depot</span></code></a></p>
+</dd>
+<dt class="field-even">Variables</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/indexlistdepot_mod/ild_get_next_index" title="f/indexlistdepot_mod/ild_get_next_index"><code class="xref f f-var docutils literal notranslate"><span class="pre">ild_get_next_index</span></code></a>, <a class="reference internal" href="#f/indexlistdepot_mod/number_of_lists" title="f/indexlistdepot_mod/number_of_lists"><code class="xref f f-var docutils literal notranslate"><span class="pre">number_of_lists</span></code></a></p>
+</dd>
+<dt class="field-odd">Routines</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/indexlistdepot_mod/ild_finalize" title="f/indexlistdepot_mod/ild_finalize"><code class="xref f f-func docutils literal notranslate"><span class="pre">ild_finalize()</span></code></a>, <a class="reference internal" href="#f/indexlistdepot_mod/ild_get_empty_index_list" title="f/indexlistdepot_mod/ild_get_empty_index_list"><code class="xref f f-func docutils literal notranslate"><span class="pre">ild_get_empty_index_list()</span></code></a>, <a class="reference internal" href="#f/indexlistdepot_mod/ild_get_next_index_depot" title="f/indexlistdepot_mod/ild_get_next_index_depot"><code class="xref f f-func docutils literal notranslate"><span class="pre">ild_get_next_index_depot()</span></code></a>, <a class="reference internal" href="#f/indexlistdepot_mod/ild_get_next_index_private" title="f/indexlistdepot_mod/ild_get_next_index_private"><code class="xref f f-func docutils literal notranslate"><span class="pre">ild_get_next_index_private()</span></code></a>, <a class="reference internal" href="#f/indexlistdepot_mod/ild_initialize" title="f/indexlistdepot_mod/ild_initialize"><code class="xref f f-func docutils literal notranslate"><span class="pre">ild_initialize()</span></code></a></p>
+</dd>
+</dl>
+<p class="rubric">Types</p>
+<ul>
+<li><dl>
+<dt class="sig sig-object f" id="f/indexlistdepot_mod/struct_index_list">
+<em class="property"><span class="pre">type</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">indexlistdepot_mod/</span></span><span class="sig-name descname"><span class="pre">struct_index_list</span></span><a class="headerlink" href="#f/indexlistdepot_mod/struct_index_list" title="Permalink to this definition">¶</a></dt>
+<dd><p>a list of integers, not to say indices into a struct_obs</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type fields</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">current_element</span><em> [</em><em>integer </em><em>]</em> :: the element that has just been returned</p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">family</span><em> [</em><em>character </em><em>]</em> :: current_element’s belong to this family</p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">header</span><em> [</em><em>integer </em><em>]</em> :: current_element’s belong to this header</p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">indices</span> (*)<em> [</em><em>integer </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</li>
+<li><dl>
+<dt class="sig sig-object f" id="f/indexlistdepot_mod/struct_index_list_depot">
+<em class="property"><span class="pre">type</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">indexlistdepot_mod/</span></span><span class="sig-name descname"><span class="pre">struct_index_list_depot</span></span><a class="headerlink" href="#f/indexlistdepot_mod/struct_index_list_depot" title="Permalink to this definition">¶</a></dt>
+<dd><p>A collection of lists, either empty or populated
+the collection of lists</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type fields</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">current_list</span><em> [</em><em>struct_index_list </em><em>,</em><em>pointer</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">index_lists</span> (<a class="reference internal" href="#f/indexlistdepot_mod/number_of_lists" title="f/indexlistdepot_mod/number_of_lists">number_of_lists</a>)<em> [</em><em>struct_index_list </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">list_last_attributed</span><em> [</em><em>integer </em><em>]</em> :: list that was populated most recently</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</li>
+</ul>
+<p class="rubric">Variables</p>
+<ul>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/indexlistdepot_mod/ild_get_next_index">
+<span class="sig-prename descclassname"><span class="pre">indexlistdepot_mod/</span></span><span class="sig-name descname"><span class="pre">ild_get_next_index</span></span><em> <span class="pre">[</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/indexlistdepot_mod/ild_get_next_index" title="Permalink to this definition">¶</a></dt>
+<dd><p>return the next element in the list</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/indexlistdepot_mod/number_of_lists">
+<span class="sig-prename descclassname"><span class="pre">indexlistdepot_mod/</span></span><span class="sig-name descname"><span class="pre">number_of_lists</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/indexlistdepot_mod/number_of_lists" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+</ul>
+<p class="rubric">Subroutines and functions</p>
+<dl>
+<dt class="sig sig-object f" id="f/indexlistdepot_mod/ild_finalize">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">indexlistdepot_mod/</span></span><span class="sig-name descname"><span class="pre">ild_finalize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">depot</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/indexlistdepot_mod/ild_finalize" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Finalize the indicated list depot</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>depot</strong><em> [</em><em>struct_index_list_depot </em><em>,</em><em>inout</em><em>]</em> :: the depot to be finalized</p>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_deallocate" title="f/obsspacedata_mod/obs_deallocate"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_deallocate()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/indexlistdepot_mod/ild_get_empty_index_list">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">indexlistdepot_mod/</span></span><span class="sig-name descname"><span class="pre">ild_get_empty_index_list</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">depot</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">private_list</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/indexlistdepot_mod/ild_get_empty_index_list" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>From the given depot, return an index-list structure that contains
+no data, as a pointer.
+In other words, clear data from the (cyclicly) next (i.e. oldest)
+list and return a pointer to it.</p>
+<p>If the list is being used within an OMP block, the ObsSpaceData
+client is responsible for holding a pointer to its own list.  This
+is supplied as the parameter, private_list.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>depot</strong><em> [</em><em>struct_index_list_depot </em><em>,</em><em>inout,target</em><em>]</em> :: the depot containing the list</p>
+</dd>
+<dt class="field-odd">Options</dt>
+<dd class="field-odd"><p><strong>private_list</strong><em> [</em><em>struct_index_list </em><em>,</em><em>inout,pointer</em><em>]</em> :: used instead of depot (for OMP blocks)</p>
+</dd>
+<dt class="field-even">Return</dt>
+<dd class="field-even"><p><strong>empty_index_list</strong><em> [</em><em>struct_index_list </em><em>,</em><em>pointer</em><em>]</em> :: the returned list</p>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_set_current_body_list_from_family" title="f/obsspacedata_mod/obs_set_current_body_list_from_family"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_set_current_body_list_from_family()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_set_current_body_list_from_header" title="f/obsspacedata_mod/obs_set_current_body_list_from_header"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_set_current_body_list_from_header()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_set_current_body_list_all" title="f/obsspacedata_mod/obs_set_current_body_list_all"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_set_current_body_list_all()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_set_current_header_list_from_family" title="f/obsspacedata_mod/obs_set_current_header_list_from_family"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_set_current_header_list_from_family()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_set_current_header_list_all" title="f/obsspacedata_mod/obs_set_current_header_list_all"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_set_current_header_list_all()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/indexlistdepot_mod/ild_get_next_index_depot">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">indexlistdepot_mod/</span></span><span class="sig-name descname"><span class="pre">ild_get_next_index_depot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">depot</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">no_advance</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/indexlistdepot_mod/ild_get_next_index_depot" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>From the given depot, increment the index to the current element,
+and return the element itself, the new current element.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>depot</strong><em> [</em><em>struct_index_list_depot </em><em>,</em><em>inout,target</em><em>]</em> :: the depot containing the list</p>
+</dd>
+<dt class="field-odd">Options</dt>
+<dd class="field-odd"><p><strong>no_advance</strong><em> [</em><em>logical </em><em>,</em><em>in,</em><em>]</em> :: current_element, just return next one</p>
+</dd>
+<dt class="field-even">Return</dt>
+<dd class="field-even"><p><strong>next_index</strong><em> [</em><em>integer </em><em>]</em> :: the returned index</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/indexlistdepot_mod/ild_get_next_index_private">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">indexlistdepot_mod/</span></span><span class="sig-name descname"><span class="pre">ild_get_next_index_private</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">private_list</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">no_advance</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/indexlistdepot_mod/ild_get_next_index_private" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>From the given list, increment the index to the current element, and
+return the element itself, the new current element.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>private_list</strong><em> [</em><em>struct_index_list </em><em>,</em><em>inout,pointer</em><em>]</em> :: the list of interest</p>
+</dd>
+<dt class="field-odd">Options</dt>
+<dd class="field-odd"><p><strong>no_advance</strong><em> [</em><em>logical </em><em>,</em><em>in,</em><em>]</em> :: current_element, just return next one</p>
+</dd>
+<dt class="field-even">Return</dt>
+<dd class="field-even"><p><strong>next_index</strong><em> [</em><em>integer </em><em>]</em> :: the returned index</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/indexlistdepot_mod/ild_initialize">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">indexlistdepot_mod/</span></span><span class="sig-name descname"><span class="pre">ild_initialize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">depot</span></em>, <em class="sig-param"><span class="pre">numheaderbody_max</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/indexlistdepot_mod/ild_initialize" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Initialize the indicated list depot</p>
+</dd>
+<dt class="field-even">Note </dt>
+<dd class="field-even"><p>indices is allocated with 2 extra elements to make room for
+the end-of-list flag that is set in
+obs_set_current_header/body_list</p>
+</dd>
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>depot</strong><em> [</em><em>struct_index_list_depot </em><em>,</em><em>inout</em><em>]</em> :: the depot to be initialized</p></li>
+<li><p><strong>numheaderbody_max</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_allocate" title="f/obsspacedata_mod/obs_allocate"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_allocate()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div></blockquote>
+</section>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="obscolumnnames_mod.html" title="obscolumnnames_mod"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="horizontalcoord_mod.html" title="horizontalcoord_mod"
+             >previous</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2018, ECCC.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.
+    </div>
+  </body>
+</html>

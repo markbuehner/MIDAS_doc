@@ -1,0 +1,353 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>slantprofilelatlon_mod &mdash; MIDAS  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="MIDAS  documentation" href="../index.html" />
+    <link rel="next" title="tovs_lin_mod" href="tovs_lin_mod.html" />
+    <link rel="prev" title="radvel_mod" href="radvel_mod.html" /> 
+  </head>
+  <body>
+  <div>
+    <img src="../_static/MIDAS_header.png" alt="MIDAS" />
+  </div>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="tovs_lin_mod.html" title="tovs_lin_mod"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="radvel_mod.html" title="radvel_mod"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="radvel_mod.html"
+                          title="previous chapter">radvel_mod</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="tovs_lin_mod.html"
+                          title="next chapter">tovs_lin_mod</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/modules/slantprofilelatlon_mod.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <section id="slantprofilelatlon-mod">
+<h1>slantprofilelatlon_mod<a class="headerlink" href="#slantprofilelatlon-mod" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><p><a class="reference internal" href="slantprofilelatlon_mod_src.html"><span class="doc">link to source code</span></a></p>
+<p><strong>Dependency Diagrams:</strong></p>
+<figure class="align-default" id="id1">
+<a class="reference internal image-reference" href="slantprofilelatlon_mod.svg"><img alt="slantprofilelatlon_mod.svg" height="100px" src="slantprofilelatlon_mod.svg" /></a>
+<figcaption>
+<p><span class="caption-text">Direct Dependency Diagram</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id2">
+<a class="reference internal image-reference" href="slantprofilelatlon_mod_rev.svg"><img alt="slantprofilelatlon_mod_rev.svg" height="100px" src="slantprofilelatlon_mod_rev.svg" /></a>
+<figcaption>
+<p><span class="caption-text">Reverse Dependency Diagram</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<span class="target" id="f/slantprofilelatlon_mod"></span><p class="rubric">Description</p>
+<p>MODULE slantprofilelatlon_mod (prefix=’slp’ category=’5. Observation operators’)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Purpose</dt>
+<dd class="field-odd"><p>To calculate latitudes/longitudes on slant-path based on
+ColumnData.</p>
+</dd>
+</dl>
+<p class="rubric">Quick access</p>
+<dl class="field-list simple">
+<dt class="field-odd">Routines</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/slantprofilelatlon_mod/findintersectlatlon" title="f/slantprofilelatlon_mod/findintersectlatlon"><code class="xref f f-func docutils literal notranslate"><span class="pre">findintersectlatlon()</span></code></a>, <a class="reference internal" href="#f/slantprofilelatlon_mod/findintersectlatlonradar" title="f/slantprofilelatlon_mod/findintersectlatlonradar"><code class="xref f f-func docutils literal notranslate"><span class="pre">findintersectlatlonradar()</span></code></a>, <a class="reference internal" href="#f/slantprofilelatlon_mod/heightbilinearinterp" title="f/slantprofilelatlon_mod/heightbilinearinterp"><code class="xref f f-func docutils literal notranslate"><span class="pre">heightbilinearinterp()</span></code></a>, <a class="reference internal" href="#f/slantprofilelatlon_mod/slp_calclatlonradar" title="f/slantprofilelatlon_mod/slp_calclatlonradar"><code class="xref f f-func docutils literal notranslate"><span class="pre">slp_calclatlonradar()</span></code></a>, <a class="reference internal" href="#f/slantprofilelatlon_mod/slp_calclatlonro" title="f/slantprofilelatlon_mod/slp_calclatlonro"><code class="xref f f-func docutils literal notranslate"><span class="pre">slp_calclatlonro()</span></code></a>, <a class="reference internal" href="#f/slantprofilelatlon_mod/slp_calclatlontovs" title="f/slantprofilelatlon_mod/slp_calclatlontovs"><code class="xref f f-func docutils literal notranslate"><span class="pre">slp_calclatlontovs()</span></code></a></p>
+</dd>
+</dl>
+<p class="rubric">Needed modules</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="midasmpi_mod.html#f/midasmpi_mod" title="f/midasmpi_mod: MODULE midasMpi_mod (prefix='mmpi' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">midasmpi_mod</span></code></a>: MODULE midasMpi_mod (prefix=’mmpi’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="earthconstants_mod.html#f/earthconstants_mod" title="f/earthconstants_mod: MODULE earthConstants_mod (prefix='ec' category='8. Low-level utilities and constants') Prefixes: ec_ (Earth constants), for miscellaneous values from diverse sources"><code class="xref f f-mod docutils literal notranslate"><span class="pre">earthconstants_mod</span></code></a>: MODULE earthConstants_mod (prefix=’ec’ category=’8. Low-level utilities and constants’) Prefixes: <a href="#id3"><span class="problematic" id="id4">ec_</span></a> (Earth constants), for miscellaneous values from diverse sources</p></li>
+<li><p><a class="reference internal" href="mathphysconstants_mod.html#f/mathphysconstants_mod" title="f/mathphysconstants_mod: MODULE MathPhysConstants_mod (prefix='mpc' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">mathphysconstants_mod</span></code></a>: MODULE MathPhysConstants_mod (prefix=’mpc’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod" title="f/utilities_mod: MODULE utilities_mod (prefix='utl' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">utilities_mod</span></code></a>: MODULE utilities_mod (prefix=’utl’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod" title="f/obsspacedata_mod: MODULE obsSpaceData_mod (prefix='obs' category='6. High-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">obsspacedata_mod</span></code></a>: MODULE obsSpaceData_mod (prefix=’obs’ category=’6. High-level data objects’)</p></li>
+<li><p><a class="reference internal" href="horizontalcoord_mod.html#f/horizontalcoord_mod" title="f/horizontalcoord_mod: MODULE HorizontalCoord_mod (prefix='hco' category='7. Low-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">horizontalcoord_mod</span></code></a>: MODULE HorizontalCoord_mod (prefix=’hco’ category=’7. Low-level data objects’)</p></li>
+<li><p><a class="reference internal" href="tovs_nl_mod.html#f/tovs_nl_mod" title="f/tovs_nl_mod: MODULE tovs_nl (prefix='tvs' category='5. Observation operators')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">tovs_nl_mod</span></code></a>: MODULE tovs_nl (prefix=’tvs’ category=’5. Observation operators’)</p></li>
+<li><p><a class="reference internal" href="codtyp_mod.html#f/codtyp_mod" title="f/codtyp_mod: MODULE codtyp_mod (prefix='codtyp' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">codtyp_mod</span></code></a>: MODULE codtyp_mod (prefix=’codtyp’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="getgridposition_mod.html#f/getgridposition_mod" title="f/getgridposition_mod: MODULE getGridPosition_mod (prefix='gpos' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">getgridposition_mod</span></code></a>: MODULE getGridPosition_mod (prefix=’gpos’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="radvel_mod.html#f/radvel_mod" title="f/radvel_mod: MODULE radvel_mod (prefix='rdv' category='5. Observation operators')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">radvel_mod</span></code></a>: MODULE radvel_mod (prefix=’rdv’ category=’5. Observation operators’)</p></li>
+</ul>
+<p class="rubric">Variables</p>
+<p class="rubric">Subroutines and functions</p>
+<dl>
+<dt class="sig sig-object f" id="f/slantprofilelatlon_mod/slp_calclatlontovs">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">slantprofilelatlon_mod/</span></span><span class="sig-name descname"><span class="pre">slp_calclatlontovs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">obsspacedata</span></em>, <em class="sig-param"><span class="pre">hco</span></em>, <em class="sig-param"><span class="pre">headerindex</span></em>, <em class="sig-param"><span class="pre">height3d_t_r4</span></em>, <em class="sig-param"><span class="pre">height3d_m_r4</span></em>, <em class="sig-param"><span class="pre">latslantlev_t</span></em>, <em class="sig-param"><span class="pre">lonslantlev_t</span></em>, <em class="sig-param"><span class="pre">latslantlev_m</span></em>, <em class="sig-param"><span class="pre">lonslantlev_m</span></em>, <em class="sig-param"><span class="pre">latslantlev_s</span></em>, <em class="sig-param"><span class="pre">lonslantlev_s</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/slantprofilelatlon_mod/slp_calclatlontovs" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>call the computation of lat/lon on the slant path for radiance
+observations, iteratively. To replace the vertical columns with
+line-of-sight slanted columns.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>obsspacedata</strong><em> [</em><em>struct_obs </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>hco</strong><em> [</em><em>struct_hco </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>headerindex</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>height3d_t_r4</strong> (*,*,*)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>height3d_m_r4</strong> (*,*,*)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>latslantlev_t</strong> (*)<em> [</em><em>real </em><em>,</em><em>out</em><em>]</em></p></li>
+<li><p><strong>lonslantlev_t</strong> (*)<em> [</em><em>real </em><em>,</em><em>out</em><em>]</em></p></li>
+<li><p><strong>latslantlev_m</strong> (*)<em> [</em><em>real </em><em>,</em><em>out</em><em>]</em></p></li>
+<li><p><strong>lonslantlev_m</strong> (*)<em> [</em><em>real </em><em>,</em><em>out</em><em>]</em></p></li>
+<li><p><strong>latslantlev_s</strong><em> [</em><em>real </em><em>,</em><em>out</em><em>]</em></p></li>
+<li><p><strong>lonslantlev_s</strong><em> [</em><em>real </em><em>,</em><em>out</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="statetocolumn_mod.html#f/statetocolumn_mod/s2c_setupinterpinfo" title="f/statetocolumn_mod/s2c_setupinterpinfo"><code class="xref f f-func docutils literal notranslate"><span class="pre">s2c_setupinterpinfo()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_headelem_r" title="f/obsspacedata_mod/obs_headelem_r"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_headelem_r()</span></code></a>, <a class="reference internal" href="tovs_nl_mod.html#f/tovs_nl_mod/tvs_getcorrectedsatelliteazimuth" title="f/tovs_nl_mod/tvs_getcorrectedsatelliteazimuth"><code class="xref f f-func docutils literal notranslate"><span class="pre">tvs_getcorrectedsatelliteazimuth()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_headelem_i" title="f/obsspacedata_mod/obs_headelem_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_headelem_i()</span></code></a>, <a class="reference internal" href="codtyp_mod.html#f/codtyp_mod/codtyp_get_codtyp" title="f/codtyp_mod/codtyp_get_codtyp"><code class="xref f f-func docutils literal notranslate"><span class="pre">codtyp_get_codtyp()</span></code></a>, <a class="reference internal" href="#f/slantprofilelatlon_mod/heightbilinearinterp" title="f/slantprofilelatlon_mod/heightbilinearinterp"><code class="xref f f-func docutils literal notranslate"><span class="pre">heightbilinearinterp()</span></code></a>, <a class="reference internal" href="#f/slantprofilelatlon_mod/findintersectlatlon" title="f/slantprofilelatlon_mod/findintersectlatlon"><code class="xref f f-func docutils literal notranslate"><span class="pre">findintersectlatlon()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/slantprofilelatlon_mod/findintersectlatlon">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">slantprofilelatlon_mod/</span></span><span class="sig-name descname"><span class="pre">findintersectlatlon</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">obsspacedata</span></em>, <em class="sig-param"><span class="pre">headerindex</span></em>, <em class="sig-param"><span class="pre">height_r4</span></em>, <em class="sig-param"><span class="pre">azimuthangle</span></em>, <em class="sig-param"><span class="pre">latslant</span></em>, <em class="sig-param"><span class="pre">lonslant</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/slantprofilelatlon_mod/findintersectlatlon" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Computation of lat/lon of the intersection between model level
+and the slant line-of-sight for radiance observations.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>obsspacedata</strong><em> [</em><em>struct_obs </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>headerindex</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>height_r4</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>azimuthangle</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>latslant</strong><em> [</em><em>real </em><em>,</em><em>out</em><em>]</em></p></li>
+<li><p><strong>lonslant</strong><em> [</em><em>real </em><em>,</em><em>out</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/slantprofilelatlon_mod/slp_calclatlontovs" title="f/slantprofilelatlon_mod/slp_calclatlontovs"><code class="xref f f-func docutils literal notranslate"><span class="pre">slp_calclatlontovs()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_headelem_r" title="f/obsspacedata_mod/obs_headelem_r"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_headelem_r()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/slantprofilelatlon_mod/heightbilinearinterp">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">slantprofilelatlon_mod/</span></span><span class="sig-name descname"><span class="pre">heightbilinearinterp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">lat</span></em>, <em class="sig-param"><span class="pre">lon</span></em>, <em class="sig-param"><span class="pre">hco</span></em>, <em class="sig-param"><span class="pre">height_r4</span></em>, <em class="sig-param"><span class="pre">heightinterp_r4</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/slantprofilelatlon_mod/heightbilinearinterp" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>To interpolate the 2D height field to the obs location</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>lat</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>lon</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>hco</strong><em> [</em><em>struct_hco </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>height_r4</strong> (*,*)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>heightinterp_r4</strong><em> [</em><em>real </em><em>,</em><em>out</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/slantprofilelatlon_mod/slp_calclatlontovs" title="f/slantprofilelatlon_mod/slp_calclatlontovs"><code class="xref f f-func docutils literal notranslate"><span class="pre">slp_calclatlontovs()</span></code></a>, <a class="reference internal" href="#f/slantprofilelatlon_mod/slp_calclatlonro" title="f/slantprofilelatlon_mod/slp_calclatlonro"><code class="xref f f-func docutils literal notranslate"><span class="pre">slp_calclatlonro()</span></code></a>, <a class="reference internal" href="#f/slantprofilelatlon_mod/findintersectlatlonradar" title="f/slantprofilelatlon_mod/findintersectlatlonradar"><code class="xref f f-func docutils literal notranslate"><span class="pre">findintersectlatlonradar()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="getgridposition_mod.html#f/getgridposition_mod/gpos_getpositionxy" title="f/getgridposition_mod/gpos_getpositionxy"><code class="xref f f-func docutils literal notranslate"><span class="pre">gpos_getpositionxy()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/slantprofilelatlon_mod/slp_calclatlonro">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">slantprofilelatlon_mod/</span></span><span class="sig-name descname"><span class="pre">slp_calclatlonro</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">obsspacedata</span></em>, <em class="sig-param"><span class="pre">hco</span></em>, <em class="sig-param"><span class="pre">headerindex</span></em>, <em class="sig-param"><span class="pre">height3d_t_r4</span></em>, <em class="sig-param"><span class="pre">height3d_m_r4</span></em>, <em class="sig-param"><span class="pre">latslantlev_t</span></em>, <em class="sig-param"><span class="pre">lonslantlev_t</span></em>, <em class="sig-param"><span class="pre">latslantlev_m</span></em>, <em class="sig-param"><span class="pre">lonslantlev_m</span></em>, <em class="sig-param"><span class="pre">latslantlev_s</span></em>, <em class="sig-param"><span class="pre">lonslantlev_s</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/slantprofilelatlon_mod/slp_calclatlonro" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>call the computation of lat/lon on the slant path for GPSRO
+observations, iteratively. To replace the vertical columns with
+slanted columns.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>obsspacedata</strong><em> [</em><em>struct_obs </em><em>]</em></p></li>
+<li><p><strong>hco</strong><em> [</em><em>struct_hco </em><em>]</em></p></li>
+<li><p><strong>headerindex</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>height3d_t_r4</strong> (*,*,*)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>height3d_m_r4</strong> (*,*,*)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>latslantlev_t</strong> (*)<em> [</em><em>real </em><em>,</em><em>out</em><em>]</em></p></li>
+<li><p><strong>lonslantlev_t</strong> (*)<em> [</em><em>real </em><em>,</em><em>out</em><em>]</em></p></li>
+<li><p><strong>latslantlev_m</strong> (*)<em> [</em><em>real </em><em>,</em><em>out</em><em>]</em></p></li>
+<li><p><strong>lonslantlev_m</strong> (*)<em> [</em><em>real </em><em>,</em><em>out</em><em>]</em></p></li>
+<li><p><strong>latslantlev_s</strong><em> [</em><em>real </em><em>,</em><em>out</em><em>]</em></p></li>
+<li><p><strong>lonslantlev_s</strong><em> [</em><em>real </em><em>,</em><em>out</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="statetocolumn_mod.html#f/statetocolumn_mod/s2c_setupinterpinfo" title="f/statetocolumn_mod/s2c_setupinterpinfo"><code class="xref f f-func docutils literal notranslate"><span class="pre">s2c_setupinterpinfo()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_headelem_r" title="f/obsspacedata_mod/obs_headelem_r"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_headelem_r()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyelem_r" title="f/obsspacedata_mod/obs_bodyelem_r"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyelem_r()</span></code></a>, <a class="reference internal" href="#f/slantprofilelatlon_mod/heightbilinearinterp" title="f/slantprofilelatlon_mod/heightbilinearinterp"><code class="xref f f-func docutils literal notranslate"><span class="pre">heightbilinearinterp()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/slantprofilelatlon_mod/slp_calclatlonradar">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">slantprofilelatlon_mod/</span></span><span class="sig-name descname"><span class="pre">slp_calclatlonradar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">obsspacedata</span></em>, <em class="sig-param"><span class="pre">hco</span></em>, <em class="sig-param"><span class="pre">headerindex</span></em>, <em class="sig-param"><span class="pre">height3d_t_r4</span></em>, <em class="sig-param"><span class="pre">height3d_m_r4</span></em>, <em class="sig-param"><span class="pre">latslantlev_t</span></em>, <em class="sig-param"><span class="pre">lonslantlev_t</span></em>, <em class="sig-param"><span class="pre">latslantlev_m</span></em>, <em class="sig-param"><span class="pre">lonslantlev_m</span></em>, <em class="sig-param"><span class="pre">latslantlev_s</span></em>, <em class="sig-param"><span class="pre">lonslantlev_s</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/slantprofilelatlon_mod/slp_calclatlonradar" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>call the computation of lat/lon on the slant path for radar
+observations, iteratively. To replace the vertical columns with
+radar beam columns .</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>obsspacedata</strong><em> [</em><em>struct_obs </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>hco</strong><em> [</em><em>struct_hco </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>headerindex</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>height3d_t_r4</strong> (*,*,*)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: in</p></li>
+<li><p><strong>height3d_m_r4</strong> (*,*,*)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: in</p></li>
+<li><p><strong>latslantlev_t</strong> (*)<em> [</em><em>real </em><em>,</em><em>out</em><em>]</em></p></li>
+<li><p><strong>lonslantlev_t</strong> (*)<em> [</em><em>real </em><em>,</em><em>out</em><em>]</em></p></li>
+<li><p><strong>latslantlev_m</strong> (*)<em> [</em><em>real </em><em>,</em><em>out</em><em>]</em></p></li>
+<li><p><strong>lonslantlev_m</strong> (*)<em> [</em><em>real </em><em>,</em><em>out</em><em>]</em></p></li>
+<li><p><strong>latslantlev_s</strong><em> [</em><em>real </em><em>,</em><em>out</em><em>]</em></p></li>
+<li><p><strong>lonslantlev_s</strong><em> [</em><em>real </em><em>,</em><em>out</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="statetocolumn_mod.html#f/statetocolumn_mod/s2c_setupinterpinfo" title="f/statetocolumn_mod/s2c_setupinterpinfo"><code class="xref f f-func docutils literal notranslate"><span class="pre">s2c_setupinterpinfo()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_headelem_r" title="f/obsspacedata_mod/obs_headelem_r"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_headelem_r()</span></code></a>, <a class="reference internal" href="#f/slantprofilelatlon_mod/findintersectlatlonradar" title="f/slantprofilelatlon_mod/findintersectlatlonradar"><code class="xref f f-func docutils literal notranslate"><span class="pre">findintersectlatlonradar()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/slantprofilelatlon_mod/findintersectlatlonradar">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">slantprofilelatlon_mod/</span></span><span class="sig-name descname"><span class="pre">findintersectlatlonradar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">antennalat</span></em>, <em class="sig-param"><span class="pre">antennalon</span></em>, <em class="sig-param"><span class="pre">beamelevation</span></em>, <em class="sig-param"><span class="pre">beamazimuth</span></em>, <em class="sig-param"><span class="pre">radaraltitude</span></em>, <em class="sig-param"><span class="pre">beamrangestart</span></em>, <em class="sig-param"><span class="pre">beamrangeend</span></em>, <em class="sig-param"><span class="pre">hco</span></em>, <em class="sig-param"><span class="pre">field2d_height</span></em>, <em class="sig-param"><span class="pre">latslant</span></em>, <em class="sig-param"><span class="pre">lonslant</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/slantprofilelatlon_mod/findintersectlatlonradar" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>antennalat</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>antennalon</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>beamelevation</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>beamazimuth</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>radaraltitude</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: in</p></li>
+<li><p><strong>beamrangestart</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>beamrangeend</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>hco</strong><em> [</em><em>struct_hco </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>field2d_height</strong> (hco%ni,hco%nj)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: in</p></li>
+<li><p><strong>latslant</strong><em> [</em><em>real </em><em>,</em><em>out</em><em>]</em></p></li>
+<li><p><strong>lonslant</strong><em> [</em><em>real </em><em>,</em><em>out</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/slantprofilelatlon_mod/slp_calclatlonradar" title="f/slantprofilelatlon_mod/slp_calclatlonradar"><code class="xref f f-func docutils literal notranslate"><span class="pre">slp_calclatlonradar()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="radvel_mod.html#f/radvel_mod/rdv_getlatlonhrfromrange" title="f/radvel_mod/rdv_getlatlonhrfromrange"><code class="xref f f-func docutils literal notranslate"><span class="pre">rdv_getlatlonhrfromrange()</span></code></a>, <a class="reference internal" href="#f/slantprofilelatlon_mod/heightbilinearinterp" title="f/slantprofilelatlon_mod/heightbilinearinterp"><code class="xref f f-func docutils literal notranslate"><span class="pre">heightbilinearinterp()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div></blockquote>
+</section>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="tovs_lin_mod.html" title="tovs_lin_mod"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="radvel_mod.html" title="radvel_mod"
+             >previous</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2018, ECCC.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.
+    </div>
+  </body>
+</html>

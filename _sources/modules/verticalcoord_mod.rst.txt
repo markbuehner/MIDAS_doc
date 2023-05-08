@@ -1,0 +1,22 @@
+==========================================
+verticalcoord_mod
+==========================================
+
+    :doc:`link to source code <verticalcoord_mod_src>`
+
+
+    **Dependency Diagrams:**
+
+    .. figure:: /verticalcoord_mod.svg
+        :height: 100px
+
+        Direct Dependency Diagram
+
+    .. figure:: /verticalcoord_mod_rev.svg
+        :height: 100px
+
+        Reverse Dependency Diagram
+
+
+    .. f:automodule:: verticalcoord_mod
+

@@ -1,0 +1,552 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>obsvariabletransforms_mod &mdash; MIDAS  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="MIDAS  documentation" href="../index.html" />
+    <link rel="next" title="statetocolumn_mod" href="statetocolumn_mod.html" />
+    <link rel="prev" title="obstimeinterp_mod" href="obstimeinterp_mod.html" /> 
+  </head>
+  <body>
+  <div>
+    <img src="../_static/MIDAS_header.png" alt="MIDAS" />
+  </div>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="statetocolumn_mod.html" title="statetocolumn_mod"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="obstimeinterp_mod.html" title="obstimeinterp_mod"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="obstimeinterp_mod.html"
+                          title="previous chapter">obstimeinterp_mod</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="statetocolumn_mod.html"
+                          title="next chapter">statetocolumn_mod</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/modules/obsvariabletransforms_mod.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <section id="obsvariabletransforms-mod">
+<h1>obsvariabletransforms_mod<a class="headerlink" href="#obsvariabletransforms-mod" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><p><a class="reference internal" href="obsvariabletransforms_mod_src.html"><span class="doc">link to source code</span></a></p>
+<p><strong>Dependency Diagrams:</strong></p>
+<figure class="align-default" id="id1">
+<a class="reference internal image-reference" href="obsvariabletransforms_mod.svg"><img alt="obsvariabletransforms_mod.svg" height="100px" src="obsvariabletransforms_mod.svg" /></a>
+<figcaption>
+<p><span class="caption-text">Direct Dependency Diagram</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id2">
+<a class="reference internal image-reference" href="obsvariabletransforms_mod_rev.svg"><img alt="obsvariabletransforms_mod_rev.svg" height="100px" src="obsvariabletransforms_mod_rev.svg" /></a>
+<figcaption>
+<p><span class="caption-text">Reverse Dependency Diagram</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<span class="target" id="f/obsvariabletransforms_mod"></span><p class="rubric">Description</p>
+<p>MODULE obsVariableTransforms_mod (prefix=’ovt’ category=’4. Data Object transformations’)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Purpose</dt>
+<dd class="field-odd"><p>To store various functions for variable transforms using inputs
+from obsSpaceData. Outputs are also placed ObsSpaceData.</p>
+</dd>
+</dl>
+<p class="rubric">Quick access</p>
+<dl class="field-list simple">
+<dt class="field-odd">Routines</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/obsvariabletransforms_mod/ovt_adjusthumgz" title="f/obsvariabletransforms_mod/ovt_adjusthumgz"><code class="xref f f-func docutils literal notranslate"><span class="pre">ovt_adjusthumgz()</span></code></a>, <a class="reference internal" href="#f/obsvariabletransforms_mod/ovt_bufrcodeskipped" title="f/obsvariabletransforms_mod/ovt_bufrcodeskipped"><code class="xref f f-func docutils literal notranslate"><span class="pre">ovt_bufrcodeskipped()</span></code></a>, <a class="reference internal" href="#f/obsvariabletransforms_mod/ovt_getdestinationbufrcode" title="f/obsvariabletransforms_mod/ovt_getdestinationbufrcode"><code class="xref f f-func docutils literal notranslate"><span class="pre">ovt_getdestinationbufrcode()</span></code></a>, <a class="reference internal" href="#f/obsvariabletransforms_mod/ovt_getsourcebufrcode" title="f/obsvariabletransforms_mod/ovt_getsourcebufrcode"><code class="xref f f-func docutils literal notranslate"><span class="pre">ovt_getsourcebufrcode()</span></code></a>, <a class="reference internal" href="#f/obsvariabletransforms_mod/ovt_initstructure" title="f/obsvariabletransforms_mod/ovt_initstructure"><code class="xref f f-func docutils literal notranslate"><span class="pre">ovt_initstructure()</span></code></a>, <a class="reference internal" href="#f/obsvariabletransforms_mod/ovt_istransformedvariable" title="f/obsvariabletransforms_mod/ovt_istransformedvariable"><code class="xref f f-func docutils literal notranslate"><span class="pre">ovt_istransformedvariable()</span></code></a>, <a class="reference internal" href="#f/obsvariabletransforms_mod/ovt_iswindobs" title="f/obsvariabletransforms_mod/ovt_iswindobs"><code class="xref f f-func docutils literal notranslate"><span class="pre">ovt_iswindobs()</span></code></a>, <a class="reference internal" href="#f/obsvariabletransforms_mod/ovt_preciptologprecip" title="f/obsvariabletransforms_mod/ovt_preciptologprecip"><code class="xref f f-func docutils literal notranslate"><span class="pre">ovt_preciptologprecip()</span></code></a>, <a class="reference internal" href="#f/obsvariabletransforms_mod/ovt_preciptologprecip_residual" title="f/obsvariabletransforms_mod/ovt_preciptologprecip_residual"><code class="xref f f-func docutils literal notranslate"><span class="pre">ovt_preciptologprecip_residual()</span></code></a>, <a class="reference internal" href="#f/obsvariabletransforms_mod/ovt_setup" title="f/obsvariabletransforms_mod/ovt_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">ovt_setup()</span></code></a>, <a class="reference internal" href="#f/obsvariabletransforms_mod/ovt_transformobsvalues" title="f/obsvariabletransforms_mod/ovt_transformobsvalues"><code class="xref f f-func docutils literal notranslate"><span class="pre">ovt_transformobsvalues()</span></code></a>, <a class="reference internal" href="#f/obsvariabletransforms_mod/ovt_transformresiduals" title="f/obsvariabletransforms_mod/ovt_transformresiduals"><code class="xref f f-func docutils literal notranslate"><span class="pre">ovt_transformresiduals()</span></code></a>, <a class="reference internal" href="#f/obsvariabletransforms_mod/ovt_uvtowindspeeddirection_residual" title="f/obsvariabletransforms_mod/ovt_uvtowindspeeddirection_residual"><code class="xref f f-func docutils literal notranslate"><span class="pre">ovt_uvtowindspeeddirection_residual()</span></code></a>, <a class="reference internal" href="#f/obsvariabletransforms_mod/ovt_vistologvis" title="f/obsvariabletransforms_mod/ovt_vistologvis"><code class="xref f f-func docutils literal notranslate"><span class="pre">ovt_vistologvis()</span></code></a>, <a class="reference internal" href="#f/obsvariabletransforms_mod/ovt_vistologvis_residual" title="f/obsvariabletransforms_mod/ovt_vistologvis_residual"><code class="xref f f-func docutils literal notranslate"><span class="pre">ovt_vistologvis_residual()</span></code></a>, <a class="reference internal" href="#f/obsvariabletransforms_mod/ovt_windspeeddirectiontouv" title="f/obsvariabletransforms_mod/ovt_windspeeddirectiontouv"><code class="xref f f-func docutils literal notranslate"><span class="pre">ovt_windspeeddirectiontouv()</span></code></a></p>
+</dd>
+</dl>
+<p class="rubric">Needed modules</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod" title="f/obsspacedata_mod: MODULE obsSpaceData_mod (prefix='obs' category='6. High-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">obsspacedata_mod</span></code></a>: MODULE obsSpaceData_mod (prefix=’obs’ category=’6. High-level data objects’)</p></li>
+<li><p><a class="reference internal" href="bufr_mod.html#f/bufr_mod" title="f/bufr_mod: MODULE bufr_mod (prefix='bufr' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">bufr_mod</span></code></a>: MODULE bufr_mod (prefix=’bufr’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="codeprecision_mod.html#f/codeprecision_mod" title="f/codeprecision_mod: MODULE codePrecision_mod (prefix='pre' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">codeprecision_mod</span></code></a>: MODULE codePrecision_mod (prefix=’pre’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="mathphysconstants_mod.html#f/mathphysconstants_mod" title="f/mathphysconstants_mod: MODULE MathPhysConstants_mod (prefix='mpc' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">mathphysconstants_mod</span></code></a>: MODULE MathPhysConstants_mod (prefix=’mpc’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="earthconstants_mod.html#f/earthconstants_mod" title="f/earthconstants_mod: MODULE earthConstants_mod (prefix='ec' category='8. Low-level utilities and constants') Prefixes: ec_ (Earth constants), for miscellaneous values from diverse sources"><code class="xref f f-mod docutils literal notranslate"><span class="pre">earthconstants_mod</span></code></a>: MODULE earthConstants_mod (prefix=’ec’ category=’8. Low-level utilities and constants’) Prefixes: <a href="#id3"><span class="problematic" id="id4">ec_</span></a> (Earth constants), for miscellaneous values from diverse sources</p></li>
+<li><p><a class="reference internal" href="codtyp_mod.html#f/codtyp_mod" title="f/codtyp_mod: MODULE codtyp_mod (prefix='codtyp' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">codtyp_mod</span></code></a>: MODULE codtyp_mod (prefix=’codtyp’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod" title="f/utilities_mod: MODULE utilities_mod (prefix='utl' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">utilities_mod</span></code></a>: MODULE utilities_mod (prefix=’utl’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="obsfilter_mod.html#f/obsfilter_mod" title="f/obsfilter_mod: MODULE obsFilter_mod (prefix='filt' category='5. Observation operators')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">obsfilter_mod</span></code></a>: MODULE obsFilter_mod (prefix=’filt’ category=’5. Observation operators’)</p></li>
+</ul>
+<p class="rubric">Types</p>
+<ul>
+<li><dl>
+<dt class="sig sig-object f" id="f/obsvariabletransforms_mod/unknown_type">
+<em class="property"><span class="pre">type</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obsvariabletransforms_mod/</span></span><span class="sig-name descname"><span class="pre">unknown_type</span></span><a class="headerlink" href="#f/obsvariabletransforms_mod/unknown_type" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type fields</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">active</span><em> [</em><em>logical </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">destinationbufrcode</span> (*)<em> [</em><em>integer </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">destinationbufrcodeextra</span> (*)<em> [</em><em>integer </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">name</span><em> [</em><em>character </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">nbufrcode</span><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">sourcebufrcode</span> (*)<em> [</em><em>integer </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">sourcebufrcodeextra</span> (*)<em> [</em><em>integer </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">wind</span><em> [</em><em>logical </em><em>]</em></p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</li>
+</ul>
+<p class="rubric">Variables</p>
+<p class="rubric">Subroutines and functions</p>
+<dl>
+<dt class="sig sig-object f" id="f/obsvariabletransforms_mod/ovt_initstructure">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obsvariabletransforms_mod/</span></span><span class="sig-name descname"><span class="pre">ovt_initstructure</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#f/obsvariabletransforms_mod/ovt_initstructure" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>To set the transforms handled by this module</p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/obsvariabletransforms_mod/ovt_setup" title="f/obsvariabletransforms_mod/ovt_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">ovt_setup()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/obsvariabletransforms_mod/ovt_setup">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obsvariabletransforms_mod/</span></span><span class="sig-name descname"><span class="pre">ovt_setup</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">bufrcoderead</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/obsvariabletransforms_mod/ovt_setup" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>To determine which transform must be actived</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>bufrcoderead</strong> (*)<em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em> :: The list of bufr code read</p>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="burpread_mod.html#f/burpread_mod/brpr_readburp" title="f/burpread_mod/brpr_readburp"><code class="xref f f-func docutils literal notranslate"><span class="pre">brpr_readburp()</span></code></a>, <a class="reference internal" href="obsdbfiles_mod.html#f/obsdbfiles_mod/odbf_readfile" title="f/obsdbfiles_mod/odbf_readfile"><code class="xref f f-func docutils literal notranslate"><span class="pre">odbf_readfile()</span></code></a>, <a class="reference internal" href="sqliteread_mod.html#f/sqliteread_mod/sqlr_readsqlite" title="f/sqliteread_mod/sqlr_readsqlite"><code class="xref f f-func docutils literal notranslate"><span class="pre">sqlr_readsqlite()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/obsvariabletransforms_mod/ovt_initstructure" title="f/obsvariabletransforms_mod/ovt_initstructure"><code class="xref f f-func docutils literal notranslate"><span class="pre">ovt_initstructure()</span></code></a>, <a class="reference internal" href="obsfilter_mod.html#f/obsfilter_mod/filt_nbufrcodeassimilated" title="f/obsfilter_mod/filt_nbufrcodeassimilated"><code class="xref f f-func docutils literal notranslate"><span class="pre">filt_nbufrcodeassimilated()</span></code></a>, <a class="reference internal" href="obsfilter_mod.html#f/obsfilter_mod/filt_getbufrcodeassimilated" title="f/obsfilter_mod/filt_getbufrcodeassimilated"><code class="xref f f-func docutils literal notranslate"><span class="pre">filt_getbufrcodeassimilated()</span></code></a>, <a class="reference internal" href="obsfilter_mod.html#f/obsfilter_mod/filt_bufrcodeassimilated" title="f/obsfilter_mod/filt_bufrcodeassimilated"><code class="xref f f-func docutils literal notranslate"><span class="pre">filt_bufrcodeassimilated()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/obsvariabletransforms_mod/ovt_bufrcodeskipped">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obsvariabletransforms_mod/</span></span><span class="sig-name descname"><span class="pre">ovt_bufrcodeskipped</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">sourcebufrcode</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/obsvariabletransforms_mod/ovt_bufrcodeskipped" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>To NEVER activate a variable transform for this bufr code,
+even when this bufr_code is read but not found in the assimilated list.
+So far, this function is only used to “skipped” wind speed reports
+because we do all the appropriate wind manipulations when we encounter direction.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>sourcebufrcode</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em> :: The input bufr code</p>
+</dd>
+<dt class="field-odd">Return</dt>
+<dd class="field-odd"><p><strong>skip</strong><em> [</em><em>logical </em><em>]</em> :: The decision</p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="burpread_mod.html#f/burpread_mod/write_body" title="f/burpread_mod/write_body"><code class="xref f f-func docutils literal notranslate"><span class="pre">write_body()</span></code></a>, <a class="reference internal" href="sqliteread_mod.html#f/sqliteread_mod/sqlr_readsqlite" title="f/sqliteread_mod/sqlr_readsqlite"><code class="xref f f-func docutils literal notranslate"><span class="pre">sqlr_readsqlite()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/obsvariabletransforms_mod/ovt_getdestinationbufrcode">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obsvariabletransforms_mod/</span></span><span class="sig-name descname"><span class="pre">ovt_getdestinationbufrcode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">sourcebufrcode</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">extra_opt</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/obsvariabletransforms_mod/ovt_getdestinationbufrcode" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>To get the bufr code of the transformed/destination variable based on the
+bufr code of the source variable</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>sourcebufrcode</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em> :: The input source bufr code</p>
+</dd>
+<dt class="field-odd">Options</dt>
+<dd class="field-odd"><p><strong>extra_opt</strong><em> [</em><em>logical </em><em>]</em> :: Should we look in the “extra” bufr code list or not</p>
+</dd>
+<dt class="field-even">Return</dt>
+<dd class="field-even"><p><strong>destinationbufrcode</strong><em> [</em><em>integer </em><em>]</em> :: The returned destination/transform bufr code</p>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="burpread_mod.html#f/burpread_mod/write_body" title="f/burpread_mod/write_body"><code class="xref f f-func docutils literal notranslate"><span class="pre">write_body()</span></code></a>, <a class="reference internal" href="obsutil_mod.html#f/obsutil_mod/obsu_updatesourcevariablesflag" title="f/obsutil_mod/obsu_updatesourcevariablesflag"><code class="xref f f-func docutils literal notranslate"><span class="pre">obsu_updatesourcevariablesflag()</span></code></a>, <a class="reference internal" href="sqliteread_mod.html#f/sqliteread_mod/sqlr_readsqlite" title="f/sqliteread_mod/sqlr_readsqlite"><code class="xref f f-func docutils literal notranslate"><span class="pre">sqlr_readsqlite()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/obsvariabletransforms_mod/ovt_getsourcebufrcode">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obsvariabletransforms_mod/</span></span><span class="sig-name descname"><span class="pre">ovt_getsourcebufrcode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">destinationbufrcode</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">extra_opt</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/obsvariabletransforms_mod/ovt_getsourcebufrcode" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>To get the bufr code of the source variable based on the
+bufr code of the destination/transformed variable</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>destinationbufrcode</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em> :: The input destination/transform bufr code</p>
+</dd>
+<dt class="field-odd">Options</dt>
+<dd class="field-odd"><p><strong>extra_opt</strong><em> [</em><em>logical </em><em>]</em> :: Should we look in the “extra” bufr code list or not</p>
+</dd>
+<dt class="field-even">Return</dt>
+<dd class="field-even"><p><strong>sourcebufrcode</strong><em> [</em><em>integer </em><em>]</em> :: The returned source bufr code</p>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="obsutil_mod.html#f/obsutil_mod/obsu_updatesourcevariablesflag" title="f/obsutil_mod/obsu_updatesourcevariablesflag"><code class="xref f f-func docutils literal notranslate"><span class="pre">obsu_updatesourcevariablesflag()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/obsvariabletransforms_mod/ovt_iswindobs">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obsvariabletransforms_mod/</span></span><span class="sig-name descname"><span class="pre">ovt_iswindobs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">sourcebufrcode</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/obsvariabletransforms_mod/ovt_iswindobs" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>To determine if a bufr code is wind related</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>sourcebufrcode</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em> :: The input source bufr code</p>
+</dd>
+<dt class="field-odd">Return</dt>
+<dd class="field-odd"><p><strong>wind</strong><em> [</em><em>logical </em><em>]</em> :: Is this bufr code linked to wind or not</p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="burpread_mod.html#f/burpread_mod/write_body" title="f/burpread_mod/write_body"><code class="xref f f-func docutils literal notranslate"><span class="pre">write_body()</span></code></a>, <a class="reference internal" href="obsutil_mod.html#f/obsutil_mod/obsu_updatesourcevariablesflag" title="f/obsutil_mod/obsu_updatesourcevariablesflag"><code class="xref f f-func docutils literal notranslate"><span class="pre">obsu_updatesourcevariablesflag()</span></code></a>, <a class="reference internal" href="sqliteread_mod.html#f/sqliteread_mod/sqlr_readsqlite" title="f/sqliteread_mod/sqlr_readsqlite"><code class="xref f f-func docutils literal notranslate"><span class="pre">sqlr_readsqlite()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/obsvariabletransforms_mod/ovt_istransformedvariable">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obsvariabletransforms_mod/</span></span><span class="sig-name descname"><span class="pre">ovt_istransformedvariable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">bufrcode</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/obsvariabletransforms_mod/ovt_istransformedvariable" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>To determine if a bufr code is a transfomed variabled</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>bufrcode</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em> :: The input bufr code</p>
+</dd>
+<dt class="field-odd">Return</dt>
+<dd class="field-odd"><p><strong>transformed</strong><em> [</em><em>logical </em><em>]</em> :: Is this a bufr code associated to a transform variable or not</p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="obsutil_mod.html#f/obsutil_mod/obsu_updatesourcevariablesflag" title="f/obsutil_mod/obsu_updatesourcevariablesflag"><code class="xref f f-func docutils literal notranslate"><span class="pre">obsu_updatesourcevariablesflag()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/obsvariabletransforms_mod/ovt_transformobsvalues">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obsvariabletransforms_mod/</span></span><span class="sig-name descname"><span class="pre">ovt_transformobsvalues</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">obsspacedata</span></em>, <em class="sig-param"><span class="pre">headerindexstart</span></em>, <em class="sig-param"><span class="pre">headerindexend</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/obsvariabletransforms_mod/ovt_transformobsvalues" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>To perform observation variable transforms</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>obsspacedata</strong><em> [</em><em>struct_obs </em><em>,</em><em>inout</em><em>]</em> :: The observation database</p></li>
+<li><p><strong>headerindexstart</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em> :: The initial header index to analyse</p></li>
+<li><p><strong>headerindexend</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em> :: The final header index to analyse</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="burpfiles_mod.html#f/burpfiles_mod/brpf_readfile" title="f/burpfiles_mod/brpf_readfile"><code class="xref f f-func docutils literal notranslate"><span class="pre">brpf_readfile()</span></code></a>, <a class="reference internal" href="obsdbfiles_mod.html#f/obsdbfiles_mod/odbf_readfile" title="f/obsdbfiles_mod/odbf_readfile"><code class="xref f f-func docutils literal notranslate"><span class="pre">odbf_readfile()</span></code></a>, <a class="reference internal" href="sqlitefiles_mod.html#f/sqlitefiles_mod/sqlf_readfile" title="f/sqlitefiles_mod/sqlf_readfile"><code class="xref f f-func docutils literal notranslate"><span class="pre">sqlf_readfile()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_numheader" title="f/obsspacedata_mod/obs_numheader"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_numheader()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="#f/obsvariabletransforms_mod/ovt_windspeeddirectiontouv" title="f/obsvariabletransforms_mod/ovt_windspeeddirectiontouv"><code class="xref f f-func docutils literal notranslate"><span class="pre">ovt_windspeeddirectiontouv()</span></code></a>, <a class="reference internal" href="#f/obsvariabletransforms_mod/ovt_vistologvis" title="f/obsvariabletransforms_mod/ovt_vistologvis"><code class="xref f f-func docutils literal notranslate"><span class="pre">ovt_vistologvis()</span></code></a>, <a class="reference internal" href="#f/obsvariabletransforms_mod/ovt_preciptologprecip" title="f/obsvariabletransforms_mod/ovt_preciptologprecip"><code class="xref f f-func docutils literal notranslate"><span class="pre">ovt_preciptologprecip()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/obsvariabletransforms_mod/ovt_transformresiduals">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obsvariabletransforms_mod/</span></span><span class="sig-name descname"><span class="pre">ovt_transformresiduals</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">obsspacedata</span></em>, <em class="sig-param"><span class="pre">residualtypeid</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/obsvariabletransforms_mod/ovt_transformresiduals" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>To compute the o-p or o-a of the source variable(s)</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>obsspacedata</strong><em> [</em><em>struct_obs </em><em>,</em><em>inout</em><em>]</em> :: The observation database</p></li>
+<li><p><strong>residualtypeid</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em> :: The residual type ID (o-p or o-a)</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="obsfiles_mod.html#f/obsfiles_mod/obsf_writefiles" title="f/obsfiles_mod/obsf_writefiles"><code class="xref f f-func docutils literal notranslate"><span class="pre">obsf_writefiles()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_numheader" title="f/obsspacedata_mod/obs_numheader"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_numheader()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="#f/obsvariabletransforms_mod/ovt_uvtowindspeeddirection_residual" title="f/obsvariabletransforms_mod/ovt_uvtowindspeeddirection_residual"><code class="xref f f-func docutils literal notranslate"><span class="pre">ovt_uvtowindspeeddirection_residual()</span></code></a>, <a class="reference internal" href="#f/obsvariabletransforms_mod/ovt_vistologvis_residual" title="f/obsvariabletransforms_mod/ovt_vistologvis_residual"><code class="xref f f-func docutils literal notranslate"><span class="pre">ovt_vistologvis_residual()</span></code></a>, <a class="reference internal" href="#f/obsvariabletransforms_mod/ovt_preciptologprecip_residual" title="f/obsvariabletransforms_mod/ovt_preciptologprecip_residual"><code class="xref f f-func docutils literal notranslate"><span class="pre">ovt_preciptologprecip_residual()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/obsvariabletransforms_mod/ovt_windspeeddirectiontouv">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obsvariabletransforms_mod/</span></span><span class="sig-name descname"><span class="pre">ovt_windspeeddirectiontouv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">obsspacedata</span></em>, <em class="sig-param"><span class="pre">headerindexstart</span></em>, <em class="sig-param"><span class="pre">headerindexend</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/obsvariabletransforms_mod/ovt_windspeeddirectiontouv" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>To transform wind observation in terms of speed and direction to u and v</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>obsspacedata</strong><em> [</em><em>struct_obs </em><em>,</em><em>inout</em><em>]</em> :: The observation database</p></li>
+<li><p><strong>headerindexstart</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em> :: The initial header index to analyse</p></li>
+<li><p><strong>headerindexend</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em> :: The final header index to analyse</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/obsvariabletransforms_mod/ovt_transformobsvalues" title="f/obsvariabletransforms_mod/ovt_transformobsvalues"><code class="xref f f-func docutils literal notranslate"><span class="pre">ovt_transformobsvalues()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_headelem_i" title="f/obsspacedata_mod/obs_headelem_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_headelem_i()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyelem_i" title="f/obsspacedata_mod/obs_bodyelem_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyelem_i()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyelem_r" title="f/obsspacedata_mod/obs_bodyelem_r"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyelem_r()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyset_i" title="f/obsspacedata_mod/obs_bodyset_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyset_i()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/obsvariabletransforms_mod/ovt_uvtowindspeeddirection_residual">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obsvariabletransforms_mod/</span></span><span class="sig-name descname"><span class="pre">ovt_uvtowindspeeddirection_residual</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">obsspacedata</span></em>, <em class="sig-param"><span class="pre">residualtypeid</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/obsvariabletransforms_mod/ovt_uvtowindspeeddirection_residual" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>To transform wind residuals in terms of u and v to speed and direction</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>obsspacedata</strong><em> [</em><em>struct_obs </em><em>]</em> :: The observation database</p></li>
+<li><p><strong>residualtypeid</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em> :: The residual type ID (o-p or o-a)</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/obsvariabletransforms_mod/ovt_transformresiduals" title="f/obsvariabletransforms_mod/ovt_transformresiduals"><code class="xref f f-func docutils literal notranslate"><span class="pre">ovt_transformresiduals()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_numbody" title="f/obsspacedata_mod/obs_numbody"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_numbody()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyelem_i" title="f/obsspacedata_mod/obs_bodyelem_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyelem_i()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_headelem_i" title="f/obsspacedata_mod/obs_headelem_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_headelem_i()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyelem_r" title="f/obsspacedata_mod/obs_bodyelem_r"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyelem_r()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyset_i" title="f/obsspacedata_mod/obs_bodyset_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyset_i()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/obsvariabletransforms_mod/ovt_vistologvis">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obsvariabletransforms_mod/</span></span><span class="sig-name descname"><span class="pre">ovt_vistologvis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">obsspacedata</span></em>, <em class="sig-param"><span class="pre">headerindexstart</span></em>, <em class="sig-param"><span class="pre">headerindexend</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/obsvariabletransforms_mod/ovt_vistologvis" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>To transform visibily observation to log(visibility)</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>obsspacedata</strong><em> [</em><em>struct_obs </em><em>,</em><em>inout</em><em>]</em> :: The observation database</p></li>
+<li><p><strong>headerindexstart</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em> :: The initial header index to analyse</p></li>
+<li><p><strong>headerindexend</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em> :: The final header index to analyse</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/obsvariabletransforms_mod/ovt_transformobsvalues" title="f/obsvariabletransforms_mod/ovt_transformobsvalues"><code class="xref f f-func docutils literal notranslate"><span class="pre">ovt_transformobsvalues()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_headelem_i" title="f/obsspacedata_mod/obs_headelem_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_headelem_i()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyelem_i" title="f/obsspacedata_mod/obs_bodyelem_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyelem_i()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyelem_r" title="f/obsspacedata_mod/obs_bodyelem_r"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyelem_r()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyset_i" title="f/obsspacedata_mod/obs_bodyset_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyset_i()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/obsvariabletransforms_mod/ovt_vistologvis_residual">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obsvariabletransforms_mod/</span></span><span class="sig-name descname"><span class="pre">ovt_vistologvis_residual</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">obsspacedata</span></em>, <em class="sig-param"><span class="pre">residualtypeid</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/obsvariabletransforms_mod/ovt_vistologvis_residual" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>To transform log(visibily) residuals to visibility</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>obsspacedata</strong><em> [</em><em>struct_obs </em><em>,</em><em>inout</em><em>]</em> :: The observation database</p></li>
+<li><p><strong>residualtypeid</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em> :: The residual type ID (o-p or o-a)</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/obsvariabletransforms_mod/ovt_transformresiduals" title="f/obsvariabletransforms_mod/ovt_transformresiduals"><code class="xref f f-func docutils literal notranslate"><span class="pre">ovt_transformresiduals()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_numbody" title="f/obsspacedata_mod/obs_numbody"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_numbody()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyelem_i" title="f/obsspacedata_mod/obs_bodyelem_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyelem_i()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_headelem_i" title="f/obsspacedata_mod/obs_headelem_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_headelem_i()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyelem_r" title="f/obsspacedata_mod/obs_bodyelem_r"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyelem_r()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyset_i" title="f/obsspacedata_mod/obs_bodyset_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyset_i()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/obsvariabletransforms_mod/ovt_preciptologprecip">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obsvariabletransforms_mod/</span></span><span class="sig-name descname"><span class="pre">ovt_preciptologprecip</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">obsspacedata</span></em>, <em class="sig-param"><span class="pre">headerindexstart</span></em>, <em class="sig-param"><span class="pre">headerindexend</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/obsvariabletransforms_mod/ovt_preciptologprecip" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>To transform precipitation observation to log(precipitation)</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>obsspacedata</strong><em> [</em><em>struct_obs </em><em>,</em><em>inout</em><em>]</em> :: The observation database</p></li>
+<li><p><strong>headerindexstart</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em> :: The initial header index to analyse</p></li>
+<li><p><strong>headerindexend</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em> :: The final header index to analyse</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/obsvariabletransforms_mod/ovt_transformobsvalues" title="f/obsvariabletransforms_mod/ovt_transformobsvalues"><code class="xref f f-func docutils literal notranslate"><span class="pre">ovt_transformobsvalues()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_headelem_i" title="f/obsspacedata_mod/obs_headelem_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_headelem_i()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyelem_i" title="f/obsspacedata_mod/obs_bodyelem_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyelem_i()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyelem_r" title="f/obsspacedata_mod/obs_bodyelem_r"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyelem_r()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyset_i" title="f/obsspacedata_mod/obs_bodyset_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyset_i()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/obsvariabletransforms_mod/ovt_preciptologprecip_residual">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obsvariabletransforms_mod/</span></span><span class="sig-name descname"><span class="pre">ovt_preciptologprecip_residual</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">obsspacedata</span></em>, <em class="sig-param"><span class="pre">residualtypeid</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/obsvariabletransforms_mod/ovt_preciptologprecip_residual" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>To transform log(precip) residuals to precip</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>obsspacedata</strong><em> [</em><em>struct_obs </em><em>,</em><em>inout</em><em>]</em> :: The observation database</p></li>
+<li><p><strong>residualtypeid</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em> :: The residual type ID (o-p or o-a)</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/obsvariabletransforms_mod/ovt_transformresiduals" title="f/obsvariabletransforms_mod/ovt_transformresiduals"><code class="xref f f-func docutils literal notranslate"><span class="pre">ovt_transformresiduals()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_numbody" title="f/obsspacedata_mod/obs_numbody"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_numbody()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyelem_i" title="f/obsspacedata_mod/obs_bodyelem_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyelem_i()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_headelem_i" title="f/obsspacedata_mod/obs_headelem_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_headelem_i()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyelem_r" title="f/obsspacedata_mod/obs_bodyelem_r"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyelem_r()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyset_i" title="f/obsspacedata_mod/obs_bodyset_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyset_i()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/obsvariabletransforms_mod/ovt_adjusthumgz">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obsvariabletransforms_mod/</span></span><span class="sig-name descname"><span class="pre">ovt_adjusthumgz</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">obsspacedata</span></em>, <em class="sig-param"><span class="pre">headerindexstart</span></em>, <em class="sig-param"><span class="pre">headerindexend</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/obsvariabletransforms_mod/ovt_adjusthumgz" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>To apply a threshold on dew-point departure values and to
+transform geopotential height values to geopotential</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>obsspacedata</strong><em> [</em><em>struct_obs </em><em>,</em><em>inout</em><em>]</em> :: The observation database</p></li>
+<li><p><strong>headerindexstart</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em> :: The initial header index to analyse</p></li>
+<li><p><strong>headerindexend</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em> :: The final header index to analyse</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="burpfiles_mod.html#f/burpfiles_mod/brpf_readfile" title="f/burpfiles_mod/brpf_readfile"><code class="xref f f-func docutils literal notranslate"><span class="pre">brpf_readfile()</span></code></a>, <a class="reference internal" href="obsdbfiles_mod.html#f/obsdbfiles_mod/odbf_readfile" title="f/obsdbfiles_mod/odbf_readfile"><code class="xref f f-func docutils literal notranslate"><span class="pre">odbf_readfile()</span></code></a>, <a class="reference internal" href="sqlitefiles_mod.html#f/sqlitefiles_mod/sqlf_readfile" title="f/sqlitefiles_mod/sqlf_readfile"><code class="xref f f-func docutils literal notranslate"><span class="pre">sqlf_readfile()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_headelem_i" title="f/obsspacedata_mod/obs_headelem_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_headelem_i()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyelem_i" title="f/obsspacedata_mod/obs_bodyelem_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyelem_i()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyelem_r" title="f/obsspacedata_mod/obs_bodyelem_r"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyelem_r()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div></blockquote>
+</section>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="statetocolumn_mod.html" title="statetocolumn_mod"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="obstimeinterp_mod.html" title="obstimeinterp_mod"
+             >previous</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2018, ECCC.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.
+    </div>
+  </body>
+</html>

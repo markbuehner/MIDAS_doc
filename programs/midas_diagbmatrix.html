@@ -1,0 +1,297 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>midas_diagbmatrix &mdash; MIDAS  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="MIDAS  documentation" href="../index.html" />
+    <link rel="next" title="midas_diaghbht" href="midas_diaghbht.html" />
+    <link rel="prev" title="midas_calcstats" href="midas_calcstats.html" /> 
+  </head>
+  <body>
+  <div>
+    <img src="../_static/MIDAS_header.png" alt="MIDAS" />
+  </div>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="midas_diaghbht.html" title="midas_diaghbht"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="midas_calcstats.html" title="midas_calcstats"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="midas_calcstats.html"
+                          title="previous chapter">midas_calcstats</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="midas_diaghbht.html"
+                          title="next chapter">midas_diaghbht</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/programs/midas_diagbmatrix.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <section id="midas-diagbmatrix">
+<h1>midas_diagbmatrix<a class="headerlink" href="#midas-diagbmatrix" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><p><a class="reference internal" href="midas_diagbmatrix_src.html"><span class="doc">link to source code</span></a></p>
+<p><strong>Dependency Diagrams:</strong></p>
+<figure class="align-default" id="id1">
+<a class="reference internal image-reference" href="midas_diagbmatrix.svg"><img alt="midas_diagbmatrix.svg" height="100px" src="midas_diagbmatrix.svg" /></a>
+<figcaption>
+<p><span class="caption-text">Direct Dependency Diagram</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<dl>
+<dt class="sig sig-object f" id="f/midas_diagbmatrix">
+<em class="property"><span class="pre">program</span>&#160; </em><span class="sig-name descname"><span class="pre">midas_diagbmatrix</span></span><a class="headerlink" href="#f/midas_diagbmatrix" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="field-list">
+<dt class="field-odd">Purpose</dt>
+<dd class="field-odd"><p>Program for computing diagnostics of the background-error covariances (<strong>B</strong>) and
+localization (<strong>L</strong>) matrices</p>
+<p>—</p>
+</dd>
+<dt class="field-even">Algorithm</dt>
+<dd class="field-even"><p>The <code class="docutils literal notranslate"><span class="pre">diagBmatrix</span></code> program performs two different types of diagnostics
+based on the namelist options.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>Columns of B and L</strong>: Allow to extract columns of <strong>B</strong> (the background-error covariances matrix)
+which is a useful way to simulate single-observation (a.k.a pseudo-obs) experiments without using
+real observations.
+See e.g. Figs 5 and 6 in &lt;<a class="reference external" href="https://doi.org/10.1175/MWR-D-18-0248.1">https://doi.org/10.1175/MWR-D-18-0248.1</a>&gt;.
+If localization is used, the corresponding columns of the localization matrix (<strong>L</strong>) will be outputed.</p></li>
+<li><p><strong>Implied variances</strong>: Compute the variances resulting from an ensemble of random perturbations
+generated from the provided <strong>B</strong> matrix, including hybrid covariances. This allow to evaluate the impact
+of various choices in the design of <strong>B</strong> on the modification to the variances of the ensemble of
+background-error estimates used to derivate <strong>B</strong>, i.e. the “measured” variances.</p></li>
+</ul>
+</div></blockquote>
+<p>—</p>
+</dd>
+</dl>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 38%" />
+<col style="width: 62%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Input and Output Files</p></th>
+<th class="head"><p>Description of file</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">flnml</span></code></p></td>
+<td><p>In - Main namelist file with parameters user may modify</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">ensemble/$YYYYMMDDHH_$HHH_$NNNN</span></code></p></td>
+<td><p>In - Background ensemble member files</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">bgcov</span></code></p></td>
+<td><p>In - <strong>B</strong> nmc matrix for the random perturbations</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">analysis_grid</span></code></p></td>
+<td><dl class="simple">
+<dt>In - Horizontal grid file on which the random perturbations</dt><dd><p>are generated</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">trlm_$NN</span></code> (e.g. <code class="docutils literal notranslate"><span class="pre">trlm_01</span></code>)</p></td>
+<td><dl class="simple">
+<dt>In - Background state (a.k.a. trial) files for each timestep</dt><dd><p>Only needed if a LQ-HU transform is used in <strong>B</strong></p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">columnB_$VAR_$YYYYMMDDHH.fst</span></code></p></td>
+<td><p>Out - Column of <strong>B</strong></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">columnBnorm_$VAR_$YYYYMMDDHH.fst</span></code></p></td>
+<td><p>Out - Column of <strong>B</strong> normalize by the value at the pseudo-obs location</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">columnL_$YYYYMMDDHH.fst</span></code></p></td>
+<td><p>Out - Column of <strong>L</strong> (only when ensemble-derived <strong>B</strong> is use)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">stddev_$YYYYMMDDHH.fst</span></code></p></td>
+<td><p>Out - Implied variances</p></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<div><p>–</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Synopsis</dt>
+<dd class="field-odd"><p>Below is a summary of the <code class="docutils literal notranslate"><span class="pre">diagBmatrix</span></code> program calling sequence:</p>
+<ul class="simple">
+<li><p><strong>Initial setups:</strong></p>
+<ul>
+<li><p>Read the NAMDIAG namelist and check/modify some values.</p></li>
+<li><p>Setup horizontal and vertical grid objects from the provided template file (./analysisgrid)</p></li>
+<li><p>Various modules are setup: <code class="docutils literal notranslate"><span class="pre">gridStateVector_mod</span></code>, <code class="docutils literal notranslate"><span class="pre">timeCoord_mod</span></code> and <code class="docutils literal notranslate"><span class="pre">bmatrix_mod</span></code></p></li>
+</ul>
+</li>
+<li><p><strong>Columns of B and L:</strong></p>
+<ul>
+<li><p>Attribute time bin of the pseudo-obs based on the namelist option.</p></li>
+<li><dl class="simple">
+<dt>For each variables and prescribed pseudo-obs positions:</dt><dd><ol class="arabic simple">
+<li><p>create a Dirac delta distribution (zero everywhere except at obs location).
+This is equivalent to impose (O-F / sigma_obs) = 1 at one location.</p></li>
+<li><p>apply <strong>B</strong> ^(1/2)^T <strong>B</strong> ^1/2 and output the results into a file</p></li>
+<li><p>normalize the results by the value at the pseudo-obs position
+and output to a file</p></li>
+</ol>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>If bMatrixEnsemble_mod is activated, for each prescribed pseudo-obs positions:</dt><dd><ol class="arabic simple">
+<li><p>create a Dirac delta distribution</p></li>
+<li><p>apply <strong>L</strong> ^(1/2)^T <strong>L</strong> ^1/2 and output the results into a file</p></li>
+</ol>
+</dd>
+</dl>
+</li>
+</ul>
+</li>
+<li><p><strong>Implied variances:</strong></p>
+<ul>
+<li><dl class="simple">
+<dt>For each member of the chosen random ensemble size:</dt><dd><ol class="arabic simple">
+<li><p>create a random control vector</p></li>
+<li><p>apply <strong>B</strong> ^1/2</p></li>
+<li><p>store the resulting 3D state in randomEns</p></li>
+</ol>
+</dd>
+</dl>
+</li>
+<li><p>Compute and remove the ensemble mean</p></li>
+<li><p>Compute the ensemble standard deviations at each grid point and output to a file</p></li>
+<li><p>Compute the zonal and domain mean standard deviations and output to the same file</p></li>
+</ul>
+</li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Needed modules</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../modules/version_mod.html#f/version_mod" title="f/version_mod: MODULE version_mod (prefix='ver' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">version_mod</span></code></a>: MODULE version_mod (prefix=’ver’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="../modules/midasmpi_mod.html#f/midasmpi_mod" title="f/midasmpi_mod: MODULE midasMpi_mod (prefix='mmpi' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">midasmpi_mod</span></code></a>: MODULE midasMpi_mod (prefix=’mmpi’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="../modules/controlvector_mod.html#f/controlvector_mod" title="f/controlvector_mod: MODULE controlVector_mod (prefix='cvm' category='6. High-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">controlvector_mod</span></code></a>: MODULE controlVector_mod (prefix=’cvm’ category=’6. High-level data objects’)</p></li>
+<li><p><a class="reference internal" href="../modules/gridvariabletransforms_mod.html#f/gridvariabletransforms_mod" title="f/gridvariabletransforms_mod: MODULE gridVariableTransforms (prefix='gvt' category='4. Data Object transformations')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">gridvariabletransforms_mod</span></code></a>: MODULE gridVariableTransforms (prefix=’gvt’ category=’4. Data Object transformations’)</p></li>
+<li><p><a class="reference internal" href="../modules/varnamelist_mod.html#f/varnamelist_mod" title="f/varnamelist_mod: MODULE varNameList (prefix='vnl' category='7. Low-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">varnamelist_mod</span></code></a>: MODULE varNameList (prefix=’vnl’ category=’7. Low-level data objects’)</p></li>
+<li><p><a class="reference internal" href="../modules/gridstatevector_mod.html#f/gridstatevector_mod" title="f/gridstatevector_mod: MODULE gridStateVector_mod (prefix='gsv' category='6. High-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">gridstatevector_mod</span></code></a>: MODULE gridStateVector_mod (prefix=’gsv’ category=’6. High-level data objects’)</p></li>
+<li><p><a class="reference internal" href="../modules/gridstatevectorfileio_mod.html#f/gridstatevectorfileio_mod" title="f/gridstatevectorfileio_mod: MODULE gridStateVectorFile_mod (prefix='gio' category='4. Data Object transformations')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">gridstatevectorfileio_mod</span></code></a>: MODULE gridStateVectorFile_mod (prefix=’gio’ category=’4. Data Object transformations’)</p></li>
+<li><p><a class="reference internal" href="../modules/ensemblestatevector_mod.html#f/ensemblestatevector_mod" title="f/ensemblestatevector_mod: MODULE ensembleStateVector_mod (prefix='ens' category='6. High-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">ensemblestatevector_mod</span></code></a>: MODULE ensembleStateVector_mod (prefix=’ens’ category=’6. High-level data objects’)</p></li>
+<li><p><a class="reference internal" href="../modules/bmatrix_mod.html#f/bmatrix_mod" title="f/bmatrix_mod: MODULE BMatrix_mod (prefix='bmat' category='2. B and R matrices')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">bmatrix_mod</span></code></a>: MODULE BMatrix_mod (prefix=’bmat’ category=’2. B and R matrices’)</p></li>
+<li><p><a class="reference internal" href="../modules/bmatrixensemble_mod.html#f/bmatrixensemble_mod" title="f/bmatrixensemble_mod: MODULE BmatrixEnsemble_mod (prefix='ben' category='2. B and R matrices')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">bmatrixensemble_mod</span></code></a>: MODULE BmatrixEnsemble_mod (prefix=’ben’ category=’2. B and R matrices’)</p></li>
+<li><p><a class="reference internal" href="../modules/localization_mod.html#f/localization_mod" title="f/localization_mod: MODULE localization_mod (prefix='loc' category='2. B and R matrices')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">localization_mod</span></code></a>: MODULE localization_mod (prefix=’loc’ category=’2. B and R matrices’)</p></li>
+<li><p><a class="reference internal" href="../modules/horizontalcoord_mod.html#f/horizontalcoord_mod" title="f/horizontalcoord_mod: MODULE HorizontalCoord_mod (prefix='hco' category='7. Low-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">horizontalcoord_mod</span></code></a>: MODULE HorizontalCoord_mod (prefix=’hco’ category=’7. Low-level data objects’)</p></li>
+<li><p><a class="reference internal" href="../modules/advection_mod.html#f/advection_mod" title="f/advection_mod: MODULE advection_mod (prefix=&quot;adv&quot; category='4. Data Object transformations')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">advection_mod</span></code></a>: MODULE advection_mod (prefix=”adv” category=’4. Data Object transformations’)</p></li>
+<li><p><a class="reference internal" href="../modules/verticalcoord_mod.html#f/verticalcoord_mod" title="f/verticalcoord_mod: MODULE verticalcoord (prefix='vco' category='7. Low-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">verticalcoord_mod</span></code></a>: MODULE verticalcoord (prefix=’vco’ category=’7. Low-level data objects’)</p></li>
+<li><p><a class="reference internal" href="../modules/timecoord_mod.html#f/timecoord_mod" title="f/timecoord_mod: MODULE timeCoord (prefix='tim' category='7. Low-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">timecoord_mod</span></code></a>: MODULE timeCoord (prefix=’tim’ category=’7. Low-level data objects’)</p></li>
+<li><p><a class="reference internal" href="../modules/randomnumber_mod.html#f/randomnumber_mod" title="f/randomnumber_mod: MODULE randomNumber_mod (prefix='rng' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">randomnumber_mod</span></code></a>: MODULE randomNumber_mod (prefix=’rng’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="../modules/utilities_mod.html#f/utilities_mod" title="f/utilities_mod: MODULE utilities_mod (prefix='utl' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">utilities_mod</span></code></a>: MODULE utilities_mod (prefix=’utl’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="../modules/ramdisk_mod.html#f/ramdisk_mod" title="f/ramdisk_mod: MODULE ramDisk_mod (prefix='ram' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">ramdisk_mod</span></code></a>: MODULE ramDisk_mod (prefix=’ram’ category=’8. Low-level utilities and constants’)</p></li>
+</ul>
+<p class="rubric">Routines called</p>
+<p><a class="reference internal" href="../modules/version_mod.html#f/version_mod/ver_printnameandversion" title="f/version_mod/ver_printnameandversion"><code class="xref f f-func docutils literal notranslate"><span class="pre">ver_printnameandversion()</span></code></a>, <a class="reference internal" href="../modules/midasmpi_mod.html#f/midasmpi_mod/mmpi_initialize" title="f/midasmpi_mod/mmpi_initialize"><code class="xref f f-func docutils literal notranslate"><span class="pre">mmpi_initialize()</span></code></a>, <a class="reference internal" href="../modules/utilities_mod.html#f/utilities_mod/utl_tmg_start" title="f/utilities_mod/utl_tmg_start"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_start()</span></code></a>, <a class="reference internal" href="../modules/utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="../modules/ramdisk_mod.html#f/ramdisk_mod/ram_setup" title="f/ramdisk_mod/ram_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">ram_setup()</span></code></a>, <a class="reference internal" href="../modules/timecoord_mod.html#f/timecoord_mod/tim_setup" title="f/timecoord_mod/tim_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">tim_setup()</span></code></a>, <a class="reference internal" href="../modules/timecoord_mod.html#f/timecoord_mod/tim_getdatestamp" title="f/timecoord_mod/tim_getdatestamp"><code class="xref f f-func docutils literal notranslate"><span class="pre">tim_getdatestamp()</span></code></a>, <a class="reference internal" href="../modules/gridstatevector_mod.html#f/gridstatevector_mod/gsv_setup" title="f/gridstatevector_mod/gsv_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_setup()</span></code></a>, <a class="reference internal" href="../modules/horizontalcoord_mod.html#f/horizontalcoord_mod/hco_setupfromfile" title="f/horizontalcoord_mod/hco_setupfromfile"><code class="xref f f-func docutils literal notranslate"><span class="pre">hco_setupfromfile()</span></code></a>, <a class="reference internal" href="../modules/verticalcoord_mod.html#f/verticalcoord_mod/vco_setupfromfile" title="f/verticalcoord_mod/vco_setupfromfile"><code class="xref f f-func docutils literal notranslate"><span class="pre">vco_setupfromfile()</span></code></a>, <a class="reference internal" href="../modules/gridstatevector_mod.html#f/gridstatevector_mod/gsv_allocate" title="f/gridstatevector_mod/gsv_allocate"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_allocate()</span></code></a>, <a class="reference internal" href="../modules/gridstatevector_mod.html#f/gridstatevector_mod/gsv_zero" title="f/gridstatevector_mod/gsv_zero"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_zero()</span></code></a>, <a class="reference internal" href="../modules/bmatrix_mod.html#f/bmatrix_mod/bmat_setup" title="f/bmatrix_mod/bmat_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">bmat_setup()</span></code></a>, <a class="reference internal" href="../modules/gridvariabletransforms_mod.html#f/gridvariabletransforms_mod/gvt_setup" title="f/gridvariabletransforms_mod/gvt_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">gvt_setup()</span></code></a>, <a class="reference internal" href="../modules/gridvariabletransforms_mod.html#f/gridvariabletransforms_mod/gvt_setupreffromtrialfiles" title="f/gridvariabletransforms_mod/gvt_setupreffromtrialfiles"><code class="xref f f-func docutils literal notranslate"><span class="pre">gvt_setupreffromtrialfiles()</span></code></a>, <a class="reference internal" href="../modules/gridstatevector_mod.html#f/gridstatevector_mod/gsv_varexist" title="f/gridstatevector_mod/gsv_varexist"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_varexist()</span></code></a>, <a class="reference internal" href="../modules/varnamelist_mod.html#f/varnamelist_mod/vnl_varlevelfromvarname" title="f/varnamelist_mod/vnl_varlevelfromvarname"><code class="xref f f-func docutils literal notranslate"><span class="pre">vnl_varlevelfromvarname()</span></code></a>, <a class="reference internal" href="../modules/bmatrix_mod.html#f/bmatrix_mod/bmat_sqrtbt" title="f/bmatrix_mod/bmat_sqrtbt"><code class="xref f f-func docutils literal notranslate"><span class="pre">bmat_sqrtbt()</span></code></a>, <a class="reference internal" href="../modules/bmatrix_mod.html#f/bmatrix_mod/bmat_sqrtb" title="f/bmatrix_mod/bmat_sqrtb"><code class="xref f f-func docutils literal notranslate"><span class="pre">bmat_sqrtb()</span></code></a>, <a class="reference internal" href="../modules/gridstatevectorfileio_mod.html#f/gridstatevectorfileio_mod/gio_writetofile" title="f/gridstatevectorfileio_mod/gio_writetofile"><code class="xref f f-func docutils literal notranslate"><span class="pre">gio_writetofile()</span></code></a>, <a class="reference internal" href="../modules/gridstatevector_mod.html#f/gridstatevector_mod/gsv_scale" title="f/gridstatevector_mod/gsv_scale"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_scale()</span></code></a>, <a class="reference internal" href="../modules/bmatrixensemble_mod.html#f/bmatrixensemble_mod/ben_writeamplitude" title="f/bmatrixensemble_mod/ben_writeamplitude"><code class="xref f f-func docutils literal notranslate"><span class="pre">ben_writeamplitude()</span></code></a>, <a class="reference internal" href="../modules/bmatrixensemble_mod.html#f/bmatrixensemble_mod/ben_getnumloc" title="f/bmatrixensemble_mod/ben_getnumloc"><code class="xref f f-func docutils literal notranslate"><span class="pre">ben_getnumloc()</span></code></a>, <a class="reference internal" href="../modules/bmatrixensemble_mod.html#f/bmatrixensemble_mod/ben_getnuminstance" title="f/bmatrixensemble_mod/ben_getnuminstance"><code class="xref f f-func docutils literal notranslate"><span class="pre">ben_getnuminstance()</span></code></a>, <a class="reference internal" href="../modules/bmatrixensemble_mod.html#f/bmatrixensemble_mod/ben_getnumstepamplitudeassimwindow" title="f/bmatrixensemble_mod/ben_getnumstepamplitudeassimwindow"><code class="xref f f-func docutils literal notranslate"><span class="pre">ben_getnumstepamplitudeassimwindow()</span></code></a>, <a class="reference internal" href="../modules/bmatrixensemble_mod.html#f/bmatrixensemble_mod/ben_getamp3dstepindexassimwindow" title="f/bmatrixensemble_mod/ben_getamp3dstepindexassimwindow"><code class="xref f f-func docutils literal notranslate"><span class="pre">ben_getamp3dstepindexassimwindow()</span></code></a>, <a class="reference internal" href="../modules/timecoord_mod.html#f/timecoord_mod/tim_getstamplist" title="f/timecoord_mod/tim_getstamplist"><code class="xref f f-func docutils literal notranslate"><span class="pre">tim_getstamplist()</span></code></a>, <a class="reference internal" href="../modules/bmatrixensemble_mod.html#f/bmatrixensemble_mod/ben_getnens" title="f/bmatrixensemble_mod/ben_getnens"><code class="xref f f-func docutils literal notranslate"><span class="pre">ben_getnens()</span></code></a>, <a class="reference internal" href="../modules/bmatrixensemble_mod.html#f/bmatrixensemble_mod/ben_getamplitudeassimwindow" title="f/bmatrixensemble_mod/ben_getamplitudeassimwindow"><code class="xref f f-func docutils literal notranslate"><span class="pre">ben_getamplitudeassimwindow()</span></code></a>, <a class="reference internal" href="../modules/bmatrixensemble_mod.html#f/bmatrixensemble_mod/ben_getloc" title="f/bmatrixensemble_mod/ben_getloc"><code class="xref f f-func docutils literal notranslate"><span class="pre">ben_getloc()</span></code></a>, <a class="reference internal" href="../modules/midasmpi_mod.html#f/midasmpi_mod/mmpi_setup_latbands" title="f/midasmpi_mod/mmpi_setup_latbands"><code class="xref f f-func docutils literal notranslate"><span class="pre">mmpi_setup_latbands()</span></code></a>, <a class="reference internal" href="../modules/midasmpi_mod.html#f/midasmpi_mod/mmpi_setup_lonbands" title="f/midasmpi_mod/mmpi_setup_lonbands"><code class="xref f f-func docutils literal notranslate"><span class="pre">mmpi_setup_lonbands()</span></code></a>, <a class="reference internal" href="../modules/ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_allocate" title="f/ensemblestatevector_mod/ens_allocate"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_allocate()</span></code></a>, <a class="reference internal" href="../modules/ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_zero" title="f/ensemblestatevector_mod/ens_zero"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_zero()</span></code></a>, <a class="reference internal" href="../modules/ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_getonelev_r8" title="f/ensemblestatevector_mod/ens_getonelev_r8"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_getonelev_r8()</span></code></a>, <a class="reference internal" href="../modules/advection_mod.html#f/advection_mod/adv_ensemble_ad" title="f/advection_mod/adv_ensemble_ad"><code class="xref f f-func docutils literal notranslate"><span class="pre">adv_ensemble_ad()</span></code></a>, <a class="reference internal" href="../modules/localization_mod.html#f/localization_mod/loc_lsqrtad" title="f/localization_mod/loc_lsqrtad"><code class="xref f f-func docutils literal notranslate"><span class="pre">loc_lsqrtad()</span></code></a>, <a class="reference internal" href="../modules/localization_mod.html#f/localization_mod/loc_lsqrt" title="f/localization_mod/loc_lsqrt"><code class="xref f f-func docutils literal notranslate"><span class="pre">loc_lsqrt()</span></code></a>, <a class="reference internal" href="../modules/advection_mod.html#f/advection_mod/adv_ensemble_tl" title="f/advection_mod/adv_ensemble_tl"><code class="xref f f-func docutils literal notranslate"><span class="pre">adv_ensemble_tl()</span></code></a>, <a class="reference internal" href="../modules/ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_copymember" title="f/ensemblestatevector_mod/ens_copymember"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_copymember()</span></code></a>, <a class="reference internal" href="../modules/ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_deallocate" title="f/ensemblestatevector_mod/ens_deallocate"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_deallocate()</span></code></a>, <a class="reference internal" href="../modules/gridstatevector_mod.html#f/gridstatevector_mod/gsv_deallocate" title="f/gridstatevector_mod/gsv_deallocate"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_deallocate()</span></code></a>, <a class="reference internal" href="../modules/randomnumber_mod.html#f/randomnumber_mod/rng_setup" title="f/randomnumber_mod/rng_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">rng_setup()</span></code></a>, <a class="reference internal" href="../modules/randomnumber_mod.html#f/randomnumber_mod/rng_gaussian" title="f/randomnumber_mod/rng_gaussian"><code class="xref f f-func docutils literal notranslate"><span class="pre">rng_gaussian()</span></code></a>, <a class="reference internal" href="../modules/bmatrix_mod.html#f/bmatrix_mod/bmat_reducetompilocal" title="f/bmatrix_mod/bmat_reducetompilocal"><code class="xref f f-func docutils literal notranslate"><span class="pre">bmat_reducetompilocal()</span></code></a>, <a class="reference internal" href="../modules/gridstatevector_mod.html#f/gridstatevector_mod/gsv_getnumlevfromvarname" title="f/gridstatevector_mod/gsv_getnumlevfromvarname"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_getnumlevfromvarname()</span></code></a>, <a class="reference internal" href="../modules/utilities_mod.html#f/utilities_mod/utl_tmg_stop" title="f/utilities_mod/utl_tmg_stop"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_stop()</span></code></a></p>
+</div></blockquote>
+</section>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="midas_diaghbht.html" title="midas_diaghbht"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="midas_calcstats.html" title="midas_calcstats"
+             >previous</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2018, ECCC.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.
+    </div>
+  </body>
+</html>

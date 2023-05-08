@@ -1,0 +1,630 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>midasmpi_mod &mdash; MIDAS  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="MIDAS  documentation" href="../index.html" />
+    <link rel="next" title="physicsfunctions_mod" href="physicsfunctions_mod.html" />
+    <link rel="prev" title="message_mod" href="message_mod.html" /> 
+  </head>
+  <body>
+  <div>
+    <img src="../_static/MIDAS_header.png" alt="MIDAS" />
+  </div>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="physicsfunctions_mod.html" title="physicsfunctions_mod"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="message_mod.html" title="message_mod"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="message_mod.html"
+                          title="previous chapter">message_mod</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="physicsfunctions_mod.html"
+                          title="next chapter">physicsfunctions_mod</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/modules/midasmpi_mod.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <section id="midasmpi-mod">
+<h1>midasmpi_mod<a class="headerlink" href="#midasmpi-mod" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><p><a class="reference internal" href="midasmpi_mod_src.html"><span class="doc">link to source code</span></a></p>
+<p><strong>Dependency Diagrams:</strong></p>
+<figure class="align-default" id="id1">
+<a class="reference internal image-reference" href="midasmpi_mod.svg"><img alt="midasmpi_mod.svg" height="100px" src="midasmpi_mod.svg" /></a>
+<figcaption>
+<p><span class="caption-text">Direct Dependency Diagram</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id2">
+<a class="reference internal image-reference" href="midasmpi_mod_rev.svg"><img alt="midasmpi_mod_rev.svg" height="100px" src="midasmpi_mod_rev.svg" /></a>
+<figcaption>
+<p><span class="caption-text">Reverse Dependency Diagram</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<span class="target" id="f/midasmpi_mod"></span><dl class="field-list simple">
+<dt class="field-odd">Purpose</dt>
+<dd class="field-odd"><p>Subroutine and public variables related to general aspects of mpi.
+Also, subroutine and public variables related to the mpi decomposition
+specific to the MIDAS code.</p>
+</dd>
+</dl>
+<p class="rubric">Quick access</p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/midasmpi_mod/mmpi_comm_ew" title="f/midasmpi_mod/mmpi_comm_ew"><code class="xref f f-var docutils literal notranslate"><span class="pre">mmpi_comm_ew</span></code></a>, <a class="reference internal" href="#f/midasmpi_mod/mmpi_comm_grid" title="f/midasmpi_mod/mmpi_comm_grid"><code class="xref f f-var docutils literal notranslate"><span class="pre">mmpi_comm_grid</span></code></a>, <a class="reference internal" href="#f/midasmpi_mod/mmpi_comm_ns" title="f/midasmpi_mod/mmpi_comm_ns"><code class="xref f f-var docutils literal notranslate"><span class="pre">mmpi_comm_ns</span></code></a>, <a class="reference internal" href="#f/midasmpi_mod/mmpi_datyp_int" title="f/midasmpi_mod/mmpi_datyp_int"><code class="xref f f-var docutils literal notranslate"><span class="pre">mmpi_datyp_int</span></code></a>, <a class="reference internal" href="#f/midasmpi_mod/mmpi_datyp_real4" title="f/midasmpi_mod/mmpi_datyp_real4"><code class="xref f f-var docutils literal notranslate"><span class="pre">mmpi_datyp_real4</span></code></a>, <a class="reference internal" href="#f/midasmpi_mod/mmpi_datyp_real8" title="f/midasmpi_mod/mmpi_datyp_real8"><code class="xref f f-var docutils literal notranslate"><span class="pre">mmpi_datyp_real8</span></code></a>, <a class="reference internal" href="#f/midasmpi_mod/mmpi_dobarrier" title="f/midasmpi_mod/mmpi_dobarrier"><code class="xref f f-var docutils literal notranslate"><span class="pre">mmpi_dobarrier</span></code></a>, <a class="reference internal" href="#f/midasmpi_mod/mmpi_myid" title="f/midasmpi_mod/mmpi_myid"><code class="xref f f-var docutils literal notranslate"><span class="pre">mmpi_myid</span></code></a>, <a class="reference internal" href="#f/midasmpi_mod/mmpi_myidx" title="f/midasmpi_mod/mmpi_myidx"><code class="xref f f-var docutils literal notranslate"><span class="pre">mmpi_myidx</span></code></a>, <a class="reference internal" href="#f/midasmpi_mod/mmpi_myidy" title="f/midasmpi_mod/mmpi_myidy"><code class="xref f f-var docutils literal notranslate"><span class="pre">mmpi_myidy</span></code></a>, <a class="reference internal" href="#f/midasmpi_mod/mmpi_npex" title="f/midasmpi_mod/mmpi_npex"><code class="xref f f-var docutils literal notranslate"><span class="pre">mmpi_npex</span></code></a>, <a class="reference internal" href="#f/midasmpi_mod/mmpi_npey" title="f/midasmpi_mod/mmpi_npey"><code class="xref f f-var docutils literal notranslate"><span class="pre">mmpi_npey</span></code></a>, <a class="reference internal" href="#f/midasmpi_mod/mmpi_nprocs" title="f/midasmpi_mod/mmpi_nprocs"><code class="xref f f-var docutils literal notranslate"><span class="pre">mmpi_nprocs</span></code></a>, <a class="reference internal" href="#f/midasmpi_mod/mmpi_numthread" title="f/midasmpi_mod/mmpi_numthread"><code class="xref f f-var docutils literal notranslate"><span class="pre">mmpi_numthread</span></code></a></p>
+</dd>
+<dt class="field-even">Routines</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/midasmpi_mod/mmpi_allgather_string" title="f/midasmpi_mod/mmpi_allgather_string"><code class="xref f f-func docutils literal notranslate"><span class="pre">mmpi_allgather_string()</span></code></a>, <a class="reference internal" href="#f/midasmpi_mod/mmpi_allreduce_sumr8_1d" title="f/midasmpi_mod/mmpi_allreduce_sumr8_1d"><code class="xref f f-func docutils literal notranslate"><span class="pre">mmpi_allreduce_sumr8_1d()</span></code></a>, <a class="reference internal" href="#f/midasmpi_mod/mmpi_allreduce_sumr8_2d" title="f/midasmpi_mod/mmpi_allreduce_sumr8_2d"><code class="xref f f-func docutils literal notranslate"><span class="pre">mmpi_allreduce_sumr8_2d()</span></code></a>, <a class="reference internal" href="#f/midasmpi_mod/mmpi_allreduce_sumreal8scalar" title="f/midasmpi_mod/mmpi_allreduce_sumreal8scalar"><code class="xref f f-func docutils literal notranslate"><span class="pre">mmpi_allreduce_sumreal8scalar()</span></code></a>, <a class="reference internal" href="#f/midasmpi_mod/mmpi_getptopo" title="f/midasmpi_mod/mmpi_getptopo"><code class="xref f f-func docutils literal notranslate"><span class="pre">mmpi_getptopo()</span></code></a>, <a class="reference internal" href="#f/midasmpi_mod/mmpi_initialize" title="f/midasmpi_mod/mmpi_initialize"><code class="xref f f-func docutils literal notranslate"><span class="pre">mmpi_initialize()</span></code></a>, <a class="reference internal" href="#f/midasmpi_mod/mmpi_myidxfromlon" title="f/midasmpi_mod/mmpi_myidxfromlon"><code class="xref f f-func docutils literal notranslate"><span class="pre">mmpi_myidxfromlon()</span></code></a>, <a class="reference internal" href="#f/midasmpi_mod/mmpi_myidyfromlat" title="f/midasmpi_mod/mmpi_myidyfromlat"><code class="xref f f-func docutils literal notranslate"><span class="pre">mmpi_myidyfromlat()</span></code></a>, <a class="reference internal" href="#f/midasmpi_mod/mmpi_reduce_sumr8_1d" title="f/midasmpi_mod/mmpi_reduce_sumr8_1d"><code class="xref f f-func docutils literal notranslate"><span class="pre">mmpi_reduce_sumr8_1d()</span></code></a>, <a class="reference internal" href="#f/midasmpi_mod/mmpi_reduce_sumr8_2d" title="f/midasmpi_mod/mmpi_reduce_sumr8_2d"><code class="xref f f-func docutils literal notranslate"><span class="pre">mmpi_reduce_sumr8_2d()</span></code></a>, <a class="reference internal" href="#f/midasmpi_mod/mmpi_reduce_sumr8_3d" title="f/midasmpi_mod/mmpi_reduce_sumr8_3d"><code class="xref f f-func docutils literal notranslate"><span class="pre">mmpi_reduce_sumr8_3d()</span></code></a>, <a class="reference internal" href="#f/midasmpi_mod/mmpi_setup_latbands" title="f/midasmpi_mod/mmpi_setup_latbands"><code class="xref f f-func docutils literal notranslate"><span class="pre">mmpi_setup_latbands()</span></code></a>, <a class="reference internal" href="#f/midasmpi_mod/mmpi_setup_levels" title="f/midasmpi_mod/mmpi_setup_levels"><code class="xref f f-func docutils literal notranslate"><span class="pre">mmpi_setup_levels()</span></code></a>, <a class="reference internal" href="#f/midasmpi_mod/mmpi_setup_lonbands" title="f/midasmpi_mod/mmpi_setup_lonbands"><code class="xref f f-func docutils literal notranslate"><span class="pre">mmpi_setup_lonbands()</span></code></a>, <a class="reference internal" href="#f/midasmpi_mod/mmpi_setup_m" title="f/midasmpi_mod/mmpi_setup_m"><code class="xref f f-func docutils literal notranslate"><span class="pre">mmpi_setup_m()</span></code></a>, <a class="reference internal" href="#f/midasmpi_mod/mmpi_setup_n" title="f/midasmpi_mod/mmpi_setup_n"><code class="xref f f-func docutils literal notranslate"><span class="pre">mmpi_setup_n()</span></code></a>, <a class="reference internal" href="#f/midasmpi_mod/mmpi_setup_varslevels" title="f/midasmpi_mod/mmpi_setup_varslevels"><code class="xref f f-func docutils literal notranslate"><span class="pre">mmpi_setup_varslevels()</span></code></a></p>
+</dd>
+</dl>
+<p class="rubric">Needed modules</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod" title="f/utilities_mod: MODULE utilities_mod (prefix='utl' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">utilities_mod</span></code></a>: MODULE utilities_mod (prefix=’utl’ category=’8. Low-level utilities and constants’)</p></li>
+</ul>
+<p class="rubric">Variables</p>
+<ul>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/midasmpi_mod/mmpi_comm_ew">
+<span class="sig-prename descclassname"><span class="pre">midasmpi_mod/</span></span><span class="sig-name descname"><span class="pre">mmpi_comm_ew</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/midasmpi_mod/mmpi_comm_ew" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/midasmpi_mod/mmpi_comm_grid">
+<span class="sig-prename descclassname"><span class="pre">midasmpi_mod/</span></span><span class="sig-name descname"><span class="pre">mmpi_comm_grid</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/midasmpi_mod/mmpi_comm_grid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/midasmpi_mod/mmpi_comm_ns">
+<span class="sig-prename descclassname"><span class="pre">midasmpi_mod/</span></span><span class="sig-name descname"><span class="pre">mmpi_comm_ns</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/midasmpi_mod/mmpi_comm_ns" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/midasmpi_mod/mmpi_datyp_int">
+<span class="sig-prename descclassname"><span class="pre">midasmpi_mod/</span></span><span class="sig-name descname"><span class="pre">mmpi_datyp_int</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/midasmpi_mod/mmpi_datyp_int" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/midasmpi_mod/mmpi_datyp_real4">
+<span class="sig-prename descclassname"><span class="pre">midasmpi_mod/</span></span><span class="sig-name descname"><span class="pre">mmpi_datyp_real4</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/midasmpi_mod/mmpi_datyp_real4" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/midasmpi_mod/mmpi_datyp_real8">
+<span class="sig-prename descclassname"><span class="pre">midasmpi_mod/</span></span><span class="sig-name descname"><span class="pre">mmpi_datyp_real8</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/midasmpi_mod/mmpi_datyp_real8" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/midasmpi_mod/mmpi_dobarrier">
+<span class="sig-prename descclassname"><span class="pre">midasmpi_mod/</span></span><span class="sig-name descname"><span class="pre">mmpi_dobarrier</span></span><em> <span class="pre">[</span></em><em><span class="pre">logical</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/midasmpi_mod/mmpi_dobarrier" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/midasmpi_mod/mmpi_myid">
+<span class="sig-prename descclassname"><span class="pre">midasmpi_mod/</span></span><span class="sig-name descname"><span class="pre">mmpi_myid</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/midasmpi_mod/mmpi_myid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/midasmpi_mod/mmpi_myidx">
+<span class="sig-prename descclassname"><span class="pre">midasmpi_mod/</span></span><span class="sig-name descname"><span class="pre">mmpi_myidx</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/midasmpi_mod/mmpi_myidx" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/midasmpi_mod/mmpi_myidy">
+<span class="sig-prename descclassname"><span class="pre">midasmpi_mod/</span></span><span class="sig-name descname"><span class="pre">mmpi_myidy</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/midasmpi_mod/mmpi_myidy" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/midasmpi_mod/mmpi_npex">
+<span class="sig-prename descclassname"><span class="pre">midasmpi_mod/</span></span><span class="sig-name descname"><span class="pre">mmpi_npex</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/midasmpi_mod/mmpi_npex" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/midasmpi_mod/mmpi_npey">
+<span class="sig-prename descclassname"><span class="pre">midasmpi_mod/</span></span><span class="sig-name descname"><span class="pre">mmpi_npey</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/midasmpi_mod/mmpi_npey" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/midasmpi_mod/mmpi_nprocs">
+<span class="sig-prename descclassname"><span class="pre">midasmpi_mod/</span></span><span class="sig-name descname"><span class="pre">mmpi_nprocs</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/midasmpi_mod/mmpi_nprocs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/midasmpi_mod/mmpi_numthread">
+<span class="sig-prename descclassname"><span class="pre">midasmpi_mod/</span></span><span class="sig-name descname"><span class="pre">mmpi_numthread</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/midasmpi_mod/mmpi_numthread" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+</ul>
+<p class="rubric">Subroutines and functions</p>
+<dl>
+<dt class="sig sig-object f" id="f/midasmpi_mod/mmpi_initialize">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">midasmpi_mod/</span></span><span class="sig-name descname"><span class="pre">mmpi_initialize</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#f/midasmpi_mod/mmpi_initialize" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../programs/midas_sstbias.html#f/midas_sstbias" title="f/midas_sstbias"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_sstbias</span></code></a>, <a class="reference internal" href="../programs/midas_ssttrial.html#f/midas_ssttrial" title="f/midas_ssttrial"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_ssttrial</span></code></a>, <a class="reference internal" href="../programs/midas_adjointtest.html#f/midas_adjointtest" title="f/midas_adjointtest"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_adjointtest</span></code></a>, <a class="reference internal" href="../programs/midas_analysiserroroi.html#f/midas_analysiserroroi" title="f/midas_analysiserroroi"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_analysiserroroi</span></code></a>, <a class="reference internal" href="../programs/midas_calcstats.html#f/midas_calcstats" title="f/midas_calcstats"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_calcstats</span></code></a>, <a class="reference internal" href="../programs/midas_diagbmatrix.html#f/midas_diagbmatrix" title="f/midas_diagbmatrix"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_diagbmatrix</span></code></a>, <a class="reference internal" href="../programs/midas_diaghbht.html#f/midas_diaghbht" title="f/midas_diaghbht"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_diaghbht</span></code></a>, <a class="reference internal" href="../programs/midas_enspostprocess.html#f/midas_enspostprocess" title="f/midas_enspostprocess"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_enspostprocess</span></code></a>, <a class="reference internal" href="../programs/midas_ensembleh.html#f/midas_ensembleh" title="f/midas_ensembleh"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_ensembleh</span></code></a>, <a class="reference internal" href="../programs/midas_extractbmatrixfor1dvar.html#f/midas_extractbmatrixfor1dvar" title="f/midas_extractbmatrixfor1dvar"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_extractbmatrixfor1dvar</span></code></a>, <a class="reference internal" href="../programs/midas_gencoeff.html#f/midas_gencoeff" title="f/midas_gencoeff"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_gencoeff</span></code></a>, <a class="reference internal" href="../programs/midas_letkf.html#f/midas_letkf" title="f/midas_letkf"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_letkf</span></code></a>, <a class="reference internal" href="../programs/midas_ominusf.html#f/midas_ominusf" title="f/midas_ominusf"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_ominusf</span></code></a>, <a class="reference internal" href="../programs/midas_obsimpact.html#f/midas_obsimpact" title="f/midas_obsimpact"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_obsimpact</span></code></a>, <a class="reference internal" href="../programs/midas_obsselection.html#f/midas_obsselection" title="f/midas_obsselection"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_obsselection</span></code></a>, <a class="reference internal" href="../programs/midas_prepcma.html#f/midas_prepcma" title="f/midas_prepcma"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_prepcma</span></code></a>, <a class="reference internal" href="../programs/midas_pseudosstobs.html#f/midas_pseudosstobs" title="f/midas_pseudosstobs"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_pseudosstobs</span></code></a>, <a class="reference internal" href="../programs/midas_randompert.html#f/midas_randompert" title="f/midas_randompert"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_randompert</span></code></a>, <a class="reference internal" href="../programs/midas_thinning.html#f/midas_thinning" title="f/midas_thinning"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_thinning</span></code></a>, <a class="reference internal" href="../programs/midas_var.html#f/midas_var" title="f/midas_var"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_var</span></code></a>, <a class="reference internal" href="../programs/midas_var1d.html#f/midas_var1d" title="f/midas_var1d"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_var1d</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/midasmpi_mod/mmpi_getptopo">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">midasmpi_mod/</span></span><span class="sig-name descname"><span class="pre">mmpi_getptopo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">npex</span></em>, <em class="sig-param"><span class="pre">npey</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/midasmpi_mod/mmpi_getptopo" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>npex</strong><em> [</em><em>integer </em><em>,</em><em>out</em><em>]</em></p></li>
+<li><p><strong>npey</strong><em> [</em><em>integer </em><em>,</em><em>out</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/midasmpi_mod/mmpi_allreduce_sumreal8scalar">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">midasmpi_mod/</span></span><span class="sig-name descname"><span class="pre">mmpi_allreduce_sumreal8scalar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">sendrecvvalue</span></em>, <em class="sig-param"><span class="pre">comm</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/midasmpi_mod/mmpi_allreduce_sumreal8scalar" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sendrecvvalue</strong><em> [</em><em>real </em><em>,</em><em>inout</em><em>]</em> :: value to be summed over all mpi tasks</p></li>
+<li><p><strong>comm</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em> :: rpn_comm communicator</p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="costfunction_mod.html#f/costfunction_mod/cfn_sumjo" title="f/costfunction_mod/cfn_sumjo"><code class="xref f f-func docutils literal notranslate"><span class="pre">cfn_sumjo()</span></code></a>, <a class="reference internal" href="enspostprocess_mod.html#f/enspostprocess_mod/epp_printrmsstats" title="f/enspostprocess_mod/epp_printrmsstats"><code class="xref f f-func docutils literal notranslate"><span class="pre">epp_printrmsstats()</span></code></a>, <a class="reference internal" href="fsoi_mod.html#f/fsoi_mod/sumfso" title="f/fsoi_mod/sumfso"><code class="xref f f-func docutils literal notranslate"><span class="pre">sumfso()</span></code></a>, <a class="reference internal" href="minimization_mod.html#f/minimization_mod/simvar" title="f/minimization_mod/simvar"><code class="xref f f-func docutils literal notranslate"><span class="pre">simvar()</span></code></a>, <a class="reference internal" href="minimization_mod.html#f/minimization_mod/prscal" title="f/minimization_mod/prscal"><code class="xref f f-func docutils literal notranslate"><span class="pre">prscal()</span></code></a>, <a class="reference internal" href="fsoi_mod.html#f/fsoi_mod/multenergynorm" title="f/fsoi_mod/multenergynorm"><code class="xref f f-func docutils literal notranslate"><span class="pre">multenergynorm()</span></code></a>, <a class="reference internal" href="gridbinning_mod.html#f/gridbinning_mod/gbi_mean_gsv" title="f/gridbinning_mod/gbi_mean_gsv"><code class="xref f f-func docutils literal notranslate"><span class="pre">gbi_mean_gsv()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_dotproduct" title="f/gridstatevector_mod/gsv_dotproduct"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_dotproduct()</span></code></a>, <a class="reference internal" href="minimization_mod.html#f/minimization_mod/grtest2" title="f/minimization_mod/grtest2"><code class="xref f f-func docutils literal notranslate"><span class="pre">grtest2()</span></code></a>, <a class="reference internal" href="quasinewton_mod.html#f/quasinewton_mod/n1qn3a" title="f/quasinewton_mod/n1qn3a"><code class="xref f f-func docutils literal notranslate"><span class="pre">n1qn3a()</span></code></a>, <a class="reference internal" href="sstbias_mod.html#f/sstbias_mod/sstb_getgriddedobs" title="f/sstbias_mod/sstb_getgriddedobs"><code class="xref f f-func docutils literal notranslate"><span class="pre">sstb_getgriddedobs()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_start" title="f/utilities_mod/utl_tmg_start"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_start()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_stop" title="f/utilities_mod/utl_tmg_stop"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_stop()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/midasmpi_mod/mmpi_allreduce_sumr8_1d">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">midasmpi_mod/</span></span><span class="sig-name descname"><span class="pre">mmpi_allreduce_sumr8_1d</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">sendrecvvector</span></em>, <em class="sig-param"><span class="pre">comm</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/midasmpi_mod/mmpi_allreduce_sumr8_1d" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Perform sum of 1d array over all MPI tasks.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>sendrecvvector</strong> (*)<em> [</em><em>real </em><em>,</em><em>inout</em><em>]</em> :: 1-D vector to be summed over all mpi tasks</p></li>
+<li><p><strong>comm</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em> :: rpn_comm communicator</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="costfunction_mod.html#f/costfunction_mod/cfn_sumjo" title="f/costfunction_mod/cfn_sumjo"><code class="xref f f-func docutils literal notranslate"><span class="pre">cfn_sumjo()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_start" title="f/utilities_mod/utl_tmg_start"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_start()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_stop" title="f/utilities_mod/utl_tmg_stop"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_stop()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/midasmpi_mod/mmpi_allreduce_sumr8_2d">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">midasmpi_mod/</span></span><span class="sig-name descname"><span class="pre">mmpi_allreduce_sumr8_2d</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">sendrecvvector</span></em>, <em class="sig-param"><span class="pre">comm</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/midasmpi_mod/mmpi_allreduce_sumr8_2d" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Perform sum of 2d array over all MPI tasks.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>sendrecvvector</strong> (*,*)<em> [</em><em>real </em><em>,</em><em>inout</em><em>]</em> :: 2-D vector to be summed over all mpi tasks</p></li>
+<li><p><strong>comm</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em> :: rpn_comm communicator</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="biascorrectionsat_mod.html#f/biascorrectionsat_mod/bcs_computepredictorbiases" title="f/biascorrectionsat_mod/bcs_computepredictorbiases"><code class="xref f f-func docutils literal notranslate"><span class="pre">bcs_computepredictorbiases()</span></code></a>, <a class="reference internal" href="calcstatsglb_mod.html#f/calcstatsglb_mod/calcpowerspec" title="f/calcstatsglb_mod/calcpowerspec"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcpowerspec()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_start" title="f/utilities_mod/utl_tmg_start"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_start()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_stop" title="f/utilities_mod/utl_tmg_stop"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_stop()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/midasmpi_mod/mmpi_reduce_sumr8_1d">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">midasmpi_mod/</span></span><span class="sig-name descname"><span class="pre">mmpi_reduce_sumr8_1d</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">sendvector</span></em>, <em class="sig-param"><span class="pre">recvvector</span></em>, <em class="sig-param"><span class="pre">root</span></em>, <em class="sig-param"><span class="pre">comm</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/midasmpi_mod/mmpi_reduce_sumr8_1d" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Perform sum of 1d array over all MPI tasks.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>sendvector</strong> (*)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: 1-D vector to be summed over all mpi tasks</p></li>
+<li><p><strong>recvvector</strong> (*)<em> [</em><em>real </em><em>,</em><em>out</em><em>]</em> :: 1-D vector to be summed over all mpi tasks</p></li>
+<li><p><strong>root</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em> :: mpi task id where data is put</p></li>
+<li><p><strong>comm</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em> :: rpn_comm communicator</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="biascorrectionsat_mod.html#f/biascorrectionsat_mod/bcs_cvtocoeff_ad" title="f/biascorrectionsat_mod/bcs_cvtocoeff_ad"><code class="xref f f-func docutils literal notranslate"><span class="pre">bcs_cvtocoeff_ad()</span></code></a>, <a class="reference internal" href="biascorrectionsat_mod.html#f/biascorrectionsat_mod/bcs_outputcvomppred" title="f/biascorrectionsat_mod/bcs_outputcvomppred"><code class="xref f f-func docutils literal notranslate"><span class="pre">bcs_outputcvomppred()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_start" title="f/utilities_mod/utl_tmg_start"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_start()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_stop" title="f/utilities_mod/utl_tmg_stop"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_stop()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/midasmpi_mod/mmpi_reduce_sumr8_2d">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">midasmpi_mod/</span></span><span class="sig-name descname"><span class="pre">mmpi_reduce_sumr8_2d</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">sendvector</span></em>, <em class="sig-param"><span class="pre">recvvector</span></em>, <em class="sig-param"><span class="pre">root</span></em>, <em class="sig-param"><span class="pre">comm</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/midasmpi_mod/mmpi_reduce_sumr8_2d" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Perform sum of 2d array over all MPI tasks.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>sendvector</strong> (*,*)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: 2-D vector to be summed over all mpi tasks</p></li>
+<li><p><strong>recvvector</strong> (*,*)<em> [</em><em>real </em><em>,</em><em>out</em><em>]</em> :: 2-D vector to be summed over all mpi tasks</p></li>
+<li><p><strong>root</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em> :: mpi task id where data will be put</p></li>
+<li><p><strong>comm</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em> :: rpn_comm communicator</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="biascorrectionsat_mod.html#f/biascorrectionsat_mod/bcs_computeresidualsstatistics" title="f/biascorrectionsat_mod/bcs_computeresidualsstatistics"><code class="xref f f-func docutils literal notranslate"><span class="pre">bcs_computeresidualsstatistics()</span></code></a>, <a class="reference internal" href="biascorrectionsat_mod.html#f/biascorrectionsat_mod/bcs_removeoutliers" title="f/biascorrectionsat_mod/bcs_removeoutliers"><code class="xref f f-func docutils literal notranslate"><span class="pre">bcs_removeoutliers()</span></code></a>, <a class="reference internal" href="biascorrectionsat_mod.html#f/biascorrectionsat_mod/bcs_do_regression" title="f/biascorrectionsat_mod/bcs_do_regression"><code class="xref f f-func docutils literal notranslate"><span class="pre">bcs_do_regression()</span></code></a>, <a class="reference internal" href="biascorrectionsat_mod.html#f/biascorrectionsat_mod/bcs_outputcvomppred" title="f/biascorrectionsat_mod/bcs_outputcvomppred"><code class="xref f f-func docutils literal notranslate"><span class="pre">bcs_outputcvomppred()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_start" title="f/utilities_mod/utl_tmg_start"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_start()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_stop" title="f/utilities_mod/utl_tmg_stop"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_stop()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/midasmpi_mod/mmpi_reduce_sumr8_3d">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">midasmpi_mod/</span></span><span class="sig-name descname"><span class="pre">mmpi_reduce_sumr8_3d</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">sendvector</span></em>, <em class="sig-param"><span class="pre">recvvector</span></em>, <em class="sig-param"><span class="pre">root</span></em>, <em class="sig-param"><span class="pre">comm</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/midasmpi_mod/mmpi_reduce_sumr8_3d" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Perform sum of 3d array over all MPI tasks.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>sendvector</strong> (*,*,*)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: 3-D vector to be summed over all mpi tasks</p></li>
+<li><p><strong>recvvector</strong> (*,*,*)<em> [</em><em>real </em><em>,</em><em>out</em><em>]</em> :: 3-D vector to be summed over all mpi tasks</p></li>
+<li><p><strong>root</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em> :: mpi task id where data is put</p></li>
+<li><p><strong>comm</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em> :: rpn_comm communicator</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="biascorrectionsat_mod.html#f/biascorrectionsat_mod/bcs_do_regression" title="f/biascorrectionsat_mod/bcs_do_regression"><code class="xref f f-func docutils literal notranslate"><span class="pre">bcs_do_regression()</span></code></a>, <a class="reference internal" href="biascorrectionsat_mod.html#f/biascorrectionsat_mod/bcs_outputcvomppred" title="f/biascorrectionsat_mod/bcs_outputcvomppred"><code class="xref f f-func docutils literal notranslate"><span class="pre">bcs_outputcvomppred()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_start" title="f/utilities_mod/utl_tmg_start"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_start()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_stop" title="f/utilities_mod/utl_tmg_stop"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_stop()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/midasmpi_mod/mmpi_allgather_string">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">midasmpi_mod/</span></span><span class="sig-name descname"><span class="pre">mmpi_allgather_string</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">str_list</span></em>, <em class="sig-param"><span class="pre">str_list_all</span></em>, <em class="sig-param"><span class="pre">nlist</span></em>, <em class="sig-param"><span class="pre">nchar</span></em>, <em class="sig-param"><span class="pre">nproc</span></em>, <em class="sig-param"><span class="pre">comm</span></em>, <em class="sig-param"><span class="pre">ierr</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/midasmpi_mod/mmpi_allgather_string" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Performs the MPI ‘allgather’ routine for an array of strings</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>str_list</strong> (nlist)<em> [</em><em>character </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>str_list_all</strong> (nlist,nproc)<em> [</em><em>character </em><em>,</em><em>out</em><em>]</em></p></li>
+<li><p><strong>nlist</strong><em> [</em><em>integer </em><em>,</em><em>in,</em><em>]</em></p></li>
+<li><p><strong>nchar</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>nproc</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>comm</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>ierr</strong><em> [</em><em>integer </em><em>,</em><em>out</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="obssubspacedata_mod.html#f/obssubspacedata_mod/oss_obsdata_mpiallgather" title="f/obssubspacedata_mod/oss_obsdata_mpiallgather"><code class="xref f f-func docutils literal notranslate"><span class="pre">oss_obsdata_mpiallgather()</span></code></a>, <a class="reference internal" href="obssubspacedata_mod.html#f/obssubspacedata_mod/oss_comboidlist" title="f/obssubspacedata_mod/oss_comboidlist"><code class="xref f f-func docutils literal notranslate"><span class="pre">oss_comboidlist()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/midasmpi_mod/mmpi_setup_latbands">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">midasmpi_mod/</span></span><span class="sig-name descname"><span class="pre">mmpi_setup_latbands</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">nj</span></em>, <em class="sig-param"><span class="pre">latperpe</span></em>, <em class="sig-param"><span class="pre">latperpemax</span></em>, <em class="sig-param"><span class="pre">mylatbeg</span></em>, <em class="sig-param"><span class="pre">mylatend</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">mylathalfbeg_opt</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">mylathalfend_opt</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">divisible_opt</span></em><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/midasmpi_mod/mmpi_setup_latbands" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>compute parameters that define the mpi distribution of
+latitudes over tasks in Y direction (npey)</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>nj</strong><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><strong>latperpe</strong><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><strong>latperpemax</strong><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><strong>mylatbeg</strong><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><strong>mylatend</strong><em> [</em><em>integer </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Options</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mylathalfbeg_opt</strong><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><strong>mylathalfend_opt</strong><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><strong>divisible_opt</strong><em> [</em><em>logical </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="advection_mod.html#f/advection_mod/adv_setup" title="f/advection_mod/adv_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">adv_setup()</span></code></a>, <a class="reference internal" href="analysisgrid_mod.html#f/analysisgrid_mod/agd_setupfromhco" title="f/analysisgrid_mod/agd_setupfromhco"><code class="xref f f-func docutils literal notranslate"><span class="pre">agd_setupfromhco()</span></code></a>, <a class="reference internal" href="bgckocean_mod.html#f/bgckocean_mod/ocebg_bgchecksst" title="f/bgckocean_mod/ocebg_bgchecksst"><code class="xref f f-func docutils literal notranslate"><span class="pre">ocebg_bgchecksst()</span></code></a>, <a class="reference internal" href="bmatrix1dvar_mod.html#f/bmatrix1dvar_mod/bmat1d_setupbens" title="f/bmatrix1dvar_mod/bmat1d_setupbens"><code class="xref f f-func docutils literal notranslate"><span class="pre">bmat1d_setupbens()</span></code></a>, <a class="reference internal" href="bmatrixchem_mod.html#f/bmatrixchem_mod/bchm_setupch" title="f/bmatrixchem_mod/bchm_setupch"><code class="xref f f-func docutils literal notranslate"><span class="pre">bchm_setupch()</span></code></a>, <a class="reference internal" href="bmatrixdiff_mod.html#f/bmatrixdiff_mod/bdiff_setup" title="f/bmatrixdiff_mod/bdiff_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">bdiff_setup()</span></code></a>, <a class="reference internal" href="bmatrixensemble_mod.html#f/bmatrixensemble_mod/ben_setuponeinstance" title="f/bmatrixensemble_mod/ben_setuponeinstance"><code class="xref f f-func docutils literal notranslate"><span class="pre">ben_setuponeinstance()</span></code></a>, <a class="reference internal" href="bmatrixhi_mod.html#f/bmatrixhi_mod/bhi_setup" title="f/bmatrixhi_mod/bhi_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">bhi_setup()</span></code></a>, <a class="reference internal" href="calcstatsglb_mod.html#f/calcstatsglb_mod/csg_setup" title="f/calcstatsglb_mod/csg_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">csg_setup()</span></code></a>, <a class="reference internal" href="diffusion_mod.html#f/diffusion_mod/diff_setup" title="f/diffusion_mod/diff_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">diff_setup()</span></code></a>, <a class="reference internal" href="globalspectraltransform_mod.html#f/globalspectraltransform_mod/gst_setup" title="f/globalspectraltransform_mod/gst_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">gst_setup()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_allocate" title="f/gridstatevector_mod/gsv_allocate"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_allocate()</span></code></a>, <a class="reference internal" href="lambmatrixhi_mod.html#f/lambmatrixhi_mod/lbhi_setup" title="f/lambmatrixhi_mod/lbhi_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">lbhi_setup()</span></code></a>, <a class="reference internal" href="lamspectraltransform_mod.html#f/lamspectraltransform_mod/lst_setup" title="f/lamspectraltransform_mod/lst_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">lst_setup()</span></code></a>, <a class="reference internal" href="localizationspectral_mod.html#f/localizationspectral_mod/lsp_setup" title="f/localizationspectral_mod/lsp_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">lsp_setup()</span></code></a>, <a class="reference internal" href="oceanobservations_mod.html#f/oceanobservations_mod/oobs_pseudosst" title="f/oceanobservations_mod/oobs_pseudosst"><code class="xref f f-func docutils literal notranslate"><span class="pre">oobs_pseudosst()</span></code></a>, <a class="reference internal" href="sstbias_mod.html#f/sstbias_mod/sstb_computebias" title="f/sstbias_mod/sstb_computebias"><code class="xref f f-func docutils literal notranslate"><span class="pre">sstb_computebias()</span></code></a>, <a class="reference internal" href="../programs/midas_diagbmatrix.html#f/midas_diagbmatrix" title="f/midas_diagbmatrix"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_diagbmatrix</span></code></a>, <a class="reference internal" href="../programs/midas_randompert.html#f/midas_randompert" title="f/midas_randompert"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_randompert</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/midasmpi_mod/mmpi_myidyfromlat">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">midasmpi_mod/</span></span><span class="sig-name descname"><span class="pre">mmpi_myidyfromlat</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">latindex</span></em>, <em class="sig-param"><span class="pre">nj</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/midasmpi_mod/mmpi_myidyfromlat" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>use same logic as setup_latbands to compute myidy
+corresponding to a latitude grid index</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>latindex</strong><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><strong>nj</strong><em> [</em><em>integer </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Return</dt>
+<dd class="field-odd"><p><strong>ip_y</strong><em> [</em><em>integer </em><em>]</em></p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="innovation_mod.html#f/innovation_mod/setobsmpistrategy" title="f/innovation_mod/setobsmpistrategy"><code class="xref f f-func docutils literal notranslate"><span class="pre">setobsmpistrategy()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/midasmpi_mod/mmpi_setup_lonbands">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">midasmpi_mod/</span></span><span class="sig-name descname"><span class="pre">mmpi_setup_lonbands</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">ni</span></em>, <em class="sig-param"><span class="pre">lonperpe</span></em>, <em class="sig-param"><span class="pre">lonperpemax</span></em>, <em class="sig-param"><span class="pre">mylonbeg</span></em>, <em class="sig-param"><span class="pre">mylonend</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">divisible_opt</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/midasmpi_mod/mmpi_setup_lonbands" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>compute parameters that define the mpi distribution of
+longitudes over tasks in X direction (npex)</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>ni</strong><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><strong>lonperpe</strong><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><strong>lonperpemax</strong><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><strong>mylonbeg</strong><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><strong>mylonend</strong><em> [</em><em>integer </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Options</dt>
+<dd class="field-odd"><p><strong>divisible_opt</strong><em> [</em><em>logical </em><em>]</em></p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="advection_mod.html#f/advection_mod/adv_setup" title="f/advection_mod/adv_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">adv_setup()</span></code></a>, <a class="reference internal" href="analysisgrid_mod.html#f/analysisgrid_mod/agd_setupfromhco" title="f/analysisgrid_mod/agd_setupfromhco"><code class="xref f f-func docutils literal notranslate"><span class="pre">agd_setupfromhco()</span></code></a>, <a class="reference internal" href="bgckocean_mod.html#f/bgckocean_mod/ocebg_bgchecksst" title="f/bgckocean_mod/ocebg_bgchecksst"><code class="xref f f-func docutils literal notranslate"><span class="pre">ocebg_bgchecksst()</span></code></a>, <a class="reference internal" href="bmatrix1dvar_mod.html#f/bmatrix1dvar_mod/bmat1d_setupbens" title="f/bmatrix1dvar_mod/bmat1d_setupbens"><code class="xref f f-func docutils literal notranslate"><span class="pre">bmat1d_setupbens()</span></code></a>, <a class="reference internal" href="bmatrixchem_mod.html#f/bmatrixchem_mod/bchm_setupch" title="f/bmatrixchem_mod/bchm_setupch"><code class="xref f f-func docutils literal notranslate"><span class="pre">bchm_setupch()</span></code></a>, <a class="reference internal" href="bmatrixdiff_mod.html#f/bmatrixdiff_mod/bdiff_setup" title="f/bmatrixdiff_mod/bdiff_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">bdiff_setup()</span></code></a>, <a class="reference internal" href="bmatrixensemble_mod.html#f/bmatrixensemble_mod/ben_setuponeinstance" title="f/bmatrixensemble_mod/ben_setuponeinstance"><code class="xref f f-func docutils literal notranslate"><span class="pre">ben_setuponeinstance()</span></code></a>, <a class="reference internal" href="bmatrixhi_mod.html#f/bmatrixhi_mod/bhi_setup" title="f/bmatrixhi_mod/bhi_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">bhi_setup()</span></code></a>, <a class="reference internal" href="calcstatsglb_mod.html#f/calcstatsglb_mod/csg_setup" title="f/calcstatsglb_mod/csg_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">csg_setup()</span></code></a>, <a class="reference internal" href="diffusion_mod.html#f/diffusion_mod/diff_setup" title="f/diffusion_mod/diff_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">diff_setup()</span></code></a>, <a class="reference internal" href="globalspectraltransform_mod.html#f/globalspectraltransform_mod/gst_setup" title="f/globalspectraltransform_mod/gst_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">gst_setup()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_allocate" title="f/gridstatevector_mod/gsv_allocate"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_allocate()</span></code></a>, <a class="reference internal" href="lambmatrixhi_mod.html#f/lambmatrixhi_mod/lbhi_setup" title="f/lambmatrixhi_mod/lbhi_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">lbhi_setup()</span></code></a>, <a class="reference internal" href="lamspectraltransform_mod.html#f/lamspectraltransform_mod/lst_setup" title="f/lamspectraltransform_mod/lst_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">lst_setup()</span></code></a>, <a class="reference internal" href="localizationspectral_mod.html#f/localizationspectral_mod/lsp_setup" title="f/localizationspectral_mod/lsp_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">lsp_setup()</span></code></a>, <a class="reference internal" href="oceanobservations_mod.html#f/oceanobservations_mod/oobs_pseudosst" title="f/oceanobservations_mod/oobs_pseudosst"><code class="xref f f-func docutils literal notranslate"><span class="pre">oobs_pseudosst()</span></code></a>, <a class="reference internal" href="sstbias_mod.html#f/sstbias_mod/sstb_computebias" title="f/sstbias_mod/sstb_computebias"><code class="xref f f-func docutils literal notranslate"><span class="pre">sstb_computebias()</span></code></a>, <a class="reference internal" href="../programs/midas_diagbmatrix.html#f/midas_diagbmatrix" title="f/midas_diagbmatrix"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_diagbmatrix</span></code></a>, <a class="reference internal" href="../programs/midas_randompert.html#f/midas_randompert" title="f/midas_randompert"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_randompert</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/midasmpi_mod/mmpi_myidxfromlon">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">midasmpi_mod/</span></span><span class="sig-name descname"><span class="pre">mmpi_myidxfromlon</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">lonindex</span></em>, <em class="sig-param"><span class="pre">ni</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/midasmpi_mod/mmpi_myidxfromlon" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>use same logic as setup_lonbands to compute myidx
+corresponding to a longitude grid index</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>lonindex</strong><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><strong>ni</strong><em> [</em><em>integer </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Return</dt>
+<dd class="field-odd"><p><strong>ip_x</strong><em> [</em><em>integer </em><em>]</em></p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="innovation_mod.html#f/innovation_mod/setobsmpistrategy" title="f/innovation_mod/setobsmpistrategy"><code class="xref f f-func docutils literal notranslate"><span class="pre">setobsmpistrategy()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/midasmpi_mod/mmpi_setup_m">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">midasmpi_mod/</span></span><span class="sig-name descname"><span class="pre">mmpi_setup_m</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">ntrunc</span></em>, <em class="sig-param"><span class="pre">mymbeg</span></em>, <em class="sig-param"><span class="pre">mymend</span></em>, <em class="sig-param"><span class="pre">mymskip</span></em>, <em class="sig-param"><span class="pre">mymcount</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/midasmpi_mod/mmpi_setup_m" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>compute parameters that define the mpi distribution of
+wavenumber m over tasks in Y direction (npey)</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>ntrunc</strong><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><strong>mymbeg</strong><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><strong>mymend</strong><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><strong>mymskip</strong><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><strong>mymcount</strong><em> [</em><em>integer </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="bmatrixchem_mod.html#f/bmatrixchem_mod/bchm_setupch" title="f/bmatrixchem_mod/bchm_setupch"><code class="xref f f-func docutils literal notranslate"><span class="pre">bchm_setupch()</span></code></a>, <a class="reference internal" href="bmatrixensemble_mod.html#f/bmatrixensemble_mod/ensemblescaledecomposition" title="f/bmatrixensemble_mod/ensemblescaledecomposition"><code class="xref f f-func docutils literal notranslate"><span class="pre">ensemblescaledecomposition()</span></code></a>, <a class="reference internal" href="bmatrixhi_mod.html#f/bmatrixhi_mod/bhi_setup" title="f/bmatrixhi_mod/bhi_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">bhi_setup()</span></code></a>, <a class="reference internal" href="calcstatsglb_mod.html#f/calcstatsglb_mod/csg_setup" title="f/calcstatsglb_mod/csg_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">csg_setup()</span></code></a>, <a class="reference internal" href="globalspectraltransform_mod.html#f/globalspectraltransform_mod/gst_setup" title="f/globalspectraltransform_mod/gst_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">gst_setup()</span></code></a>, <a class="reference internal" href="gridvariabletransforms_mod.html#f/gridvariabletransforms_mod/uvtopsichi_gsv" title="f/gridvariabletransforms_mod/uvtopsichi_gsv"><code class="xref f f-func docutils literal notranslate"><span class="pre">uvtopsichi_gsv()</span></code></a>, <a class="reference internal" href="lamspectraltransform_mod.html#f/lamspectraltransform_mod/lst_setup" title="f/lamspectraltransform_mod/lst_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">lst_setup()</span></code></a>, <a class="reference internal" href="localizationspectral_mod.html#f/localizationspectral_mod/lsp_setup" title="f/localizationspectral_mod/lsp_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">lsp_setup()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/midasmpi_mod/mmpi_setup_n">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">midasmpi_mod/</span></span><span class="sig-name descname"><span class="pre">mmpi_setup_n</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">ntrunc</span></em>, <em class="sig-param"><span class="pre">mynbeg</span></em>, <em class="sig-param"><span class="pre">mynend</span></em>, <em class="sig-param"><span class="pre">mynskip</span></em>, <em class="sig-param"><span class="pre">myncount</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/midasmpi_mod/mmpi_setup_n" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>compute parameters that define the mpi distribution of
+wavenumber n over tasks in X direction (npex)</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>ntrunc</strong><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><strong>mynbeg</strong><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><strong>mynend</strong><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><strong>mynskip</strong><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><strong>myncount</strong><em> [</em><em>integer </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="bmatrixchem_mod.html#f/bmatrixchem_mod/bchm_setupch" title="f/bmatrixchem_mod/bchm_setupch"><code class="xref f f-func docutils literal notranslate"><span class="pre">bchm_setupch()</span></code></a>, <a class="reference internal" href="bmatrixensemble_mod.html#f/bmatrixensemble_mod/ensemblescaledecomposition" title="f/bmatrixensemble_mod/ensemblescaledecomposition"><code class="xref f f-func docutils literal notranslate"><span class="pre">ensemblescaledecomposition()</span></code></a>, <a class="reference internal" href="bmatrixhi_mod.html#f/bmatrixhi_mod/bhi_setup" title="f/bmatrixhi_mod/bhi_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">bhi_setup()</span></code></a>, <a class="reference internal" href="calcstatsglb_mod.html#f/calcstatsglb_mod/csg_setup" title="f/calcstatsglb_mod/csg_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">csg_setup()</span></code></a>, <a class="reference internal" href="globalspectraltransform_mod.html#f/globalspectraltransform_mod/gst_setup" title="f/globalspectraltransform_mod/gst_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">gst_setup()</span></code></a>, <a class="reference internal" href="gridvariabletransforms_mod.html#f/gridvariabletransforms_mod/uvtopsichi_gsv" title="f/gridvariabletransforms_mod/uvtopsichi_gsv"><code class="xref f f-func docutils literal notranslate"><span class="pre">uvtopsichi_gsv()</span></code></a>, <a class="reference internal" href="lamspectraltransform_mod.html#f/lamspectraltransform_mod/lst_setup" title="f/lamspectraltransform_mod/lst_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">lst_setup()</span></code></a>, <a class="reference internal" href="localizationspectral_mod.html#f/localizationspectral_mod/lsp_setup" title="f/localizationspectral_mod/lsp_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">lsp_setup()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/midasmpi_mod/mmpi_setup_levels">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">midasmpi_mod/</span></span><span class="sig-name descname"><span class="pre">mmpi_setup_levels</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">numlevels</span></em>, <em class="sig-param"><span class="pre">mylevbeg</span></em>, <em class="sig-param"><span class="pre">mylevend</span></em>, <em class="sig-param"><span class="pre">mylevcount</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/midasmpi_mod/mmpi_setup_levels" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>compute parameters that define the mpi distribution of
+levels over tasks in X direction (npex)</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>numlevels</strong><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><strong>mylevbeg</strong><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><strong>mylevend</strong><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><strong>mylevcount</strong><em> [</em><em>integer </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="bmatrixensemble_mod.html#f/bmatrixensemble_mod/ben_setuponeinstance" title="f/bmatrixensemble_mod/ben_setuponeinstance"><code class="xref f f-func docutils literal notranslate"><span class="pre">ben_setuponeinstance()</span></code></a>, <a class="reference internal" href="calcstatsglb_mod.html#f/calcstatsglb_mod/csg_setup" title="f/calcstatsglb_mod/csg_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">csg_setup()</span></code></a>, <a class="reference internal" href="globalspectraltransform_mod.html#f/globalspectraltransform_mod/gst_setup" title="f/globalspectraltransform_mod/gst_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">gst_setup()</span></code></a>, <a class="reference internal" href="lamspectraltransform_mod.html#f/lamspectraltransform_mod/lst_setup" title="f/lamspectraltransform_mod/lst_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">lst_setup()</span></code></a>, <a class="reference internal" href="localizationspectral_mod.html#f/localizationspectral_mod/lsp_setup" title="f/localizationspectral_mod/lsp_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">lsp_setup()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/midasmpi_mod/mmpi_setup_varslevels">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">midasmpi_mod/</span></span><span class="sig-name descname"><span class="pre">mmpi_setup_varslevels</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">numk</span></em>, <em class="sig-param"><span class="pre">mykbeg</span></em>, <em class="sig-param"><span class="pre">mykend</span></em>, <em class="sig-param"><span class="pre">mykcount</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/midasmpi_mod/mmpi_setup_varslevels" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>compute parameters that define the mpi distribution of
+variables/levels (i.e. 1-&gt;nk) over all tasks (nprocs)</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>numk</strong><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><strong>mykbeg</strong><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><strong>mykend</strong><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><strong>mykcount</strong><em> [</em><em>integer </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_allocate" title="f/gridstatevector_mod/gsv_allocate"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_allocate()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div></blockquote>
+</section>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="physicsfunctions_mod.html" title="physicsfunctions_mod"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="message_mod.html" title="message_mod"
+             >previous</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2018, ECCC.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.
+    </div>
+  </body>
+</html>

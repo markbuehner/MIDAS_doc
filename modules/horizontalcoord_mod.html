@@ -1,0 +1,486 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>horizontalcoord_mod &mdash; MIDAS  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="MIDAS  documentation" href="../index.html" />
+    <link rel="next" title="indexlistdepot_mod" href="indexlistdepot_mod.html" />
+    <link rel="prev" title="filenames_mod" href="filenames_mod.html" /> 
+  </head>
+  <body>
+  <div>
+    <img src="../_static/MIDAS_header.png" alt="MIDAS" />
+  </div>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="indexlistdepot_mod.html" title="indexlistdepot_mod"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="filenames_mod.html" title="filenames_mod"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="filenames_mod.html"
+                          title="previous chapter">filenames_mod</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="indexlistdepot_mod.html"
+                          title="next chapter">indexlistdepot_mod</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/modules/horizontalcoord_mod.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <section id="horizontalcoord-mod">
+<h1>horizontalcoord_mod<a class="headerlink" href="#horizontalcoord-mod" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><p><a class="reference internal" href="horizontalcoord_mod_src.html"><span class="doc">link to source code</span></a></p>
+<p><strong>Dependency Diagrams:</strong></p>
+<figure class="align-default" id="id1">
+<a class="reference internal image-reference" href="horizontalcoord_mod.svg"><img alt="horizontalcoord_mod.svg" height="100px" src="horizontalcoord_mod.svg" /></a>
+<figcaption>
+<p><span class="caption-text">Direct Dependency Diagram</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id2">
+<a class="reference internal image-reference" href="horizontalcoord_mod_rev.svg"><img alt="horizontalcoord_mod_rev.svg" height="100px" src="horizontalcoord_mod_rev.svg" /></a>
+<figcaption>
+<p><span class="caption-text">Reverse Dependency Diagram</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<span class="target" id="f/horizontalcoord_mod"></span><p class="rubric">Description</p>
+<p>MODULE HorizontalCoord_mod (prefix=’hco’ category=’7. Low-level data objects’)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Purpose</dt>
+<dd class="field-odd"><p>Derived type and procedures related to the horizontal grid
+coordinate for various grids (global and limited area).</p>
+</dd>
+</dl>
+<p class="rubric">Quick access</p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/horizontalcoord_mod/struct_hco" title="f/horizontalcoord_mod/struct_hco"><code class="xref f f-var docutils literal notranslate"><span class="pre">struct_hco</span></code></a></p>
+</dd>
+<dt class="field-even">Routines</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/horizontalcoord_mod/global_or_lam" title="f/horizontalcoord_mod/global_or_lam"><code class="xref f f-func docutils literal notranslate"><span class="pre">global_or_lam()</span></code></a>, <a class="reference internal" href="#f/horizontalcoord_mod/grid_mask" title="f/horizontalcoord_mod/grid_mask"><code class="xref f f-func docutils literal notranslate"><span class="pre">grid_mask()</span></code></a>, <a class="reference internal" href="#f/horizontalcoord_mod/hco_deallocate" title="f/horizontalcoord_mod/hco_deallocate"><code class="xref f f-func docutils literal notranslate"><span class="pre">hco_deallocate()</span></code></a>, <a class="reference internal" href="#f/horizontalcoord_mod/hco_equal" title="f/horizontalcoord_mod/hco_equal"><code class="xref f f-func docutils literal notranslate"><span class="pre">hco_equal()</span></code></a>, <a class="reference internal" href="#f/horizontalcoord_mod/hco_mpibcast" title="f/horizontalcoord_mod/hco_mpibcast"><code class="xref f f-func docutils literal notranslate"><span class="pre">hco_mpibcast()</span></code></a>, <a class="reference internal" href="#f/horizontalcoord_mod/hco_setupfromfile" title="f/horizontalcoord_mod/hco_setupfromfile"><code class="xref f f-func docutils literal notranslate"><span class="pre">hco_setupfromfile()</span></code></a>, <a class="reference internal" href="#f/horizontalcoord_mod/hco_setupygrid" title="f/horizontalcoord_mod/hco_setupygrid"><code class="xref f f-func docutils literal notranslate"><span class="pre">hco_setupygrid()</span></code></a>, <a class="reference internal" href="#f/horizontalcoord_mod/hco_weight" title="f/horizontalcoord_mod/hco_weight"><code class="xref f f-func docutils literal notranslate"><span class="pre">hco_weight()</span></code></a>, <a class="reference internal" href="#f/horizontalcoord_mod/inter_curve_boundary_yy" title="f/horizontalcoord_mod/inter_curve_boundary_yy"><code class="xref f f-func docutils literal notranslate"><span class="pre">inter_curve_boundary_yy()</span></code></a>, <a class="reference internal" href="#f/horizontalcoord_mod/yyg_weight" title="f/horizontalcoord_mod/yyg_weight"><code class="xref f f-func docutils literal notranslate"><span class="pre">yyg_weight()</span></code></a></p>
+</dd>
+</dl>
+<p class="rubric">Needed modules</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="midasmpi_mod.html#f/midasmpi_mod" title="f/midasmpi_mod: MODULE midasMpi_mod (prefix='mmpi' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">midasmpi_mod</span></code></a>: MODULE midasMpi_mod (prefix=’mmpi’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="earthconstants_mod.html#f/earthconstants_mod" title="f/earthconstants_mod: MODULE earthConstants_mod (prefix='ec' category='8. Low-level utilities and constants') Prefixes: ec_ (Earth constants), for miscellaneous values from diverse sources"><code class="xref f f-mod docutils literal notranslate"><span class="pre">earthconstants_mod</span></code></a>: MODULE earthConstants_mod (prefix=’ec’ category=’8. Low-level utilities and constants’) Prefixes: <a href="#id3"><span class="problematic" id="id4">ec_</span></a> (Earth constants), for miscellaneous values from diverse sources</p></li>
+<li><p><a class="reference internal" href="mathphysconstants_mod.html#f/mathphysconstants_mod" title="f/mathphysconstants_mod: MODULE MathPhysConstants_mod (prefix='mpc' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">mathphysconstants_mod</span></code></a>: MODULE MathPhysConstants_mod (prefix=’mpc’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod" title="f/utilities_mod: MODULE utilities_mod (prefix='utl' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">utilities_mod</span></code></a>: MODULE utilities_mod (prefix=’utl’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="varnamelist_mod.html#f/varnamelist_mod" title="f/varnamelist_mod: MODULE varNameList (prefix='vnl' category='7. Low-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">varnamelist_mod</span></code></a>: MODULE varNameList (prefix=’vnl’ category=’7. Low-level data objects’)</p></li>
+<li><p><a class="reference internal" href="physicsfunctions_mod.html#f/physicsfunctions_mod" title="f/physicsfunctions_mod: MODULE physicsFunctions_mod (prefix='phf' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">physicsfunctions_mod</span></code></a>: MODULE physicsFunctions_mod (prefix=’phf’ category=’8. Low-level utilities and constants’)</p></li>
+</ul>
+<p class="rubric">Types</p>
+<ul>
+<li><dl>
+<dt class="sig sig-object f" id="f/horizontalcoord_mod/unknown_type">
+<em class="property"><span class="pre">type</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">horizontalcoord_mod/</span></span><span class="sig-name descname"><span class="pre">unknown_type</span></span><a class="headerlink" href="#f/horizontalcoord_mod/unknown_type" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type fields</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">dlat</span><em> [</em><em>real </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">dlon</span><em> [</em><em>real </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">ezscintid</span><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">ezscintidsubgrids</span> (maxnumsubgrid)<em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">global</span><em> [</em><em>logical </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">gridname</span><em> [</em><em>character </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">grtyp</span><em> [</em><em>character </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">grtyptictac</span><em> [</em><em>character </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">ig1</span><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">ig2</span><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">ig3</span><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">ig4</span><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">initialized</span><em> [</em><em>logical </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">lat</span> (*)<em> [</em><em>real </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">lat2d_4</span> (*,*)<em> [</em><em>real </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">lon</span> (*)<em> [</em><em>real </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">lon2d_4</span> (*,*)<em> [</em><em>real </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">maxgridspacing</span><em> [</em><em>real </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">mingridspacing</span><em> [</em><em>real </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">ni</span><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">nj</span><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">numsubgrid</span><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">rotated</span><em> [</em><em>logical </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">tictacu</span> (*)<em> [</em><em>real </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">xlat1</span><em> [</em><em>real </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">xlat1_yan</span><em> [</em><em>real </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">xlat2</span><em> [</em><em>real </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">xlat2_yan</span><em> [</em><em>real </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">xlon1</span><em> [</em><em>real </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">xlon1_yan</span><em> [</em><em>real </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">xlon2</span><em> [</em><em>real </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">xlon2_yan</span><em> [</em><em>real </em><em>]</em></p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</li>
+</ul>
+<p class="rubric">Variables</p>
+<ul>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/horizontalcoord_mod/struct_hco">
+<span class="sig-prename descclassname"><span class="pre">horizontalcoord_mod/</span></span><span class="sig-name descname"><span class="pre">struct_hco</span></span><em> <span class="pre">[</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/horizontalcoord_mod/struct_hco" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+</ul>
+<p class="rubric">Subroutines and functions</p>
+<dl>
+<dt class="sig sig-object f" id="f/horizontalcoord_mod/hco_setupfromfile">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">horizontalcoord_mod/</span></span><span class="sig-name descname"><span class="pre">hco_setupfromfile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">hco</span></em>, <em class="sig-param"><span class="pre">templatefile</span></em>, <em class="sig-param"><span class="pre">etiketname</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">gridname_opt</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">varname_opt</span></em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/horizontalcoord_mod/hco_setupfromfile" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>to initialize hco structure from a template file</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>hco</strong><em> [</em><em>struct_hco </em><em>,</em><em>pointer</em><em>]</em></p></li>
+<li><p><strong>templatefile</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>etiketname</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Options</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>gridname_opt</strong><em> [</em><em>character </em><em>,</em><em>in,</em><em>]</em></p></li>
+<li><p><strong>varname_opt</strong><em> [</em><em>character </em><em>,</em><em>in,</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="biascorrectionsat_mod.html#f/biascorrectionsat_mod/bcs_getradiosondeweight" title="f/biascorrectionsat_mod/bcs_getradiosondeweight"><code class="xref f f-func docutils literal notranslate"><span class="pre">bcs_getradiosondeweight()</span></code></a>, <a class="reference internal" href="calcstatslam_mod.html#f/calcstatslam_mod/csl_setup" title="f/calcstatslam_mod/csl_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">csl_setup()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_readensemble" title="f/ensemblestatevector_mod/ens_readensemble"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_readensemble()</span></code></a>, <a class="reference internal" href="enspostprocess_mod.html#f/enspostprocess_mod/epp_addrandompert" title="f/enspostprocess_mod/epp_addrandompert"><code class="xref f f-func docutils literal notranslate"><span class="pre">epp_addrandompert()</span></code></a>, <a class="reference internal" href="gridstatevectorfileio_mod.html#f/gridstatevectorfileio_mod/gio_readfromfile" title="f/gridstatevectorfileio_mod/gio_readfromfile"><code class="xref f f-func docutils literal notranslate"><span class="pre">gio_readfromfile()</span></code></a>, <a class="reference internal" href="gridstatevectorfileio_mod.html#f/gridstatevectorfileio_mod/gio_readfile" title="f/gridstatevectorfileio_mod/gio_readfile"><code class="xref f f-func docutils literal notranslate"><span class="pre">gio_readfile()</span></code></a>, <a class="reference internal" href="innovation_mod.html#f/innovation_mod/inn_gethcovcofromtrlmfile" title="f/innovation_mod/inn_gethcovcofromtrlmfile"><code class="xref f f-func docutils literal notranslate"><span class="pre">inn_gethcovcofromtrlmfile()</span></code></a>, <a class="reference internal" href="lambmatrixhi_mod.html#f/lambmatrixhi_mod/lbhi_gethorizgridinfo" title="f/lambmatrixhi_mod/lbhi_gethorizgridinfo"><code class="xref f f-func docutils literal notranslate"><span class="pre">lbhi_gethorizgridinfo()</span></code></a>, <a class="reference internal" href="obserrors_mod.html#f/obserrors_mod/oer_seterrbackscatanisice" title="f/obserrors_mod/oer_seterrbackscatanisice"><code class="xref f f-func docutils literal notranslate"><span class="pre">oer_seterrbackscatanisice()</span></code></a>, <a class="reference internal" href="ominusf_mod.html#f/ominusf_mod/omf_ominusf" title="f/ominusf_mod/omf_ominusf"><code class="xref f f-func docutils literal notranslate"><span class="pre">omf_ominusf()</span></code></a>, <a class="reference internal" href="ominusf_mod.html#f/ominusf_mod/omf_ominusfens" title="f/ominusf_mod/omf_ominusfens"><code class="xref f f-func docutils literal notranslate"><span class="pre">omf_ominusfens()</span></code></a>, <a class="reference internal" href="thinning_mod.html#f/thinning_mod/thn_radiosonde" title="f/thinning_mod/thn_radiosonde"><code class="xref f f-func docutils literal notranslate"><span class="pre">thn_radiosonde()</span></code></a>, <a class="reference internal" href="../programs/midas_sstbias.html#f/midas_sstbias" title="f/midas_sstbias"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_sstbias</span></code></a>, <a class="reference internal" href="../programs/midas_ssttrial.html#f/midas_ssttrial" title="f/midas_ssttrial"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_ssttrial</span></code></a>, <a class="reference internal" href="../programs/midas_adjointtest.html#f/midas_adjointtest" title="f/midas_adjointtest"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_adjointtest</span></code></a>, <a class="reference internal" href="../programs/midas_analysiserroroi.html#f/midas_analysiserroroi" title="f/midas_analysiserroroi"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_analysiserroroi</span></code></a>, <a class="reference internal" href="../programs/midas_calcstats.html#f/midas_calcstats" title="f/midas_calcstats"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_calcstats</span></code></a>, <a class="reference internal" href="../programs/midas_diagbmatrix.html#f/midas_diagbmatrix" title="f/midas_diagbmatrix"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_diagbmatrix</span></code></a>, <a class="reference internal" href="../programs/midas_diaghbht.html#f/midas_diaghbht" title="f/midas_diaghbht"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_diaghbht</span></code></a>, <a class="reference internal" href="../programs/midas_enspostprocess.html#f/midas_enspostprocess" title="f/midas_enspostprocess"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_enspostprocess</span></code></a>, <a class="reference internal" href="../programs/midas_ensembleh.html#f/midas_ensembleh" title="f/midas_ensembleh"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_ensembleh</span></code></a>, <a class="reference internal" href="../programs/midas_extractbmatrixfor1dvar.html#f/midas_extractbmatrixfor1dvar" title="f/midas_extractbmatrixfor1dvar"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_extractbmatrixfor1dvar</span></code></a>, <a class="reference internal" href="../programs/midas_gencoeff.html#f/midas_gencoeff" title="f/midas_gencoeff"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_gencoeff</span></code></a>, <a class="reference internal" href="../programs/midas_letkf.html#f/midas_letkf" title="f/midas_letkf"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_letkf</span></code></a>, <a class="reference internal" href="../programs/midas_obsimpact.html#f/midas_obsimpact" title="f/midas_obsimpact"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_obsimpact</span></code></a>, <a class="reference internal" href="../programs/midas_obsselection.html#f/midas_obsselection" title="f/midas_obsselection"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_obsselection</span></code></a>, <a class="reference internal" href="../programs/midas_pseudosstobs.html#f/midas_pseudosstobs" title="f/midas_pseudosstobs"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_pseudosstobs</span></code></a>, <a class="reference internal" href="../programs/midas_randompert.html#f/midas_randompert" title="f/midas_randompert"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_randompert</span></code></a>, <a class="reference internal" href="../programs/midas_var.html#f/midas_var" title="f/midas_var"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_var</span></code></a>, <a class="reference internal" href="../programs/midas_var1d.html#f/midas_var1d" title="f/midas_var1d"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_var1d</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_varnamepresentinfile" title="f/utilities_mod/utl_varnamepresentinfile"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_varnamepresentinfile()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_fstlir" title="f/utilities_mod/utl_fstlir"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_fstlir()</span></code></a>, <a class="reference internal" href="#f/horizontalcoord_mod/global_or_lam" title="f/horizontalcoord_mod/global_or_lam"><code class="xref f f-func docutils literal notranslate"><span class="pre">global_or_lam()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/horizontalcoord_mod/global_or_lam">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">horizontalcoord_mod/</span></span><span class="sig-name descname"><span class="pre">global_or_lam</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">global</span></em>, <em class="sig-param"><span class="pre">lon</span></em>, <em class="sig-param"><span class="pre">ni</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/horizontalcoord_mod/global_or_lam" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>to decide if a given grid is global or lam from input longitude array</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>global</strong><em> [</em><em>logical </em><em>,</em><em>out</em><em>]</em></p></li>
+<li><p><strong>lon</strong> (ni)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>ni</strong><em> [</em><em>integer </em><em>,</em><em>in,</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/horizontalcoord_mod/hco_setupfromfile" title="f/horizontalcoord_mod/hco_setupfromfile"><code class="xref f f-func docutils literal notranslate"><span class="pre">hco_setupfromfile()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/horizontalcoord_mod/hco_mpibcast">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">horizontalcoord_mod/</span></span><span class="sig-name descname"><span class="pre">hco_mpibcast</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">hco</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/horizontalcoord_mod/hco_mpibcast" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>to broadcast hco strucure from MPI task 0 to other tasks</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>hco</strong><em> [</em><em>struct_hco </em><em>,</em><em>pointer</em><em>]</em></p>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="oceanmask_mod.html#f/oceanmask_mod/ocm_communicatemask" title="f/oceanmask_mod/ocm_communicatemask"><code class="xref f f-func docutils literal notranslate"><span class="pre">ocm_communicatemask()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/horizontalcoord_mod/hco_equal">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">horizontalcoord_mod/</span></span><span class="sig-name descname"><span class="pre">hco_equal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">hco1</span></em>, <em class="sig-param"><span class="pre">hco2</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/horizontalcoord_mod/hco_equal" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>to check if two given hco strucures are equal or not</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>hco1</strong><em> [</em><em>struct_hco </em><em>,</em><em>pointer</em><em>]</em></p></li>
+<li><p><strong>hco2</strong><em> [</em><em>struct_hco </em><em>,</em><em>pointer</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Return</dt>
+<dd class="field-odd"><p><strong>equal</strong><em> [</em><em>logical </em><em>]</em></p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_readensemble" title="f/ensemblestatevector_mod/ens_readensemble"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_readensemble()</span></code></a>, <a class="reference internal" href="gridvariabletransforms_mod.html#f/gridvariabletransforms_mod/gvt_transform_gsv" title="f/gridvariabletransforms_mod/gvt_transform_gsv"><code class="xref f f-func docutils literal notranslate"><span class="pre">gvt_transform_gsv()</span></code></a>, <a class="reference internal" href="gridstatevectorfileio_mod.html#f/gridstatevectorfileio_mod/gio_readfromfile" title="f/gridstatevectorfileio_mod/gio_readfromfile"><code class="xref f f-func docutils literal notranslate"><span class="pre">gio_readfromfile()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_copy" title="f/gridstatevector_mod/gsv_copy"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_copy()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_copyheightsfc" title="f/gridstatevector_mod/gsv_copyheightsfc"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_copyheightsfc()</span></code></a>, <a class="reference internal" href="interpolation_mod.html#f/interpolation_mod/int_hinterp_gsv" title="f/interpolation_mod/int_hinterp_gsv"><code class="xref f f-func docutils literal notranslate"><span class="pre">int_hinterp_gsv()</span></code></a>, <a class="reference internal" href="interpolation_mod.html#f/interpolation_mod/vinterp_gsv_r8" title="f/interpolation_mod/vinterp_gsv_r8"><code class="xref f f-func docutils literal notranslate"><span class="pre">vinterp_gsv_r8()</span></code></a>, <a class="reference internal" href="interpolation_mod.html#f/interpolation_mod/vinterp_gsv_r4" title="f/interpolation_mod/vinterp_gsv_r4"><code class="xref f f-func docutils literal notranslate"><span class="pre">vinterp_gsv_r4()</span></code></a>, <a class="reference internal" href="interpolation_mod.html#f/interpolation_mod/int_tinterp_gsv" title="f/interpolation_mod/int_tinterp_gsv"><code class="xref f f-func docutils literal notranslate"><span class="pre">int_tinterp_gsv()</span></code></a>, <a class="reference internal" href="lambmatrixhi_mod.html#f/lambmatrixhi_mod/lbhi_gethorizgridinfo" title="f/lambmatrixhi_mod/lbhi_gethorizgridinfo"><code class="xref f f-func docutils literal notranslate"><span class="pre">lbhi_gethorizgridinfo()</span></code></a>, <a class="reference internal" href="statetocolumn_mod.html#f/statetocolumn_mod/s2c_tl" title="f/statetocolumn_mod/s2c_tl"><code class="xref f f-func docutils literal notranslate"><span class="pre">s2c_tl()</span></code></a>, <a class="reference internal" href="statetocolumn_mod.html#f/statetocolumn_mod/s2c_ad" title="f/statetocolumn_mod/s2c_ad"><code class="xref f f-func docutils literal notranslate"><span class="pre">s2c_ad()</span></code></a>, <a class="reference internal" href="statetocolumn_mod.html#f/statetocolumn_mod/s2c_nl" title="f/statetocolumn_mod/s2c_nl"><code class="xref f f-func docutils literal notranslate"><span class="pre">s2c_nl()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/horizontalcoord_mod/hco_deallocate">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">horizontalcoord_mod/</span></span><span class="sig-name descname"><span class="pre">hco_deallocate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">hco</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/horizontalcoord_mod/hco_deallocate" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><p><strong>hco</strong><em> [</em><em>struct_hco </em><em>,</em><em>pointer</em><em>]</em></p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_readensemble" title="f/ensemblestatevector_mod/ens_readensemble"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_readensemble()</span></code></a>, <a class="reference internal" href="gridstatevectorfileio_mod.html#f/gridstatevectorfileio_mod/gio_readfile" title="f/gridstatevectorfileio_mod/gio_readfile"><code class="xref f f-func docutils literal notranslate"><span class="pre">gio_readfile()</span></code></a>, <a class="reference internal" href="oceanmask_mod.html#f/oceanmask_mod/ocm_communicatemask" title="f/oceanmask_mod/ocm_communicatemask"><code class="xref f f-func docutils literal notranslate"><span class="pre">ocm_communicatemask()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/horizontalcoord_mod/grid_mask">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">horizontalcoord_mod/</span></span><span class="sig-name descname"><span class="pre">grid_mask</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">f_mask_8</span></em>, <em class="sig-param"><span class="pre">dx</span></em>, <em class="sig-param"><span class="pre">dy</span></em>, <em class="sig-param"><span class="pre">xg</span></em>, <em class="sig-param"><span class="pre">yg</span></em>, <em class="sig-param"><span class="pre">ni</span></em>, <em class="sig-param"><span class="pre">nj</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/horizontalcoord_mod/grid_mask" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><ol class="arabic simple">
+<li><dl class="simple">
+<dt>Find out where YIN lat lon points are in (YAN) grid with call to smat.</dt><dd><ol class="arabic simple" start="2">
+<li><p>If they are not outside of Yin grid, put area to zero for those points.</p></li>
+</ol>
+</dd>
+</dl>
+</li>
+</ol>
+<p>Author Qaddouri</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>f_mask_8</strong> (ni,nj)<em> [</em><em>real </em><em>,</em><em>out</em><em>]</em></p></li>
+<li><p><strong>dx</strong><em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>dy</strong><em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>xg</strong> (ni)<em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>yg</strong> (nj)<em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>ni</strong><em> [</em><em>integer </em><em>,</em><em>in,</em><em>]</em></p></li>
+<li><p><strong>nj</strong><em> [</em><em>integer </em><em>,</em><em>in,</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/horizontalcoord_mod/hco_weight" title="f/horizontalcoord_mod/hco_weight"><code class="xref f f-func docutils literal notranslate"><span class="pre">hco_weight()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/horizontalcoord_mod/yyg_weight" title="f/horizontalcoord_mod/yyg_weight"><code class="xref f f-func docutils literal notranslate"><span class="pre">yyg_weight()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/horizontalcoord_mod/inter_curve_boundary_yy">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">horizontalcoord_mod/</span></span><span class="sig-name descname"><span class="pre">inter_curve_boundary_yy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">x</span></em>, <em class="sig-param"><span class="pre">y</span></em>, <em class="sig-param"><span class="pre">xi</span></em>, <em class="sig-param"><span class="pre">yi</span></em>, <em class="sig-param"><span class="pre">np</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/horizontalcoord_mod/inter_curve_boundary_yy" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><dl class="simple">
+<dt>compute the intersections between a line and the panel</dt><dd><p>(yin or yang) boundary. The line passes through the panel
+center point (0, 0) and the cell center point (x, y).</p>
+</dd>
+</dl>
+<p>Author A. Qaddouri. October 2016</p>
+<dl class="simple">
+<dt>Note: this routine has been taken and adjusted from a routine</dt><dd><p>with the same name in the GEM model.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Arguments </dt>
+<dd class="field-even"><p>input:  (x, y):   longitude, latitude of the cell
+center point,</p>
+</dd>
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>np</strong><em> [</em><em>integer </em><em>]</em> :: <p>workspace,
+output: (xi, yi): longitude, latitude of the</p>
+<blockquote>
+<div><p>intersection point.</p>
+</div></blockquote>
+</p></li>
+<li><p><strong>x</strong><em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>y</strong><em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>xi</strong><em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>yi</strong><em> [</em><em>real </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/horizontalcoord_mod/yyg_weight" title="f/horizontalcoord_mod/yyg_weight"><code class="xref f f-func docutils literal notranslate"><span class="pre">yyg_weight()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/horizontalcoord_mod/hco_weight">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">horizontalcoord_mod/</span></span><span class="sig-name descname"><span class="pre">hco_weight</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">hco</span></em>, <em class="sig-param"><span class="pre">weight</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/horizontalcoord_mod/hco_weight" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><dl class="simple">
+<dt>given the horizontal grid definition of the grid,</dt><dd><p>return appropriate weights for individual points (avoiding
+double counting in the overlap regions in the case of a Yin-Yang grid).</p>
+</dd>
+<dt>author: Abdessamad Qaddouri and Peter Houtekamer</dt><dd><p>October 2016</p>
+</dd>
+<dt>Revision: imported code for the Yin-Yang grid on May 2021 from the EnKF library and</dt><dd><p>combined with code for other grid types from the MIDAS library.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Arguments </dt>
+<dd class="field-even"><p>input:</p>
+</dd>
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>hco</strong><em> [</em><em>struct_hco </em><em>,</em><em>in</em><em>]</em> :: structure with the specification of the horizontal grid
+output:</p></li>
+<li><p><strong>weight</strong> (*,*)<em> [</em><em>real </em><em>,</em><em>out</em><em>]</em> :: weight to be given when computing a horizontal average</p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="enspostprocess_mod.html#f/enspostprocess_mod/epp_printrmsstats" title="f/enspostprocess_mod/epp_printrmsstats"><code class="xref f f-func docutils literal notranslate"><span class="pre">epp_printrmsstats()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/horizontalcoord_mod/grid_mask" title="f/horizontalcoord_mod/grid_mask"><code class="xref f f-func docutils literal notranslate"><span class="pre">grid_mask()</span></code></a>, <a class="reference internal" href="physicsfunctions_mod.html#f/physicsfunctions_mod/phf_calcdistance" title="f/physicsfunctions_mod/phf_calcdistance"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_calcdistance()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/horizontalcoord_mod/yyg_weight">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">horizontalcoord_mod/</span></span><span class="sig-name descname"><span class="pre">yyg_weight</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">x</span></em>, <em class="sig-param"><span class="pre">y</span></em>, <em class="sig-param"><span class="pre">dx</span></em>, <em class="sig-param"><span class="pre">dy</span></em>, <em class="sig-param"><span class="pre">np</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/horizontalcoord_mod/yyg_weight" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong><em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>y</strong><em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>dx</strong><em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>dy</strong><em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>np</strong><em> [</em><em>integer </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Return</dt>
+<dd class="field-even"><p><strong>yyg_weight</strong><em> [</em><em>real </em><em>]</em></p>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/horizontalcoord_mod/grid_mask" title="f/horizontalcoord_mod/grid_mask"><code class="xref f f-func docutils literal notranslate"><span class="pre">grid_mask()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/horizontalcoord_mod/inter_curve_boundary_yy" title="f/horizontalcoord_mod/inter_curve_boundary_yy"><code class="xref f f-func docutils literal notranslate"><span class="pre">inter_curve_boundary_yy()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/horizontalcoord_mod/hco_setupygrid">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">horizontalcoord_mod/</span></span><span class="sig-name descname"><span class="pre">hco_setupygrid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">hco</span></em>, <em class="sig-param"><span class="pre">ni</span></em>, <em class="sig-param"><span class="pre">nj</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/horizontalcoord_mod/hco_setupygrid" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>to initialize hco structure for a Y grid</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>hco</strong><em> [</em><em>struct_hco </em><em>,</em><em>pointer</em><em>]</em></p></li>
+<li><p><strong>ni</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>nj</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="var1d_mod.html#f/var1d_mod/var1d_transfercolumntoygrid" title="f/var1d_mod/var1d_transfercolumntoygrid"><code class="xref f f-func docutils literal notranslate"><span class="pre">var1d_transfercolumntoygrid()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div></blockquote>
+</section>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="indexlistdepot_mod.html" title="indexlistdepot_mod"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="filenames_mod.html" title="filenames_mod"
+             >previous</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2018, ECCC.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.
+    </div>
+  </body>
+</html>

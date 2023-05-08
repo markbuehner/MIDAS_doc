@@ -1,0 +1,445 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>adjointTest &mdash; MIDAS  documentation</title>
+    
+    <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="top" title="MIDAS  documentation" href="index.html" /> 
+  </head>
+  <body>
+  <div>
+    <img src="_static/MIDAS_header.png" alt="MIDAS" />
+  </div>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li><a href="index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">adjointTest</a></li>
+<li><a class="reference internal" href="#analysiserroroi">analysisErrorOI</a></li>
+<li><a class="reference internal" href="#calcstats">calcStats</a></li>
+<li><a class="reference internal" href="#diagbmatrix">diagBmatrix</a></li>
+<li><a class="reference internal" href="#diaghbht">diagHBHt</a></li>
+<li><a class="reference internal" href="#ensembleh">ensembleH</a></li>
+<li><a class="reference internal" href="#enspostprocess">ensPostProcess</a></li>
+<li><a class="reference internal" href="#extractbmatrixfor1dvar">extractBmatrixFor1Dvar</a></li>
+<li><a class="reference internal" href="#gencoeff">genCoeff</a></li>
+<li><a class="reference internal" href="#letkf">letkf</a></li>
+<li><a class="reference internal" href="#obsimpact">obsImpact</a></li>
+<li><a class="reference internal" href="#obsselection">obsSelection</a></li>
+<li><a class="reference internal" href="#ominusf">oMinusF</a></li>
+<li><a class="reference internal" href="#prepcma">prepcma</a></li>
+<li><a class="reference internal" href="#pseudosstobs">pseudoSSTobs</a></li>
+<li><a class="reference internal" href="#randompert">randomPert</a></li>
+<li><a class="reference internal" href="#sstbias">SSTbias</a></li>
+<li><a class="reference internal" href="#ssttrial">SSTtrial</a></li>
+<li><a class="reference internal" href="#thinning">thinning</a></li>
+<li><a class="reference internal" href="#var1d">var1D</a></li>
+<li><a class="reference internal" href="#var">var</a></li>
+</ul>
+
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/namelists_in_each_program.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <section id="adjointtest">
+<h1>adjointTest<a class="headerlink" href="#adjointtest" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>namadt</p></li>
+<li><p>namben</p></li>
+<li><p>nambhi</p></li>
+<li><p>namstate</p></li>
+<li><p>namtime</p></li>
+</ul>
+</section>
+<section id="analysiserroroi">
+<h1>analysisErrorOI<a class="headerlink" href="#analysiserroroi" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>namaer</p></li>
+<li><p>namdimo</p></li>
+<li><p>namfilt</p></li>
+<li><p>naminn</p></li>
+<li><p>nammsg</p></li>
+<li><p>namoer</p></li>
+<li><p>namplatformice</p></li>
+<li><p>namradvel</p></li>
+<li><p>namsstobserrors</p></li>
+<li><p>namstate</p></li>
+<li><p>namtime</p></li>
+<li><p>namwritediag</p></li>
+</ul>
+</section>
+<section id="calcstats">
+<h1>calcStats<a class="headerlink" href="#calcstats" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>namcomputebhi</p></li>
+<li><p>namconf</p></li>
+<li><p>namens</p></li>
+<li><p>namstate</p></li>
+<li><p>namtime</p></li>
+<li><p>namtoolbox</p></li>
+</ul>
+</section>
+<section id="diagbmatrix">
+<h1>diagBmatrix<a class="headerlink" href="#diagbmatrix" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>namben</p></li>
+<li><p>namdiag</p></li>
+<li><p>namstate</p></li>
+<li><p>namstio</p></li>
+<li><p>namtime</p></li>
+<li><p>namvnl</p></li>
+</ul>
+</section>
+<section id="diaghbht">
+<h1>diagHBHt<a class="headerlink" href="#diaghbht" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>namdimo</p></li>
+<li><p>naminn</p></li>
+<li><p>namoer</p></li>
+<li><p>nams2c</p></li>
+<li><p>namsstobserrors</p></li>
+<li><p>namstate</p></li>
+<li><p>namstio</p></li>
+<li><p>namsurfaceobs</p></li>
+<li><p>namtime</p></li>
+<li><p>namwritediag</p></li>
+</ul>
+</section>
+<section id="ensembleh">
+<h1>ensembleH<a class="headerlink" href="#ensembleh" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>namdimo</p></li>
+<li><p>namensembleh</p></li>
+<li><p>naminn</p></li>
+<li><p>namoer</p></li>
+<li><p>nams2c</p></li>
+<li><p>namsstobserrors</p></li>
+<li><p>namstate</p></li>
+<li><p>namstio</p></li>
+<li><p>namtime</p></li>
+<li><p>namwritediag</p></li>
+</ul>
+</section>
+<section id="enspostprocess">
+<h1>ensPostProcess<a class="headerlink" href="#enspostprocess" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>namenspostproc</p></li>
+<li><p>namenspostprocmodule</p></li>
+<li><p>namstate</p></li>
+<li><p>namstio</p></li>
+<li><p>namtime</p></li>
+</ul>
+</section>
+<section id="extractbmatrixfor1dvar">
+<h1>extractBmatrixFor1Dvar<a class="headerlink" href="#extractbmatrixfor1dvar" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>namextract</p></li>
+<li><p>namstate</p></li>
+<li><p>namtime</p></li>
+<li><p>namvnl</p></li>
+</ul>
+</section>
+<section id="gencoeff">
+<h1>genCoeff<a class="headerlink" href="#gencoeff" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>nambiassat</p></li>
+<li><p>namdimo</p></li>
+<li><p>naminn</p></li>
+<li><p>namoer</p></li>
+<li><p>namsstobserrors</p></li>
+<li><p>namstate</p></li>
+<li><p>namstio</p></li>
+<li><p>namtime</p></li>
+<li><p>namwritediag</p></li>
+</ul>
+</section>
+<section id="letkf">
+<h1>letkf<a class="headerlink" href="#letkf" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>namchanoffset</p></li>
+<li><p>namdimo</p></li>
+<li><p>namenspostprocmodule</p></li>
+<li><p>namfilt</p></li>
+<li><p>namgeo</p></li>
+<li><p>namgeobufr</p></li>
+<li><p>namhyper</p></li>
+<li><p>naminn</p></li>
+<li><p>naminst</p></li>
+<li><p>namletkf</p></li>
+<li><p>namoer</p></li>
+<li><p>namplatformice</p></li>
+<li><p>namradvel</p></li>
+<li><p>nams2c</p></li>
+<li><p>namsat</p></li>
+<li><p>namsstobserrors</p></li>
+<li><p>namstate</p></li>
+<li><p>namstio</p></li>
+<li><p>namtime</p></li>
+<li><p>namtov</p></li>
+<li><p>namtovsinst</p></li>
+<li><p>namwritediag</p></li>
+</ul>
+</section>
+<section id="obsimpact">
+<h1>obsImpact<a class="headerlink" href="#obsimpact" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>namdimo</p></li>
+<li><p>namfso</p></li>
+<li><p>naminn</p></li>
+<li><p>namoer</p></li>
+<li><p>namsstobserrors</p></li>
+<li><p>namstate</p></li>
+<li><p>namstio</p></li>
+<li><p>namtime</p></li>
+<li><p>namwritediag</p></li>
+</ul>
+</section>
+<section id="obsselection">
+<h1>obsSelection<a class="headerlink" href="#obsselection" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>nambgck</p></li>
+<li><p>nambgckconv</p></li>
+<li><p>nambgckir</p></li>
+<li><p>nambiasconv</p></li>
+<li><p>nambiassat</p></li>
+<li><p>namcsr</p></li>
+<li><p>namdimo</p></li>
+<li><p>namgem</p></li>
+<li><p>namicebgcheck</p></li>
+<li><p>naminn</p></li>
+<li><p>namobsselection</p></li>
+<li><p>namoceanbgcheck</p></li>
+<li><p>namoer</p></li>
+<li><p>namsondetypes</p></li>
+<li><p>namsstbiasestimate</p></li>
+<li><p>namsstobserrors</p></li>
+<li><p>namstate</p></li>
+<li><p>namstio</p></li>
+<li><p>namtime</p></li>
+<li><p>namwritediag</p></li>
+</ul>
+</section>
+<section id="ominusf">
+<h1>oMinusF<a class="headerlink" href="#ominusf" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>nambiassat</p></li>
+<li><p>namdimo</p></li>
+<li><p>namomf</p></li>
+<li><p>namstate</p></li>
+<li><p>namwritediag</p></li>
+</ul>
+</section>
+<section id="prepcma">
+<h1>prepcma<a class="headerlink" href="#prepcma" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>namaddtoburp</p></li>
+<li><p>namchanoffset</p></li>
+<li><p>namdimo</p></li>
+<li><p>namfilt</p></li>
+<li><p>namgeo</p></li>
+<li><p>namgeobufr</p></li>
+<li><p>namhyper</p></li>
+<li><p>naminst</p></li>
+<li><p>namoer</p></li>
+<li><p>namplatformice</p></li>
+<li><p>namprepcma</p></li>
+<li><p>namradvel</p></li>
+<li><p>namsat</p></li>
+<li><p>namsstobserrors</p></li>
+<li><p>namtime</p></li>
+<li><p>namtov</p></li>
+<li><p>namtovsinst</p></li>
+<li><p>namwritediag</p></li>
+</ul>
+</section>
+<section id="pseudosstobs">
+<h1>pseudoSSTobs<a class="headerlink" href="#pseudosstobs" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>namdimo</p></li>
+<li><p>namstate</p></li>
+<li><p>pseudosstobs</p></li>
+</ul>
+</section>
+<section id="randompert">
+<h1>randomPert<a class="headerlink" href="#randompert" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>namenkf</p></li>
+<li><p>namint</p></li>
+<li><p>namstate</p></li>
+<li><p>namstio</p></li>
+<li><p>namtime</p></li>
+</ul>
+</section>
+<section id="sstbias">
+<h1>SSTbias<a class="headerlink" href="#sstbias" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>namdimo</p></li>
+<li><p>naminn</p></li>
+<li><p>namsstbiasestimate</p></li>
+<li><p>namstate</p></li>
+<li><p>namtime</p></li>
+<li><p>namwritediag</p></li>
+</ul>
+</section>
+<section id="ssttrial">
+<h1>SSTtrial<a class="headerlink" href="#ssttrial" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>namssttrial</p></li>
+<li><p>namstate</p></li>
+<li><p>namtime</p></li>
+</ul>
+</section>
+<section id="thinning">
+<h1>thinning<a class="headerlink" href="#thinning" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>namchanoffset</p></li>
+<li><p>namdimo</p></li>
+<li><p>namfilt</p></li>
+<li><p>namgem</p></li>
+<li><p>namgeo</p></li>
+<li><p>namgeobufr</p></li>
+<li><p>namhyper</p></li>
+<li><p>naminst</p></li>
+<li><p>namplatformice</p></li>
+<li><p>namradvel</p></li>
+<li><p>namsat</p></li>
+<li><p>namtime</p></li>
+<li><p>namtov</p></li>
+<li><p>namtovsinst</p></li>
+<li><p>namwritediag</p></li>
+</ul>
+</section>
+<section id="var1d">
+<h1>var1D<a class="headerlink" href="#var1d" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>nambiassat</p></li>
+<li><p>nambmat1d</p></li>
+<li><p>namdimo</p></li>
+<li><p>naminc</p></li>
+<li><p>naminn</p></li>
+<li><p>nammin</p></li>
+<li><p>namoer</p></li>
+<li><p>namsstobserrors</p></li>
+<li><p>namstate</p></li>
+<li><p>namstio</p></li>
+<li><p>namtime</p></li>
+<li><p>namwritediag</p></li>
+</ul>
+</section>
+<section id="var">
+<h1>var<a class="headerlink" href="#var" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>nambiassat</p></li>
+<li><p>namchanoffset</p></li>
+<li><p>namdimo</p></li>
+<li><p>namgeo</p></li>
+<li><p>namgeobufr</p></li>
+<li><p>namhyper</p></li>
+<li><p>naminc</p></li>
+<li><p>naminn</p></li>
+<li><p>naminst</p></li>
+<li><p>nammin</p></li>
+<li><p>nammsg</p></li>
+<li><p>namoer</p></li>
+<li><p>namosd</p></li>
+<li><p>namqlim</p></li>
+<li><p>namrmat</p></li>
+<li><p>nams2c</p></li>
+<li><p>namsat</p></li>
+<li><p>namsstobserrors</p></li>
+<li><p>namstate</p></li>
+<li><p>namstio</p></li>
+<li><p>namtime</p></li>
+<li><p>namtov</p></li>
+<li><p>namtovsinst</p></li>
+<li><p>namvar</p></li>
+<li><p>namwritediag</p></li>
+</ul>
+<hr class="docutils" />
+</section>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li><a href="index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2018, ECCC.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.
+    </div>
+  </body>
+</html>

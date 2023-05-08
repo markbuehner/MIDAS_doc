@@ -1,0 +1,714 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>obsdbfiles_mod &mdash; MIDAS  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="MIDAS  documentation" href="../index.html" />
+    <link rel="next" title="obsdiagfiles_mod" href="obsdiagfiles_mod.html" />
+    <link rel="prev" title="burpread_mod" href="burpread_mod.html" /> 
+  </head>
+  <body>
+  <div>
+    <img src="../_static/MIDAS_header.png" alt="MIDAS" />
+  </div>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="obsdiagfiles_mod.html" title="obsdiagfiles_mod"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="burpread_mod.html" title="burpread_mod"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="burpread_mod.html"
+                          title="previous chapter">burpread_mod</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="obsdiagfiles_mod.html"
+                          title="next chapter">obsdiagfiles_mod</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/modules/obsdbfiles_mod.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <section id="obsdbfiles-mod">
+<h1>obsdbfiles_mod<a class="headerlink" href="#obsdbfiles-mod" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><p><a class="reference internal" href="obsdbfiles_mod_src.html"><span class="doc">link to source code</span></a></p>
+<p><strong>Dependency Diagrams:</strong></p>
+<figure class="align-default" id="id1">
+<a class="reference internal image-reference" href="obsdbfiles_mod.svg"><img alt="obsdbfiles_mod.svg" height="100px" src="obsdbfiles_mod.svg" /></a>
+<figcaption>
+<p><span class="caption-text">Direct Dependency Diagram</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id2">
+<a class="reference internal image-reference" href="obsdbfiles_mod_rev.svg"><img alt="obsdbfiles_mod_rev.svg" height="100px" src="obsdbfiles_mod_rev.svg" /></a>
+<figcaption>
+<p><span class="caption-text">Reverse Dependency Diagram</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<span class="target" id="f/obsdbfiles_mod"></span><p class="rubric">Description</p>
+<p>MODULE obsdbFiles (prefix=’odbf’ category=’3. Observation input/output’)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Purpose</dt>
+<dd class="field-odd"><p>To read and update sqlite files that are in the new ‘obsDB’ format.</p>
+</dd>
+</dl>
+<p class="rubric">Quick access</p>
+<dl class="field-list simple">
+<dt class="field-odd">Routines</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/obsdbfiles_mod/obdf_clean" title="f/obsdbfiles_mod/obdf_clean"><code class="xref f f-func docutils literal notranslate"><span class="pre">obdf_clean()</span></code></a>, <a class="reference internal" href="#f/obsdbfiles_mod/odbf_addcolumnsmidastable" title="f/obsdbfiles_mod/odbf_addcolumnsmidastable"><code class="xref f f-func docutils literal notranslate"><span class="pre">odbf_addcolumnsmidastable()</span></code></a>, <a class="reference internal" href="#f/obsdbfiles_mod/odbf_adjustvalues" title="f/obsdbfiles_mod/odbf_adjustvalues"><code class="xref f f-func docutils literal notranslate"><span class="pre">odbf_adjustvalues()</span></code></a>, <a class="reference internal" href="#f/obsdbfiles_mod/odbf_copytoobsspacebody" title="f/obsdbfiles_mod/odbf_copytoobsspacebody"><code class="xref f f-func docutils literal notranslate"><span class="pre">odbf_copytoobsspacebody()</span></code></a>, <a class="reference internal" href="#f/obsdbfiles_mod/odbf_copytoobsspacehead" title="f/obsdbfiles_mod/odbf_copytoobsspacehead"><code class="xref f f-func docutils literal notranslate"><span class="pre">odbf_copytoobsspacehead()</span></code></a>, <a class="reference internal" href="#f/obsdbfiles_mod/odbf_copytoobsspaceheadchar" title="f/obsdbfiles_mod/odbf_copytoobsspaceheadchar"><code class="xref f f-func docutils literal notranslate"><span class="pre">odbf_copytoobsspaceheadchar()</span></code></a>, <a class="reference internal" href="#f/obsdbfiles_mod/odbf_copytoobsspaceheaddate" title="f/obsdbfiles_mod/odbf_copytoobsspaceheaddate"><code class="xref f f-func docutils literal notranslate"><span class="pre">odbf_copytoobsspaceheaddate()</span></code></a>, <a class="reference internal" href="#f/obsdbfiles_mod/odbf_createmidasbodytable" title="f/obsdbfiles_mod/odbf_createmidasbodytable"><code class="xref f f-func docutils literal notranslate"><span class="pre">odbf_createmidasbodytable()</span></code></a>, <a class="reference internal" href="#f/obsdbfiles_mod/odbf_createmidasheadertable" title="f/obsdbfiles_mod/odbf_createmidasheadertable"><code class="xref f f-func docutils literal notranslate"><span class="pre">odbf_createmidasheadertable()</span></code></a>, <a class="reference internal" href="#f/obsdbfiles_mod/odbf_getdatestamp" title="f/obsdbfiles_mod/odbf_getdatestamp"><code class="xref f f-func docutils literal notranslate"><span class="pre">odbf_getdatestamp()</span></code></a>, <a class="reference internal" href="#f/obsdbfiles_mod/odbf_getprimarykeys" title="f/obsdbfiles_mod/odbf_getprimarykeys"><code class="xref f f-func docutils literal notranslate"><span class="pre">odbf_getprimarykeys()</span></code></a>, <a class="reference internal" href="#f/obsdbfiles_mod/odbf_midastabcolfromobsspacename" title="f/obsdbfiles_mod/odbf_midastabcolfromobsspacename"><code class="xref f f-func docutils literal notranslate"><span class="pre">odbf_midastabcolfromobsspacename()</span></code></a>, <a class="reference internal" href="#f/obsdbfiles_mod/odbf_readfile" title="f/obsdbfiles_mod/odbf_readfile"><code class="xref f f-func docutils literal notranslate"><span class="pre">odbf_readfile()</span></code></a>, <a class="reference internal" href="#f/obsdbfiles_mod/odbf_readmidasbodytable" title="f/obsdbfiles_mod/odbf_readmidasbodytable"><code class="xref f f-func docutils literal notranslate"><span class="pre">odbf_readmidasbodytable()</span></code></a>, <a class="reference internal" href="#f/obsdbfiles_mod/odbf_setsurfacetype" title="f/obsdbfiles_mod/odbf_setsurfacetype"><code class="xref f f-func docutils literal notranslate"><span class="pre">odbf_setsurfacetype()</span></code></a>, <a class="reference internal" href="#f/obsdbfiles_mod/odbf_setup" title="f/obsdbfiles_mod/odbf_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">odbf_setup()</span></code></a>, <a class="reference internal" href="#f/obsdbfiles_mod/odbf_sqlnamefromobsspacename" title="f/obsdbfiles_mod/odbf_sqlnamefromobsspacename"><code class="xref f f-func docutils literal notranslate"><span class="pre">odbf_sqlnamefromobsspacename()</span></code></a>, <a class="reference internal" href="#f/obsdbfiles_mod/odbf_updatefile" title="f/obsdbfiles_mod/odbf_updatefile"><code class="xref f f-func docutils literal notranslate"><span class="pre">odbf_updatefile()</span></code></a>, <a class="reference internal" href="#f/obsdbfiles_mod/odbf_updatemidasbodytable" title="f/obsdbfiles_mod/odbf_updatemidasbodytable"><code class="xref f f-func docutils literal notranslate"><span class="pre">odbf_updatemidasbodytable()</span></code></a>, <a class="reference internal" href="#f/obsdbfiles_mod/odbf_updatemidasheadertable" title="f/obsdbfiles_mod/odbf_updatemidasheadertable"><code class="xref f f-func docutils literal notranslate"><span class="pre">odbf_updatemidasheadertable()</span></code></a>, <a class="reference internal" href="#f/obsdbfiles_mod/odbf_varnofromsqlname" title="f/obsdbfiles_mod/odbf_varnofromsqlname"><code class="xref f f-func docutils literal notranslate"><span class="pre">odbf_varnofromsqlname()</span></code></a></p>
+</dd>
+</dl>
+<p class="rubric">Needed modules</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="midasmpi_mod.html#f/midasmpi_mod" title="f/midasmpi_mod: MODULE midasMpi_mod (prefix='mmpi' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">midasmpi_mod</span></code></a>: MODULE midasMpi_mod (prefix=’mmpi’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="codeprecision_mod.html#f/codeprecision_mod" title="f/codeprecision_mod: MODULE codePrecision_mod (prefix='pre' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">codeprecision_mod</span></code></a>: MODULE codePrecision_mod (prefix=’pre’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="mathphysconstants_mod.html#f/mathphysconstants_mod" title="f/mathphysconstants_mod: MODULE MathPhysConstants_mod (prefix='mpc' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">mathphysconstants_mod</span></code></a>: MODULE MathPhysConstants_mod (prefix=’mpc’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="bufr_mod.html#f/bufr_mod" title="f/bufr_mod: MODULE bufr_mod (prefix='bufr' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">bufr_mod</span></code></a>: MODULE bufr_mod (prefix=’bufr’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="codtyp_mod.html#f/codtyp_mod" title="f/codtyp_mod: MODULE codtyp_mod (prefix='codtyp' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">codtyp_mod</span></code></a>: MODULE codtyp_mod (prefix=’codtyp’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod" title="f/obsspacedata_mod: MODULE obsSpaceData_mod (prefix='obs' category='6. High-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">obsspacedata_mod</span></code></a>: MODULE obsSpaceData_mod (prefix=’obs’ category=’6. High-level data objects’)</p></li>
+<li><p><code class="xref f f-mod docutils literal notranslate"><span class="pre">fsqlite</span></code></p></li>
+<li><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod" title="f/utilities_mod: MODULE utilities_mod (prefix='utl' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">utilities_mod</span></code></a>: MODULE utilities_mod (prefix=’utl’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="clib_interfaces_mod.html#f/clib_interfaces_mod" title="f/clib_interfaces_mod: MODULE clib_interfaces_mod (prefix='' category='9. Global interfaces')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">clib_interfaces_mod</span></code></a>: MODULE clib_interfaces_mod (prefix=’’ category=’9. Global interfaces’)</p></li>
+<li><p><a class="reference internal" href="obsutil_mod.html#f/obsutil_mod" title="f/obsutil_mod: MODULE obsUtil_mod (prefix='obsu' category='3. Observation input/output')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">obsutil_mod</span></code></a>: MODULE obsUtil_mod (prefix=’obsu’ category=’3. Observation input/output’)</p></li>
+<li><p><a class="reference internal" href="obsvariabletransforms_mod.html#f/obsvariabletransforms_mod" title="f/obsvariabletransforms_mod: MODULE obsVariableTransforms_mod (prefix='ovt' category='4. Data Object transformations')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">obsvariabletransforms_mod</span></code></a>: MODULE obsVariableTransforms_mod (prefix=’ovt’ category=’4. Data Object transformations’)</p></li>
+<li><p><a class="reference internal" href="sqliteutilities_mod.html#f/sqliteutilities_mod" title="f/sqliteutilities_mod: MODULE sqliteUtilities (prefix='sqlu' category='3. Observation input/output')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">sqliteutilities_mod</span></code></a>: MODULE sqliteUtilities (prefix=’sqlu’ category=’3. Observation input/output’)</p></li>
+<li><p><a class="reference internal" href="timecoord_mod.html#f/timecoord_mod" title="f/timecoord_mod: MODULE timeCoord (prefix='tim' category='7. Low-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">timecoord_mod</span></code></a>: MODULE timeCoord (prefix=’tim’ category=’7. Low-level data objects’)</p></li>
+</ul>
+<p class="rubric">Variables</p>
+<p class="rubric">Subroutines and functions</p>
+<dl>
+<dt class="sig sig-object f" id="f/obsdbfiles_mod/readnml">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obsdbfiles_mod/</span></span><span class="sig-name descname"><span class="pre">readnml</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#f/obsdbfiles_mod/readnml" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Read the namelist for obsDB files</p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_isnamelistpresent" title="f/utilities_mod/utl_isnamelistpresent"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_isnamelistpresent()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/obsdbfiles_mod/odbf_setup">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obsdbfiles_mod/</span></span><span class="sig-name descname"><span class="pre">odbf_setup</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#f/obsdbfiles_mod/odbf_setup" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Read the namelist for obsDB files and read the obsDB column table</p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/obsdbfiles_mod/odbf_getdatestamp" title="f/obsdbfiles_mod/odbf_getdatestamp"><code class="xref f f-func docutils literal notranslate"><span class="pre">odbf_getdatestamp()</span></code></a>, <a class="reference internal" href="#f/obsdbfiles_mod/odbf_readfile" title="f/obsdbfiles_mod/odbf_readfile"><code class="xref f f-func docutils literal notranslate"><span class="pre">odbf_readfile()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="sstbias_mod.html#f/sstbias_mod/readnml" title="f/sstbias_mod/readnml"><code class="xref f f-func docutils literal notranslate"><span class="pre">readnml()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_iscolumnnamevalid" title="f/obsspacedata_mod/obs_iscolumnnamevalid"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_iscolumnnamevalid()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/obsdbfiles_mod/odbf_getdatestamp">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obsdbfiles_mod/</span></span><span class="sig-name descname"><span class="pre">odbf_getdatestamp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">datestamp</span></em>, <em class="sig-param"><span class="pre">filename</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/obsdbfiles_mod/odbf_getdatestamp" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div><p>Purpose: get dateStamp from an obsDB file</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>datestamp</strong><em> [</em><em>integer </em><em>,</em><em>out</em><em>]</em></p></li>
+<li><p><strong>filename</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="obsfiles_mod.html#f/obsfiles_mod/obsf_setup" title="f/obsfiles_mod/obsf_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">obsf_setup()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/obsdbfiles_mod/odbf_setup" title="f/obsdbfiles_mod/odbf_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">odbf_setup()</span></code></a>, <a class="reference internal" href="sqliteutilities_mod.html#f/sqliteutilities_mod/sqlu_getcolumnvaluesdatestr" title="f/sqliteutilities_mod/sqlu_getcolumnvaluesdatestr"><code class="xref f f-func docutils literal notranslate"><span class="pre">sqlu_getcolumnvaluesdatestr()</span></code></a>, <a class="reference internal" href="timecoord_mod.html#f/timecoord_mod/tim_getvaliddatetimefromlist" title="f/timecoord_mod/tim_getvaliddatetimefromlist"><code class="xref f f-func docutils literal notranslate"><span class="pre">tim_getvaliddatetimefromlist()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/obsdbfiles_mod/odbf_readfile">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obsdbfiles_mod/</span></span><span class="sig-name descname"><span class="pre">odbf_readfile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">obsdat</span></em>, <em class="sig-param"><span class="pre">filename</span></em>, <em class="sig-param"><span class="pre">familytype</span></em>, <em class="sig-param"><span class="pre">fileindex</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/obsdbfiles_mod/odbf_readfile" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Read the contents of an obsDB file and put in obsSpaceData</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>obsdat</strong><em> [</em><em>struct_obs </em><em>,</em><em>inout</em><em>]</em></p></li>
+<li><p><strong>filename</strong><em> [</em><em>character </em><em>]</em></p></li>
+<li><p><strong>familytype</strong><em> [</em><em>character </em><em>]</em></p></li>
+<li><p><strong>fileindex</strong><em> [</em><em>integer </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="obsfiles_mod.html#f/obsfiles_mod/obsf_readfiles" title="f/obsfiles_mod/obsf_readfiles"><code class="xref f f-func docutils literal notranslate"><span class="pre">obsf_readfiles()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/obsdbfiles_mod/odbf_setup" title="f/obsdbfiles_mod/odbf_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">odbf_setup()</span></code></a>, <a class="reference internal" href="obsvariabletransforms_mod.html#f/obsvariabletransforms_mod/ovt_setup" title="f/obsvariabletransforms_mod/ovt_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">ovt_setup()</span></code></a>, <a class="reference internal" href="sqliteutilities_mod.html#f/sqliteutilities_mod/sqlu_getsqlcolumnnames" title="f/sqliteutilities_mod/sqlu_getsqlcolumnnames"><code class="xref f f-func docutils literal notranslate"><span class="pre">sqlu_getsqlcolumnnames()</span></code></a>, <a class="reference internal" href="#f/obsdbfiles_mod/odbf_getprimarykeys" title="f/obsdbfiles_mod/odbf_getprimarykeys"><code class="xref f f-func docutils literal notranslate"><span class="pre">odbf_getprimarykeys()</span></code></a>, <a class="reference internal" href="sqliteutilities_mod.html#f/sqliteutilities_mod/sqlu_getcolumnvaluesdatestr" title="f/sqliteutilities_mod/sqlu_getcolumnvaluesdatestr"><code class="xref f f-func docutils literal notranslate"><span class="pre">sqlu_getcolumnvaluesdatestr()</span></code></a>, <a class="reference internal" href="sqliteutilities_mod.html#f/sqliteutilities_mod/sqlu_getcolumnvalueschar" title="f/sqliteutilities_mod/sqlu_getcolumnvalueschar"><code class="xref f f-func docutils literal notranslate"><span class="pre">sqlu_getcolumnvalueschar()</span></code></a>, <a class="reference internal" href="sqliteutilities_mod.html#f/sqliteutilities_mod/sqlu_getcolumnvaluesnum" title="f/sqliteutilities_mod/sqlu_getcolumnvaluesnum"><code class="xref f f-func docutils literal notranslate"><span class="pre">sqlu_getcolumnvaluesnum()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_numbody" title="f/obsspacedata_mod/obs_numbody"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_numbody()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_numheader" title="f/obsspacedata_mod/obs_numheader"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_numheader()</span></code></a>, <a class="reference internal" href="#f/obsdbfiles_mod/odbf_setsurfacetype" title="f/obsdbfiles_mod/odbf_setsurfacetype"><code class="xref f f-func docutils literal notranslate"><span class="pre">odbf_setsurfacetype()</span></code></a>, <a class="reference internal" href="#f/obsdbfiles_mod/odbf_copytoobsspaceheaddate" title="f/obsdbfiles_mod/odbf_copytoobsspaceheaddate"><code class="xref f f-func docutils literal notranslate"><span class="pre">odbf_copytoobsspaceheaddate()</span></code></a>, <a class="reference internal" href="#f/obsdbfiles_mod/odbf_copytoobsspaceheadchar" title="f/obsdbfiles_mod/odbf_copytoobsspaceheadchar"><code class="xref f f-func docutils literal notranslate"><span class="pre">odbf_copytoobsspaceheadchar()</span></code></a>, <a class="reference internal" href="#f/obsdbfiles_mod/odbf_copytoobsspacehead" title="f/obsdbfiles_mod/odbf_copytoobsspacehead"><code class="xref f f-func docutils literal notranslate"><span class="pre">odbf_copytoobsspacehead()</span></code></a>, <a class="reference internal" href="#f/obsdbfiles_mod/odbf_copytoobsspacebody" title="f/obsdbfiles_mod/odbf_copytoobsspacebody"><code class="xref f f-func docutils literal notranslate"><span class="pre">odbf_copytoobsspacebody()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_headset_i" title="f/obsspacedata_mod/obs_headset_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_headset_i()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_setfamily" title="f/obsspacedata_mod/obs_setfamily"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_setfamily()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_headelem_i" title="f/obsspacedata_mod/obs_headelem_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_headelem_i()</span></code></a>, <a class="reference internal" href="#f/obsdbfiles_mod/odbf_readmidasbodytable" title="f/obsdbfiles_mod/odbf_readmidasbodytable"><code class="xref f f-func docutils literal notranslate"><span class="pre">odbf_readmidasbodytable()</span></code></a>, <a class="reference internal" href="#f/obsdbfiles_mod/odbf_adjustvalues" title="f/obsdbfiles_mod/odbf_adjustvalues"><code class="xref f f-func docutils literal notranslate"><span class="pre">odbf_adjustvalues()</span></code></a>, <a class="reference internal" href="obsvariabletransforms_mod.html#f/obsvariabletransforms_mod/ovt_transformobsvalues" title="f/obsvariabletransforms_mod/ovt_transformobsvalues"><code class="xref f f-func docutils literal notranslate"><span class="pre">ovt_transformobsvalues()</span></code></a>, <a class="reference internal" href="obsvariabletransforms_mod.html#f/obsvariabletransforms_mod/ovt_adjusthumgz" title="f/obsvariabletransforms_mod/ovt_adjusthumgz"><code class="xref f f-func docutils literal notranslate"><span class="pre">ovt_adjusthumgz()</span></code></a>, <a class="reference internal" href="obsutil_mod.html#f/obsutil_mod/obsu_computevertcoordsurfobs" title="f/obsutil_mod/obsu_computevertcoordsurfobs"><code class="xref f f-func docutils literal notranslate"><span class="pre">obsu_computevertcoordsurfobs()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_columnactive_rb" title="f/obsspacedata_mod/obs_columnactive_rb"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_columnactive_rb()</span></code></a>, <a class="reference internal" href="obsutil_mod.html#f/obsutil_mod/obsu_setgbgpserror" title="f/obsutil_mod/obsu_setgbgpserror"><code class="xref f f-func docutils literal notranslate"><span class="pre">obsu_setgbgpserror()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/obsdbfiles_mod/odbf_readmidasbodytable">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obsdbfiles_mod/</span></span><span class="sig-name descname"><span class="pre">odbf_readmidasbodytable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">obsdat</span></em>, <em class="sig-param"><span class="pre">filename</span></em>, <em class="sig-param"><span class="pre">familytype</span></em>, <em class="sig-param"><span class="pre">fileindex</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/obsdbfiles_mod/odbf_readmidasbodytable" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Read values from any column found the MIDAS table, if it
+already exists in the file. This will replace any existing
+values read from the original obs-DB tables (e.g. the obs
+value).</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>obsdat</strong><em> [</em><em>struct_obs </em><em>,</em><em>inout</em><em>]</em></p></li>
+<li><p><strong>filename</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>familytype</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>fileindex</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/obsdbfiles_mod/odbf_readfile" title="f/obsdbfiles_mod/odbf_readfile"><code class="xref f f-func docutils literal notranslate"><span class="pre">odbf_readfile()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="sqliteutilities_mod.html#f/sqliteutilities_mod/sqlu_sqltableexists" title="f/sqliteutilities_mod/sqlu_sqltableexists"><code class="xref f f-func docutils literal notranslate"><span class="pre">sqlu_sqltableexists()</span></code></a>, <a class="reference internal" href="#f/obsdbfiles_mod/odbf_midastabcolfromobsspacename" title="f/obsdbfiles_mod/odbf_midastabcolfromobsspacename"><code class="xref f f-func docutils literal notranslate"><span class="pre">odbf_midastabcolfromobsspacename()</span></code></a>, <a class="reference internal" href="sqliteutilities_mod.html#f/sqliteutilities_mod/sqlu_sqlcolumnexists" title="f/sqliteutilities_mod/sqlu_sqlcolumnexists"><code class="xref f f-func docutils literal notranslate"><span class="pre">sqlu_sqlcolumnexists()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_columnindexfromname" title="f/obsspacedata_mod/obs_columnindexfromname"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_columnindexfromname()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_columndatatype" title="f/obsspacedata_mod/obs_columndatatype"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_columndatatype()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_columnactive_rb" title="f/obsspacedata_mod/obs_columnactive_rb"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_columnactive_rb()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_columnactive_ib" title="f/obsspacedata_mod/obs_columnactive_ib"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_columnactive_ib()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_numheader" title="f/obsspacedata_mod/obs_numheader"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_numheader()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_headelem_i" title="f/obsspacedata_mod/obs_headelem_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_headelem_i()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyprimarykey" title="f/obsspacedata_mod/obs_bodyprimarykey"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyprimarykey()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyelem_i" title="f/obsspacedata_mod/obs_bodyelem_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyelem_i()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyelem_r" title="f/obsspacedata_mod/obs_bodyelem_r"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyelem_r()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyset_i" title="f/obsspacedata_mod/obs_bodyset_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyset_i()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/obsdbfiles_mod/odbf_getprimarykeys">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obsdbfiles_mod/</span></span><span class="sig-name descname"><span class="pre">odbf_getprimarykeys</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">headprimarykey</span></em>, <em class="sig-param"><span class="pre">bodyprimarykey</span></em>, <em class="sig-param"><span class="pre">bodyheadkey</span></em>, <em class="sig-param"><span class="pre">filename</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/obsdbfiles_mod/odbf_getprimarykeys" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Read the values from obsDB file for the head and body table
+primary keys.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>headprimarykey</strong> (*)<em> [</em><em>integer </em><em>,</em><em>out,allocatable</em><em>]</em></p></li>
+<li><p><strong>bodyprimarykey</strong> (*)<em> [</em><em>integer </em><em>,</em><em>out,allocatable</em><em>]</em></p></li>
+<li><p><strong>bodyheadkey</strong> (*)<em> [</em><em>integer </em><em>,</em><em>out,allocatable</em><em>]</em></p></li>
+<li><p><strong>filename</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/obsdbfiles_mod/odbf_readfile" title="f/obsdbfiles_mod/odbf_readfile"><code class="xref f f-func docutils literal notranslate"><span class="pre">odbf_readfile()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/obsdbfiles_mod/odbf_setsurfacetype">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obsdbfiles_mod/</span></span><span class="sig-name descname"><span class="pre">odbf_setsurfacetype</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">obsdat</span></em>, <em class="sig-param"><span class="pre">headindexbegin</span></em>, <em class="sig-param"><span class="pre">filename</span></em>, <em class="sig-param"><span class="pre">tablename</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/obsdbfiles_mod/odbf_setsurfacetype" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Set the surface type based on lat-lon and some external mask files.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>obsdat</strong><em> [</em><em>struct_obs </em><em>,</em><em>inout</em><em>]</em></p></li>
+<li><p><strong>headindexbegin</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>filename</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>tablename</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/obsdbfiles_mod/odbf_readfile" title="f/obsdbfiles_mod/odbf_readfile"><code class="xref f f-func docutils literal notranslate"><span class="pre">odbf_readfile()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_headset_i" title="f/obsspacedata_mod/obs_headset_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_headset_i()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/obsdbfiles_mod/odbf_copytoobsspaceheadchar">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obsdbfiles_mod/</span></span><span class="sig-name descname"><span class="pre">odbf_copytoobsspaceheadchar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">obsdat</span></em>, <em class="sig-param"><span class="pre">headcharsqlnames</span></em>, <em class="sig-param"><span class="pre">headcharvalues</span></em>, <em class="sig-param"><span class="pre">headindexbegin</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/obsdbfiles_mod/odbf_copytoobsspaceheadchar" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Copy character string values from a local table into
+obsSpaceData header rows. Currently, only the STATION ID
+and OBS_ITY (i.e. codeType from character sql column
+containing obs type name).</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>obsdat</strong><em> [</em><em>struct_obs </em><em>,</em><em>inout</em><em>]</em></p></li>
+<li><p><strong>headcharsqlnames</strong> (*)<em> [</em><em>character </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>headcharvalues</strong> (*,*)<em> [</em><em>character </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>headindexbegin</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/obsdbfiles_mod/odbf_readfile" title="f/obsdbfiles_mod/odbf_readfile"><code class="xref f f-func docutils literal notranslate"><span class="pre">odbf_readfile()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/obsdbfiles_mod/odbf_sqlnamefromobsspacename" title="f/obsdbfiles_mod/odbf_sqlnamefromobsspacename"><code class="xref f f-func docutils literal notranslate"><span class="pre">odbf_sqlnamefromobsspacename()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_set_c" title="f/obsspacedata_mod/obs_set_c"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_set_c()</span></code></a>, <a class="reference internal" href="codtyp_mod.html#f/codtyp_mod/codtyp_get_codtyp" title="f/codtyp_mod/codtyp_get_codtyp"><code class="xref f f-func docutils literal notranslate"><span class="pre">codtyp_get_codtyp()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_headset_i" title="f/obsspacedata_mod/obs_headset_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_headset_i()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/obsdbfiles_mod/odbf_copytoobsspaceheaddate">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obsdbfiles_mod/</span></span><span class="sig-name descname"><span class="pre">odbf_copytoobsspaceheaddate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">obsdat</span></em>, <em class="sig-param"><span class="pre">headdatevalues</span></em>, <em class="sig-param"><span class="pre">headtimevalues</span></em>, <em class="sig-param"><span class="pre">headindexbegin</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/obsdbfiles_mod/odbf_copytoobsspaceheaddate" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Copy date values from a local table into
+obsSpaceData header rows.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>obsdat</strong><em> [</em><em>struct_obs </em><em>,</em><em>inout</em><em>]</em></p></li>
+<li><p><strong>headdatevalues</strong> (*)<em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>headtimevalues</strong> (*)<em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>headindexbegin</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/obsdbfiles_mod/odbf_readfile" title="f/obsdbfiles_mod/odbf_readfile"><code class="xref f f-func docutils literal notranslate"><span class="pre">odbf_readfile()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_headset_i" title="f/obsspacedata_mod/obs_headset_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_headset_i()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/obsdbfiles_mod/odbf_copytoobsspacehead">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obsdbfiles_mod/</span></span><span class="sig-name descname"><span class="pre">odbf_copytoobsspacehead</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">obsdat</span></em>, <em class="sig-param"><span class="pre">headsqlnames</span></em>, <em class="sig-param"><span class="pre">headprimarykey</span></em>, <em class="sig-param"><span class="pre">headvalues</span></em>, <em class="sig-param"><span class="pre">headindexbegin</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/obsdbfiles_mod/odbf_copytoobsspacehead" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Copy real and integer values from a local table into
+obsSpaceData header rows.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>obsdat</strong><em> [</em><em>struct_obs </em><em>,</em><em>inout</em><em>]</em></p></li>
+<li><p><strong>headsqlnames</strong> (*)<em> [</em><em>character </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>headprimarykey</strong> (*)<em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>headvalues</strong> (*,*)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>headindexbegin</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/obsdbfiles_mod/odbf_readfile" title="f/obsdbfiles_mod/odbf_readfile"><code class="xref f f-func docutils literal notranslate"><span class="pre">odbf_readfile()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_setheadprimarykey" title="f/obsspacedata_mod/obs_setheadprimarykey"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_setheadprimarykey()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_columnindexfromname" title="f/obsspacedata_mod/obs_columnindexfromname"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_columnindexfromname()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_columndatatype" title="f/obsspacedata_mod/obs_columndatatype"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_columndatatype()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_columnactive_rh" title="f/obsspacedata_mod/obs_columnactive_rh"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_columnactive_rh()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_columnactive_ih" title="f/obsspacedata_mod/obs_columnactive_ih"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_columnactive_ih()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_headset_i" title="f/obsspacedata_mod/obs_headset_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_headset_i()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/obsdbfiles_mod/odbf_copytoobsspacebody">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obsdbfiles_mod/</span></span><span class="sig-name descname"><span class="pre">odbf_copytoobsspacebody</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">obsdat</span></em>, <em class="sig-param"><span class="pre">bodysqlnames</span></em>, <em class="sig-param"><span class="pre">bodyprimarykey</span></em>, <em class="sig-param"><span class="pre">bodyheadkey</span></em>, <em class="sig-param"><span class="pre">bodyvalues</span></em>, <em class="sig-param"><span class="pre">bodyindexbegin</span></em>, <em class="sig-param"><span class="pre">headindexbegin</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/obsdbfiles_mod/odbf_copytoobsspacebody" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Copy real and integer values from a local table into
+obsSpaceData body rows. Note: this version currently
+assumes that only 1 observed quantity is present for
+each row of the sqlite table. This is likely only valid
+for radiance observation types and therefore modifications
+will be required for other observation types.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>obsdat</strong><em> [</em><em>struct_obs </em><em>,</em><em>inout</em><em>]</em></p></li>
+<li><p><strong>bodysqlnames</strong> (*)<em> [</em><em>character </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>bodyprimarykey</strong> (*)<em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>bodyheadkey</strong> (*)<em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>bodyvalues</strong> (*,*)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>bodyindexbegin</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>headindexbegin</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/obsdbfiles_mod/odbf_readfile" title="f/obsdbfiles_mod/odbf_readfile"><code class="xref f f-func docutils literal notranslate"><span class="pre">odbf_readfile()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_columnindexfromname" title="f/obsspacedata_mod/obs_columnindexfromname"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_columnindexfromname()</span></code></a>, <a class="reference internal" href="#f/obsdbfiles_mod/odbf_sqlnamefromobsspacename" title="f/obsdbfiles_mod/odbf_sqlnamefromobsspacename"><code class="xref f f-func docutils literal notranslate"><span class="pre">odbf_sqlnamefromobsspacename()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="#f/obsdbfiles_mod/odbf_varnofromsqlname" title="f/obsdbfiles_mod/odbf_varnofromsqlname"><code class="xref f f-func docutils literal notranslate"><span class="pre">odbf_varnofromsqlname()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_headset_i" title="f/obsspacedata_mod/obs_headset_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_headset_i()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_headprimarykey" title="f/obsspacedata_mod/obs_headprimarykey"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_headprimarykey()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_headelem_i" title="f/obsspacedata_mod/obs_headelem_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_headelem_i()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_setbodyprimarykey" title="f/obsspacedata_mod/obs_setbodyprimarykey"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_setbodyprimarykey()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyset_i" title="f/obsspacedata_mod/obs_bodyset_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyset_i()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_columndatatype" title="f/obsspacedata_mod/obs_columndatatype"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_columndatatype()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_columnactive_rb" title="f/obsspacedata_mod/obs_columnactive_rb"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_columnactive_rb()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_columnactive_ib" title="f/obsspacedata_mod/obs_columnactive_ib"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_columnactive_ib()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/obsdbfiles_mod/odbf_adjustvalues">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obsdbfiles_mod/</span></span><span class="sig-name descname"><span class="pre">odbf_adjustvalues</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">obsdat</span></em>, <em class="sig-param"><span class="pre">headindexbegin</span></em>, <em class="sig-param"><span class="pre">headindexend</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/obsdbfiles_mod/odbf_adjustvalues" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Adjust units and other minor modifications of some
+obsSpaceData columns after transfer from sqlite files</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>obsdat</strong><em> [</em><em>struct_obs </em><em>,</em><em>inout</em><em>]</em></p></li>
+<li><p><strong>headindexbegin</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>headindexend</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/obsdbfiles_mod/odbf_readfile" title="f/obsdbfiles_mod/odbf_readfile"><code class="xref f f-func docutils literal notranslate"><span class="pre">odbf_readfile()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_getfamily" title="f/obsspacedata_mod/obs_getfamily"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_getfamily()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_headelem_i" title="f/obsspacedata_mod/obs_headelem_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_headelem_i()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_headelem_r" title="f/obsspacedata_mod/obs_headelem_r"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_headelem_r()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_headset_i" title="f/obsspacedata_mod/obs_headset_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_headset_i()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyset_i" title="f/obsspacedata_mod/obs_bodyset_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyset_i()</span></code></a>, <a class="reference internal" href="codtyp_mod.html#f/codtyp_mod/codtyp_get_codtyp" title="f/codtyp_mod/codtyp_get_codtyp"><code class="xref f f-func docutils literal notranslate"><span class="pre">codtyp_get_codtyp()</span></code></a>, <a class="reference internal" href="obsutil_mod.html#f/obsutil_mod/obsu_cvt_obs_instrum" title="f/obsutil_mod/obsu_cvt_obs_instrum"><code class="xref f f-func docutils literal notranslate"><span class="pre">obsu_cvt_obs_instrum()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_columnactive_rb" title="f/obsspacedata_mod/obs_columnactive_rb"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_columnactive_rb()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyelem_r" title="f/obsspacedata_mod/obs_bodyelem_r"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyelem_r()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/obsdbfiles_mod/odbf_sqlnamefromobsspacename">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obsdbfiles_mod/</span></span><span class="sig-name descname"><span class="pre">odbf_sqlnamefromobsspacename</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">obsspacename</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/obsdbfiles_mod/odbf_sqlnamefromobsspacename" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Return the corresponding sql file column name for a
+given obsSpaceData column name from the matching
+tables.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>obsspacename</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em></p>
+</dd>
+<dt class="field-odd">Return</dt>
+<dd class="field-odd"><p><strong>sqlname</strong> (*)<em> [</em><em>character </em><em>,</em><em>allocatable</em><em>]</em></p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/obsdbfiles_mod/odbf_copytoobsspaceheadchar" title="f/obsdbfiles_mod/odbf_copytoobsspaceheadchar"><code class="xref f f-func docutils literal notranslate"><span class="pre">odbf_copytoobsspaceheadchar()</span></code></a>, <a class="reference internal" href="#f/obsdbfiles_mod/odbf_copytoobsspacebody" title="f/obsdbfiles_mod/odbf_copytoobsspacebody"><code class="xref f f-func docutils literal notranslate"><span class="pre">odbf_copytoobsspacebody()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/obsdbfiles_mod/odbf_midastabcolfromobsspacename">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obsdbfiles_mod/</span></span><span class="sig-name descname"><span class="pre">odbf_midastabcolfromobsspacename</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">obsspacename</span></em>, <em class="sig-param"><span class="pre">midassqlcolumnlist</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/obsdbfiles_mod/odbf_midastabcolfromobsspacename" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Return the corresponding sql file column name for a
+given obsSpaceData column name from the midas table
+matching list.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>obsspacename</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>midassqlcolumnlist</strong> (*,*)<em> [</em><em>character </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Return</dt>
+<dd class="field-odd"><p><strong>sqlcolname</strong><em> [</em><em>character </em><em>]</em></p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/obsdbfiles_mod/odbf_readmidasbodytable" title="f/obsdbfiles_mod/odbf_readmidasbodytable"><code class="xref f f-func docutils literal notranslate"><span class="pre">odbf_readmidasbodytable()</span></code></a>, <a class="reference internal" href="#f/obsdbfiles_mod/odbf_updatemidasheadertable" title="f/obsdbfiles_mod/odbf_updatemidasheadertable"><code class="xref f f-func docutils literal notranslate"><span class="pre">odbf_updatemidasheadertable()</span></code></a>, <a class="reference internal" href="#f/obsdbfiles_mod/odbf_updatemidasbodytable" title="f/obsdbfiles_mod/odbf_updatemidasbodytable"><code class="xref f f-func docutils literal notranslate"><span class="pre">odbf_updatemidasbodytable()</span></code></a>, <a class="reference internal" href="#f/obsdbfiles_mod/odbf_addcolumnsmidastable" title="f/obsdbfiles_mod/odbf_addcolumnsmidastable"><code class="xref f f-func docutils literal notranslate"><span class="pre">odbf_addcolumnsmidastable()</span></code></a>, <a class="reference internal" href="#f/obsdbfiles_mod/obdf_clean" title="f/obsdbfiles_mod/obdf_clean"><code class="xref f f-func docutils literal notranslate"><span class="pre">obdf_clean()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/obsdbfiles_mod/odbf_varnofromsqlname">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obsdbfiles_mod/</span></span><span class="sig-name descname"><span class="pre">odbf_varnofromsqlname</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">sqlname</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/obsdbfiles_mod/odbf_varnofromsqlname" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Return the bufr element id number from the corresponding
+sql file column name of an observed value.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>sqlname</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em></p>
+</dd>
+<dt class="field-odd">Return</dt>
+<dd class="field-odd"><p><strong>varno</strong><em> [</em><em>integer </em><em>]</em></p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/obsdbfiles_mod/odbf_copytoobsspacebody" title="f/obsdbfiles_mod/odbf_copytoobsspacebody"><code class="xref f f-func docutils literal notranslate"><span class="pre">odbf_copytoobsspacebody()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/obsdbfiles_mod/odbf_updatefile">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obsdbfiles_mod/</span></span><span class="sig-name descname"><span class="pre">odbf_updatefile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">obsdat</span></em>, <em class="sig-param"><span class="pre">filename</span></em>, <em class="sig-param"><span class="pre">familytype</span></em>, <em class="sig-param"><span class="pre">fileindex</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/obsdbfiles_mod/odbf_updatefile" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Call subroutines to update MIDAS Header and Body tables</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>obsdat</strong><em> [</em><em>struct_obs </em><em>,</em><em>inout</em><em>]</em></p></li>
+<li><p><strong>filename</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>familytype</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>fileindex</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="obsfiles_mod.html#f/obsfiles_mod/obsf_writefiles" title="f/obsfiles_mod/obsf_writefiles"><code class="xref f f-func docutils literal notranslate"><span class="pre">obsf_writefiles()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_start" title="f/utilities_mod/utl_tmg_start"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_start()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_isnamelistpresent" title="f/utilities_mod/utl_isnamelistpresent"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_isnamelistpresent()</span></code></a>, <a class="reference internal" href="#f/obsdbfiles_mod/odbf_updatemidasheadertable" title="f/obsdbfiles_mod/odbf_updatemidasheadertable"><code class="xref f f-func docutils literal notranslate"><span class="pre">odbf_updatemidasheadertable()</span></code></a>, <a class="reference internal" href="#f/obsdbfiles_mod/odbf_updatemidasbodytable" title="f/obsdbfiles_mod/odbf_updatemidasbodytable"><code class="xref f f-func docutils literal notranslate"><span class="pre">odbf_updatemidasbodytable()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_stop" title="f/utilities_mod/utl_tmg_stop"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_stop()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/obsdbfiles_mod/odbf_updatemidasheadertable">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obsdbfiles_mod/</span></span><span class="sig-name descname"><span class="pre">odbf_updatemidasheadertable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">obsdat</span></em>, <em class="sig-param"><span class="pre">fileindex</span></em>, <em class="sig-param"><span class="pre">filename</span></em>, <em class="sig-param"><span class="pre">familytype</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/obsdbfiles_mod/odbf_updatemidasheadertable" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Update selected columns in the MIDAS Header Output table using
+values from obsSpaceData. If the MIDAS Header table does not already
+exist, it is created by copying the observation table.
+A single table is created that contains all quantities being
+updated. Unlike the observation table, each observed variable
+is stored in a separate row and all quantities are in columns
+(e.g. ETOP, VTOP, ECF,…).</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>obsdat</strong><em> [</em><em>struct_obs </em><em>,</em><em>inout</em><em>]</em></p></li>
+<li><p><strong>fileindex</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>filename</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>familytype</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/obsdbfiles_mod/odbf_updatefile" title="f/obsdbfiles_mod/odbf_updatefile"><code class="xref f f-func docutils literal notranslate"><span class="pre">odbf_updatefile()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="sqliteutilities_mod.html#f/sqliteutilities_mod/sqlu_sqltableexists" title="f/sqliteutilities_mod/sqlu_sqltableexists"><code class="xref f f-func docutils literal notranslate"><span class="pre">sqlu_sqltableexists()</span></code></a>, <a class="reference internal" href="#f/obsdbfiles_mod/odbf_createmidasheadertable" title="f/obsdbfiles_mod/odbf_createmidasheadertable"><code class="xref f f-func docutils literal notranslate"><span class="pre">odbf_createmidasheadertable()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_numheader" title="f/obsspacedata_mod/obs_numheader"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_numheader()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_headelem_i" title="f/obsspacedata_mod/obs_headelem_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_headelem_i()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_headprimarykey" title="f/obsspacedata_mod/obs_headprimarykey"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_headprimarykey()</span></code></a>, <a class="reference internal" href="#f/obsdbfiles_mod/odbf_addcolumnsmidastable" title="f/obsdbfiles_mod/odbf_addcolumnsmidastable"><code class="xref f f-func docutils literal notranslate"><span class="pre">odbf_addcolumnsmidastable()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_columnindexfromname" title="f/obsspacedata_mod/obs_columnindexfromname"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_columnindexfromname()</span></code></a>, <a class="reference internal" href="#f/obsdbfiles_mod/odbf_midastabcolfromobsspacename" title="f/obsdbfiles_mod/odbf_midastabcolfromobsspacename"><code class="xref f f-func docutils literal notranslate"><span class="pre">odbf_midastabcolfromobsspacename()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_columndatatype" title="f/obsspacedata_mod/obs_columndatatype"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_columndatatype()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_headelem_r" title="f/obsspacedata_mod/obs_headelem_r"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_headelem_r()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/obsdbfiles_mod/odbf_updatemidasbodytable">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obsdbfiles_mod/</span></span><span class="sig-name descname"><span class="pre">odbf_updatemidasbodytable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">obsdat</span></em>, <em class="sig-param"><span class="pre">fileindex</span></em>, <em class="sig-param"><span class="pre">filename</span></em>, <em class="sig-param"><span class="pre">familytype</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/obsdbfiles_mod/odbf_updatemidasbodytable" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Update selected columns in the MIDAS Header Output table using
+values from obsSpaceData. If the MIDAS Body table does not already
+exist, it is created by copying the observation table.
+A single table is created that contains all quantities being
+updated. Unlike the observation table, each observed variable
+is stored in a separate row and all quantities are in columns
+(e.g. obsValue, OMP, OMA,…).</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>obsdat</strong><em> [</em><em>struct_obs </em><em>,</em><em>inout</em><em>]</em></p></li>
+<li><p><strong>fileindex</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>filename</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>familytype</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/obsdbfiles_mod/odbf_updatefile" title="f/obsdbfiles_mod/odbf_updatefile"><code class="xref f f-func docutils literal notranslate"><span class="pre">odbf_updatefile()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="#f/obsdbfiles_mod/odbf_midastabcolfromobsspacename" title="f/obsdbfiles_mod/odbf_midastabcolfromobsspacename"><code class="xref f f-func docutils literal notranslate"><span class="pre">odbf_midastabcolfromobsspacename()</span></code></a>, <a class="reference internal" href="sqliteutilities_mod.html#f/sqliteutilities_mod/sqlu_sqltableexists" title="f/sqliteutilities_mod/sqlu_sqltableexists"><code class="xref f f-func docutils literal notranslate"><span class="pre">sqlu_sqltableexists()</span></code></a>, <a class="reference internal" href="#f/obsdbfiles_mod/odbf_createmidasbodytable" title="f/obsdbfiles_mod/odbf_createmidasbodytable"><code class="xref f f-func docutils literal notranslate"><span class="pre">odbf_createmidasbodytable()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_numheader" title="f/obsspacedata_mod/obs_numheader"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_numheader()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_headelem_i" title="f/obsspacedata_mod/obs_headelem_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_headelem_i()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyelem_r" title="f/obsspacedata_mod/obs_bodyelem_r"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyelem_r()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_headprimarykey" title="f/obsspacedata_mod/obs_headprimarykey"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_headprimarykey()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyprimarykey" title="f/obsspacedata_mod/obs_bodyprimarykey"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyprimarykey()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyelem_i" title="f/obsspacedata_mod/obs_bodyelem_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyelem_i()</span></code></a>, <a class="reference internal" href="#f/obsdbfiles_mod/odbf_addcolumnsmidastable" title="f/obsdbfiles_mod/odbf_addcolumnsmidastable"><code class="xref f f-func docutils literal notranslate"><span class="pre">odbf_addcolumnsmidastable()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_columnindexfromname" title="f/obsspacedata_mod/obs_columnindexfromname"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_columnindexfromname()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_columndatatype" title="f/obsspacedata_mod/obs_columndatatype"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_columndatatype()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/obsdbfiles_mod/odbf_createmidasheadertable">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obsdbfiles_mod/</span></span><span class="sig-name descname"><span class="pre">odbf_createmidasheadertable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">filename</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/obsdbfiles_mod/odbf_createmidasheadertable" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Create the midasOutput Header table that stores all quantities computed
+in MIDAS at the level of the obsSpaceData Header table (e.g. ETOP, VTOP, ECF).</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>filename</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em></p>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/obsdbfiles_mod/odbf_updatemidasheadertable" title="f/obsdbfiles_mod/odbf_updatemidasheadertable"><code class="xref f f-func docutils literal notranslate"><span class="pre">odbf_updatemidasheadertable()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/obsdbfiles_mod/odbf_createmidasbodytable">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obsdbfiles_mod/</span></span><span class="sig-name descname"><span class="pre">odbf_createmidasbodytable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">filename</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/obsdbfiles_mod/odbf_createmidasbodytable" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Create the midasOutput table that stores all quantities computed
+in MIDAS at the level of the obsSpaceData Body table (e.g. OMP, OMA, FLG).</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>filename</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em></p>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/obsdbfiles_mod/odbf_updatemidasbodytable" title="f/obsdbfiles_mod/odbf_updatemidasbodytable"><code class="xref f f-func docutils literal notranslate"><span class="pre">odbf_updatemidasbodytable()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_columnindexfromname" title="f/obsspacedata_mod/obs_columnindexfromname"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_columnindexfromname()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_columndatatype" title="f/obsspacedata_mod/obs_columndatatype"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_columndatatype()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/obsdbfiles_mod/odbf_addcolumnsmidastable">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obsdbfiles_mod/</span></span><span class="sig-name descname"><span class="pre">odbf_addcolumnsmidastable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">midastabletype</span></em>, <em class="sig-param"><span class="pre">filename</span></em>, <em class="sig-param"><span class="pre">midastablename</span></em>, <em class="sig-param"><span class="pre">midasnameslist</span></em>, <em class="sig-param"><span class="pre">obsheadkeysqlname</span></em>, <em class="sig-param"><span class="pre">obsbodykeysqlname</span></em>, <em class="sig-param"><span class="pre">numberupdateitems</span></em>, <em class="sig-param"><span class="pre">updateitemlist</span></em>, <em class="sig-param"><span class="pre">midastablekeysqlname</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">nummidastablerequired_opt</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/obsdbfiles_mod/odbf_addcolumnsmidastable" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Add additional MIDAS columns into the table. This is done by first
+creating a temporary table that includes the additional MIDAS columns.
+The columns from the updated compulsory table (created by odbf_createMidasHeaderTable
+or odbf_createMidasBodyTable) are added into the temporary table. This
+temporary table then replaces the compulsory table.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>midastabletype</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>filename</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>midastablename</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>midasnameslist</strong> (*,*)<em> [</em><em>character </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>obsheadkeysqlname</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>obsbodykeysqlname</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>numberupdateitems</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>updateitemlist</strong> (*)<em> [</em><em>character </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>midastablekeysqlname</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Options</dt>
+<dd class="field-odd"><p><strong>nummidastablerequired_opt</strong><em> [</em><em>integer </em><em>,</em><em>in,</em><em>]</em></p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/obsdbfiles_mod/odbf_updatemidasheadertable" title="f/obsdbfiles_mod/odbf_updatemidasheadertable"><code class="xref f f-func docutils literal notranslate"><span class="pre">odbf_updatemidasheadertable()</span></code></a>, <a class="reference internal" href="#f/obsdbfiles_mod/odbf_updatemidasbodytable" title="f/obsdbfiles_mod/odbf_updatemidasbodytable"><code class="xref f f-func docutils literal notranslate"><span class="pre">odbf_updatemidasbodytable()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/obsdbfiles_mod/odbf_midastabcolfromobsspacename" title="f/obsdbfiles_mod/odbf_midastabcolfromobsspacename"><code class="xref f f-func docutils literal notranslate"><span class="pre">odbf_midastabcolfromobsspacename()</span></code></a>, <a class="reference internal" href="sqliteutilities_mod.html#f/sqliteutilities_mod/sqlu_sqlcolumnexists" title="f/sqliteutilities_mod/sqlu_sqlcolumnexists"><code class="xref f f-func docutils literal notranslate"><span class="pre">sqlu_sqlcolumnexists()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_columnindexfromname" title="f/obsspacedata_mod/obs_columnindexfromname"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_columnindexfromname()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_columndatatype" title="f/obsspacedata_mod/obs_columndatatype"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_columndatatype()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/obsdbfiles_mod/obdf_clean">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obsdbfiles_mod/</span></span><span class="sig-name descname"><span class="pre">obdf_clean</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">filename</span></em>, <em class="sig-param"><span class="pre">familytype</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/obsdbfiles_mod/obdf_clean" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>filename</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>familytype</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="obsfiles_mod.html#f/obsfiles_mod/obsf_cleanobsfiles" title="f/obsfiles_mod/obsf_cleanobsfiles"><code class="xref f f-func docutils literal notranslate"><span class="pre">obsf_cleanobsfiles()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_isnamelistpresent" title="f/utilities_mod/utl_isnamelistpresent"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_isnamelistpresent()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="#f/obsdbfiles_mod/odbf_midastabcolfromobsspacename" title="f/obsdbfiles_mod/odbf_midastabcolfromobsspacename"><code class="xref f f-func docutils literal notranslate"><span class="pre">odbf_midastabcolfromobsspacename()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div></blockquote>
+</section>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="obsdiagfiles_mod.html" title="obsdiagfiles_mod"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="burpread_mod.html" title="burpread_mod"
+             >previous</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2018, ECCC.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.
+    </div>
+  </body>
+</html>

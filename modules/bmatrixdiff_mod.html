@@ -1,0 +1,429 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>bmatrixdiff_mod &mdash; MIDAS  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="MIDAS  documentation" href="../index.html" />
+    <link rel="next" title="bmatrixensemble_mod" href="bmatrixensemble_mod.html" />
+    <link rel="prev" title="bmatrixchem_mod" href="bmatrixchem_mod.html" /> 
+  </head>
+  <body>
+  <div>
+    <img src="../_static/MIDAS_header.png" alt="MIDAS" />
+  </div>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="bmatrixensemble_mod.html" title="bmatrixensemble_mod"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="bmatrixchem_mod.html" title="bmatrixchem_mod"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="bmatrixchem_mod.html"
+                          title="previous chapter">bmatrixchem_mod</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="bmatrixensemble_mod.html"
+                          title="next chapter">bmatrixensemble_mod</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/modules/bmatrixdiff_mod.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <section id="bmatrixdiff-mod">
+<h1>bmatrixdiff_mod<a class="headerlink" href="#bmatrixdiff-mod" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><p><a class="reference internal" href="bmatrixdiff_mod_src.html"><span class="doc">link to source code</span></a></p>
+<p><strong>Dependency Diagrams:</strong></p>
+<figure class="align-default" id="id1">
+<a class="reference internal image-reference" href="bmatrixdiff_mod.svg"><img alt="bmatrixdiff_mod.svg" height="100px" src="bmatrixdiff_mod.svg" /></a>
+<figcaption>
+<p><span class="caption-text">Direct Dependency Diagram</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id2">
+<a class="reference internal image-reference" href="bmatrixdiff_mod_rev.svg"><img alt="bmatrixdiff_mod_rev.svg" height="100px" src="bmatrixdiff_mod_rev.svg" /></a>
+<figcaption>
+<p><span class="caption-text">Reverse Dependency Diagram</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<span class="target" id="f/bmatrixdiff_mod"></span><p class="rubric">Description</p>
+<p>MODULE BmatrixDiff_mod (prefix=’bdiff’ category=’2. B and R matrices’)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Purpose</dt>
+<dd class="field-odd"><p>Performs transformation from control vector to analysis increment
+using the background-error covariance matrix based on correlations
+modelled using a diffusion operator.</p>
+</dd>
+</dl>
+<p class="rubric">Quick access</p>
+<dl class="field-list simple">
+<dt class="field-odd">Routines</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/bmatrixdiff_mod/bdiff_bsqrt" title="f/bmatrixdiff_mod/bdiff_bsqrt"><code class="xref f f-func docutils literal notranslate"><span class="pre">bdiff_bsqrt()</span></code></a>, <a class="reference internal" href="#f/bmatrixdiff_mod/bdiff_bsqrtad" title="f/bmatrixdiff_mod/bdiff_bsqrtad"><code class="xref f f-func docutils literal notranslate"><span class="pre">bdiff_bsqrtad()</span></code></a>, <a class="reference internal" href="#f/bmatrixdiff_mod/bdiff_cain" title="f/bmatrixdiff_mod/bdiff_cain"><code class="xref f f-func docutils literal notranslate"><span class="pre">bdiff_cain()</span></code></a>, <a class="reference internal" href="#f/bmatrixdiff_mod/bdiff_cainad" title="f/bmatrixdiff_mod/bdiff_cainad"><code class="xref f f-func docutils literal notranslate"><span class="pre">bdiff_cainad()</span></code></a>, <a class="reference internal" href="#f/bmatrixdiff_mod/bdiff_copyfromstatevector" title="f/bmatrixdiff_mod/bdiff_copyfromstatevector"><code class="xref f f-func docutils literal notranslate"><span class="pre">bdiff_copyfromstatevector()</span></code></a>, <a class="reference internal" href="#f/bmatrixdiff_mod/bdiff_copytostatevector" title="f/bmatrixdiff_mod/bdiff_copytostatevector"><code class="xref f f-func docutils literal notranslate"><span class="pre">bdiff_copytostatevector()</span></code></a>, <a class="reference internal" href="#f/bmatrixdiff_mod/bdiff_finalize" title="f/bmatrixdiff_mod/bdiff_finalize"><code class="xref f f-func docutils literal notranslate"><span class="pre">bdiff_finalize()</span></code></a>, <a class="reference internal" href="#f/bmatrixdiff_mod/bdiff_getscalefactor" title="f/bmatrixdiff_mod/bdiff_getscalefactor"><code class="xref f f-func docutils literal notranslate"><span class="pre">bdiff_getscalefactor()</span></code></a>, <a class="reference internal" href="#f/bmatrixdiff_mod/bdiff_rdstats" title="f/bmatrixdiff_mod/bdiff_rdstats"><code class="xref f f-func docutils literal notranslate"><span class="pre">bdiff_rdstats()</span></code></a>, <a class="reference internal" href="#f/bmatrixdiff_mod/bdiff_readbgstdfield" title="f/bmatrixdiff_mod/bdiff_readbgstdfield"><code class="xref f f-func docutils literal notranslate"><span class="pre">bdiff_readbgstdfield()</span></code></a>, <a class="reference internal" href="#f/bmatrixdiff_mod/bdiff_reducetompilocal" title="f/bmatrixdiff_mod/bdiff_reducetompilocal"><code class="xref f f-func docutils literal notranslate"><span class="pre">bdiff_reducetompilocal()</span></code></a>, <a class="reference internal" href="#f/bmatrixdiff_mod/bdiff_scalestd" title="f/bmatrixdiff_mod/bdiff_scalestd"><code class="xref f f-func docutils literal notranslate"><span class="pre">bdiff_scalestd()</span></code></a>, <a class="reference internal" href="#f/bmatrixdiff_mod/bdiff_setup" title="f/bmatrixdiff_mod/bdiff_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">bdiff_setup()</span></code></a></p>
+</dd>
+</dl>
+<p class="rubric">Needed modules</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="midasmpi_mod.html#f/midasmpi_mod" title="f/midasmpi_mod: MODULE midasMpi_mod (prefix='mmpi' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">midasmpi_mod</span></code></a>: MODULE midasMpi_mod (prefix=’mmpi’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod" title="f/gridstatevector_mod: MODULE gridStateVector_mod (prefix='gsv' category='6. High-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">gridstatevector_mod</span></code></a>: MODULE gridStateVector_mod (prefix=’gsv’ category=’6. High-level data objects’)</p></li>
+<li><p><a class="reference internal" href="gridstatevectorfileio_mod.html#f/gridstatevectorfileio_mod" title="f/gridstatevectorfileio_mod: MODULE gridStateVectorFile_mod (prefix='gio' category='4. Data Object transformations')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">gridstatevectorfileio_mod</span></code></a>: MODULE gridStateVectorFile_mod (prefix=’gio’ category=’4. Data Object transformations’)</p></li>
+<li><p><a class="reference internal" href="horizontalcoord_mod.html#f/horizontalcoord_mod" title="f/horizontalcoord_mod: MODULE HorizontalCoord_mod (prefix='hco' category='7. Low-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">horizontalcoord_mod</span></code></a>: MODULE HorizontalCoord_mod (prefix=’hco’ category=’7. Low-level data objects’)</p></li>
+<li><p><a class="reference internal" href="verticalcoord_mod.html#f/verticalcoord_mod" title="f/verticalcoord_mod: MODULE verticalcoord (prefix='vco' category='7. Low-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">verticalcoord_mod</span></code></a>: MODULE verticalcoord (prefix=’vco’ category=’7. Low-level data objects’)</p></li>
+<li><p><a class="reference internal" href="varnamelist_mod.html#f/varnamelist_mod" title="f/varnamelist_mod: MODULE varNameList (prefix='vnl' category='7. Low-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">varnamelist_mod</span></code></a>: MODULE varNameList (prefix=’vnl’ category=’7. Low-level data objects’)</p></li>
+<li><p><a class="reference internal" href="physicsfunctions_mod.html#f/physicsfunctions_mod" title="f/physicsfunctions_mod: MODULE physicsFunctions_mod (prefix='phf' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">physicsfunctions_mod</span></code></a>: MODULE physicsFunctions_mod (prefix=’phf’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod" title="f/utilities_mod: MODULE utilities_mod (prefix='utl' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">utilities_mod</span></code></a>: MODULE utilities_mod (prefix=’utl’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="diffusion_mod.html#f/diffusion_mod" title="f/diffusion_mod: MODULE diffusion_mod (prefix='diff' category='4. Data Object transformations')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">diffusion_mod</span></code></a>: MODULE diffusion_mod (prefix=’diff’ category=’4. Data Object transformations’)</p></li>
+</ul>
+<p class="rubric">Variables</p>
+<p class="rubric">Subroutines and functions</p>
+<dl>
+<dt class="sig sig-object f" id="f/bmatrixdiff_mod/bdiff_setup">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">bmatrixdiff_mod/</span></span><span class="sig-name descname"><span class="pre">bdiff_setup</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">hco_in</span></em>, <em class="sig-param"><span class="pre">vco_in</span></em>, <em class="sig-param"><span class="pre">cvdim_out</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">mode_opt</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/bmatrixdiff_mod/bdiff_setup" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Setup the diffusion B matrix</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>hco_in</strong><em> [</em><em>struct_hco </em><em>,</em><em>inout,pointer</em><em>]</em></p></li>
+<li><p><strong>vco_in</strong><em> [</em><em>struct_vco </em><em>,</em><em>inout,pointer</em><em>]</em></p></li>
+<li><p><strong>cvdim_out</strong><em> [</em><em>integer </em><em>,</em><em>out</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Options</dt>
+<dd class="field-odd"><p><strong>mode_opt</strong><em> [</em><em>character </em><em>,</em><em>in,</em><em>]</em></p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="bmatrix_mod.html#f/bmatrix_mod/bmat_setup" title="f/bmatrix_mod/bmat_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">bmat_setup()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_start" title="f/utilities_mod/utl_tmg_start"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_start()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_isnamelistpresent" title="f/utilities_mod/utl_isnamelistpresent"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_isnamelistpresent()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_stop" title="f/utilities_mod/utl_tmg_stop"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_stop()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_varexist" title="f/gridstatevector_mod/gsv_varexist"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_varexist()</span></code></a>, <a class="reference internal" href="physicsfunctions_mod.html#f/physicsfunctions_mod/phf_calcdistance" title="f/physicsfunctions_mod/phf_calcdistance"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_calcdistance()</span></code></a>, <a class="reference internal" href="diffusion_mod.html#f/diffusion_mod/diff_setup" title="f/diffusion_mod/diff_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">diff_setup()</span></code></a>, <a class="reference internal" href="midasmpi_mod.html#f/midasmpi_mod/mmpi_setup_latbands" title="f/midasmpi_mod/mmpi_setup_latbands"><code class="xref f f-func docutils literal notranslate"><span class="pre">mmpi_setup_latbands()</span></code></a>, <a class="reference internal" href="midasmpi_mod.html#f/midasmpi_mod/mmpi_setup_lonbands" title="f/midasmpi_mod/mmpi_setup_lonbands"><code class="xref f f-func docutils literal notranslate"><span class="pre">mmpi_setup_lonbands()</span></code></a>, <a class="reference internal" href="#f/bmatrixdiff_mod/bdiff_rdstats" title="f/bmatrixdiff_mod/bdiff_rdstats"><code class="xref f f-func docutils literal notranslate"><span class="pre">bdiff_rdstats()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/bmatrixdiff_mod/bdiff_getscalefactor">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">bmatrixdiff_mod/</span></span><span class="sig-name descname"><span class="pre">bdiff_getscalefactor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">scalefactor_out</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/bmatrixdiff_mod/bdiff_getscalefactor" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Return the specified scaleFactor.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>scalefactor_out</strong> (*)<em> [</em><em>real </em><em>,</em><em>out</em><em>]</em></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/bmatrixdiff_mod/bdiff_rdstats">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">bmatrixdiff_mod/</span></span><span class="sig-name descname"><span class="pre">bdiff_rdstats</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">hco_in</span></em>, <em class="sig-param"><span class="pre">vco_in</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/bmatrixdiff_mod/bdiff_rdstats" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>To read background-error stats file.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>hco_in</strong><em> [</em><em>struct_hco </em><em>,</em><em>pointer</em><em>]</em></p></li>
+<li><p><strong>vco_in</strong><em> [</em><em>struct_vco </em><em>,</em><em>pointer</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/bmatrixdiff_mod/bdiff_setup" title="f/bmatrixdiff_mod/bdiff_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">bdiff_setup()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="#f/bmatrixdiff_mod/bdiff_readbgstdfield" title="f/bmatrixdiff_mod/bdiff_readbgstdfield"><code class="xref f f-func docutils literal notranslate"><span class="pre">bdiff_readbgstdfield()</span></code></a>, <a class="reference internal" href="#f/bmatrixdiff_mod/bdiff_scalestd" title="f/bmatrixdiff_mod/bdiff_scalestd"><code class="xref f f-func docutils literal notranslate"><span class="pre">bdiff_scalestd()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/bmatrixdiff_mod/bdiff_readbgstdfield">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">bmatrixdiff_mod/</span></span><span class="sig-name descname"><span class="pre">bdiff_readbgstdfield</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">hco_in</span></em>, <em class="sig-param"><span class="pre">vco_in</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/bmatrixdiff_mod/bdiff_readbgstdfield" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>to read 2D background error standard deviation field
+stored on Z, U or G grid and interpolate it to the analysis grid</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>hco_in</strong><em> [</em><em>struct_hco </em><em>,</em><em>in,pointer</em><em>]</em></p></li>
+<li><p><strong>vco_in</strong><em> [</em><em>struct_vco </em><em>,</em><em>in,pointer</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/bmatrixdiff_mod/bdiff_rdstats" title="f/bmatrixdiff_mod/bdiff_rdstats"><code class="xref f f-func docutils literal notranslate"><span class="pre">bdiff_rdstats()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_allocate" title="f/gridstatevector_mod/gsv_allocate"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_allocate()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_zero" title="f/gridstatevector_mod/gsv_zero"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_zero()</span></code></a>, <a class="reference internal" href="gridstatevectorfileio_mod.html#f/gridstatevectorfileio_mod/gio_readfromfile" title="f/gridstatevectorfileio_mod/gio_readfromfile"><code class="xref f f-func docutils literal notranslate"><span class="pre">gio_readfromfile()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_deallocate" title="f/gridstatevector_mod/gsv_deallocate"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_deallocate()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/bmatrixdiff_mod/bdiff_scalestd">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">bmatrixdiff_mod/</span></span><span class="sig-name descname"><span class="pre">bdiff_scalestd</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#f/bmatrixdiff_mod/bdiff_scalestd" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>To scale background-error standard-deviation values.</p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/bmatrixdiff_mod/bdiff_rdstats" title="f/bmatrixdiff_mod/bdiff_rdstats"><code class="xref f f-func docutils literal notranslate"><span class="pre">bdiff_rdstats()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/bmatrixdiff_mod/bdiff_bsqrt">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">bmatrixdiff_mod/</span></span><span class="sig-name descname"><span class="pre">bdiff_bsqrt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">controlvector_in</span></em>, <em class="sig-param"><span class="pre">statevector</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/bmatrixdiff_mod/bdiff_bsqrt" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Apply the sqrt of the B matrix</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>controlvector_in</strong> (cvdim_mpilocal)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>statevector</strong><em> [</em><em>struct_gsv </em><em>,</em><em>inout</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="bmatrix_mod.html#f/bmatrix_mod/bmat_sqrtb" title="f/bmatrix_mod/bmat_sqrtb"><code class="xref f f-func docutils literal notranslate"><span class="pre">bmat_sqrtb()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/bmatrixdiff_mod/bdiff_cain" title="f/bmatrixdiff_mod/bdiff_cain"><code class="xref f f-func docutils literal notranslate"><span class="pre">bdiff_cain()</span></code></a>, <a class="reference internal" href="diffusion_mod.html#f/diffusion_mod/diff_csqrt" title="f/diffusion_mod/diff_csqrt"><code class="xref f f-func docutils literal notranslate"><span class="pre">diff_csqrt()</span></code></a>, <a class="reference internal" href="#f/bmatrixdiff_mod/bdiff_copytostatevector" title="f/bmatrixdiff_mod/bdiff_copytostatevector"><code class="xref f f-func docutils literal notranslate"><span class="pre">bdiff_copytostatevector()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/bmatrixdiff_mod/bdiff_bsqrtad">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">bmatrixdiff_mod/</span></span><span class="sig-name descname"><span class="pre">bdiff_bsqrtad</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">statevector</span></em>, <em class="sig-param"><span class="pre">controlvector_out</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/bmatrixdiff_mod/bdiff_bsqrtad" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Apply the adjoint (i.e. transpose) of the sqrt of the B matrix</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>statevector</strong><em> [</em><em>struct_gsv </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>controlvector_out</strong> (cvdim_mpilocal)<em> [</em><em>real </em><em>,</em><em>out</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="bmatrix_mod.html#f/bmatrix_mod/bmat_sqrtbt" title="f/bmatrix_mod/bmat_sqrtbt"><code class="xref f f-func docutils literal notranslate"><span class="pre">bmat_sqrtbt()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/bmatrixdiff_mod/bdiff_copyfromstatevector" title="f/bmatrixdiff_mod/bdiff_copyfromstatevector"><code class="xref f f-func docutils literal notranslate"><span class="pre">bdiff_copyfromstatevector()</span></code></a>, <a class="reference internal" href="diffusion_mod.html#f/diffusion_mod/diff_csqrtadj" title="f/diffusion_mod/diff_csqrtadj"><code class="xref f f-func docutils literal notranslate"><span class="pre">diff_csqrtadj()</span></code></a>, <a class="reference internal" href="#f/bmatrixdiff_mod/bdiff_cainad" title="f/bmatrixdiff_mod/bdiff_cainad"><code class="xref f f-func docutils literal notranslate"><span class="pre">bdiff_cainad()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/bmatrixdiff_mod/bdiff_copytostatevector">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">bmatrixdiff_mod/</span></span><span class="sig-name descname"><span class="pre">bdiff_copytostatevector</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">statevector</span></em>, <em class="sig-param"><span class="pre">gd</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/bmatrixdiff_mod/bdiff_copytostatevector" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Copy the working array to a statevector object</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>statevector</strong><em> [</em><em>struct_gsv </em><em>,</em><em>inout</em><em>]</em></p></li>
+<li><p><strong>gd</strong> (mylonend-(mylonbeg)+1,mylatend-(mylatbeg)+1,numvar2d)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/bmatrixdiff_mod/bdiff_bsqrt" title="f/bmatrixdiff_mod/bdiff_bsqrt"><code class="xref f f-func docutils literal notranslate"><span class="pre">bdiff_bsqrt()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_getdatakind" title="f/gridstatevector_mod/gsv_getdatakind"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_getdatakind()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/bmatrixdiff_mod/bdiff_copyfromstatevector">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">bmatrixdiff_mod/</span></span><span class="sig-name descname"><span class="pre">bdiff_copyfromstatevector</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">statevector</span></em>, <em class="sig-param"><span class="pre">gd</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/bmatrixdiff_mod/bdiff_copyfromstatevector" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Copy the contents of the statevector object to the working array</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>statevector</strong><em> [</em><em>struct_gsv </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>gd</strong> (mylonend-(mylonbeg)+1,mylatend-(mylatbeg)+1,numvar2d)<em> [</em><em>real </em><em>,</em><em>out</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/bmatrixdiff_mod/bdiff_bsqrtad" title="f/bmatrixdiff_mod/bdiff_bsqrtad"><code class="xref f f-func docutils literal notranslate"><span class="pre">bdiff_bsqrtad()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_getdatakind" title="f/gridstatevector_mod/gsv_getdatakind"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_getdatakind()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/bmatrixdiff_mod/bdiff_reducetompilocal">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">bmatrixdiff_mod/</span></span><span class="sig-name descname"><span class="pre">bdiff_reducetompilocal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">cv_mpilocal</span></em>, <em class="sig-param"><span class="pre">cv_mpiglobal</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/bmatrixdiff_mod/bdiff_reducetompilocal" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Extract the subset of the global control vector needed for local MPI task</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>cv_mpilocal</strong> (*)<em> [</em><em>real </em><em>,</em><em>out</em><em>]</em></p></li>
+<li><p><strong>cv_mpiglobal</strong> (*)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="bmatrix_mod.html#f/bmatrix_mod/bmat_reducetompilocal" title="f/bmatrix_mod/bmat_reducetompilocal"><code class="xref f f-func docutils literal notranslate"><span class="pre">bmat_reducetompilocal()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/bmatrixdiff_mod/bdiff_cain">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">bmatrixdiff_mod/</span></span><span class="sig-name descname"><span class="pre">bdiff_cain</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">controlvector_in</span></em>, <em class="sig-param"><span class="pre">gd_out</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/bmatrixdiff_mod/bdiff_cain" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Transform from control vector to working array</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>controlvector_in</strong> (cvdim_mpilocal)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>gd_out</strong> (mylonend-(mylonbeg)+1,mylatend-(mylatbeg)+1,numvar2d)<em> [</em><em>real </em><em>,</em><em>out</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/bmatrixdiff_mod/bdiff_bsqrt" title="f/bmatrixdiff_mod/bdiff_bsqrt"><code class="xref f f-func docutils literal notranslate"><span class="pre">bdiff_bsqrt()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/bmatrixdiff_mod/bdiff_cainad">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">bmatrixdiff_mod/</span></span><span class="sig-name descname"><span class="pre">bdiff_cainad</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">gd_in</span></em>, <em class="sig-param"><span class="pre">diffcontrolvector_out</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/bmatrixdiff_mod/bdiff_cainad" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Transform from working array to control vector</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>gd_in</strong> (mylonend-(mylonbeg)+1,mylatend-(mylatbeg)+1,numvar2d)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>diffcontrolvector_out</strong> (cvdim_mpilocal)<em> [</em><em>real </em><em>,</em><em>out</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/bmatrixdiff_mod/bdiff_bsqrtad" title="f/bmatrixdiff_mod/bdiff_bsqrtad"><code class="xref f f-func docutils literal notranslate"><span class="pre">bdiff_bsqrtad()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/bmatrixdiff_mod/bdiff_finalize">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">bmatrixdiff_mod/</span></span><span class="sig-name descname"><span class="pre">bdiff_finalize</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#f/bmatrixdiff_mod/bdiff_finalize" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Deallocate some arrays after we don’t need the B matrix anymore.</p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="bmatrix_mod.html#f/bmatrix_mod/bmat_finalize" title="f/bmatrix_mod/bmat_finalize"><code class="xref f f-func docutils literal notranslate"><span class="pre">bmat_finalize()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div></blockquote>
+</section>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="bmatrixensemble_mod.html" title="bmatrixensemble_mod"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="bmatrixchem_mod.html" title="bmatrixchem_mod"
+             >previous</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2018, ECCC.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.
+    </div>
+  </body>
+</html>

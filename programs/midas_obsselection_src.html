@@ -1,0 +1,609 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>midas_obsselection source &mdash; MIDAS  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="MIDAS  documentation" href="../index.html" /> 
+  </head>
+  <body>
+  <div>
+    <img src="../_static/MIDAS_header.png" alt="MIDAS" />
+  </div>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/programs/midas_obsselection_src.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <section id="midas-obsselection-source">
+<h1>midas_obsselection source<a class="headerlink" href="#midas-obsselection-source" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="linenos">  1</span><span class="c">!-------------------------------------- LICENCE BEGIN ------------------------------------</span>
+<span class="linenos">  2</span><span class="c">!Environment Canada - Atmospheric Science and Technology License/Disclaimer,</span>
+<span class="linenos">  3</span><span class="c">!                     version 3; Last Modified: May 7, 2008.</span>
+<span class="linenos">  4</span><span class="c">!This is free but copyrighted software; you can use/redistribute/modify it under the terms</span>
+<span class="linenos">  5</span><span class="c">!of the Environment Canada - Atmospheric Science and Technology License/Disclaimer</span>
+<span class="linenos">  6</span><span class="c">!version 3 or (at your option) any later version that should be found at:</span>
+<span class="linenos">  7</span><span class="c">!http://collaboration.cmc.ec.gc.ca/science/rpn.comm/license.html</span>
+<span class="linenos">  8</span><span class="c">!</span>
+<span class="linenos">  9</span><span class="c">!This software is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;</span>
+<span class="linenos"> 10</span><span class="c">!without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.</span>
+<span class="linenos"> 11</span><span class="c">!See the above mentioned License/Disclaimer for more details.</span>
+<span class="linenos"> 12</span><span class="c">!You should have received a copy of the License/Disclaimer along with this software;</span>
+<span class="linenos"> 13</span><span class="c">!if not, you can write to: EC-RPN COMM Group, 2121 TransCanada, suite 500, Dorval (Quebec),</span>
+<span class="linenos"> 14</span><span class="c">!CANADA, H9P 1J3; or send e-mail to service.rpn@ec.gc.ca</span>
+<span class="linenos"> 15</span><span class="c">!-------------------------------------- LICENCE END --------------------------------------</span>
+<span class="linenos"> 16</span>
+<span class="linenos"> 17</span><span class="k">program </span><span class="n">midas_obsSelection</span><span class="w"></span>
+<span class="linenos"> 18</span><span class="w">  </span><span class="c">!</span>
+<span class="linenos"> 19</span><span class="w">  </span><span class="c">!:Purpose: Main program for background check, and thinning of all observation types.</span>
+<span class="linenos"> 20</span><span class="w">  </span><span class="c">!</span>
+<span class="linenos"> 21</span><span class="w">  </span><span class="c">!          ---</span>
+<span class="linenos"> 22</span><span class="w">  </span><span class="c">!</span>
+<span class="linenos"> 23</span><span class="w">  </span><span class="c">!:Algorithm: For background check of each observation type, several quality control tests </span>
+<span class="linenos"> 24</span><span class="w">  </span><span class="c">!            specific to that observation type are performed on each available observation</span>
+<span class="linenos"> 25</span><span class="w">  </span><span class="c">!            to determine if the observation meets the standard to be assimilated later.</span>
+<span class="linenos"> 26</span><span class="w">  </span><span class="c">!            Observation flags are modified for rejected observations as well as for the </span>
+<span class="linenos"> 27</span><span class="w">  </span><span class="c">!            assimilated observations of inferior quality.The thinning is performed afterwards </span>
+<span class="linenos"> 28</span><span class="w">  </span><span class="c">!            to reduce the number of observation data for assimilation. This is to reduce the </span>
+<span class="linenos"> 29</span><span class="w">  </span><span class="c">!            1) computational cost, and 2) observation error correlation during </span>
+<span class="linenos"> 30</span><span class="w">  </span><span class="c">!            assimilation stage. The background-checked thinned observations are written</span>
+<span class="linenos"> 31</span><span class="w">  </span><span class="c">!            to new files, ready for assimilation.</span>
+<span class="linenos"> 32</span><span class="w">  </span><span class="c">!</span>
+<span class="linenos"> 33</span><span class="w">  </span><span class="c">!            --</span>
+<span class="linenos"> 34</span><span class="w">  </span><span class="c">!</span>
+<span class="linenos"> 35</span><span class="w">  </span><span class="c">!            The computed bias correction values are applied to the observation before the </span>
+<span class="linenos"> 36</span><span class="w">  </span><span class="c">!            background check step for certain observation types (e.g. radiances). One of quality</span>
+<span class="linenos"> 37</span><span class="w">  </span><span class="c">!            control tests during background check is the ``rogue check`` which is the allowed</span>
+<span class="linenos"> 38</span><span class="w">  </span><span class="c">!            distance of the observation from the background state. Innovation vector  </span>
+<span class="linenos"> 39</span><span class="w">  </span><span class="c">!            ``y-H(xb)`` is required to measure this distance. The innovations are </span>
+<span class="linenos"> 40</span><span class="w">  </span><span class="c">!            computed at the beginning of the program before the background check starts.</span>
+<span class="linenos"> 41</span><span class="w">  </span><span class="c">!</span>
+<span class="linenos"> 42</span><span class="w">  </span><span class="c">!            --</span>
+<span class="linenos"> 43</span><span class="w">  </span><span class="c">!</span>
+<span class="linenos"> 44</span><span class="w">  </span><span class="c">!============================================== ==============================================================</span>
+<span class="linenos"> 45</span><span class="w">  </span><span class="c">! Input and Output Files                        Description of file</span>
+<span class="linenos"> 46</span><span class="w">  </span><span class="c">!============================================== ==============================================================</span>
+<span class="linenos"> 47</span><span class="w">  </span><span class="c">! ``flnml``                                      In - Main namelist file with parameters that user may modify</span>
+<span class="linenos"> 48</span><span class="w">  </span><span class="c">! ``flnml_static``                               In - The &quot;static&quot; namelist that should not be modified</span>
+<span class="linenos"> 49</span><span class="w">  </span><span class="c">! ``trlm_$NN`` (e.g. ``trlm_01``)                In - Background state (a.k.a. trial) files for each timestep</span>
+<span class="linenos"> 50</span><span class="w">  </span><span class="c">! ``analysisgrid``                               In - File defining grid for computing the analysis increment</span>
+<span class="linenos"> 51</span><span class="w">  </span><span class="c">! ``obsfiles_$FAM/obs$FAM_$NNNN_$NNNN``          In - Observation file for each &quot;family&quot; and MPI task</span>
+<span class="linenos"> 52</span><span class="w">  </span><span class="c">! ``obserr``                                     In - Observation error statistics</span>
+<span class="linenos"> 53</span><span class="w">  </span><span class="c">! ``obsfiles_$FAM.updated/obs$FAM_$NNNN_$NNNN``  Out - Updated obs file for each &quot;family&quot; and MPI task</span>
+<span class="linenos"> 54</span><span class="w">  </span><span class="c">! Remainder are files related to radiance obs:</span>
+<span class="linenos"> 55</span><span class="w">  </span><span class="c">! ``stats_$SENSOR_assim``                        In - Satellite radiance observation errors of difference sensors</span>
+<span class="linenos"> 56</span><span class="w">  </span><span class="c">! ``stats_tovs``                                 In - Satellite radiance observation errors</span>
+<span class="linenos"> 57</span><span class="w">  </span><span class="c">! ``stats_tovs_symmetricObsErr``                 In - User-defined symmetric TOVS errors for all sky</span>
+<span class="linenos"> 58</span><span class="w">  </span><span class="c">! ``Cmat_$PLATFORM_$SENSOR.dat``                 In - Inter-channel observation-error correlations</span>
+<span class="linenos"> 59</span><span class="w">  </span><span class="c">! ``dynbcor.coeffs.$SENSOR.*.coeffs_$SENSOR``    In - Dynamic bias correction file</span>
+<span class="linenos"> 60</span><span class="w">  </span><span class="c">! ``ceres_global.std``                           In - High-res surface type and water fraction for radiance obs</span>
+<span class="linenos"> 61</span><span class="w">  </span><span class="c">! ``rtcoef_$PLATFORM_$SENSOR.dat``               In - RTTOV coefficient files</span>
+<span class="linenos"> 62</span><span class="w">  </span><span class="c">! ``rttov_h2o_limits.dat``                       In - Min/max humidity limits applied to analysis</span>
+<span class="linenos"> 63</span><span class="w">  </span><span class="c">! ``ozoneclim98``                                In - Ozone climatology</span>
+<span class="linenos"> 64</span><span class="w">  </span><span class="c">!============================================== ==============================================================</span>
+<span class="linenos"> 65</span><span class="w">  </span><span class="c">!</span>
+<span class="linenos"> 66</span><span class="w">  </span><span class="c">!           --</span>
+<span class="linenos"> 67</span><span class="w">  </span><span class="c">!</span>
+<span class="linenos"> 68</span><span class="w">  </span><span class="c">!:Synopsis: Below is a summary of the ``obsSelection`` program calling sequence:</span>
+<span class="linenos"> 69</span><span class="w">  </span><span class="c">!</span>
+<span class="linenos"> 70</span><span class="w">  </span><span class="c">!             - **Initial setups:**</span>
+<span class="linenos"> 71</span><span class="w">  </span><span class="c">!</span>
+<span class="linenos"> 72</span><span class="w">  </span><span class="c">!               - Read the NAMOBSSELECTION namelist and check/modify some values.</span>
+<span class="linenos"> 73</span><span class="w">  </span><span class="c">!</span>
+<span class="linenos"> 74</span><span class="w">  </span><span class="c">!               - Various modules are setup: ``obsFiles_mod``, ``timeCoord_mod``.</span>
+<span class="linenos"> 75</span><span class="w">  </span><span class="c">!</span>
+<span class="linenos"> 76</span><span class="w">  </span><span class="c">!               - Setup horizontal and vertical grid objects for &quot;analysis</span>
+<span class="linenos"> 77</span><span class="w">  </span><span class="c">!                 grid&quot; from ``analysisgrid`` file.</span>
+<span class="linenos"> 78</span><span class="w">  </span><span class="c">!</span>
+<span class="linenos"> 79</span><span class="w">  </span><span class="c">!               - Setup ``obsSpaceData`` object and read observations from</span>
+<span class="linenos"> 80</span><span class="w">  </span><span class="c">!                 files: ``inn_setupObs``.</span>
+<span class="linenos"> 81</span><span class="w">  </span><span class="c">!</span>
+<span class="linenos"> 82</span><span class="w">  </span><span class="c">!               - Compute and update the stored surface type for some satellite</span>
+<span class="linenos"> 83</span><span class="w">  </span><span class="c">!                 radiance instruments. </span>
+<span class="linenos"> 84</span><span class="w">  </span><span class="c">!</span>
+<span class="linenos"> 85</span><span class="w">  </span><span class="c">!               - Setup ``columnData`` module (read list of analysis variables </span>
+<span class="linenos"> 86</span><span class="w">  </span><span class="c">!                 from namelist) and allocate column object for storing trial </span>
+<span class="linenos"> 87</span><span class="w">  </span><span class="c">!                 on analysis levels.</span>
+<span class="linenos"> 88</span><span class="w">  </span><span class="c">!</span>
+<span class="linenos"> 89</span><span class="w">  </span><span class="c">!               - Setup the observation error statistics in ``obsSpaceData``</span>
+<span class="linenos"> 90</span><span class="w">  </span><span class="c">!                 object: ``oer_setObsErrors``</span>
+<span class="linenos"> 91</span><span class="w">  </span><span class="c">!</span>
+<span class="linenos"> 92</span><span class="w">  </span><span class="c">!               - Setup ``gridStateVector`` module to initialize the gridstatevector </span>
+<span class="linenos"> 93</span><span class="w">  </span><span class="c">!                 objects.</span>
+<span class="linenos"> 94</span><span class="w">  </span><span class="c">!</span>
+<span class="linenos"> 95</span><span class="w">  </span><span class="c">!               - Applying optional bias corrections to some observation types.</span>
+<span class="linenos"> 96</span><span class="w">  </span><span class="c">!</span>
+<span class="linenos"> 97</span><span class="w">  </span><span class="c">!               - Setup horizontal and vertical grid objects for &quot;trial grid&quot; from</span>
+<span class="linenos"> 98</span><span class="w">  </span><span class="c">!                 first trial file: ``trlm_01``.</span>
+<span class="linenos"> 99</span><span class="w">  </span><span class="c">!</span>
+<span class="linenos">100</span><span class="w">  </span><span class="c">!               - Allocate a stateVector object on the trial grid and then</span>
+<span class="linenos">101</span><span class="w">  </span><span class="c">!                 read the trials: ``gio_readTrials``.</span>
+<span class="linenos">102</span><span class="w">  </span><span class="c">!</span>
+<span class="linenos">103</span><span class="w">  </span><span class="c">!             - **Computation**</span>
+<span class="linenos">104</span><span class="w">  </span><span class="c">!</span>
+<span class="linenos">105</span><span class="w">  </span><span class="c">!               - Compute ``columnTrlOnTrlLev`` and ``columnTrlOnAnlIncLev`` from</span>
+<span class="linenos">106</span><span class="w">  </span><span class="c">!                 background state: ``inn_setupColumnsOnTrlLev``,</span>
+<span class="linenos">107</span><span class="w">  </span><span class="c">!                 ``inn_setupColumnsOnAnlIncLev``.</span>
+<span class="linenos">108</span><span class="w">  </span><span class="c">!</span>
+<span class="linenos">109</span><span class="w">  </span><span class="c">!               - Compute innovation from background state: ``inn_computeInnovation``.</span>
+<span class="linenos">110</span><span class="w">  </span><span class="c">!</span>
+<span class="linenos">111</span><span class="w">  </span><span class="c">!               - Do background check for conventional observation: </span>
+<span class="linenos">112</span><span class="w">  </span><span class="c">!                 ``bgck_bgCheck_conv``.</span>
+<span class="linenos">113</span><span class="w">  </span><span class="c">!</span>
+<span class="linenos">114</span><span class="w">  </span><span class="c">!               - Update radiance bias correction in ``obsSpaceData`` and apply </span>
+<span class="linenos">115</span><span class="w">  </span><span class="c">!                 the bias corrections to the observations and innovations for</span>
+<span class="linenos">116</span><span class="w">  </span><span class="c">!                 radiances: ``bcs_calcBias``, ``bcs_applyBiasCorrection``.</span>
+<span class="linenos">117</span><span class="w">  </span><span class="c">!</span>
+<span class="linenos">118</span><span class="w">  </span><span class="c">!               - Perform background check for multiple observation types.</span>
+<span class="linenos">119</span><span class="w">  </span><span class="c">!             </span>
+<span class="linenos">120</span><span class="w">  </span><span class="c">!               - If thinning was requested: </span>
+<span class="linenos">121</span><span class="w">  </span><span class="c">!</span>
+<span class="linenos">122</span><span class="w">  </span><span class="c">!                 - add some cloud parameters and set missing observation flags in </span>
+<span class="linenos">123</span><span class="w">  </span><span class="c">!                   observation files (specific for radiances) and </span>
+<span class="linenos">124</span><span class="w">  </span><span class="c">!</span>
+<span class="linenos">125</span><span class="w">  </span><span class="c">!                 - perform thinning for different observation types.</span>
+<span class="linenos">126</span><span class="w">  </span><span class="c">!</span>
+<span class="linenos">127</span><span class="w">  </span><span class="c">!               - Write the final background-checked bias corrected results (either</span>
+<span class="linenos">128</span><span class="w">  </span><span class="c">!                 thinned or not thinned) into the observation file.</span>
+<span class="linenos">129</span><span class="w">  </span><span class="c">! </span>
+<span class="linenos">130</span><span class="w">  </span><span class="c">!               - If thinning was requested, remove observations which were flagged </span>
+<span class="linenos">131</span><span class="w">  </span><span class="c">!                 not to be assimilated from the observation file.</span>
+<span class="linenos">132</span><span class="w">  </span><span class="c">!</span>
+<span class="linenos">133</span><span class="w">  </span><span class="c">!             --</span>
+<span class="linenos">134</span><span class="w">  </span><span class="c">!</span>
+<span class="linenos">135</span><span class="w">  </span><span class="c">!:Options: `List of namelist blocks &lt;../namelists_in_each_program.html#obsSelection&gt;`_</span>
+<span class="linenos">136</span><span class="w">  </span><span class="c">!          that can affect the ``obsSelection`` program.</span>
+<span class="linenos">137</span><span class="w">  </span><span class="c">!</span>
+<span class="linenos">138</span><span class="w">  </span><span class="c">!          * The use of ``obsSelection`` program is controlled by the namelist block</span>
+<span class="linenos">139</span><span class="w">  </span><span class="c">!           ``&amp;NAMOBSSELECTION`` read by the ``obsSelection`` program.</span>
+<span class="linenos">140</span><span class="w">  </span><span class="c">!</span>
+<span class="linenos">141</span><span class="w">  </span><span class="c">!          * Some of the other relevant namelist blocks used to configure the</span>
+<span class="linenos">142</span><span class="w">  </span><span class="c">!            ``obsSelection`` are listed in the following table:</span>
+<span class="linenos">143</span><span class="w">  </span><span class="c">! </span>
+<span class="linenos">144</span><span class="w">  </span><span class="c">!=========================== ========================= =========================================</span>
+<span class="linenos">145</span><span class="w">  </span><span class="c">! Module                      Namelist                  Description of what is controlled</span>
+<span class="linenos">146</span><span class="w">  </span><span class="c">!=========================== ========================= =========================================</span>
+<span class="linenos">147</span><span class="w">  </span><span class="c">! ``midas_obsSelection``      ``NAMOBSSELECTION``       whether thinning is performed or not.</span>
+<span class="linenos">148</span><span class="w">  </span><span class="c">! ``biasCorrectionConv_mod``  ``NAMBIASCONV``           variables to perform bias correction </span>
+<span class="linenos">149</span><span class="w">  </span><span class="c">!                                                       for conventional observations.</span>
+<span class="linenos">150</span><span class="w">  </span><span class="c">! ``biasCorrectionConv_mod``  ``NAMSONDETYPES``         additional variables to perform bias </span>
+<span class="linenos">151</span><span class="w">  </span><span class="c">!                                                       correction for radiosondes conventional </span>
+<span class="linenos">152</span><span class="w">  </span><span class="c">!                                                       observations.</span>
+<span class="linenos">153</span><span class="w">  </span><span class="c">! ``backgroundCheck_mod``     ``NAMBGCKCONV``           variables to perform background check </span>
+<span class="linenos">154</span><span class="w">  </span><span class="c">!                                                       for conventional observations.</span>
+<span class="linenos">155</span><span class="w">  </span><span class="c">! ``SSTbias_mod``             ``NAMSSTBIASESTIMATE``    variables to perform bias estimation </span>
+<span class="linenos">156</span><span class="w">  </span><span class="c">!                                                       and bias correction for satellite SST.</span>
+<span class="linenos">157</span><span class="w">  </span><span class="c">! ``biasCorrectionSat_mod``   ``NAMBIASSAT``            variables to perform bias correction </span>
+<span class="linenos">158</span><span class="w">  </span><span class="c">!                                                       for satellite radiances.</span>
+<span class="linenos">159</span><span class="w">  </span><span class="c">! ``multi_ir_bgck_mod``       ``NAMBGCKIR``             Variables to perform background check </span>
+<span class="linenos">160</span><span class="w">  </span><span class="c">!                                                       for hyperspectral infrared radiances.</span>
+<span class="linenos">161</span><span class="w">  </span><span class="c">! ``bgckmicrowave_mod``       ``NAMBGCK``               Variables to perform background check </span>
+<span class="linenos">162</span><span class="w">  </span><span class="c">!                                                       for microwave radiances.</span>
+<span class="linenos">163</span><span class="w">  </span><span class="c">! ``bgckcsr_mod``             ``NAMCSR``                Variables To perform background check </span>
+<span class="linenos">164</span><span class="w">  </span><span class="c">!                                                       for CSR radiances.</span>
+<span class="linenos">165</span><span class="w">  </span><span class="c">! ``bgckssmis_mod``           ``NAMBGCK``               Variables to perform background check </span>
+<span class="linenos">166</span><span class="w">  </span><span class="c">!                                                       for SSMIS radiances.</span>
+<span class="linenos">167</span><span class="w">  </span><span class="c">! ``bgckOcean_mod``           ``NAMOCEANBGCHECK``       Variables to perform background check </span>
+<span class="linenos">168</span><span class="w">  </span><span class="c">!                                                       for ocean data.</span>
+<span class="linenos">169</span><span class="w">  </span><span class="c">! ``bgckOcean_mod``           ``NAMICEBGCHECK``         Variables to perform background check </span>
+<span class="linenos">170</span><span class="w">  </span><span class="c">!                                                       for SST data.</span>
+<span class="linenos">171</span><span class="w">  </span><span class="c">! ``burpread_mod``            ``NAMADDTOBURP``          element IDs to add to the BURP file</span>
+<span class="linenos">172</span><span class="w">  </span><span class="c">! ``thinning_mod``            ``THIN_HYPER``            variables to perform thinning on </span>
+<span class="linenos">173</span><span class="w">  </span><span class="c">!                                                       hyperspectral infrared radiances.</span>
+<span class="linenos">174</span><span class="w">  </span><span class="c">! ``thinning_mod``            ``THIN_TOVS``             variables to perform thinning on </span>
+<span class="linenos">175</span><span class="w">  </span><span class="c">!                                                       microwave radiances.</span>
+<span class="linenos">176</span><span class="w">  </span><span class="c">! ``thinning_mod``            ``thin_csr``              variables to perform thinning on </span>
+<span class="linenos">177</span><span class="w">  </span><span class="c">!                                                       CSR radiances.</span>
+<span class="linenos">178</span><span class="w">  </span><span class="c">! ``thinning_mod``            ``thin_raobs``            variables to perform thinning on </span>
+<span class="linenos">179</span><span class="w">  </span><span class="c">!                                                       radiosonde observations.</span>
+<span class="linenos">180</span><span class="w">  </span><span class="c">! ``thinning_mod``            ``thin_scat``             variables to perform thinning on </span>
+<span class="linenos">181</span><span class="w">  </span><span class="c">!                                                       scatterometer wind observations.</span>
+<span class="linenos">182</span><span class="w">  </span><span class="c">! ``thinning_mod``            ``thin_aircraft``         variables to perform thinning on </span>
+<span class="linenos">183</span><span class="w">  </span><span class="c">!                                                       aircraft observations.</span>
+<span class="linenos">184</span><span class="w">  </span><span class="c">! ``thinning_mod``            ``thin_surface``          variables to perform thinning on </span>
+<span class="linenos">185</span><span class="w">  </span><span class="c">!                                                       surface observations.</span>
+<span class="linenos">186</span><span class="w">  </span><span class="c">! ``thinning_mod``            ``thin_gbgps``            variables to perform thinning on </span>
+<span class="linenos">187</span><span class="w">  </span><span class="c">!                                                       ground-based GPS observations.</span>
+<span class="linenos">188</span><span class="w">  </span><span class="c">! ``thinning_mod``            ``thin_gpsro``            variables to perform thinning on </span>
+<span class="linenos">189</span><span class="w">  </span><span class="c">!                                                       GPS radio-occultation observations.</span>
+<span class="linenos">190</span><span class="w">  </span><span class="c">! ``thinning_mod``            ``thin_aladin``           variables to perform thinning on </span>
+<span class="linenos">191</span><span class="w">  </span><span class="c">!                                                       aladin wind observations.</span>
+<span class="linenos">192</span><span class="w">  </span><span class="c">! ``thinning_mod``            ``thin_aladin``           variables to perform thinning on </span>
+<span class="linenos">193</span><span class="w">  </span><span class="c">!                                                       aladin wind observations.</span>
+<span class="linenos">194</span><span class="w">  </span><span class="c">! ``timeCoord_mod``           ``NAMTIME``               assimilation time window length, </span>
+<span class="linenos">195</span><span class="w">  </span><span class="c">!                                                       temporal resolution of the background </span>
+<span class="linenos">196</span><span class="w">  </span><span class="c">!                                                       state.</span>
+<span class="linenos">197</span><span class="w">  </span><span class="c">!=========================== ========================= =========================================</span>
+<span class="linenos">198</span><span class="w">  </span><span class="c">!</span>
+<span class="linenos">199</span><span class="w">  </span><span class="k">use </span><span class="n">version_mod</span><span class="w"></span>
+<span class="linenos">200</span><span class="w">  </span><span class="k">use </span><span class="n">codePrecision_mod</span><span class="w"></span>
+<span class="linenos">201</span><span class="w">  </span><span class="k">use </span><span class="n">ramDisk_mod</span><span class="w"></span>
+<span class="linenos">202</span><span class="w">  </span><span class="k">use </span><span class="n">midasMpi_mod</span><span class="w"></span>
+<span class="linenos">203</span><span class="w">  </span><span class="k">use </span><span class="n">utilities_mod</span><span class="w"></span>
+<span class="linenos">204</span><span class="w">  </span><span class="k">use </span><span class="n">mathPhysConstants_mod</span><span class="w"></span>
+<span class="linenos">205</span><span class="w">  </span><span class="k">use </span><span class="n">horizontalCoord_mod</span><span class="w"></span>
+<span class="linenos">206</span><span class="w">  </span><span class="k">use </span><span class="n">verticalCoord_mod</span><span class="w"></span>
+<span class="linenos">207</span><span class="w">  </span><span class="k">use </span><span class="n">timeCoord_mod</span><span class="w"></span>
+<span class="linenos">208</span><span class="w">  </span><span class="k">use </span><span class="n">gridStateVector_mod</span><span class="w"></span>
+<span class="linenos">209</span><span class="w">  </span><span class="k">use </span><span class="n">gridStateVectorFileIO_mod</span><span class="w"></span>
+<span class="linenos">210</span><span class="w">  </span><span class="k">use </span><span class="n">backgroundCheck_mod</span><span class="w"></span>
+<span class="linenos">211</span><span class="w">  </span><span class="k">use </span><span class="n">multi_ir_bgck_mod</span><span class="w"></span>
+<span class="linenos">212</span><span class="w">  </span><span class="k">use </span><span class="n">innovation_mod</span><span class="w"></span>
+<span class="linenos">213</span><span class="w">  </span><span class="k">use </span><span class="n">obsSpaceData_mod</span><span class="w"></span>
+<span class="linenos">214</span><span class="w">  </span><span class="k">use </span><span class="n">columnData_mod</span><span class="w"></span>
+<span class="linenos">215</span><span class="w">  </span><span class="k">use </span><span class="n">obsFiles_mod</span><span class="w"></span>
+<span class="linenos">216</span><span class="w">  </span><span class="k">use </span><span class="n">obsErrors_mod</span><span class="w"></span>
+<span class="linenos">217</span><span class="w">  </span><span class="k">use </span><span class="n">biasCorrectionSat_mod</span><span class="w"></span>
+<span class="linenos">218</span><span class="w">  </span><span class="k">use </span><span class="n">biasCorrectionConv_mod</span><span class="w"></span>
+<span class="linenos">219</span><span class="w">  </span><span class="k">use </span><span class="n">thinning_mod</span><span class="w"></span>
+<span class="linenos">220</span><span class="w">  </span><span class="k">use </span><span class="n">bgckmicrowave_mod</span><span class="w"></span>
+<span class="linenos">221</span><span class="w">  </span><span class="k">use </span><span class="n">bgckssmis_mod</span><span class="w"></span>
+<span class="linenos">222</span><span class="w">  </span><span class="k">use </span><span class="n">bgckcsr_mod</span><span class="w"></span>
+<span class="linenos">223</span><span class="w">  </span><span class="k">use </span><span class="n">bgckOcean_mod</span><span class="w"> </span>
+<span class="linenos">224</span><span class="w">  </span><span class="k">use </span><span class="n">SSTbias_mod</span><span class="w"></span>
+<span class="linenos">225</span><span class="w">   </span>
+<span class="linenos">226</span><span class="w">  </span><span class="k">implicit none</span>
+<span class="linenos">227</span>
+<span class="linenos">228</span><span class="k">  </span><span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">dateStampFromObs</span><span class="p">,</span><span class="w"> </span><span class="n">headerIndex</span><span class="p">,</span><span class="w"> </span><span class="n">ierr</span><span class="p">,</span><span class="w"> </span><span class="n">nulnam</span><span class="w"></span>
+<span class="linenos">229</span><span class="w">  </span><span class="k">type</span><span class="p">(</span><span class="n">struct_columnData</span><span class="p">),</span><span class="k">target</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">columnTrlOnAnlIncLev</span><span class="w"></span>
+<span class="linenos">230</span><span class="w">  </span><span class="k">type</span><span class="p">(</span><span class="n">struct_columnData</span><span class="p">),</span><span class="k">target</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">columnTrlOnTrlLev</span><span class="w"></span>
+<span class="linenos">231</span><span class="w">  </span><span class="k">type</span><span class="p">(</span><span class="n">struct_obs</span><span class="p">),</span><span class="w">       </span><span class="k">target</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">obsSpaceData</span><span class="w"></span>
+<span class="linenos">232</span><span class="w">  </span><span class="k">type</span><span class="p">(</span><span class="n">struct_gsv</span><span class="p">)</span><span class="w">               </span><span class="kd">::</span><span class="w"> </span><span class="n">stateVectorTrialHighRes</span><span class="w"></span>
+<span class="linenos">233</span><span class="w">  </span><span class="k">type</span><span class="p">(</span><span class="n">struct_hco</span><span class="p">),</span><span class="w">      </span><span class="k">pointer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">hco_anl</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="nb">null</span><span class="p">()</span><span class="w"></span>
+<span class="linenos">234</span><span class="w">  </span><span class="k">type</span><span class="p">(</span><span class="n">struct_vco</span><span class="p">),</span><span class="w">      </span><span class="k">pointer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">vco_anl</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="nb">null</span><span class="p">()</span><span class="w"></span>
+<span class="linenos">235</span><span class="w">  </span><span class="k">type</span><span class="p">(</span><span class="n">struct_hco</span><span class="p">),</span><span class="w">      </span><span class="k">pointer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">hco_trl</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="nb">null</span><span class="p">()</span><span class="w"></span>
+<span class="linenos">236</span><span class="w">  </span><span class="k">type</span><span class="p">(</span><span class="n">struct_vco</span><span class="p">),</span><span class="w">      </span><span class="k">pointer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">vco_trl</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="nb">null</span><span class="p">()</span><span class="w"></span>
+<span class="linenos">237</span><span class="w">  </span><span class="k">type</span><span class="p">(</span><span class="n">struct_hco</span><span class="p">),</span><span class="w">      </span><span class="k">pointer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">hco_core</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="nb">null</span><span class="p">()</span><span class="w"></span>
+<span class="linenos">238</span>
+<span class="linenos">239</span><span class="w">  </span><span class="kt">logical</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">allocHeightSfc</span><span class="w"></span>
+<span class="linenos">240</span><span class="w">  </span><span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">get_max_rss</span><span class="p">,</span><span class="w"> </span><span class="n">fnom</span><span class="p">,</span><span class="w"> </span><span class="n">fclos</span><span class="w"></span>
+<span class="linenos">241</span>
+<span class="linenos">242</span><span class="w">  </span><span class="c">! Namelist variables</span>
+<span class="linenos">243</span><span class="w">  </span><span class="kt">logical</span><span class="w">                        </span><span class="kd">::</span><span class="w"> </span><span class="n">doThinning</span><span class="w">  </span><span class="c">! Control whether or not thinning is done</span>
+<span class="linenos">244</span>
+<span class="linenos">245</span><span class="w">  </span><span class="k">namelist</span><span class="w"> </span><span class="o">/</span><span class="n">namObsSelection</span><span class="o">/</span><span class="w"> </span><span class="n">doThinning</span><span class="w"></span>
+<span class="linenos">246</span>
+<span class="linenos">247</span><span class="w">  </span><span class="k">call </span><span class="n">ver_printNameAndVersion</span><span class="p">(</span><span class="s1">&#39;obsSelection&#39;</span><span class="p">,</span><span class="s1">&#39;Obs Quality Control and Thinning&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">248</span>
+<span class="linenos">249</span><span class="w">  </span><span class="c">!- 1.0 mpi</span>
+<span class="linenos">250</span><span class="w">  </span><span class="k">call </span><span class="n">mmpi_initialize</span><span class="w"></span>
+<span class="linenos">251</span>
+<span class="linenos">252</span><span class="w">  </span><span class="c">!- 1.1 timings</span>
+<span class="linenos">253</span><span class="w">  </span><span class="k">call </span><span class="n">tmg_init</span><span class="p">(</span><span class="n">mmpi_myid</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;TMG_INFO&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">254</span><span class="w">  </span><span class="k">call </span><span class="n">utl_tmg_start</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;Main&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">255</span>
+<span class="linenos">256</span><span class="w">  </span><span class="c">!- 1.2 Read the namelist for obsSelection program (if it exists)</span>
+<span class="linenos">257</span><span class="w">  </span><span class="c">! set default values for namelist variables</span>
+<span class="linenos">258</span><span class="w">  </span><span class="n">doThinning</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">false</span><span class="p">.</span><span class="w"></span>
+<span class="linenos">259</span><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">utl_isNamelistPresent</span><span class="p">(</span><span class="s1">&#39;namObsSelection&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;./flnml&#39;</span><span class="p">))</span><span class="w"> </span><span class="k">then</span>
+<span class="linenos">260</span><span class="k">    </span><span class="n">nulnam</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
+<span class="linenos">261</span><span class="w">    </span><span class="n">ierr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fnom</span><span class="p">(</span><span class="n">nulnam</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;./flnml&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;FTN+SEQ+R/O&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">262</span><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ierr</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">call </span><span class="n">utl_abort</span><span class="p">(</span><span class="s1">&#39;midas-obsSelection: Error opening file flnml&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">263</span><span class="w">    </span><span class="k">read</span><span class="p">(</span><span class="n">nulnam</span><span class="p">,</span><span class="w"> </span><span class="n">nml</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">namObsSelection</span><span class="p">,</span><span class="w"> </span><span class="n">iostat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ierr</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">264</span><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ierr</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">call </span><span class="n">utl_abort</span><span class="p">(</span><span class="s1">&#39;midas-obsSelection: Error reading namelist namObsSelection&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">265</span><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">mmpi_myid</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="n">nml</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">namObsSelection</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">266</span><span class="w">    </span><span class="n">ierr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fclos</span><span class="p">(</span><span class="n">nulnam</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">267</span><span class="w">  </span><span class="k">else</span>
+<span class="linenos">268</span><span class="k">    write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">269</span><span class="w">    </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;midas-obsSelection: Namelist block namObsSelection is missing in the namelist.&#39;</span><span class="w"></span>
+<span class="linenos">270</span><span class="w">    </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;                    The default value will be taken.&#39;</span><span class="w"></span>
+<span class="linenos">271</span><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">mmpi_myid</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="n">nml</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">namObsSelection</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">272</span><span class="w">  </span><span class="k">end if</span><span class="w"></span>
+<span class="linenos">273</span>
+<span class="linenos">274</span><span class="w">  </span><span class="c">!</span>
+<span class="linenos">275</span><span class="w">  </span><span class="c">!- Initialize the ram disk</span>
+<span class="linenos">276</span><span class="w">  </span><span class="c">!</span>
+<span class="linenos">277</span><span class="w">  </span><span class="k">call </span><span class="n">ram_setup</span><span class="w"></span>
+<span class="linenos">278</span>
+<span class="linenos">279</span><span class="w">  </span><span class="c">!     </span>
+<span class="linenos">280</span><span class="w">  </span><span class="c">!- Initialize observation file names, but don&#39;t use datestamp</span>
+<span class="linenos">281</span><span class="w">  </span><span class="c">!</span>
+<span class="linenos">282</span><span class="w">  </span><span class="k">call </span><span class="n">obsf_setup</span><span class="p">(</span><span class="n">dateStampFromObs</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;bgck&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">283</span>
+<span class="linenos">284</span><span class="w">  </span><span class="c">!</span>
+<span class="linenos">285</span><span class="w">  </span><span class="c">!- Initialize the Temporal grid and dateStamp from trial file</span>
+<span class="linenos">286</span><span class="w">  </span><span class="c">!</span>
+<span class="linenos">287</span><span class="w">  </span><span class="k">call </span><span class="n">tim_setup</span><span class="p">(</span><span class="n">fileNameForDate_opt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;./trlm_01&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">288</span>
+<span class="linenos">289</span><span class="w">  </span><span class="c">!</span>
+<span class="linenos">290</span><span class="w">  </span><span class="c">!- Initialize constants</span>
+<span class="linenos">291</span><span class="w">  </span><span class="c">!</span>
+<span class="linenos">292</span><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">mmpi_myid</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="linenos">293</span><span class="k">    call </span><span class="n">mpc_printConstants</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">294</span><span class="w">    </span><span class="k">call </span><span class="n">pre_printPrecisions</span><span class="w"></span>
+<span class="linenos">295</span><span class="w">  </span><span class="k">end if</span><span class="w"></span>
+<span class="linenos">296</span>
+<span class="linenos">297</span><span class="w">  </span><span class="c">!</span>
+<span class="linenos">298</span><span class="w">  </span><span class="c">!- Initialize the Analysis grid</span>
+<span class="linenos">299</span><span class="w">  </span><span class="c">!</span>
+<span class="linenos">300</span><span class="w">  </span><span class="k">if</span><span class="p">(</span><span class="n">mmpi_myid</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">301</span><span class="w">  </span><span class="k">if</span><span class="p">(</span><span class="n">mmpi_myid</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;midas-obsSelection: Set hco parameters for analysis grid&#39;</span><span class="w"></span>
+<span class="linenos">302</span><span class="w">  </span><span class="k">call </span><span class="n">hco_SetupFromFile</span><span class="p">(</span><span class="n">hco_anl</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;./analysisgrid&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;ANALYSIS&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Analysis&#39;</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="c">! IN</span>
+<span class="linenos">303</span>
+<span class="linenos">304</span><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">hco_anl</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">global</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="linenos">305</span><span class="k">    </span><span class="n">hco_core</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">hco_anl</span><span class="w"></span>
+<span class="linenos">306</span><span class="w">  </span><span class="k">else</span><span class="w"></span>
+<span class="linenos">307</span><span class="w">    </span><span class="c">!- Initialize the core (Non-Extended) analysis grid</span>
+<span class="linenos">308</span><span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="w"> </span><span class="n">mmpi_myid</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;midas-obsSelection: Set hco parameters for core grid&#39;</span><span class="w"></span>
+<span class="linenos">309</span><span class="w">    </span><span class="k">call </span><span class="n">hco_SetupFromFile</span><span class="p">(</span><span class="w"> </span><span class="n">hco_core</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;./analysisgrid&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;COREGRID&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;AnalysisCore&#39;</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="c">! IN</span>
+<span class="linenos">310</span><span class="w">  </span><span class="k">end if</span><span class="w"></span>
+<span class="linenos">311</span>
+<span class="linenos">312</span><span class="w">  </span><span class="c">!     </span>
+<span class="linenos">313</span><span class="w">  </span><span class="c">!- Initialisation of the analysis grid vertical coordinate from analysisgrid file</span>
+<span class="linenos">314</span><span class="w">  </span><span class="c">!</span>
+<span class="linenos">315</span><span class="w">  </span><span class="k">call </span><span class="n">vco_SetupFromFile</span><span class="p">(</span><span class="n">vco_anl</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;./analysisgrid&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">316</span>
+<span class="linenos">317</span><span class="w">  </span><span class="k">call </span><span class="n">col_setVco</span><span class="p">(</span><span class="n">columnTrlOnAnlIncLev</span><span class="p">,</span><span class="w"> </span><span class="n">vco_anl</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">318</span><span class="w">  </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;Memory Used: &#39;</span><span class="p">,</span><span class="w"> </span><span class="n">get_max_rss</span><span class="p">()</span><span class="o">/</span><span class="mi">1024</span><span class="p">,</span><span class="s1">&#39;Mb&#39;</span><span class="w"></span>
+<span class="linenos">319</span>
+<span class="linenos">320</span><span class="w">  </span><span class="c">!</span>
+<span class="linenos">321</span><span class="w">  </span><span class="c">!- Setup and read observations</span>
+<span class="linenos">322</span><span class="w">  </span><span class="c">!</span>
+<span class="linenos">323</span><span class="w">  </span><span class="k">call </span><span class="n">inn_setupObs</span><span class="p">(</span><span class="n">obsSpaceData</span><span class="p">,</span><span class="w"> </span><span class="n">hco_anl</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;ALL&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;LIKESPLITFILES&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;bgck&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">324</span><span class="w">  </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;Memory Used: &#39;</span><span class="p">,</span><span class="n">get_max_rss</span><span class="p">()</span><span class="o">/</span><span class="mi">1024</span><span class="p">,</span><span class="s1">&#39;Mb&#39;</span><span class="w"></span>
+<span class="linenos">325</span>
+<span class="linenos">326</span><span class="w">  </span><span class="c">! if ssmis, compute the surface type ele and update obspacedata</span>
+<span class="linenos">327</span>
+<span class="linenos">328</span><span class="w">  </span><span class="k">call </span><span class="n">ssbg_computeSsmisSurfaceType</span><span class="p">(</span><span class="n">obsSpaceData</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">329</span>
+<span class="linenos">330</span><span class="w">  </span><span class="c">! Only for MWHS2 data and if modLSQ option is set to .true. in nambgck namelist, set values for land qualifier</span>
+<span class="linenos">331</span><span class="w">  </span><span class="c">! indice and terrain type based on calculations</span>
+<span class="linenos">332</span><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">obs_famExist</span><span class="p">(</span><span class="n">obsSpaceData</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;TO&#39;</span><span class="p">))</span><span class="w"> </span><span class="k">then</span>
+<span class="linenos">333</span><span class="k">    call </span><span class="n">mwbg_computeMwhs2SurfaceType</span><span class="p">(</span><span class="n">obsSpaceData</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">334</span><span class="w">  </span><span class="k">end if</span><span class="w"></span>
+<span class="linenos">335</span>
+<span class="linenos">336</span><span class="w">  </span><span class="c">!</span>
+<span class="linenos">337</span><span class="w">  </span><span class="c">!- Basic setup of columnData module</span>
+<span class="linenos">338</span><span class="w">  </span><span class="c">!</span>
+<span class="linenos">339</span><span class="w">  </span><span class="k">call </span><span class="n">col_setup</span><span class="w"></span>
+<span class="linenos">340</span><span class="w">  </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;Memory Used: &#39;</span><span class="p">,</span><span class="n">get_max_rss</span><span class="p">()</span><span class="o">/</span><span class="mi">1024</span><span class="p">,</span><span class="s1">&#39;Mb&#39;</span><span class="w"></span>
+<span class="linenos">341</span>
+<span class="linenos">342</span><span class="w">  </span><span class="c">!</span>
+<span class="linenos">343</span><span class="w">  </span><span class="c">!- Memory allocation for background column data</span>
+<span class="linenos">344</span><span class="w">  </span><span class="c">!</span>
+<span class="linenos">345</span><span class="w">  </span><span class="k">call </span><span class="n">col_allocate</span><span class="p">(</span><span class="n">columnTrlOnAnlIncLev</span><span class="p">,</span><span class="w"> </span><span class="n">obs_numheader</span><span class="p">(</span><span class="n">obsSpaceData</span><span class="p">),</span><span class="w"> </span><span class="n">mpiLocal_opt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">true</span><span class="p">.)</span><span class="w"></span>
+<span class="linenos">346</span>
+<span class="linenos">347</span><span class="w">  </span><span class="c">!</span>
+<span class="linenos">348</span><span class="w">  </span><span class="c">!- Initialize the observation error covariances</span>
+<span class="linenos">349</span><span class="w">  </span><span class="c">!</span>
+<span class="linenos">350</span><span class="w">  </span><span class="k">call </span><span class="n">oer_setObsErrors</span><span class="p">(</span><span class="n">obsSpaceData</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;bgck&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">351</span>
+<span class="linenos">352</span><span class="w">  </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;Memory Used: &#39;</span><span class="p">,</span><span class="n">get_max_rss</span><span class="p">()</span><span class="o">/</span><span class="mi">1024</span><span class="p">,</span><span class="s1">&#39;Mb&#39;</span><span class="w"></span>
+<span class="linenos">353</span>
+<span class="linenos">354</span><span class="w">  </span><span class="c">!</span>
+<span class="linenos">355</span><span class="w">  </span><span class="c">! Initialize list of analyzed variables.</span>
+<span class="linenos">356</span><span class="w">  </span><span class="c">!</span>
+<span class="linenos">357</span><span class="w">  </span><span class="k">call </span><span class="n">gsv_setup</span><span class="w"></span>
+<span class="linenos">358</span>
+<span class="linenos">359</span><span class="w">  </span><span class="c">! Apply optional bias corrections</span>
+<span class="linenos">360</span><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">obs_famExist</span><span class="p">(</span><span class="n">obsSpaceData</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;TM&#39;</span><span class="p">))</span><span class="w"> </span><span class="k">then</span>
+<span class="linenos">361</span><span class="k">    call </span><span class="n">sstb_applySatelliteSSTBiasCorrection</span><span class="p">(</span><span class="n">obsSpaceData</span><span class="p">,</span><span class="w"> </span><span class="n">hco_anl</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span><span class="w"></span>
+<span class="linenos">362</span><span class="w">                                              </span><span class="n">vco_anl</span><span class="p">,</span><span class="w"> </span><span class="n">columnTrlOnAnlIncLev</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">363</span><span class="w">  </span><span class="k">end if  </span>
+<span class="linenos">364</span>
+<span class="linenos">365</span><span class="k">  if</span><span class="w"> </span><span class="p">(</span><span class="n">obs_famExist</span><span class="p">(</span><span class="n">obsSpaceData</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;AI&#39;</span><span class="p">))</span><span class="w"> </span><span class="k">call </span><span class="n">bcc_applyAIBcor</span><span class="p">(</span><span class="n">obsSpaceData</span><span class="p">)</span><span class="w">    </span>
+<span class="linenos">366</span><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">obs_famExist</span><span class="p">(</span><span class="n">obsSpaceData</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;GP&#39;</span><span class="p">))</span><span class="w"> </span><span class="k">call </span><span class="n">bcc_applyGPBcor</span><span class="p">(</span><span class="n">obsSpaceData</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">367</span><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">obs_famExist</span><span class="p">(</span><span class="n">obsSpaceData</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;UA&#39;</span><span class="p">))</span><span class="w"> </span><span class="k">call </span><span class="n">bcc_applyUABcor</span><span class="p">(</span><span class="n">obsSpaceData</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">368</span><span class="w">    </span>
+<span class="linenos">369</span><span class="w">  </span><span class="c">! Reading trials</span>
+<span class="linenos">370</span><span class="w">  </span><span class="k">call </span><span class="n">inn_getHcoVcoFromTrlmFile</span><span class="p">(</span><span class="n">hco_trl</span><span class="p">,</span><span class="w"> </span><span class="n">vco_trl</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">371</span><span class="w">  </span><span class="n">allocHeightSfc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">vco_trl</span><span class="p">%</span><span class="n">Vcode</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">372</span>
+<span class="linenos">373</span><span class="w">  </span><span class="k">call </span><span class="n">gsv_allocate</span><span class="p">(</span><span class="n">stateVectorTrialHighRes</span><span class="p">,</span><span class="w"> </span><span class="n">tim_nstepobs</span><span class="p">,</span><span class="w"> </span><span class="n">hco_trl</span><span class="p">,</span><span class="w"> </span><span class="n">vco_trl</span><span class="p">,</span><span class="w">  </span><span class="p">&amp;</span><span class="w"></span>
+<span class="linenos">374</span><span class="w">                    </span><span class="n">dateStamp_opt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tim_getDateStamp</span><span class="p">(),</span><span class="w"> </span><span class="n">mpi_local_opt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">true</span><span class="p">.,</span><span class="w"> </span><span class="p">&amp;</span><span class="w"></span>
+<span class="linenos">375</span><span class="w">                    </span><span class="n">mpi_distribution_opt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Tiles&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">dataKind_opt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span><span class="w"></span>
+<span class="linenos">376</span><span class="w">                    </span><span class="n">allocHeightSfc_opt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">allocHeightSfc</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span><span class="w"></span>
+<span class="linenos">377</span><span class="w">                    </span><span class="n">hInterpolateDegree_opt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;LINEAR&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">beSilent_opt</span><span class="o">=</span><span class="p">.</span><span class="n">false</span><span class="p">.)</span><span class="w"></span>
+<span class="linenos">378</span><span class="w">  </span><span class="k">call </span><span class="n">gsv_zero</span><span class="p">(</span><span class="n">stateVectorTrialHighRes</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">379</span><span class="w">  </span><span class="k">call </span><span class="n">gio_readTrials</span><span class="p">(</span><span class="n">stateVectorTrialHighRes</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">380</span><span class="w">  </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;Memory Used: &#39;</span><span class="p">,</span><span class="n">get_max_rss</span><span class="p">()</span><span class="o">/</span><span class="mi">1024</span><span class="p">,</span><span class="s1">&#39;Mb&#39;</span><span class="w"></span>
+<span class="linenos">381</span>
+<span class="linenos">382</span><span class="w">  </span><span class="c">! Horizontally interpolate trials to trial columns</span>
+<span class="linenos">383</span><span class="w">  </span><span class="k">call </span><span class="n">inn_setupColumnsOnTrlLev</span><span class="p">(</span><span class="n">columnTrlOnTrlLev</span><span class="p">,</span><span class="w"> </span><span class="n">obsSpaceData</span><span class="p">,</span><span class="w"> </span><span class="n">hco_core</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span><span class="w"></span>
+<span class="linenos">384</span><span class="w">                                </span><span class="n">stateVectorTrialHighRes</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">385</span><span class="w">  </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;Memory Used: &#39;</span><span class="p">,</span><span class="n">get_max_rss</span><span class="p">()</span><span class="o">/</span><span class="mi">1024</span><span class="p">,</span><span class="s1">&#39;Mb&#39;</span><span class="w"></span>
+<span class="linenos">386</span>
+<span class="linenos">387</span><span class="w">  </span><span class="c">! Interpolate trial columns to analysis levels and setup for linearized H</span>
+<span class="linenos">388</span><span class="w">  </span><span class="k">call </span><span class="n">inn_setupColumnsOnAnlIncLev</span><span class="p">(</span><span class="n">columnTrlOnTrlLev</span><span class="p">,</span><span class="w"> </span><span class="n">columnTrlOnAnlIncLev</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">389</span>
+<span class="linenos">390</span><span class="w">  </span><span class="c">! Compute observation innovations and prepare obsSpaceData for minimization</span>
+<span class="linenos">391</span><span class="w">  </span><span class="k">call </span><span class="n">inn_computeInnovation</span><span class="p">(</span><span class="n">columnTrlOnTrlLev</span><span class="p">,</span><span class="w"> </span><span class="n">obsSpaceData</span><span class="p">,</span><span class="w"> </span><span class="n">analysisMode_opt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">false</span><span class="p">.)</span><span class="w"></span>
+<span class="linenos">392</span>
+<span class="linenos">393</span><span class="w">  </span><span class="c">! 2.2 Perform the background check</span>
+<span class="linenos">394</span><span class="w">  </span><span class="c">!     The routine also calls compute_HBHT and writes to listings &amp; obsSpaceData</span>
+<span class="linenos">395</span>
+<span class="linenos">396</span><span class="w">  </span><span class="c">! Do the conventional data background check</span>
+<span class="linenos">397</span><span class="w">  </span><span class="k">call </span><span class="n">bgck_bgCheck_conv</span><span class="p">(</span><span class="n">columnTrlOnAnlIncLev</span><span class="p">,</span><span class="w"> </span><span class="n">columnTrlOnTrlLev</span><span class="p">,</span><span class="w"> </span><span class="n">hco_anl</span><span class="p">,</span><span class="w"> </span><span class="n">obsSpaceData</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">398</span>
+<span class="linenos">399</span><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">obs_famExist</span><span class="p">(</span><span class="n">obsSpaceData</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;TO&#39;</span><span class="p">))</span><span class="w"> </span><span class="k">then</span><span class="w"></span>
+<span class="linenos">400</span>
+<span class="linenos">401</span><span class="w">    </span><span class="c">! Satellite radiance bias correction</span>
+<span class="linenos">402</span><span class="w">    </span><span class="k">call </span><span class="n">bcs_calcBias</span><span class="p">(</span><span class="n">obsSpaceData</span><span class="p">,</span><span class="w"> </span><span class="n">columnTrlOnTrlLev</span><span class="p">)</span><span class="w">        </span><span class="c">! Fill in OBS_BCOR obsSpaceData column </span>
+<span class="linenos">403</span><span class="w">                                                              </span><span class="c">! with computed bias correction</span>
+<span class="linenos">404</span><span class="w">    </span><span class="k">call </span><span class="n">bcs_applyBiasCorrection</span><span class="p">(</span><span class="n">obsSpaceData</span><span class="p">,</span><span class="w"> </span><span class="n">obs_var</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;TO&#39;</span><span class="p">)</span><span class="w"> </span><span class="c">! Apply bias correction to OBS</span>
+<span class="linenos">405</span><span class="w">    </span><span class="k">call </span><span class="n">bcs_applyBiasCorrection</span><span class="p">(</span><span class="n">obsSpaceData</span><span class="p">,</span><span class="w"> </span><span class="n">obs_omp</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;TO&#39;</span><span class="p">)</span><span class="w"> </span><span class="c">! Apply bias correction to O-F</span>
+<span class="linenos">406</span>
+<span class="linenos">407</span><span class="w">    </span><span class="c">! Do the TO background check</span>
+<span class="linenos">408</span><span class="w">    </span><span class="k">call </span><span class="n">irbg_bgCheckIR</span><span class="p">(</span><span class="n">columnTrlOnTrlLev</span><span class="p">,</span><span class="w"> </span><span class="n">obsSpaceData</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">409</span><span class="w">    </span><span class="k">call </span><span class="n">mwbg_bgCheckMW</span><span class="p">(</span><span class="n">obsSpaceData</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">410</span><span class="w">    </span><span class="k">call </span><span class="n">csrbg_bgCheckCSR</span><span class="p">(</span><span class="n">obsSpaceData</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">411</span><span class="w">    </span><span class="k">call </span><span class="n">ssbg_bgCheckSsmis</span><span class="p">(</span><span class="n">obsSpaceData</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">412</span>
+<span class="linenos">413</span><span class="w">  </span><span class="k">end if</span><span class="w"></span>
+<span class="linenos">414</span>
+<span class="linenos">415</span><span class="w">  </span><span class="c">! Do the ocean data background check</span>
+<span class="linenos">416</span><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">obs_famExist</span><span class="p">(</span><span class="n">obsSpaceData</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;TM&#39;</span><span class="p">))</span><span class="w"> </span><span class="k">call </span><span class="n">ocebg_bgCheckSST</span><span class="p">(</span><span class="n">obsSpaceData</span><span class="p">,</span><span class="w"> </span><span class="n">tim_getDateStamp</span><span class="p">(),</span><span class="w"> </span><span class="p">&amp;</span><span class="w"></span>
+<span class="linenos">417</span><span class="w">                                                              </span><span class="n">columnTrlOnTrlLev</span><span class="p">,</span><span class="w"> </span><span class="n">hco_trl</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">418</span>
+<span class="linenos">419</span><span class="w">  </span><span class="c">! Do the sea ice data gross background check</span>
+<span class="linenos">420</span><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">obs_famExist</span><span class="p">(</span><span class="n">obsSpaceData</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;GL&#39;</span><span class="p">))</span><span class="w"> </span><span class="k">call </span><span class="n">ocebg_bgCheckSeaIce</span><span class="p">(</span><span class="n">obsSpaceData</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">421</span>
+<span class="linenos">422</span><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">doThinning</span><span class="p">)</span><span class="w"> </span><span class="k">then</span><span class="w"></span>
+<span class="linenos">423</span>
+<span class="linenos">424</span><span class="w">    </span><span class="c">! Copy original obs files into another directory</span>
+<span class="linenos">425</span><span class="w">    </span><span class="k">call </span><span class="n">obsf_copyObsDirectory</span><span class="p">(</span><span class="s1">&#39;./obsOriginal&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">direction</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;TO&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">426</span>
+<span class="linenos">427</span><span class="w">    </span><span class="c">! 2.3 Write obs files after background check, but before thinning</span>
+<span class="linenos">428</span><span class="w">    </span><span class="k">call </span><span class="n">obsf_writeFiles</span><span class="p">(</span><span class="n">obsSpaceData</span><span class="p">,</span><span class="w"> </span><span class="n">writeDiagFiles_opt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">false</span><span class="p">.)</span><span class="w"></span>
+<span class="linenos">429</span><span class="w">    </span>
+<span class="linenos">430</span><span class="w">    </span><span class="c">! Add cloud parameter data to burp files (AIRS,IASI,CrIS,ATMS,AMSUA,...)</span>
+<span class="linenos">431</span><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">obs_famExist</span><span class="p">(</span><span class="n">obsSpaceData</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;TO&#39;</span><span class="p">))</span><span class="w"> </span><span class="k">then</span>
+<span class="linenos">432</span><span class="k">      call </span><span class="n">obsf_updateMissingObsFlags</span><span class="p">(</span><span class="n">obsSpaceData</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">433</span><span class="w">      </span><span class="k">call </span><span class="n">obsf_addCloudParametersAndEmissivity</span><span class="p">(</span><span class="n">obsSpaceData</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">434</span><span class="w">    </span><span class="k">end if</span><span class="w"></span>
+<span class="linenos">435</span>
+<span class="linenos">436</span><span class="w">    </span><span class="c">! Copy the pre-thinning files into another directory</span>
+<span class="linenos">437</span><span class="w">    </span><span class="k">call </span><span class="n">obsf_copyObsDirectory</span><span class="p">(</span><span class="s1">&#39;./obsBeforeThinning&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">direction</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;TO&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">438</span>
+<span class="linenos">439</span><span class="w">    </span><span class="c">! Copy original obs files back into usual directory</span>
+<span class="linenos">440</span><span class="w">    </span><span class="k">call </span><span class="n">obsf_copyObsDirectory</span><span class="p">(</span><span class="s1">&#39;./obsOriginal&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">direction</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;FROM&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">441</span>
+<span class="linenos">442</span><span class="w">    </span><span class="c">! 2.4 Thinning:  Set bit 11 of flag, one observation type at a time</span>
+<span class="linenos">443</span><span class="w">    </span><span class="k">call </span><span class="n">thn_thinHyper</span><span class="p">(</span><span class="n">obsSpaceData</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">444</span><span class="w">    </span><span class="k">call </span><span class="n">thn_thinTovs</span><span class="p">(</span><span class="n">obsSpaceData</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">445</span><span class="w">    </span><span class="k">call </span><span class="n">thn_thinCSR</span><span class="p">(</span><span class="n">obsSpaceData</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">446</span><span class="w">    </span><span class="k">call </span><span class="n">thn_thinRaobs</span><span class="p">(</span><span class="n">obsSpaceData</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">447</span><span class="w">    </span><span class="k">call </span><span class="n">thn_thinScat</span><span class="p">(</span><span class="n">obsSpaceData</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">448</span><span class="w">    </span><span class="k">call </span><span class="n">thn_thinSatWinds</span><span class="p">(</span><span class="n">obsSpaceData</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">449</span><span class="w">    </span><span class="k">call </span><span class="n">thn_thinAircraft</span><span class="p">(</span><span class="n">obsSpaceData</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">450</span><span class="w">    </span><span class="k">call </span><span class="n">thn_thinSurface</span><span class="p">(</span><span class="n">obsSpaceData</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;SF&#39;</span><span class="p">)</span><span class="w"> </span><span class="c">! surface data thinning</span>
+<span class="linenos">451</span><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">obs_famExist</span><span class="p">(</span><span class="n">obsSpaceData</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;TM&#39;</span><span class="p">))</span><span class="w"> </span><span class="k">then</span>
+<span class="linenos">452</span><span class="k">      call </span><span class="n">thn_thinSurface</span><span class="p">(</span><span class="n">obsSpaceData</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;TM&#39;</span><span class="p">)</span><span class="w"> </span><span class="c">! SST thinning</span>
+<span class="linenos">453</span><span class="w">      </span><span class="k">call </span><span class="n">thn_thinSatSST</span><span class="p">(</span><span class="n">obsSpaceData</span><span class="p">)</span><span class="w">        </span><span class="c">! satellite SST thinning</span>
+<span class="linenos">454</span><span class="w">    </span><span class="k">end if      </span>
+<span class="linenos">455</span><span class="k">    call </span><span class="n">thn_thinGbGps</span><span class="p">(</span><span class="n">obsSpaceData</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">456</span><span class="w">    </span><span class="k">call </span><span class="n">thn_thinGpsRo</span><span class="p">(</span><span class="n">obsSpaceData</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">457</span><span class="w">    </span><span class="k">call </span><span class="n">thn_thinAladin</span><span class="p">(</span><span class="n">obsSpaceData</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">458</span><span class="w">    </span><span class="c">! if requested, dump the thinned predictors and coefficients to sqlite</span>
+<span class="linenos">459</span><span class="w">    </span><span class="k">call </span><span class="n">bcs_dumpBiasToSqliteAfterThinning</span><span class="p">(</span><span class="n">obsSpaceData</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">460</span>
+<span class="linenos">461</span><span class="w">  </span><span class="k">end if</span><span class="w"></span>
+<span class="linenos">462</span>
+<span class="linenos">463</span><span class="w">  </span>
+<span class="linenos">464</span><span class="w">  </span><span class="c">! 3 Write the final results</span>
+<span class="linenos">465</span>
+<span class="linenos">466</span><span class="w">  </span><span class="c">! 3.1 Into the listings</span>
+<span class="linenos">467</span><span class="w">  </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">468</span><span class="w">  </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;&gt; midas-obsSelection: printing the FIRST header and body&#39;</span><span class="w"></span>
+<span class="linenos">469</span><span class="w">  </span><span class="k">do </span><span class="n">headerIndex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nb">min</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">obs_numHeader</span><span class="p">(</span><span class="n">obsSpaceData</span><span class="p">))</span><span class="w"></span>
+<span class="linenos">470</span><span class="w">    </span><span class="k">call </span><span class="n">obs_prnthdr</span><span class="p">(</span><span class="n">obsSpaceData</span><span class="p">,</span><span class="w"> </span><span class="n">headerIndex</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">471</span><span class="w">    </span><span class="k">call </span><span class="n">obs_prntbdy</span><span class="p">(</span><span class="n">obsSpaceData</span><span class="p">,</span><span class="w"> </span><span class="n">headerIndex</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">472</span><span class="w">  </span><span class="k">end do</span><span class="w"></span>
+<span class="linenos">473</span>
+<span class="linenos">474</span><span class="w">  </span><span class="c">! 3.2 Into the observation files</span>
+<span class="linenos">475</span><span class="w">  </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">476</span><span class="w">  </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;&gt; midas-obsSelection: writing to file&#39;</span><span class="w"></span>
+<span class="linenos">477</span><span class="w">  </span><span class="k">call </span><span class="n">obsf_writeFiles</span><span class="p">(</span><span class="n">obsSpaceData</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">478</span><span class="w">  </span>
+<span class="linenos">479</span><span class="w">  </span><span class="c">! Add cloud parameter data to burp files (AIRS,IASI,CrIS,...)</span>
+<span class="linenos">480</span><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">obs_famExist</span><span class="p">(</span><span class="n">obsSpaceData</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;TO&#39;</span><span class="p">))</span><span class="w"> </span><span class="k">then</span>
+<span class="linenos">481</span><span class="k">    call </span><span class="n">obsf_updateMissingObsFlags</span><span class="p">(</span><span class="n">obsSpaceData</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">482</span><span class="w">    </span><span class="k">call </span><span class="n">obsf_addCloudParametersAndEmissivity</span><span class="p">(</span><span class="n">obsSpaceData</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">483</span><span class="w">  </span><span class="k">end if</span><span class="w"></span>
+<span class="linenos">484</span>
+<span class="linenos">485</span><span class="w">  </span><span class="c">! cleaning the observation files</span>
+<span class="linenos">486</span><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">doThinning</span><span class="p">)</span><span class="w"> </span><span class="k">call </span><span class="n">obsf_cleanObsFiles</span><span class="p">()</span><span class="w"></span>
+<span class="linenos">487</span>
+<span class="linenos">488</span><span class="w">  </span><span class="c">!</span>
+<span class="linenos">489</span><span class="w">  </span><span class="c">! 4.  Ending</span>
+<span class="linenos">490</span><span class="w">  </span><span class="c">!</span>
+<span class="linenos">491</span><span class="w">  </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">492</span><span class="w">  </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;&gt; midas-obsSelection: Ending&#39;</span><span class="w"></span>
+<span class="linenos">493</span><span class="w">  </span><span class="k">call </span><span class="n">obs_finalize</span><span class="p">(</span><span class="n">obsSpaceData</span><span class="p">)</span><span class="w"> </span><span class="c">! deallocate obsSpaceData</span>
+<span class="linenos">494</span>
+<span class="linenos">495</span><span class="w">  </span><span class="k">call </span><span class="n">rpn_comm_finalize</span><span class="p">(</span><span class="n">ierr</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">496</span>
+<span class="linenos">497</span><span class="w">  </span><span class="k">call </span><span class="n">utl_tmg_stop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">498</span><span class="w">  </span><span class="k">call </span><span class="n">tmg_terminate</span><span class="p">(</span><span class="n">mmpi_myid</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;TMG_INFO&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">499</span>
+<span class="linenos">500</span><span class="k">end program </span><span class="n">midas_obsSelection</span><span class="w"></span>
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2018, ECCC.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.
+    </div>
+  </body>
+</html>

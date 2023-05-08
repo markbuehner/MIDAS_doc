@@ -1,0 +1,697 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>obssubspacedata_mod &mdash; MIDAS  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="MIDAS  documentation" href="../index.html" />
+    <link rel="next" title="analysisgrid_mod" href="analysisgrid_mod.html" />
+    <link rel="prev" title="obsspacedata_mod" href="obsspacedata_mod.html" /> 
+  </head>
+  <body>
+  <div>
+    <img src="../_static/MIDAS_header.png" alt="MIDAS" />
+  </div>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="analysisgrid_mod.html" title="analysisgrid_mod"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="obsspacedata_mod.html" title="obsspacedata_mod"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="obsspacedata_mod.html"
+                          title="previous chapter">obsspacedata_mod</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="analysisgrid_mod.html"
+                          title="next chapter">analysisgrid_mod</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/modules/obssubspacedata_mod.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <section id="obssubspacedata-mod">
+<h1>obssubspacedata_mod<a class="headerlink" href="#obssubspacedata-mod" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><p><a class="reference internal" href="obssubspacedata_mod_src.html"><span class="doc">link to source code</span></a></p>
+<p><strong>Dependency Diagrams:</strong></p>
+<figure class="align-default" id="id5">
+<a class="reference internal image-reference" href="obssubspacedata_mod.svg"><img alt="obssubspacedata_mod.svg" height="100px" src="obssubspacedata_mod.svg" /></a>
+<figcaption>
+<p><span class="caption-text">Direct Dependency Diagram</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id6">
+<a class="reference internal image-reference" href="obssubspacedata_mod_rev.svg"><img alt="obssubspacedata_mod_rev.svg" height="100px" src="obssubspacedata_mod_rev.svg" /></a>
+<figcaption>
+<p><span class="caption-text">Reverse Dependency Diagram</span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<span class="target" id="f/obssubspacedata_mod"></span><p class="rubric">Description</p>
+<p>MODULE obsSubSpaceData_mod (prefix=’oss’ category=’6. High-level data objects’)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Purpose</dt>
+<dd class="field-odd"><p>Repository of obs space structures, arrays, and routines specific
+to obs data pertinent to subspaces of the overall ObsSpaceData.
+Most tools are independent of ObsSpaceData and can be used by
+themselves for the users’ application(s).</p>
+</dd>
+</dl>
+<p class="rubric">Quick access</p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/obssubspacedata_mod/oss_obsdata_get_header_code" title="f/obssubspacedata_mod/oss_obsdata_get_header_code"><code class="xref f f-var docutils literal notranslate"><span class="pre">oss_obsdata_get_header_code</span></code></a>, <a class="reference internal" href="#f/obssubspacedata_mod/struct_oss_obsdata" title="f/obssubspacedata_mod/struct_oss_obsdata"><code class="xref f f-var docutils literal notranslate"><span class="pre">struct_oss_obsdata</span></code></a></p>
+</dd>
+<dt class="field-even">Routines</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/obssubspacedata_mod/obsdata_extra_code_test" title="f/obssubspacedata_mod/obsdata_extra_code_test"><code class="xref f f-func docutils literal notranslate"><span class="pre">obsdata_extra_code_test()</span></code></a>, <a class="reference internal" href="#f/obssubspacedata_mod/obsdata_get_header_code_i" title="f/obssubspacedata_mod/obsdata_get_header_code_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obsdata_get_header_code_i()</span></code></a>, <a class="reference internal" href="#f/obssubspacedata_mod/obsdata_get_header_code_r" title="f/obssubspacedata_mod/obsdata_get_header_code_r"><code class="xref f f-func docutils literal notranslate"><span class="pre">obsdata_get_header_code_r()</span></code></a>, <a class="reference internal" href="#f/obssubspacedata_mod/obsdata_set_index" title="f/obssubspacedata_mod/obsdata_set_index"><code class="xref f f-func docutils literal notranslate"><span class="pre">obsdata_set_index()</span></code></a>, <a class="reference internal" href="#f/obssubspacedata_mod/oss_comboidlist" title="f/obssubspacedata_mod/oss_comboidlist"><code class="xref f f-func docutils literal notranslate"><span class="pre">oss_comboidlist()</span></code></a>, <a class="reference internal" href="#f/obssubspacedata_mod/oss_get_comboidlist" title="f/obssubspacedata_mod/oss_get_comboidlist"><code class="xref f f-func docutils literal notranslate"><span class="pre">oss_get_comboidlist()</span></code></a>, <a class="reference internal" href="#f/obssubspacedata_mod/oss_obsdata_add_data1d" title="f/obssubspacedata_mod/oss_obsdata_add_data1d"><code class="xref f f-func docutils literal notranslate"><span class="pre">oss_obsdata_add_data1d()</span></code></a>, <a class="reference internal" href="#f/obssubspacedata_mod/oss_obsdata_alloc" title="f/obssubspacedata_mod/oss_obsdata_alloc"><code class="xref f f-func docutils literal notranslate"><span class="pre">oss_obsdata_alloc()</span></code></a>, <a class="reference internal" href="#f/obssubspacedata_mod/oss_obsdata_code_len" title="f/obssubspacedata_mod/oss_obsdata_code_len"><code class="xref f f-func docutils literal notranslate"><span class="pre">oss_obsdata_code_len()</span></code></a>, <a class="reference internal" href="#f/obssubspacedata_mod/oss_obsdata_dealloc" title="f/obssubspacedata_mod/oss_obsdata_dealloc"><code class="xref f f-func docutils literal notranslate"><span class="pre">oss_obsdata_dealloc()</span></code></a>, <a class="reference internal" href="#f/obssubspacedata_mod/oss_obsdata_get_array1d" title="f/obssubspacedata_mod/oss_obsdata_get_array1d"><code class="xref f f-func docutils literal notranslate"><span class="pre">oss_obsdata_get_array1d()</span></code></a>, <a class="reference internal" href="#f/obssubspacedata_mod/oss_obsdata_get_array2d" title="f/obssubspacedata_mod/oss_obsdata_get_array2d"><code class="xref f f-func docutils literal notranslate"><span class="pre">oss_obsdata_get_array2d()</span></code></a>, <a class="reference internal" href="#f/obssubspacedata_mod/oss_obsdata_get_data1d" title="f/obssubspacedata_mod/oss_obsdata_get_data1d"><code class="xref f f-func docutils literal notranslate"><span class="pre">oss_obsdata_get_data1d()</span></code></a>, <a class="reference internal" href="#f/obssubspacedata_mod/oss_obsdata_get_element" title="f/obssubspacedata_mod/oss_obsdata_get_element"><code class="xref f f-func docutils literal notranslate"><span class="pre">oss_obsdata_get_element()</span></code></a>, <a class="reference internal" href="#f/obssubspacedata_mod/oss_obsdata_mpiallgather" title="f/obssubspacedata_mod/oss_obsdata_mpiallgather"><code class="xref f f-func docutils literal notranslate"><span class="pre">oss_obsdata_mpiallgather()</span></code></a></p>
+</dd>
+</dl>
+<p class="rubric">Needed modules</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="codeprecision_mod.html#f/codeprecision_mod" title="f/codeprecision_mod: MODULE codePrecision_mod (prefix='pre' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">codeprecision_mod</span></code></a>: MODULE codePrecision_mod (prefix=’pre’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod" title="f/utilities_mod: MODULE utilities_mod (prefix='utl' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">utilities_mod</span></code></a>: MODULE utilities_mod (prefix=’utl’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="mathphysconstants_mod.html#f/mathphysconstants_mod" title="f/mathphysconstants_mod: MODULE MathPhysConstants_mod (prefix='mpc' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">mathphysconstants_mod</span></code></a>: MODULE MathPhysConstants_mod (prefix=’mpc’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="midasmpi_mod.html#f/midasmpi_mod" title="f/midasmpi_mod: MODULE midasMpi_mod (prefix='mmpi' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">midasmpi_mod</span></code></a>: MODULE midasMpi_mod (prefix=’mmpi’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="bufr_mod.html#f/bufr_mod" title="f/bufr_mod: MODULE bufr_mod (prefix='bufr' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">bufr_mod</span></code></a>: MODULE bufr_mod (prefix=’bufr’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod" title="f/obsspacedata_mod: MODULE obsSpaceData_mod (prefix='obs' category='6. High-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">obsspacedata_mod</span></code></a>: MODULE obsSpaceData_mod (prefix=’obs’ category=’6. High-level data objects’)</p></li>
+</ul>
+<p class="rubric">Types</p>
+<ul>
+<li><dl>
+<dt class="sig sig-object f" id="f/obssubspacedata_mod/unknown_type">
+<em class="property"><span class="pre">type</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obssubspacedata_mod/</span></span><span class="sig-name descname"><span class="pre">unknown_type</span></span><a class="headerlink" href="#f/obssubspacedata_mod/unknown_type" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type fields</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">code</span> (*)<em> [</em><em>character </em><em>,</em><em>pointer</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">data1d</span> (*,*)<em> [</em><em>real </em><em>,</em><em>pointer</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">data2d</span> (*,*,*)<em> [</em><em>real </em><em>,</em><em>pointer</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">dim1</span><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">dim2</span><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">irep</span><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">ndim</span><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">nrep</span><em> [</em><em>integer </em><em>]</em></p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</li>
+</ul>
+<p class="rubric">Variables</p>
+<ul>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obssubspacedata_mod/oss_obsdata_get_header_code">
+<span class="sig-prename descclassname"><span class="pre">obssubspacedata_mod/</span></span><span class="sig-name descname"><span class="pre">oss_obsdata_get_header_code</span></span><em> <span class="pre">[</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obssubspacedata_mod/oss_obsdata_get_header_code" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obssubspacedata_mod/struct_oss_obsdata">
+<span class="sig-prename descclassname"><span class="pre">obssubspacedata_mod/</span></span><span class="sig-name descname"><span class="pre">struct_oss_obsdata</span></span><em> <span class="pre">[</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obssubspacedata_mod/struct_oss_obsdata" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+</ul>
+<p class="rubric">Subroutines and functions</p>
+<dl>
+<dt class="sig sig-object f" id="f/obssubspacedata_mod/oss_obsdata_alloc">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obssubspacedata_mod/</span></span><span class="sig-name descname"><span class="pre">oss_obsdata_alloc</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">obsdata</span></em>, <em class="sig-param"><span class="pre">nrep</span></em>, <em class="sig-param"><span class="pre">dim1</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">dim2_opt</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/obssubspacedata_mod/oss_obsdata_alloc" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Allocates memory for structure struct_oss_obsdata to hold obs data file information.
+If dim2 is specified, then the data array associated with each observation/report
+will be 2D array. will be a 1D array if dim2 is not specified.</p>
+</dd>
+<dt class="field-even">Arguments </dt>
+<dd class="field-even"><p></p></dd>
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>obsdata</strong><em> [</em><em>struct_oss_obsdata </em><em>,</em><em>inout</em><em>]</em> :: data structure to allocate</p></li>
+<li><p><strong>nrep</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em> :: max number of associated observations/reports for data</p></li>
+<li><p><strong>dim1</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em> :: first dimension length of the array associated to each observation/report
+:dim2: second dimension length of the array associated to each observation/report (optional)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Options</dt>
+<dd class="field-even"><p><strong>dim2_opt</strong><em> [</em><em>integer </em><em>,</em><em>in,</em><em>]</em></p>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="bcovarsetupchem_mod.html#f/bcovarsetupchem_mod/bcsc_addbgstddev" title="f/bcovarsetupchem_mod/bcsc_addbgstddev"><code class="xref f f-func docutils literal notranslate"><span class="pre">bcsc_addbgstddev()</span></code></a>, <a class="reference internal" href="burpfiles_mod.html#f/burpfiles_mod/brpf_obssub_read" title="f/burpfiles_mod/brpf_obssub_read"><code class="xref f f-func docutils literal notranslate"><span class="pre">brpf_obssub_read()</span></code></a>, <a class="reference internal" href="obsoperatorschem_mod.html#f/obsoperatorschem_mod/oopc_setupch" title="f/obsoperatorschem_mod/oopc_setupch"><code class="xref f f-func docutils literal notranslate"><span class="pre">oopc_setupch()</span></code></a>, <a class="reference internal" href="obsfiles_mod.html#f/obsfiles_mod/obsf_obssub_read" title="f/obsfiles_mod/obsf_obssub_read"><code class="xref f f-func docutils literal notranslate"><span class="pre">obsf_obssub_read()</span></code></a>, <a class="reference internal" href="#f/obssubspacedata_mod/oss_obsdata_add_data1d" title="f/obssubspacedata_mod/oss_obsdata_add_data1d"><code class="xref f f-func docutils literal notranslate"><span class="pre">oss_obsdata_add_data1d()</span></code></a>, <a class="reference internal" href="#f/obssubspacedata_mod/oss_obsdata_mpiallgather" title="f/obssubspacedata_mod/oss_obsdata_mpiallgather"><code class="xref f f-func docutils literal notranslate"><span class="pre">oss_obsdata_mpiallgather()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/obssubspacedata_mod/oss_obsdata_dealloc">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obssubspacedata_mod/</span></span><span class="sig-name descname"><span class="pre">oss_obsdata_dealloc</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">obsdata</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/obssubspacedata_mod/oss_obsdata_dealloc" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Deallocates memory for structure struct_oss_obsdata</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>obsdata</strong><em> [</em><em>struct_oss_obsdata </em><em>,</em><em>inout</em><em>]</em></p>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="obsoperatorschem_mod.html#f/obsoperatorschem_mod/oopc_deallocavgkern" title="f/obsoperatorschem_mod/oopc_deallocavgkern"><code class="xref f f-func docutils literal notranslate"><span class="pre">oopc_deallocavgkern()</span></code></a>, <a class="reference internal" href="obserrors_mod.html#f/obserrors_mod/chm_dealloc_obs_err_stddev" title="f/obserrors_mod/chm_dealloc_obs_err_stddev"><code class="xref f f-func docutils literal notranslate"><span class="pre">chm_dealloc_obs_err_stddev()</span></code></a>, <a class="reference internal" href="obsspacediag_mod.html#f/obsspacediag_mod/osd_readsqrthpht" title="f/obsspacediag_mod/osd_readsqrthpht"><code class="xref f f-func docutils literal notranslate"><span class="pre">osd_readsqrthpht()</span></code></a>, <a class="reference internal" href="#f/obssubspacedata_mod/oss_obsdata_mpiallgather" title="f/obssubspacedata_mod/oss_obsdata_mpiallgather"><code class="xref f f-func docutils literal notranslate"><span class="pre">oss_obsdata_mpiallgather()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/obssubspacedata_mod/oss_obsdata_get_element">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obssubspacedata_mod/</span></span><span class="sig-name descname"><span class="pre">oss_obsdata_get_element</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">obsdata</span></em>, <em class="sig-param"><span class="pre">code</span></em>, <em class="sig-param"><span class="pre">idim1</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">stat_opt</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/obssubspacedata_mod/oss_obsdata_get_element" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Returns element of array from obsdata 1D data array. The returned element is the
+one with the specified identifying code.</p>
+</dd>
+<dt class="field-even">Arguments </dt>
+<dd class="field-even"><p></p></dd>
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>obsdata</strong><em> [</em><em>struct_oss_obsdata </em><em>,</em><em>inout</em><em>]</em> :: struct_oss_obsdata instance</p></li>
+<li><p><strong>code</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em> :: unique identifying code</p></li>
+<li><p><strong>idim1</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em> :: position of element in the dim1 axis</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return</dt>
+<dd class="field-even"><p><strong>element</strong><em> [</em><em>real </em><em>]</em> :: retrieved element from obsdata%data1d
+:stat:    status code</p>
+</dd>
+<dt class="field-odd">Options</dt>
+<dd class="field-odd"><p><strong>stat_opt</strong><em> [</em><em>integer </em><em>,</em><em>out,</em><em>]</em></p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="burpfiles_mod.html#f/burpfiles_mod/brpf_obssub_update" title="f/burpfiles_mod/brpf_obssub_update"><code class="xref f f-func docutils literal notranslate"><span class="pre">brpf_obssub_update()</span></code></a>, <a class="reference internal" href="obserrors_mod.html#f/obserrors_mod/chm_get_obs_err_stddev" title="f/obserrors_mod/chm_get_obs_err_stddev"><code class="xref f f-func docutils literal notranslate"><span class="pre">chm_get_obs_err_stddev()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/obssubspacedata_mod/obsdata_set_index" title="f/obssubspacedata_mod/obsdata_set_index"><code class="xref f f-func docutils literal notranslate"><span class="pre">obsdata_set_index()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/obssubspacedata_mod/oss_obsdata_get_array1d">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obssubspacedata_mod/</span></span><span class="sig-name descname"><span class="pre">oss_obsdata_get_array1d</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">obsdata</span></em>, <em class="sig-param"><span class="pre">code</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">stat_opt</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/obssubspacedata_mod/oss_obsdata_get_array1d" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Returns 1D data array from obsdata. The returned array is the one with the specified
+identifying code.</p>
+</dd>
+<dt class="field-even">Arguments </dt>
+<dd class="field-even"><p></p></dd>
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>obsdata</strong><em> [</em><em>struct_oss_obsdata </em><em>,</em><em>inout</em><em>]</em> :: struct_oss_obsdata instance</p></li>
+<li><p><strong>code</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em> :: unique identifying code</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return</dt>
+<dd class="field-even"><p><strong>array</strong> (obsdata%dim1)<em> [</em><em>real </em><em>]</em> :: retrieved array from obsdata%data1d of dimension obsdata%dim1
+:stat:    search success (0 - found; 1 = no data; 2 = not found)</p>
+</dd>
+<dt class="field-odd">Options</dt>
+<dd class="field-odd"><p><strong>stat_opt</strong><em> [</em><em>integer </em><em>,</em><em>out,</em><em>]</em></p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="burpfiles_mod.html#f/burpfiles_mod/brpf_obssub_update" title="f/burpfiles_mod/brpf_obssub_update"><code class="xref f f-func docutils literal notranslate"><span class="pre">brpf_obssub_update()</span></code></a>, <a class="reference internal" href="#f/obssubspacedata_mod/oss_obsdata_get_data1d" title="f/obssubspacedata_mod/oss_obsdata_get_data1d"><code class="xref f f-func docutils literal notranslate"><span class="pre">oss_obsdata_get_data1d()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/obssubspacedata_mod/obsdata_set_index" title="f/obssubspacedata_mod/obsdata_set_index"><code class="xref f f-func docutils literal notranslate"><span class="pre">obsdata_set_index()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/obssubspacedata_mod/oss_obsdata_get_data1d">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obssubspacedata_mod/</span></span><span class="sig-name descname"><span class="pre">oss_obsdata_get_data1d</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">obsdata</span></em>, <em class="sig-param"><span class="pre">lon</span></em>, <em class="sig-param"><span class="pre">lat</span></em>, <em class="sig-param"><span class="pre">date</span></em>, <em class="sig-param"><span class="pre">time</span></em>, <em class="sig-param"><span class="pre">stnid</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">stat_opt</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/obssubspacedata_mod/oss_obsdata_get_data1d" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Extract 1D data array from structure according to input (lat,long,date,time,stnid)</p>
+</dd>
+<dt class="field-even">Arguments </dt>
+<dd class="field-even"><p></p></dd>
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>obsdata</strong><em> [</em><em>struct_oss_obsdata </em><em>,</em><em>inout</em><em>]</em> :: Structure from which data elements are to be found</p></li>
+<li><p><strong>lon</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: longitude real (radians)</p></li>
+<li><p><strong>lat</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: latitude real (radians)</p></li>
+<li><p><strong>date</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em> :: date in YYYYMMDD</p></li>
+<li><p><strong>time</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em> :: time in HHMM</p></li>
+<li><p><strong>stnid</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em> :: station ID</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return</dt>
+<dd class="field-even"><p><strong>array</strong> (obsdata%dim1)<em> [</em><em>real </em><em>]</em> :: Identified 1D array
+:stat:    search success (0 - found; 1 = no data; 2 = not found)</p>
+</dd>
+<dt class="field-odd">Options</dt>
+<dd class="field-odd"><p><strong>stat_opt</strong><em> [</em><em>integer </em><em>,</em><em>out,</em><em>]</em></p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="obsspacediag_mod.html#f/obsspacediag_mod/osd_readsqrthpht" title="f/obsspacediag_mod/osd_readsqrthpht"><code class="xref f f-func docutils literal notranslate"><span class="pre">osd_readsqrthpht()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/obssubspacedata_mod/oss_obsdata_get_array1d" title="f/obssubspacedata_mod/oss_obsdata_get_array1d"><code class="xref f f-func docutils literal notranslate"><span class="pre">oss_obsdata_get_array1d()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/obssubspacedata_mod/oss_obsdata_get_array2d">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obssubspacedata_mod/</span></span><span class="sig-name descname"><span class="pre">oss_obsdata_get_array2d</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">obsdata</span></em>, <em class="sig-param"><span class="pre">code</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">stat_opt</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/obssubspacedata_mod/oss_obsdata_get_array2d" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Returns 2D data array from obsdata. The returned array is the one with the specified
+identifying code.</p>
+</dd>
+<dt class="field-even">Arguments </dt>
+<dd class="field-even"><p></p></dd>
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>obsdata</strong><em> [</em><em>struct_oss_obsdata </em><em>,</em><em>inout</em><em>]</em> :: struct_oss_obsdata instance</p></li>
+<li><p><strong>code</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em> :: unique identifying code</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return</dt>
+<dd class="field-even"><p><strong>array</strong> (obsdata%dim1,obsdata%dim2)<em> [</em><em>real </em><em>]</em> :: retrieved array from obsdata%data2d of dimension (obsdata%dim1,obsdata%dim2)
+:stat:    search success (0 - found; 1 = no data; 2 = not found)</p>
+</dd>
+<dt class="field-odd">Options</dt>
+<dd class="field-odd"><p><strong>stat_opt</strong><em> [</em><em>integer </em><em>,</em><em>out,</em><em>]</em></p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="bcovarsetupchem_mod.html#f/bcovarsetupchem_mod/bcsc_retrievebgstddev" title="f/bcovarsetupchem_mod/bcsc_retrievebgstddev"><code class="xref f f-func docutils literal notranslate"><span class="pre">bcsc_retrievebgstddev()</span></code></a>, <a class="reference internal" href="burpfiles_mod.html#f/burpfiles_mod/brpf_obssub_update" title="f/burpfiles_mod/brpf_obssub_update"><code class="xref f f-func docutils literal notranslate"><span class="pre">brpf_obssub_update()</span></code></a>, <a class="reference internal" href="obsoperatorschem_mod.html#f/obsoperatorschem_mod/oopc_getavgkern" title="f/obsoperatorschem_mod/oopc_getavgkern"><code class="xref f f-func docutils literal notranslate"><span class="pre">oopc_getavgkern()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/obssubspacedata_mod/obsdata_set_index" title="f/obssubspacedata_mod/obsdata_set_index"><code class="xref f f-func docutils literal notranslate"><span class="pre">obsdata_set_index()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/obssubspacedata_mod/obsdata_set_index">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obssubspacedata_mod/</span></span><span class="sig-name descname"><span class="pre">obsdata_set_index</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">obsdata</span></em>, <em class="sig-param"><span class="pre">code</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">stat_opt</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/obssubspacedata_mod/obsdata_set_index" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Sets the position variable (irep) in struct_oss_obsdata to reference the record
+that matches the input identifying code.</p>
+</dd>
+<dt class="field-even">Arguments </dt>
+<dd class="field-even"><p></p></dd>
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>obsdata</strong><em> [</em><em>struct_oss_obsdata </em><em>,</em><em>inout</em><em>]</em> :: irep: current index position for the observation/report
+:index:        obs index</p></li>
+<li><p><strong>code</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em> :: code for comparison to those in obsdata</p></li>
+<li><p><strong>obsdata</strong> :: irep: current index position for the observation/report</p></li>
+</ul>
+</dd>
+<dt class="field-even">Options</dt>
+<dd class="field-even"><p><strong>stat_opt</strong><em> [</em><em>integer </em><em>,</em><em>out,</em><em>]</em> :: status of call (optional)
+:0: no errors
+:1: no reports available
+:2: report not found</p>
+</dd>
+<dt class="field-odd">Comments </dt>
+<dd class="field-odd"><p>If the optional argument stat_opt is provided and an error occurs, the error code will
+be returned and the abort will not be called to allow for error handling.</p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/obssubspacedata_mod/oss_obsdata_get_element" title="f/obssubspacedata_mod/oss_obsdata_get_element"><code class="xref f f-func docutils literal notranslate"><span class="pre">oss_obsdata_get_element()</span></code></a>, <a class="reference internal" href="#f/obssubspacedata_mod/oss_obsdata_get_array1d" title="f/obssubspacedata_mod/oss_obsdata_get_array1d"><code class="xref f f-func docutils literal notranslate"><span class="pre">oss_obsdata_get_array1d()</span></code></a>, <a class="reference internal" href="#f/obssubspacedata_mod/oss_obsdata_get_array2d" title="f/obssubspacedata_mod/oss_obsdata_get_array2d"><code class="xref f f-func docutils literal notranslate"><span class="pre">oss_obsdata_get_array2d()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="#f/obssubspacedata_mod/obsdata_extra_code_test" title="f/obssubspacedata_mod/obsdata_extra_code_test"><code class="xref f f-func docutils literal notranslate"><span class="pre">obsdata_extra_code_test()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/obssubspacedata_mod/obsdata_extra_code_test">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obssubspacedata_mod/</span></span><span class="sig-name descname"><span class="pre">obsdata_extra_code_test</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">test_code</span></em>, <em class="sig-param"><span class="pre">ref_code</span></em>, <em class="sig-param"><span class="pre">ref_lat</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/obssubspacedata_mod/obsdata_extra_code_test" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Test matching of code values accounting for rare differences
+in stored lat (and lon) value(s) when codes are stored as strings in the form
+LAT–LON–YYYYMMDDHHMM* (ie. with &gt;= oss_code_sublen characters).</p>
+</dd>
+<dt class="field-even">Caveat </dt>
+<dd class="field-even"><p>The current version assumes the only source of difference would stem from
+a shift to the nearest latitude of the analysis grid from points near the pole.
+(this source of difference identified by M. Sitwell)
+Also currently assumes that most poleward analysis grid latitudes are within 1 degree
+away from a pole.</p>
+</dd>
+<dt class="field-odd">Arguments </dt>
+<dd class="field-odd"><p></p></dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>test_code</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em> :: code for comparison to ref_code</p></li>
+<li><p><strong>ref_lat</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em> :: latitude  (x100) part of reference code</p></li>
+<li><p><strong>ref_code</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em> :: reference code</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Return</dt>
+<dd class="field-odd"><p><strong>found</strong><em> [</em><em>logical </em><em>]</em> :: logical indicating if a match has been found.</p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/obssubspacedata_mod/obsdata_set_index" title="f/obssubspacedata_mod/obsdata_set_index"><code class="xref f f-func docutils literal notranslate"><span class="pre">obsdata_set_index()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/obssubspacedata_mod/obsdata_get_header_code_i">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obssubspacedata_mod/</span></span><span class="sig-name descname"><span class="pre">obsdata_get_header_code_i</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">ilon</span></em>, <em class="sig-param"><span class="pre">ilat</span></em>, <em class="sig-param"><span class="pre">date</span></em>, <em class="sig-param"><span class="pre">time</span></em>, <em class="sig-param"><span class="pre">stnid</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/obssubspacedata_mod/obsdata_get_header_code_i" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Generates a string code to identify an obervation by the header information in
+a BURP report. The BURP header information is saved as a string in the form
+LAT–LON–YYYYMMDDHHMMSTNID—-. Intention of this function is to be used for
+setting the unique identifier ‘code’ in struct_oss_obsdata. Can be called under
+the interface oss_obsdata_get_header_code.</p>
+</dd>
+<dt class="field-even">Arguments </dt>
+<dd class="field-even"><p></p></dd>
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ilon</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em> :: longitude integer</p></li>
+<li><p><strong>ilat</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em> :: latitude integer</p></li>
+<li><p><strong>date</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em> :: date in YYYYMMDD</p></li>
+<li><p><strong>time</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em> :: time in HHMM</p></li>
+<li><p><strong>stnid</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em> :: station ID</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return</dt>
+<dd class="field-even"><p><strong>code</strong><em> [</em><em>character </em><em>]</em> :: unique code</p>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/obssubspacedata_mod/obsdata_get_header_code_r" title="f/obssubspacedata_mod/obsdata_get_header_code_r"><code class="xref f f-func docutils literal notranslate"><span class="pre">obsdata_get_header_code_r()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/obssubspacedata_mod/obsdata_get_header_code_r">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obssubspacedata_mod/</span></span><span class="sig-name descname"><span class="pre">obsdata_get_header_code_r</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">lon</span></em>, <em class="sig-param"><span class="pre">lat</span></em>, <em class="sig-param"><span class="pre">date</span></em>, <em class="sig-param"><span class="pre">time</span></em>, <em class="sig-param"><span class="pre">stnid</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/obssubspacedata_mod/obsdata_get_header_code_r" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Generates a string code to identify an obervation by the header information in
+a BURP report. The BURP header information is saved as a string in the form
+LAT–LON–YYYYMMDDHHMMSTNID—-. Intention of this function is to be used for
+setting the unique identifier ‘code’ in struct_oss_obsdata. Can be called under
+the interface oss_obsdata_get_header_code.</p>
+</dd>
+<dt class="field-even">Arguments </dt>
+<dd class="field-even"><p></p></dd>
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>lon</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: longitude real (radians)</p></li>
+<li><p><strong>lat</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: latitude real (radians)</p></li>
+<li><p><strong>date</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em> :: date in YYYYMMDD</p></li>
+<li><p><strong>time</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em> :: time in HHMM</p></li>
+<li><p><strong>stnid</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em> :: station ID</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return</dt>
+<dd class="field-even"><p><strong>code</strong><em> [</em><em>character </em><em>]</em> :: unique code</p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/obssubspacedata_mod/obsdata_get_header_code_i" title="f/obssubspacedata_mod/obsdata_get_header_code_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obsdata_get_header_code_i()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/obssubspacedata_mod/oss_obsdata_add_data1d">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obssubspacedata_mod/</span></span><span class="sig-name descname"><span class="pre">oss_obsdata_add_data1d</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">obsdata</span></em>, <em class="sig-param"><span class="pre">val</span></em>, <em class="sig-param"><span class="pre">code</span></em>, <em class="sig-param"><span class="pre">maxsize</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">dim1_opt</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/obssubspacedata_mod/oss_obsdata_add_data1d" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Add data value(s) to obsdata%data1d with associated identifier code.</p>
+</dd>
+<dt class="field-even">Arguments </dt>
+<dd class="field-even"><p></p></dd>
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>obsdata</strong><em> [</em><em>struct_oss_obsdata </em><em>,</em><em>inout</em><em>]</em> :: Updated obsdata</p></li>
+<li><p><strong>val</strong> (*)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: data array to store in obsdata%data1d</p></li>
+<li><p><strong>code</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em> :: identifying code based on (lat,long,date,hhmm) if not also stnid</p></li>
+<li><p><strong>maxsize</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em> :: max allowed size for obsdata
+dim1          value() dimension (optional)</p></li>
+<li><p><strong>obsdata</strong> :: Updated obsdata</p></li>
+</ul>
+</dd>
+<dt class="field-even">Comments </dt>
+<dd class="field-even"><ul class="simple">
+<li><p>Retrieval of values from obsdata%data1d to be done via oss_obsdata_get_element (or oss_obsdata_get_array1d).</p></li>
+<li><p>If obsdata allocation is required for all processors (such as for use later with obsdata_MPIGather),
+allocation and/or initialization of arrays needs to be done at a corresponding appropriate location
+outside the obs operations such as in oss_setup to ensure allocation is done for all processors,
+including those without associated data. This is to ensure that rpn_comm_allgather will work
+in routine obsdata_MPIGather.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Options</dt>
+<dd class="field-odd"><p><strong>dim1_opt</strong><em> [</em><em>integer </em><em>,</em><em>in,</em><em>]</em></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/obssubspacedata_mod/oss_obsdata_alloc" title="f/obssubspacedata_mod/oss_obsdata_alloc"><code class="xref f f-func docutils literal notranslate"><span class="pre">oss_obsdata_alloc()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/obssubspacedata_mod/oss_obsdata_mpiallgather">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obssubspacedata_mod/</span></span><span class="sig-name descname"><span class="pre">oss_obsdata_mpiallgather</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">obsdata</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/obssubspacedata_mod/oss_obsdata_mpiallgather" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Gathers previously saved obsdata from all processors.</p>
+</dd>
+<dt class="field-even">Arguments </dt>
+<dd class="field-even"><p></p></dd>
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><p><strong>obsdata</strong><em> [</em><em>struct_oss_obsdata </em><em>,</em><em>inout</em><em>]</em> :: Local struct_oss_obsdata to become global</p>
+</dd>
+<dt class="field-even">Comments </dt>
+<dd class="field-even"><ul class="simple">
+<li><p>Assumes obsdata%dim1 (and obsdata%dim2) the same over all processors.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="obsfiles_mod.html#f/obsfiles_mod/obsf_obssub_read" title="f/obsfiles_mod/obsf_obssub_read"><code class="xref f f-func docutils literal notranslate"><span class="pre">obsf_obssub_read()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="midasmpi_mod.html#f/midasmpi_mod/mmpi_allgather_string" title="f/midasmpi_mod/mmpi_allgather_string"><code class="xref f f-func docutils literal notranslate"><span class="pre">mmpi_allgather_string()</span></code></a>, <a class="reference internal" href="#f/obssubspacedata_mod/oss_obsdata_dealloc" title="f/obssubspacedata_mod/oss_obsdata_dealloc"><code class="xref f f-func docutils literal notranslate"><span class="pre">oss_obsdata_dealloc()</span></code></a>, <a class="reference internal" href="#f/obssubspacedata_mod/oss_obsdata_alloc" title="f/obssubspacedata_mod/oss_obsdata_alloc"><code class="xref f f-func docutils literal notranslate"><span class="pre">oss_obsdata_alloc()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/obssubspacedata_mod/oss_get_comboidlist">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obssubspacedata_mod/</span></span><span class="sig-name descname"><span class="pre">oss_get_comboidlist</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">obsspacedata</span></em>, <em class="sig-param"><span class="pre">stnid_list</span></em>, <em class="sig-param"><span class="pre">varno_list</span></em>, <em class="sig-param"><span class="pre">unilev_list</span></em>, <em class="sig-param"><span class="pre">num_elements</span></em>, <em class="sig-param"><span class="pre">nset</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/obssubspacedata_mod/oss_get_comboidlist" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Uses the subroutine oss_comboIdlist to compile a unique list of stnid,
+(stnid,varno) or (stnid,varno,multi/uni-level) combinations to be used in searches.</p>
+</dd>
+<dt class="field-even">Arguments </dt>
+<dd class="field-even"><dl class="field-list simple">
+<dt class="field-odd">obsSpaceData</dt>
+<dd class="field-odd"><p>Observation space data</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>stnid_list</strong> (100)<em> [</em><em>character </em><em>,</em><em>out</em><em>]</em> :: List of unique stnids</p></li>
+<li><p><strong>varno_list</strong> (100)<em> [</em><em>integer </em><em>,</em><em>out</em><em>]</em> :: List of unique varno</p></li>
+<li><p><strong>unilev_list</strong> (100)<em> [</em><em>logical </em><em>,</em><em>out</em><em>]</em> :: List of unique uni/multi-level identifications</p></li>
+<li><p><strong>num_elements</strong><em> [</em><em>integer </em><em>,</em><em>out</em><em>]</em> :: Number of unique elements in <a href="#id1"><span class="problematic" id="id2">*</span></a>_list arrrays</p></li>
+<li><p><strong>nset</strong><em> [</em><em>integer </em><em>,</em><em>out</em><em>]</em> :: <p>Integer indicating grouping, with values indicating</p>
+<ul>
+<li><p>1: group by stnid</p></li>
+<li><p>2: group by (stnid,bufr)</p></li>
+<li><p>3: group by (stnid,bufr,multi/uni-level)</p></li>
+</ul>
+</p></li>
+<li><p><strong>obsspacedata</strong><em> [</em><em>struct_obs </em><em>,</em><em>inout</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="obsspacediag_mod.html#f/obsspacediag_mod/osd_obsdiagnostics" title="f/obsspacediag_mod/osd_obsdiagnostics"><code class="xref f f-func docutils literal notranslate"><span class="pre">osd_obsdiagnostics()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/obssubspacedata_mod/oss_comboidlist" title="f/obssubspacedata_mod/oss_comboidlist"><code class="xref f f-func docutils literal notranslate"><span class="pre">oss_comboidlist()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_getheaderindex" title="f/obsspacedata_mod/obs_getheaderindex"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_getheaderindex()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_headelem_i" title="f/obsspacedata_mod/obs_headelem_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_headelem_i()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyelem_i" title="f/obsspacedata_mod/obs_bodyelem_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyelem_i()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_elem_c" title="f/obsspacedata_mod/obs_elem_c"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_elem_c()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/obssubspacedata_mod/oss_comboidlist">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obssubspacedata_mod/</span></span><span class="sig-name descname"><span class="pre">oss_comboidlist</span></span><span class="sig-paren">(</span><span class="optional">[</span><em class="sig-param"><span class="pre">stnid_add_opt</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">varno_add_opt</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">unilev_add_opt</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">stnid_list_opt</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">varno_list_opt</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">unilev_list_opt</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">num_elements_opt</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">initialize_opt</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">nset_opt</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">gather_mpi_opt</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">all_combos_opt</span></em><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/obssubspacedata_mod/oss_comboidlist" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Provide list of fixed or accumulated stnid, (stnid,varno) or
+(stnid,varno,multi/uni-level) combinations to be used in searches.</p>
+<p>Can be used for both single processor and  MPI mode, where ‘gather_mpi’ must be set
+to .true. at some point for use with MPI.</p>
+<blockquote>
+<div><p>Called from osd_chem_diagnmostics in file obspacediag_mod.ftn90.</p>
+</div></blockquote>
+</dd>
+<dt class="field-even">Arguments </dt>
+<dd class="field-even"><p></p></dd>
+<dt class="field-odd">Options</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>stnid_add_opt</strong><em> [</em><em>character </em><em>,</em><em>in,</em><em>]</em> :: stnid to add to stnid_list if part of unique set</p></li>
+<li><p><strong>varno_add_opt</strong><em> [</em><em>integer </em><em>,</em><em>in,</em><em>]</em> :: varno to add to varno_list if part of unique set</p></li>
+<li><p><strong>unilev_add_opt</strong><em> [</em><em>logical </em><em>,</em><em>in,</em><em>]</em> :: unilev logical to add to unilev_list if part of unique set</p></li>
+<li><p><strong>initialize_opt</strong><em> [</em><em>logical </em><em>,</em><em>in,</em><em>]</em> :: Initialize internal arrays and counters</p></li>
+<li><p><strong>gather_mpi_opt</strong><em> [</em><em>logical </em><em>,</em><em>in,</em><em>]</em> :: Gather all local MPI process and recompile unique lists</p></li>
+<li><p><strong>nset_opt</strong><em> [</em><em>integer </em><em>,</em><em>inout,</em><em>]</em> :: <dl class="simple">
+<dt>Integer indicating grouping of diagnostics. Input variable</dt><dd><p>if initialize=.true., output variable otherwise.
+Values indicate</p>
+<ul>
+<li><p>1: group by stnid</p></li>
+<li><p>2: group by (stnid,bufr)</p></li>
+<li><p>3: group by (stnid,bufr,multi/uni-level)</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">all combos_opt</dt>
+<dd class="field-odd"><p>Indicates if all combinations specified by nset are to
+be use, or only those specified in the namelist NAMCHEM
+Input variable if initialize=.true., output variable otherwise.</p>
+</dd>
+</dl>
+</p></li>
+<li><p><strong>stnid_list_opt</strong> (100)<em> [</em><em>character </em><em>,</em><em>out,</em><em>]</em> :: List of unique stnids</p></li>
+<li><p><strong>varno_list_opt</strong> (100)<em> [</em><em>integer </em><em>,</em><em>out,</em><em>]</em> :: List of unique varno</p></li>
+<li><p><strong>unilev_list_opt</strong> (100)<em> [</em><em>logical </em><em>,</em><em>out,</em><em>]</em> :: List of unique uni/multi-level identifications</p></li>
+<li><p><strong>num_elements_opt</strong><em> [</em><em>integer </em><em>,</em><em>out,</em><em>]</em> :: Number of unique elements in <a href="#id3"><span class="problematic" id="id4">*</span></a>_list arrrays</p></li>
+<li><p><strong>all_combos_opt</strong><em> [</em><em>logical </em><em>,</em><em>inout,</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="obsspacediag_mod.html#f/obsspacediag_mod/osd_obspostproc" title="f/obsspacediag_mod/osd_obspostproc"><code class="xref f f-func docutils literal notranslate"><span class="pre">osd_obspostproc()</span></code></a>, <a class="reference internal" href="#f/obssubspacedata_mod/oss_get_comboidlist" title="f/obssubspacedata_mod/oss_get_comboidlist"><code class="xref f f-func docutils literal notranslate"><span class="pre">oss_get_comboidlist()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_stnid_equal" title="f/utilities_mod/utl_stnid_equal"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_stnid_equal()</span></code></a>, <a class="reference internal" href="midasmpi_mod.html#f/midasmpi_mod/mmpi_allgather_string" title="f/midasmpi_mod/mmpi_allgather_string"><code class="xref f f-func docutils literal notranslate"><span class="pre">mmpi_allgather_string()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/obssubspacedata_mod/oss_obsdata_code_len">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obssubspacedata_mod/</span></span><span class="sig-name descname"><span class="pre">oss_obsdata_code_len</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#f/obssubspacedata_mod/oss_obsdata_code_len" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Pass on oss_code_len value.</p>
+</dd>
+<dt class="field-even">Return</dt>
+<dd class="field-even"><p><strong>oss_obsdata_code_len</strong><em> [</em><em>integer </em><em>]</em></p>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="burpfiles_mod.html#f/burpfiles_mod/brpf_obssub_update" title="f/burpfiles_mod/brpf_obssub_update"><code class="xref f f-func docutils literal notranslate"><span class="pre">brpf_obssub_update()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div></blockquote>
+</section>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="analysisgrid_mod.html" title="analysisgrid_mod"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="obsspacedata_mod.html" title="obsspacedata_mod"
+             >previous</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2018, ECCC.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,1374 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>calcheightandpressure_mod &mdash; MIDAS  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="MIDAS  documentation" href="../index.html" />
+    <link rel="next" title="columnvariabletransforms_mod" href="columnvariabletransforms_mod.html" />
+    <link rel="prev" title="advection_mod" href="advection_mod.html" /> 
+  </head>
+  <body>
+  <div>
+    <img src="../_static/MIDAS_header.png" alt="MIDAS" />
+  </div>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="columnvariabletransforms_mod.html" title="columnvariabletransforms_mod"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="advection_mod.html" title="advection_mod"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="advection_mod.html"
+                          title="previous chapter">advection_mod</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="columnvariabletransforms_mod.html"
+                          title="next chapter">columnvariabletransforms_mod</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/modules/calcheightandpressure_mod.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <section id="calcheightandpressure-mod">
+<h1>calcheightandpressure_mod<a class="headerlink" href="#calcheightandpressure-mod" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><p><a class="reference internal" href="calcheightandpressure_mod_src.html"><span class="doc">link to source code</span></a></p>
+<p><strong>Dependency Diagrams:</strong></p>
+<figure class="align-default" id="id1">
+<a class="reference internal image-reference" href="calcheightandpressure_mod.svg"><img alt="calcheightandpressure_mod.svg" height="100px" src="calcheightandpressure_mod.svg" /></a>
+<figcaption>
+<p><span class="caption-text">Direct Dependency Diagram</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id2">
+<a class="reference internal image-reference" href="calcheightandpressure_mod_rev.svg"><img alt="calcheightandpressure_mod_rev.svg" height="100px" src="calcheightandpressure_mod_rev.svg" /></a>
+<figcaption>
+<p><span class="caption-text">Reverse Dependency Diagram</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<span class="target" id="f/calcheightandpressure_mod"></span><p class="rubric">Description</p>
+<p>MODULE czp_calcHeightAndPressure (prefix=’czp’ category=’4. Data Object transformations’)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Purpose</dt>
+<dd class="field-odd"><p>Subroutines for computing height and/or pressure on statevectors
+and columns depending on the vgrid kind.
+Nonlinear, tangent-linear and adjoint versions of these
+transformations are included in separate subroutines.
+Depending on the vertical representation of the state or column,
+pressure or height values are either computed or retrieved using
+the [vgrid](<a class="reference external" href="https://gitlab.science.gc.ca/RPN-SI/vgrid">https://gitlab.science.gc.ca/RPN-SI/vgrid</a>) library.
+When computation is required (for instance to compute height on a
+GEM-P, represented on pressure coordinates), thermodynamical
+variables are required, typically <cite>P0</cite>, <cite>TT</cite> and <cite>HU</cite>.
+Height and pressure values are obtained for both thermodynamical
+and momentum levels and labeled <cite>Z_T</cite> (<cite>P_T</cite>) and <cite>Z_M</cite> (<cite>P_M</cite>).</p>
+</dd>
+</dl>
+<p class="rubric">Quick access</p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/calcheightandpressure_mod/czp_calcheight_ad" title="f/calcheightandpressure_mod/czp_calcheight_ad"><code class="xref f f-var docutils literal notranslate"><span class="pre">czp_calcheight_ad</span></code></a>, <a class="reference internal" href="#f/calcheightandpressure_mod/czp_calcheight_nl" title="f/calcheightandpressure_mod/czp_calcheight_nl"><code class="xref f f-var docutils literal notranslate"><span class="pre">czp_calcheight_nl</span></code></a>, <a class="reference internal" href="#f/calcheightandpressure_mod/czp_calcheight_tl" title="f/calcheightandpressure_mod/czp_calcheight_tl"><code class="xref f f-var docutils literal notranslate"><span class="pre">czp_calcheight_tl</span></code></a>, <a class="reference internal" href="#f/calcheightandpressure_mod/czp_calcpressure_ad" title="f/calcheightandpressure_mod/czp_calcpressure_ad"><code class="xref f f-var docutils literal notranslate"><span class="pre">czp_calcpressure_ad</span></code></a>, <a class="reference internal" href="#f/calcheightandpressure_mod/czp_calcpressure_nl" title="f/calcheightandpressure_mod/czp_calcpressure_nl"><code class="xref f f-var docutils literal notranslate"><span class="pre">czp_calcpressure_nl</span></code></a>, <a class="reference internal" href="#f/calcheightandpressure_mod/czp_calcpressure_tl" title="f/calcheightandpressure_mod/czp_calcpressure_tl"><code class="xref f f-var docutils literal notranslate"><span class="pre">czp_calcpressure_tl</span></code></a>, <a class="reference internal" href="#f/calcheightandpressure_mod/czp_calczandp_ad" title="f/calcheightandpressure_mod/czp_calczandp_ad"><code class="xref f f-var docutils literal notranslate"><span class="pre">czp_calczandp_ad</span></code></a>, <a class="reference internal" href="#f/calcheightandpressure_mod/czp_calczandp_nl" title="f/calcheightandpressure_mod/czp_calczandp_nl"><code class="xref f f-var docutils literal notranslate"><span class="pre">czp_calczandp_nl</span></code></a>, <a class="reference internal" href="#f/calcheightandpressure_mod/czp_calczandp_tl" title="f/calcheightandpressure_mod/czp_calczandp_tl"><code class="xref f f-var docutils literal notranslate"><span class="pre">czp_calczandp_tl</span></code></a>, <a class="reference internal" href="#f/calcheightandpressure_mod/czp_fetch1ddpdps" title="f/calcheightandpressure_mod/czp_fetch1ddpdps"><code class="xref f f-var docutils literal notranslate"><span class="pre">czp_fetch1ddpdps</span></code></a>, <a class="reference internal" href="#f/calcheightandpressure_mod/czp_fetch1dlevels" title="f/calcheightandpressure_mod/czp_fetch1dlevels"><code class="xref f f-var docutils literal notranslate"><span class="pre">czp_fetch1dlevels</span></code></a>, <a class="reference internal" href="#f/calcheightandpressure_mod/czp_fetch3dlevels" title="f/calcheightandpressure_mod/czp_fetch3dlevels"><code class="xref f f-var docutils literal notranslate"><span class="pre">czp_fetch3dlevels</span></code></a></p>
+</dd>
+<dt class="field-even">Routines</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/calcheightandpressure_mod/calcheight_col_ad" title="f/calcheightandpressure_mod/calcheight_col_ad"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcheight_col_ad()</span></code></a>, <a class="reference internal" href="#f/calcheightandpressure_mod/calcheight_col_nl" title="f/calcheightandpressure_mod/calcheight_col_nl"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcheight_col_nl()</span></code></a>, <a class="reference internal" href="#f/calcheightandpressure_mod/calcheight_col_nl_vcode2100x" title="f/calcheightandpressure_mod/calcheight_col_nl_vcode2100x"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcheight_col_nl_vcode2100x()</span></code></a>, <a class="reference internal" href="#f/calcheightandpressure_mod/calcheight_col_nl_vcode5xxx" title="f/calcheightandpressure_mod/calcheight_col_nl_vcode5xxx"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcheight_col_nl_vcode5xxx()</span></code></a>, <a class="reference internal" href="#f/calcheightandpressure_mod/calcheight_col_tl" title="f/calcheightandpressure_mod/calcheight_col_tl"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcheight_col_tl()</span></code></a>, <a class="reference internal" href="#f/calcheightandpressure_mod/calcheight_gsv_ad" title="f/calcheightandpressure_mod/calcheight_gsv_ad"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcheight_gsv_ad()</span></code></a>, <a class="reference internal" href="#f/calcheightandpressure_mod/calcheight_gsv_nl" title="f/calcheightandpressure_mod/calcheight_gsv_nl"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcheight_gsv_nl()</span></code></a>, <a class="reference internal" href="#f/calcheightandpressure_mod/calcheight_gsv_nl_vcode2100x_r4" title="f/calcheightandpressure_mod/calcheight_gsv_nl_vcode2100x_r4"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcheight_gsv_nl_vcode2100x_r4()</span></code></a>, <a class="reference internal" href="#f/calcheightandpressure_mod/calcheight_gsv_nl_vcode2100x_r8" title="f/calcheightandpressure_mod/calcheight_gsv_nl_vcode2100x_r8"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcheight_gsv_nl_vcode2100x_r8()</span></code></a>, <a class="reference internal" href="#f/calcheightandpressure_mod/calcheight_gsv_nl_vcode5xxx" title="f/calcheightandpressure_mod/calcheight_gsv_nl_vcode5xxx"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcheight_gsv_nl_vcode5xxx()</span></code></a>, <a class="reference internal" href="#f/calcheightandpressure_mod/calcheight_gsv_tl" title="f/calcheightandpressure_mod/calcheight_gsv_tl"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcheight_gsv_tl()</span></code></a>, <a class="reference internal" href="#f/calcheightandpressure_mod/calcheightcoeff_col" title="f/calcheightandpressure_mod/calcheightcoeff_col"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcheightcoeff_col()</span></code></a>, <a class="reference internal" href="#f/calcheightandpressure_mod/calcheightcoeff_gsv" title="f/calcheightandpressure_mod/calcheightcoeff_gsv"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcheightcoeff_gsv()</span></code></a>, <a class="reference internal" href="#f/calcheightandpressure_mod/calcpressure_col_ad" title="f/calcheightandpressure_mod/calcpressure_col_ad"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcpressure_col_ad()</span></code></a>, <a class="reference internal" href="#f/calcheightandpressure_mod/calcpressure_col_nl" title="f/calcheightandpressure_mod/calcpressure_col_nl"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcpressure_col_nl()</span></code></a>, <a class="reference internal" href="#f/calcheightandpressure_mod/calcpressure_col_nl_vcode2100x" title="f/calcheightandpressure_mod/calcpressure_col_nl_vcode2100x"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcpressure_col_nl_vcode2100x()</span></code></a>, <a class="reference internal" href="#f/calcheightandpressure_mod/calcpressure_col_nl_vcode5xxx" title="f/calcheightandpressure_mod/calcpressure_col_nl_vcode5xxx"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcpressure_col_nl_vcode5xxx()</span></code></a>, <a class="reference internal" href="#f/calcheightandpressure_mod/calcpressure_col_tl" title="f/calcheightandpressure_mod/calcpressure_col_tl"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcpressure_col_tl()</span></code></a>, <a class="reference internal" href="#f/calcheightandpressure_mod/calcpressure_gsv_ad" title="f/calcheightandpressure_mod/calcpressure_gsv_ad"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcpressure_gsv_ad()</span></code></a>, <a class="reference internal" href="#f/calcheightandpressure_mod/calcpressure_gsv_nl" title="f/calcheightandpressure_mod/calcpressure_gsv_nl"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcpressure_gsv_nl()</span></code></a>, <a class="reference internal" href="#f/calcheightandpressure_mod/calcpressure_gsv_nl_vcode2100x" title="f/calcheightandpressure_mod/calcpressure_gsv_nl_vcode2100x"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcpressure_gsv_nl_vcode2100x()</span></code></a>, <a class="reference internal" href="#f/calcheightandpressure_mod/calcpressure_gsv_nl_vcode5xxx_r4" title="f/calcheightandpressure_mod/calcpressure_gsv_nl_vcode5xxx_r4"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcpressure_gsv_nl_vcode5xxx_r4()</span></code></a>, <a class="reference internal" href="#f/calcheightandpressure_mod/calcpressure_gsv_nl_vcode5xxx_r8" title="f/calcheightandpressure_mod/calcpressure_gsv_nl_vcode5xxx_r8"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcpressure_gsv_nl_vcode5xxx_r8()</span></code></a>, <a class="reference internal" href="#f/calcheightandpressure_mod/calcpressure_gsv_tl" title="f/calcheightandpressure_mod/calcpressure_gsv_tl"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcpressure_gsv_tl()</span></code></a>, <a class="reference internal" href="#f/calcheightandpressure_mod/calczandp_col_ad" title="f/calcheightandpressure_mod/calczandp_col_ad"><code class="xref f f-func docutils literal notranslate"><span class="pre">calczandp_col_ad()</span></code></a>, <a class="reference internal" href="#f/calcheightandpressure_mod/calczandp_col_nl" title="f/calcheightandpressure_mod/calczandp_col_nl"><code class="xref f f-func docutils literal notranslate"><span class="pre">calczandp_col_nl()</span></code></a>, <a class="reference internal" href="#f/calcheightandpressure_mod/calczandp_col_tl" title="f/calcheightandpressure_mod/calczandp_col_tl"><code class="xref f f-func docutils literal notranslate"><span class="pre">calczandp_col_tl()</span></code></a>, <a class="reference internal" href="#f/calcheightandpressure_mod/calczandp_gsv_ad" title="f/calcheightandpressure_mod/calczandp_gsv_ad"><code class="xref f f-func docutils literal notranslate"><span class="pre">calczandp_gsv_ad()</span></code></a>, <a class="reference internal" href="#f/calcheightandpressure_mod/calczandp_gsv_nl" title="f/calcheightandpressure_mod/calczandp_gsv_nl"><code class="xref f f-func docutils literal notranslate"><span class="pre">calczandp_gsv_nl()</span></code></a>, <a class="reference internal" href="#f/calcheightandpressure_mod/calczandp_gsv_tl" title="f/calcheightandpressure_mod/calczandp_gsv_tl"><code class="xref f f-func docutils literal notranslate"><span class="pre">calczandp_gsv_tl()</span></code></a>, <a class="reference internal" href="#f/calcheightandpressure_mod/czp_calcreturnheight_col_nl" title="f/calcheightandpressure_mod/czp_calcreturnheight_col_nl"><code class="xref f f-func docutils literal notranslate"><span class="pre">czp_calcreturnheight_col_nl()</span></code></a>, <a class="reference internal" href="#f/calcheightandpressure_mod/czp_calcreturnheight_gsv_nl" title="f/calcheightandpressure_mod/czp_calcreturnheight_gsv_nl"><code class="xref f f-func docutils literal notranslate"><span class="pre">czp_calcreturnheight_gsv_nl()</span></code></a>, <a class="reference internal" href="#f/calcheightandpressure_mod/czp_calcreturnpressure_col_nl" title="f/calcheightandpressure_mod/czp_calcreturnpressure_col_nl"><code class="xref f f-func docutils literal notranslate"><span class="pre">czp_calcreturnpressure_col_nl()</span></code></a>, <a class="reference internal" href="#f/calcheightandpressure_mod/czp_calcreturnpressure_gsv_nl" title="f/calcheightandpressure_mod/czp_calcreturnpressure_gsv_nl"><code class="xref f f-func docutils literal notranslate"><span class="pre">czp_calcreturnpressure_gsv_nl()</span></code></a>, <a class="reference internal" href="#f/calcheightandpressure_mod/czp_ensurecompatibletops" title="f/calcheightandpressure_mod/czp_ensurecompatibletops"><code class="xref f f-func docutils literal notranslate"><span class="pre">czp_ensurecompatibletops()</span></code></a>, <a class="reference internal" href="#f/calcheightandpressure_mod/fetch1ddpdps_r8" title="f/calcheightandpressure_mod/fetch1ddpdps_r8"><code class="xref f f-func docutils literal notranslate"><span class="pre">fetch1ddpdps_r8()</span></code></a>, <a class="reference internal" href="#f/calcheightandpressure_mod/fetch1dlevels_r8" title="f/calcheightandpressure_mod/fetch1dlevels_r8"><code class="xref f f-func docutils literal notranslate"><span class="pre">fetch1dlevels_r8()</span></code></a>, <a class="reference internal" href="#f/calcheightandpressure_mod/fetch3dlevels_r4" title="f/calcheightandpressure_mod/fetch3dlevels_r4"><code class="xref f f-func docutils literal notranslate"><span class="pre">fetch3dlevels_r4()</span></code></a>, <a class="reference internal" href="#f/calcheightandpressure_mod/fetch3dlevels_r8" title="f/calcheightandpressure_mod/fetch3dlevels_r8"><code class="xref f f-func docutils literal notranslate"><span class="pre">fetch3dlevels_r8()</span></code></a>, <a class="reference internal" href="#f/calcheightandpressure_mod/gpscompressibility_hu" title="f/calcheightandpressure_mod/gpscompressibility_hu"><code class="xref f f-func docutils literal notranslate"><span class="pre">gpscompressibility_hu()</span></code></a>, <a class="reference internal" href="#f/calcheightandpressure_mod/gpscompressibility_p0_1" title="f/calcheightandpressure_mod/gpscompressibility_p0_1"><code class="xref f f-func docutils literal notranslate"><span class="pre">gpscompressibility_p0_1()</span></code></a>, <a class="reference internal" href="#f/calcheightandpressure_mod/gpscompressibility_p0_2" title="f/calcheightandpressure_mod/gpscompressibility_p0_2"><code class="xref f f-func docutils literal notranslate"><span class="pre">gpscompressibility_p0_2()</span></code></a>, <a class="reference internal" href="#f/calcheightandpressure_mod/gpscompressibility_tt" title="f/calcheightandpressure_mod/gpscompressibility_tt"><code class="xref f f-func docutils literal notranslate"><span class="pre">gpscompressibility_tt()</span></code></a>, <a class="reference internal" href="#f/calcheightandpressure_mod/gz2alt_r4" title="f/calcheightandpressure_mod/gz2alt_r4"><code class="xref f f-func docutils literal notranslate"><span class="pre">gz2alt_r4()</span></code></a>, <a class="reference internal" href="#f/calcheightandpressure_mod/gz2alt_r8" title="f/calcheightandpressure_mod/gz2alt_r8"><code class="xref f f-func docutils literal notranslate"><span class="pre">gz2alt_r8()</span></code></a></p>
+</dd>
+</dl>
+<p class="rubric">Needed modules</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="codeprecision_mod.html#f/codeprecision_mod" title="f/codeprecision_mod: MODULE codePrecision_mod (prefix='pre' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">codeprecision_mod</span></code></a>: MODULE codePrecision_mod (prefix=’pre’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="midasmpi_mod.html#f/midasmpi_mod" title="f/midasmpi_mod: MODULE midasMpi_mod (prefix='mmpi' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">midasmpi_mod</span></code></a>: MODULE midasMpi_mod (prefix=’mmpi’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="mathphysconstants_mod.html#f/mathphysconstants_mod" title="f/mathphysconstants_mod: MODULE MathPhysConstants_mod (prefix='mpc' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">mathphysconstants_mod</span></code></a>: MODULE MathPhysConstants_mod (prefix=’mpc’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="earthconstants_mod.html#f/earthconstants_mod" title="f/earthconstants_mod: MODULE earthConstants_mod (prefix='ec' category='8. Low-level utilities and constants') Prefixes: ec_ (Earth constants), for miscellaneous values from diverse sources"><code class="xref f f-mod docutils literal notranslate"><span class="pre">earthconstants_mod</span></code></a>: MODULE earthConstants_mod (prefix=’ec’ category=’8. Low-level utilities and constants’) Prefixes: <a href="#id3"><span class="problematic" id="id4">ec_</span></a> (Earth constants), for miscellaneous values from diverse sources</p></li>
+<li><p><a class="reference internal" href="physicsfunctions_mod.html#f/physicsfunctions_mod" title="f/physicsfunctions_mod: MODULE physicsFunctions_mod (prefix='phf' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">physicsfunctions_mod</span></code></a>: MODULE physicsFunctions_mod (prefix=’phf’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="verticalcoord_mod.html#f/verticalcoord_mod" title="f/verticalcoord_mod: MODULE verticalcoord (prefix='vco' category='7. Low-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">verticalcoord_mod</span></code></a>: MODULE verticalcoord (prefix=’vco’ category=’7. Low-level data objects’)</p></li>
+<li><p><a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod" title="f/gridstatevector_mod: MODULE gridStateVector_mod (prefix='gsv' category='6. High-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">gridstatevector_mod</span></code></a>: MODULE gridStateVector_mod (prefix=’gsv’ category=’6. High-level data objects’)</p></li>
+<li><p><a class="reference internal" href="columndata_mod.html#f/columndata_mod" title="f/columndata_mod: MODULE columnData_mod (prefix='col' category='6. High-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">columndata_mod</span></code></a>: MODULE columnData_mod (prefix=’col’ category=’6. High-level data objects’)</p></li>
+<li><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod" title="f/utilities_mod: MODULE utilities_mod (prefix='utl' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">utilities_mod</span></code></a>: MODULE utilities_mod (prefix=’utl’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="message_mod.html#f/message_mod" title="f/message_mod: MODULE message_mod (prefix='msg' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">message_mod</span></code></a>: MODULE message_mod (prefix=’msg’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="varnamelist_mod.html#f/varnamelist_mod" title="f/varnamelist_mod: MODULE varNameList (prefix='vnl' category='7. Low-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">varnamelist_mod</span></code></a>: MODULE varNameList (prefix=’vnl’ category=’7. Low-level data objects’)</p></li>
+<li><p><a class="reference internal" href="gps_mod.html#f/gps_mod" title="f/gps_mod: MODULE gps_mod (prefix='gps' category='5. Observation operators')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">gps_mod</span></code></a>: MODULE gps_mod (prefix=’gps’ category=’5. Observation operators’)</p></li>
+<li><p><a class="reference internal" href="horizontalcoord_mod.html#f/horizontalcoord_mod" title="f/horizontalcoord_mod: MODULE HorizontalCoord_mod (prefix='hco' category='7. Low-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">horizontalcoord_mod</span></code></a>: MODULE HorizontalCoord_mod (prefix=’hco’ category=’7. Low-level data objects’)</p></li>
+<li><p><code class="xref f f-mod docutils literal notranslate"><span class="pre">vgrid_descriptors</span></code></p></li>
+</ul>
+<p class="rubric">Variables</p>
+<ul>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/calcheightandpressure_mod/czp_calcheight_ad">
+<span class="sig-prename descclassname"><span class="pre">calcheightandpressure_mod/</span></span><span class="sig-name descname"><span class="pre">czp_calcheight_ad</span></span><em> <span class="pre">[</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/calcheightandpressure_mod/czp_calcheight_ad" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/calcheightandpressure_mod/czp_calcheight_nl">
+<span class="sig-prename descclassname"><span class="pre">calcheightandpressure_mod/</span></span><span class="sig-name descname"><span class="pre">czp_calcheight_nl</span></span><em> <span class="pre">[</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/calcheightandpressure_mod/czp_calcheight_nl" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/calcheightandpressure_mod/czp_calcheight_tl">
+<span class="sig-prename descclassname"><span class="pre">calcheightandpressure_mod/</span></span><span class="sig-name descname"><span class="pre">czp_calcheight_tl</span></span><em> <span class="pre">[</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/calcheightandpressure_mod/czp_calcheight_tl" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/calcheightandpressure_mod/czp_calcpressure_ad">
+<span class="sig-prename descclassname"><span class="pre">calcheightandpressure_mod/</span></span><span class="sig-name descname"><span class="pre">czp_calcpressure_ad</span></span><em> <span class="pre">[</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/calcheightandpressure_mod/czp_calcpressure_ad" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/calcheightandpressure_mod/czp_calcpressure_nl">
+<span class="sig-prename descclassname"><span class="pre">calcheightandpressure_mod/</span></span><span class="sig-name descname"><span class="pre">czp_calcpressure_nl</span></span><em> <span class="pre">[</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/calcheightandpressure_mod/czp_calcpressure_nl" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/calcheightandpressure_mod/czp_calcpressure_tl">
+<span class="sig-prename descclassname"><span class="pre">calcheightandpressure_mod/</span></span><span class="sig-name descname"><span class="pre">czp_calcpressure_tl</span></span><em> <span class="pre">[</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/calcheightandpressure_mod/czp_calcpressure_tl" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/calcheightandpressure_mod/czp_calczandp_ad">
+<span class="sig-prename descclassname"><span class="pre">calcheightandpressure_mod/</span></span><span class="sig-name descname"><span class="pre">czp_calczandp_ad</span></span><em> <span class="pre">[</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/calcheightandpressure_mod/czp_calczandp_ad" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/calcheightandpressure_mod/czp_calczandp_nl">
+<span class="sig-prename descclassname"><span class="pre">calcheightandpressure_mod/</span></span><span class="sig-name descname"><span class="pre">czp_calczandp_nl</span></span><em> <span class="pre">[</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/calcheightandpressure_mod/czp_calczandp_nl" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/calcheightandpressure_mod/czp_calczandp_tl">
+<span class="sig-prename descclassname"><span class="pre">calcheightandpressure_mod/</span></span><span class="sig-name descname"><span class="pre">czp_calczandp_tl</span></span><em> <span class="pre">[</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/calcheightandpressure_mod/czp_calczandp_tl" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/calcheightandpressure_mod/czp_fetch1ddpdps">
+<span class="sig-prename descclassname"><span class="pre">calcheightandpressure_mod/</span></span><span class="sig-name descname"><span class="pre">czp_fetch1ddpdps</span></span><em> <span class="pre">[</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/calcheightandpressure_mod/czp_fetch1ddpdps" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/calcheightandpressure_mod/czp_fetch1dlevels">
+<span class="sig-prename descclassname"><span class="pre">calcheightandpressure_mod/</span></span><span class="sig-name descname"><span class="pre">czp_fetch1dlevels</span></span><em> <span class="pre">[</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/calcheightandpressure_mod/czp_fetch1dlevels" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/calcheightandpressure_mod/czp_fetch3dlevels">
+<span class="sig-prename descclassname"><span class="pre">calcheightandpressure_mod/</span></span><span class="sig-name descname"><span class="pre">czp_fetch3dlevels</span></span><em> <span class="pre">[</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/calcheightandpressure_mod/czp_fetch3dlevels" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+</ul>
+<p class="rubric">Subroutines and functions</p>
+<dl>
+<dt class="sig sig-object f" id="f/calcheightandpressure_mod/calczandp_gsv_nl">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">calcheightandpressure_mod/</span></span><span class="sig-name descname"><span class="pre">calczandp_gsv_nl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">statevector</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/calcheightandpressure_mod/calczandp_gsv_nl" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Pressure and height computation on the grid in proper order
+depending on the vgrid kind.
+Depending on the vcode, the routine will check the existence of
+P_* (vcode=5xxx) or Z_* (vcode=2100x) first and proceed with
+pressure (height) computation.  Then, if the other variables are
+also present, it will secondly compute height (pressure).
+Hence if only P_* (Z_*) is present, only these are computed.
+If the first variable P_* (Z_*) is not present, nothing is done.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>statevector</strong><em> [</em><em>struct_gsv </em><em>,</em><em>inout</em><em>]</em> :: statevector that will contain the Z_*/P_* fields</p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="message_mod.html#f/message_mod/msg" title="f/message_mod/msg"><code class="xref f f-func docutils literal notranslate"><span class="pre">msg()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_getvco" title="f/gridstatevector_mod/gsv_getvco"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_getvco()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_varexist" title="f/gridstatevector_mod/gsv_varexist"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_varexist()</span></code></a>, <a class="reference internal" href="#f/calcheightandpressure_mod/calcpressure_gsv_nl" title="f/calcheightandpressure_mod/calcpressure_gsv_nl"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcpressure_gsv_nl()</span></code></a>, <a class="reference internal" href="#f/calcheightandpressure_mod/calcheight_gsv_nl" title="f/calcheightandpressure_mod/calcheight_gsv_nl"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcheight_gsv_nl()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/calcheightandpressure_mod/calczandp_gsv_tl">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">calcheightandpressure_mod/</span></span><span class="sig-name descname"><span class="pre">calczandp_gsv_tl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">statevector</span></em>, <em class="sig-param"><span class="pre">statevectorref</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/calcheightandpressure_mod/calczandp_gsv_tl" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Pressure and height increment computation on the grid in proper
+order depending on the vgrid kind.
+Depending on the vcode, the routine will check the existence of
+P_* (vcode=5xxx) or Z_* (vcode=2100x) first and proceed with
+pressure (height) computation.  Then, if the other variables are
+also present, it will secondly compute height (pressure).
+Hence if only P_* (Z_*) is present, only these are computed.
+If the first variable P_* (Z_*) is not present, nothing is done.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>statevector</strong><em> [</em><em>struct_gsv </em><em>,</em><em>inout</em><em>]</em> :: statevector that will contain the Z_*/P_* increments</p></li>
+<li><p><strong>statevectorref</strong><em> [</em><em>struct_gsv </em><em>,</em><em>in</em><em>]</em> :: statevector containing needed reference fields</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="message_mod.html#f/message_mod/msg" title="f/message_mod/msg"><code class="xref f f-func docutils literal notranslate"><span class="pre">msg()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_getvco" title="f/gridstatevector_mod/gsv_getvco"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_getvco()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_varexist" title="f/gridstatevector_mod/gsv_varexist"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_varexist()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_containsnonzerovalues" title="f/gridstatevector_mod/gsv_containsnonzerovalues"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_containsnonzerovalues()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="#f/calcheightandpressure_mod/calcpressure_gsv_tl" title="f/calcheightandpressure_mod/calcpressure_gsv_tl"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcpressure_gsv_tl()</span></code></a>, <a class="reference internal" href="#f/calcheightandpressure_mod/calcheight_gsv_tl" title="f/calcheightandpressure_mod/calcheight_gsv_tl"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcheight_gsv_tl()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/calcheightandpressure_mod/calczandp_gsv_ad">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">calcheightandpressure_mod/</span></span><span class="sig-name descname"><span class="pre">calczandp_gsv_ad</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">statevector</span></em>, <em class="sig-param"><span class="pre">statevectorref</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/calcheightandpressure_mod/calczandp_gsv_ad" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Pressure and height increment adjoint computation on the grid
+in proper order depending on the vgrid kind
+Depending on the vcode, the routine will check the existence of
+Z_* (vcode=5xxx) or P_* (vcode=2100x) first and proceed with
+height (pressure) adjoint computation.  Then, if the other
+variables are also present, it will secondly proceed with
+adjoint computation of pressure (height).
+Hence if only Z_* (P_*) is present, only these are computed.
+If the first variable Z_* (P_*) is not present, nothing is done.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>statevector</strong><em> [</em><em>struct_gsv </em><em>,</em><em>inout</em><em>]</em> :: statevector that will contain the Z_*/P_* increments</p></li>
+<li><p><strong>statevectorref</strong><em> [</em><em>struct_gsv </em><em>,</em><em>in</em><em>]</em> :: statevector containing needed reference fields</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="message_mod.html#f/message_mod/msg" title="f/message_mod/msg"><code class="xref f f-func docutils literal notranslate"><span class="pre">msg()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_getvco" title="f/gridstatevector_mod/gsv_getvco"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_getvco()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_varexist" title="f/gridstatevector_mod/gsv_varexist"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_varexist()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_containsnonzerovalues" title="f/gridstatevector_mod/gsv_containsnonzerovalues"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_containsnonzerovalues()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="#f/calcheightandpressure_mod/calcheight_gsv_ad" title="f/calcheightandpressure_mod/calcheight_gsv_ad"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcheight_gsv_ad()</span></code></a>, <a class="reference internal" href="#f/calcheightandpressure_mod/calcpressure_gsv_ad" title="f/calcheightandpressure_mod/calcpressure_gsv_ad"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcpressure_gsv_ad()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/calcheightandpressure_mod/calcheight_gsv_nl">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">calcheightandpressure_mod/</span></span><span class="sig-name descname"><span class="pre">calcheight_gsv_nl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">statevector</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/calcheightandpressure_mod/calcheight_gsv_nl" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Compute or retrieve heights and store values in statevector.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>statevector</strong><em> [</em><em>struct_gsv </em><em>,</em><em>inout</em><em>]</em></p>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/calcheightandpressure_mod/calczandp_gsv_nl" title="f/calcheightandpressure_mod/calczandp_gsv_nl"><code class="xref f f-func docutils literal notranslate"><span class="pre">calczandp_gsv_nl()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_start" title="f/utilities_mod/utl_tmg_start"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_start()</span></code></a>, <a class="reference internal" href="message_mod.html#f/message_mod/msg" title="f/message_mod/msg"><code class="xref f f-func docutils literal notranslate"><span class="pre">msg()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_getvco" title="f/gridstatevector_mod/gsv_getvco"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_getvco()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_getdatakind" title="f/gridstatevector_mod/gsv_getdatakind"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_getdatakind()</span></code></a>, <a class="reference internal" href="#f/calcheightandpressure_mod/calcheight_gsv_nl_vcode5xxx" title="f/calcheightandpressure_mod/calcheight_gsv_nl_vcode5xxx"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcheight_gsv_nl_vcode5xxx()</span></code></a>, <a class="reference internal" href="#f/calcheightandpressure_mod/calcheight_gsv_nl_vcode2100x_r4" title="f/calcheightandpressure_mod/calcheight_gsv_nl_vcode2100x_r4"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcheight_gsv_nl_vcode2100x_r4()</span></code></a>, <a class="reference internal" href="#f/calcheightandpressure_mod/calcheight_gsv_nl_vcode2100x_r8" title="f/calcheightandpressure_mod/calcheight_gsv_nl_vcode2100x_r8"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcheight_gsv_nl_vcode2100x_r8()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_stop" title="f/utilities_mod/utl_tmg_stop"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_stop()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/calcheightandpressure_mod/czp_calcreturnheight_gsv_nl">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">calcheightandpressure_mod/</span></span><span class="sig-name descname"><span class="pre">czp_calcreturnheight_gsv_nl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">statevector</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">ptin_r4_opt</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">pmin_r4_opt</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">ptin_r8_opt</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">pmin_r8_opt</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">ztout_r4_opt</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">zmout_r4_opt</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">ztout_r8_opt</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">zmout_r8_opt</span></em><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/calcheightandpressure_mod/czp_calcreturnheight_gsv_nl" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Compute or retrieve heights and return values in pointer arguments.
+Proceeds to vcode dispatching.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>statevector</strong><em> [</em><em>struct_gsv </em><em>,</em><em>in</em><em>]</em></p>
+</dd>
+<dt class="field-odd">Options</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ptin_r4_opt</strong> (*,*,*,*)<em> [</em><em>real </em><em>,</em><em>in,pointer</em><em>]</em></p></li>
+<li><p><strong>pmin_r4_opt</strong> (*,*,*,*)<em> [</em><em>real </em><em>,</em><em>in,pointer</em><em>]</em></p></li>
+<li><p><strong>ptin_r8_opt</strong> (*,*,*,*)<em> [</em><em>real </em><em>,</em><em>in,pointer</em><em>]</em></p></li>
+<li><p><strong>pmin_r8_opt</strong> (*,*,*,*)<em> [</em><em>real </em><em>,</em><em>in,pointer</em><em>]</em></p></li>
+<li><p><strong>ztout_r4_opt</strong> (*,*,*,*)<em> [</em><em>real </em><em>,</em><em>inout,pointer</em><em>]</em></p></li>
+<li><p><strong>zmout_r4_opt</strong> (*,*,*,*)<em> [</em><em>real </em><em>,</em><em>inout,pointer</em><em>]</em></p></li>
+<li><p><strong>ztout_r8_opt</strong> (*,*,*,*)<em> [</em><em>real </em><em>,</em><em>inout,pointer</em><em>]</em></p></li>
+<li><p><strong>zmout_r8_opt</strong> (*,*,*,*)<em> [</em><em>real </em><em>,</em><em>inout,pointer</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="interpolation_mod.html#f/interpolation_mod/vinterp_gsv_r8" title="f/interpolation_mod/vinterp_gsv_r8"><code class="xref f f-func docutils literal notranslate"><span class="pre">vinterp_gsv_r8()</span></code></a>, <a class="reference internal" href="interpolation_mod.html#f/interpolation_mod/vinterp_gsv_r4" title="f/interpolation_mod/vinterp_gsv_r4"><code class="xref f f-func docutils literal notranslate"><span class="pre">vinterp_gsv_r4()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_start" title="f/utilities_mod/utl_tmg_start"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_start()</span></code></a>, <a class="reference internal" href="message_mod.html#f/message_mod/msg" title="f/message_mod/msg"><code class="xref f f-func docutils literal notranslate"><span class="pre">msg()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_getvco" title="f/gridstatevector_mod/gsv_getvco"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_getvco()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_getdatakind" title="f/gridstatevector_mod/gsv_getdatakind"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_getdatakind()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="#f/calcheightandpressure_mod/calcheight_gsv_nl_vcode5xxx" title="f/calcheightandpressure_mod/calcheight_gsv_nl_vcode5xxx"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcheight_gsv_nl_vcode5xxx()</span></code></a>, <a class="reference internal" href="#f/calcheightandpressure_mod/calcheight_gsv_nl_vcode2100x_r4" title="f/calcheightandpressure_mod/calcheight_gsv_nl_vcode2100x_r4"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcheight_gsv_nl_vcode2100x_r4()</span></code></a>, <a class="reference internal" href="#f/calcheightandpressure_mod/calcheight_gsv_nl_vcode2100x_r8" title="f/calcheightandpressure_mod/calcheight_gsv_nl_vcode2100x_r8"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcheight_gsv_nl_vcode2100x_r8()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_stop" title="f/utilities_mod/utl_tmg_stop"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_stop()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/calcheightandpressure_mod/calcheight_gsv_nl_vcode2100x_r4">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">calcheightandpressure_mod/</span></span><span class="sig-name descname"><span class="pre">calcheight_gsv_nl_vcode2100x_r4</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">statevector</span></em>, <em class="sig-param"><span class="pre">z_t</span></em>, <em class="sig-param"><span class="pre">z_m</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/calcheightandpressure_mod/calcheight_gsv_nl_vcode2100x_r4" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Retrieve heights for GEM-H statevector, return height values
+in pointer arguments.
+real(4) version</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>statevector</strong><em> [</em><em>struct_gsv </em><em>,</em><em>in</em><em>]</em> :: ‘)</p></li>
+<li><p><strong>z_t</strong> (*,*,*,*)<em> [</em><em>real </em><em>,</em><em>inout,pointer</em><em>]</em></p></li>
+<li><p><strong>z_m</strong> (*,*,*,*)<em> [</em><em>real </em><em>,</em><em>inout,pointer</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/calcheightandpressure_mod/calcheight_gsv_nl" title="f/calcheightandpressure_mod/calcheight_gsv_nl"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcheight_gsv_nl()</span></code></a>, <a class="reference internal" href="#f/calcheightandpressure_mod/czp_calcreturnheight_gsv_nl" title="f/calcheightandpressure_mod/czp_calcreturnheight_gsv_nl"><code class="xref f f-func docutils literal notranslate"><span class="pre">czp_calcreturnheight_gsv_nl()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="message_mod.html#f/message_mod/msg" title="f/message_mod/msg"><code class="xref f f-func docutils literal notranslate"><span class="pre">msg()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_varexist" title="f/gridstatevector_mod/gsv_varexist"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_varexist()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_getheightsfc" title="f/gridstatevector_mod/gsv_getheightsfc"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_getheightsfc()</span></code></a>, <a class="reference internal" href="#f/calcheightandpressure_mod/fetch3dlevels_r4" title="f/calcheightandpressure_mod/fetch3dlevels_r4"><code class="xref f f-func docutils literal notranslate"><span class="pre">fetch3dlevels_r4()</span></code></a>, <a class="reference internal" href="#f/calcheightandpressure_mod/gz2alt_r4" title="f/calcheightandpressure_mod/gz2alt_r4"><code class="xref f f-func docutils literal notranslate"><span class="pre">gz2alt_r4()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/calcheightandpressure_mod/gz2alt_r4">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">calcheightandpressure_mod/</span></span><span class="sig-name descname"><span class="pre">gz2alt_r4</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">statevector</span></em>, <em class="sig-param"><span class="pre">gzheight</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/calcheightandpressure_mod/gz2alt_r4" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Iterative conversion of geopotential height to geometric
+altitude.  (solution proposed by J. Aparicio)
+real(4) version.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>statevector</strong><em> [</em><em>struct_gsv </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>gzheight</strong> (*,*,*)<em> [</em><em>real </em><em>,</em><em>in,pointer</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Return</dt>
+<dd class="field-odd"><p><strong>alt</strong> (*,*,*)<em> [</em><em>real </em><em>,</em><em>allocatable</em><em>]</em></p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/calcheightandpressure_mod/calcheight_gsv_nl_vcode2100x_r4" title="f/calcheightandpressure_mod/calcheight_gsv_nl_vcode2100x_r4"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcheight_gsv_nl_vcode2100x_r4()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_gethco" title="f/gridstatevector_mod/gsv_gethco"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_gethco()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/calcheightandpressure_mod/calcheight_gsv_nl_vcode2100x_r8">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">calcheightandpressure_mod/</span></span><span class="sig-name descname"><span class="pre">calcheight_gsv_nl_vcode2100x_r8</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">statevector</span></em>, <em class="sig-param"><span class="pre">z_t</span></em>, <em class="sig-param"><span class="pre">z_m</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/calcheightandpressure_mod/calcheight_gsv_nl_vcode2100x_r8" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Retrieve heights for GEM-H statevector, return height values
+in pointer arguments.
+real(8) version</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>statevector</strong><em> [</em><em>struct_gsv </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>z_t</strong> (*,*,*,*)<em> [</em><em>real </em><em>,</em><em>inout,pointer</em><em>]</em></p></li>
+<li><p><strong>z_m</strong> (*,*,*,*)<em> [</em><em>real </em><em>,</em><em>inout,pointer</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/calcheightandpressure_mod/calcheight_gsv_nl" title="f/calcheightandpressure_mod/calcheight_gsv_nl"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcheight_gsv_nl()</span></code></a>, <a class="reference internal" href="#f/calcheightandpressure_mod/czp_calcreturnheight_gsv_nl" title="f/calcheightandpressure_mod/czp_calcreturnheight_gsv_nl"><code class="xref f f-func docutils literal notranslate"><span class="pre">czp_calcreturnheight_gsv_nl()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="message_mod.html#f/message_mod/msg" title="f/message_mod/msg"><code class="xref f f-func docutils literal notranslate"><span class="pre">msg()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_getheightsfc" title="f/gridstatevector_mod/gsv_getheightsfc"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_getheightsfc()</span></code></a>, <a class="reference internal" href="#f/calcheightandpressure_mod/fetch3dlevels_r8" title="f/calcheightandpressure_mod/fetch3dlevels_r8"><code class="xref f f-func docutils literal notranslate"><span class="pre">fetch3dlevels_r8()</span></code></a>, <a class="reference internal" href="#f/calcheightandpressure_mod/gz2alt_r8" title="f/calcheightandpressure_mod/gz2alt_r8"><code class="xref f f-func docutils literal notranslate"><span class="pre">gz2alt_r8()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/calcheightandpressure_mod/gz2alt_r8">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">calcheightandpressure_mod/</span></span><span class="sig-name descname"><span class="pre">gz2alt_r8</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">statevector</span></em>, <em class="sig-param"><span class="pre">gzheight</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/calcheightandpressure_mod/gz2alt_r8" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Iterative conversion of geopotential height to geometric
+altitude.  (solution proposed by J. Aparicio)
+real(8) version.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>statevector</strong><em> [</em><em>struct_gsv </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>gzheight</strong> (*,*,*)<em> [</em><em>real </em><em>,</em><em>in,pointer</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Return</dt>
+<dd class="field-odd"><p><strong>alt</strong> (*,*,*)<em> [</em><em>real </em><em>,</em><em>allocatable</em><em>]</em></p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/calcheightandpressure_mod/calcheight_gsv_nl_vcode2100x_r8" title="f/calcheightandpressure_mod/calcheight_gsv_nl_vcode2100x_r8"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcheight_gsv_nl_vcode2100x_r8()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_gethco" title="f/gridstatevector_mod/gsv_gethco"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_gethco()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/calcheightandpressure_mod/calcheight_gsv_nl_vcode5xxx">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">calcheightandpressure_mod/</span></span><span class="sig-name descname"><span class="pre">calcheight_gsv_nl_vcode5xxx</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">statevector</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">ptin_r4_opt</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">pmin_r4_opt</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">ptin_r8_opt</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">pmin_r8_opt</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">ztout_r4_opt</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">zmout_r4_opt</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">ztout_r8_opt</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">zmout_r8_opt</span></em><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/calcheightandpressure_mod/calcheight_gsv_nl_vcode5xxx" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Compute heights for GEM-P statevector, return height values
+in pointer arguments.
+Assumptions:
+1) nlev_T = nlev_M+1 (for vcode=5002)
+2) alt_T(nlev_T) = alt_M(nlev_M), both at the surface
+3) a thermo level exists at the top, higher than the highest</p>
+<blockquote>
+<div><p>momentum level</p>
+</div></blockquote>
+<ol class="arabic simple" start="4">
+<li><p>the placement of the thermo levels means that alt_T is the
+average of 2 nearest alt_M (according to Ron and Claude)</p></li>
+</ol>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>statevector</strong><em> [</em><em>struct_gsv </em><em>,</em><em>in</em><em>]</em></p>
+</dd>
+<dt class="field-odd">Options</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ptin_r4_opt</strong> (*,*,*,*)<em> [</em><em>real </em><em>,</em><em>in,pointer</em><em>]</em></p></li>
+<li><p><strong>pmin_r4_opt</strong> (*,*,*,*)<em> [</em><em>real </em><em>,</em><em>in,pointer</em><em>]</em></p></li>
+<li><p><strong>ptin_r8_opt</strong> (*,*,*,*)<em> [</em><em>real </em><em>,</em><em>in,pointer</em><em>]</em></p></li>
+<li><p><strong>pmin_r8_opt</strong> (*,*,*,*)<em> [</em><em>real </em><em>,</em><em>in,pointer</em><em>]</em></p></li>
+<li><p><strong>ztout_r4_opt</strong> (*,*,*,*)<em> [</em><em>real </em><em>,</em><em>inout,pointer</em><em>]</em></p></li>
+<li><p><strong>zmout_r4_opt</strong> (*,*,*,*)<em> [</em><em>real </em><em>,</em><em>inout,pointer</em><em>]</em></p></li>
+<li><p><strong>ztout_r8_opt</strong> (*,*,*,*)<em> [</em><em>real </em><em>,</em><em>inout,pointer</em><em>]</em></p></li>
+<li><p><strong>zmout_r8_opt</strong> (*,*,*,*)<em> [</em><em>real </em><em>,</em><em>inout,pointer</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/calcheightandpressure_mod/calcheight_gsv_nl" title="f/calcheightandpressure_mod/calcheight_gsv_nl"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcheight_gsv_nl()</span></code></a>, <a class="reference internal" href="#f/calcheightandpressure_mod/czp_calcreturnheight_gsv_nl" title="f/calcheightandpressure_mod/czp_calcreturnheight_gsv_nl"><code class="xref f f-func docutils literal notranslate"><span class="pre">czp_calcreturnheight_gsv_nl()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="message_mod.html#f/message_mod/msg" title="f/message_mod/msg"><code class="xref f f-func docutils literal notranslate"><span class="pre">msg()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_getnumlev" title="f/gridstatevector_mod/gsv_getnumlev"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_getnumlev()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_getvco" title="f/gridstatevector_mod/gsv_getvco"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_getvco()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_getheightsfc" title="f/gridstatevector_mod/gsv_getheightsfc"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_getheightsfc()</span></code></a>, <a class="reference internal" href="gps_mod.html#f/gps_mod/gpscompressibility" title="f/gps_mod/gpscompressibility"><code class="xref f f-func docutils literal notranslate"><span class="pre">gpscompressibility()</span></code></a>, <a class="reference internal" href="physicsfunctions_mod.html#f/physicsfunctions_mod/phf_fotvt8" title="f/physicsfunctions_mod/phf_fotvt8"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_fotvt8()</span></code></a>, <a class="reference internal" href="physicsfunctions_mod.html#f/physicsfunctions_mod/phf_gravityalt" title="f/physicsfunctions_mod/phf_gravityalt"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_gravityalt()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/calcheightandpressure_mod/calcheight_gsv_tl">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">calcheightandpressure_mod/</span></span><span class="sig-name descname"><span class="pre">calcheight_gsv_tl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">statevector</span></em>, <em class="sig-param"><span class="pre">statevectorref</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/calcheightandpressure_mod/calcheight_gsv_tl" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Tangent height computation on statevector.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>statevector</strong><em> [</em><em>struct_gsv </em><em>,</em><em>inout</em><em>]</em></p></li>
+<li><p><strong>statevectorref</strong><em> [</em><em>struct_gsv </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/calcheightandpressure_mod/calczandp_gsv_tl" title="f/calcheightandpressure_mod/calczandp_gsv_tl"><code class="xref f f-func docutils literal notranslate"><span class="pre">calczandp_gsv_tl()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_start" title="f/utilities_mod/utl_tmg_start"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_start()</span></code></a>, <a class="reference internal" href="message_mod.html#f/message_mod/msg" title="f/message_mod/msg"><code class="xref f f-func docutils literal notranslate"><span class="pre">msg()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_getvco" title="f/gridstatevector_mod/gsv_getvco"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_getvco()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_varexist" title="f/gridstatevector_mod/gsv_varexist"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_varexist()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_stop" title="f/utilities_mod/utl_tmg_stop"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_stop()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/calcheightandpressure_mod/calcheight_gsv_ad">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">calcheightandpressure_mod/</span></span><span class="sig-name descname"><span class="pre">calcheight_gsv_ad</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">statevector</span></em>, <em class="sig-param"><span class="pre">statevectorref</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/calcheightandpressure_mod/calcheight_gsv_ad" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Adjoint of height computation on statevector.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>statevector</strong><em> [</em><em>struct_gsv </em><em>,</em><em>inout</em><em>]</em></p></li>
+<li><p><strong>statevectorref</strong><em> [</em><em>struct_gsv </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/calcheightandpressure_mod/calczandp_gsv_ad" title="f/calcheightandpressure_mod/calczandp_gsv_ad"><code class="xref f f-func docutils literal notranslate"><span class="pre">calczandp_gsv_ad()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_start" title="f/utilities_mod/utl_tmg_start"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_start()</span></code></a>, <a class="reference internal" href="message_mod.html#f/message_mod/msg" title="f/message_mod/msg"><code class="xref f f-func docutils literal notranslate"><span class="pre">msg()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_getvco" title="f/gridstatevector_mod/gsv_getvco"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_getvco()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_varexist" title="f/gridstatevector_mod/gsv_varexist"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_varexist()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_stop" title="f/utilities_mod/utl_tmg_stop"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_stop()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/calcheightandpressure_mod/calcpressure_gsv_nl">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">calcheightandpressure_mod/</span></span><span class="sig-name descname"><span class="pre">calcpressure_gsv_nl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">statevector</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">ps_in_hpa_opt</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/calcheightandpressure_mod/calcpressure_gsv_nl" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Pressure computation, values stored in statevector.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>statevector</strong><em> [</em><em>struct_gsv </em><em>,</em><em>inout</em><em>]</em></p>
+</dd>
+<dt class="field-odd">Options</dt>
+<dd class="field-odd"><p><strong>ps_in_hpa_opt</strong><em> [</em><em>logical </em><em>,</em><em>in,</em><em>]</em> :: If true, conversion from hPa to mbar done for surface pressure</p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/calcheightandpressure_mod/calczandp_gsv_nl" title="f/calcheightandpressure_mod/calczandp_gsv_nl"><code class="xref f f-func docutils literal notranslate"><span class="pre">calczandp_gsv_nl()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_start" title="f/utilities_mod/utl_tmg_start"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_start()</span></code></a>, <a class="reference internal" href="message_mod.html#f/message_mod/msg" title="f/message_mod/msg"><code class="xref f f-func docutils literal notranslate"><span class="pre">msg()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_getvco" title="f/gridstatevector_mod/gsv_getvco"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_getvco()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_getdatakind" title="f/gridstatevector_mod/gsv_getdatakind"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_getdatakind()</span></code></a>, <a class="reference internal" href="#f/calcheightandpressure_mod/calcpressure_gsv_nl_vcode5xxx_r4" title="f/calcheightandpressure_mod/calcpressure_gsv_nl_vcode5xxx_r4"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcpressure_gsv_nl_vcode5xxx_r4()</span></code></a>, <a class="reference internal" href="#f/calcheightandpressure_mod/calcpressure_gsv_nl_vcode5xxx_r8" title="f/calcheightandpressure_mod/calcpressure_gsv_nl_vcode5xxx_r8"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcpressure_gsv_nl_vcode5xxx_r8()</span></code></a>, <a class="reference internal" href="#f/calcheightandpressure_mod/calcpressure_gsv_nl_vcode2100x" title="f/calcheightandpressure_mod/calcpressure_gsv_nl_vcode2100x"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcpressure_gsv_nl_vcode2100x()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_stop" title="f/utilities_mod/utl_tmg_stop"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_stop()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/calcheightandpressure_mod/czp_calcreturnpressure_gsv_nl">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">calcheightandpressure_mod/</span></span><span class="sig-name descname"><span class="pre">czp_calcreturnpressure_gsv_nl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">statevector</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">ztin_r4_opt</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">zmin_r4_opt</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">ztin_r8_opt</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">zmin_r8_opt</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">ptout_r4_opt</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">pmout_r4_opt</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">ptout_r8_opt</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">pmout_r8_opt</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">ps_in_hpa_opt</span></em><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/calcheightandpressure_mod/czp_calcreturnpressure_gsv_nl" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Compute or retrieve pressures and return values in pointer arguments.
+Proceeds to vcode dispatching.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>statevector</strong><em> [</em><em>struct_gsv </em><em>,</em><em>in</em><em>]</em></p>
+</dd>
+<dt class="field-odd">Options</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ztin_r4_opt</strong> (*,*,*,*)<em> [</em><em>real </em><em>,</em><em>in,pointer</em><em>]</em></p></li>
+<li><p><strong>zmin_r4_opt</strong> (*,*,*,*)<em> [</em><em>real </em><em>,</em><em>in,pointer</em><em>]</em></p></li>
+<li><p><strong>ztin_r8_opt</strong> (*,*,*,*)<em> [</em><em>real </em><em>,</em><em>in,pointer</em><em>]</em></p></li>
+<li><p><strong>zmin_r8_opt</strong> (*,*,*,*)<em> [</em><em>real </em><em>,</em><em>in,pointer</em><em>]</em></p></li>
+<li><p><strong>ptout_r4_opt</strong> (*,*,*,*)<em> [</em><em>real </em><em>,</em><em>inout,pointer</em><em>]</em></p></li>
+<li><p><strong>pmout_r4_opt</strong> (*,*,*,*)<em> [</em><em>real </em><em>,</em><em>inout,pointer</em><em>]</em></p></li>
+<li><p><strong>ptout_r8_opt</strong> (*,*,*,*)<em> [</em><em>real </em><em>,</em><em>inout,pointer</em><em>]</em></p></li>
+<li><p><strong>pmout_r8_opt</strong> (*,*,*,*)<em> [</em><em>real </em><em>,</em><em>inout,pointer</em><em>]</em></p></li>
+<li><p><strong>ps_in_hpa_opt</strong><em> [</em><em>logical </em><em>,</em><em>in,</em><em>]</em> :: If true, conversion from hPa to mbar done for surface pressure</p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="interpolation_mod.html#f/interpolation_mod/vinterp_gsv_r8" title="f/interpolation_mod/vinterp_gsv_r8"><code class="xref f f-func docutils literal notranslate"><span class="pre">vinterp_gsv_r8()</span></code></a>, <a class="reference internal" href="interpolation_mod.html#f/interpolation_mod/vinterp_gsv_r4" title="f/interpolation_mod/vinterp_gsv_r4"><code class="xref f f-func docutils literal notranslate"><span class="pre">vinterp_gsv_r4()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_start" title="f/utilities_mod/utl_tmg_start"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_start()</span></code></a>, <a class="reference internal" href="message_mod.html#f/message_mod/msg" title="f/message_mod/msg"><code class="xref f f-func docutils literal notranslate"><span class="pre">msg()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_getvco" title="f/gridstatevector_mod/gsv_getvco"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_getvco()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_getdatakind" title="f/gridstatevector_mod/gsv_getdatakind"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_getdatakind()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="#f/calcheightandpressure_mod/calcpressure_gsv_nl_vcode5xxx_r4" title="f/calcheightandpressure_mod/calcpressure_gsv_nl_vcode5xxx_r4"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcpressure_gsv_nl_vcode5xxx_r4()</span></code></a>, <a class="reference internal" href="#f/calcheightandpressure_mod/calcpressure_gsv_nl_vcode5xxx_r8" title="f/calcheightandpressure_mod/calcpressure_gsv_nl_vcode5xxx_r8"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcpressure_gsv_nl_vcode5xxx_r8()</span></code></a>, <a class="reference internal" href="#f/calcheightandpressure_mod/calcpressure_gsv_nl_vcode2100x" title="f/calcheightandpressure_mod/calcpressure_gsv_nl_vcode2100x"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcpressure_gsv_nl_vcode2100x()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_stop" title="f/utilities_mod/utl_tmg_stop"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_stop()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/calcheightandpressure_mod/calcpressure_gsv_nl_vcode2100x">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">calcheightandpressure_mod/</span></span><span class="sig-name descname"><span class="pre">calcpressure_gsv_nl_vcode2100x</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">statevector</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">ztin_r4_opt</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">zmin_r4_opt</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">ztin_r8_opt</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">zmin_r8_opt</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">ptout_r4_opt</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">pmout_r4_opt</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">ptout_r8_opt</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">pmout_r8_opt</span></em><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/calcheightandpressure_mod/calcpressure_gsv_nl_vcode2100x" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Compute pressure and return values in pointer arguments.
+GEM-H statevector input.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>statevector</strong><em> [</em><em>struct_gsv </em><em>,</em><em>in</em><em>]</em></p>
+</dd>
+<dt class="field-odd">Options</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ztin_r4_opt</strong> (*,*,*,*)<em> [</em><em>real </em><em>,</em><em>in,pointer</em><em>]</em></p></li>
+<li><p><strong>zmin_r4_opt</strong> (*,*,*,*)<em> [</em><em>real </em><em>,</em><em>in,pointer</em><em>]</em></p></li>
+<li><p><strong>ztin_r8_opt</strong> (*,*,*,*)<em> [</em><em>real </em><em>,</em><em>in,pointer</em><em>]</em></p></li>
+<li><p><strong>zmin_r8_opt</strong> (*,*,*,*)<em> [</em><em>real </em><em>,</em><em>in,pointer</em><em>]</em></p></li>
+<li><p><strong>ptout_r4_opt</strong> (*,*,*,*)<em> [</em><em>real </em><em>,</em><em>inout,pointer</em><em>]</em></p></li>
+<li><p><strong>pmout_r4_opt</strong> (*,*,*,*)<em> [</em><em>real </em><em>,</em><em>inout,pointer</em><em>]</em></p></li>
+<li><p><strong>ptout_r8_opt</strong> (*,*,*,*)<em> [</em><em>real </em><em>,</em><em>inout,pointer</em><em>]</em></p></li>
+<li><p><strong>pmout_r8_opt</strong> (*,*,*,*)<em> [</em><em>real </em><em>,</em><em>inout,pointer</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/calcheightandpressure_mod/calcpressure_gsv_nl" title="f/calcheightandpressure_mod/calcpressure_gsv_nl"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcpressure_gsv_nl()</span></code></a>, <a class="reference internal" href="#f/calcheightandpressure_mod/czp_calcreturnpressure_gsv_nl" title="f/calcheightandpressure_mod/czp_calcreturnpressure_gsv_nl"><code class="xref f f-func docutils literal notranslate"><span class="pre">czp_calcreturnpressure_gsv_nl()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="message_mod.html#f/message_mod/msg" title="f/message_mod/msg"><code class="xref f f-func docutils literal notranslate"><span class="pre">msg()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_getnumlev" title="f/gridstatevector_mod/gsv_getnumlev"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_getnumlev()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_getheightsfc" title="f/gridstatevector_mod/gsv_getheightsfc"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_getheightsfc()</span></code></a>, <a class="reference internal" href="physicsfunctions_mod.html#f/physicsfunctions_mod/phf_fotvt8" title="f/physicsfunctions_mod/phf_fotvt8"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_fotvt8()</span></code></a>, <a class="reference internal" href="gps_mod.html#f/gps_mod/gpscompressibility" title="f/gps_mod/gpscompressibility"><code class="xref f f-func docutils literal notranslate"><span class="pre">gpscompressibility()</span></code></a>, <a class="reference internal" href="physicsfunctions_mod.html#f/physicsfunctions_mod/phf_gravityalt" title="f/physicsfunctions_mod/phf_gravityalt"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_gravityalt()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/calcheightandpressure_mod/calcpressure_gsv_nl_vcode5xxx_r8">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">calcheightandpressure_mod/</span></span><span class="sig-name descname"><span class="pre">calcpressure_gsv_nl_vcode5xxx_r8</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">statevector</span></em>, <em class="sig-param"><span class="pre">p_t</span></em>, <em class="sig-param"><span class="pre">p_m</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">ps_in_hpa_opt</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/calcheightandpressure_mod/calcpressure_gsv_nl_vcode5xxx_r8" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Pressure retrieval for GEM-P real(8) statevector, values
+values returned in pointers.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>statevector</strong><em> [</em><em>struct_gsv </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>p_t</strong> (*,*,*,*)<em> [</em><em>real </em><em>,</em><em>inout,pointer</em><em>]</em></p></li>
+<li><p><strong>p_m</strong> (*,*,*,*)<em> [</em><em>real </em><em>,</em><em>inout,pointer</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Options</dt>
+<dd class="field-odd"><p><strong>ps_in_hpa_opt</strong><em> [</em><em>logical </em><em>,</em><em>in,</em><em>]</em> :: If true, conversion from hPa to mbar done for surface pressure</p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/calcheightandpressure_mod/calcpressure_gsv_nl" title="f/calcheightandpressure_mod/calcpressure_gsv_nl"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcpressure_gsv_nl()</span></code></a>, <a class="reference internal" href="#f/calcheightandpressure_mod/czp_calcreturnpressure_gsv_nl" title="f/calcheightandpressure_mod/czp_calcreturnpressure_gsv_nl"><code class="xref f f-func docutils literal notranslate"><span class="pre">czp_calcreturnpressure_gsv_nl()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="message_mod.html#f/message_mod/msg" title="f/message_mod/msg"><code class="xref f f-func docutils literal notranslate"><span class="pre">msg()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_getvco" title="f/gridstatevector_mod/gsv_getvco"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_getvco()</span></code></a>, <a class="reference internal" href="#f/calcheightandpressure_mod/fetch3dlevels_r8" title="f/calcheightandpressure_mod/fetch3dlevels_r8"><code class="xref f f-func docutils literal notranslate"><span class="pre">fetch3dlevels_r8()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/calcheightandpressure_mod/calcpressure_gsv_nl_vcode5xxx_r4">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">calcheightandpressure_mod/</span></span><span class="sig-name descname"><span class="pre">calcpressure_gsv_nl_vcode5xxx_r4</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">statevector</span></em>, <em class="sig-param"><span class="pre">p_t</span></em>, <em class="sig-param"><span class="pre">p_m</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">ps_in_hpa_opt</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/calcheightandpressure_mod/calcpressure_gsv_nl_vcode5xxx_r4" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Pressure retrieval for GEM-P real(4) statevector, values
+values returned in pointers.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>statevector</strong><em> [</em><em>struct_gsv </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>p_t</strong> (*,*,*,*)<em> [</em><em>real </em><em>,</em><em>inout,pointer</em><em>]</em></p></li>
+<li><p><strong>p_m</strong> (*,*,*,*)<em> [</em><em>real </em><em>,</em><em>inout,pointer</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Options</dt>
+<dd class="field-odd"><p><strong>ps_in_hpa_opt</strong><em> [</em><em>logical </em><em>,</em><em>in,</em><em>]</em> :: If true, conversion from hPa to mbar done for surface pressure</p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/calcheightandpressure_mod/calcpressure_gsv_nl" title="f/calcheightandpressure_mod/calcpressure_gsv_nl"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcpressure_gsv_nl()</span></code></a>, <a class="reference internal" href="#f/calcheightandpressure_mod/czp_calcreturnpressure_gsv_nl" title="f/calcheightandpressure_mod/czp_calcreturnpressure_gsv_nl"><code class="xref f f-func docutils literal notranslate"><span class="pre">czp_calcreturnpressure_gsv_nl()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="message_mod.html#f/message_mod/msg" title="f/message_mod/msg"><code class="xref f f-func docutils literal notranslate"><span class="pre">msg()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_getvco" title="f/gridstatevector_mod/gsv_getvco"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_getvco()</span></code></a>, <a class="reference internal" href="#f/calcheightandpressure_mod/fetch3dlevels_r4" title="f/calcheightandpressure_mod/fetch3dlevels_r4"><code class="xref f f-func docutils literal notranslate"><span class="pre">fetch3dlevels_r4()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/calcheightandpressure_mod/calcpressure_gsv_tl">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">calcheightandpressure_mod/</span></span><span class="sig-name descname"><span class="pre">calcpressure_gsv_tl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">statevector</span></em>, <em class="sig-param"><span class="pre">statevectorref</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/calcheightandpressure_mod/calcpressure_gsv_tl" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Tangent of pressure computation.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>statevector</strong><em> [</em><em>struct_gsv </em><em>,</em><em>inout</em><em>]</em> :: statevector that will contain the P_T/P_M increments</p></li>
+<li><p><strong>statevectorref</strong><em> [</em><em>struct_gsv </em><em>,</em><em>in</em><em>]</em> :: statevector containing needed reference fields</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/calcheightandpressure_mod/calczandp_gsv_tl" title="f/calcheightandpressure_mod/calczandp_gsv_tl"><code class="xref f f-func docutils literal notranslate"><span class="pre">calczandp_gsv_tl()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_start" title="f/utilities_mod/utl_tmg_start"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_start()</span></code></a>, <a class="reference internal" href="message_mod.html#f/message_mod/msg" title="f/message_mod/msg"><code class="xref f f-func docutils literal notranslate"><span class="pre">msg()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_getvco" title="f/gridstatevector_mod/gsv_getvco"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_getvco()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_varexist" title="f/gridstatevector_mod/gsv_varexist"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_varexist()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_stop" title="f/utilities_mod/utl_tmg_stop"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_stop()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/calcheightandpressure_mod/calcpressure_gsv_ad">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">calcheightandpressure_mod/</span></span><span class="sig-name descname"><span class="pre">calcpressure_gsv_ad</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">statevector</span></em>, <em class="sig-param"><span class="pre">statevectorref</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/calcheightandpressure_mod/calcpressure_gsv_ad" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Adjoint of pressure computation.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>statevector</strong><em> [</em><em>struct_gsv </em><em>,</em><em>inout</em><em>]</em> :: statevector that will contain increment of P_T/P_M</p></li>
+<li><p><strong>statevectorref</strong><em> [</em><em>struct_gsv </em><em>,</em><em>in</em><em>]</em> :: statevector containing needed reference fields</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/calcheightandpressure_mod/calczandp_gsv_ad" title="f/calcheightandpressure_mod/calczandp_gsv_ad"><code class="xref f f-func docutils literal notranslate"><span class="pre">calczandp_gsv_ad()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_start" title="f/utilities_mod/utl_tmg_start"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_start()</span></code></a>, <a class="reference internal" href="message_mod.html#f/message_mod/msg" title="f/message_mod/msg"><code class="xref f f-func docutils literal notranslate"><span class="pre">msg()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_getvco" title="f/gridstatevector_mod/gsv_getvco"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_getvco()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_varexist" title="f/gridstatevector_mod/gsv_varexist"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_varexist()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_stop" title="f/utilities_mod/utl_tmg_stop"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_stop()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/calcheightandpressure_mod/calczandp_col_nl">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">calcheightandpressure_mod/</span></span><span class="sig-name descname"><span class="pre">calczandp_col_nl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">column</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/calcheightandpressure_mod/calczandp_col_nl" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Compute pressure and height in the column in proper order
+depending on the vgrid kind</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>column</strong><em> [</em><em>struct_columndata </em><em>,</em><em>inout</em><em>]</em> :: column that will contain the Z_*/P_* fields</p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="message_mod.html#f/message_mod/msg" title="f/message_mod/msg"><code class="xref f f-func docutils literal notranslate"><span class="pre">msg()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_varexist" title="f/columndata_mod/col_varexist"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_varexist()</span></code></a>, <a class="reference internal" href="#f/calcheightandpressure_mod/calcpressure_col_nl" title="f/calcheightandpressure_mod/calcpressure_col_nl"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcpressure_col_nl()</span></code></a>, <a class="reference internal" href="#f/calcheightandpressure_mod/calcheight_col_nl" title="f/calcheightandpressure_mod/calcheight_col_nl"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcheight_col_nl()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/calcheightandpressure_mod/calczandp_col_tl">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">calcheightandpressure_mod/</span></span><span class="sig-name descname"><span class="pre">calczandp_col_tl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">columninc</span></em>, <em class="sig-param"><span class="pre">columnincref</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/calcheightandpressure_mod/calczandp_col_tl" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Compute pressure and height increment in the column in proper
+order depending on the vgrid kind</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>columninc</strong><em> [</em><em>struct_columndata </em><em>,</em><em>inout</em><em>]</em> :: column that will contain the Z_*/P_* increments</p></li>
+<li><p><strong>columnincref</strong><em> [</em><em>struct_columndata </em><em>,</em><em>in</em><em>]</em> :: column containing needed reference fields</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="message_mod.html#f/message_mod/msg" title="f/message_mod/msg"><code class="xref f f-func docutils literal notranslate"><span class="pre">msg()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_varexist" title="f/columndata_mod/col_varexist"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_varexist()</span></code></a>, <a class="reference internal" href="#f/calcheightandpressure_mod/calcpressure_col_tl" title="f/calcheightandpressure_mod/calcpressure_col_tl"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcpressure_col_tl()</span></code></a>, <a class="reference internal" href="#f/calcheightandpressure_mod/calcheight_col_tl" title="f/calcheightandpressure_mod/calcheight_col_tl"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcheight_col_tl()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/calcheightandpressure_mod/calczandp_col_ad">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">calcheightandpressure_mod/</span></span><span class="sig-name descname"><span class="pre">calczandp_col_ad</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">columninc</span></em>, <em class="sig-param"><span class="pre">columnincref</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/calcheightandpressure_mod/calczandp_col_ad" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Adjoint of pressure and height increment computation in the
+column in proper order depending on the vgrid kind</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>columninc</strong><em> [</em><em>struct_columndata </em><em>,</em><em>inout</em><em>]</em> :: column that will contain the Z_*/P_* increments</p></li>
+<li><p><strong>columnincref</strong><em> [</em><em>struct_columndata </em><em>,</em><em>in</em><em>]</em> :: column containing needed reference fields</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="message_mod.html#f/message_mod/msg" title="f/message_mod/msg"><code class="xref f f-func docutils literal notranslate"><span class="pre">msg()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_varexist" title="f/columndata_mod/col_varexist"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_varexist()</span></code></a>, <a class="reference internal" href="#f/calcheightandpressure_mod/calcheight_col_ad" title="f/calcheightandpressure_mod/calcheight_col_ad"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcheight_col_ad()</span></code></a>, <a class="reference internal" href="#f/calcheightandpressure_mod/calcpressure_col_ad" title="f/calcheightandpressure_mod/calcpressure_col_ad"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcpressure_col_ad()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/calcheightandpressure_mod/calcheight_col_nl">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">calcheightandpressure_mod/</span></span><span class="sig-name descname"><span class="pre">calcheight_col_nl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">column</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/calcheightandpressure_mod/calcheight_col_nl" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Compute or retrieve heights on the column.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>column</strong><em> [</em><em>struct_columndata </em><em>,</em><em>inout</em><em>]</em> :: column that will contain the Z_M/Z_T fields</p>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/calcheightandpressure_mod/calczandp_col_nl" title="f/calcheightandpressure_mod/calczandp_col_nl"><code class="xref f f-func docutils literal notranslate"><span class="pre">calczandp_col_nl()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="message_mod.html#f/message_mod/msg" title="f/message_mod/msg"><code class="xref f f-func docutils literal notranslate"><span class="pre">msg()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_getallcolumns" title="f/columndata_mod/col_getallcolumns"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_getallcolumns()</span></code></a>, <a class="reference internal" href="#f/calcheightandpressure_mod/czp_calcreturnheight_col_nl" title="f/calcheightandpressure_mod/czp_calcreturnheight_col_nl"><code class="xref f f-func docutils literal notranslate"><span class="pre">czp_calcreturnheight_col_nl()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_getcolumn" title="f/columndata_mod/col_getcolumn"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_getcolumn()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/calcheightandpressure_mod/czp_calcreturnheight_col_nl">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">calcheightandpressure_mod/</span></span><span class="sig-name descname"><span class="pre">czp_calcreturnheight_col_nl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">column</span></em>, <em class="sig-param"><span class="pre">z_t</span></em>, <em class="sig-param"><span class="pre">z_m</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/calcheightandpressure_mod/czp_calcreturnheight_col_nl" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Return heights on the column.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>column</strong><em> [</em><em>struct_columndata </em><em>,</em><em>in</em><em>]</em> :: reference column containing temperature and geopotential</p></li>
+<li><p><strong>z_t</strong> (*,*)<em> [</em><em>real </em><em>,</em><em>inout,pointer</em><em>]</em> :: output pointer to computed column height values on thermodynamic levels</p></li>
+<li><p><strong>z_m</strong> (*,*)<em> [</em><em>real </em><em>,</em><em>inout,pointer</em><em>]</em> :: output pointer to computed column height values on momentum levels</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/calcheightandpressure_mod/calcheight_col_nl" title="f/calcheightandpressure_mod/calcheight_col_nl"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcheight_col_nl()</span></code></a>, <a class="reference internal" href="interpolation_mod.html#f/interpolation_mod/int_vinterp_col" title="f/interpolation_mod/int_vinterp_col"><code class="xref f f-func docutils literal notranslate"><span class="pre">int_vinterp_col()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="message_mod.html#f/message_mod/msg" title="f/message_mod/msg"><code class="xref f f-func docutils literal notranslate"><span class="pre">msg()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_getvco" title="f/columndata_mod/col_getvco"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_getvco()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_varexist" title="f/columndata_mod/col_varexist"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_varexist()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="#f/calcheightandpressure_mod/calcheight_col_nl_vcode5xxx" title="f/calcheightandpressure_mod/calcheight_col_nl_vcode5xxx"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcheight_col_nl_vcode5xxx()</span></code></a>, <a class="reference internal" href="#f/calcheightandpressure_mod/calcheight_col_nl_vcode2100x" title="f/calcheightandpressure_mod/calcheight_col_nl_vcode2100x"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcheight_col_nl_vcode2100x()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/calcheightandpressure_mod/calcheight_col_nl_vcode2100x">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">calcheightandpressure_mod/</span></span><span class="sig-name descname"><span class="pre">calcheight_col_nl_vcode2100x</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">column</span></em>, <em class="sig-param"><span class="pre">z_t</span></em>, <em class="sig-param"><span class="pre">z_m</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/calcheightandpressure_mod/calcheight_col_nl_vcode2100x" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Return heights on a GEM-H column.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>column</strong><em> [</em><em>struct_columndata </em><em>,</em><em>in</em><em>]</em> :: reference column containing temperature and geopotential</p></li>
+<li><p><strong>z_t</strong> (*,*)<em> [</em><em>real </em><em>,</em><em>inout,pointer</em><em>]</em> :: output pointer to computed column height values on thermodynamic levels</p></li>
+<li><p><strong>z_m</strong> (*,*)<em> [</em><em>real </em><em>,</em><em>inout,pointer</em><em>]</em> :: output pointer to computed column height values on momentum levels</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/calcheightandpressure_mod/czp_calcreturnheight_col_nl" title="f/calcheightandpressure_mod/czp_calcreturnheight_col_nl"><code class="xref f f-func docutils literal notranslate"><span class="pre">czp_calcreturnheight_col_nl()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="message_mod.html#f/message_mod/msg" title="f/message_mod/msg"><code class="xref f f-func docutils literal notranslate"><span class="pre">msg()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_getnumcol" title="f/columndata_mod/col_getnumcol"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_getnumcol()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_getheight" title="f/columndata_mod/col_getheight"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_getheight()</span></code></a>, <a class="reference internal" href="#f/calcheightandpressure_mod/fetch3dlevels_r8" title="f/calcheightandpressure_mod/fetch3dlevels_r8"><code class="xref f f-func docutils literal notranslate"><span class="pre">fetch3dlevels_r8()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/calcheightandpressure_mod/calcheight_col_nl_vcode5xxx">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">calcheightandpressure_mod/</span></span><span class="sig-name descname"><span class="pre">calcheight_col_nl_vcode5xxx</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">column</span></em>, <em class="sig-param"><span class="pre">z_t</span></em>, <em class="sig-param"><span class="pre">z_m</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/calcheightandpressure_mod/calcheight_col_nl_vcode5xxx" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Compute heights for GEM-P columns, return height values
+in pointer arguments.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>column</strong><em> [</em><em>struct_columndata </em><em>,</em><em>in</em><em>]</em> :: reference column containing temperature and geopotential</p></li>
+<li><p><strong>z_t</strong> (*,*)<em> [</em><em>real </em><em>,</em><em>inout,pointer</em><em>]</em> :: output pointer to computed column height values on thermodynamic levels</p></li>
+<li><p><strong>z_m</strong> (*,*)<em> [</em><em>real </em><em>,</em><em>inout,pointer</em><em>]</em> :: output pointer to computed column height values on momentum levels</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/calcheightandpressure_mod/czp_calcreturnheight_col_nl" title="f/calcheightandpressure_mod/czp_calcreturnheight_col_nl"><code class="xref f f-func docutils literal notranslate"><span class="pre">czp_calcreturnheight_col_nl()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="message_mod.html#f/message_mod/msg" title="f/message_mod/msg"><code class="xref f f-func docutils literal notranslate"><span class="pre">msg()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_zero" title="f/columndata_mod/col_zero"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_zero()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/calcheightandpressure_mod/calcheight_col_tl">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">calcheightandpressure_mod/</span></span><span class="sig-name descname"><span class="pre">calcheight_col_tl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">columninc</span></em>, <em class="sig-param"><span class="pre">columnincref</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/calcheightandpressure_mod/calcheight_col_tl" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Tangent height computation on the column.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>columninc</strong><em> [</em><em>struct_columndata </em><em>,</em><em>inout</em><em>]</em></p></li>
+<li><p><strong>columnincref</strong><em> [</em><em>struct_columndata </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/calcheightandpressure_mod/calczandp_col_tl" title="f/calcheightandpressure_mod/calczandp_col_tl"><code class="xref f f-func docutils literal notranslate"><span class="pre">calczandp_col_tl()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_start" title="f/utilities_mod/utl_tmg_start"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_start()</span></code></a>, <a class="reference internal" href="message_mod.html#f/message_mod/msg" title="f/message_mod/msg"><code class="xref f f-func docutils literal notranslate"><span class="pre">msg()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_getvco" title="f/columndata_mod/col_getvco"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_getvco()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_varexist" title="f/columndata_mod/col_varexist"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_varexist()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_stop" title="f/utilities_mod/utl_tmg_stop"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_stop()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/calcheightandpressure_mod/calcheight_col_ad">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">calcheightandpressure_mod/</span></span><span class="sig-name descname"><span class="pre">calcheight_col_ad</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">columninc</span></em>, <em class="sig-param"><span class="pre">columnincref</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/calcheightandpressure_mod/calcheight_col_ad" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Adjoint of height computation on the column.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>columninc</strong><em> [</em><em>struct_columndata </em><em>,</em><em>inout</em><em>]</em></p></li>
+<li><p><strong>columnincref</strong><em> [</em><em>struct_columndata </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/calcheightandpressure_mod/calczandp_col_ad" title="f/calcheightandpressure_mod/calczandp_col_ad"><code class="xref f f-func docutils literal notranslate"><span class="pre">calczandp_col_ad()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_start" title="f/utilities_mod/utl_tmg_start"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_start()</span></code></a>, <a class="reference internal" href="message_mod.html#f/message_mod/msg" title="f/message_mod/msg"><code class="xref f f-func docutils literal notranslate"><span class="pre">msg()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_getvco" title="f/columndata_mod/col_getvco"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_getvco()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_varexist" title="f/columndata_mod/col_varexist"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_varexist()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_stop" title="f/utilities_mod/utl_tmg_stop"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_stop()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/calcheightandpressure_mod/calcpressure_col_nl">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">calcheightandpressure_mod/</span></span><span class="sig-name descname"><span class="pre">calcpressure_col_nl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">column</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/calcheightandpressure_mod/calcpressure_col_nl" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Pressure computation on the column.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>column</strong><em> [</em><em>struct_columndata </em><em>,</em><em>inout</em><em>]</em></p>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/calcheightandpressure_mod/calczandp_col_nl" title="f/calcheightandpressure_mod/calczandp_col_nl"><code class="xref f f-func docutils literal notranslate"><span class="pre">calczandp_col_nl()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="message_mod.html#f/message_mod/msg" title="f/message_mod/msg"><code class="xref f f-func docutils literal notranslate"><span class="pre">msg()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_getallcolumns" title="f/columndata_mod/col_getallcolumns"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_getallcolumns()</span></code></a>, <a class="reference internal" href="#f/calcheightandpressure_mod/czp_calcreturnpressure_col_nl" title="f/calcheightandpressure_mod/czp_calcreturnpressure_col_nl"><code class="xref f f-func docutils literal notranslate"><span class="pre">czp_calcreturnpressure_col_nl()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_getcolumn" title="f/columndata_mod/col_getcolumn"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_getcolumn()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/calcheightandpressure_mod/czp_calcreturnpressure_col_nl">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">calcheightandpressure_mod/</span></span><span class="sig-name descname"><span class="pre">czp_calcreturnpressure_col_nl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">column</span></em>, <em class="sig-param"><span class="pre">p_t</span></em>, <em class="sig-param"><span class="pre">p_m</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/calcheightandpressure_mod/czp_calcreturnpressure_col_nl" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Pressure computation on the column, return values in pointers.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>column</strong><em> [</em><em>struct_columndata </em><em>,</em><em>in</em><em>]</em> :: reference column</p></li>
+<li><p><strong>p_t</strong> (*,*)<em> [</em><em>real </em><em>,</em><em>inout,pointer</em><em>]</em> :: output pointer to computed column pressure values on thermodynamic levels</p></li>
+<li><p><strong>p_m</strong> (*,*)<em> [</em><em>real </em><em>,</em><em>inout,pointer</em><em>]</em> :: output pointer to computed column pressure values on momentum levels</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/calcheightandpressure_mod/calcpressure_col_nl" title="f/calcheightandpressure_mod/calcpressure_col_nl"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcpressure_col_nl()</span></code></a>, <a class="reference internal" href="interpolation_mod.html#f/interpolation_mod/int_vinterp_col" title="f/interpolation_mod/int_vinterp_col"><code class="xref f f-func docutils literal notranslate"><span class="pre">int_vinterp_col()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="message_mod.html#f/message_mod/msg" title="f/message_mod/msg"><code class="xref f f-func docutils literal notranslate"><span class="pre">msg()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_getvco" title="f/columndata_mod/col_getvco"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_getvco()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_varexist" title="f/columndata_mod/col_varexist"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_varexist()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="#f/calcheightandpressure_mod/calcpressure_col_nl_vcode5xxx" title="f/calcheightandpressure_mod/calcpressure_col_nl_vcode5xxx"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcpressure_col_nl_vcode5xxx()</span></code></a>, <a class="reference internal" href="#f/calcheightandpressure_mod/calcpressure_col_nl_vcode2100x" title="f/calcheightandpressure_mod/calcpressure_col_nl_vcode2100x"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcpressure_col_nl_vcode2100x()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/calcheightandpressure_mod/calcpressure_col_nl_vcode2100x">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">calcheightandpressure_mod/</span></span><span class="sig-name descname"><span class="pre">calcpressure_col_nl_vcode2100x</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">column</span></em>, <em class="sig-param"><span class="pre">p_t</span></em>, <em class="sig-param"><span class="pre">p_m</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/calcheightandpressure_mod/calcpressure_col_nl_vcode2100x" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Compute pressure and return values in pointer arguments.
+GEM-H column input.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>column</strong><em> [</em><em>struct_columndata </em><em>,</em><em>in</em><em>]</em> :: reference column</p></li>
+<li><p><strong>p_t</strong> (*,*)<em> [</em><em>real </em><em>,</em><em>inout,pointer</em><em>]</em> :: output pointer to computed column pressure values on thermodynamic levels</p></li>
+<li><p><strong>p_m</strong> (*,*)<em> [</em><em>real </em><em>,</em><em>inout,pointer</em><em>]</em> :: output pointer to computed column pressure values on momentum levels</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/calcheightandpressure_mod/czp_calcreturnpressure_col_nl" title="f/calcheightandpressure_mod/czp_calcreturnpressure_col_nl"><code class="xref f f-func docutils literal notranslate"><span class="pre">czp_calcreturnpressure_col_nl()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="message_mod.html#f/message_mod/msg" title="f/message_mod/msg"><code class="xref f f-func docutils literal notranslate"><span class="pre">msg()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_getnumcol" title="f/columndata_mod/col_getnumcol"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_getnumcol()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_getnumlev" title="f/columndata_mod/col_getnumlev"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_getnumlev()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_getelem" title="f/columndata_mod/col_getelem"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_getelem()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_getheight" title="f/columndata_mod/col_getheight"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_getheight()</span></code></a>, <a class="reference internal" href="physicsfunctions_mod.html#f/physicsfunctions_mod/phf_fotvt8" title="f/physicsfunctions_mod/phf_fotvt8"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_fotvt8()</span></code></a>, <a class="reference internal" href="gps_mod.html#f/gps_mod/gpscompressibility" title="f/gps_mod/gpscompressibility"><code class="xref f f-func docutils literal notranslate"><span class="pre">gpscompressibility()</span></code></a>, <a class="reference internal" href="physicsfunctions_mod.html#f/physicsfunctions_mod/phf_gravityalt" title="f/physicsfunctions_mod/phf_gravityalt"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_gravityalt()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/calcheightandpressure_mod/calcpressure_col_nl_vcode5xxx">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">calcheightandpressure_mod/</span></span><span class="sig-name descname"><span class="pre">calcpressure_col_nl_vcode5xxx</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">column</span></em>, <em class="sig-param"><span class="pre">p_t</span></em>, <em class="sig-param"><span class="pre">p_m</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/calcheightandpressure_mod/calcpressure_col_nl_vcode5xxx" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>column</strong><em> [</em><em>struct_columndata </em><em>,</em><em>in</em><em>]</em> :: reference column</p></li>
+<li><p><strong>p_t</strong> (*,*)<em> [</em><em>real </em><em>,</em><em>inout,pointer</em><em>]</em> :: output pointer to computed column pressure values on thermodynamic levels</p></li>
+<li><p><strong>p_m</strong> (*,*)<em> [</em><em>real </em><em>,</em><em>inout,pointer</em><em>]</em> :: output pointer to computed column pressure values on momentum levels</p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/calcheightandpressure_mod/czp_calcreturnpressure_col_nl" title="f/calcheightandpressure_mod/czp_calcreturnpressure_col_nl"><code class="xref f f-func docutils literal notranslate"><span class="pre">czp_calcreturnpressure_col_nl()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="message_mod.html#f/message_mod/msg" title="f/message_mod/msg"><code class="xref f f-func docutils literal notranslate"><span class="pre">msg()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_getnumcol" title="f/columndata_mod/col_getnumcol"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_getnumcol()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_getvco" title="f/columndata_mod/col_getvco"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_getvco()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_varexist" title="f/columndata_mod/col_varexist"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_varexist()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_getelem" title="f/columndata_mod/col_getelem"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_getelem()</span></code></a>, <a class="reference internal" href="#f/calcheightandpressure_mod/fetch3dlevels_r8" title="f/calcheightandpressure_mod/fetch3dlevels_r8"><code class="xref f f-func docutils literal notranslate"><span class="pre">fetch3dlevels_r8()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/calcheightandpressure_mod/calcpressure_col_tl">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">calcheightandpressure_mod/</span></span><span class="sig-name descname"><span class="pre">calcpressure_col_tl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">columninc</span></em>, <em class="sig-param"><span class="pre">columnincref</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/calcheightandpressure_mod/calcpressure_col_tl" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Tangent pressure computation on the column.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>columninc</strong><em> [</em><em>struct_columndata </em><em>,</em><em>inout</em><em>]</em> :: column that will contain the P_T/P_M increments</p></li>
+<li><p><strong>columnincref</strong><em> [</em><em>struct_columndata </em><em>,</em><em>in</em><em>]</em> :: column containing needed reference fields</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/calcheightandpressure_mod/calczandp_col_tl" title="f/calcheightandpressure_mod/calczandp_col_tl"><code class="xref f f-func docutils literal notranslate"><span class="pre">calczandp_col_tl()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="message_mod.html#f/message_mod/msg" title="f/message_mod/msg"><code class="xref f f-func docutils literal notranslate"><span class="pre">msg()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_getvco" title="f/columndata_mod/col_getvco"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_getvco()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_varexist" title="f/columndata_mod/col_varexist"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_varexist()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/calcheightandpressure_mod/calcpressure_col_ad">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">calcheightandpressure_mod/</span></span><span class="sig-name descname"><span class="pre">calcpressure_col_ad</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">columninc</span></em>, <em class="sig-param"><span class="pre">columnincref</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/calcheightandpressure_mod/calcpressure_col_ad" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Adjoint of pressure computation on the column.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>columninc</strong><em> [</em><em>struct_columndata </em><em>,</em><em>inout</em><em>]</em> :: column that will contain increments of P_M/P_T</p></li>
+<li><p><strong>columnincref</strong><em> [</em><em>struct_columndata </em><em>,</em><em>in</em><em>]</em> :: column containing needed reference fields</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/calcheightandpressure_mod/calczandp_col_ad" title="f/calcheightandpressure_mod/calczandp_col_ad"><code class="xref f f-func docutils literal notranslate"><span class="pre">calczandp_col_ad()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="message_mod.html#f/message_mod/msg" title="f/message_mod/msg"><code class="xref f f-func docutils literal notranslate"><span class="pre">msg()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_getvco" title="f/columndata_mod/col_getvco"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_getvco()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_varexist" title="f/columndata_mod/col_varexist"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_varexist()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/calcheightandpressure_mod/fetch3dlevels_r8">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">calcheightandpressure_mod/</span></span><span class="sig-name descname"><span class="pre">fetch3dlevels_r8</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">vco</span></em>, <em class="sig-param"><span class="pre">sfcfld</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">sfcfldls_opt</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">fldm_opt</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">fldt_opt</span></em><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/calcheightandpressure_mod/fetch3dlevels_r8" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Main vgd_levels wrapper for field queries. Return vertical coordinate
+fields for both momentum and thermodynamic levels; real(8) flavor.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>vco</strong><em> [</em><em>struct_vco </em><em>,</em><em>in</em><em>]</em> :: Vertical descriptor</p></li>
+<li><p><strong>sfcfld</strong> (*,*)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: Surface field reference for coordinate</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Options</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sfcfldls_opt</strong> (*,*)<em> [</em><em>real </em><em>,</em><em>in,</em><em>]</em> :: Large scale surface field reference for coordinate (SLEVE)</p></li>
+<li><p><strong>fldm_opt</strong> (*,*,*)<em> [</em><em>real </em><em>,</em><em>inout,pointer</em><em>]</em> :: Momemtum levels field</p></li>
+<li><p><strong>fldt_opt</strong> (*,*,*)<em> [</em><em>real </em><em>,</em><em>inout,pointer</em><em>]</em> :: Thermodynamic levels field</p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/calcheightandpressure_mod/calcheight_gsv_nl_vcode2100x_r8" title="f/calcheightandpressure_mod/calcheight_gsv_nl_vcode2100x_r8"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcheight_gsv_nl_vcode2100x_r8()</span></code></a>, <a class="reference internal" href="#f/calcheightandpressure_mod/calcpressure_gsv_nl_vcode5xxx_r8" title="f/calcheightandpressure_mod/calcpressure_gsv_nl_vcode5xxx_r8"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcpressure_gsv_nl_vcode5xxx_r8()</span></code></a>, <a class="reference internal" href="#f/calcheightandpressure_mod/calcheight_col_nl_vcode2100x" title="f/calcheightandpressure_mod/calcheight_col_nl_vcode2100x"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcheight_col_nl_vcode2100x()</span></code></a>, <a class="reference internal" href="#f/calcheightandpressure_mod/calcpressure_col_nl_vcode5xxx" title="f/calcheightandpressure_mod/calcpressure_col_nl_vcode5xxx"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcpressure_col_nl_vcode5xxx()</span></code></a>, <a class="reference internal" href="#f/calcheightandpressure_mod/czp_ensurecompatibletops" title="f/calcheightandpressure_mod/czp_ensurecompatibletops"><code class="xref f f-func docutils literal notranslate"><span class="pre">czp_ensurecompatibletops()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="message_mod.html#f/message_mod/msg" title="f/message_mod/msg"><code class="xref f f-func docutils literal notranslate"><span class="pre">msg()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/calcheightandpressure_mod/fetch3dlevels_r4">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">calcheightandpressure_mod/</span></span><span class="sig-name descname"><span class="pre">fetch3dlevels_r4</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">vco</span></em>, <em class="sig-param"><span class="pre">sfcfld</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">sfcfldls_opt</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">fldm_opt</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">fldt_opt</span></em><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/calcheightandpressure_mod/fetch3dlevels_r4" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Main vgd_levels wrapper for field query. Return vertical coordinate
+fields for both momentum and thermodynamic levels; real(4) flavor.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>vco</strong><em> [</em><em>struct_vco </em><em>,</em><em>in</em><em>]</em> :: Vertical descriptor</p></li>
+<li><p><strong>sfcfld</strong> (*,*)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: Surface field reference for coordinate</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Options</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sfcfldls_opt</strong> (*,*)<em> [</em><em>real </em><em>,</em><em>in,</em><em>]</em> :: Large scale surface field reference for coordinate (SLEVE)</p></li>
+<li><p><strong>fldm_opt</strong> (*,*,*)<em> [</em><em>real </em><em>,</em><em>inout,pointer</em><em>]</em> :: Momemtum levels field</p></li>
+<li><p><strong>fldt_opt</strong> (*,*,*)<em> [</em><em>real </em><em>,</em><em>inout,pointer</em><em>]</em> :: Thermodynamic levels field</p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/calcheightandpressure_mod/calcheight_gsv_nl_vcode2100x_r4" title="f/calcheightandpressure_mod/calcheight_gsv_nl_vcode2100x_r4"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcheight_gsv_nl_vcode2100x_r4()</span></code></a>, <a class="reference internal" href="#f/calcheightandpressure_mod/calcpressure_gsv_nl_vcode5xxx_r4" title="f/calcheightandpressure_mod/calcpressure_gsv_nl_vcode5xxx_r4"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcpressure_gsv_nl_vcode5xxx_r4()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="message_mod.html#f/message_mod/msg" title="f/message_mod/msg"><code class="xref f f-func docutils literal notranslate"><span class="pre">msg()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/calcheightandpressure_mod/fetch1dlevels_r8">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">calcheightandpressure_mod/</span></span><span class="sig-name descname"><span class="pre">fetch1dlevels_r8</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">vco</span></em>, <em class="sig-param"><span class="pre">sfcvalue</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">profm_opt</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">proft_opt</span></em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/calcheightandpressure_mod/fetch1dlevels_r8" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Main vgd_levels wrapper for profile query. Return vertical coordinate
+profile for both momentum and thermodynamic levels; real(8) flavor.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>vco</strong><em> [</em><em>struct_vco </em><em>,</em><em>in</em><em>]</em> :: Vertical descriptor</p></li>
+<li><p><strong>sfcvalue</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: Surface field reference for coordinate</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Options</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>profm_opt</strong> (*)<em> [</em><em>real </em><em>,</em><em>inout,pointer</em><em>]</em> :: Momemtum levels profile</p></li>
+<li><p><strong>proft_opt</strong> (*)<em> [</em><em>real </em><em>,</em><em>inout,pointer</em><em>]</em> :: Thermodynamic levels profile</p></li>
+</ul>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="message_mod.html#f/message_mod/msg" title="f/message_mod/msg"><code class="xref f f-func docutils literal notranslate"><span class="pre">msg()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/calcheightandpressure_mod/fetch1ddpdps_r8">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">calcheightandpressure_mod/</span></span><span class="sig-name descname"><span class="pre">fetch1ddpdps_r8</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">vco</span></em>, <em class="sig-param"><span class="pre">sfcvalue</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">profm_opt</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">proft_opt</span></em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/calcheightandpressure_mod/fetch1ddpdps_r8" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Main vgd_levels wrapper for iderivative profile query. Return vertical
+coordinate profile for both momentum and thermodynamic levels;
+real(8) flavor.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>vco</strong><em> [</em><em>struct_vco </em><em>,</em><em>in</em><em>]</em> :: Vertical descriptor</p></li>
+<li><p><strong>sfcvalue</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: Surface field reference for coordinate</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Options</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>profm_opt</strong> (*)<em> [</em><em>real </em><em>,</em><em>inout,pointer</em><em>]</em> :: Momemtum levels profile</p></li>
+<li><p><strong>proft_opt</strong> (*)<em> [</em><em>real </em><em>,</em><em>inout,pointer</em><em>]</em> :: Thermodynamic levels profile</p></li>
+</ul>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="message_mod.html#f/message_mod/msg" title="f/message_mod/msg"><code class="xref f f-func docutils literal notranslate"><span class="pre">msg()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/calcheightandpressure_mod/czp_ensurecompatibletops">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">calcheightandpressure_mod/</span></span><span class="sig-name descname"><span class="pre">czp_ensurecompatibletops</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">vco_sourcegrid</span></em>, <em class="sig-param"><span class="pre">vco_destgrid</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/calcheightandpressure_mod/czp_ensurecompatibletops" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>This function checks if the top of a destination grid
+is ~equal or lower than the top of the source grid
+the code aborts if this is not the case</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>vco_sourcegrid</strong><em> [</em><em>struct_vco </em><em>,</em><em>in,pointer</em><em>]</em> :: vertical coordinate source grid</p></li>
+<li><p><strong>vco_destgrid</strong><em> [</em><em>struct_vco </em><em>,</em><em>in,pointer</em><em>]</em> :: vertical coordinate destination grid</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="interpolation_mod.html#f/interpolation_mod/vinterp_gsv_r8" title="f/interpolation_mod/vinterp_gsv_r8"><code class="xref f f-func docutils literal notranslate"><span class="pre">vinterp_gsv_r8()</span></code></a>, <a class="reference internal" href="interpolation_mod.html#f/interpolation_mod/vinterp_gsv_r4" title="f/interpolation_mod/vinterp_gsv_r4"><code class="xref f f-func docutils literal notranslate"><span class="pre">vinterp_gsv_r4()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="verticalcoord_mod.html#f/verticalcoord_mod/vco_getnumlev" title="f/verticalcoord_mod/vco_getnumlev"><code class="xref f f-func docutils literal notranslate"><span class="pre">vco_getnumlev()</span></code></a>, <a class="reference internal" href="#f/calcheightandpressure_mod/fetch3dlevels_r8" title="f/calcheightandpressure_mod/fetch3dlevels_r8"><code class="xref f f-func docutils literal notranslate"><span class="pre">fetch3dlevels_r8()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/calcheightandpressure_mod/calcheightcoeff_gsv">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">calcheightandpressure_mod/</span></span><span class="sig-name descname"><span class="pre">calcheightcoeff_gsv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">statevector</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/calcheightandpressure_mod/calcheightcoeff_gsv" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Calculating the coefficients of height for
+czp_calcHeight_tl/czp_calcHeight_ad</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>statevector</strong><em> [</em><em>struct_gsv </em><em>,</em><em>in</em><em>]</em></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="message_mod.html#f/message_mod/msg" title="f/message_mod/msg"><code class="xref f f-func docutils literal notranslate"><span class="pre">msg()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_getvco" title="f/gridstatevector_mod/gsv_getvco"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_getvco()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_getnumlev" title="f/gridstatevector_mod/gsv_getnumlev"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_getnumlev()</span></code></a>, <a class="reference internal" href="gps_mod.html#f/gps_mod/gpscompressibility" title="f/gps_mod/gpscompressibility"><code class="xref f f-func docutils literal notranslate"><span class="pre">gpscompressibility()</span></code></a>, <a class="reference internal" href="#f/calcheightandpressure_mod/gpscompressibility_tt" title="f/calcheightandpressure_mod/gpscompressibility_tt"><code class="xref f f-func docutils literal notranslate"><span class="pre">gpscompressibility_tt()</span></code></a>, <a class="reference internal" href="#f/calcheightandpressure_mod/gpscompressibility_hu" title="f/calcheightandpressure_mod/gpscompressibility_hu"><code class="xref f f-func docutils literal notranslate"><span class="pre">gpscompressibility_hu()</span></code></a>, <a class="reference internal" href="#f/calcheightandpressure_mod/gpscompressibility_p0_1" title="f/calcheightandpressure_mod/gpscompressibility_p0_1"><code class="xref f f-func docutils literal notranslate"><span class="pre">gpscompressibility_p0_1()</span></code></a>, <a class="reference internal" href="#f/calcheightandpressure_mod/gpscompressibility_p0_2" title="f/calcheightandpressure_mod/gpscompressibility_p0_2"><code class="xref f f-func docutils literal notranslate"><span class="pre">gpscompressibility_p0_2()</span></code></a>, <a class="reference internal" href="physicsfunctions_mod.html#f/physicsfunctions_mod/phf_gravityalt" title="f/physicsfunctions_mod/phf_gravityalt"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_gravityalt()</span></code></a>, <a class="reference internal" href="physicsfunctions_mod.html#f/physicsfunctions_mod/phf_fottva" title="f/physicsfunctions_mod/phf_fottva"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_fottva()</span></code></a>, <a class="reference internal" href="physicsfunctions_mod.html#f/physicsfunctions_mod/phf_fotvt8" title="f/physicsfunctions_mod/phf_fotvt8"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_fotvt8()</span></code></a>, <a class="reference internal" href="physicsfunctions_mod.html#f/physicsfunctions_mod/phf_folnqva" title="f/physicsfunctions_mod/phf_folnqva"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_folnqva()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/calcheightandpressure_mod/calcheightcoeff_col">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">calcheightandpressure_mod/</span></span><span class="sig-name descname"><span class="pre">calcheightcoeff_col</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">column</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/calcheightandpressure_mod/calcheightcoeff_col" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Calculating the coefficients of height for
+czp_calcHeight_tl/czp_calcHeight_ad</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>column</strong><em> [</em><em>struct_columndata </em><em>,</em><em>in</em><em>]</em></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="message_mod.html#f/message_mod/msg" title="f/message_mod/msg"><code class="xref f f-func docutils literal notranslate"><span class="pre">msg()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_getvco" title="f/columndata_mod/col_getvco"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_getvco()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_getnumlev" title="f/columndata_mod/col_getnumlev"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_getnumlev()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_getnumcol" title="f/columndata_mod/col_getnumcol"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_getnumcol()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_getallcolumns" title="f/columndata_mod/col_getallcolumns"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_getallcolumns()</span></code></a>, <a class="reference internal" href="gps_mod.html#f/gps_mod/gpscompressibility" title="f/gps_mod/gpscompressibility"><code class="xref f f-func docutils literal notranslate"><span class="pre">gpscompressibility()</span></code></a>, <a class="reference internal" href="#f/calcheightandpressure_mod/gpscompressibility_tt" title="f/calcheightandpressure_mod/gpscompressibility_tt"><code class="xref f f-func docutils literal notranslate"><span class="pre">gpscompressibility_tt()</span></code></a>, <a class="reference internal" href="#f/calcheightandpressure_mod/gpscompressibility_hu" title="f/calcheightandpressure_mod/gpscompressibility_hu"><code class="xref f f-func docutils literal notranslate"><span class="pre">gpscompressibility_hu()</span></code></a>, <a class="reference internal" href="#f/calcheightandpressure_mod/gpscompressibility_p0_1" title="f/calcheightandpressure_mod/gpscompressibility_p0_1"><code class="xref f f-func docutils literal notranslate"><span class="pre">gpscompressibility_p0_1()</span></code></a>, <a class="reference internal" href="#f/calcheightandpressure_mod/gpscompressibility_p0_2" title="f/calcheightandpressure_mod/gpscompressibility_p0_2"><code class="xref f f-func docutils literal notranslate"><span class="pre">gpscompressibility_p0_2()</span></code></a>, <a class="reference internal" href="physicsfunctions_mod.html#f/physicsfunctions_mod/phf_gravityalt" title="f/physicsfunctions_mod/phf_gravityalt"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_gravityalt()</span></code></a>, <a class="reference internal" href="physicsfunctions_mod.html#f/physicsfunctions_mod/phf_fottva" title="f/physicsfunctions_mod/phf_fottva"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_fottva()</span></code></a>, <a class="reference internal" href="physicsfunctions_mod.html#f/physicsfunctions_mod/phf_fotvt8" title="f/physicsfunctions_mod/phf_fotvt8"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_fotvt8()</span></code></a>, <a class="reference internal" href="physicsfunctions_mod.html#f/physicsfunctions_mod/phf_folnqva" title="f/physicsfunctions_mod/phf_folnqva"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_folnqva()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/calcheightandpressure_mod/gpscompressibility">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">calcheightandpressure_mod/</span></span><span class="sig-name descname"><span class="pre">gpscompressibility</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">p</span></em>, <em class="sig-param"><span class="pre">t</span></em>, <em class="sig-param"><span class="pre">q</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/calcheightandpressure_mod/gpscompressibility" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>t</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>q</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Return</dt>
+<dd class="field-even"><p><strong>gpscompressibility</strong><em> [</em><em>real </em><em>]</em></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/calcheightandpressure_mod/gpscompressibility_tt">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">calcheightandpressure_mod/</span></span><span class="sig-name descname"><span class="pre">gpscompressibility_tt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">p</span></em>, <em class="sig-param"><span class="pre">t</span></em>, <em class="sig-param"><span class="pre">q</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/calcheightandpressure_mod/gpscompressibility_tt" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>t</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>q</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Return</dt>
+<dd class="field-even"><p><strong>gpscompressibility_tt</strong><em> [</em><em>real </em><em>]</em></p>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/calcheightandpressure_mod/calcheightcoeff_gsv" title="f/calcheightandpressure_mod/calcheightcoeff_gsv"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcheightcoeff_gsv()</span></code></a>, <a class="reference internal" href="#f/calcheightandpressure_mod/calcheightcoeff_col" title="f/calcheightandpressure_mod/calcheightcoeff_col"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcheightcoeff_col()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/calcheightandpressure_mod/gpscompressibility_hu">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">calcheightandpressure_mod/</span></span><span class="sig-name descname"><span class="pre">gpscompressibility_hu</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">p</span></em>, <em class="sig-param"><span class="pre">t</span></em>, <em class="sig-param"><span class="pre">q</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/calcheightandpressure_mod/gpscompressibility_hu" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>t</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>q</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Return</dt>
+<dd class="field-even"><p><strong>gpscompressibility_hu</strong><em> [</em><em>real </em><em>]</em></p>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/calcheightandpressure_mod/calcheightcoeff_gsv" title="f/calcheightandpressure_mod/calcheightcoeff_gsv"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcheightcoeff_gsv()</span></code></a>, <a class="reference internal" href="#f/calcheightandpressure_mod/calcheightcoeff_col" title="f/calcheightandpressure_mod/calcheightcoeff_col"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcheightcoeff_col()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/calcheightandpressure_mod/gpscompressibility_p0_1">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">calcheightandpressure_mod/</span></span><span class="sig-name descname"><span class="pre">gpscompressibility_p0_1</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">p</span></em>, <em class="sig-param"><span class="pre">t</span></em>, <em class="sig-param"><span class="pre">q</span></em>, <em class="sig-param"><span class="pre">dpdp0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/calcheightandpressure_mod/gpscompressibility_p0_1" title="Permalink to this definition">¶</a></dt>
+<dd><p>gpscompressibility_P0_1 has dpdp0 dependency</p>
+<dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>t</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>q</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>dpdp0</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Return</dt>
+<dd class="field-even"><p><strong>gpscompressibility_p0_1</strong><em> [</em><em>real </em><em>]</em></p>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/calcheightandpressure_mod/calcheightcoeff_gsv" title="f/calcheightandpressure_mod/calcheightcoeff_gsv"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcheightcoeff_gsv()</span></code></a>, <a class="reference internal" href="#f/calcheightandpressure_mod/calcheightcoeff_col" title="f/calcheightandpressure_mod/calcheightcoeff_col"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcheightcoeff_col()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/calcheightandpressure_mod/gpscompressibility_p0_2">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">calcheightandpressure_mod/</span></span><span class="sig-name descname"><span class="pre">gpscompressibility_p0_2</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">p</span></em>, <em class="sig-param"><span class="pre">t</span></em>, <em class="sig-param"><span class="pre">q</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/calcheightandpressure_mod/gpscompressibility_p0_2" title="Permalink to this definition">¶</a></dt>
+<dd><p>gpscompressibility_P0_2 has NO dpdp0 dependency</p>
+<dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>t</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>q</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Return</dt>
+<dd class="field-even"><p><strong>gpscompressibility_p0_2</strong><em> [</em><em>real </em><em>]</em></p>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/calcheightandpressure_mod/calcheightcoeff_gsv" title="f/calcheightandpressure_mod/calcheightcoeff_gsv"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcheightcoeff_gsv()</span></code></a>, <a class="reference internal" href="#f/calcheightandpressure_mod/calcheightcoeff_col" title="f/calcheightandpressure_mod/calcheightcoeff_col"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcheightcoeff_col()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div></blockquote>
+</section>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="columnvariabletransforms_mod.html" title="columnvariabletransforms_mod"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="advection_mod.html" title="advection_mod"
+             >previous</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2018, ECCC.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.
+    </div>
+  </body>
+</html>

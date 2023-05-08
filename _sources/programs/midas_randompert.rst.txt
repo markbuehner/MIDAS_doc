@@ -1,0 +1,17 @@
+==========================================
+midas_randompert
+==========================================
+
+    :doc:`link to source code <midas_randompert_src>`
+
+
+    **Dependency Diagrams:**
+
+    .. figure:: /midas_randompert.svg
+        :height: 100px
+
+        Direct Dependency Diagram
+
+
+    .. f:autoprogram:: midas_randompert
+

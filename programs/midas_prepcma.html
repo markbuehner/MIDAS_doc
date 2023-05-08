@@ -1,0 +1,298 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>midas_prepcma &mdash; MIDAS  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="MIDAS  documentation" href="../index.html" />
+    <link rel="next" title="midas_pseudosstobs" href="midas_pseudosstobs.html" />
+    <link rel="prev" title="midas_ominusf" href="midas_ominusf.html" /> 
+  </head>
+  <body>
+  <div>
+    <img src="../_static/MIDAS_header.png" alt="MIDAS" />
+  </div>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="midas_pseudosstobs.html" title="midas_pseudosstobs"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="midas_ominusf.html" title="midas_ominusf"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="midas_ominusf.html"
+                          title="previous chapter">midas_ominusf</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="midas_pseudosstobs.html"
+                          title="next chapter">midas_pseudosstobs</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/programs/midas_prepcma.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <section id="midas-prepcma">
+<h1>midas_prepcma<a class="headerlink" href="#midas-prepcma" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><p><a class="reference internal" href="midas_prepcma_src.html"><span class="doc">link to source code</span></a></p>
+<p><strong>Dependency Diagrams:</strong></p>
+<figure class="align-default" id="id1">
+<a class="reference internal image-reference" href="midas_prepcma.svg"><img alt="midas_prepcma.svg" height="100px" src="midas_prepcma.svg" /></a>
+<figcaption>
+<p><span class="caption-text">Direct Dependency Diagram</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<dl>
+<dt class="sig sig-object f" id="f/midas_prepcma">
+<em class="property"><span class="pre">program</span>&#160; </em><span class="sig-name descname"><span class="pre">midas_prepcma</span></span><a class="headerlink" href="#f/midas_prepcma" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="field-list">
+<dt class="field-odd">Purpose</dt>
+<dd class="field-odd"><p>Read the observation files (usually after output by the background check)
+and apply further quality control and thinning for use by the <code class="docutils literal notranslate"><span class="pre">LETKF</span></code> program</p>
+<p>—</p>
+</dd>
+<dt class="field-even">Algorithm</dt>
+<dd class="field-even"><p>After reading the observation files that have been processed by the background check,
+the <code class="docutils literal notranslate"><span class="pre">prepcma</span></code> program rejects more observations based on the
+various flags and conditions. It also performs further thinnings
+on the data types of aircraft (AI), scatterometer (SC),
+satellite winds (SW) and some radiance (TO). The rejection and thinning
+are controlled by the options in the namelist of <code class="docutils literal notranslate"><span class="pre">NAMPREPCMA</span></code>.</p>
+<p>—</p>
+</dd>
+<dt class="field-odd">File I/O</dt>
+<dd class="field-odd"><p>The required input files and produced output files are listed as follows.</p>
+<p>–</p>
+</dd>
+</dl>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 43%" />
+<col style="width: 57%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Input and Output Files</p></th>
+<th class="head"><p>Description of file</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">flnml</span></code></p></td>
+<td><p>In - Main namelist file with parameters user may modify</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">flnml_static</span></code></p></td>
+<td><p>In - The “static” namelist that should not be modified</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">obserr</span></code></p></td>
+<td><p>In - Observation error statistics</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">obsfiles_$FAM/obs$FAM_$NNNN_$NNNN</span></code></p></td>
+<td><p>In - Observation file for each “family”</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">stats_tovs</span></code></p></td>
+<td><p>In - Satellite radiance observation errors</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">rtcoef_$PLATFORM_$SENSOR.dat</span></code></p></td>
+<td><p>In - RTTOV coefficient files</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">obsfiles_$FAM.updated/obs$FAM_$NNNN_$NNNN</span></code></p></td>
+<td><p>Out - final observation file for each family</p></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<div><p>—</p>
+</div></blockquote>
+<dl class="field-list">
+<dt class="field-odd">Synopsis</dt>
+<dd class="field-odd"><p>Below is a summary of the <code class="docutils literal notranslate"><span class="pre">prepcma</span></code> program calling sequence:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>Initial setups:</strong></p>
+<ul>
+<li><p>Read the NAMPREPCMA namelist and check/modify some values.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">filt_setup</span></code>: set up list of elements to be assimilated and flags for rejection</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">obsf_setup</span></code>: get observation file names and datestamp</p></li>
+</ul>
+</li>
+<li><p><strong>Computation:</strong></p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">obsf_readFiles</span></code>: get the observations</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">filt_suprep</span></code>: select the elements to assimilate and apply rejection flags</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">oer_setObsErrors</span></code>: initialize obs error covariances and set flag</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">oti_setup</span></code>: reject any observations outside the data assimilation window</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">enkf_rejectHighLatIR</span></code>: reject all IR radiance observation in arctic and antarctic</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">enkf_modifyAmsubObsError</span></code>: modify the obs error stddev for AMSUB in the tropics</p></li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">thinning_fam</span></code>: perform thinning for aircraft (AI), scatterometer (SC),</dt><dd><p>satellite winds (SW) and some radiance (TO)</p>
+</dd>
+</dl>
+</li>
+</ul>
+</li>
+<li><p><strong>Final steps:</strong></p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">obsf_writeFiles</span></code>: write to burp/sqlite files</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">obsf_printFiles</span></code>: print to ascci file and to unformatted files</p></li>
+</ul>
+</li>
+</ul>
+</div></blockquote>
+<p>—</p>
+</dd>
+<dt class="field-even">Options</dt>
+<dd class="field-even"><p><a class="reference external" href="../namelists_in_each_program.html#prepcma">List of namelist blocks</a>
+that can affect the <code class="docutils literal notranslate"><span class="pre">prepcma</span></code> program.</p>
+<ul class="simple">
+<li><p>Some of the relevant namelist blocks used to configure the
+prepcma are listed in the following table:</p></li>
+</ul>
+<p>–</p>
+</dd>
+</dl>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 23%" />
+<col style="width: 26%" />
+<col style="width: 51%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Program/Module</p></th>
+<th class="head"><p>Namelist</p></th>
+<th class="head"><p>Description of what is controlled</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">midas_prepcma</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">NAMPREPCMA</span></code></p></td>
+<td><p>parameters for CMA format and others
+to modify, reject and thinning some
+observation data</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">timeCoord_mod</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">NAMTIME</span></code></p></td>
+<td><p>assimilation time window length, temporal
+resolution of the background state and the
+analysis</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">tovs_nl_mod</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">NAMTOV</span></code></p></td>
+<td><p>The list of satellite and instrument</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Needed modules</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../modules/version_mod.html#f/version_mod" title="f/version_mod: MODULE version_mod (prefix='ver' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">version_mod</span></code></a>: MODULE version_mod (prefix=’ver’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="../modules/obsspacedata_mod.html#f/obsspacedata_mod" title="f/obsspacedata_mod: MODULE obsSpaceData_mod (prefix='obs' category='6. High-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">obsspacedata_mod</span></code></a>: MODULE obsSpaceData_mod (prefix=’obs’ category=’6. High-level data objects’)</p></li>
+<li><p><a class="reference internal" href="../modules/obsfiles_mod.html#f/obsfiles_mod" title="f/obsfiles_mod: MODULE obsFiles_mod (prefix='obsf' category='3. Observation input/output')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">obsfiles_mod</span></code></a>: MODULE obsFiles_mod (prefix=’obsf’ category=’3. Observation input/output’)</p></li>
+<li><p><a class="reference internal" href="../modules/obsfilter_mod.html#f/obsfilter_mod" title="f/obsfilter_mod: MODULE obsFilter_mod (prefix='filt' category='5. Observation operators')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">obsfilter_mod</span></code></a>: MODULE obsFilter_mod (prefix=’filt’ category=’5. Observation operators’)</p></li>
+<li><p><a class="reference internal" href="../modules/obstimeinterp_mod.html#f/obstimeinterp_mod" title="f/obstimeinterp_mod: MODULE obsTimeInterp_mod (prefix='oti' category='4. Data Object transformations')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">obstimeinterp_mod</span></code></a>: MODULE obsTimeInterp_mod (prefix=’oti’ category=’4. Data Object transformations’)</p></li>
+<li><p><a class="reference internal" href="../modules/obserrors_mod.html#f/obserrors_mod" title="f/obserrors_mod: MODULE obsErrors_mod (prefix='oer' category='2. B and R matrices')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">obserrors_mod</span></code></a>: MODULE obsErrors_mod (prefix=’oer’ category=’2. B and R matrices’)</p></li>
+<li><p><a class="reference internal" href="../modules/tovs_nl_mod.html#f/tovs_nl_mod" title="f/tovs_nl_mod: MODULE tovs_nl (prefix='tvs' category='5. Observation operators')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">tovs_nl_mod</span></code></a>: MODULE tovs_nl (prefix=’tvs’ category=’5. Observation operators’)</p></li>
+<li><p><a class="reference internal" href="../modules/timecoord_mod.html#f/timecoord_mod" title="f/timecoord_mod: MODULE timeCoord (prefix='tim' category='7. Low-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">timecoord_mod</span></code></a>: MODULE timeCoord (prefix=’tim’ category=’7. Low-level data objects’)</p></li>
+<li><p><a class="reference internal" href="../modules/enkf_mod.html#f/enkf_mod" title="f/enkf_mod: MODULE enkf_mod (prefix='enkf' category='1. High-level functionality')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">enkf_mod</span></code></a>: MODULE enkf_mod (prefix=’enkf’ category=’1. High-level functionality’)</p></li>
+<li><p><a class="reference internal" href="../modules/utilities_mod.html#f/utilities_mod" title="f/utilities_mod: MODULE utilities_mod (prefix='utl' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">utilities_mod</span></code></a>: MODULE utilities_mod (prefix=’utl’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="../modules/midasmpi_mod.html#f/midasmpi_mod" title="f/midasmpi_mod: MODULE midasMpi_mod (prefix='mmpi' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">midasmpi_mod</span></code></a>: MODULE midasMpi_mod (prefix=’mmpi’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="../modules/ramdisk_mod.html#f/ramdisk_mod" title="f/ramdisk_mod: MODULE ramDisk_mod (prefix='ram' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">ramdisk_mod</span></code></a>: MODULE ramDisk_mod (prefix=’ram’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="../modules/regions_mod.html#f/regions_mod" title="f/regions_mod: MODULE regions_mod (prefix='reg' category='7. Low-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">regions_mod</span></code></a>: MODULE regions_mod (prefix=’reg’ category=’7. Low-level data objects’)</p></li>
+<li><p><a class="reference internal" href="../modules/burpread_mod.html#f/burpread_mod" title="f/burpread_mod: MODULE burpread_mod (prefix='brpr' category='3. Observation input/output')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">burpread_mod</span></code></a>: MODULE burpread_mod (prefix=’brpr’ category=’3. Observation input/output’)</p></li>
+</ul>
+<p class="rubric">Routines called</p>
+<p><a class="reference internal" href="../modules/version_mod.html#f/version_mod/ver_printnameandversion" title="f/version_mod/ver_printnameandversion"><code class="xref f f-func docutils literal notranslate"><span class="pre">ver_printnameandversion()</span></code></a>, <a class="reference internal" href="../modules/midasmpi_mod.html#f/midasmpi_mod/mmpi_initialize" title="f/midasmpi_mod/mmpi_initialize"><code class="xref f f-func docutils literal notranslate"><span class="pre">mmpi_initialize()</span></code></a>, <a class="reference internal" href="../modules/utilities_mod.html#f/utilities_mod/utl_tmg_start" title="f/utilities_mod/utl_tmg_start"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_start()</span></code></a>, <a class="reference internal" href="../modules/utilities_mod.html#f/utilities_mod/utl_writestatus" title="f/utilities_mod/utl_writestatus"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_writestatus()</span></code></a>, <a class="reference internal" href="../modules/utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="../modules/ramdisk_mod.html#f/ramdisk_mod/ram_setup" title="f/ramdisk_mod/ram_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">ram_setup()</span></code></a>, <a class="reference internal" href="../modules/obsfilter_mod.html#f/obsfilter_mod/filt_setup" title="f/obsfilter_mod/filt_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">filt_setup()</span></code></a>, <a class="reference internal" href="../modules/obsfiles_mod.html#f/obsfiles_mod/obsf_setup" title="f/obsfiles_mod/obsf_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">obsf_setup()</span></code></a>, <a class="reference internal" href="../modules/obsspacedata_mod.html#f/obsspacedata_mod/obs_class_initialize" title="f/obsspacedata_mod/obs_class_initialize"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_class_initialize()</span></code></a>, <a class="reference internal" href="../modules/obsspacedata_mod.html#f/obsspacedata_mod/obs_initialize" title="f/obsspacedata_mod/obs_initialize"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_initialize()</span></code></a>, <a class="reference internal" href="../modules/obsfiles_mod.html#f/obsfiles_mod/obsf_filessplit" title="f/obsfiles_mod/obsf_filessplit"><code class="xref f f-func docutils literal notranslate"><span class="pre">obsf_filessplit()</span></code></a>, <a class="reference internal" href="../modules/obsfiles_mod.html#f/obsfiles_mod/obsf_readfiles" title="f/obsfiles_mod/obsf_readfiles"><code class="xref f f-func docutils literal notranslate"><span class="pre">obsf_readfiles()</span></code></a>, <a class="reference internal" href="../modules/utilities_mod.html#f/utilities_mod/utl_tmg_stop" title="f/utilities_mod/utl_tmg_stop"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_stop()</span></code></a>, <a class="reference internal" href="../modules/obsspacedata_mod.html#f/obsspacedata_mod/obs_numheader" title="f/obsspacedata_mod/obs_numheader"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_numheader()</span></code></a>, <a class="reference internal" href="../modules/obsspacedata_mod.html#f/obsspacedata_mod/obs_numbody" title="f/obsspacedata_mod/obs_numbody"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_numbody()</span></code></a>, <a class="reference internal" href="../modules/burpread_mod.html#f/burpread_mod/brpr_gettyperesume" title="f/burpread_mod/brpr_gettyperesume"><code class="xref f f-func docutils literal notranslate"><span class="pre">brpr_gettyperesume()</span></code></a>, <a class="reference internal" href="../modules/tovs_nl_mod.html#f/tovs_nl_mod/tvs_setup" title="f/tovs_nl_mod/tvs_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">tvs_setup()</span></code></a>, <a class="reference internal" href="../modules/obsspacedata_mod.html#f/obsspacedata_mod/obs_famexist" title="f/obsspacedata_mod/obs_famexist"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_famexist()</span></code></a>, <a class="reference internal" href="../modules/obsfilter_mod.html#f/obsfilter_mod/filt_suprep" title="f/obsfilter_mod/filt_suprep"><code class="xref f f-func docutils literal notranslate"><span class="pre">filt_suprep()</span></code></a>, <a class="reference internal" href="../modules/tovs_nl_mod.html#f/tovs_nl_mod/tvs_setupalloc" title="f/tovs_nl_mod/tvs_setupalloc"><code class="xref f f-func docutils literal notranslate"><span class="pre">tvs_setupalloc()</span></code></a>, <a class="reference internal" href="../modules/obserrors_mod.html#f/obserrors_mod/oer_setobserrors" title="f/obserrors_mod/oer_setobserrors"><code class="xref f f-func docutils literal notranslate"><span class="pre">oer_setobserrors()</span></code></a>, <a class="reference internal" href="../modules/timecoord_mod.html#f/timecoord_mod/tim_setup" title="f/timecoord_mod/tim_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">tim_setup()</span></code></a>, <a class="reference internal" href="../modules/timecoord_mod.html#f/timecoord_mod/tim_getdatestamp" title="f/timecoord_mod/tim_getdatestamp"><code class="xref f f-func docutils literal notranslate"><span class="pre">tim_getdatestamp()</span></code></a>, <a class="reference internal" href="../modules/timecoord_mod.html#f/timecoord_mod/tim_setdatestamp" title="f/timecoord_mod/tim_setdatestamp"><code class="xref f f-func docutils literal notranslate"><span class="pre">tim_setdatestamp()</span></code></a>, <a class="reference internal" href="../modules/obstimeinterp_mod.html#f/obstimeinterp_mod/oti_setup" title="f/obstimeinterp_mod/oti_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">oti_setup()</span></code></a>, <a class="reference internal" href="../modules/enkf_mod.html#f/enkf_mod/enkf_rejecthighlatir" title="f/enkf_mod/enkf_rejecthighlatir"><code class="xref f f-func docutils literal notranslate"><span class="pre">enkf_rejecthighlatir()</span></code></a>, <a class="reference internal" href="../modules/enkf_mod.html#f/enkf_mod/enkf_modifyamsubobserror" title="f/enkf_mod/enkf_modifyamsubobserror"><code class="xref f f-func docutils literal notranslate"><span class="pre">enkf_modifyamsubobserror()</span></code></a>, <a class="reference internal" href="../modules/obsfiles_mod.html#f/obsfiles_mod/obsf_writefiles" title="f/obsfiles_mod/obsf_writefiles"><code class="xref f f-func docutils literal notranslate"><span class="pre">obsf_writefiles()</span></code></a>, <a class="reference internal" href="../modules/obsfiles_mod.html#f/obsfiles_mod/obsf_cleanobsfiles" title="f/obsfiles_mod/obsf_cleanobsfiles"><code class="xref f f-func docutils literal notranslate"><span class="pre">obsf_cleanobsfiles()</span></code></a>, <a class="reference internal" href="../modules/obsspacedata_mod.html#f/obsspacedata_mod/obs_clean" title="f/obsspacedata_mod/obs_clean"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_clean()</span></code></a>, <a class="reference internal" href="../modules/obsspacedata_mod.html#f/obsspacedata_mod/obs_expandtompiglobal" title="f/obsspacedata_mod/obs_expandtompiglobal"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_expandtompiglobal()</span></code></a>, <a class="reference internal" href="../modules/obsspacedata_mod.html#f/obsspacedata_mod/obs_print" title="f/obsspacedata_mod/obs_print"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_print()</span></code></a>, <a class="reference internal" href="../modules/obsspacedata_mod.html#f/obsspacedata_mod/obs_write" title="f/obsspacedata_mod/obs_write"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_write()</span></code></a>, <a class="reference internal" href="../modules/obsspacedata_mod.html#f/obsspacedata_mod/obs_finalize" title="f/obsspacedata_mod/obs_finalize"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_finalize()</span></code></a>, <a class="reference internal" href="../modules/regions_mod.html#f/regions_mod/reg_init_struct" title="f/regions_mod/reg_init_struct"><code class="xref f f-func docutils literal notranslate"><span class="pre">reg_init_struct()</span></code></a>, <a class="reference internal" href="../modules/regions_mod.html#f/regions_mod/reg_getlatitude" title="f/regions_mod/reg_getlatitude"><code class="xref f f-func docutils literal notranslate"><span class="pre">reg_getlatitude()</span></code></a>, <a class="reference internal" href="../modules/regions_mod.html#f/regions_mod/reg_getblock" title="f/regions_mod/reg_getblock"><code class="xref f f-func docutils literal notranslate"><span class="pre">reg_getblock()</span></code></a>, <a class="reference internal" href="../modules/obsspacedata_mod.html#f/obsspacedata_mod/obs_headelem_i" title="f/obsspacedata_mod/obs_headelem_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_headelem_i()</span></code></a>, <a class="reference internal" href="../modules/tovs_nl_mod.html#f/tovs_nl_mod/tvs_isidburptovs" title="f/tovs_nl_mod/tvs_isidburptovs"><code class="xref f f-func docutils literal notranslate"><span class="pre">tvs_isidburptovs()</span></code></a>, <a class="reference internal" href="../modules/obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyelem_i" title="f/obsspacedata_mod/obs_bodyelem_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyelem_i()</span></code></a>, <a class="reference internal" href="../modules/obsspacedata_mod.html#f/obsspacedata_mod/obs_headelem_r" title="f/obsspacedata_mod/obs_headelem_r"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_headelem_r()</span></code></a>, <a class="reference internal" href="../modules/regions_mod.html#f/regions_mod/reg_locatestn" title="f/regions_mod/reg_locatestn"><code class="xref f f-func docutils literal notranslate"><span class="pre">reg_locatestn()</span></code></a>, <a class="reference internal" href="../modules/obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyelem_r" title="f/obsspacedata_mod/obs_bodyelem_r"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyelem_r()</span></code></a>, <a class="reference internal" href="../modules/obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyset_i" title="f/obsspacedata_mod/obs_bodyset_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyset_i()</span></code></a></p>
+</div></blockquote>
+</section>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="midas_pseudosstobs.html" title="midas_pseudosstobs"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="midas_ominusf.html" title="midas_ominusf"
+             >previous</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2018, ECCC.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.
+    </div>
+  </body>
+</html>

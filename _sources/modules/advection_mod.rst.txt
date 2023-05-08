@@ -1,0 +1,22 @@
+==========================================
+advection_mod
+==========================================
+
+    :doc:`link to source code <advection_mod_src>`
+
+
+    **Dependency Diagrams:**
+
+    .. figure:: /advection_mod.svg
+        :height: 100px
+
+        Direct Dependency Diagram
+
+    .. figure:: /advection_mod_rev.svg
+        :height: 100px
+
+        Reverse Dependency Diagram
+
+
+    .. f:automodule:: advection_mod
+

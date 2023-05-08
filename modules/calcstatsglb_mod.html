@@ -1,0 +1,890 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>calcstatsglb_mod &mdash; MIDAS  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="MIDAS  documentation" href="../index.html" />
+    <link rel="next" title="calcstatslam_mod" href="calcstatslam_mod.html" />
+    <link rel="prev" title="biascorrectionsat_mod" href="biascorrectionsat_mod.html" /> 
+  </head>
+  <body>
+  <div>
+    <img src="../_static/MIDAS_header.png" alt="MIDAS" />
+  </div>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="calcstatslam_mod.html" title="calcstatslam_mod"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="biascorrectionsat_mod.html" title="biascorrectionsat_mod"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="biascorrectionsat_mod.html"
+                          title="previous chapter">biascorrectionsat_mod</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="calcstatslam_mod.html"
+                          title="next chapter">calcstatslam_mod</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/modules/calcstatsglb_mod.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <section id="calcstatsglb-mod">
+<h1>calcstatsglb_mod<a class="headerlink" href="#calcstatsglb-mod" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><p><a class="reference internal" href="calcstatsglb_mod_src.html"><span class="doc">link to source code</span></a></p>
+<p><strong>Dependency Diagrams:</strong></p>
+<figure class="align-default" id="id1">
+<a class="reference internal image-reference" href="calcstatsglb_mod.svg"><img alt="calcstatsglb_mod.svg" height="100px" src="calcstatsglb_mod.svg" /></a>
+<figcaption>
+<p><span class="caption-text">Direct Dependency Diagram</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id2">
+<a class="reference internal image-reference" href="calcstatsglb_mod_rev.svg"><img alt="calcstatsglb_mod_rev.svg" height="100px" src="calcstatsglb_mod_rev.svg" /></a>
+<figcaption>
+<p><span class="caption-text">Reverse Dependency Diagram</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<span class="target" id="f/calcstatsglb_mod"></span><p class="rubric">Description</p>
+<p>MODULE CalcStatsGlb_mod (prefix=’csg’ category=’1. High-level functionality’)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Purpose</dt>
+<dd class="field-odd"><p>To compute homogeneous and isotropic background error covariances
+from forecast error estimate in model variable space (global
+version).</p>
+</dd>
+</dl>
+<p class="rubric">Quick access</p>
+<dl class="field-list simple">
+<dt class="field-odd">Routines</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/calcstatsglb_mod/calcbalancedp" title="f/calcstatsglb_mod/calcbalancedp"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcbalancedp()</span></code></a>, <a class="reference internal" href="#f/calcstatsglb_mod/calccorrelations" title="f/calcstatsglb_mod/calccorrelations"><code class="xref f f-func docutils literal notranslate"><span class="pre">calccorrelations()</span></code></a>, <a class="reference internal" href="#f/calcstatsglb_mod/calccorrelations2" title="f/calcstatsglb_mod/calccorrelations2"><code class="xref f f-func docutils literal notranslate"><span class="pre">calccorrelations2()</span></code></a>, <a class="reference internal" href="#f/calcstatsglb_mod/calclocalvertcorrmatrix" title="f/calcstatsglb_mod/calclocalvertcorrmatrix"><code class="xref f f-func docutils literal notranslate"><span class="pre">calclocalvertcorrmatrix()</span></code></a>, <a class="reference internal" href="#f/calcstatsglb_mod/calcpowerspec" title="f/calcstatsglb_mod/calcpowerspec"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcpowerspec()</span></code></a>, <a class="reference internal" href="#f/calcstatsglb_mod/calcptot" title="f/calcstatsglb_mod/calcptot"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcptot()</span></code></a>, <a class="reference internal" href="#f/calcstatsglb_mod/calcstddev3d" title="f/calcstatsglb_mod/calcstddev3d"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcstddev3d()</span></code></a>, <a class="reference internal" href="#f/calcstatsglb_mod/calctheta" title="f/calcstatsglb_mod/calctheta"><code class="xref f f-func docutils literal notranslate"><span class="pre">calctheta()</span></code></a>, <a class="reference internal" href="#f/calcstatsglb_mod/calczonavg" title="f/calcstatsglb_mod/calczonavg"><code class="xref f f-func docutils literal notranslate"><span class="pre">calczonavg()</span></code></a>, <a class="reference internal" href="#f/calcstatsglb_mod/csg_computebhi" title="f/calcstatsglb_mod/csg_computebhi"><code class="xref f f-func docutils literal notranslate"><span class="pre">csg_computebhi()</span></code></a>, <a class="reference internal" href="#f/calcstatsglb_mod/csg_computebhilatbands" title="f/calcstatsglb_mod/csg_computebhilatbands"><code class="xref f f-func docutils literal notranslate"><span class="pre">csg_computebhilatbands()</span></code></a>, <a class="reference internal" href="#f/calcstatsglb_mod/csg_computebhilegacy" title="f/calcstatsglb_mod/csg_computebhilegacy"><code class="xref f f-func docutils literal notranslate"><span class="pre">csg_computebhilegacy()</span></code></a>, <a class="reference internal" href="#f/calcstatsglb_mod/csg_setup" title="f/calcstatsglb_mod/csg_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">csg_setup()</span></code></a>, <a class="reference internal" href="#f/calcstatsglb_mod/csg_toolbox" title="f/calcstatsglb_mod/csg_toolbox"><code class="xref f f-func docutils literal notranslate"><span class="pre">csg_toolbox()</span></code></a>, <a class="reference internal" href="#f/calcstatsglb_mod/multiply3d" title="f/calcstatsglb_mod/multiply3d"><code class="xref f f-func docutils literal notranslate"><span class="pre">multiply3d()</span></code></a>, <a class="reference internal" href="#f/calcstatsglb_mod/normalize3d" title="f/calcstatsglb_mod/normalize3d"><code class="xref f f-func docutils literal notranslate"><span class="pre">normalize3d()</span></code></a>, <a class="reference internal" href="#f/calcstatsglb_mod/readensemble" title="f/calcstatsglb_mod/readensemble"><code class="xref f f-func docutils literal notranslate"><span class="pre">readensemble()</span></code></a>, <a class="reference internal" href="#f/calcstatsglb_mod/removebalancedchi" title="f/calcstatsglb_mod/removebalancedchi"><code class="xref f f-func docutils literal notranslate"><span class="pre">removebalancedchi()</span></code></a>, <a class="reference internal" href="#f/calcstatsglb_mod/removebalancedt_ps" title="f/calcstatsglb_mod/removebalancedt_ps"><code class="xref f f-func docutils literal notranslate"><span class="pre">removebalancedt_ps()</span></code></a>, <a class="reference internal" href="#f/calcstatsglb_mod/removeglobalmean" title="f/calcstatsglb_mod/removeglobalmean"><code class="xref f f-func docutils literal notranslate"><span class="pre">removeglobalmean()</span></code></a>, <a class="reference internal" href="#f/calcstatsglb_mod/removemean" title="f/calcstatsglb_mod/removemean"><code class="xref f f-func docutils literal notranslate"><span class="pre">removemean()</span></code></a>, <a class="reference internal" href="#f/calcstatsglb_mod/spectralfilter" title="f/calcstatsglb_mod/spectralfilter"><code class="xref f f-func docutils literal notranslate"><span class="pre">spectralfilter()</span></code></a>, <a class="reference internal" href="#f/calcstatsglb_mod/spectralfilter2" title="f/calcstatsglb_mod/spectralfilter2"><code class="xref f f-func docutils literal notranslate"><span class="pre">spectralfilter2()</span></code></a>, <a class="reference internal" href="#f/calcstatsglb_mod/uv_to_psichi" title="f/calcstatsglb_mod/uv_to_psichi"><code class="xref f f-func docutils literal notranslate"><span class="pre">uv_to_psichi()</span></code></a>, <a class="reference internal" href="#f/calcstatsglb_mod/write3d" title="f/calcstatsglb_mod/write3d"><code class="xref f f-func docutils literal notranslate"><span class="pre">write3d()</span></code></a>, <a class="reference internal" href="#f/calcstatsglb_mod/writepowerspec" title="f/calcstatsglb_mod/writepowerspec"><code class="xref f f-func docutils literal notranslate"><span class="pre">writepowerspec()</span></code></a>, <a class="reference internal" href="#f/calcstatsglb_mod/writespstats" title="f/calcstatsglb_mod/writespstats"><code class="xref f f-func docutils literal notranslate"><span class="pre">writespstats()</span></code></a>, <a class="reference internal" href="#f/calcstatsglb_mod/writestats" title="f/calcstatsglb_mod/writestats"><code class="xref f f-func docutils literal notranslate"><span class="pre">writestats()</span></code></a>, <a class="reference internal" href="#f/calcstatsglb_mod/writestddev" title="f/calcstatsglb_mod/writestddev"><code class="xref f f-func docutils literal notranslate"><span class="pre">writestddev()</span></code></a>, <a class="reference internal" href="#f/calcstatsglb_mod/writestddevbal" title="f/calcstatsglb_mod/writestddevbal"><code class="xref f f-func docutils literal notranslate"><span class="pre">writestddevbal()</span></code></a></p>
+</dd>
+</dl>
+<p class="rubric">Needed modules</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="codeprecision_mod.html#f/codeprecision_mod" title="f/codeprecision_mod: MODULE codePrecision_mod (prefix='pre' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">codeprecision_mod</span></code></a>: MODULE codePrecision_mod (prefix=’pre’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="midasmpi_mod.html#f/midasmpi_mod" title="f/midasmpi_mod: MODULE midasMpi_mod (prefix='mmpi' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">midasmpi_mod</span></code></a>: MODULE midasMpi_mod (prefix=’mmpi’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod" title="f/gridstatevector_mod: MODULE gridStateVector_mod (prefix='gsv' category='6. High-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">gridstatevector_mod</span></code></a>: MODULE gridStateVector_mod (prefix=’gsv’ category=’6. High-level data objects’)</p></li>
+<li><p><a class="reference internal" href="gridstatevectorfileio_mod.html#f/gridstatevectorfileio_mod" title="f/gridstatevectorfileio_mod: MODULE gridStateVectorFile_mod (prefix='gio' category='4. Data Object transformations')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">gridstatevectorfileio_mod</span></code></a>: MODULE gridStateVectorFile_mod (prefix=’gio’ category=’4. Data Object transformations’)</p></li>
+<li><p><a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod" title="f/ensemblestatevector_mod: MODULE ensembleStateVector_mod (prefix='ens' category='6. High-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">ensemblestatevector_mod</span></code></a>: MODULE ensembleStateVector_mod (prefix=’ens’ category=’6. High-level data objects’)</p></li>
+<li><p><a class="reference internal" href="globalspectraltransform_mod.html#f/globalspectraltransform_mod" title="f/globalspectraltransform_mod: MODULE globalSpectralTransform_mod (prefix='gst' category='4. Data Object transformations')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">globalspectraltransform_mod</span></code></a>: MODULE globalSpectralTransform_mod (prefix=’gst’ category=’4. Data Object transformations’)</p></li>
+<li><p><a class="reference internal" href="mathphysconstants_mod.html#f/mathphysconstants_mod" title="f/mathphysconstants_mod: MODULE MathPhysConstants_mod (prefix='mpc' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">mathphysconstants_mod</span></code></a>: MODULE MathPhysConstants_mod (prefix=’mpc’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="horizontalcoord_mod.html#f/horizontalcoord_mod" title="f/horizontalcoord_mod: MODULE HorizontalCoord_mod (prefix='hco' category='7. Low-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">horizontalcoord_mod</span></code></a>: MODULE HorizontalCoord_mod (prefix=’hco’ category=’7. Low-level data objects’)</p></li>
+<li><p><a class="reference internal" href="verticalcoord_mod.html#f/verticalcoord_mod" title="f/verticalcoord_mod: MODULE verticalcoord (prefix='vco' category='7. Low-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">verticalcoord_mod</span></code></a>: MODULE verticalcoord (prefix=’vco’ category=’7. Low-level data objects’)</p></li>
+<li><p><a class="reference internal" href="varnamelist_mod.html#f/varnamelist_mod" title="f/varnamelist_mod: MODULE varNameList (prefix='vnl' category='7. Low-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">varnamelist_mod</span></code></a>: MODULE varNameList (prefix=’vnl’ category=’7. Low-level data objects’)</p></li>
+<li><p><a class="reference internal" href="calcheightandpressure_mod.html#f/calcheightandpressure_mod" title="f/calcheightandpressure_mod: MODULE czp_calcHeightAndPressure (prefix='czp' category='4. Data Object transformations')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">calcheightandpressure_mod</span></code></a>: MODULE czp_calcHeightAndPressure (prefix=’czp’ category=’4. Data Object transformations’)</p></li>
+<li><p><a class="reference internal" href="earthconstants_mod.html#f/earthconstants_mod" title="f/earthconstants_mod: MODULE earthConstants_mod (prefix='ec' category='8. Low-level utilities and constants') Prefixes: ec_ (Earth constants), for miscellaneous values from diverse sources"><code class="xref f f-mod docutils literal notranslate"><span class="pre">earthconstants_mod</span></code></a>: MODULE earthConstants_mod (prefix=’ec’ category=’8. Low-level utilities and constants’) Prefixes: <a href="#id3"><span class="problematic" id="id4">ec_</span></a> (Earth constants), for miscellaneous values from diverse sources</p></li>
+<li><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod" title="f/utilities_mod: MODULE utilities_mod (prefix='utl' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">utilities_mod</span></code></a>: MODULE utilities_mod (prefix=’utl’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="spectralfilter_mod.html#f/spectralfilter_mod" title="f/spectralfilter_mod: MODULE spectralFilter_mod (prefix='spf' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">spectralfilter_mod</span></code></a>: MODULE spectralFilter_mod (prefix=’spf’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="menetrierdiag_mod.html#f/menetrierdiag_mod" title="f/menetrierdiag_mod: MODULE menetrierDiag_mod (prefix='bmd' category='1. High-level functionality')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">menetrierdiag_mod</span></code></a>: MODULE menetrierDiag_mod (prefix=’bmd’ category=’1. High-level functionality’)</p></li>
+<li><p><a class="reference internal" href="filenames_mod.html#f/filenames_mod" title="f/filenames_mod: MODULE fileNames_mod (prefix='fln' category='7. Low-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">filenames_mod</span></code></a>: MODULE fileNames_mod (prefix=’fln’ category=’7. Low-level data objects’)</p></li>
+<li><p><a class="reference internal" href="timecoord_mod.html#f/timecoord_mod" title="f/timecoord_mod: MODULE timeCoord (prefix='tim' category='7. Low-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">timecoord_mod</span></code></a>: MODULE timeCoord (prefix=’tim’ category=’7. Low-level data objects’)</p></li>
+<li><p><a class="reference internal" href="gridvariabletransforms_mod.html#f/gridvariabletransforms_mod" title="f/gridvariabletransforms_mod: MODULE gridVariableTransforms (prefix='gvt' category='4. Data Object transformations')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">gridvariabletransforms_mod</span></code></a>: MODULE gridVariableTransforms (prefix=’gvt’ category=’4. Data Object transformations’)</p></li>
+<li><p><a class="reference internal" href="gridbinning_mod.html#f/gridbinning_mod" title="f/gridbinning_mod: MODULE gridBinning_mod (prefix='gbi' category='4. Data Object transformations')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">gridbinning_mod</span></code></a>: MODULE gridBinning_mod (prefix=’gbi’ category=’4. Data Object transformations’)</p></li>
+</ul>
+<p class="rubric">Variables</p>
+<p class="rubric">Subroutines and functions</p>
+<dl>
+<dt class="sig sig-object f" id="f/calcstatsglb_mod/csg_setup">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">calcstatsglb_mod/</span></span><span class="sig-name descname"><span class="pre">csg_setup</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">nens_in</span></em>, <em class="sig-param"><span class="pre">hco_in</span></em>, <em class="sig-param"><span class="pre">vco_in</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/calcstatsglb_mod/csg_setup" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Main setup routine for this module</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>nens_in</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>hco_in</strong><em> [</em><em>struct_hco </em><em>,</em><em>in,pointer</em><em>]</em></p></li>
+<li><p><strong>vco_in</strong><em> [</em><em>struct_vco </em><em>,</em><em>in,pointer</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../programs/midas_calcstats.html#f/midas_calcstats" title="f/midas_calcstats"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_calcstats</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="filenames_mod.html#f/filenames_mod/fln_ensfilename" title="f/filenames_mod/fln_ensfilename"><code class="xref f f-func docutils literal notranslate"><span class="pre">fln_ensfilename()</span></code></a>, <a class="reference internal" href="mathphysconstants_mod.html#f/mathphysconstants_mod/mpc_printconstants" title="f/mathphysconstants_mod/mpc_printconstants"><code class="xref f f-func docutils literal notranslate"><span class="pre">mpc_printconstants()</span></code></a>, <a class="reference internal" href="codeprecision_mod.html#f/codeprecision_mod/pre_printprecisions" title="f/codeprecision_mod/pre_printprecisions"><code class="xref f f-func docutils literal notranslate"><span class="pre">pre_printprecisions()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="midasmpi_mod.html#f/midasmpi_mod/mmpi_setup_latbands" title="f/midasmpi_mod/mmpi_setup_latbands"><code class="xref f f-func docutils literal notranslate"><span class="pre">mmpi_setup_latbands()</span></code></a>, <a class="reference internal" href="midasmpi_mod.html#f/midasmpi_mod/mmpi_setup_lonbands" title="f/midasmpi_mod/mmpi_setup_lonbands"><code class="xref f f-func docutils literal notranslate"><span class="pre">mmpi_setup_lonbands()</span></code></a>, <a class="reference internal" href="globalspectraltransform_mod.html#f/globalspectraltransform_mod/gst_setup" title="f/globalspectraltransform_mod/gst_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">gst_setup()</span></code></a>, <a class="reference internal" href="midasmpi_mod.html#f/midasmpi_mod/mmpi_setup_m" title="f/midasmpi_mod/mmpi_setup_m"><code class="xref f f-func docutils literal notranslate"><span class="pre">mmpi_setup_m()</span></code></a>, <a class="reference internal" href="midasmpi_mod.html#f/midasmpi_mod/mmpi_setup_n" title="f/midasmpi_mod/mmpi_setup_n"><code class="xref f f-func docutils literal notranslate"><span class="pre">mmpi_setup_n()</span></code></a>, <a class="reference internal" href="globalspectraltransform_mod.html#f/globalspectraltransform_mod/gst_ilalist_mpiglobal" title="f/globalspectraltransform_mod/gst_ilalist_mpiglobal"><code class="xref f f-func docutils literal notranslate"><span class="pre">gst_ilalist_mpiglobal()</span></code></a>, <a class="reference internal" href="globalspectraltransform_mod.html#f/globalspectraltransform_mod/gst_ilalist_mpilocal" title="f/globalspectraltransform_mod/gst_ilalist_mpilocal"><code class="xref f f-func docutils literal notranslate"><span class="pre">gst_ilalist_mpilocal()</span></code></a>, <a class="reference internal" href="midasmpi_mod.html#f/midasmpi_mod/mmpi_setup_levels" title="f/midasmpi_mod/mmpi_setup_levels"><code class="xref f f-func docutils literal notranslate"><span class="pre">mmpi_setup_levels()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/calcstatsglb_mod/csg_computebhi">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">calcstatsglb_mod/</span></span><span class="sig-name descname"><span class="pre">csg_computebhi</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#f/calcstatsglb_mod/csg_computebhi" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Master routine for Bhi computation in global mode</p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="../programs/midas_calcstats.html#f/midas_calcstats" title="f/midas_calcstats"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_calcstats</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="#f/calcstatsglb_mod/csg_computebhilegacy" title="f/calcstatsglb_mod/csg_computebhilegacy"><code class="xref f f-func docutils literal notranslate"><span class="pre">csg_computebhilegacy()</span></code></a>, <a class="reference internal" href="#f/calcstatsglb_mod/csg_computebhilatbands" title="f/calcstatsglb_mod/csg_computebhilatbands"><code class="xref f f-func docutils literal notranslate"><span class="pre">csg_computebhilatbands()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/calcstatsglb_mod/csg_computebhilegacy">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">calcstatsglb_mod/</span></span><span class="sig-name descname"><span class="pre">csg_computebhilegacy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#f/calcstatsglb_mod/csg_computebhilegacy" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Computation of Bhi using the legacy formulation</p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/calcstatsglb_mod/csg_computebhi" title="f/calcstatsglb_mod/csg_computebhi"><code class="xref f f-func docutils literal notranslate"><span class="pre">csg_computebhi()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/calcstatsglb_mod/readensemble" title="f/calcstatsglb_mod/readensemble"><code class="xref f f-func docutils literal notranslate"><span class="pre">readensemble()</span></code></a>, <a class="reference internal" href="#f/calcstatsglb_mod/removemean" title="f/calcstatsglb_mod/removemean"><code class="xref f f-func docutils literal notranslate"><span class="pre">removemean()</span></code></a>, <a class="reference internal" href="#f/calcstatsglb_mod/uv_to_psichi" title="f/calcstatsglb_mod/uv_to_psichi"><code class="xref f f-func docutils literal notranslate"><span class="pre">uv_to_psichi()</span></code></a>, <a class="reference internal" href="#f/calcstatsglb_mod/calcstddev3d" title="f/calcstatsglb_mod/calcstddev3d"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcstddev3d()</span></code></a>, <a class="reference internal" href="#f/calcstatsglb_mod/calczonavg" title="f/calcstatsglb_mod/calczonavg"><code class="xref f f-func docutils literal notranslate"><span class="pre">calczonavg()</span></code></a>, <a class="reference internal" href="#f/calcstatsglb_mod/calctheta" title="f/calcstatsglb_mod/calctheta"><code class="xref f f-func docutils literal notranslate"><span class="pre">calctheta()</span></code></a>, <a class="reference internal" href="#f/calcstatsglb_mod/removebalancedchi" title="f/calcstatsglb_mod/removebalancedchi"><code class="xref f f-func docutils literal notranslate"><span class="pre">removebalancedchi()</span></code></a>, <a class="reference internal" href="#f/calcstatsglb_mod/normalize3d" title="f/calcstatsglb_mod/normalize3d"><code class="xref f f-func docutils literal notranslate"><span class="pre">normalize3d()</span></code></a>, <a class="reference internal" href="#f/calcstatsglb_mod/calcptot" title="f/calcstatsglb_mod/calcptot"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcptot()</span></code></a>, <a class="reference internal" href="#f/calcstatsglb_mod/removebalancedt_ps" title="f/calcstatsglb_mod/removebalancedt_ps"><code class="xref f f-func docutils literal notranslate"><span class="pre">removebalancedt_ps()</span></code></a>, <a class="reference internal" href="#f/calcstatsglb_mod/multiply3d" title="f/calcstatsglb_mod/multiply3d"><code class="xref f f-func docutils literal notranslate"><span class="pre">multiply3d()</span></code></a>, <a class="reference internal" href="#f/calcstatsglb_mod/spectralfilter" title="f/calcstatsglb_mod/spectralfilter"><code class="xref f f-func docutils literal notranslate"><span class="pre">spectralfilter()</span></code></a>, <a class="reference internal" href="#f/calcstatsglb_mod/removeglobalmean" title="f/calcstatsglb_mod/removeglobalmean"><code class="xref f f-func docutils literal notranslate"><span class="pre">removeglobalmean()</span></code></a>, <a class="reference internal" href="#f/calcstatsglb_mod/calccorrelations" title="f/calcstatsglb_mod/calccorrelations"><code class="xref f f-func docutils literal notranslate"><span class="pre">calccorrelations()</span></code></a>, <a class="reference internal" href="#f/calcstatsglb_mod/writestats" title="f/calcstatsglb_mod/writestats"><code class="xref f f-func docutils literal notranslate"><span class="pre">writestats()</span></code></a>, <a class="reference internal" href="#f/calcstatsglb_mod/writestddev" title="f/calcstatsglb_mod/writestddev"><code class="xref f f-func docutils literal notranslate"><span class="pre">writestddev()</span></code></a>, <a class="reference internal" href="#f/calcstatsglb_mod/writestddevbal" title="f/calcstatsglb_mod/writestddevbal"><code class="xref f f-func docutils literal notranslate"><span class="pre">writestddevbal()</span></code></a>, <a class="reference internal" href="#f/calcstatsglb_mod/writespstats" title="f/calcstatsglb_mod/writespstats"><code class="xref f f-func docutils literal notranslate"><span class="pre">writespstats()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/calcstatsglb_mod/csg_computebhilatbands">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">calcstatsglb_mod/</span></span><span class="sig-name descname"><span class="pre">csg_computebhilatbands</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#f/calcstatsglb_mod/csg_computebhilatbands" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Computation of Bhi on a set of latitude bands</p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/calcstatsglb_mod/csg_computebhi" title="f/calcstatsglb_mod/csg_computebhi"><code class="xref f f-func docutils literal notranslate"><span class="pre">csg_computebhi()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/calcstatsglb_mod/readensemble" title="f/calcstatsglb_mod/readensemble"><code class="xref f f-func docutils literal notranslate"><span class="pre">readensemble()</span></code></a>, <a class="reference internal" href="#f/calcstatsglb_mod/removemean" title="f/calcstatsglb_mod/removemean"><code class="xref f f-func docutils literal notranslate"><span class="pre">removemean()</span></code></a>, <a class="reference internal" href="#f/calcstatsglb_mod/uv_to_psichi" title="f/calcstatsglb_mod/uv_to_psichi"><code class="xref f f-func docutils literal notranslate"><span class="pre">uv_to_psichi()</span></code></a>, <a class="reference internal" href="#f/calcstatsglb_mod/calcstddev3d" title="f/calcstatsglb_mod/calcstddev3d"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcstddev3d()</span></code></a>, <a class="reference internal" href="#f/calcstatsglb_mod/calczonavg" title="f/calcstatsglb_mod/calczonavg"><code class="xref f f-func docutils literal notranslate"><span class="pre">calczonavg()</span></code></a>, <a class="reference internal" href="#f/calcstatsglb_mod/normalize3d" title="f/calcstatsglb_mod/normalize3d"><code class="xref f f-func docutils literal notranslate"><span class="pre">normalize3d()</span></code></a>, <a class="reference internal" href="#f/calcstatsglb_mod/removeglobalmean" title="f/calcstatsglb_mod/removeglobalmean"><code class="xref f f-func docutils literal notranslate"><span class="pre">removeglobalmean()</span></code></a>, <a class="reference internal" href="#f/calcstatsglb_mod/calccorrelations" title="f/calcstatsglb_mod/calccorrelations"><code class="xref f f-func docutils literal notranslate"><span class="pre">calccorrelations()</span></code></a>, <a class="reference internal" href="#f/calcstatsglb_mod/writestats" title="f/calcstatsglb_mod/writestats"><code class="xref f f-func docutils literal notranslate"><span class="pre">writestats()</span></code></a>, <a class="reference internal" href="#f/calcstatsglb_mod/writestddev" title="f/calcstatsglb_mod/writestddev"><code class="xref f f-func docutils literal notranslate"><span class="pre">writestddev()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/calcstatsglb_mod/csg_toolbox">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">calcstatsglb_mod/</span></span><span class="sig-name descname"><span class="pre">csg_toolbox</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#f/calcstatsglb_mod/csg_toolbox" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>High-level routine to do a variety of diagnostic operations
+on the ensemble of error samples</p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="../programs/midas_calcstats.html#f/midas_calcstats" title="f/midas_calcstats"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_calcstats</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_allocate" title="f/ensemblestatevector_mod/ens_allocate"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_allocate()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_readensemble" title="f/ensemblestatevector_mod/ens_readensemble"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_readensemble()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_computemean" title="f/ensemblestatevector_mod/ens_computemean"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_computemean()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_removemean" title="f/ensemblestatevector_mod/ens_removemean"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_removemean()</span></code></a>, <a class="reference internal" href="#f/calcstatsglb_mod/spectralfilter2" title="f/calcstatsglb_mod/spectralfilter2"><code class="xref f f-func docutils literal notranslate"><span class="pre">spectralfilter2()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_computestddev" title="f/ensemblestatevector_mod/ens_computestddev"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_computestddev()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_normalize" title="f/ensemblestatevector_mod/ens_normalize"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_normalize()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_removeglobalmean" title="f/ensemblestatevector_mod/ens_removeglobalmean"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_removeglobalmean()</span></code></a>, <a class="reference internal" href="#f/calcstatsglb_mod/calccorrelations2" title="f/calcstatsglb_mod/calccorrelations2"><code class="xref f f-func docutils literal notranslate"><span class="pre">calccorrelations2()</span></code></a>, <a class="reference internal" href="#f/calcstatsglb_mod/writestats" title="f/calcstatsglb_mod/writestats"><code class="xref f f-func docutils literal notranslate"><span class="pre">writestats()</span></code></a>, <a class="reference internal" href="calcstatslam_mod.html#f/calcstatslam_mod/calchorizscale" title="f/calcstatslam_mod/calchorizscale"><code class="xref f f-func docutils literal notranslate"><span class="pre">calchorizscale()</span></code></a>, <a class="reference internal" href="calcstatslam_mod.html#f/calcstatslam_mod/horizcorrelfunction" title="f/calcstatslam_mod/horizcorrelfunction"><code class="xref f f-func docutils literal notranslate"><span class="pre">horizcorrelfunction()</span></code></a>, <a class="reference internal" href="calcstatslam_mod.html#f/calcstatslam_mod/calclocalcorrelations" title="f/calcstatslam_mod/calclocalcorrelations"><code class="xref f f-func docutils literal notranslate"><span class="pre">calclocalcorrelations()</span></code></a>, <a class="reference internal" href="#f/calcstatsglb_mod/calclocalvertcorrmatrix" title="f/calcstatsglb_mod/calclocalvertcorrmatrix"><code class="xref f f-func docutils literal notranslate"><span class="pre">calclocalvertcorrmatrix()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_copyensstddev" title="f/ensemblestatevector_mod/ens_copyensstddev"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_copyensstddev()</span></code></a>, <a class="reference internal" href="menetrierdiag_mod.html#f/menetrierdiag_mod/bmd_setup" title="f/menetrierdiag_mod/bmd_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">bmd_setup()</span></code></a>, <a class="reference internal" href="menetrierdiag_mod.html#f/menetrierdiag_mod/bmd_localizationradii" title="f/menetrierdiag_mod/bmd_localizationradii"><code class="xref f f-func docutils literal notranslate"><span class="pre">bmd_localizationradii()</span></code></a>, <a class="reference internal" href="gridvariabletransforms_mod.html#f/gridvariabletransforms_mod/gvt_setup" title="f/gridvariabletransforms_mod/gvt_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">gvt_setup()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_varexist" title="f/ensemblestatevector_mod/ens_varexist"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_varexist()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_modifyvarname" title="f/ensemblestatevector_mod/ens_modifyvarname"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_modifyvarname()</span></code></a>, <a class="reference internal" href="gridstatevectorfileio_mod.html#f/gridstatevectorfileio_mod/gio_writetofile" title="f/gridstatevectorfileio_mod/gio_writetofile"><code class="xref f f-func docutils literal notranslate"><span class="pre">gio_writetofile()</span></code></a>, <a class="reference internal" href="gridbinning_mod.html#f/gridbinning_mod/gbi_setup" title="f/gridbinning_mod/gbi_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">gbi_setup()</span></code></a>, <a class="reference internal" href="#f/calcstatsglb_mod/calcpowerspec" title="f/calcstatsglb_mod/calcpowerspec"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcpowerspec()</span></code></a>, <a class="reference internal" href="#f/calcstatsglb_mod/writepowerspec" title="f/calcstatsglb_mod/writepowerspec"><code class="xref f f-func docutils literal notranslate"><span class="pre">writepowerspec()</span></code></a>, <a class="reference internal" href="calcstatslam_mod.html#f/calcstatslam_mod/writepressureprofiles" title="f/calcstatslam_mod/writepressureprofiles"><code class="xref f f-func docutils literal notranslate"><span class="pre">writepressureprofiles()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_deallocate" title="f/ensemblestatevector_mod/ens_deallocate"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_deallocate()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/calcstatsglb_mod/writespstats">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">calcstatsglb_mod/</span></span><span class="sig-name descname"><span class="pre">writespstats</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">ptot</span></em>, <em class="sig-param"><span class="pre">theta</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/calcstatsglb_mod/writespstats" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Write the spectral representation of PtoT and THETA to files</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>ptot</strong> (*,*,*)<em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>theta</strong> (*,*)<em> [</em><em>real </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/calcstatsglb_mod/csg_computebhilegacy" title="f/calcstatsglb_mod/csg_computebhilegacy"><code class="xref f f-func docutils literal notranslate"><span class="pre">csg_computebhilegacy()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="globalspectraltransform_mod.html#f/globalspectraltransform_mod/gst_zlegdir" title="f/globalspectraltransform_mod/gst_zlegdir"><code class="xref f f-func docutils literal notranslate"><span class="pre">gst_zlegdir()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_fstecr" title="f/utilities_mod/utl_fstecr"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_fstecr()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/calcstatsglb_mod/removebalancedchi">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">calcstatsglb_mod/</span></span><span class="sig-name descname"><span class="pre">removebalancedchi</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">ensperturbations</span></em>, <em class="sig-param"><span class="pre">theta</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/calcstatsglb_mod/removebalancedchi" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Subtract the balanced components of velocity potential
+from the full variable</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>ensperturbations</strong> (*,*,*,*)<em> [</em><em>real </em><em>,</em><em>pointer</em><em>]</em></p></li>
+<li><p><strong>theta</strong> (*,*)<em> [</em><em>real </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/calcstatsglb_mod/csg_computebhilegacy" title="f/calcstatsglb_mod/csg_computebhilegacy"><code class="xref f f-func docutils literal notranslate"><span class="pre">csg_computebhilegacy()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/calcstatsglb_mod/removebalancedt_ps">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">calcstatsglb_mod/</span></span><span class="sig-name descname"><span class="pre">removebalancedt_ps</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">ensperturbations</span></em>, <em class="sig-param"><span class="pre">ensbalperturbations</span></em>, <em class="sig-param"><span class="pre">ptot</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/calcstatsglb_mod/removebalancedt_ps" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Subtract the balanced components of temperature and surface
+pressure from the full variables</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>ensperturbations</strong> (*,*,*,*)<em> [</em><em>real </em><em>,</em><em>pointer</em><em>]</em></p></li>
+<li><p><strong>ensbalperturbations</strong> (*,*,*,*)<em> [</em><em>real </em><em>,</em><em>pointer</em><em>]</em></p></li>
+<li><p><strong>ptot</strong> (*,*,*)<em> [</em><em>real </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/calcstatsglb_mod/csg_computebhilegacy" title="f/calcstatsglb_mod/csg_computebhilegacy"><code class="xref f f-func docutils literal notranslate"><span class="pre">csg_computebhilegacy()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="globalspectraltransform_mod.html#f/globalspectraltransform_mod/gst_setid" title="f/globalspectraltransform_mod/gst_setid"><code class="xref f f-func docutils literal notranslate"><span class="pre">gst_setid()</span></code></a>, <a class="reference internal" href="globalspectraltransform_mod.html#f/globalspectraltransform_mod/gst_reespe" title="f/globalspectraltransform_mod/gst_reespe"><code class="xref f f-func docutils literal notranslate"><span class="pre">gst_reespe()</span></code></a>, <a class="reference internal" href="#f/calcstatsglb_mod/calcbalancedp" title="f/calcstatsglb_mod/calcbalancedp"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcbalancedp()</span></code></a>, <a class="reference internal" href="globalspectraltransform_mod.html#f/globalspectraltransform_mod/gst_speree" title="f/globalspectraltransform_mod/gst_speree"><code class="xref f f-func docutils literal notranslate"><span class="pre">gst_speree()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/calcstatsglb_mod/calccorrelations">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">calcstatsglb_mod/</span></span><span class="sig-name descname"><span class="pre">calccorrelations</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">ensperturbations</span></em>, <em class="sig-param"><span class="pre">corns</span></em>, <em class="sig-param"><span class="pre">rstddev</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">latmask_opt</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/calcstatsglb_mod/calccorrelations" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Calculate the homogeneous and isotropic correlations in spectral space</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>ensperturbations</strong> (*,*,*,*)<em> [</em><em>real </em><em>,</em><em>pointer</em><em>]</em></p></li>
+<li><p><strong>corns</strong> (nkgdimens,nkgdimens,ntrunc)+1)<em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>rstddev</strong> (nkgdimens,ntrunc)+1)<em> [</em><em>real </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Options</dt>
+<dd class="field-odd"><p><strong>latmask_opt</strong> (*)<em> [</em><em>real </em><em>]</em></p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/calcstatsglb_mod/csg_computebhilegacy" title="f/calcstatsglb_mod/csg_computebhilegacy"><code class="xref f f-func docutils literal notranslate"><span class="pre">csg_computebhilegacy()</span></code></a>, <a class="reference internal" href="#f/calcstatsglb_mod/csg_computebhilatbands" title="f/calcstatsglb_mod/csg_computebhilatbands"><code class="xref f f-func docutils literal notranslate"><span class="pre">csg_computebhilatbands()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_start" title="f/utilities_mod/utl_tmg_start"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_start()</span></code></a>, <a class="reference internal" href="globalspectraltransform_mod.html#f/globalspectraltransform_mod/gst_setid" title="f/globalspectraltransform_mod/gst_setid"><code class="xref f f-func docutils literal notranslate"><span class="pre">gst_setid()</span></code></a>, <a class="reference internal" href="globalspectraltransform_mod.html#f/globalspectraltransform_mod/gst_reespe" title="f/globalspectraltransform_mod/gst_reespe"><code class="xref f f-func docutils literal notranslate"><span class="pre">gst_reespe()</span></code></a>, <a class="reference internal" href="globalspectraltransform_mod.html#f/globalspectraltransform_mod/gst_getnind" title="f/globalspectraltransform_mod/gst_getnind"><code class="xref f f-func docutils literal notranslate"><span class="pre">gst_getnind()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_stop" title="f/utilities_mod/utl_tmg_stop"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_stop()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/calcstatsglb_mod/calccorrelations2">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">calcstatsglb_mod/</span></span><span class="sig-name descname"><span class="pre">calccorrelations2</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">ensperts</span></em>, <em class="sig-param"><span class="pre">corns</span></em>, <em class="sig-param"><span class="pre">rstddev</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">latmask_opt</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/calcstatsglb_mod/calccorrelations2" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Calculate the homogeneous and isotropic correlations in spectral space</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>ensperts</strong><em> [</em><em>struct_ens </em><em>]</em></p></li>
+<li><p><strong>corns</strong> (nkgdimens,nkgdimens,ntrunc)+1)<em> [</em><em>real </em><em>,</em><em>out</em><em>]</em></p></li>
+<li><p><strong>rstddev</strong> (nkgdimens,ntrunc)+1)<em> [</em><em>real </em><em>,</em><em>out</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Options</dt>
+<dd class="field-odd"><p><strong>latmask_opt</strong> (*)<em> [</em><em>real </em><em>,</em><em>in,</em><em>]</em></p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/calcstatsglb_mod/csg_toolbox" title="f/calcstatsglb_mod/csg_toolbox"><code class="xref f f-func docutils literal notranslate"><span class="pre">csg_toolbox()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_start" title="f/utilities_mod/utl_tmg_start"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_start()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_getnumk" title="f/ensemblestatevector_mod/ens_getnumk"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_getnumk()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_getonelev_r4" title="f/ensemblestatevector_mod/ens_getonelev_r4"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_getonelev_r4()</span></code></a>, <a class="reference internal" href="globalspectraltransform_mod.html#f/globalspectraltransform_mod/gst_setid" title="f/globalspectraltransform_mod/gst_setid"><code class="xref f f-func docutils literal notranslate"><span class="pre">gst_setid()</span></code></a>, <a class="reference internal" href="globalspectraltransform_mod.html#f/globalspectraltransform_mod/gst_reespe" title="f/globalspectraltransform_mod/gst_reespe"><code class="xref f f-func docutils literal notranslate"><span class="pre">gst_reespe()</span></code></a>, <a class="reference internal" href="globalspectraltransform_mod.html#f/globalspectraltransform_mod/gst_getnind" title="f/globalspectraltransform_mod/gst_getnind"><code class="xref f f-func docutils literal notranslate"><span class="pre">gst_getnind()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_stop" title="f/utilities_mod/utl_tmg_stop"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_stop()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/calcstatsglb_mod/calcpowerspec">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">calcstatsglb_mod/</span></span><span class="sig-name descname"><span class="pre">calcpowerspec</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">ensperts</span></em>, <em class="sig-param"><span class="pre">powerspec</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/calcstatsglb_mod/calcpowerspec" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Calculate the horizontal power spectrum of the ensemble
+of error samples</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>ensperts</strong><em> [</em><em>struct_ens </em><em>]</em></p></li>
+<li><p><strong>powerspec</strong> (*,*)<em> [</em><em>real </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/calcstatsglb_mod/csg_toolbox" title="f/calcstatsglb_mod/csg_toolbox"><code class="xref f f-func docutils literal notranslate"><span class="pre">csg_toolbox()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_getnumk" title="f/ensemblestatevector_mod/ens_getnumk"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_getnumk()</span></code></a>, <a class="reference internal" href="globalspectraltransform_mod.html#f/globalspectraltransform_mod/gst_setup" title="f/globalspectraltransform_mod/gst_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">gst_setup()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_getonelev_r4" title="f/ensemblestatevector_mod/ens_getonelev_r4"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_getonelev_r4()</span></code></a>, <a class="reference internal" href="globalspectraltransform_mod.html#f/globalspectraltransform_mod/gst_setid" title="f/globalspectraltransform_mod/gst_setid"><code class="xref f f-func docutils literal notranslate"><span class="pre">gst_setid()</span></code></a>, <a class="reference internal" href="globalspectraltransform_mod.html#f/globalspectraltransform_mod/gst_reespe_kij" title="f/globalspectraltransform_mod/gst_reespe_kij"><code class="xref f f-func docutils literal notranslate"><span class="pre">gst_reespe_kij()</span></code></a>, <a class="reference internal" href="globalspectraltransform_mod.html#f/globalspectraltransform_mod/gst_getnind" title="f/globalspectraltransform_mod/gst_getnind"><code class="xref f f-func docutils literal notranslate"><span class="pre">gst_getnind()</span></code></a>, <a class="reference internal" href="midasmpi_mod.html#f/midasmpi_mod/mmpi_allreduce_sumr8_2d" title="f/midasmpi_mod/mmpi_allreduce_sumr8_2d"><code class="xref f f-func docutils literal notranslate"><span class="pre">mmpi_allreduce_sumr8_2d()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/calcstatsglb_mod/writestats">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">calcstatsglb_mod/</span></span><span class="sig-name descname"><span class="pre">writestats</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">corns</span></em>, <em class="sig-param"><span class="pre">rstddev</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">ptot_opt</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">theta_opt</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">wavebandindex_opt</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">latband_opt</span></em><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/calcstatsglb_mod/writestats" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Write several components of the BHI matrix to a file</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>corns</strong> (nkgdimens,nkgdimens,ntrunc)+1)<em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>rstddev</strong> (nkgdimens,ntrunc)+1)<em> [</em><em>real </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Options</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ptot_opt</strong> (*,*,*)<em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>theta_opt</strong> (*,*)<em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>wavebandindex_opt</strong><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><strong>latband_opt</strong><em> [</em><em>integer </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/calcstatsglb_mod/csg_computebhilegacy" title="f/calcstatsglb_mod/csg_computebhilegacy"><code class="xref f f-func docutils literal notranslate"><span class="pre">csg_computebhilegacy()</span></code></a>, <a class="reference internal" href="#f/calcstatsglb_mod/csg_computebhilatbands" title="f/calcstatsglb_mod/csg_computebhilatbands"><code class="xref f f-func docutils literal notranslate"><span class="pre">csg_computebhilatbands()</span></code></a>, <a class="reference internal" href="#f/calcstatsglb_mod/csg_toolbox" title="f/calcstatsglb_mod/csg_toolbox"><code class="xref f f-func docutils literal notranslate"><span class="pre">csg_toolbox()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_fstecr" title="f/utilities_mod/utl_fstecr"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_fstecr()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/calcstatsglb_mod/writepressureprofiles">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">calcstatsglb_mod/</span></span><span class="sig-name descname"><span class="pre">writepressureprofiles</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#f/calcstatsglb_mod/writepressureprofiles" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Write the profiles of pressure to ascii files</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/calcstatsglb_mod/writestddev">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">calcstatsglb_mod/</span></span><span class="sig-name descname"><span class="pre">writestddev</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">stddevzonavg</span></em>, <em class="sig-param"><span class="pre">stddev3d</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">stddevzonavgunbal_opt</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">stddev3dunbal_opt</span></em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/calcstatsglb_mod/writestddev" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Write the stddev to a file</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>stddevzonavg</strong> (*,*)<em> [</em><em>real </em><em>,</em><em>pointer</em><em>]</em></p></li>
+<li><p><strong>stddev3d</strong> (*,*,*)<em> [</em><em>real </em><em>,</em><em>pointer</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Options</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>stddevzonavgunbal_opt</strong> (*,*)<em> [</em><em>real </em><em>,</em><em>pointer</em><em>]</em></p></li>
+<li><p><strong>stddev3dunbal_opt</strong> (*,*,*)<em> [</em><em>real </em><em>,</em><em>pointer</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/calcstatsglb_mod/csg_computebhilegacy" title="f/calcstatsglb_mod/csg_computebhilegacy"><code class="xref f f-func docutils literal notranslate"><span class="pre">csg_computebhilegacy()</span></code></a>, <a class="reference internal" href="#f/calcstatsglb_mod/csg_computebhilatbands" title="f/calcstatsglb_mod/csg_computebhilatbands"><code class="xref f f-func docutils literal notranslate"><span class="pre">csg_computebhilatbands()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_allocate" title="f/gridstatevector_mod/gsv_allocate"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_allocate()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_getnumlevfromvarname" title="f/gridstatevector_mod/gsv_getnumlevfromvarname"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_getnumlevfromvarname()</span></code></a>, <a class="reference internal" href="gridstatevectorfileio_mod.html#f/gridstatevectorfileio_mod/gio_writetofile" title="f/gridstatevectorfileio_mod/gio_writetofile"><code class="xref f f-func docutils literal notranslate"><span class="pre">gio_writetofile()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_fstecr" title="f/utilities_mod/utl_fstecr"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_fstecr()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_deallocate" title="f/gridstatevector_mod/gsv_deallocate"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_deallocate()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/calcstatsglb_mod/writestddevbal">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">calcstatsglb_mod/</span></span><span class="sig-name descname"><span class="pre">writestddevbal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">stddevzonavgbal</span></em>, <em class="sig-param"><span class="pre">stddev3dbal</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/calcstatsglb_mod/writestddevbal" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Write the stddev of the balanced variables to a file</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>stddevzonavgbal</strong> (*,*)<em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>stddev3dbal</strong> (*,*,*)<em> [</em><em>real </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/calcstatsglb_mod/csg_computebhilegacy" title="f/calcstatsglb_mod/csg_computebhilegacy"><code class="xref f f-func docutils literal notranslate"><span class="pre">csg_computebhilegacy()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_allocate" title="f/gridstatevector_mod/gsv_allocate"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_allocate()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_getnumlevfromvarname" title="f/gridstatevector_mod/gsv_getnumlevfromvarname"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_getnumlevfromvarname()</span></code></a>, <a class="reference internal" href="gridstatevectorfileio_mod.html#f/gridstatevectorfileio_mod/gio_writetofile" title="f/gridstatevectorfileio_mod/gio_writetofile"><code class="xref f f-func docutils literal notranslate"><span class="pre">gio_writetofile()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_fstecr" title="f/utilities_mod/utl_fstecr"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_fstecr()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_deallocate" title="f/gridstatevector_mod/gsv_deallocate"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_deallocate()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/calcstatsglb_mod/spectralfilter">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">calcstatsglb_mod/</span></span><span class="sig-name descname"><span class="pre">spectralfilter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">ensperturbations</span></em>, <em class="sig-param"><span class="pre">nlev</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">wavebandindex_opt</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/calcstatsglb_mod/spectralfilter" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Apply a spectral filter</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>ensperturbations</strong> (*,*,*,*)<em> [</em><em>real </em><em>,</em><em>pointer</em><em>]</em></p></li>
+<li><p><strong>nlev</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Options</dt>
+<dd class="field-odd"><p><strong>wavebandindex_opt</strong><em> [</em><em>integer </em><em>,</em><em>in,</em><em>]</em></p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/calcstatsglb_mod/csg_computebhilegacy" title="f/calcstatsglb_mod/csg_computebhilegacy"><code class="xref f f-func docutils literal notranslate"><span class="pre">csg_computebhilegacy()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="spectralfilter_mod.html#f/spectralfilter_mod/spf_filterresponsefunction" title="f/spectralfilter_mod/spf_filterresponsefunction"><code class="xref f f-func docutils literal notranslate"><span class="pre">spf_filterresponsefunction()</span></code></a>, <a class="reference internal" href="globalspectraltransform_mod.html#f/globalspectraltransform_mod/gst_setid" title="f/globalspectraltransform_mod/gst_setid"><code class="xref f f-func docutils literal notranslate"><span class="pre">gst_setid()</span></code></a>, <a class="reference internal" href="globalspectraltransform_mod.html#f/globalspectraltransform_mod/gst_reespe" title="f/globalspectraltransform_mod/gst_reespe"><code class="xref f f-func docutils literal notranslate"><span class="pre">gst_reespe()</span></code></a>, <a class="reference internal" href="globalspectraltransform_mod.html#f/globalspectraltransform_mod/gst_getnind" title="f/globalspectraltransform_mod/gst_getnind"><code class="xref f f-func docutils literal notranslate"><span class="pre">gst_getnind()</span></code></a>, <a class="reference internal" href="globalspectraltransform_mod.html#f/globalspectraltransform_mod/gst_speree" title="f/globalspectraltransform_mod/gst_speree"><code class="xref f f-func docutils literal notranslate"><span class="pre">gst_speree()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/calcstatsglb_mod/spectralfilter2">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">calcstatsglb_mod/</span></span><span class="sig-name descname"><span class="pre">spectralfilter2</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">ensperts_in</span></em>, <em class="sig-param"><span class="pre">ensperts_out</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">wavebandindex_opt</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/calcstatsglb_mod/spectralfilter2" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Apply a spectral filter</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>ensperts_in</strong><em> [</em><em>struct_ens </em><em>]</em></p></li>
+<li><p><strong>ensperts_out</strong><em> [</em><em>struct_ens </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Options</dt>
+<dd class="field-odd"><p><strong>wavebandindex_opt</strong><em> [</em><em>integer </em><em>,</em><em>in,</em><em>]</em></p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/calcstatsglb_mod/csg_toolbox" title="f/calcstatsglb_mod/csg_toolbox"><code class="xref f f-func docutils literal notranslate"><span class="pre">csg_toolbox()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="spectralfilter_mod.html#f/spectralfilter_mod/spf_filterresponsefunction" title="f/spectralfilter_mod/spf_filterresponsefunction"><code class="xref f f-func docutils literal notranslate"><span class="pre">spf_filterresponsefunction()</span></code></a>, <a class="reference internal" href="globalspectraltransform_mod.html#f/globalspectraltransform_mod/gst_setup" title="f/globalspectraltransform_mod/gst_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">gst_setup()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_getnumk" title="f/ensemblestatevector_mod/ens_getnumk"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_getnumk()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_getonelev_r4" title="f/ensemblestatevector_mod/ens_getonelev_r4"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_getonelev_r4()</span></code></a>, <a class="reference internal" href="globalspectraltransform_mod.html#f/globalspectraltransform_mod/gst_setid" title="f/globalspectraltransform_mod/gst_setid"><code class="xref f f-func docutils literal notranslate"><span class="pre">gst_setid()</span></code></a>, <a class="reference internal" href="globalspectraltransform_mod.html#f/globalspectraltransform_mod/gst_reespe_kij" title="f/globalspectraltransform_mod/gst_reespe_kij"><code class="xref f f-func docutils literal notranslate"><span class="pre">gst_reespe_kij()</span></code></a>, <a class="reference internal" href="globalspectraltransform_mod.html#f/globalspectraltransform_mod/gst_getnind" title="f/globalspectraltransform_mod/gst_getnind"><code class="xref f f-func docutils literal notranslate"><span class="pre">gst_getnind()</span></code></a>, <a class="reference internal" href="globalspectraltransform_mod.html#f/globalspectraltransform_mod/gst_speree_kij" title="f/globalspectraltransform_mod/gst_speree_kij"><code class="xref f f-func docutils literal notranslate"><span class="pre">gst_speree_kij()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/calcstatsglb_mod/calctheta">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">calcstatsglb_mod/</span></span><span class="sig-name descname"><span class="pre">calctheta</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">ensperturbations</span></em>, <em class="sig-param"><span class="pre">theta</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/calcstatsglb_mod/calctheta" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Calculate the Theta turning angle according to Ekman balance</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>ensperturbations</strong> (*,*,*,*)<em> [</em><em>real </em><em>,</em><em>pointer</em><em>]</em></p></li>
+<li><p><strong>theta</strong> (*,*)<em> [</em><em>real </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/calcstatsglb_mod/csg_computebhilegacy" title="f/calcstatsglb_mod/csg_computebhilegacy"><code class="xref f f-func docutils literal notranslate"><span class="pre">csg_computebhilegacy()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/calcstatsglb_mod/calcptot">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">calcstatsglb_mod/</span></span><span class="sig-name descname"><span class="pre">calcptot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">ensperturbations</span></em>, <em class="sig-param"><span class="pre">ptot</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/calcstatsglb_mod/calcptot" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Calculate the “P” to Temperature transform matrix using
+a regression analysis of the “P” and temperature samples</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>ensperturbations</strong> (*,*,*,*)<em> [</em><em>real </em><em>,</em><em>pointer</em><em>]</em></p></li>
+<li><p><strong>ptot</strong> (*,*,*)<em> [</em><em>real </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/calcstatsglb_mod/csg_computebhilegacy" title="f/calcstatsglb_mod/csg_computebhilegacy"><code class="xref f f-func docutils literal notranslate"><span class="pre">csg_computebhilegacy()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="globalspectraltransform_mod.html#f/globalspectraltransform_mod/gst_getrlati" title="f/globalspectraltransform_mod/gst_getrlati"><code class="xref f f-func docutils literal notranslate"><span class="pre">gst_getrlati()</span></code></a>, <a class="reference internal" href="globalspectraltransform_mod.html#f/globalspectraltransform_mod/gst_setid" title="f/globalspectraltransform_mod/gst_setid"><code class="xref f f-func docutils literal notranslate"><span class="pre">gst_setid()</span></code></a>, <a class="reference internal" href="globalspectraltransform_mod.html#f/globalspectraltransform_mod/gst_reespe" title="f/globalspectraltransform_mod/gst_reespe"><code class="xref f f-func docutils literal notranslate"><span class="pre">gst_reespe()</span></code></a>, <a class="reference internal" href="#f/calcstatsglb_mod/calcbalancedp" title="f/calcstatsglb_mod/calcbalancedp"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcbalancedp()</span></code></a>, <a class="reference internal" href="globalspectraltransform_mod.html#f/globalspectraltransform_mod/gst_speree" title="f/globalspectraltransform_mod/gst_speree"><code class="xref f f-func docutils literal notranslate"><span class="pre">gst_speree()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/calcstatsglb_mod/removeglobalmean">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">calcstatsglb_mod/</span></span><span class="sig-name descname"><span class="pre">removeglobalmean</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">ensperturbations</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/calcstatsglb_mod/removeglobalmean" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Calculate and subtract the horizontal mean value from the ensemble
+of samples for each member, vertical level and variable</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>ensperturbations</strong> (*,*,*,*)<em> [</em><em>real </em><em>,</em><em>pointer</em><em>]</em></p>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/calcstatsglb_mod/csg_computebhilegacy" title="f/calcstatsglb_mod/csg_computebhilegacy"><code class="xref f f-func docutils literal notranslate"><span class="pre">csg_computebhilegacy()</span></code></a>, <a class="reference internal" href="#f/calcstatsglb_mod/csg_computebhilatbands" title="f/calcstatsglb_mod/csg_computebhilatbands"><code class="xref f f-func docutils literal notranslate"><span class="pre">csg_computebhilatbands()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/calcstatsglb_mod/calczonavg">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">calcstatsglb_mod/</span></span><span class="sig-name descname"><span class="pre">calczonavg</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">fieldszonavg_mpiglobal</span></em>, <em class="sig-param"><span class="pre">fields3d</span></em>, <em class="sig-param"><span class="pre">nlev</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/calcstatsglb_mod/calczonavg" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Calculate the zonal average of the supplied 3D fields</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>fieldszonavg_mpiglobal</strong> (*,*)<em> [</em><em>real </em><em>,</em><em>pointer</em><em>]</em></p></li>
+<li><p><strong>fields3d</strong> (*,*,*)<em> [</em><em>real </em><em>,</em><em>pointer</em><em>]</em></p></li>
+<li><p><strong>nlev</strong><em> [</em><em>integer </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/calcstatsglb_mod/csg_computebhilegacy" title="f/calcstatsglb_mod/csg_computebhilegacy"><code class="xref f f-func docutils literal notranslate"><span class="pre">csg_computebhilegacy()</span></code></a>, <a class="reference internal" href="#f/calcstatsglb_mod/csg_computebhilatbands" title="f/calcstatsglb_mod/csg_computebhilatbands"><code class="xref f f-func docutils literal notranslate"><span class="pre">csg_computebhilatbands()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/calcstatsglb_mod/calcstddev3d">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">calcstatsglb_mod/</span></span><span class="sig-name descname"><span class="pre">calcstddev3d</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">ensperturbations</span></em>, <em class="sig-param"><span class="pre">stddev3d</span></em>, <em class="sig-param"><span class="pre">nlev</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/calcstatsglb_mod/calcstddev3d" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Calculate the 3d stddev field</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>ensperturbations</strong> (*,*,*,*)<em> [</em><em>real </em><em>,</em><em>pointer</em><em>]</em></p></li>
+<li><p><strong>stddev3d</strong> (*,*,*)<em> [</em><em>real </em><em>,</em><em>pointer</em><em>]</em></p></li>
+<li><p><strong>nlev</strong><em> [</em><em>integer </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/calcstatsglb_mod/csg_computebhilegacy" title="f/calcstatsglb_mod/csg_computebhilegacy"><code class="xref f f-func docutils literal notranslate"><span class="pre">csg_computebhilegacy()</span></code></a>, <a class="reference internal" href="#f/calcstatsglb_mod/csg_computebhilatbands" title="f/calcstatsglb_mod/csg_computebhilatbands"><code class="xref f f-func docutils literal notranslate"><span class="pre">csg_computebhilatbands()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/calcstatsglb_mod/calcbalancedp">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">calcstatsglb_mod/</span></span><span class="sig-name descname"><span class="pre">calcbalancedp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">sppsi</span></em>, <em class="sig-param"><span class="pre">spgz</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/calcstatsglb_mod/calcbalancedp" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Calculate the balanced “P” variable using geostrophy</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>sppsi</strong> (*,*,*)<em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>spgz</strong> (*,*,*)<em> [</em><em>real </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/calcstatsglb_mod/removebalancedt_ps" title="f/calcstatsglb_mod/removebalancedt_ps"><code class="xref f f-func docutils literal notranslate"><span class="pre">removebalancedt_ps()</span></code></a>, <a class="reference internal" href="#f/calcstatsglb_mod/calcptot" title="f/calcstatsglb_mod/calcptot"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcptot()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="globalspectraltransform_mod.html#f/globalspectraltransform_mod/gst_getrnnp1" title="f/globalspectraltransform_mod/gst_getrnnp1"><code class="xref f f-func docutils literal notranslate"><span class="pre">gst_getrnnp1()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/calcstatsglb_mod/normalize3d">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">calcstatsglb_mod/</span></span><span class="sig-name descname"><span class="pre">normalize3d</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">ensperturbations</span></em>, <em class="sig-param"><span class="pre">stddev3d</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/calcstatsglb_mod/normalize3d" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Divide the ensemble perturbations by the supplied 3d stddev field</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>ensperturbations</strong> (*,*,*,*)<em> [</em><em>real </em><em>,</em><em>pointer</em><em>]</em></p></li>
+<li><p><strong>stddev3d</strong> (*,*,*)<em> [</em><em>real </em><em>,</em><em>pointer</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/calcstatsglb_mod/csg_computebhilegacy" title="f/calcstatsglb_mod/csg_computebhilegacy"><code class="xref f f-func docutils literal notranslate"><span class="pre">csg_computebhilegacy()</span></code></a>, <a class="reference internal" href="#f/calcstatsglb_mod/csg_computebhilatbands" title="f/calcstatsglb_mod/csg_computebhilatbands"><code class="xref f f-func docutils literal notranslate"><span class="pre">csg_computebhilatbands()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/calcstatsglb_mod/multiply3d">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">calcstatsglb_mod/</span></span><span class="sig-name descname"><span class="pre">multiply3d</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">ensperturbations</span></em>, <em class="sig-param"><span class="pre">stddev3d</span></em>, <em class="sig-param"><span class="pre">nlev</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/calcstatsglb_mod/multiply3d" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Multiply the ensemble perturbations by the supplied 3d stddev field</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>ensperturbations</strong> (*,*,*,*)<em> [</em><em>real </em><em>,</em><em>pointer</em><em>]</em></p></li>
+<li><p><strong>stddev3d</strong> (*,*,*)<em> [</em><em>real </em><em>,</em><em>pointer</em><em>]</em></p></li>
+<li><p><strong>nlev</strong><em> [</em><em>integer </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/calcstatsglb_mod/csg_computebhilegacy" title="f/calcstatsglb_mod/csg_computebhilegacy"><code class="xref f f-func docutils literal notranslate"><span class="pre">csg_computebhilegacy()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/calcstatsglb_mod/readensemble">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">calcstatsglb_mod/</span></span><span class="sig-name descname"><span class="pre">readensemble</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">ensperturbations</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/calcstatsglb_mod/readensemble" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Read the ensemble of error samples from files</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>ensperturbations</strong> (*,*,*,*)<em> [</em><em>real </em><em>,</em><em>pointer</em><em>]</em></p>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/calcstatsglb_mod/csg_computebhilegacy" title="f/calcstatsglb_mod/csg_computebhilegacy"><code class="xref f f-func docutils literal notranslate"><span class="pre">csg_computebhilegacy()</span></code></a>, <a class="reference internal" href="#f/calcstatsglb_mod/csg_computebhilatbands" title="f/calcstatsglb_mod/csg_computebhilatbands"><code class="xref f f-func docutils literal notranslate"><span class="pre">csg_computebhilatbands()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_allocate" title="f/ensemblestatevector_mod/ens_allocate"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_allocate()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_readensemble" title="f/ensemblestatevector_mod/ens_readensemble"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_readensemble()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_allocate" title="f/gridstatevector_mod/gsv_allocate"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_allocate()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_copymember" title="f/ensemblestatevector_mod/ens_copymember"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_copymember()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_deallocate" title="f/gridstatevector_mod/gsv_deallocate"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_deallocate()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_deallocate" title="f/ensemblestatevector_mod/ens_deallocate"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_deallocate()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/calcstatsglb_mod/uv_to_psichi">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">calcstatsglb_mod/</span></span><span class="sig-name descname"><span class="pre">uv_to_psichi</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">ensperturbations</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/calcstatsglb_mod/uv_to_psichi" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Transform wind components to Psi and Chi</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>ensperturbations</strong> (*,*,*,*)<em> [</em><em>real </em><em>]</em></p>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/calcstatsglb_mod/csg_computebhilegacy" title="f/calcstatsglb_mod/csg_computebhilegacy"><code class="xref f f-func docutils literal notranslate"><span class="pre">csg_computebhilegacy()</span></code></a>, <a class="reference internal" href="#f/calcstatsglb_mod/csg_computebhilatbands" title="f/calcstatsglb_mod/csg_computebhilatbands"><code class="xref f f-func docutils literal notranslate"><span class="pre">csg_computebhilatbands()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_start" title="f/utilities_mod/utl_tmg_start"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_start()</span></code></a>, <a class="reference internal" href="globalspectraltransform_mod.html#f/globalspectraltransform_mod/gst_setid" title="f/globalspectraltransform_mod/gst_setid"><code class="xref f f-func docutils literal notranslate"><span class="pre">gst_setid()</span></code></a>, <a class="reference internal" href="globalspectraltransform_mod.html#f/globalspectraltransform_mod/gst_gdsp" title="f/globalspectraltransform_mod/gst_gdsp"><code class="xref f f-func docutils literal notranslate"><span class="pre">gst_gdsp()</span></code></a>, <a class="reference internal" href="globalspectraltransform_mod.html#f/globalspectraltransform_mod/gst_getr1snp1" title="f/globalspectraltransform_mod/gst_getr1snp1"><code class="xref f f-func docutils literal notranslate"><span class="pre">gst_getr1snp1()</span></code></a>, <a class="reference internal" href="globalspectraltransform_mod.html#f/globalspectraltransform_mod/gst_speree" title="f/globalspectraltransform_mod/gst_speree"><code class="xref f f-func docutils literal notranslate"><span class="pre">gst_speree()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_stop" title="f/utilities_mod/utl_tmg_stop"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_stop()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/calcstatsglb_mod/removemean">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">calcstatsglb_mod/</span></span><span class="sig-name descname"><span class="pre">removemean</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">ensperturbations</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/calcstatsglb_mod/removemean" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Compute and subtract the ensemble mean</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>ensperturbations</strong> (*,*,*,*)<em> [</em><em>real </em><em>,</em><em>pointer</em><em>]</em></p>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/calcstatsglb_mod/csg_computebhilegacy" title="f/calcstatsglb_mod/csg_computebhilegacy"><code class="xref f f-func docutils literal notranslate"><span class="pre">csg_computebhilegacy()</span></code></a>, <a class="reference internal" href="#f/calcstatsglb_mod/csg_computebhilatbands" title="f/calcstatsglb_mod/csg_computebhilatbands"><code class="xref f f-func docutils literal notranslate"><span class="pre">csg_computebhilatbands()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/calcstatsglb_mod/horizcorrelfunction">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">calcstatsglb_mod/</span></span><span class="sig-name descname"><span class="pre">horizcorrelfunction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">rstddev</span></em>, <em class="sig-param"><span class="pre">variabletype</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">wavebandindex_opt</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/calcstatsglb_mod/horizcorrelfunction" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Compute homogeneous-isotropic horizontal correlation
+function from spectral variances</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>rstddev</strong> (nkgdimens,ntrunc)+1)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>variabletype</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Options</dt>
+<dd class="field-odd"><p><strong>wavebandindex_opt</strong><em> [</em><em>integer </em><em>,</em><em>in,</em><em>]</em></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="globalspectraltransform_mod.html#f/globalspectraltransform_mod/gst_getrwt" title="f/globalspectraltransform_mod/gst_getrwt"><code class="xref f f-func docutils literal notranslate"><span class="pre">gst_getrwt()</span></code></a>, <a class="reference internal" href="globalspectraltransform_mod.html#f/globalspectraltransform_mod/gst_setid" title="f/globalspectraltransform_mod/gst_setid"><code class="xref f f-func docutils literal notranslate"><span class="pre">gst_setid()</span></code></a>, <a class="reference internal" href="globalspectraltransform_mod.html#f/globalspectraltransform_mod/gst_reespe" title="f/globalspectraltransform_mod/gst_reespe"><code class="xref f f-func docutils literal notranslate"><span class="pre">gst_reespe()</span></code></a>, <a class="reference internal" href="globalspectraltransform_mod.html#f/globalspectraltransform_mod/gst_getnind" title="f/globalspectraltransform_mod/gst_getnind"><code class="xref f f-func docutils literal notranslate"><span class="pre">gst_getnind()</span></code></a>, <a class="reference internal" href="globalspectraltransform_mod.html#f/globalspectraltransform_mod/gst_speree" title="f/globalspectraltransform_mod/gst_speree"><code class="xref f f-func docutils literal notranslate"><span class="pre">gst_speree()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="#f/calcstatsglb_mod/write3d" title="f/calcstatsglb_mod/write3d"><code class="xref f f-func docutils literal notranslate"><span class="pre">write3d()</span></code></a>, <a class="reference internal" href="varnamelist_mod.html#f/varnamelist_mod/vnl_varlevelfromvarname" title="f/varnamelist_mod/vnl_varlevelfromvarname"><code class="xref f f-func docutils literal notranslate"><span class="pre">vnl_varlevelfromvarname()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/calcstatsglb_mod/write3d">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">calcstatsglb_mod/</span></span><span class="sig-name descname"><span class="pre">write3d</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">gridpoint3d</span></em>, <em class="sig-param"><span class="pre">filename</span></em>, <em class="sig-param"><span class="pre">etiket_in</span></em>, <em class="sig-param"><span class="pre">variabletype</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/calcstatsglb_mod/write3d" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Write the 3D stddev fields for all variables</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>gridpoint3d</strong> (*,*,*)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>filename</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>etiket_in</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>variabletype</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="varnamelist_mod.html#f/varnamelist_mod/vnl_varlevelfromvarname" title="f/varnamelist_mod/vnl_varlevelfromvarname"><code class="xref f f-func docutils literal notranslate"><span class="pre">vnl_varlevelfromvarname()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_fstecr" title="f/utilities_mod/utl_fstecr"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_fstecr()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/calcstatsglb_mod/calchorizscale">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">calcstatsglb_mod/</span></span><span class="sig-name descname"><span class="pre">calchorizscale</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">rstddev</span></em>, <em class="sig-param"><span class="pre">variabletype</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">wavebandindex_opt</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/calcstatsglb_mod/calchorizscale" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Calculate the horizontal correlation length scale</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>rstddev</strong> (nkgdimens,ntrunc)+1)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>variabletype</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Options</dt>
+<dd class="field-odd"><p><strong>wavebandindex_opt</strong><em> [</em><em>integer </em><em>,</em><em>in,</em><em>]</em></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="varnamelist_mod.html#f/varnamelist_mod/vnl_varlevelfromvarname" title="f/varnamelist_mod/vnl_varlevelfromvarname"><code class="xref f f-func docutils literal notranslate"><span class="pre">vnl_varlevelfromvarname()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/calcstatsglb_mod/writepowerspec">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">calcstatsglb_mod/</span></span><span class="sig-name descname"><span class="pre">writepowerspec</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">powerspec</span></em>, <em class="sig-param"><span class="pre">variabletype</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/calcstatsglb_mod/writepowerspec" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Write the computed power spectrum to an ascii file</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>powerspec</strong> (nkgdimens,ntrunc)+1)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>variabletype</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/calcstatsglb_mod/csg_toolbox" title="f/calcstatsglb_mod/csg_toolbox"><code class="xref f f-func docutils literal notranslate"><span class="pre">csg_toolbox()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="varnamelist_mod.html#f/varnamelist_mod/vnl_varlevelfromvarname" title="f/varnamelist_mod/vnl_varlevelfromvarname"><code class="xref f f-func docutils literal notranslate"><span class="pre">vnl_varlevelfromvarname()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/calcstatsglb_mod/calclocalcorrelations">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">calcstatsglb_mod/</span></span><span class="sig-name descname"><span class="pre">calclocalcorrelations</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">ensperts</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/calcstatsglb_mod/calclocalcorrelations" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Compute local horizontal correlations</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>ensperts</strong><em> [</em><em>struct_ens </em><em>]</em></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_varnameslist" title="f/ensemblestatevector_mod/ens_varnameslist"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_varnameslist()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_allocate" title="f/gridstatevector_mod/gsv_allocate"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_allocate()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_getnumstep" title="f/ensemblestatevector_mod/ens_getnumstep"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_getnumstep()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_gethco" title="f/ensemblestatevector_mod/ens_gethco"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_gethco()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_getvco" title="f/ensemblestatevector_mod/ens_getvco"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_getvco()</span></code></a>, <a class="reference internal" href="timecoord_mod.html#f/timecoord_mod/tim_getdatestamp" title="f/timecoord_mod/tim_getdatestamp"><code class="xref f f-func docutils literal notranslate"><span class="pre">tim_getdatestamp()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_zero" title="f/gridstatevector_mod/gsv_zero"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_zero()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_copymember" title="f/ensemblestatevector_mod/ens_copymember"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_copymember()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_transposetilestovarslevs" title="f/gridstatevector_mod/gsv_transposetilestovarslevs"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_transposetilestovarslevs()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_scale" title="f/gridstatevector_mod/gsv_scale"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_scale()</span></code></a>, <a class="reference internal" href="gridstatevectorfileio_mod.html#f/gridstatevectorfileio_mod/gio_writetofile" title="f/gridstatevectorfileio_mod/gio_writetofile"><code class="xref f f-func docutils literal notranslate"><span class="pre">gio_writetofile()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_deallocate" title="f/gridstatevector_mod/gsv_deallocate"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_deallocate()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/calcstatsglb_mod/calclocalvertcorrmatrix">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">calcstatsglb_mod/</span></span><span class="sig-name descname"><span class="pre">calclocalvertcorrmatrix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">ensperts</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/calcstatsglb_mod/calclocalvertcorrmatrix" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Compute all vertical and between-variable local correlations</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>ensperts</strong><em> [</em><em>struct_ens </em><em>,</em><em>in</em><em>]</em></p>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/calcstatsglb_mod/csg_toolbox" title="f/calcstatsglb_mod/csg_toolbox"><code class="xref f f-func docutils literal notranslate"><span class="pre">csg_toolbox()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="filenames_mod.html#f/filenames_mod/fln_ensfilename" title="f/filenames_mod/fln_ensfilename"><code class="xref f f-func docutils literal notranslate"><span class="pre">fln_ensfilename()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_getpathname" title="f/ensemblestatevector_mod/ens_getpathname"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_getpathname()</span></code></a>, <a class="reference internal" href="timecoord_mod.html#f/timecoord_mod/tim_getdatestampfromfile" title="f/timecoord_mod/tim_getdatestampfromfile"><code class="xref f f-func docutils literal notranslate"><span class="pre">tim_getdatestampfromfile()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_varnameslist" title="f/ensemblestatevector_mod/ens_varnameslist"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_varnameslist()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_allocate" title="f/gridstatevector_mod/gsv_allocate"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_allocate()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_getnumstep" title="f/ensemblestatevector_mod/ens_getnumstep"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_getnumstep()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_gethco" title="f/ensemblestatevector_mod/ens_gethco"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_gethco()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_getvco" title="f/ensemblestatevector_mod/ens_getvco"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_getvco()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_getvarnamefromk" title="f/ensemblestatevector_mod/ens_getvarnamefromk"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_getvarnamefromk()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_getlevfromk" title="f/ensemblestatevector_mod/ens_getlevfromk"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_getlevfromk()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_zero" title="f/gridstatevector_mod/gsv_zero"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_zero()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_copymember" title="f/ensemblestatevector_mod/ens_copymember"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_copymember()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_scale" title="f/gridstatevector_mod/gsv_scale"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_scale()</span></code></a>, <a class="reference internal" href="gridstatevectorfileio_mod.html#f/gridstatevectorfileio_mod/gio_writetofile" title="f/gridstatevectorfileio_mod/gio_writetofile"><code class="xref f f-func docutils literal notranslate"><span class="pre">gio_writetofile()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_deallocate" title="f/gridstatevector_mod/gsv_deallocate"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_deallocate()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div></blockquote>
+</section>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="calcstatslam_mod.html" title="calcstatslam_mod"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="biascorrectionsat_mod.html" title="biascorrectionsat_mod"
+             >previous</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2018, ECCC.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.
+    </div>
+  </body>
+</html>

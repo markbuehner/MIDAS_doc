@@ -1,0 +1,1326 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>physicsfunctions_mod &mdash; MIDAS  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="MIDAS  documentation" href="../index.html" />
+    <link rel="next" title="presprofileoperators_mod" href="presprofileoperators_mod.html" />
+    <link rel="prev" title="midasmpi_mod" href="midasmpi_mod.html" /> 
+  </head>
+  <body>
+  <div>
+    <img src="../_static/MIDAS_header.png" alt="MIDAS" />
+  </div>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="presprofileoperators_mod.html" title="presprofileoperators_mod"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="midasmpi_mod.html" title="midasmpi_mod"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="midasmpi_mod.html"
+                          title="previous chapter">midasmpi_mod</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="presprofileoperators_mod.html"
+                          title="next chapter">presprofileoperators_mod</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/modules/physicsfunctions_mod.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <section id="physicsfunctions-mod">
+<h1>physicsfunctions_mod<a class="headerlink" href="#physicsfunctions-mod" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><p><a class="reference internal" href="physicsfunctions_mod_src.html"><span class="doc">link to source code</span></a></p>
+<p><strong>Dependency Diagrams:</strong></p>
+<figure class="align-default" id="id1">
+<a class="reference internal image-reference" href="physicsfunctions_mod.svg"><img alt="physicsfunctions_mod.svg" height="100px" src="physicsfunctions_mod.svg" /></a>
+<figcaption>
+<p><span class="caption-text">Direct Dependency Diagram</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id2">
+<a class="reference internal image-reference" href="physicsfunctions_mod_rev.svg"><img alt="physicsfunctions_mod_rev.svg" height="100px" src="physicsfunctions_mod_rev.svg" /></a>
+<figcaption>
+<p><span class="caption-text">Reverse Dependency Diagram</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<span class="target" id="f/physicsfunctions_mod"></span><p class="rubric">Description</p>
+<p>MODULE physicsFunctions_mod (prefix=’phf’ category=’8. Low-level utilities and constants’)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Purpose</dt>
+<dd class="field-odd"><p>A collection of basic functions for various purposes
+(e.g. computing saturation vapour pressure)</p>
+</dd>
+</dl>
+<p class="rubric">Quick access</p>
+<dl class="field-list simple">
+<dt class="field-odd">Routines</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/physicsfunctions_mod/phf_calcdistance" title="f/physicsfunctions_mod/phf_calcdistance"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_calcdistance()</span></code></a>, <a class="reference internal" href="#f/physicsfunctions_mod/phf_calcdistancefast" title="f/physicsfunctions_mod/phf_calcdistancefast"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_calcdistancefast()</span></code></a>, <a class="reference internal" href="#f/physicsfunctions_mod/phf_convert_z_to_gz" title="f/physicsfunctions_mod/phf_convert_z_to_gz"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_convert_z_to_gz()</span></code></a>, <a class="reference internal" href="#f/physicsfunctions_mod/phf_convert_z_to_pressure" title="f/physicsfunctions_mod/phf_convert_z_to_pressure"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_convert_z_to_pressure()</span></code></a>, <a class="reference internal" href="#f/physicsfunctions_mod/phf_fodla8" title="f/physicsfunctions_mod/phf_fodla8"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_fodla8()</span></code></a>, <a class="reference internal" href="#f/physicsfunctions_mod/phf_fodle8" title="f/physicsfunctions_mod/phf_fodle8"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_fodle8()</span></code></a>, <a class="reference internal" href="#f/physicsfunctions_mod/phf_fodle8_cmam" title="f/physicsfunctions_mod/phf_fodle8_cmam"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_fodle8_cmam()</span></code></a>, <a class="reference internal" href="#f/physicsfunctions_mod/phf_fodqa8" title="f/physicsfunctions_mod/phf_fodqa8"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_fodqa8()</span></code></a>, <a class="reference internal" href="#f/physicsfunctions_mod/phf_fodqs8" title="f/physicsfunctions_mod/phf_fodqs8"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_fodqs8()</span></code></a>, <a class="reference internal" href="#f/physicsfunctions_mod/phf_fodti8" title="f/physicsfunctions_mod/phf_fodti8"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_fodti8()</span></code></a>, <a class="reference internal" href="#f/physicsfunctions_mod/phf_fodti8_cmam" title="f/physicsfunctions_mod/phf_fodti8_cmam"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_fodti8_cmam()</span></code></a>, <a class="reference internal" href="#f/physicsfunctions_mod/phf_fodtw8" title="f/physicsfunctions_mod/phf_fodtw8"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_fodtw8()</span></code></a>, <a class="reference internal" href="#f/physicsfunctions_mod/phf_fodtw8_cmam" title="f/physicsfunctions_mod/phf_fodtw8_cmam"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_fodtw8_cmam()</span></code></a>, <a class="reference internal" href="#f/physicsfunctions_mod/phf_fodtwi8" title="f/physicsfunctions_mod/phf_fodtwi8"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_fodtwi8()</span></code></a>, <a class="reference internal" href="#f/physicsfunctions_mod/phf_fodtwi8_cmam" title="f/physicsfunctions_mod/phf_fodtwi8_cmam"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_fodtwi8_cmam()</span></code></a>, <a class="reference internal" href="#f/physicsfunctions_mod/phf_foefq8" title="f/physicsfunctions_mod/phf_foefq8"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_foefq8()</span></code></a>, <a class="reference internal" href="#f/physicsfunctions_mod/phf_foefqa" title="f/physicsfunctions_mod/phf_foefqa"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_foefqa()</span></code></a>, <a class="reference internal" href="#f/physicsfunctions_mod/phf_foefql" title="f/physicsfunctions_mod/phf_foefql"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_foefql()</span></code></a>, <a class="reference internal" href="#f/physicsfunctions_mod/phf_foefqpsa" title="f/physicsfunctions_mod/phf_foefqpsa"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_foefqpsa()</span></code></a>, <a class="reference internal" href="#f/physicsfunctions_mod/phf_foei8_cmam" title="f/physicsfunctions_mod/phf_foei8_cmam"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_foei8_cmam()</span></code></a>, <a class="reference internal" href="#f/physicsfunctions_mod/phf_foerat8_cmam" title="f/physicsfunctions_mod/phf_foerat8_cmam"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_foerat8_cmam()</span></code></a>, <a class="reference internal" href="#f/physicsfunctions_mod/phf_foew8" title="f/physicsfunctions_mod/phf_foew8"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_foew8()</span></code></a>, <a class="reference internal" href="#f/physicsfunctions_mod/phf_foew8_cmam" title="f/physicsfunctions_mod/phf_foew8_cmam"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_foew8_cmam()</span></code></a>, <a class="reference internal" href="#f/physicsfunctions_mod/phf_foewa8" title="f/physicsfunctions_mod/phf_foewa8"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_foewa8()</span></code></a>, <a class="reference internal" href="#f/physicsfunctions_mod/phf_foewi8_cmam" title="f/physicsfunctions_mod/phf_foewi8_cmam"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_foewi8_cmam()</span></code></a>, <a class="reference internal" href="#f/physicsfunctions_mod/phf_fohr8" title="f/physicsfunctions_mod/phf_fohr8"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_fohr8()</span></code></a>, <a class="reference internal" href="#f/physicsfunctions_mod/phf_fohra8" title="f/physicsfunctions_mod/phf_fohra8"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_fohra8()</span></code></a>, <a class="reference internal" href="#f/physicsfunctions_mod/phf_folnqva" title="f/physicsfunctions_mod/phf_folnqva"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_folnqva()</span></code></a>, <a class="reference internal" href="#f/physicsfunctions_mod/phf_foqfe8" title="f/physicsfunctions_mod/phf_foqfe8"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_foqfe8()</span></code></a>, <a class="reference internal" href="#f/physicsfunctions_mod/phf_foqsa8" title="f/physicsfunctions_mod/phf_foqsa8"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_foqsa8()</span></code></a>, <a class="reference internal" href="#f/physicsfunctions_mod/phf_foqst8" title="f/physicsfunctions_mod/phf_foqst8"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_foqst8()</span></code></a>, <a class="reference internal" href="#f/physicsfunctions_mod/phf_foqst8_cmam" title="f/physicsfunctions_mod/phf_foqst8_cmam"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_foqst8_cmam()</span></code></a>, <a class="reference internal" href="#f/physicsfunctions_mod/phf_foti8" title="f/physicsfunctions_mod/phf_foti8"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_foti8()</span></code></a>, <a class="reference internal" href="#f/physicsfunctions_mod/phf_foti8_cmam" title="f/physicsfunctions_mod/phf_foti8_cmam"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_foti8_cmam()</span></code></a>, <a class="reference internal" href="#f/physicsfunctions_mod/phf_fottv8" title="f/physicsfunctions_mod/phf_fottv8"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_fottv8()</span></code></a>, <a class="reference internal" href="#f/physicsfunctions_mod/phf_fottva" title="f/physicsfunctions_mod/phf_fottva"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_fottva()</span></code></a>, <a class="reference internal" href="#f/physicsfunctions_mod/phf_fotvt8" title="f/physicsfunctions_mod/phf_fotvt8"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_fotvt8()</span></code></a>, <a class="reference internal" href="#f/physicsfunctions_mod/phf_fotvvl" title="f/physicsfunctions_mod/phf_fotvvl"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_fotvvl()</span></code></a>, <a class="reference internal" href="#f/physicsfunctions_mod/phf_fotw8" title="f/physicsfunctions_mod/phf_fotw8"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_fotw8()</span></code></a>, <a class="reference internal" href="#f/physicsfunctions_mod/phf_fotw8_cmam" title="f/physicsfunctions_mod/phf_fotw8_cmam"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_fotw8_cmam()</span></code></a>, <a class="reference internal" href="#f/physicsfunctions_mod/phf_fotwi8" title="f/physicsfunctions_mod/phf_fotwi8"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_fotwi8()</span></code></a>, <a class="reference internal" href="#f/physicsfunctions_mod/phf_fotwi8_cmam" title="f/physicsfunctions_mod/phf_fotwi8_cmam"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_fotwi8_cmam()</span></code></a>, <a class="reference internal" href="#f/physicsfunctions_mod/phf_fqbranch" title="f/physicsfunctions_mod/phf_fqbranch"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_fqbranch()</span></code></a>, <a class="reference internal" href="#f/physicsfunctions_mod/phf_get_pbl" title="f/physicsfunctions_mod/phf_get_pbl"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_get_pbl()</span></code></a>, <a class="reference internal" href="#f/physicsfunctions_mod/phf_get_tropopause" title="f/physicsfunctions_mod/phf_get_tropopause"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_get_tropopause()</span></code></a>, <a class="reference internal" href="#f/physicsfunctions_mod/phf_gravityalt" title="f/physicsfunctions_mod/phf_gravityalt"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_gravityalt()</span></code></a>, <a class="reference internal" href="#f/physicsfunctions_mod/phf_gravitysrf" title="f/physicsfunctions_mod/phf_gravitysrf"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_gravitysrf()</span></code></a>, <a class="reference internal" href="#f/physicsfunctions_mod/phf_height2geopotential" title="f/physicsfunctions_mod/phf_height2geopotential"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_height2geopotential()</span></code></a>, <a class="reference internal" href="#f/physicsfunctions_mod/phf_tetens_coefs_switch" title="f/physicsfunctions_mod/phf_tetens_coefs_switch"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_tetens_coefs_switch()</span></code></a></p>
+</dd>
+</dl>
+<p class="rubric">Needed modules</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="mathphysconstants_mod.html#f/mathphysconstants_mod" title="f/mathphysconstants_mod: MODULE MathPhysConstants_mod (prefix='mpc' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">mathphysconstants_mod</span></code></a>: MODULE MathPhysConstants_mod (prefix=’mpc’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="earthconstants_mod.html#f/earthconstants_mod" title="f/earthconstants_mod: MODULE earthConstants_mod (prefix='ec' category='8. Low-level utilities and constants') Prefixes: ec_ (Earth constants), for miscellaneous values from diverse sources"><code class="xref f f-mod docutils literal notranslate"><span class="pre">earthconstants_mod</span></code></a>: MODULE earthConstants_mod (prefix=’ec’ category=’8. Low-level utilities and constants’) Prefixes: <a href="#id3"><span class="problematic" id="id4">ec_</span></a> (Earth constants), for miscellaneous values from diverse sources</p></li>
+<li><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod" title="f/utilities_mod: MODULE utilities_mod (prefix='utl' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">utilities_mod</span></code></a>: MODULE utilities_mod (prefix=’utl’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="midasmpi_mod.html#f/midasmpi_mod" title="f/midasmpi_mod: MODULE midasMpi_mod (prefix='mmpi' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">midasmpi_mod</span></code></a>: MODULE midasMpi_mod (prefix=’mmpi’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="message_mod.html#f/message_mod" title="f/message_mod: MODULE message_mod (prefix='msg' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">message_mod</span></code></a>: MODULE message_mod (prefix=’msg’ category=’8. Low-level utilities and constants’)</p></li>
+</ul>
+<p class="rubric">Variables</p>
+<p class="rubric">Subroutines and functions</p>
+<dl>
+<dt class="sig sig-object f" id="f/physicsfunctions_mod/phf_tetens_coefs_switch">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">physicsfunctions_mod/</span></span><span class="sig-name descname"><span class="pre">phf_tetens_coefs_switch</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#f/physicsfunctions_mod/phf_tetens_coefs_switch" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Read water saturation strategy from nml. Options are:</p>
+<ul class="simple">
+<li><p>‘Tetens_1930’ was active before 2018.</p></li>
+<li><p>‘Tetens_2018a’ is a partial update that missed some functions (active before IC4)</p></li>
+<li><p>‘Tetens_2018’ completes the update to the intended 2018 specification.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/physicsfunctions_mod/phf_foew8" title="f/physicsfunctions_mod/phf_foew8"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_foew8()</span></code></a>, <a class="reference internal" href="#f/physicsfunctions_mod/phf_fodle8" title="f/physicsfunctions_mod/phf_fodle8"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_fodle8()</span></code></a>, <a class="reference internal" href="#f/physicsfunctions_mod/phf_foewa8" title="f/physicsfunctions_mod/phf_foewa8"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_foewa8()</span></code></a>, <a class="reference internal" href="#f/physicsfunctions_mod/phf_fodla8" title="f/physicsfunctions_mod/phf_fodla8"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_fodla8()</span></code></a>, <a class="reference internal" href="#f/physicsfunctions_mod/phf_fotw8" title="f/physicsfunctions_mod/phf_fotw8"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_fotw8()</span></code></a>, <a class="reference internal" href="#f/physicsfunctions_mod/phf_foti8" title="f/physicsfunctions_mod/phf_foti8"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_foti8()</span></code></a>, <a class="reference internal" href="#f/physicsfunctions_mod/phf_fodtw8" title="f/physicsfunctions_mod/phf_fodtw8"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_fodtw8()</span></code></a>, <a class="reference internal" href="#f/physicsfunctions_mod/phf_fodti8" title="f/physicsfunctions_mod/phf_fodti8"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_fodti8()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_isnamelistpresent" title="f/utilities_mod/utl_isnamelistpresent"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_isnamelistpresent()</span></code></a>, <a class="reference internal" href="message_mod.html#f/message_mod/msg" title="f/message_mod/msg"><code class="xref f f-func docutils literal notranslate"><span class="pre">msg()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/physicsfunctions_mod/phf_foew8">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">physicsfunctions_mod/</span></span><span class="sig-name descname"><span class="pre">phf_foew8</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">ttt</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/physicsfunctions_mod/phf_foew8" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Water vapour saturation pressure (Tetens) - EW or EI as a fct of TT</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>ttt</strong><em> [</em><em>real </em><em>]</em></p>
+</dd>
+<dt class="field-odd">Return</dt>
+<dd class="field-odd"><p><strong>phf_foew8</strong><em> [</em><em>real </em><em>]</em></p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/physicsfunctions_mod/phf_foqst8" title="f/physicsfunctions_mod/phf_foqst8"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_foqst8()</span></code></a>, <a class="reference internal" href="#f/physicsfunctions_mod/phf_fohr8" title="f/physicsfunctions_mod/phf_fohr8"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_fohr8()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/physicsfunctions_mod/phf_tetens_coefs_switch" title="f/physicsfunctions_mod/phf_tetens_coefs_switch"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_tetens_coefs_switch()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/physicsfunctions_mod/phf_fodle8">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">physicsfunctions_mod/</span></span><span class="sig-name descname"><span class="pre">phf_fodle8</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">ttt</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/physicsfunctions_mod/phf_fodle8" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>FONCTION CALCULANT LA DERIVEE SELON T DE  LN EW (OU LN EI)</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>ttt</strong><em> [</em><em>real </em><em>]</em></p>
+</dd>
+<dt class="field-odd">Return</dt>
+<dd class="field-odd"><p><strong>phf_fodle8</strong><em> [</em><em>real </em><em>]</em></p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/physicsfunctions_mod/phf_fodqs8" title="f/physicsfunctions_mod/phf_fodqs8"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_fodqs8()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/physicsfunctions_mod/phf_tetens_coefs_switch" title="f/physicsfunctions_mod/phf_tetens_coefs_switch"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_tetens_coefs_switch()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/physicsfunctions_mod/phf_foqst8">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">physicsfunctions_mod/</span></span><span class="sig-name descname"><span class="pre">phf_foqst8</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">ttt</span></em>, <em class="sig-param"><span class="pre">prs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/physicsfunctions_mod/phf_foqst8" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>FONCTION CALCULANT L’HUMIDITE SPECIFIQUE SATURANTE (QSAT)</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>ttt</strong><em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>prs</strong><em> [</em><em>real </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Return</dt>
+<dd class="field-odd"><p><strong>phf_foqst8</strong><em> [</em><em>real </em><em>]</em></p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="humiditylimits_mod.html#f/humiditylimits_mod/qlim_saturationlimit_gsv" title="f/humiditylimits_mod/qlim_saturationlimit_gsv"><code class="xref f f-func docutils literal notranslate"><span class="pre">qlim_saturationlimit_gsv()</span></code></a>, <a class="reference internal" href="humiditylimits_mod.html#f/humiditylimits_mod/qlim_saturationlimit_ens" title="f/humiditylimits_mod/qlim_saturationlimit_ens"><code class="xref f f-func docutils literal notranslate"><span class="pre">qlim_saturationlimit_ens()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/physicsfunctions_mod/phf_foew8" title="f/physicsfunctions_mod/phf_foew8"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_foew8()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/physicsfunctions_mod/phf_fodqs8">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">physicsfunctions_mod/</span></span><span class="sig-name descname"><span class="pre">phf_fodqs8</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">qst</span></em>, <em class="sig-param"><span class="pre">ttt</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/physicsfunctions_mod/phf_fodqs8" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>FONCTION CALCULANT LA DERIVEE DE QSAT SELON T</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>qst</strong><em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>ttt</strong><em> [</em><em>real </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Return</dt>
+<dd class="field-odd"><p><strong>phf_fodqs8</strong><em> [</em><em>real </em><em>]</em></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/physicsfunctions_mod/phf_fodle8" title="f/physicsfunctions_mod/phf_fodle8"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_fodle8()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/physicsfunctions_mod/phf_foefq8">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">physicsfunctions_mod/</span></span><span class="sig-name descname"><span class="pre">phf_foefq8</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">qqq</span></em>, <em class="sig-param"><span class="pre">prs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/physicsfunctions_mod/phf_foefq8" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>FONCTION CALCULANT TENSION VAP (EEE) FN DE HUM SP (QQQ) ET PRS</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>qqq</strong><em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>prs</strong><em> [</em><em>real </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Return</dt>
+<dd class="field-odd"><p><strong>phf_foefq8</strong><em> [</em><em>real </em><em>]</em></p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="obsoperators_mod.html#f/obsoperators_mod/hutoes" title="f/obsoperators_mod/hutoes"><code class="xref f f-func docutils literal notranslate"><span class="pre">hutoes()</span></code></a>, <a class="reference internal" href="obsoperators_mod.html#f/obsoperators_mod/hutoes_tl" title="f/obsoperators_mod/hutoes_tl"><code class="xref f f-func docutils literal notranslate"><span class="pre">hutoes_tl()</span></code></a>, <a class="reference internal" href="obsoperators_mod.html#f/obsoperators_mod/hutoes_ad" title="f/obsoperators_mod/hutoes_ad"><code class="xref f f-func docutils literal notranslate"><span class="pre">hutoes_ad()</span></code></a>, <a class="reference internal" href="#f/physicsfunctions_mod/phf_fohr8" title="f/physicsfunctions_mod/phf_fohr8"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_fohr8()</span></code></a>, <a class="reference internal" href="#f/physicsfunctions_mod/phf_fohra8" title="f/physicsfunctions_mod/phf_fohra8"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_fohra8()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/physicsfunctions_mod/phf_foqfe8">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">physicsfunctions_mod/</span></span><span class="sig-name descname"><span class="pre">phf_foqfe8</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">eee</span></em>, <em class="sig-param"><span class="pre">prs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/physicsfunctions_mod/phf_foqfe8" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>FONCTION CALCULANT HUM SP (QQQ) DE TENS. VAP (EEE) ET PRES (PRS)</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>eee</strong><em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>prs</strong><em> [</em><em>real </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Return</dt>
+<dd class="field-odd"><p><strong>phf_foqfe8</strong><em> [</em><em>real </em><em>]</em></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/physicsfunctions_mod/phf_fotvt8">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">physicsfunctions_mod/</span></span><span class="sig-name descname"><span class="pre">phf_fotvt8</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">ttt</span></em>, <em class="sig-param"><span class="pre">qqq</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/physicsfunctions_mod/phf_fotvt8" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>FONCTION CALCULANT TEMP VIRT. (TVI) DE TEMP (TTT) ET HUM SP (QQQ)</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>ttt</strong><em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>qqq</strong><em> [</em><em>real </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Return</dt>
+<dd class="field-odd"><p><strong>phf_fotvt8</strong><em> [</em><em>real </em><em>]</em></p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="calcheightandpressure_mod.html#f/calcheightandpressure_mod/calcheight_gsv_nl_vcode5xxx" title="f/calcheightandpressure_mod/calcheight_gsv_nl_vcode5xxx"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcheight_gsv_nl_vcode5xxx()</span></code></a>, <a class="reference internal" href="calcheightandpressure_mod.html#f/calcheightandpressure_mod/calcpressure_gsv_nl_vcode2100x" title="f/calcheightandpressure_mod/calcpressure_gsv_nl_vcode2100x"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcpressure_gsv_nl_vcode2100x()</span></code></a>, <a class="reference internal" href="calcheightandpressure_mod.html#f/calcheightandpressure_mod/calcpressure_col_nl_vcode2100x" title="f/calcheightandpressure_mod/calcpressure_col_nl_vcode2100x"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcpressure_col_nl_vcode2100x()</span></code></a>, <a class="reference internal" href="calcheightandpressure_mod.html#f/calcheightandpressure_mod/calcheightcoeff_gsv" title="f/calcheightandpressure_mod/calcheightcoeff_gsv"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcheightcoeff_gsv()</span></code></a>, <a class="reference internal" href="calcheightandpressure_mod.html#f/calcheightandpressure_mod/calcheightcoeff_col" title="f/calcheightandpressure_mod/calcheightcoeff_col"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcheightcoeff_col()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/physicsfunctions_mod/phf_fottv8">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">physicsfunctions_mod/</span></span><span class="sig-name descname"><span class="pre">phf_fottv8</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">tvi</span></em>, <em class="sig-param"><span class="pre">qqq</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/physicsfunctions_mod/phf_fottv8" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>FONCTION CALCULANT TTT DE TEMP VIRT. (TVI) ET HUM SP (QQQ)</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>tvi</strong><em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>qqq</strong><em> [</em><em>real </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Return</dt>
+<dd class="field-odd"><p><strong>phf_fottv8</strong><em> [</em><em>real </em><em>]</em></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/physicsfunctions_mod/phf_fohr8">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">physicsfunctions_mod/</span></span><span class="sig-name descname"><span class="pre">phf_fohr8</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">qqq</span></em>, <em class="sig-param"><span class="pre">ttt</span></em>, <em class="sig-param"><span class="pre">prs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/physicsfunctions_mod/phf_fohr8" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>FONCTION CALCULANT HUM REL DE HUM SP (QQQ), TEMP (TTT) ET PRES (PRS).
+Where HR = E/ESAT</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>qqq</strong><em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>ttt</strong><em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>prs</strong><em> [</em><em>real </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Return</dt>
+<dd class="field-odd"><p><strong>phf_fohr8</strong><em> [</em><em>real </em><em>]</em></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/physicsfunctions_mod/phf_foefq8" title="f/physicsfunctions_mod/phf_foefq8"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_foefq8()</span></code></a>, <a class="reference internal" href="#f/physicsfunctions_mod/phf_foew8" title="f/physicsfunctions_mod/phf_foew8"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_foew8()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/physicsfunctions_mod/phf_foewa8">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">physicsfunctions_mod/</span></span><span class="sig-name descname"><span class="pre">phf_foewa8</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">ttt</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/physicsfunctions_mod/phf_foewa8" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>FONCTION DE VAPEUR SATURANTE (TETENS)</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>ttt</strong><em> [</em><em>real </em><em>]</em></p>
+</dd>
+<dt class="field-odd">Return</dt>
+<dd class="field-odd"><p><strong>phf_foewa8</strong><em> [</em><em>real </em><em>]</em></p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/physicsfunctions_mod/phf_foqsa8" title="f/physicsfunctions_mod/phf_foqsa8"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_foqsa8()</span></code></a>, <a class="reference internal" href="#f/physicsfunctions_mod/phf_fohra8" title="f/physicsfunctions_mod/phf_fohra8"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_fohra8()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/physicsfunctions_mod/phf_tetens_coefs_switch" title="f/physicsfunctions_mod/phf_tetens_coefs_switch"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_tetens_coefs_switch()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/physicsfunctions_mod/phf_fodla8">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">physicsfunctions_mod/</span></span><span class="sig-name descname"><span class="pre">phf_fodla8</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">ttt</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/physicsfunctions_mod/phf_fodla8" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>FONCTION CALCULANT LA DERIVEE SELON T DE LN EW</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>ttt</strong><em> [</em><em>real </em><em>]</em></p>
+</dd>
+<dt class="field-odd">Return</dt>
+<dd class="field-odd"><p><strong>phf_fodla8</strong><em> [</em><em>real </em><em>]</em></p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/physicsfunctions_mod/phf_fodqa8" title="f/physicsfunctions_mod/phf_fodqa8"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_fodqa8()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/physicsfunctions_mod/phf_tetens_coefs_switch" title="f/physicsfunctions_mod/phf_tetens_coefs_switch"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_tetens_coefs_switch()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/physicsfunctions_mod/phf_foqsa8">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">physicsfunctions_mod/</span></span><span class="sig-name descname"><span class="pre">phf_foqsa8</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">ttt</span></em>, <em class="sig-param"><span class="pre">prs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/physicsfunctions_mod/phf_foqsa8" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>FONCTION CALCULANT L’HUMIDITE SPECIFIQUE SATURANTE</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>ttt</strong><em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>prs</strong><em> [</em><em>real </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Return</dt>
+<dd class="field-odd"><p><strong>phf_foqsa8</strong><em> [</em><em>real </em><em>]</em></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/physicsfunctions_mod/phf_foewa8" title="f/physicsfunctions_mod/phf_foewa8"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_foewa8()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/physicsfunctions_mod/phf_fodqa8">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">physicsfunctions_mod/</span></span><span class="sig-name descname"><span class="pre">phf_fodqa8</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">qst</span></em>, <em class="sig-param"><span class="pre">ttt</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/physicsfunctions_mod/phf_fodqa8" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>FONCTION CALCULANT LA DERIVEE DE QSAT SELON T</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>qst</strong><em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>ttt</strong><em> [</em><em>real </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Return</dt>
+<dd class="field-odd"><p><strong>phf_fodqa8</strong><em> [</em><em>real </em><em>]</em></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/physicsfunctions_mod/phf_fodla8" title="f/physicsfunctions_mod/phf_fodla8"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_fodla8()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/physicsfunctions_mod/phf_fohra8">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">physicsfunctions_mod/</span></span><span class="sig-name descname"><span class="pre">phf_fohra8</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">qqq</span></em>, <em class="sig-param"><span class="pre">ttt</span></em>, <em class="sig-param"><span class="pre">prs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/physicsfunctions_mod/phf_fohra8" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>FONCTION CALCULANT L’HUMIDITE RELATIVE</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>qqq</strong><em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>ttt</strong><em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>prs</strong><em> [</em><em>real </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Return</dt>
+<dd class="field-odd"><p><strong>phf_fohra8</strong><em> [</em><em>real </em><em>]</em></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/physicsfunctions_mod/phf_foefq8" title="f/physicsfunctions_mod/phf_foefq8"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_foefq8()</span></code></a>, <a class="reference internal" href="#f/physicsfunctions_mod/phf_foewa8" title="f/physicsfunctions_mod/phf_foewa8"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_foewa8()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/physicsfunctions_mod/phf_fotw8">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">physicsfunctions_mod/</span></span><span class="sig-name descname"><span class="pre">phf_fotw8</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">eee</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/physicsfunctions_mod/phf_fotw8" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>FONCTION DE LA TEMPERATURE EN FONCTION DE LA TENSION DE VAPEUR
+SATURANTE PAR RAPPORT A EW.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>eee</strong><em> [</em><em>real </em><em>]</em></p>
+</dd>
+<dt class="field-odd">Return</dt>
+<dd class="field-odd"><p><strong>phf_fotw8</strong><em> [</em><em>real </em><em>]</em></p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="obsoperators_mod.html#f/obsoperators_mod/hutoes" title="f/obsoperators_mod/hutoes"><code class="xref f f-func docutils literal notranslate"><span class="pre">hutoes()</span></code></a>, <a class="reference internal" href="obsoperators_mod.html#f/obsoperators_mod/hutoes_tl" title="f/obsoperators_mod/hutoes_tl"><code class="xref f f-func docutils literal notranslate"><span class="pre">hutoes_tl()</span></code></a>, <a class="reference internal" href="obsoperators_mod.html#f/obsoperators_mod/hutoes_ad" title="f/obsoperators_mod/hutoes_ad"><code class="xref f f-func docutils literal notranslate"><span class="pre">hutoes_ad()</span></code></a>, <a class="reference internal" href="#f/physicsfunctions_mod/phf_fotwi8" title="f/physicsfunctions_mod/phf_fotwi8"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_fotwi8()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/physicsfunctions_mod/phf_tetens_coefs_switch" title="f/physicsfunctions_mod/phf_tetens_coefs_switch"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_tetens_coefs_switch()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/physicsfunctions_mod/phf_foti8">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">physicsfunctions_mod/</span></span><span class="sig-name descname"><span class="pre">phf_foti8</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">eee</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/physicsfunctions_mod/phf_foti8" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>FONCTION DE LA TEMPERATURE EN FONCTION DE LA TENSION DE VAPEUR
+SATURANTE PAR RAPPORT A EI.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>eee</strong><em> [</em><em>real </em><em>]</em></p>
+</dd>
+<dt class="field-odd">Return</dt>
+<dd class="field-odd"><p><strong>phf_foti8</strong><em> [</em><em>real </em><em>]</em></p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/physicsfunctions_mod/phf_fotwi8" title="f/physicsfunctions_mod/phf_fotwi8"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_fotwi8()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/physicsfunctions_mod/phf_tetens_coefs_switch" title="f/physicsfunctions_mod/phf_tetens_coefs_switch"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_tetens_coefs_switch()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/physicsfunctions_mod/phf_fodtw8">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">physicsfunctions_mod/</span></span><span class="sig-name descname"><span class="pre">phf_fodtw8</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">ttt</span></em>, <em class="sig-param"><span class="pre">eee</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/physicsfunctions_mod/phf_fodtw8" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>FONCTION DE LA DERIVE DE LA TEMPERATURE EN FONCTION DE LA TENSION DE
+VAPEUR SATURANTE (EW).</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>ttt</strong><em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>eee</strong><em> [</em><em>real </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Return</dt>
+<dd class="field-odd"><p><strong>phf_fodtw8</strong><em> [</em><em>real </em><em>]</em></p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="obsoperators_mod.html#f/obsoperators_mod/hutoes_tl" title="f/obsoperators_mod/hutoes_tl"><code class="xref f f-func docutils literal notranslate"><span class="pre">hutoes_tl()</span></code></a>, <a class="reference internal" href="obsoperators_mod.html#f/obsoperators_mod/hutoes_ad" title="f/obsoperators_mod/hutoes_ad"><code class="xref f f-func docutils literal notranslate"><span class="pre">hutoes_ad()</span></code></a>, <a class="reference internal" href="#f/physicsfunctions_mod/phf_fodtwi8" title="f/physicsfunctions_mod/phf_fodtwi8"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_fodtwi8()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/physicsfunctions_mod/phf_tetens_coefs_switch" title="f/physicsfunctions_mod/phf_tetens_coefs_switch"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_tetens_coefs_switch()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/physicsfunctions_mod/phf_fodti8">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">physicsfunctions_mod/</span></span><span class="sig-name descname"><span class="pre">phf_fodti8</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">ttt</span></em>, <em class="sig-param"><span class="pre">eee</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/physicsfunctions_mod/phf_fodti8" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>FONCTION DE LA DERIVE DE LA TEMPERATURE EN FONCTION DE LA TENSION DE
+VAPEUR SATURANTE (EI).</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>ttt</strong><em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>eee</strong><em> [</em><em>real </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Return</dt>
+<dd class="field-odd"><p><strong>phf_fodti8</strong><em> [</em><em>real </em><em>]</em></p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/physicsfunctions_mod/phf_fodtwi8" title="f/physicsfunctions_mod/phf_fodtwi8"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_fodtwi8()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/physicsfunctions_mod/phf_tetens_coefs_switch" title="f/physicsfunctions_mod/phf_tetens_coefs_switch"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_tetens_coefs_switch()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/physicsfunctions_mod/phf_fotwi8">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">physicsfunctions_mod/</span></span><span class="sig-name descname"><span class="pre">phf_fotwi8</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">ttt</span></em>, <em class="sig-param"><span class="pre">eee</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/physicsfunctions_mod/phf_fotwi8" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>FONCTION DE L’AJUSTEMENT DE LA TEMPERATURE.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>ttt</strong><em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>eee</strong><em> [</em><em>real </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Return</dt>
+<dd class="field-odd"><p><strong>phf_fotwi8</strong><em> [</em><em>real </em><em>]</em></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/physicsfunctions_mod/phf_fotw8" title="f/physicsfunctions_mod/phf_fotw8"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_fotw8()</span></code></a>, <a class="reference internal" href="#f/physicsfunctions_mod/phf_foti8" title="f/physicsfunctions_mod/phf_foti8"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_foti8()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/physicsfunctions_mod/phf_fodtwi8">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">physicsfunctions_mod/</span></span><span class="sig-name descname"><span class="pre">phf_fodtwi8</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">ttt</span></em>, <em class="sig-param"><span class="pre">eee</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/physicsfunctions_mod/phf_fodtwi8" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>FONCTION DE L’AJUSTEMENT DE LA DERIVEE DE LA TEMPERATURE.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>ttt</strong><em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>eee</strong><em> [</em><em>real </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Return</dt>
+<dd class="field-odd"><p><strong>phf_fodtwi8</strong><em> [</em><em>real </em><em>]</em></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/physicsfunctions_mod/phf_fodtw8" title="f/physicsfunctions_mod/phf_fodtw8"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_fodtw8()</span></code></a>, <a class="reference internal" href="#f/physicsfunctions_mod/phf_fodti8" title="f/physicsfunctions_mod/phf_fodti8"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_fodti8()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/physicsfunctions_mod/phf_foew8_cmam">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">physicsfunctions_mod/</span></span><span class="sig-name descname"><span class="pre">phf_foew8_cmam</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">ttt</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/physicsfunctions_mod/phf_foew8_cmam" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>FONCTION DE TENSION DE VAPEUR SATURANTE - EW</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>ttt</strong><em> [</em><em>real </em><em>]</em></p>
+</dd>
+<dt class="field-odd">Return</dt>
+<dd class="field-odd"><p><strong>phf_foew8_cmam</strong><em> [</em><em>real </em><em>]</em></p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/physicsfunctions_mod/phf_foewi8_cmam" title="f/physicsfunctions_mod/phf_foewi8_cmam"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_foewi8_cmam()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/physicsfunctions_mod/phf_foei8_cmam">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">physicsfunctions_mod/</span></span><span class="sig-name descname"><span class="pre">phf_foei8_cmam</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">ttt</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/physicsfunctions_mod/phf_foei8_cmam" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>FONCTION DE TENSION DE VAPEUR SATURANTE - EI</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>ttt</strong><em> [</em><em>real </em><em>]</em></p>
+</dd>
+<dt class="field-odd">Return</dt>
+<dd class="field-odd"><p><strong>phf_foei8_cmam</strong><em> [</em><em>real </em><em>]</em></p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/physicsfunctions_mod/phf_foewi8_cmam" title="f/physicsfunctions_mod/phf_foewi8_cmam"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_foewi8_cmam()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/physicsfunctions_mod/phf_foerat8_cmam">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">physicsfunctions_mod/</span></span><span class="sig-name descname"><span class="pre">phf_foerat8_cmam</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">ttt</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/physicsfunctions_mod/phf_foerat8_cmam" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>FONCTION DE LA PROPORTION DE LA CONTRIBUTION DE EW VS EI</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>ttt</strong><em> [</em><em>real </em><em>]</em></p>
+</dd>
+<dt class="field-odd">Return</dt>
+<dd class="field-odd"><p><strong>phf_foerat8_cmam</strong><em> [</em><em>real </em><em>]</em></p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/physicsfunctions_mod/phf_foewi8_cmam" title="f/physicsfunctions_mod/phf_foewi8_cmam"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_foewi8_cmam()</span></code></a>, <a class="reference internal" href="#f/physicsfunctions_mod/phf_fodle8_cmam" title="f/physicsfunctions_mod/phf_fodle8_cmam"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_fodle8_cmam()</span></code></a>, <a class="reference internal" href="#f/physicsfunctions_mod/phf_fotwi8_cmam" title="f/physicsfunctions_mod/phf_fotwi8_cmam"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_fotwi8_cmam()</span></code></a>, <a class="reference internal" href="#f/physicsfunctions_mod/phf_fodtwi8_cmam" title="f/physicsfunctions_mod/phf_fodtwi8_cmam"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_fodtwi8_cmam()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/physicsfunctions_mod/phf_foewi8_cmam">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">physicsfunctions_mod/</span></span><span class="sig-name descname"><span class="pre">phf_foewi8_cmam</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">ttt</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/physicsfunctions_mod/phf_foewi8_cmam" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>FONCTION DE TENSION DE VAPEUR SATURANTE RESULTANTE - EW et EI</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>ttt</strong><em> [</em><em>real </em><em>]</em></p>
+</dd>
+<dt class="field-odd">Return</dt>
+<dd class="field-odd"><p><strong>phf_foewi8_cmam</strong><em> [</em><em>real </em><em>]</em></p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/physicsfunctions_mod/phf_foqst8_cmam" title="f/physicsfunctions_mod/phf_foqst8_cmam"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_foqst8_cmam()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/physicsfunctions_mod/phf_foew8_cmam" title="f/physicsfunctions_mod/phf_foew8_cmam"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_foew8_cmam()</span></code></a>, <a class="reference internal" href="#f/physicsfunctions_mod/phf_foerat8_cmam" title="f/physicsfunctions_mod/phf_foerat8_cmam"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_foerat8_cmam()</span></code></a>, <a class="reference internal" href="#f/physicsfunctions_mod/phf_foei8_cmam" title="f/physicsfunctions_mod/phf_foei8_cmam"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_foei8_cmam()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/physicsfunctions_mod/phf_fodle8_cmam">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">physicsfunctions_mod/</span></span><span class="sig-name descname"><span class="pre">phf_fodle8_cmam</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">ttt</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/physicsfunctions_mod/phf_fodle8_cmam" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>FONCTION DE LA DERIVE DE LN(E) PAR RAPPORT A LA TEMPERATURE</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>ttt</strong><em> [</em><em>real </em><em>]</em></p>
+</dd>
+<dt class="field-odd">Return</dt>
+<dd class="field-odd"><p><strong>phf_fodle8_cmam</strong><em> [</em><em>real </em><em>]</em></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/physicsfunctions_mod/phf_foerat8_cmam" title="f/physicsfunctions_mod/phf_foerat8_cmam"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_foerat8_cmam()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/physicsfunctions_mod/phf_foqst8_cmam">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">physicsfunctions_mod/</span></span><span class="sig-name descname"><span class="pre">phf_foqst8_cmam</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">ttt</span></em>, <em class="sig-param"><span class="pre">prs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/physicsfunctions_mod/phf_foqst8_cmam" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>FONCTION CALCULANT L’HUMIDITE SPECIFIQUE SATURANTE (QSAT).
+PREND EN COMPTE LES PHASES GLACE ET EAU.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>ttt</strong><em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>prs</strong><em> [</em><em>real </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Return</dt>
+<dd class="field-odd"><p><strong>phf_foqst8_cmam</strong><em> [</em><em>real </em><em>]</em></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/physicsfunctions_mod/phf_foewi8_cmam" title="f/physicsfunctions_mod/phf_foewi8_cmam"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_foewi8_cmam()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/physicsfunctions_mod/phf_fotw8_cmam">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">physicsfunctions_mod/</span></span><span class="sig-name descname"><span class="pre">phf_fotw8_cmam</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">eee</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/physicsfunctions_mod/phf_fotw8_cmam" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>FONCTION DE LA TEMPERATURE EN FONCTION DE LA TENSION DE VAPEUR
+SATURANTE PAR RAPPORT A EW.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>eee</strong><em> [</em><em>real </em><em>]</em></p>
+</dd>
+<dt class="field-odd">Return</dt>
+<dd class="field-odd"><p><strong>phf_fotw8_cmam</strong><em> [</em><em>real </em><em>]</em></p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/physicsfunctions_mod/phf_fotwi8_cmam" title="f/physicsfunctions_mod/phf_fotwi8_cmam"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_fotwi8_cmam()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/physicsfunctions_mod/phf_foti8_cmam">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">physicsfunctions_mod/</span></span><span class="sig-name descname"><span class="pre">phf_foti8_cmam</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">eee</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/physicsfunctions_mod/phf_foti8_cmam" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>FONCTION DE LA TEMPERATURE EN FONCTION DE LA TENSION DE VAPEUR
+SATURANTE PAR RAPPORT A EI.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>eee</strong><em> [</em><em>real </em><em>]</em></p>
+</dd>
+<dt class="field-odd">Return</dt>
+<dd class="field-odd"><p><strong>phf_foti8_cmam</strong><em> [</em><em>real </em><em>]</em></p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/physicsfunctions_mod/phf_fotwi8_cmam" title="f/physicsfunctions_mod/phf_fotwi8_cmam"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_fotwi8_cmam()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/physicsfunctions_mod/phf_fodtw8_cmam">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">physicsfunctions_mod/</span></span><span class="sig-name descname"><span class="pre">phf_fodtw8_cmam</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">ttt</span></em>, <em class="sig-param"><span class="pre">eee</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/physicsfunctions_mod/phf_fodtw8_cmam" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>FONCTION DE LA DERIVE DE LA TEMPERATURE EN FONCTION DE LA TENSION DE
+VAPEUR SATURANTE (EW).</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>ttt</strong><em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>eee</strong><em> [</em><em>real </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Return</dt>
+<dd class="field-odd"><p><strong>phf_fodtw8_cmam</strong><em> [</em><em>real </em><em>]</em></p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/physicsfunctions_mod/phf_fodtwi8_cmam" title="f/physicsfunctions_mod/phf_fodtwi8_cmam"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_fodtwi8_cmam()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/physicsfunctions_mod/phf_fodti8_cmam">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">physicsfunctions_mod/</span></span><span class="sig-name descname"><span class="pre">phf_fodti8_cmam</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">ttt</span></em>, <em class="sig-param"><span class="pre">eee</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/physicsfunctions_mod/phf_fodti8_cmam" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>FONCTION DE LA DERIVE DE LA TEMPERATURE EN FONCTION DE LA TENSION DE
+VAPEUR SATURANTE (EI).</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>ttt</strong><em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>eee</strong><em> [</em><em>real </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Return</dt>
+<dd class="field-odd"><p><strong>phf_fodti8_cmam</strong><em> [</em><em>real </em><em>]</em></p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/physicsfunctions_mod/phf_fodtwi8_cmam" title="f/physicsfunctions_mod/phf_fodtwi8_cmam"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_fodtwi8_cmam()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/physicsfunctions_mod/phf_fotwi8_cmam">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">physicsfunctions_mod/</span></span><span class="sig-name descname"><span class="pre">phf_fotwi8_cmam</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">ttt</span></em>, <em class="sig-param"><span class="pre">eee</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/physicsfunctions_mod/phf_fotwi8_cmam" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>FONCTION DE L’AJUSTEMENT DE LA TEMPERATURE.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>ttt</strong><em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>eee</strong><em> [</em><em>real </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Return</dt>
+<dd class="field-odd"><p><strong>phf_fotwi8_cmam</strong><em> [</em><em>real </em><em>]</em></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/physicsfunctions_mod/phf_foerat8_cmam" title="f/physicsfunctions_mod/phf_foerat8_cmam"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_foerat8_cmam()</span></code></a>, <a class="reference internal" href="#f/physicsfunctions_mod/phf_fotw8_cmam" title="f/physicsfunctions_mod/phf_fotw8_cmam"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_fotw8_cmam()</span></code></a>, <a class="reference internal" href="#f/physicsfunctions_mod/phf_foti8_cmam" title="f/physicsfunctions_mod/phf_foti8_cmam"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_foti8_cmam()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/physicsfunctions_mod/phf_fodtwi8_cmam">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">physicsfunctions_mod/</span></span><span class="sig-name descname"><span class="pre">phf_fodtwi8_cmam</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">ttt</span></em>, <em class="sig-param"><span class="pre">eee</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/physicsfunctions_mod/phf_fodtwi8_cmam" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>FONCTION DE L’AJUSTEMENT DE LA DERIVEE DE LA TEMPERATURE.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>ttt</strong><em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>eee</strong><em> [</em><em>real </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Return</dt>
+<dd class="field-odd"><p><strong>phf_fodtwi8_cmam</strong><em> [</em><em>real </em><em>]</em></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/physicsfunctions_mod/phf_foerat8_cmam" title="f/physicsfunctions_mod/phf_foerat8_cmam"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_foerat8_cmam()</span></code></a>, <a class="reference internal" href="#f/physicsfunctions_mod/phf_fodtw8_cmam" title="f/physicsfunctions_mod/phf_fodtw8_cmam"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_fodtw8_cmam()</span></code></a>, <a class="reference internal" href="#f/physicsfunctions_mod/phf_fodti8_cmam" title="f/physicsfunctions_mod/phf_fodti8_cmam"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_fodti8_cmam()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/physicsfunctions_mod/phf_fqbranch">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">physicsfunctions_mod/</span></span><span class="sig-name descname"><span class="pre">phf_fqbranch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">qqq</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/physicsfunctions_mod/phf_fqbranch" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>function returning 0/1 depending on the minimum q branch condition
+as discussed by Brunet (1996) to prevent getting a vapour pressure that exceeds
+the total pressure p when q exceeds 1.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>qqq</strong><em> [</em><em>real </em><em>]</em></p>
+</dd>
+<dt class="field-odd">Return</dt>
+<dd class="field-odd"><p><strong>phf_fqbranch</strong><em> [</em><em>real </em><em>]</em></p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="obsoperators_mod.html#f/obsoperators_mod/hutoes_tl" title="f/obsoperators_mod/hutoes_tl"><code class="xref f f-func docutils literal notranslate"><span class="pre">hutoes_tl()</span></code></a>, <a class="reference internal" href="obsoperators_mod.html#f/obsoperators_mod/hutoes_ad" title="f/obsoperators_mod/hutoes_ad"><code class="xref f f-func docutils literal notranslate"><span class="pre">hutoes_ad()</span></code></a>, <a class="reference internal" href="#f/physicsfunctions_mod/phf_foefql" title="f/physicsfunctions_mod/phf_foefql"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_foefql()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/physicsfunctions_mod/phf_foefql">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">physicsfunctions_mod/</span></span><span class="sig-name descname"><span class="pre">phf_foefql</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">qql</span></em>, <em class="sig-param"><span class="pre">prsl</span></em>, <em class="sig-param"><span class="pre">qqq</span></em>, <em class="sig-param"><span class="pre">prs</span></em>, <em class="sig-param"><span class="pre">pneta</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/physicsfunctions_mod/phf_foefql" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>TLM  OF FUNCTION CALCULATING VAPOUR PRESSURE</p>
+<p>INPUTS:</p>
+<ul class="simple">
+<li><p>QQL ,  PERTURBATION OF LN SPECIFIC HUM</p></li>
+<li><p>PRSL ,   PERTURBATION OF SURFACE PRESSURE</p></li>
+<li><p>QQQ   ,  SPECIFIC HUMIDITY</p></li>
+<li><p>PRS   , PRESSURE</p></li>
+<li><p>PNETA   , VALUE OF ETA LEVEL</p></li>
+</ul>
+<p>OUTPUT:</p>
+<ul class="simple">
+<li><p>FOEFQL,  PERTURBATION  OF VAPOUR PRESSURE</p></li>
+</ul>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>qql</strong><em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>prsl</strong><em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>qqq</strong><em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>prs</strong><em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>pneta</strong><em> [</em><em>real </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Return</dt>
+<dd class="field-odd"><p><strong>phf_foefql</strong><em> [</em><em>real </em><em>]</em></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/physicsfunctions_mod/phf_fqbranch" title="f/physicsfunctions_mod/phf_fqbranch"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_fqbranch()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/physicsfunctions_mod/phf_fotvvl">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">physicsfunctions_mod/</span></span><span class="sig-name descname"><span class="pre">phf_fotvvl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">qqq</span></em>, <em class="sig-param"><span class="pre">ttt</span></em>, <em class="sig-param"><span class="pre">ttl</span></em>, <em class="sig-param"><span class="pre">plnql</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/physicsfunctions_mod/phf_fotvvl" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Tangent-linear operator of virtual temperature</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>qqq</strong><em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>ttt</strong><em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>ttl</strong><em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>plnql</strong><em> [</em><em>real </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Return</dt>
+<dd class="field-odd"><p><strong>phf_fotvvl</strong><em> [</em><em>real </em><em>]</em></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/physicsfunctions_mod/phf_foefqa">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">physicsfunctions_mod/</span></span><span class="sig-name descname"><span class="pre">phf_foefqa</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">pades</span></em>, <em class="sig-param"><span class="pre">pgamma</span></em>, <em class="sig-param"><span class="pre">qqq</span></em>, <em class="sig-param"><span class="pre">prs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/physicsfunctions_mod/phf_foefqa" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>ADJOINT OF LN SPECIFIC  HUM (QQQ) DUE TO DEWPOINT DEPRESSION CORRECTIONS</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>pades</strong><em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>pgamma</strong><em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>qqq</strong><em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>prs</strong><em> [</em><em>real </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Return</dt>
+<dd class="field-odd"><p><strong>phf_foefqa</strong><em> [</em><em>real </em><em>]</em></p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="obsoperators_mod.html#f/obsoperators_mod/hutoes_tl" title="f/obsoperators_mod/hutoes_tl"><code class="xref f f-func docutils literal notranslate"><span class="pre">hutoes_tl()</span></code></a>, <a class="reference internal" href="obsoperators_mod.html#f/obsoperators_mod/hutoes_ad" title="f/obsoperators_mod/hutoes_ad"><code class="xref f f-func docutils literal notranslate"><span class="pre">hutoes_ad()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/physicsfunctions_mod/phf_foefqpsa">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">physicsfunctions_mod/</span></span><span class="sig-name descname"><span class="pre">phf_foefqpsa</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">pades</span></em>, <em class="sig-param"><span class="pre">pgamma</span></em>, <em class="sig-param"><span class="pre">qqq</span></em>, <em class="sig-param"><span class="pre">pneta</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/physicsfunctions_mod/phf_foefqpsa" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>ADJOINT OF SURFACE PRESSURE  DUE TO DEWPOINT DEPRESSION CORRECTIONS</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>pades</strong><em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>pgamma</strong><em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>qqq</strong><em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>pneta</strong><em> [</em><em>real </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Return</dt>
+<dd class="field-odd"><p><strong>phf_foefqpsa</strong><em> [</em><em>real </em><em>]</em></p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="obsoperators_mod.html#f/obsoperators_mod/hutoes_tl" title="f/obsoperators_mod/hutoes_tl"><code class="xref f f-func docutils literal notranslate"><span class="pre">hutoes_tl()</span></code></a>, <a class="reference internal" href="obsoperators_mod.html#f/obsoperators_mod/hutoes_ad" title="f/obsoperators_mod/hutoes_ad"><code class="xref f f-func docutils literal notranslate"><span class="pre">hutoes_ad()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/physicsfunctions_mod/phf_fottva">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">physicsfunctions_mod/</span></span><span class="sig-name descname"><span class="pre">phf_fottva</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">qqq</span></em>, <em class="sig-param"><span class="pre">tva</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/physicsfunctions_mod/phf_fottva" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Adjoint of temperature due to virtual temperature correction</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>qqq</strong><em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>tva</strong><em> [</em><em>real </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Return</dt>
+<dd class="field-odd"><p><strong>phf_fottva</strong><em> [</em><em>real </em><em>]</em></p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="calcheightandpressure_mod.html#f/calcheightandpressure_mod/calcheightcoeff_gsv" title="f/calcheightandpressure_mod/calcheightcoeff_gsv"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcheightcoeff_gsv()</span></code></a>, <a class="reference internal" href="calcheightandpressure_mod.html#f/calcheightandpressure_mod/calcheightcoeff_col" title="f/calcheightandpressure_mod/calcheightcoeff_col"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcheightcoeff_col()</span></code></a>, <a class="reference internal" href="obsoperators_mod.html#f/obsoperators_mod/oop_htl" title="f/obsoperators_mod/oop_htl"><code class="xref f f-func docutils literal notranslate"><span class="pre">oop_htl()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/physicsfunctions_mod/phf_folnqva">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">physicsfunctions_mod/</span></span><span class="sig-name descname"><span class="pre">phf_folnqva</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">qqq</span></em>, <em class="sig-param"><span class="pre">ttt</span></em>, <em class="sig-param"><span class="pre">tva</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/physicsfunctions_mod/phf_folnqva" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Adjoint of logarithm of specific humidity due to virtual temperature correction</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>qqq</strong><em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>ttt</strong><em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>tva</strong><em> [</em><em>real </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Return</dt>
+<dd class="field-odd"><p><strong>phf_folnqva</strong><em> [</em><em>real </em><em>]</em></p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="calcheightandpressure_mod.html#f/calcheightandpressure_mod/calcheightcoeff_gsv" title="f/calcheightandpressure_mod/calcheightcoeff_gsv"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcheightcoeff_gsv()</span></code></a>, <a class="reference internal" href="calcheightandpressure_mod.html#f/calcheightandpressure_mod/calcheightcoeff_col" title="f/calcheightandpressure_mod/calcheightcoeff_col"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcheightcoeff_col()</span></code></a>, <a class="reference internal" href="obsoperators_mod.html#f/obsoperators_mod/oop_htl" title="f/obsoperators_mod/oop_htl"><code class="xref f f-func docutils literal notranslate"><span class="pre">oop_htl()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/physicsfunctions_mod/phf_convert_z_to_pressure">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">physicsfunctions_mod/</span></span><span class="sig-name descname"><span class="pre">phf_convert_z_to_pressure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">altitude</span></em>, <em class="sig-param"><span class="pre">rgz_mod</span></em>, <em class="sig-param"><span class="pre">press_mod</span></em>, <em class="sig-param"><span class="pre">nlev</span></em>, <em class="sig-param"><span class="pre">nlev_mod</span></em>, <em class="sig-param"><span class="pre">lat</span></em>, <em class="sig-param"><span class="pre">success</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/physicsfunctions_mod/phf_convert_z_to_pressure" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Converts an array of (geometric) altitudes to pressures. Uses linear interpolation
+in log(p).</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>altitude</strong> (nlev)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: altitudes to convert to pressures (m)</p></li>
+<li><p><strong>rgz_mod</strong> (nlev_mod)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: geopotential heights on model levels (m), assumed to be in decending order</p></li>
+<li><p><strong>press_mod</strong> (nlev_mod)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: pressure on model levels, assumed to be in ascending order</p></li>
+<li><p><strong>nlev</strong><em> [</em><em>integer </em><em>,</em><em>in,</em><em>]</em> :: length of altitude array</p></li>
+<li><p><strong>nlev_mod</strong><em> [</em><em>integer </em><em>,</em><em>in,</em><em>]</em> :: number of model levels</p></li>
+<li><p><strong>lat</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: latitude (rad)</p></li>
+<li><p><strong>success</strong> (nlev)<em> [</em><em>logical </em><em>,</em><em>inout</em><em>]</em> :: flag indicating success</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Return</dt>
+<dd class="field-odd"><p><strong>press</strong> (nlev)<em> [</em><em>real </em><em>]</em> :: converted pressures</p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="obsspacediag_mod.html#f/obsspacediag_mod/osd_obsdiagnostics" title="f/obsspacediag_mod/osd_obsdiagnostics"><code class="xref f f-func docutils literal notranslate"><span class="pre">osd_obsdiagnostics()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="#f/physicsfunctions_mod/phf_convert_z_to_gz" title="f/physicsfunctions_mod/phf_convert_z_to_gz"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_convert_z_to_gz()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/physicsfunctions_mod/phf_convert_z_to_gz">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">physicsfunctions_mod/</span></span><span class="sig-name descname"><span class="pre">phf_convert_z_to_gz</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">altitude</span></em>, <em class="sig-param"><span class="pre">lat</span></em>, <em class="sig-param"><span class="pre">nlev</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/physicsfunctions_mod/phf_convert_z_to_gz" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Converts altitudes to geopotential heights. Uses the Helmert formula to
+parameterize the latitude dependence and uses analytical result of the
+integral of int g(z)dz for the altitude dependence (see J.A. Dutton 1976,
+p.65). At an altitude of 50 km, the altitude and geopotential height
+differ by around 0.2-0.5 km, depending on the latitude.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>altitude</strong> (nlev)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: altitudes (m)</p></li>
+<li><p><strong>lat</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: latitude (rad)</p></li>
+<li><p><strong>nlev</strong><em> [</em><em>integer </em><em>,</em><em>in,</em><em>]</em> :: number of levels</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Return</dt>
+<dd class="field-odd"><p><strong>rgz</strong> (nlev)<em> [</em><em>real </em><em>]</em> :: geopotential heights (m)</p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/physicsfunctions_mod/phf_convert_z_to_pressure" title="f/physicsfunctions_mod/phf_convert_z_to_pressure"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_convert_z_to_pressure()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/physicsfunctions_mod/phf_get_tropopause">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">physicsfunctions_mod/</span></span><span class="sig-name descname"><span class="pre">phf_get_tropopause</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">nmodlev</span></em>, <em class="sig-param"><span class="pre">pressmod</span></em>, <em class="sig-param"><span class="pre">tt</span></em>, <em class="sig-param"><span class="pre">height</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">hu_opt</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/physicsfunctions_mod/phf_get_tropopause" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Determines pressure level of tropopause.
+Final tropopause is taken as max pressure (lowest altitude) from the
+water vapour and temperature based tropopauses.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>nmodlev</strong><em> [</em><em>integer </em><em>,</em><em>in,</em><em>]</em> :: Number of model levels</p></li>
+<li><p><strong>pressmod</strong> (nmodlev)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: Model pressure array (Pa)</p></li>
+<li><p><strong>tt</strong> (nmodlev)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: Model temperature (Kelvin)</p></li>
+<li><p><strong>height</strong> (nmodlev)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: Model height (m)</p></li>
+<li><p><strong>hu_opt</strong> (nmodlev)<em> [</em><em>real </em><em>,</em><em>in,</em><em>]</em> :: Model specific humidity</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Return</dt>
+<dd class="field-odd"><p><strong>tropo_press</strong><em> [</em><em>real </em><em>]</em> :: Tropopause level in Pa (output)</p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/physicsfunctions_mod/phf_get_pbl">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">physicsfunctions_mod/</span></span><span class="sig-name descname"><span class="pre">phf_get_pbl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">nmodlev</span></em>, <em class="sig-param"><span class="pre">pressmod</span></em>, <em class="sig-param"><span class="pre">tt</span></em>, <em class="sig-param"><span class="pre">height</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">hu_opt</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">uu_opt</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">vv_opt</span></em><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/physicsfunctions_mod/phf_get_pbl" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Determines pressure level of planetary boundary layer using
+a first threshold of 0.5 for the bulk Richadson number (after Mahrt, 1981;
+requires availability of uu and vv). Threshold reduced to largest value
+between 0.25 and 0.5 if first not satisfied.</p>
+<p>If not found with this approach, applies a variant of the Heffter approach
+described in Aliabadi et al (2016), with some local variation.</p>
+<p>References:</p>
+<ul class="simple">
+<li><p>Aliabadi A.A., R.M. Staebler, J. de Grandpre, A. Zadra, and P.A.
+Vaillancourt, 2016: Comparison of Estimated Atmospheric
+Boundary Layer Mixing Height in teh Arctic and Southern Great
+Plains under Statisticallt Stable Conditions: Experimental
+and Numerical Aspects, Submitted to Atmosphere-Ocean (2015).</p></li>
+<li><p>Mahrt, L. 1981: Modelling depth of the stable boundary-layer,
+Bound-Lay. Meteorol., 21, 3-19</p></li>
+<li><p>Heffter, J.L.,1980: Transport layer depth calculations, Second
+Joint Conference on Applications of Air Pollution Meteorology,
+New Orleans, LA, 24-27 March 1980. American Meteorological
+Society, Boston, MA.</p></li>
+</ul>
+<p>Comments: Currently assumes (uu,vv) midlayer levels approximately
+at tt, height, and hu levels when size(uu).ne.nmodlev.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>nmodlev</strong><em> [</em><em>integer </em><em>,</em><em>in,</em><em>]</em> :: Number of model levels for variables other than uu and vv</p></li>
+<li><p><strong>pressmod</strong> (nmodlev)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: Model pressure array (Pa)</p></li>
+<li><p><strong>tt</strong> (nmodlev)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: Model temperature (Kelvin)</p></li>
+<li><p><strong>height</strong> (nmodlev)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: Model height (meters)</p></li>
+<li><p><strong>hu_opt</strong> (nmodlev)<em> [</em><em>real </em><em>]</em> :: Specific humidity</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Options</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>uu_opt</strong> (*)<em> [</em><em>real </em><em>]</em> :: Model zonal wind component (m/s)</p></li>
+<li><p><strong>vv_opt</strong> (*)<em> [</em><em>real </em><em>]</em> :: Model meridional wind component (m/s)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return</dt>
+<dd class="field-even"><p><strong>pbl_press</strong><em> [</em><em>real </em><em>]</em> :: PBL level in Pa (output)</p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/physicsfunctions_mod/phf_calcdistance">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">physicsfunctions_mod/</span></span><span class="sig-name descname"><span class="pre">phf_calcdistance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">lat2</span></em>, <em class="sig-param"><span class="pre">lon2</span></em>, <em class="sig-param"><span class="pre">lat1</span></em>, <em class="sig-param"><span class="pre">lon1</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/physicsfunctions_mod/phf_calcdistance" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Compute the distance between two point on earth: (lat1,lon1)
+and (lat2,lon2). Calcul utilisant la Formule d’Haversine.</p>
+<p>Reference: R.W. Sinnott,’Virtues of Haversine’,Sky and
+Telescope, vol.68, no.2, 1984, p.159)</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>lat2</strong><em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>lon2</strong><em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>lat1</strong><em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>lon1</strong><em> [</em><em>real </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Return</dt>
+<dd class="field-odd"><p><strong>distanceinm</strong><em> [</em><em>real </em><em>]</em></p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="analysiserroroi_mod.html#f/analysiserroroi_mod/aer_analysiserror" title="f/analysiserroroi_mod/aer_analysiserror"><code class="xref f f-func docutils literal notranslate"><span class="pre">aer_analysiserror()</span></code></a>, <a class="reference internal" href="bmatrixdiff_mod.html#f/bmatrixdiff_mod/bdiff_setup" title="f/bmatrixdiff_mod/bdiff_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">bdiff_setup()</span></code></a>, <a class="reference internal" href="getgridposition_mod.html#f/getgridposition_mod/gpos_xyfll_unstructgrid" title="f/getgridposition_mod/gpos_xyfll_unstructgrid"><code class="xref f f-func docutils literal notranslate"><span class="pre">gpos_xyfll_unstructgrid()</span></code></a>, <a class="reference internal" href="horizontalcoord_mod.html#f/horizontalcoord_mod/hco_weight" title="f/horizontalcoord_mod/hco_weight"><code class="xref f f-func docutils literal notranslate"><span class="pre">hco_weight()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/physicsfunctions_mod/phf_calcdistancefast">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">physicsfunctions_mod/</span></span><span class="sig-name descname"><span class="pre">phf_calcdistancefast</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">lat2</span></em>, <em class="sig-param"><span class="pre">lon2</span></em>, <em class="sig-param"><span class="pre">lat1</span></em>, <em class="sig-param"><span class="pre">lon1</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/physicsfunctions_mod/phf_calcdistancefast" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Compute the distance between two point on earth: (lat1,lon1)
+and (lat2,lon2). Using a quick and dirty formula good for
+short distances not close to the pole.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>lat2</strong><em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>lon2</strong><em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>lat1</strong><em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>lon1</strong><em> [</em><em>real </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Return</dt>
+<dd class="field-odd"><p><strong>distanceinm</strong><em> [</em><em>real </em><em>]</em></p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_smoothhorizontal" title="f/gridstatevector_mod/gsv_smoothhorizontal"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_smoothhorizontal()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/physicsfunctions_mod/phf_gravitysrf">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">physicsfunctions_mod/</span></span><span class="sig-name descname"><span class="pre">phf_gravitysrf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">slat</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/physicsfunctions_mod/phf_gravitysrf" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Normal gravity on ellipsoidal surface</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>slat</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: sin of latitude</p>
+</dd>
+<dt class="field-odd">Return</dt>
+<dd class="field-odd"><p><strong>phf_gravitysrf</strong><em> [</em><em>real </em><em>]</em> :: normal gravity (m/s2)</p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/physicsfunctions_mod/phf_gravityalt" title="f/physicsfunctions_mod/phf_gravityalt"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_gravityalt()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/physicsfunctions_mod/phf_gravityalt">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">physicsfunctions_mod/</span></span><span class="sig-name descname"><span class="pre">phf_gravityalt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">slat</span></em>, <em class="sig-param"><span class="pre">altitude</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/physicsfunctions_mod/phf_gravityalt" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Normal gravity above the ellipsoidal surface</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>slat</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: sin of latitude</p></li>
+<li><p><strong>altitude</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: altitude (m)</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Return</dt>
+<dd class="field-odd"><p><strong>phf_gravityalt</strong><em> [</em><em>real </em><em>]</em> :: Normal gravity (m/s2)</p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="calcheightandpressure_mod.html#f/calcheightandpressure_mod/calcheight_gsv_nl_vcode5xxx" title="f/calcheightandpressure_mod/calcheight_gsv_nl_vcode5xxx"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcheight_gsv_nl_vcode5xxx()</span></code></a>, <a class="reference internal" href="calcheightandpressure_mod.html#f/calcheightandpressure_mod/calcpressure_gsv_nl_vcode2100x" title="f/calcheightandpressure_mod/calcpressure_gsv_nl_vcode2100x"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcpressure_gsv_nl_vcode2100x()</span></code></a>, <a class="reference internal" href="calcheightandpressure_mod.html#f/calcheightandpressure_mod/calcpressure_col_nl_vcode2100x" title="f/calcheightandpressure_mod/calcpressure_col_nl_vcode2100x"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcpressure_col_nl_vcode2100x()</span></code></a>, <a class="reference internal" href="calcheightandpressure_mod.html#f/calcheightandpressure_mod/calcheightcoeff_gsv" title="f/calcheightandpressure_mod/calcheightcoeff_gsv"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcheightcoeff_gsv()</span></code></a>, <a class="reference internal" href="calcheightandpressure_mod.html#f/calcheightandpressure_mod/calcheightcoeff_col" title="f/calcheightandpressure_mod/calcheightcoeff_col"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcheightcoeff_col()</span></code></a>, <a class="reference internal" href="#f/physicsfunctions_mod/phf_height2geopotential" title="f/physicsfunctions_mod/phf_height2geopotential"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_height2geopotential()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/physicsfunctions_mod/phf_gravitysrf" title="f/physicsfunctions_mod/phf_gravitysrf"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_gravitysrf()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/physicsfunctions_mod/phf_height2geopotential">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">physicsfunctions_mod/</span></span><span class="sig-name descname"><span class="pre">phf_height2geopotential</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">altitude</span></em>, <em class="sig-param"><span class="pre">latitude</span></em>, <em class="sig-param"><span class="pre">geopotential</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">printheight</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/physicsfunctions_mod/phf_height2geopotential" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Geopotential energy at a given point.
+Result is based on the WGS84 approximate expression for the
+gravity acceleration as a function of latitude and altitude,
+integrated with the trapezoidal rule.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>altitude</strong> (*)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: altitude (m)</p></li>
+<li><p><strong>latitude</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: latitude (rad)</p></li>
+<li><p><strong>geopotential</strong> (*)<em> [</em><em>real </em><em>,</em><em>inout</em><em>]</em> :: geopotential (m2/s2)</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Options</dt>
+<dd class="field-odd"><p><strong>printheight</strong><em> [</em><em>logical </em><em>]</em></p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="obsfilter_mod.html#f/obsfilter_mod/filt_toporadiosonde" title="f/obsfilter_mod/filt_toporadiosonde"><code class="xref f f-func docutils literal notranslate"><span class="pre">filt_toporadiosonde()</span></code></a>, <a class="reference internal" href="obsoperators_mod.html#f/obsoperators_mod/oop_ppp_nl" title="f/obsoperators_mod/oop_ppp_nl"><code class="xref f f-func docutils literal notranslate"><span class="pre">oop_ppp_nl()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/physicsfunctions_mod/phf_gravityalt" title="f/physicsfunctions_mod/phf_gravityalt"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_gravityalt()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div></blockquote>
+</section>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="presprofileoperators_mod.html" title="presprofileoperators_mod"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="midasmpi_mod.html" title="midasmpi_mod"
+             >previous</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2018, ECCC.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.
+    </div>
+  </body>
+</html>

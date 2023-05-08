@@ -1,0 +1,310 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>menetrierdiag_mod &mdash; MIDAS  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="MIDAS  documentation" href="../index.html" />
+    <link rel="next" title="minimization_mod" href="minimization_mod.html" />
+    <link rel="prev" title="innovation_mod" href="innovation_mod.html" /> 
+  </head>
+  <body>
+  <div>
+    <img src="../_static/MIDAS_header.png" alt="MIDAS" />
+  </div>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="minimization_mod.html" title="minimization_mod"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="innovation_mod.html" title="innovation_mod"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="innovation_mod.html"
+                          title="previous chapter">innovation_mod</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="minimization_mod.html"
+                          title="next chapter">minimization_mod</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/modules/menetrierdiag_mod.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <section id="menetrierdiag-mod">
+<h1>menetrierdiag_mod<a class="headerlink" href="#menetrierdiag-mod" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><p><a class="reference internal" href="menetrierdiag_mod_src.html"><span class="doc">link to source code</span></a></p>
+<p><strong>Dependency Diagrams:</strong></p>
+<figure class="align-default" id="id1">
+<a class="reference internal image-reference" href="menetrierdiag_mod.svg"><img alt="menetrierdiag_mod.svg" height="100px" src="menetrierdiag_mod.svg" /></a>
+<figcaption>
+<p><span class="caption-text">Direct Dependency Diagram</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id2">
+<a class="reference internal image-reference" href="menetrierdiag_mod_rev.svg"><img alt="menetrierdiag_mod_rev.svg" height="100px" src="menetrierdiag_mod_rev.svg" /></a>
+<figcaption>
+<p><span class="caption-text">Reverse Dependency Diagram</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<span class="target" id="f/menetrierdiag_mod"></span><p class="rubric">Description</p>
+<p>MODULE menetrierDiag_mod (prefix=’bmd’ category=’1. High-level functionality’)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Purpose</dt>
+<dd class="field-odd"><p>To compute optimal localization radii according to the theory
+developed by Benjamin Menetrier (Meteo-France) and reported
+in Menetrier, Michel, Montmerle and Berre, 2015, Parts 1 and 2.</p>
+</dd>
+</dl>
+<p class="rubric">Quick access</p>
+<dl class="field-list simple">
+<dt class="field-odd">Routines</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/menetrierdiag_mod/bmd_localizationradii" title="f/menetrierdiag_mod/bmd_localizationradii"><code class="xref f f-func docutils literal notranslate"><span class="pre">bmd_localizationradii()</span></code></a>, <a class="reference internal" href="#f/menetrierdiag_mod/bmd_setup" title="f/menetrierdiag_mod/bmd_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">bmd_setup()</span></code></a>, <a class="reference internal" href="#f/menetrierdiag_mod/calcdistance" title="f/menetrierdiag_mod/calcdistance"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcdistance()</span></code></a>, <a class="reference internal" href="#f/menetrierdiag_mod/calchorizlocalizationradii" title="f/menetrierdiag_mod/calchorizlocalizationradii"><code class="xref f f-func docutils literal notranslate"><span class="pre">calchorizlocalizationradii()</span></code></a>, <a class="reference internal" href="#f/menetrierdiag_mod/calcvertlocalizationradii" title="f/menetrierdiag_mod/calcvertlocalizationradii"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcvertlocalizationradii()</span></code></a>, <a class="reference internal" href="#f/menetrierdiag_mod/findbinindex" title="f/menetrierdiag_mod/findbinindex"><code class="xref f f-func docutils literal notranslate"><span class="pre">findbinindex()</span></code></a></p>
+</dd>
+</dl>
+<p class="rubric">Needed modules</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="earthconstants_mod.html#f/earthconstants_mod" title="f/earthconstants_mod: MODULE earthConstants_mod (prefix='ec' category='8. Low-level utilities and constants') Prefixes: ec_ (Earth constants), for miscellaneous values from diverse sources"><code class="xref f f-mod docutils literal notranslate"><span class="pre">earthconstants_mod</span></code></a>: MODULE earthConstants_mod (prefix=’ec’ category=’8. Low-level utilities and constants’) Prefixes: <a href="#id3"><span class="problematic" id="id4">ec_</span></a> (Earth constants), for miscellaneous values from diverse sources</p></li>
+<li><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod" title="f/utilities_mod: MODULE utilities_mod (prefix='utl' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">utilities_mod</span></code></a>: MODULE utilities_mod (prefix=’utl’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="localizationfunction_mod.html#f/localizationfunction_mod" title="f/localizationfunction_mod: MODULE localizationFunction_mod (prefix='lfn' category='2. B and R matrices')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">localizationfunction_mod</span></code></a>: MODULE localizationFunction_mod (prefix=’lfn’ category=’2. B and R matrices’)</p></li>
+<li><p><a class="reference internal" href="varnamelist_mod.html#f/varnamelist_mod" title="f/varnamelist_mod: MODULE varNameList (prefix='vnl' category='7. Low-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">varnamelist_mod</span></code></a>: MODULE varNameList (prefix=’vnl’ category=’7. Low-level data objects’)</p></li>
+<li><p><a class="reference internal" href="horizontalcoord_mod.html#f/horizontalcoord_mod" title="f/horizontalcoord_mod: MODULE HorizontalCoord_mod (prefix='hco' category='7. Low-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">horizontalcoord_mod</span></code></a>: MODULE HorizontalCoord_mod (prefix=’hco’ category=’7. Low-level data objects’)</p></li>
+<li><p><a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod" title="f/gridstatevector_mod: MODULE gridStateVector_mod (prefix='gsv' category='6. High-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">gridstatevector_mod</span></code></a>: MODULE gridStateVector_mod (prefix=’gsv’ category=’6. High-level data objects’)</p></li>
+<li><p><a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod" title="f/ensemblestatevector_mod: MODULE ensembleStateVector_mod (prefix='ens' category='6. High-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">ensemblestatevector_mod</span></code></a>: MODULE ensembleStateVector_mod (prefix=’ens’ category=’6. High-level data objects’)</p></li>
+<li><p><a class="reference internal" href="timecoord_mod.html#f/timecoord_mod" title="f/timecoord_mod: MODULE timeCoord (prefix='tim' category='7. Low-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">timecoord_mod</span></code></a>: MODULE timeCoord (prefix=’tim’ category=’7. Low-level data objects’)</p></li>
+<li><p><a class="reference internal" href="midasmpi_mod.html#f/midasmpi_mod" title="f/midasmpi_mod: MODULE midasMpi_mod (prefix='mmpi' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">midasmpi_mod</span></code></a>: MODULE midasMpi_mod (prefix=’mmpi’ category=’8. Low-level utilities and constants’)</p></li>
+</ul>
+<p class="rubric">Variables</p>
+<p class="rubric">Subroutines and functions</p>
+<dl>
+<dt class="sig sig-object f" id="f/menetrierdiag_mod/bmd_setup">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">menetrierdiag_mod/</span></span><span class="sig-name descname"><span class="pre">bmd_setup</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">statevector_template</span></em>, <em class="sig-param"><span class="pre">hco_core_in</span></em>, <em class="sig-param"><span class="pre">nens_in</span></em>, <em class="sig-param"><span class="pre">pressureprofile_m_in</span></em>, <em class="sig-param"><span class="pre">pressureprofile_t_in</span></em>, <em class="sig-param"><span class="pre">nwaveband_in</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/menetrierdiag_mod/bmd_setup" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>statevector_template</strong><em> [</em><em>struct_gsv </em><em>]</em></p></li>
+<li><p><strong>hco_core_in</strong><em> [</em><em>struct_hco </em><em>,</em><em>pointer</em><em>]</em></p></li>
+<li><p><strong>nens_in</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>pressureprofile_m_in</strong> (*)<em> [</em><em>real </em><em>,</em><em>in,pointer</em><em>]</em></p></li>
+<li><p><strong>pressureprofile_t_in</strong> (*)<em> [</em><em>real </em><em>,</em><em>in,pointer</em><em>]</em></p></li>
+<li><p><strong>nwaveband_in</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="calcstatsglb_mod.html#f/calcstatsglb_mod/csg_toolbox" title="f/calcstatsglb_mod/csg_toolbox"><code class="xref f f-func docutils literal notranslate"><span class="pre">csg_toolbox()</span></code></a>, <a class="reference internal" href="calcstatslam_mod.html#f/calcstatslam_mod/csl_toolbox" title="f/calcstatslam_mod/csl_toolbox"><code class="xref f f-func docutils literal notranslate"><span class="pre">csl_toolbox()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_getnumlev" title="f/gridstatevector_mod/gsv_getnumlev"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_getnumlev()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_varnameslist" title="f/gridstatevector_mod/gsv_varnameslist"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_varnameslist()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_getoffsetfromvarname" title="f/gridstatevector_mod/gsv_getoffsetfromvarname"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_getoffsetfromvarname()</span></code></a>, <a class="reference internal" href="varnamelist_mod.html#f/varnamelist_mod/vnl_varlevelfromvarname" title="f/varnamelist_mod/vnl_varlevelfromvarname"><code class="xref f f-func docutils literal notranslate"><span class="pre">vnl_varlevelfromvarname()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/menetrierdiag_mod/bmd_localizationradii">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">menetrierdiag_mod/</span></span><span class="sig-name descname"><span class="pre">bmd_localizationradii</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">ensperts</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">wavebandindex_opt</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/menetrierdiag_mod/bmd_localizationradii" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><p><strong>ensperts</strong><em> [</em><em>struct_ens </em><em>]</em></p>
+</dd>
+<dt class="field-even">Options</dt>
+<dd class="field-even"><p><strong>wavebandindex_opt</strong><em> [</em><em>integer </em><em>,</em><em>in,</em><em>]</em></p>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="calcstatsglb_mod.html#f/calcstatsglb_mod/csg_toolbox" title="f/calcstatsglb_mod/csg_toolbox"><code class="xref f f-func docutils literal notranslate"><span class="pre">csg_toolbox()</span></code></a>, <a class="reference internal" href="calcstatslam_mod.html#f/calcstatslam_mod/csl_toolbox" title="f/calcstatslam_mod/csl_toolbox"><code class="xref f f-func docutils literal notranslate"><span class="pre">csl_toolbox()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/menetrierdiag_mod/calchorizlocalizationradii" title="f/menetrierdiag_mod/calchorizlocalizationradii"><code class="xref f f-func docutils literal notranslate"><span class="pre">calchorizlocalizationradii()</span></code></a>, <a class="reference internal" href="#f/menetrierdiag_mod/calcvertlocalizationradii" title="f/menetrierdiag_mod/calcvertlocalizationradii"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcvertlocalizationradii()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/menetrierdiag_mod/calchorizlocalizationradii">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">menetrierdiag_mod/</span></span><span class="sig-name descname"><span class="pre">calchorizlocalizationradii</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">ensperts</span></em>, <em class="sig-param"><span class="pre">stride</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">wavebandindex_opt</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/menetrierdiag_mod/calchorizlocalizationradii" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ensperts</strong><em> [</em><em>struct_ens </em><em>]</em></p></li>
+<li><p><strong>stride</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em> :: Pick every stride point to save cost.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Options</dt>
+<dd class="field-even"><p><strong>wavebandindex_opt</strong><em> [</em><em>integer </em><em>,</em><em>in,</em><em>]</em></p>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/menetrierdiag_mod/bmd_localizationradii" title="f/menetrierdiag_mod/bmd_localizationradii"><code class="xref f f-func docutils literal notranslate"><span class="pre">bmd_localizationradii()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_copyensstddev" title="f/ensemblestatevector_mod/ens_copyensstddev"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_copyensstddev()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_varnameslist" title="f/ensemblestatevector_mod/ens_varnameslist"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_varnameslist()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_allocate" title="f/gridstatevector_mod/gsv_allocate"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_allocate()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_getnumstep" title="f/ensemblestatevector_mod/ens_getnumstep"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_getnumstep()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_gethco" title="f/ensemblestatevector_mod/ens_gethco"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_gethco()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_getvco" title="f/ensemblestatevector_mod/ens_getvco"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_getvco()</span></code></a>, <a class="reference internal" href="timecoord_mod.html#f/timecoord_mod/tim_getdatestamp" title="f/timecoord_mod/tim_getdatestamp"><code class="xref f f-func docutils literal notranslate"><span class="pre">tim_getdatestamp()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_transposetilestovarslevs" title="f/gridstatevector_mod/gsv_transposetilestovarslevs"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_transposetilestovarslevs()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_deallocate" title="f/gridstatevector_mod/gsv_deallocate"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_deallocate()</span></code></a>, <a class="reference internal" href="#f/menetrierdiag_mod/calcdistance" title="f/menetrierdiag_mod/calcdistance"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcdistance()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_copymember" title="f/ensemblestatevector_mod/ens_copymember"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_copymember()</span></code></a>, <a class="reference internal" href="#f/menetrierdiag_mod/findbinindex" title="f/menetrierdiag_mod/findbinindex"><code class="xref f f-func docutils literal notranslate"><span class="pre">findbinindex()</span></code></a>, <a class="reference internal" href="localizationfunction_mod.html#f/localizationfunction_mod/lfn_setup" title="f/localizationfunction_mod/lfn_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">lfn_setup()</span></code></a>, <a class="reference internal" href="localizationfunction_mod.html#f/localizationfunction_mod/lfn_lengthscale" title="f/localizationfunction_mod/lfn_lengthscale"><code class="xref f f-func docutils literal notranslate"><span class="pre">lfn_lengthscale()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="varnamelist_mod.html#f/varnamelist_mod/vnl_varlevelfromvarname" title="f/varnamelist_mod/vnl_varlevelfromvarname"><code class="xref f f-func docutils literal notranslate"><span class="pre">vnl_varlevelfromvarname()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/menetrierdiag_mod/findbinindex">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">menetrierdiag_mod/</span></span><span class="sig-name descname"><span class="pre">findbinindex</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">distance</span></em>, <em class="sig-param"><span class="pre">distancebinthresholds</span></em>, <em class="sig-param"><span class="pre">numbins</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/menetrierdiag_mod/findbinindex" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>distance</strong><em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>distancebinthresholds</strong> (numbins)<em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>numbins</strong><em> [</em><em>integer </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Return</dt>
+<dd class="field-even"><p><strong>binindex</strong><em> [</em><em>integer </em><em>]</em></p>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/menetrierdiag_mod/calchorizlocalizationradii" title="f/menetrierdiag_mod/calchorizlocalizationradii"><code class="xref f f-func docutils literal notranslate"><span class="pre">calchorizlocalizationradii()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/menetrierdiag_mod/calcdistance">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">menetrierdiag_mod/</span></span><span class="sig-name descname"><span class="pre">calcdistance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">lat2</span></em>, <em class="sig-param"><span class="pre">lon2</span></em>, <em class="sig-param"><span class="pre">lat1</span></em>, <em class="sig-param"><span class="pre">lon1</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/menetrierdiag_mod/calcdistance" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>To compute the distance between two points on Earth: (lat1,lon1)
+and (lat2,lon2). Calcul utilisant la Formule d’Haversine
+Reference: R.W. Sinnott,’Virtues of Haversine’,Sky and Telescope,
+vol.68, no.2, 1984, p.159)</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>lat2</strong><em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>lon2</strong><em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>lat1</strong><em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>lon1</strong><em> [</em><em>real </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Return</dt>
+<dd class="field-odd"><p><strong>distanceinm</strong><em> [</em><em>real </em><em>]</em></p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/menetrierdiag_mod/calchorizlocalizationradii" title="f/menetrierdiag_mod/calchorizlocalizationradii"><code class="xref f f-func docutils literal notranslate"><span class="pre">calchorizlocalizationradii()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/menetrierdiag_mod/calcvertlocalizationradii">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">menetrierdiag_mod/</span></span><span class="sig-name descname"><span class="pre">calcvertlocalizationradii</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">ensperts</span></em>, <em class="sig-param"><span class="pre">stride</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">wavebandindex_opt</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/menetrierdiag_mod/calcvertlocalizationradii" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ensperts</strong><em> [</em><em>struct_ens </em><em>]</em></p></li>
+<li><p><strong>stride</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em> :: Pick every stride point to save cost.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Options</dt>
+<dd class="field-even"><p><strong>wavebandindex_opt</strong><em> [</em><em>integer </em><em>,</em><em>in,</em><em>]</em></p>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/menetrierdiag_mod/bmd_localizationradii" title="f/menetrierdiag_mod/bmd_localizationradii"><code class="xref f f-func docutils literal notranslate"><span class="pre">bmd_localizationradii()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_copyensstddev" title="f/ensemblestatevector_mod/ens_copyensstddev"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_copyensstddev()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_getlatlonbounds" title="f/ensemblestatevector_mod/ens_getlatlonbounds"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_getlatlonbounds()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_getonelev_r4" title="f/ensemblestatevector_mod/ens_getonelev_r4"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_getonelev_r4()</span></code></a>, <a class="reference internal" href="varnamelist_mod.html#f/varnamelist_mod/vnl_varlevelfromvarname" title="f/varnamelist_mod/vnl_varlevelfromvarname"><code class="xref f f-func docutils literal notranslate"><span class="pre">vnl_varlevelfromvarname()</span></code></a>, <a class="reference internal" href="localizationfunction_mod.html#f/localizationfunction_mod/lfn_setup" title="f/localizationfunction_mod/lfn_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">lfn_setup()</span></code></a>, <a class="reference internal" href="localizationfunction_mod.html#f/localizationfunction_mod/lfn_lengthscale" title="f/localizationfunction_mod/lfn_lengthscale"><code class="xref f f-func docutils literal notranslate"><span class="pre">lfn_lengthscale()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div></blockquote>
+</section>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="minimization_mod.html" title="minimization_mod"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="innovation_mod.html" title="innovation_mod"
+             >previous</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2018, ECCC.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.
+    </div>
+  </body>
+</html>

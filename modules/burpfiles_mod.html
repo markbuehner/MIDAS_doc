@@ -1,0 +1,368 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>burpfiles_mod &mdash; MIDAS  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="MIDAS  documentation" href="../index.html" />
+    <link rel="next" title="burpread_mod" href="burpread_mod.html" />
+    <link rel="prev" title="rmatrix_mod" href="rmatrix_mod.html" /> 
+  </head>
+  <body>
+  <div>
+    <img src="../_static/MIDAS_header.png" alt="MIDAS" />
+  </div>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="burpread_mod.html" title="burpread_mod"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="rmatrix_mod.html" title="rmatrix_mod"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="rmatrix_mod.html"
+                          title="previous chapter">rmatrix_mod</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="burpread_mod.html"
+                          title="next chapter">burpread_mod</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/modules/burpfiles_mod.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <section id="burpfiles-mod">
+<h1>burpfiles_mod<a class="headerlink" href="#burpfiles-mod" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><p><a class="reference internal" href="burpfiles_mod_src.html"><span class="doc">link to source code</span></a></p>
+<p><strong>Dependency Diagrams:</strong></p>
+<figure class="align-default" id="id1">
+<a class="reference internal image-reference" href="burpfiles_mod.svg"><img alt="burpfiles_mod.svg" height="100px" src="burpfiles_mod.svg" /></a>
+<figcaption>
+<p><span class="caption-text">Direct Dependency Diagram</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id2">
+<a class="reference internal image-reference" href="burpfiles_mod_rev.svg"><img alt="burpfiles_mod_rev.svg" height="100px" src="burpfiles_mod_rev.svg" /></a>
+<figcaption>
+<p><span class="caption-text">Reverse Dependency Diagram</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<span class="target" id="f/burpfiles_mod"></span><p class="rubric">Description</p>
+<p>MODULE burpFiles_mod (prefix=’brpf’ category=’3. Observation input/output’)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Purpose</dt>
+<dd class="field-odd"><p>To store the filenames of the burp observation files and call
+subroutines in readBurp to read and update burp files.</p>
+</dd>
+</dl>
+<p class="rubric">Quick access</p>
+<dl class="field-list simple">
+<dt class="field-odd">Routines</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/burpfiles_mod/brpf_getdatestamp" title="f/burpfiles_mod/brpf_getdatestamp"><code class="xref f f-func docutils literal notranslate"><span class="pre">brpf_getdatestamp()</span></code></a>, <a class="reference internal" href="#f/burpfiles_mod/brpf_obssub_read" title="f/burpfiles_mod/brpf_obssub_read"><code class="xref f f-func docutils literal notranslate"><span class="pre">brpf_obssub_read()</span></code></a>, <a class="reference internal" href="#f/burpfiles_mod/brpf_obssub_update" title="f/burpfiles_mod/brpf_obssub_update"><code class="xref f f-func docutils literal notranslate"><span class="pre">brpf_obssub_update()</span></code></a>, <a class="reference internal" href="#f/burpfiles_mod/brpf_readfile" title="f/burpfiles_mod/brpf_readfile"><code class="xref f f-func docutils literal notranslate"><span class="pre">brpf_readfile()</span></code></a>, <a class="reference internal" href="#f/burpfiles_mod/brpf_setscalech" title="f/burpfiles_mod/brpf_setscalech"><code class="xref f f-func docutils literal notranslate"><span class="pre">brpf_setscalech()</span></code></a>, <a class="reference internal" href="#f/burpfiles_mod/brpf_updatefile" title="f/burpfiles_mod/brpf_updatefile"><code class="xref f f-func docutils literal notranslate"><span class="pre">brpf_updatefile()</span></code></a></p>
+</dd>
+</dl>
+<p class="rubric">Needed modules</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="codeprecision_mod.html#f/codeprecision_mod" title="f/codeprecision_mod: MODULE codePrecision_mod (prefix='pre' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">codeprecision_mod</span></code></a>: MODULE codePrecision_mod (prefix=’pre’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="mathphysconstants_mod.html#f/mathphysconstants_mod" title="f/mathphysconstants_mod: MODULE MathPhysConstants_mod (prefix='mpc' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">mathphysconstants_mod</span></code></a>: MODULE MathPhysConstants_mod (prefix=’mpc’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod" title="f/utilities_mod: MODULE utilities_mod (prefix='utl' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">utilities_mod</span></code></a>: MODULE utilities_mod (prefix=’utl’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod" title="f/obsspacedata_mod: MODULE obsSpaceData_mod (prefix='obs' category='6. High-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">obsspacedata_mod</span></code></a>: MODULE obsSpaceData_mod (prefix=’obs’ category=’6. High-level data objects’)</p></li>
+<li><p><a class="reference internal" href="burpread_mod.html#f/burpread_mod" title="f/burpread_mod: MODULE burpread_mod (prefix='brpr' category='3. Observation input/output')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">burpread_mod</span></code></a>: MODULE burpread_mod (prefix=’brpr’ category=’3. Observation input/output’)</p></li>
+<li><p><a class="reference internal" href="bufr_mod.html#f/bufr_mod" title="f/bufr_mod: MODULE bufr_mod (prefix='bufr' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">bufr_mod</span></code></a>: MODULE bufr_mod (prefix=’bufr’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="obssubspacedata_mod.html#f/obssubspacedata_mod" title="f/obssubspacedata_mod: MODULE obsSubSpaceData_mod (prefix='oss' category='6. High-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">obssubspacedata_mod</span></code></a>: MODULE obsSubSpaceData_mod (prefix=’oss’ category=’6. High-level data objects’)</p></li>
+<li><p><code class="xref f f-mod docutils literal notranslate"><span class="pre">burp_module</span></code></p></li>
+<li><p><a class="reference internal" href="obsutil_mod.html#f/obsutil_mod" title="f/obsutil_mod: MODULE obsUtil_mod (prefix='obsu' category='3. Observation input/output')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">obsutil_mod</span></code></a>: MODULE obsUtil_mod (prefix=’obsu’ category=’3. Observation input/output’)</p></li>
+<li><p><a class="reference internal" href="obsvariabletransforms_mod.html#f/obsvariabletransforms_mod" title="f/obsvariabletransforms_mod: MODULE obsVariableTransforms_mod (prefix='ovt' category='4. Data Object transformations')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">obsvariabletransforms_mod</span></code></a>: MODULE obsVariableTransforms_mod (prefix=’ovt’ category=’4. Data Object transformations’)</p></li>
+</ul>
+<p class="rubric">Variables</p>
+<p class="rubric">Subroutines and functions</p>
+<dl>
+<dt class="sig sig-object f" id="f/burpfiles_mod/brpf_getdatestamp">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">burpfiles_mod/</span></span><span class="sig-name descname"><span class="pre">brpf_getdatestamp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">datestamp</span></em>, <em class="sig-param"><span class="pre">burpfilename</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/burpfiles_mod/brpf_getdatestamp" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>datestamp</strong><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><strong>burpfilename</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="obsfiles_mod.html#f/obsfiles_mod/obsf_setup" title="f/obsfiles_mod/obsf_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">obsf_setup()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/burpfiles_mod/brpf_readfile">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">burpfiles_mod/</span></span><span class="sig-name descname"><span class="pre">brpf_readfile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">obsdat</span></em>, <em class="sig-param"><span class="pre">filename</span></em>, <em class="sig-param"><span class="pre">familytype</span></em>, <em class="sig-param"><span class="pre">fileindex</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/burpfiles_mod/brpf_readfile" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>obsdat</strong><em> [</em><em>struct_obs </em><em>,</em><em>inout</em><em>]</em></p></li>
+<li><p><strong>filename</strong><em> [</em><em>character </em><em>]</em></p></li>
+<li><p><strong>familytype</strong><em> [</em><em>character </em><em>]</em></p></li>
+<li><p><strong>fileindex</strong><em> [</em><em>integer </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="obsfiles_mod.html#f/obsfiles_mod/obsf_readfiles" title="f/obsfiles_mod/obsf_readfiles"><code class="xref f f-func docutils literal notranslate"><span class="pre">obsf_readfiles()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_numbody" title="f/obsspacedata_mod/obs_numbody"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_numbody()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_numheader" title="f/obsspacedata_mod/obs_numheader"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_numheader()</span></code></a>, <a class="reference internal" href="burpread_mod.html#f/burpread_mod/brpr_readburp" title="f/burpread_mod/brpr_readburp"><code class="xref f f-func docutils literal notranslate"><span class="pre">brpr_readburp()</span></code></a>, <a class="reference internal" href="obsvariabletransforms_mod.html#f/obsvariabletransforms_mod/ovt_transformobsvalues" title="f/obsvariabletransforms_mod/ovt_transformobsvalues"><code class="xref f f-func docutils literal notranslate"><span class="pre">ovt_transformobsvalues()</span></code></a>, <a class="reference internal" href="obsvariabletransforms_mod.html#f/obsvariabletransforms_mod/ovt_adjusthumgz" title="f/obsvariabletransforms_mod/ovt_adjusthumgz"><code class="xref f f-func docutils literal notranslate"><span class="pre">ovt_adjusthumgz()</span></code></a>, <a class="reference internal" href="obsutil_mod.html#f/obsutil_mod/obsu_computevertcoordsurfobs" title="f/obsutil_mod/obsu_computevertcoordsurfobs"><code class="xref f f-func docutils literal notranslate"><span class="pre">obsu_computevertcoordsurfobs()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_headset_i" title="f/obsspacedata_mod/obs_headset_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_headset_i()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_setfamily" title="f/obsspacedata_mod/obs_setfamily"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_setfamily()</span></code></a>, <a class="reference internal" href="#f/burpfiles_mod/brpf_setscalech" title="f/burpfiles_mod/brpf_setscalech"><code class="xref f f-func docutils literal notranslate"><span class="pre">brpf_setscalech()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_columnactive_rb" title="f/obsspacedata_mod/obs_columnactive_rb"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_columnactive_rb()</span></code></a>, <a class="reference internal" href="obsutil_mod.html#f/obsutil_mod/obsu_setgbgpserror" title="f/obsutil_mod/obsu_setgbgpserror"><code class="xref f f-func docutils literal notranslate"><span class="pre">obsu_setgbgpserror()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/burpfiles_mod/brpf_updatefile">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">burpfiles_mod/</span></span><span class="sig-name descname"><span class="pre">brpf_updatefile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">obsspacedata</span></em>, <em class="sig-param"><span class="pre">filename</span></em>, <em class="sig-param"><span class="pre">familytype</span></em>, <em class="sig-param"><span class="pre">fileindex</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/burpfiles_mod/brpf_updatefile" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>obsspacedata</strong><em> [</em><em>struct_obs </em><em>,</em><em>inout</em><em>]</em></p></li>
+<li><p><strong>filename</strong><em> [</em><em>character </em><em>]</em></p></li>
+<li><p><strong>familytype</strong><em> [</em><em>character </em><em>]</em></p></li>
+<li><p><strong>fileindex</strong><em> [</em><em>integer </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="obsfiles_mod.html#f/obsfiles_mod/obsf_writefiles" title="f/obsfiles_mod/obsf_writefiles"><code class="xref f f-func docutils literal notranslate"><span class="pre">obsf_writefiles()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_start" title="f/utilities_mod/utl_tmg_start"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_start()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_getheaderindex" title="f/obsspacedata_mod/obs_getheaderindex"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_getheaderindex()</span></code></a>, <a class="reference internal" href="#f/burpfiles_mod/brpf_setscalech" title="f/burpfiles_mod/brpf_setscalech"><code class="xref f f-func docutils literal notranslate"><span class="pre">brpf_setscalech()</span></code></a>, <a class="reference internal" href="burpread_mod.html#f/burpread_mod/brpr_updateburp" title="f/burpread_mod/brpr_updateburp"><code class="xref f f-func docutils literal notranslate"><span class="pre">brpr_updateburp()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_stop" title="f/utilities_mod/utl_tmg_stop"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_stop()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/burpfiles_mod/brpf_setscalech">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">burpfiles_mod/</span></span><span class="sig-name descname"><span class="pre">brpf_setscalech</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">obsdat</span></em>, <em class="sig-param"><span class="pre">headerindex</span></em>, <em class="sig-param"><span class="pre">forward</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/burpfiles_mod/brpf_setscalech" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Apply or unapply scaling to CH observations  by multiplying
+(or dividing) with 10^{exponent} where the exponent is from
+element BUFR_SCALE_EXPONENT if provided.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>obsdat</strong><em> [</em><em>struct_obs </em><em>,</em><em>inout</em><em>]</em> :: struct_obs instance</p></li>
+<li><p><strong>headerindex</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em> :: header index in obsdat</p></li>
+<li><p><strong>forward</strong><em> [</em><em>logical </em><em>,</em><em>in</em><em>]</em> :: applies scaling if .true., unapplies scaling if .false.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/burpfiles_mod/brpf_readfile" title="f/burpfiles_mod/brpf_readfile"><code class="xref f f-func docutils literal notranslate"><span class="pre">brpf_readfile()</span></code></a>, <a class="reference internal" href="#f/burpfiles_mod/brpf_updatefile" title="f/burpfiles_mod/brpf_updatefile"><code class="xref f f-func docutils literal notranslate"><span class="pre">brpf_updatefile()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_headelem_i" title="f/obsspacedata_mod/obs_headelem_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_headelem_i()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyelem_i" title="f/obsspacedata_mod/obs_bodyelem_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyelem_i()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyelem_r" title="f/obsspacedata_mod/obs_bodyelem_r"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyelem_r()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyset_i" title="f/obsspacedata_mod/obs_bodyset_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyset_i()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/burpfiles_mod/brpf_obssub_read">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">burpfiles_mod/</span></span><span class="sig-name descname"><span class="pre">brpf_obssub_read</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">filename</span></em>, <em class="sig-param"><span class="pre">stnid</span></em>, <em class="sig-param"><span class="pre">varno</span></em>, <em class="sig-param"><span class="pre">nlev</span></em>, <em class="sig-param"><span class="pre">ndim</span></em>, <em class="sig-param"><span class="pre">block_type</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">bkstp_opt</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">match_nlev_opt</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">codtyp_opt</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">numcolumns_opt</span></em><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/burpfiles_mod/brpf_obssub_read" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>To retrieve information from observation BURP file. Returns the
+data in a struct_oss_obsdata object. Can retrieve either 1D or 2D
+data from a report.</p>
+</dd>
+<dt class="field-even">Comments </dt>
+<dd class="field-even"><ul class="simple">
+<li><p>BUFR power 10 exponent element (i.e. data with BUFR number
+BUFR_SCALE_EXPONENT) will be applied only to 1D data if present.</p></li>
+<li><p>As burp_out is for a specific input stnid, burp_out%code contains
+only the (lat/long and time coord.) with 22 characters.</p></li>
+<li><p>Exponent BUFR data (i.e. data with BUFR number BUFR_SCALE_EXPONENT)
+will be applied only to 1D data.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Arguments </dt>
+<dd class="field-odd"><p></p></dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>filename</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em> :: BURP file name</p></li>
+<li><p><strong>stnid</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em> :: station ID of observation</p></li>
+<li><p><strong>varno</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em> :: BUFR code (if &lt;=0, search through all codes to obtain first
+between 10000 and 16000)</p></li>
+<li><p><strong>nlev</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em> :: number of levels in the observation</p></li>
+<li><p><strong>ndim</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em> :: <dl class="simple">
+<dt>number of dimensions for the retrieved data in each report</dt><dd><p>(e.g. ndim=1 for std, ndim=2 for averaging kernels)</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">numColumns_opt</dt>
+<dd class="field-odd"><p>Number of columns (if different from nlev and for ndim=2)</p>
+</dd>
+</dl>
+</p></li>
+<li><p><strong>block_type</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em> :: block type indicated by the two rightmost bits of bknat.
+Valid values are ‘DATA’, ‘INFO’, ‘3-D’, and ‘MRQR’.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Options</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>match_nlev_opt</strong><em> [</em><em>logical </em><em>,</em><em>in,</em><em>]</em> :: true. (default) causes filtering out of report if
+the report number of levels is different from the input
+argument nlev</p></li>
+<li><p><strong>bkstp_opt</strong><em> [</em><em>integer </em><em>,</em><em>in,</em><em>]</em> :: bkstp number of requested block</p></li>
+<li><p><strong>codtyp_opt</strong> (*)<em> [</em><em>integer </em><em>,</em><em>in,</em><em>]</em> :: optional CODTYP list for search</p></li>
+<li><p><strong>numcolumns_opt</strong><em> [</em><em>integer </em><em>,</em><em>in,</em><em>]</em> :: Number of columns (if different from nlev and for ndim=2)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return</dt>
+<dd class="field-even"><p><strong>burp_out</strong><em> [</em><em>struct_oss_obsdata </em><em>]</em> :: struct_oss_obsdata object</p>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="obsfiles_mod.html#f/obsfiles_mod/obsf_obssub_read" title="f/obsfiles_mod/obsf_obssub_read"><code class="xref f f-func docutils literal notranslate"><span class="pre">obsf_obssub_read()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="obssubspacedata_mod.html#f/obssubspacedata_mod/oss_obsdata_alloc" title="f/obssubspacedata_mod/oss_obsdata_alloc"><code class="xref f f-func docutils literal notranslate"><span class="pre">oss_obsdata_alloc()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_stnid_equal" title="f/utilities_mod/utl_stnid_equal"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_stnid_equal()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/burpfiles_mod/brpf_obssub_update">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">burpfiles_mod/</span></span><span class="sig-name descname"><span class="pre">brpf_obssub_update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">obsdata</span></em>, <em class="sig-param"><span class="pre">filename</span></em>, <em class="sig-param"><span class="pre">varno</span></em>, <em class="sig-param"><span class="pre">block_type</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">bkstp_opt</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">multi_opt</span></em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/burpfiles_mod/brpf_obssub_update" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>To add or modify data in BURP files from data stored in a
+struct_oss_obsdata object. Provided data can be either 1D or 2D.</p>
+</dd>
+<dt class="field-even">Comments </dt>
+<dd class="field-even"><ul class="simple">
+<li><p>Currently assumes that all elements of varno(:) are distinct from
+each other.</p></li>
+<li><p>Blocks with new data will overwrite any existing data of the same</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>varno</strong> (*)<em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em> :: BUFR descriptors. Number of elements must be</p></li>
+<li><p><strong>varno</strong> :: BUFR descriptors. Number of elements must be
+max(1,obsdata%dim2)</p></li>
+<li><p><strong>block_type</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em> :: block type indicated by the two rightmost bits of bknat.
+Valid values are ‘DATA’, ‘INFO’, ‘3-D’, and ‘MRQR’.</p></li>
+<li><p><strong>obsdata</strong><em> [</em><em>struct_oss_obsdata </em><em>,</em><em>inout</em><em>]</em> :: Input struct_oss_obsdata object for varno</p></li>
+<li><p><strong>filename</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em> :: BURP file name</p></li>
+</ul>
+</dd>
+<dt class="field-even">Arguments </dt>
+<dd class="field-even"><p></p></dd>
+<dt class="field-odd">Options</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>multi_opt</strong><em> [</em><em>character </em><em>,</em><em>in,</em><em>]</em> :: Indicates if intended report are for ‘UNI’ or ‘MULTI’
+level data (description is not accurate)</p></li>
+<li><p><strong>bkstp_opt</strong><em> [</em><em>integer </em><em>,</em><em>in,</em><em>]</em> :: bkstp number of requested block</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return</dt>
+<dd class="field-even"><p><strong>nrep_modified</strong><em> [</em><em>integer </em><em>]</em> :: Number of modified reports</p>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="obsfiles_mod.html#f/obsfiles_mod/obsf_obssub_update" title="f/obsfiles_mod/obsf_obssub_update"><code class="xref f f-func docutils literal notranslate"><span class="pre">obsf_obssub_update()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="obssubspacedata_mod.html#f/obssubspacedata_mod/oss_obsdata_code_len" title="f/obssubspacedata_mod/oss_obsdata_code_len"><code class="xref f f-func docutils literal notranslate"><span class="pre">oss_obsdata_code_len()</span></code></a>, <a class="reference internal" href="obssubspacedata_mod.html#f/obssubspacedata_mod/oss_obsdata_get_element" title="f/obssubspacedata_mod/oss_obsdata_get_element"><code class="xref f f-func docutils literal notranslate"><span class="pre">oss_obsdata_get_element()</span></code></a>, <a class="reference internal" href="obssubspacedata_mod.html#f/obssubspacedata_mod/oss_obsdata_get_array1d" title="f/obssubspacedata_mod/oss_obsdata_get_array1d"><code class="xref f f-func docutils literal notranslate"><span class="pre">oss_obsdata_get_array1d()</span></code></a>, <a class="reference internal" href="obssubspacedata_mod.html#f/obssubspacedata_mod/oss_obsdata_get_array2d" title="f/obssubspacedata_mod/oss_obsdata_get_array2d"><code class="xref f f-func docutils literal notranslate"><span class="pre">oss_obsdata_get_array2d()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div></blockquote>
+</section>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="burpread_mod.html" title="burpread_mod"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="rmatrix_mod.html" title="rmatrix_mod"
+             >previous</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2018, ECCC.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.
+    </div>
+  </body>
+</html>

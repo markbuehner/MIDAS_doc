@@ -1,0 +1,133 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Overall MIDAS design &mdash; MIDAS  documentation</title>
+    
+    <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="top" title="MIDAS  documentation" href="index.html" /> 
+  </head>
+  <body>
+  <div>
+    <img src="_static/MIDAS_header.png" alt="MIDAS" />
+  </div>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li><a href="index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/overall_midas_design.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <section id="overall-midas-design">
+<h1>Overall MIDAS design<a class="headerlink" href="#overall-midas-design" title="Permalink to this headline">¶</a></h1>
+<p>The MIDAS code is contained within a set of main programs and FORTRAN
+modules. Each program “uses” a subset of the FORTRAN modules. These modules also
+“use” other modules. In addition to the MIDAS programs and modules, several
+external libraries are also employed to provide specific functionality
+(e.g. MPI, RTTOV, SQLITE, RMNLIB). The programs and modules are located in the
+subdirectories:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">programs</span>
+<span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">modules</span>
+</pre></div>
+</div>
+<p>Because modules can “use” other modules, it is important to be aware of the
+hierarchical relationship between the modules to avoid any circular
+dependencies (i.e. <code class="docutils literal notranslate"><span class="pre">moduleA</span></code> “uses” <code class="docutils literal notranslate"><span class="pre">moduleB</span></code> and <code class="docutils literal notranslate"><span class="pre">moduleB</span></code> “uses”
+<code class="docutils literal notranslate"><span class="pre">moduleA</span></code>). In general, this can be avoided by limiting the type of
+responsibilities each module is assigned. For example, a high-level module
+responsible for implementing a high-level algorithm that manipulates high-level
+data objects should not also contain low-level routines that could be useful to
+many other modules, since this is likely to create a circular dependency.</p>
+<p>The MIDAS modules can be divided into several general categories, listed in the
+order that they exist in the dependency hierarchy (i.e. higher-level modules can
+“use” lower-level modules, but not vice versa):</p>
+<ul class="simple">
+<li><p>High-level functionality (e.g. <code class="docutils literal notranslate"><span class="pre">innovation_mod</span></code>, <code class="docutils literal notranslate"><span class="pre">minimization_mod</span></code>)</p></li>
+<li><p>Transformation of data objects (e.g. <code class="docutils literal notranslate"><span class="pre">stateToColumn_mod</span></code>, <code class="docutils literal notranslate"><span class="pre">gridVariableTransforms_mod</span></code>)</p></li>
+<li><p>High-level data objects (e.g. <code class="docutils literal notranslate"><span class="pre">gridStateVector_mod</span></code>, <code class="docutils literal notranslate"><span class="pre">columnData_mod</span></code>, <code class="docutils literal notranslate"><span class="pre">obsSpaceData_mod</span></code>)</p></li>
+<li><p>Low-level data objects (e.g. <code class="docutils literal notranslate"><span class="pre">horizontalCoord_mod</span></code>, <code class="docutils literal notranslate"><span class="pre">verticalCoord_mod</span></code>)</p></li>
+<li><p>Low-level utilities (e.g. <code class="docutils literal notranslate"><span class="pre">physicsFunctions_mod</span></code>, <code class="docutils literal notranslate"><span class="pre">utilities_mod</span></code>)</p></li>
+</ul>
+</section>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li><a href="index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2018, ECCC.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.
+    </div>
+  </body>
+</html>

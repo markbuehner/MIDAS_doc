@@ -1,0 +1,8 @@
+==========================================
+fsoi_mod source
+==========================================
+
+    .. literalinclude:: ../_src_files/fsoi_mod.f90
+       :language: fortran
+       :linenos:
+

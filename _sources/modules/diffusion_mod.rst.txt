@@ -1,0 +1,22 @@
+==========================================
+diffusion_mod
+==========================================
+
+    :doc:`link to source code <diffusion_mod_src>`
+
+
+    **Dependency Diagrams:**
+
+    .. figure:: /diffusion_mod.svg
+        :height: 100px
+
+        Direct Dependency Diagram
+
+    .. figure:: /diffusion_mod_rev.svg
+        :height: 100px
+
+        Reverse Dependency Diagram
+
+
+    .. f:automodule:: diffusion_mod
+

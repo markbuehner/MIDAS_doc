@@ -1,0 +1,821 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>gridvariabletransforms_mod &mdash; MIDAS  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="MIDAS  documentation" href="../index.html" />
+    <link rel="next" title="humiditylimits_mod" href="humiditylimits_mod.html" />
+    <link rel="prev" title="gridstatevectorfileio_mod" href="gridstatevectorfileio_mod.html" /> 
+  </head>
+  <body>
+  <div>
+    <img src="../_static/MIDAS_header.png" alt="MIDAS" />
+  </div>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="humiditylimits_mod.html" title="humiditylimits_mod"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="gridstatevectorfileio_mod.html" title="gridstatevectorfileio_mod"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="gridstatevectorfileio_mod.html"
+                          title="previous chapter">gridstatevectorfileio_mod</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="humiditylimits_mod.html"
+                          title="next chapter">humiditylimits_mod</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/modules/gridvariabletransforms_mod.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <section id="gridvariabletransforms-mod">
+<h1>gridvariabletransforms_mod<a class="headerlink" href="#gridvariabletransforms-mod" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><p><a class="reference internal" href="gridvariabletransforms_mod_src.html"><span class="doc">link to source code</span></a></p>
+<p><strong>Dependency Diagrams:</strong></p>
+<figure class="align-default" id="id1">
+<a class="reference internal image-reference" href="gridvariabletransforms_mod.svg"><img alt="gridvariabletransforms_mod.svg" height="100px" src="gridvariabletransforms_mod.svg" /></a>
+<figcaption>
+<p><span class="caption-text">Direct Dependency Diagram</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id2">
+<a class="reference internal image-reference" href="gridvariabletransforms_mod_rev.svg"><img alt="gridvariabletransforms_mod_rev.svg" height="100px" src="gridvariabletransforms_mod_rev.svg" /></a>
+<figcaption>
+<p><span class="caption-text">Reverse Dependency Diagram</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<span class="target" id="f/gridvariabletransforms_mod"></span><p class="rubric">Description</p>
+<p>MODULE gridVariableTransforms (prefix=’gvt’ category=’4. Data Object transformations’)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Purpose</dt>
+<dd class="field-odd"><p>To store various functions for variable transforms using inputs
+from gridStateVector(s). Outputs are also placed in a
+gridStateVector.</p>
+</dd>
+</dl>
+<p class="rubric">Quick access</p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/gridvariabletransforms_mod/gvt_transform" title="f/gridvariabletransforms_mod/gvt_transform"><code class="xref f f-var docutils literal notranslate"><span class="pre">gvt_transform</span></code></a></p>
+</dd>
+<dt class="field-even">Routines</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/gridvariabletransforms_mod/ch_bounds" title="f/gridvariabletransforms_mod/ch_bounds"><code class="xref f f-func docutils literal notranslate"><span class="pre">ch_bounds()</span></code></a>, <a class="reference internal" href="#f/gridvariabletransforms_mod/expch_tlm" title="f/gridvariabletransforms_mod/expch_tlm"><code class="xref f f-func docutils literal notranslate"><span class="pre">expch_tlm()</span></code></a>, <a class="reference internal" href="#f/gridvariabletransforms_mod/gvt_getstatevectortrial" title="f/gridvariabletransforms_mod/gvt_getstatevectortrial"><code class="xref f f-func docutils literal notranslate"><span class="pre">gvt_getstatevectortrial()</span></code></a>, <a class="reference internal" href="#f/gridvariabletransforms_mod/gvt_oceanicecontinous" title="f/gridvariabletransforms_mod/gvt_oceanicecontinous"><code class="xref f f-func docutils literal notranslate"><span class="pre">gvt_oceanicecontinous()</span></code></a>, <a class="reference internal" href="#f/gridvariabletransforms_mod/gvt_setup" title="f/gridvariabletransforms_mod/gvt_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">gvt_setup()</span></code></a>, <a class="reference internal" href="#f/gridvariabletransforms_mod/gvt_setupreffromstatevector" title="f/gridvariabletransforms_mod/gvt_setupreffromstatevector"><code class="xref f f-func docutils literal notranslate"><span class="pre">gvt_setupreffromstatevector()</span></code></a>, <a class="reference internal" href="#f/gridvariabletransforms_mod/gvt_setupreffromtrialfiles" title="f/gridvariabletransforms_mod/gvt_setupreffromtrialfiles"><code class="xref f f-func docutils literal notranslate"><span class="pre">gvt_setupreffromtrialfiles()</span></code></a>, <a class="reference internal" href="#f/gridvariabletransforms_mod/gvt_sstspread" title="f/gridvariabletransforms_mod/gvt_sstspread"><code class="xref f f-func docutils literal notranslate"><span class="pre">gvt_sstspread()</span></code></a>, <a class="reference internal" href="#f/gridvariabletransforms_mod/gvt_transform_ens" title="f/gridvariabletransforms_mod/gvt_transform_ens"><code class="xref f f-func docutils literal notranslate"><span class="pre">gvt_transform_ens()</span></code></a>, <a class="reference internal" href="#f/gridvariabletransforms_mod/gvt_transform_gsv" title="f/gridvariabletransforms_mod/gvt_transform_gsv"><code class="xref f f-func docutils literal notranslate"><span class="pre">gvt_transform_gsv()</span></code></a>, <a class="reference internal" href="#f/gridvariabletransforms_mod/hutolq_ens" title="f/gridvariabletransforms_mod/hutolq_ens"><code class="xref f f-func docutils literal notranslate"><span class="pre">hutolq_ens()</span></code></a>, <a class="reference internal" href="#f/gridvariabletransforms_mod/hutolq_gsv" title="f/gridvariabletransforms_mod/hutolq_gsv"><code class="xref f f-func docutils literal notranslate"><span class="pre">hutolq_gsv()</span></code></a>, <a class="reference internal" href="#f/gridvariabletransforms_mod/hutolq_tlm" title="f/gridvariabletransforms_mod/hutolq_tlm"><code class="xref f f-func docutils literal notranslate"><span class="pre">hutolq_tlm()</span></code></a>, <a class="reference internal" href="#f/gridvariabletransforms_mod/logch_ens" title="f/gridvariabletransforms_mod/logch_ens"><code class="xref f f-func docutils literal notranslate"><span class="pre">logch_ens()</span></code></a>, <a class="reference internal" href="#f/gridvariabletransforms_mod/lprtopr_ens" title="f/gridvariabletransforms_mod/lprtopr_ens"><code class="xref f f-func docutils literal notranslate"><span class="pre">lprtopr_ens()</span></code></a>, <a class="reference internal" href="#f/gridvariabletransforms_mod/lprtopr_gsv" title="f/gridvariabletransforms_mod/lprtopr_gsv"><code class="xref f f-func docutils literal notranslate"><span class="pre">lprtopr_gsv()</span></code></a>, <a class="reference internal" href="#f/gridvariabletransforms_mod/lqtohu" title="f/gridvariabletransforms_mod/lqtohu"><code class="xref f f-func docutils literal notranslate"><span class="pre">lqtohu()</span></code></a>, <a class="reference internal" href="#f/gridvariabletransforms_mod/lqtohu_tlm" title="f/gridvariabletransforms_mod/lqtohu_tlm"><code class="xref f f-func docutils literal notranslate"><span class="pre">lqtohu_tlm()</span></code></a>, <a class="reference internal" href="#f/gridvariabletransforms_mod/lvistovis" title="f/gridvariabletransforms_mod/lvistovis"><code class="xref f f-func docutils literal notranslate"><span class="pre">lvistovis()</span></code></a>, <a class="reference internal" href="#f/gridvariabletransforms_mod/prtolpr_gsv" title="f/gridvariabletransforms_mod/prtolpr_gsv"><code class="xref f f-func docutils literal notranslate"><span class="pre">prtolpr_gsv()</span></code></a>, <a class="reference internal" href="#f/gridvariabletransforms_mod/uvtopsichi_ens" title="f/gridvariabletransforms_mod/uvtopsichi_ens"><code class="xref f f-func docutils literal notranslate"><span class="pre">uvtopsichi_ens()</span></code></a>, <a class="reference internal" href="#f/gridvariabletransforms_mod/uvtopsichi_gsv" title="f/gridvariabletransforms_mod/uvtopsichi_gsv"><code class="xref f f-func docutils literal notranslate"><span class="pre">uvtopsichi_gsv()</span></code></a>, <a class="reference internal" href="#f/gridvariabletransforms_mod/uvtovortdiv_ens" title="f/gridvariabletransforms_mod/uvtovortdiv_ens"><code class="xref f f-func docutils literal notranslate"><span class="pre">uvtovortdiv_ens()</span></code></a>, <a class="reference internal" href="#f/gridvariabletransforms_mod/uvtovortdiv_gsv" title="f/gridvariabletransforms_mod/uvtovortdiv_gsv"><code class="xref f f-func docutils literal notranslate"><span class="pre">uvtovortdiv_gsv()</span></code></a>, <a class="reference internal" href="#f/gridvariabletransforms_mod/vortdivtopsichi_gsv" title="f/gridvariabletransforms_mod/vortdivtopsichi_gsv"><code class="xref f f-func docutils literal notranslate"><span class="pre">vortdivtopsichi_gsv()</span></code></a>, <a class="reference internal" href="#f/gridvariabletransforms_mod/zandp_ad" title="f/gridvariabletransforms_mod/zandp_ad"><code class="xref f f-func docutils literal notranslate"><span class="pre">zandp_ad()</span></code></a>, <a class="reference internal" href="#f/gridvariabletransforms_mod/zandp_tl" title="f/gridvariabletransforms_mod/zandp_tl"><code class="xref f f-func docutils literal notranslate"><span class="pre">zandp_tl()</span></code></a></p>
+</dd>
+</dl>
+<p class="rubric">Needed modules</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="midasmpi_mod.html#f/midasmpi_mod" title="f/midasmpi_mod: MODULE midasMpi_mod (prefix='mmpi' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">midasmpi_mod</span></code></a>: MODULE midasMpi_mod (prefix=’mmpi’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="codeprecision_mod.html#f/codeprecision_mod" title="f/codeprecision_mod: MODULE codePrecision_mod (prefix='pre' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">codeprecision_mod</span></code></a>: MODULE codePrecision_mod (prefix=’pre’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="mathphysconstants_mod.html#f/mathphysconstants_mod" title="f/mathphysconstants_mod: MODULE MathPhysConstants_mod (prefix='mpc' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">mathphysconstants_mod</span></code></a>: MODULE MathPhysConstants_mod (prefix=’mpc’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="earthconstants_mod.html#f/earthconstants_mod" title="f/earthconstants_mod: MODULE earthConstants_mod (prefix='ec' category='8. Low-level utilities and constants') Prefixes: ec_ (Earth constants), for miscellaneous values from diverse sources"><code class="xref f f-mod docutils literal notranslate"><span class="pre">earthconstants_mod</span></code></a>: MODULE earthConstants_mod (prefix=’ec’ category=’8. Low-level utilities and constants’) Prefixes: <a href="#id3"><span class="problematic" id="id4">ec_</span></a> (Earth constants), for miscellaneous values from diverse sources</p></li>
+<li><p><a class="reference internal" href="timecoord_mod.html#f/timecoord_mod" title="f/timecoord_mod: MODULE timeCoord (prefix='tim' category='7. Low-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">timecoord_mod</span></code></a>: MODULE timeCoord (prefix=’tim’ category=’7. Low-level data objects’)</p></li>
+<li><p><a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod" title="f/gridstatevector_mod: MODULE gridStateVector_mod (prefix='gsv' category='6. High-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">gridstatevector_mod</span></code></a>: MODULE gridStateVector_mod (prefix=’gsv’ category=’6. High-level data objects’)</p></li>
+<li><p><a class="reference internal" href="gridstatevectorfileio_mod.html#f/gridstatevectorfileio_mod" title="f/gridstatevectorfileio_mod: MODULE gridStateVectorFile_mod (prefix='gio' category='4. Data Object transformations')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">gridstatevectorfileio_mod</span></code></a>: MODULE gridStateVectorFile_mod (prefix=’gio’ category=’4. Data Object transformations’)</p></li>
+<li><p><a class="reference internal" href="interpolation_mod.html#f/interpolation_mod" title="f/interpolation_mod: MODULE interpolation_mod (prefix='int' category='4. Data Object transformations')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">interpolation_mod</span></code></a>: MODULE interpolation_mod (prefix=’int’ category=’4. Data Object transformations’)</p></li>
+<li><p><a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod" title="f/ensemblestatevector_mod: MODULE ensembleStateVector_mod (prefix='ens' category='6. High-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">ensemblestatevector_mod</span></code></a>: MODULE ensembleStateVector_mod (prefix=’ens’ category=’6. High-level data objects’)</p></li>
+<li><p><a class="reference internal" href="lamspectraltransform_mod.html#f/lamspectraltransform_mod" title="f/lamspectraltransform_mod: MODULE lamSpectralTransform_mod (prefix='lst' category='4. Data Object transformations')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">lamspectraltransform_mod</span></code></a>: MODULE lamSpectralTransform_mod (prefix=’lst’ category=’4. Data Object transformations’)</p></li>
+<li><p><a class="reference internal" href="globalspectraltransform_mod.html#f/globalspectraltransform_mod" title="f/globalspectraltransform_mod: MODULE globalSpectralTransform_mod (prefix='gst' category='4. Data Object transformations')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">globalspectraltransform_mod</span></code></a>: MODULE globalSpectralTransform_mod (prefix=’gst’ category=’4. Data Object transformations’)</p></li>
+<li><p><a class="reference internal" href="analysisgrid_mod.html#f/analysisgrid_mod" title="f/analysisgrid_mod: MODULE analysisGrid_mod (prefix='agd' category='7. Low-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">analysisgrid_mod</span></code></a>: MODULE analysisGrid_mod (prefix=’agd’ category=’7. Low-level data objects’)</p></li>
+<li><p><a class="reference internal" href="horizontalcoord_mod.html#f/horizontalcoord_mod" title="f/horizontalcoord_mod: MODULE HorizontalCoord_mod (prefix='hco' category='7. Low-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">horizontalcoord_mod</span></code></a>: MODULE HorizontalCoord_mod (prefix=’hco’ category=’7. Low-level data objects’)</p></li>
+<li><p><a class="reference internal" href="verticalcoord_mod.html#f/verticalcoord_mod" title="f/verticalcoord_mod: MODULE verticalcoord (prefix='vco' category='7. Low-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">verticalcoord_mod</span></code></a>: MODULE verticalcoord (prefix=’vco’ category=’7. Low-level data objects’)</p></li>
+<li><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod" title="f/utilities_mod: MODULE utilities_mod (prefix='utl' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">utilities_mod</span></code></a>: MODULE utilities_mod (prefix=’utl’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="varnamelist_mod.html#f/varnamelist_mod" title="f/varnamelist_mod: MODULE varNameList (prefix='vnl' category='7. Low-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">varnamelist_mod</span></code></a>: MODULE varNameList (prefix=’vnl’ category=’7. Low-level data objects’)</p></li>
+<li><p><a class="reference internal" href="calcheightandpressure_mod.html#f/calcheightandpressure_mod" title="f/calcheightandpressure_mod: MODULE czp_calcHeightAndPressure (prefix='czp' category='4. Data Object transformations')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">calcheightandpressure_mod</span></code></a>: MODULE czp_calcHeightAndPressure (prefix=’czp’ category=’4. Data Object transformations’)</p></li>
+<li><p><a class="reference internal" href="humiditylimits_mod.html#f/humiditylimits_mod" title="f/humiditylimits_mod: MODULE humidityLimits_mod (prefix='qlim' category='4. Data Object transformations')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">humiditylimits_mod</span></code></a>: MODULE humidityLimits_mod (prefix=’qlim’ category=’4. Data Object transformations’)</p></li>
+</ul>
+<p class="rubric">Variables</p>
+<ul>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/gridvariabletransforms_mod/gvt_transform">
+<span class="sig-prename descclassname"><span class="pre">gridvariabletransforms_mod/</span></span><span class="sig-name descname"><span class="pre">gvt_transform</span></span><em> <span class="pre">[</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/gridvariabletransforms_mod/gvt_transform" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+</ul>
+<p class="rubric">Subroutines and functions</p>
+<dl>
+<dt class="sig sig-object f" id="f/gridvariabletransforms_mod/gvt_setup">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">gridvariabletransforms_mod/</span></span><span class="sig-name descname"><span class="pre">gvt_setup</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">hco_in</span></em>, <em class="sig-param"><span class="pre">hco_core</span></em>, <em class="sig-param"><span class="pre">vco_in</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/gridvariabletransforms_mod/gvt_setup" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>To set up a variable transformation object</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>hco_in</strong><em> [</em><em>struct_hco </em><em>,</em><em>inout,pointer</em><em>]</em></p></li>
+<li><p><strong>hco_core</strong><em> [</em><em>struct_hco </em><em>,</em><em>inout,pointer</em><em>]</em></p></li>
+<li><p><strong>vco_in</strong><em> [</em><em>struct_vco </em><em>,</em><em>inout,pointer</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="calcstatsglb_mod.html#f/calcstatsglb_mod/csg_toolbox" title="f/calcstatsglb_mod/csg_toolbox"><code class="xref f f-func docutils literal notranslate"><span class="pre">csg_toolbox()</span></code></a>, <a class="reference internal" href="enspostprocess_mod.html#f/enspostprocess_mod/epp_addrandompert" title="f/enspostprocess_mod/epp_addrandompert"><code class="xref f f-func docutils literal notranslate"><span class="pre">epp_addrandompert()</span></code></a>, <a class="reference internal" href="../programs/midas_adjointtest.html#f/midas_adjointtest" title="f/midas_adjointtest"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_adjointtest</span></code></a>, <a class="reference internal" href="../programs/midas_diagbmatrix.html#f/midas_diagbmatrix" title="f/midas_diagbmatrix"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_diagbmatrix</span></code></a>, <a class="reference internal" href="../programs/midas_diaghbht.html#f/midas_diaghbht" title="f/midas_diaghbht"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_diaghbht</span></code></a>, <a class="reference internal" href="../programs/midas_extractbmatrixfor1dvar.html#f/midas_extractbmatrixfor1dvar" title="f/midas_extractbmatrixfor1dvar"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_extractbmatrixfor1dvar</span></code></a>, <a class="reference internal" href="../programs/midas_obsimpact.html#f/midas_obsimpact" title="f/midas_obsimpact"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_obsimpact</span></code></a>, <a class="reference internal" href="../programs/midas_randompert.html#f/midas_randompert" title="f/midas_randompert"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_randompert</span></code></a>, <a class="reference internal" href="../programs/midas_var.html#f/midas_var" title="f/midas_var"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_var</span></code></a>, <a class="reference internal" href="../programs/midas_var1d.html#f/midas_var1d" title="f/midas_var1d"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_var1d</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_containsnonzerovalues" title="f/gridstatevector_mod/gsv_containsnonzerovalues"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_containsnonzerovalues()</span></code></a>, <a class="reference internal" href="analysisgrid_mod.html#f/analysisgrid_mod/agd_setupfromhco" title="f/analysisgrid_mod/agd_setupfromhco"><code class="xref f f-func docutils literal notranslate"><span class="pre">agd_setupfromhco()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/gridvariabletransforms_mod/gvt_setupreffromtrialfiles">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">gridvariabletransforms_mod/</span></span><span class="sig-name descname"><span class="pre">gvt_setupreffromtrialfiles</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">varname</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">varkind_opt</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/gridvariabletransforms_mod/gvt_setupreffromtrialfiles" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Initialise reference statevector from file</p>
+</dd>
+<dt class="field-even">Arguments </dt>
+<dd class="field-even"><dl class="field-list simple">
+<dt class="field-odd">varKind_opt</dt>
+<dd class="field-odd"><p>optional variable “kind” argument presently used to
+initialise the reference state in a chemical assimilation
+context.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><p><strong>varname</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em> :: reference variable/type used</p>
+</dd>
+<dt class="field-even">Options</dt>
+<dd class="field-even"><p><strong>varkind_opt</strong><em> [</em><em>character </em><em>,</em><em>in,</em><em>]</em> :: additional variable/type information mandatory for some initialization</p>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../programs/midas_adjointtest.html#f/midas_adjointtest" title="f/midas_adjointtest"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_adjointtest</span></code></a>, <a class="reference internal" href="../programs/midas_diagbmatrix.html#f/midas_diagbmatrix" title="f/midas_diagbmatrix"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_diagbmatrix</span></code></a>, <a class="reference internal" href="../programs/midas_diaghbht.html#f/midas_diaghbht" title="f/midas_diaghbht"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_diaghbht</span></code></a>, <a class="reference internal" href="../programs/midas_extractbmatrixfor1dvar.html#f/midas_extractbmatrixfor1dvar" title="f/midas_extractbmatrixfor1dvar"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_extractbmatrixfor1dvar</span></code></a>, <a class="reference internal" href="../programs/midas_obsimpact.html#f/midas_obsimpact" title="f/midas_obsimpact"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_obsimpact</span></code></a>, <a class="reference internal" href="../programs/midas_randompert.html#f/midas_randompert" title="f/midas_randompert"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_randompert</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_allocate" title="f/gridstatevector_mod/gsv_allocate"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_allocate()</span></code></a>, <a class="reference internal" href="timecoord_mod.html#f/timecoord_mod/tim_getdatestamp" title="f/timecoord_mod/tim_getdatestamp"><code class="xref f f-func docutils literal notranslate"><span class="pre">tim_getdatestamp()</span></code></a>, <a class="reference internal" href="gridstatevectorfileio_mod.html#f/gridstatevectorfileio_mod/gio_readtrials" title="f/gridstatevectorfileio_mod/gio_readtrials"><code class="xref f f-func docutils literal notranslate"><span class="pre">gio_readtrials()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_isallocated" title="f/gridstatevector_mod/gsv_isallocated"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_isallocated()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_zero" title="f/gridstatevector_mod/gsv_zero"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_zero()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_copy" title="f/gridstatevector_mod/gsv_copy"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_copy()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_deallocate" title="f/gridstatevector_mod/gsv_deallocate"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_deallocate()</span></code></a>, <a class="reference internal" href="varnamelist_mod.html#f/varnamelist_mod/vnl_varkindfromvarname" title="f/varnamelist_mod/vnl_varkindfromvarname"><code class="xref f f-func docutils literal notranslate"><span class="pre">vnl_varkindfromvarname()</span></code></a>, <a class="reference internal" href="varnamelist_mod.html#f/varnamelist_mod/vnl_varlistindex" title="f/varnamelist_mod/vnl_varlistindex"><code class="xref f f-func docutils literal notranslate"><span class="pre">vnl_varlistindex()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/gridvariabletransforms_mod/gvt_transform_gsv">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">gridvariabletransforms_mod/</span></span><span class="sig-name descname"><span class="pre">gvt_transform_gsv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">statevector</span></em>, <em class="sig-param"><span class="pre">transform</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">statevectorout_opt</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">statevectorref_opt</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">varname_opt</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">allowoverwrite_opt</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">maxboxsize_opt</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">subgrid_opt</span></em><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/gridvariabletransforms_mod/gvt_transform_gsv" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Top-level switch routine for transformations on the grid.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>statevector</strong><em> [</em><em>struct_gsv </em><em>,</em><em>inout</em><em>]</em> :: statevector operand of the transformation</p></li>
+<li><p><strong>transform</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em> :: string identifying the requested transformation</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Options</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>statevectorout_opt</strong><em> [</em><em>struct_gsv </em><em>,</em><em>inout,</em><em>]</em></p></li>
+<li><p><strong>statevectorref_opt</strong><em> [</em><em>struct_gsv </em><em>,</em><em>in,</em><em>]</em> :: reference statevector necessary for some transformation</p></li>
+<li><p><strong>varname_opt</strong><em> [</em><em>character </em><em>,</em><em>in,</em><em>]</em> :: additional variable/type information mandatory for some transformation</p></li>
+<li><p><strong>allowoverwrite_opt</strong><em> [</em><em>logical </em><em>,</em><em>in,</em><em>]</em></p></li>
+<li><p><strong>maxboxsize_opt</strong><em> [</em><em>integer </em><em>,</em><em>in,</em><em>]</em> :: additional information required by SSTSpread subroutine</p></li>
+<li><p><strong>subgrid_opt</strong><em> [</em><em>character </em><em>,</em><em>in,</em><em>]</em> :: additional information required by SSTSpread subroutine:</p></li>
+</ul>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="horizontalcoord_mod.html#f/horizontalcoord_mod/hco_equal" title="f/horizontalcoord_mod/hco_equal"><code class="xref f f-func docutils literal notranslate"><span class="pre">hco_equal()</span></code></a>, <a class="reference internal" href="verticalcoord_mod.html#f/verticalcoord_mod/vco_equal" title="f/verticalcoord_mod/vco_equal"><code class="xref f f-func docutils literal notranslate"><span class="pre">vco_equal()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_varexist" title="f/gridstatevector_mod/gsv_varexist"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_varexist()</span></code></a>, <a class="reference internal" href="#f/gridvariabletransforms_mod/lprtopr_gsv" title="f/gridvariabletransforms_mod/lprtopr_gsv"><code class="xref f f-func docutils literal notranslate"><span class="pre">lprtopr_gsv()</span></code></a>, <a class="reference internal" href="#f/gridvariabletransforms_mod/lvistovis" title="f/gridvariabletransforms_mod/lvistovis"><code class="xref f f-func docutils literal notranslate"><span class="pre">lvistovis()</span></code></a>, <a class="reference internal" href="#f/gridvariabletransforms_mod/uvtovortdiv_gsv" title="f/gridvariabletransforms_mod/uvtovortdiv_gsv"><code class="xref f f-func docutils literal notranslate"><span class="pre">uvtovortdiv_gsv()</span></code></a>, <a class="reference internal" href="#f/gridvariabletransforms_mod/vortdivtopsichi_gsv" title="f/gridvariabletransforms_mod/vortdivtopsichi_gsv"><code class="xref f f-func docutils literal notranslate"><span class="pre">vortdivtopsichi_gsv()</span></code></a>, <a class="reference internal" href="#f/gridvariabletransforms_mod/uvtopsichi_gsv" title="f/gridvariabletransforms_mod/uvtopsichi_gsv"><code class="xref f f-func docutils literal notranslate"><span class="pre">uvtopsichi_gsv()</span></code></a>, <a class="reference internal" href="#f/gridvariabletransforms_mod/lqtohu" title="f/gridvariabletransforms_mod/lqtohu"><code class="xref f f-func docutils literal notranslate"><span class="pre">lqtohu()</span></code></a>, <a class="reference internal" href="#f/gridvariabletransforms_mod/hutolq_gsv" title="f/gridvariabletransforms_mod/hutolq_gsv"><code class="xref f f-func docutils literal notranslate"><span class="pre">hutolq_gsv()</span></code></a>, <a class="reference internal" href="#f/gridvariabletransforms_mod/lqtohu_tlm" title="f/gridvariabletransforms_mod/lqtohu_tlm"><code class="xref f f-func docutils literal notranslate"><span class="pre">lqtohu_tlm()</span></code></a>, <a class="reference internal" href="#f/gridvariabletransforms_mod/hutolq_tlm" title="f/gridvariabletransforms_mod/hutolq_tlm"><code class="xref f f-func docutils literal notranslate"><span class="pre">hutolq_tlm()</span></code></a>, <a class="reference internal" href="#f/gridvariabletransforms_mod/prtolpr_gsv" title="f/gridvariabletransforms_mod/prtolpr_gsv"><code class="xref f f-func docutils literal notranslate"><span class="pre">prtolpr_gsv()</span></code></a>, <a class="reference internal" href="#f/gridvariabletransforms_mod/zandp_tl" title="f/gridvariabletransforms_mod/zandp_tl"><code class="xref f f-func docutils literal notranslate"><span class="pre">zandp_tl()</span></code></a>, <a class="reference internal" href="#f/gridvariabletransforms_mod/zandp_ad" title="f/gridvariabletransforms_mod/zandp_ad"><code class="xref f f-func docutils literal notranslate"><span class="pre">zandp_ad()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_varkindexist" title="f/gridstatevector_mod/gsv_varkindexist"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_varkindexist()</span></code></a>, <a class="reference internal" href="varnamelist_mod.html#f/varnamelist_mod/vnl_varkindfromvarname" title="f/varnamelist_mod/vnl_varkindfromvarname"><code class="xref f f-func docutils literal notranslate"><span class="pre">vnl_varkindfromvarname()</span></code></a>, <a class="reference internal" href="#f/gridvariabletransforms_mod/expch_tlm" title="f/gridvariabletransforms_mod/expch_tlm"><code class="xref f f-func docutils literal notranslate"><span class="pre">expch_tlm()</span></code></a>, <a class="reference internal" href="#f/gridvariabletransforms_mod/ch_bounds" title="f/gridvariabletransforms_mod/ch_bounds"><code class="xref f f-func docutils literal notranslate"><span class="pre">ch_bounds()</span></code></a>, <a class="reference internal" href="#f/gridvariabletransforms_mod/gvt_oceanicecontinous" title="f/gridvariabletransforms_mod/gvt_oceanicecontinous"><code class="xref f f-func docutils literal notranslate"><span class="pre">gvt_oceanicecontinous()</span></code></a>, <a class="reference internal" href="#f/gridvariabletransforms_mod/gvt_sstspread" title="f/gridvariabletransforms_mod/gvt_sstspread"><code class="xref f f-func docutils literal notranslate"><span class="pre">gvt_sstspread()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/gridvariabletransforms_mod/gvt_transform_ens">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">gridvariabletransforms_mod/</span></span><span class="sig-name descname"><span class="pre">gvt_transform_ens</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">ens</span></em>, <em class="sig-param"><span class="pre">transform</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">allowoverwrite_opt</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">varname_opt</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">huminvalue_opt</span></em><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/gridvariabletransforms_mod/gvt_transform_ens" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Top-level switch routine for ensemble transformations on the
+grid</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>ens</strong><em> [</em><em>struct_ens </em><em>,</em><em>inout</em><em>]</em> :: operand (ensemble of statevector)</p></li>
+<li><p><strong>transform</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em> :: string identifying the requested transformation</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Options</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>allowoverwrite_opt</strong><em> [</em><em>logical </em><em>,</em><em>in,</em><em>]</em></p></li>
+<li><p><strong>varname_opt</strong><em> [</em><em>character </em><em>,</em><em>in,</em><em>]</em> :: additional variable/type information mandatory for some transformation</p></li>
+<li><p><strong>huminvalue_opt</strong><em> [</em><em>real </em><em>,</em><em>in,</em><em>]</em> :: HU min value for ‘HUtoLQ’ transformation</p></li>
+</ul>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_varexist" title="f/ensemblestatevector_mod/ens_varexist"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_varexist()</span></code></a>, <a class="reference internal" href="#f/gridvariabletransforms_mod/lprtopr_ens" title="f/gridvariabletransforms_mod/lprtopr_ens"><code class="xref f f-func docutils literal notranslate"><span class="pre">lprtopr_ens()</span></code></a>, <a class="reference internal" href="#f/gridvariabletransforms_mod/hutolq_ens" title="f/gridvariabletransforms_mod/hutolq_ens"><code class="xref f f-func docutils literal notranslate"><span class="pre">hutolq_ens()</span></code></a>, <a class="reference internal" href="#f/gridvariabletransforms_mod/uvtopsichi_ens" title="f/gridvariabletransforms_mod/uvtopsichi_ens"><code class="xref f f-func docutils literal notranslate"><span class="pre">uvtopsichi_ens()</span></code></a>, <a class="reference internal" href="#f/gridvariabletransforms_mod/uvtovortdiv_ens" title="f/gridvariabletransforms_mod/uvtovortdiv_ens"><code class="xref f f-func docutils literal notranslate"><span class="pre">uvtovortdiv_ens()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="varnamelist_mod.html#f/varnamelist_mod/vnl_varkindfromvarname" title="f/varnamelist_mod/vnl_varkindfromvarname"><code class="xref f f-func docutils literal notranslate"><span class="pre">vnl_varkindfromvarname()</span></code></a>, <a class="reference internal" href="#f/gridvariabletransforms_mod/logch_ens" title="f/gridvariabletransforms_mod/logch_ens"><code class="xref f f-func docutils literal notranslate"><span class="pre">logch_ens()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/gridvariabletransforms_mod/gvt_getstatevectortrial">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">gridvariabletransforms_mod/</span></span><span class="sig-name descname"><span class="pre">gvt_getstatevectortrial</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">varname</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/gridvariabletransforms_mod/gvt_getstatevectortrial" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Returns a pointer to requested reference statevector</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>varname</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em> :: reference variable/type requested</p>
+</dd>
+<dt class="field-odd">Return</dt>
+<dd class="field-odd"><p><strong>statevector_ptr</strong><em> [</em><em>struct_gsv </em><em>,</em><em>pointer</em><em>]</em></p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="statetocolumn_mod.html#f/statetocolumn_mod/s2c_setupinterpinfo" title="f/statetocolumn_mod/s2c_setupinterpinfo"><code class="xref f f-func docutils literal notranslate"><span class="pre">s2c_setupinterpinfo()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_containsnonzerovalues" title="f/gridstatevector_mod/gsv_containsnonzerovalues"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_containsnonzerovalues()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/gridvariabletransforms_mod/gvt_setupreffromstatevector">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">gridvariabletransforms_mod/</span></span><span class="sig-name descname"><span class="pre">gvt_setupreffromstatevector</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">statevectorontrlgrid</span></em>, <em class="sig-param"><span class="pre">varname</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">applylimitonhu_opt</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/gridvariabletransforms_mod/gvt_setupreffromstatevector" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>computing the reference stateVector on the analysis grid at each
+outer-loop iteration. The calculation is skipped if stateVectorRef* is
+initialized (gsv_containsNonZeroValue(stateVectorRef*)=.true.).
+The input stateVector is the high spatial/temporal resolution
+statevector used for reading the trials and should contain
+TT/HU/P0 if stateVectorRefHeight is asked for.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>statevectorontrlgrid</strong><em> [</em><em>struct_gsv </em><em>,</em><em>in</em><em>]</em> :: high spatial/temporal resolution statevector</p></li>
+<li><p><strong>varname</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em> :: reference variable/type used</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Options</dt>
+<dd class="field-odd"><p><strong>applylimitonhu_opt</strong><em> [</em><em>logical </em><em>,</em><em>in,</em><em>]</em></p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="../programs/midas_var.html#f/midas_var" title="f/midas_var"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_var</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_gethco" title="f/gridstatevector_mod/gsv_gethco"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_gethco()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_getvco" title="f/gridstatevector_mod/gsv_getvco"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_getvco()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_isallocated" title="f/gridstatevector_mod/gsv_isallocated"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_isallocated()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_allocate" title="f/gridstatevector_mod/gsv_allocate"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_allocate()</span></code></a>, <a class="reference internal" href="timecoord_mod.html#f/timecoord_mod/tim_getdatestamp" title="f/timecoord_mod/tim_getdatestamp"><code class="xref f f-func docutils literal notranslate"><span class="pre">tim_getdatestamp()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_zero" title="f/gridstatevector_mod/gsv_zero"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_zero()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_copy" title="f/gridstatevector_mod/gsv_copy"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_copy()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_varnameslist" title="f/gridstatevector_mod/gsv_varnameslist"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_varnameslist()</span></code></a>, <a class="reference internal" href="interpolation_mod.html#f/interpolation_mod/int_interp_gsv" title="f/interpolation_mod/int_interp_gsv"><code class="xref f f-func docutils literal notranslate"><span class="pre">int_interp_gsv()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_deallocate" title="f/gridstatevector_mod/gsv_deallocate"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_deallocate()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/gridvariabletransforms_mod/lqtohu">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">gridvariabletransforms_mod/</span></span><span class="sig-name descname"><span class="pre">lqtohu</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">statevector</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/gridvariabletransforms_mod/lqtohu" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Specific humidity logarithm exponentiation.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>statevector</strong><em> [</em><em>struct_gsv </em><em>,</em><em>inout</em><em>]</em></p>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/gridvariabletransforms_mod/gvt_transform_gsv" title="f/gridvariabletransforms_mod/gvt_transform_gsv"><code class="xref f f-func docutils literal notranslate"><span class="pre">gvt_transform_gsv()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_getnumlev" title="f/gridstatevector_mod/gsv_getnumlev"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_getnumlev()</span></code></a>, <a class="reference internal" href="varnamelist_mod.html#f/varnamelist_mod/vnl_varlevelfromvarname" title="f/varnamelist_mod/vnl_varlevelfromvarname"><code class="xref f f-func docutils literal notranslate"><span class="pre">vnl_varlevelfromvarname()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/gridvariabletransforms_mod/hutolq_gsv">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">gridvariabletransforms_mod/</span></span><span class="sig-name descname"><span class="pre">hutolq_gsv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">statevector</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/gridvariabletransforms_mod/hutolq_gsv" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Logarithmic transformation of specific humidity</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>statevector</strong><em> [</em><em>struct_gsv </em><em>,</em><em>inout</em><em>]</em></p>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/gridvariabletransforms_mod/gvt_transform_gsv" title="f/gridvariabletransforms_mod/gvt_transform_gsv"><code class="xref f f-func docutils literal notranslate"><span class="pre">gvt_transform_gsv()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_getdatakind" title="f/gridstatevector_mod/gsv_getdatakind"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_getdatakind()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_getnumlev" title="f/gridstatevector_mod/gsv_getnumlev"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_getnumlev()</span></code></a>, <a class="reference internal" href="varnamelist_mod.html#f/varnamelist_mod/vnl_varlevelfromvarname" title="f/varnamelist_mod/vnl_varlevelfromvarname"><code class="xref f f-func docutils literal notranslate"><span class="pre">vnl_varlevelfromvarname()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/gridvariabletransforms_mod/hutolq_ens">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">gridvariabletransforms_mod/</span></span><span class="sig-name descname"><span class="pre">hutolq_ens</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">ens</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">huminvalue_opt</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/gridvariabletransforms_mod/hutolq_ens" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Specific humidity logarithm exponentiation (ensemble processing)</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>ens</strong><em> [</em><em>struct_ens </em><em>,</em><em>inout</em><em>]</em></p>
+</dd>
+<dt class="field-odd">Options</dt>
+<dd class="field-odd"><p><strong>huminvalue_opt</strong><em> [</em><em>real </em><em>,</em><em>in,</em><em>]</em></p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/gridvariabletransforms_mod/gvt_transform_ens" title="f/gridvariabletransforms_mod/gvt_transform_ens"><code class="xref f f-func docutils literal notranslate"><span class="pre">gvt_transform_ens()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_getlatlonbounds" title="f/ensemblestatevector_mod/ens_getlatlonbounds"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_getlatlonbounds()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_getnumk" title="f/ensemblestatevector_mod/ens_getnumk"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_getnumk()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_getvarnamefromk" title="f/ensemblestatevector_mod/ens_getvarnamefromk"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_getvarnamefromk()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_getonelev_r4" title="f/ensemblestatevector_mod/ens_getonelev_r4"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_getonelev_r4()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_getnumstep" title="f/ensemblestatevector_mod/ens_getnumstep"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_getnumstep()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_getnummembers" title="f/ensemblestatevector_mod/ens_getnummembers"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_getnummembers()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/gridvariabletransforms_mod/lqtohu_tlm">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">gridvariabletransforms_mod/</span></span><span class="sig-name descname"><span class="pre">lqtohu_tlm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">statevector</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">statevectorref_opt</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/gridvariabletransforms_mod/lqtohu_tlm" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Tangent linear of exponentiation transformation of specific
+humidity in logarithmic representation</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>statevector</strong><em> [</em><em>struct_gsv </em><em>,</em><em>inout</em><em>]</em></p>
+</dd>
+<dt class="field-odd">Options</dt>
+<dd class="field-odd"><p><strong>statevectorref_opt</strong><em> [</em><em>struct_gsv </em><em>,</em><em>in,</em><em>]</em></p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/gridvariabletransforms_mod/gvt_transform_gsv" title="f/gridvariabletransforms_mod/gvt_transform_gsv"><code class="xref f f-func docutils literal notranslate"><span class="pre">gvt_transform_gsv()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_varexist" title="f/gridstatevector_mod/gsv_varexist"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_varexist()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_containsnonzerovalues" title="f/gridstatevector_mod/gsv_containsnonzerovalues"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_containsnonzerovalues()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_getdatakind" title="f/gridstatevector_mod/gsv_getdatakind"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_getdatakind()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_getnumlev" title="f/gridstatevector_mod/gsv_getnumlev"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_getnumlev()</span></code></a>, <a class="reference internal" href="varnamelist_mod.html#f/varnamelist_mod/vnl_varlevelfromvarname" title="f/varnamelist_mod/vnl_varlevelfromvarname"><code class="xref f f-func docutils literal notranslate"><span class="pre">vnl_varlevelfromvarname()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/gridvariabletransforms_mod/hutolq_tlm">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">gridvariabletransforms_mod/</span></span><span class="sig-name descname"><span class="pre">hutolq_tlm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">statevector</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">statevectorref_opt</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/gridvariabletransforms_mod/hutolq_tlm" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Tangent linear of logarithmic transformation of specific
+humidity</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>statevector</strong><em> [</em><em>struct_gsv </em><em>,</em><em>inout</em><em>]</em></p>
+</dd>
+<dt class="field-odd">Options</dt>
+<dd class="field-odd"><p><strong>statevectorref_opt</strong><em> [</em><em>struct_gsv </em><em>,</em><em>in,</em><em>]</em></p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/gridvariabletransforms_mod/gvt_transform_gsv" title="f/gridvariabletransforms_mod/gvt_transform_gsv"><code class="xref f f-func docutils literal notranslate"><span class="pre">gvt_transform_gsv()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_containsnonzerovalues" title="f/gridstatevector_mod/gsv_containsnonzerovalues"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_containsnonzerovalues()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_getdatakind" title="f/gridstatevector_mod/gsv_getdatakind"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_getdatakind()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_getnumlev" title="f/gridstatevector_mod/gsv_getnumlev"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_getnumlev()</span></code></a>, <a class="reference internal" href="varnamelist_mod.html#f/varnamelist_mod/vnl_varlevelfromvarname" title="f/varnamelist_mod/vnl_varlevelfromvarname"><code class="xref f f-func docutils literal notranslate"><span class="pre">vnl_varlevelfromvarname()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/gridvariabletransforms_mod/lprtopr_gsv">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">gridvariabletransforms_mod/</span></span><span class="sig-name descname"><span class="pre">lprtopr_gsv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">statevector</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">statevectorout_opt</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">allowoverwrite_opt</span></em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/gridvariabletransforms_mod/lprtopr_gsv" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Quantity of precipitation logarithm exponentiation</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>statevector</strong><em> [</em><em>struct_gsv </em><em>,</em><em>inout</em><em>]</em></p>
+</dd>
+<dt class="field-odd">Options</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>statevectorout_opt</strong><em> [</em><em>struct_gsv </em><em>,</em><em>inout,</em><em>]</em></p></li>
+<li><p><strong>allowoverwrite_opt</strong><em> [</em><em>logical </em><em>,</em><em>in,</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/gridvariabletransforms_mod/gvt_transform_gsv" title="f/gridvariabletransforms_mod/gvt_transform_gsv"><code class="xref f f-func docutils literal notranslate"><span class="pre">gvt_transform_gsv()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_varexist" title="f/gridstatevector_mod/gsv_varexist"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_varexist()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_getdatakind" title="f/gridstatevector_mod/gsv_getdatakind"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_getdatakind()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_getnumlev" title="f/gridstatevector_mod/gsv_getnumlev"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_getnumlev()</span></code></a>, <a class="reference internal" href="varnamelist_mod.html#f/varnamelist_mod/vnl_varlevelfromvarname" title="f/varnamelist_mod/vnl_varlevelfromvarname"><code class="xref f f-func docutils literal notranslate"><span class="pre">vnl_varlevelfromvarname()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_modifyvarname" title="f/gridstatevector_mod/gsv_modifyvarname"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_modifyvarname()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/gridvariabletransforms_mod/lprtopr_ens">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">gridvariabletransforms_mod/</span></span><span class="sig-name descname"><span class="pre">lprtopr_ens</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">ens</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">allowoverwrite_opt</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/gridvariabletransforms_mod/lprtopr_ens" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Quantity of precipitation logarithm exponentiation
+(ensemble processing)</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>ens</strong><em> [</em><em>struct_ens </em><em>,</em><em>inout</em><em>]</em></p>
+</dd>
+<dt class="field-odd">Options</dt>
+<dd class="field-odd"><p><strong>allowoverwrite_opt</strong><em> [</em><em>logical </em><em>,</em><em>in,</em><em>]</em></p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/gridvariabletransforms_mod/gvt_transform_ens" title="f/gridvariabletransforms_mod/gvt_transform_ens"><code class="xref f f-func docutils literal notranslate"><span class="pre">gvt_transform_ens()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_varexist" title="f/ensemblestatevector_mod/ens_varexist"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_varexist()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_getlatlonbounds" title="f/ensemblestatevector_mod/ens_getlatlonbounds"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_getlatlonbounds()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_getkfromlevvarname" title="f/ensemblestatevector_mod/ens_getkfromlevvarname"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_getkfromlevvarname()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_getonelev_r4" title="f/ensemblestatevector_mod/ens_getonelev_r4"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_getonelev_r4()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_getnumstep" title="f/ensemblestatevector_mod/ens_getnumstep"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_getnumstep()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_getnummembers" title="f/ensemblestatevector_mod/ens_getnummembers"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_getnummembers()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_modifyvarname" title="f/ensemblestatevector_mod/ens_modifyvarname"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_modifyvarname()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/gridvariabletransforms_mod/prtolpr_gsv">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">gridvariabletransforms_mod/</span></span><span class="sig-name descname"><span class="pre">prtolpr_gsv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">statevector</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">statevectorout_opt</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/gridvariabletransforms_mod/prtolpr_gsv" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Logarithmic transformation of quantity of precipitation</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>statevector</strong><em> [</em><em>struct_gsv </em><em>,</em><em>inout</em><em>]</em></p>
+</dd>
+<dt class="field-odd">Options</dt>
+<dd class="field-odd"><p><strong>statevectorout_opt</strong><em> [</em><em>struct_gsv </em><em>,</em><em>inout,</em><em>]</em></p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/gridvariabletransforms_mod/gvt_transform_gsv" title="f/gridvariabletransforms_mod/gvt_transform_gsv"><code class="xref f f-func docutils literal notranslate"><span class="pre">gvt_transform_gsv()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_getdatakind" title="f/gridstatevector_mod/gsv_getdatakind"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_getdatakind()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_getnumlev" title="f/gridstatevector_mod/gsv_getnumlev"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_getnumlev()</span></code></a>, <a class="reference internal" href="varnamelist_mod.html#f/varnamelist_mod/vnl_varlevelfromvarname" title="f/varnamelist_mod/vnl_varlevelfromvarname"><code class="xref f f-func docutils literal notranslate"><span class="pre">vnl_varlevelfromvarname()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/gridvariabletransforms_mod/lvistovis">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">gridvariabletransforms_mod/</span></span><span class="sig-name descname"><span class="pre">lvistovis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">statevector</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">statevectorout_opt</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">allowoverwrite_opt</span></em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/gridvariabletransforms_mod/lvistovis" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Visibility logarithm exponentiation</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>statevector</strong><em> [</em><em>struct_gsv </em><em>,</em><em>inout</em><em>]</em></p>
+</dd>
+<dt class="field-odd">Options</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>statevectorout_opt</strong><em> [</em><em>struct_gsv </em><em>,</em><em>inout,</em><em>]</em></p></li>
+<li><p><strong>allowoverwrite_opt</strong><em> [</em><em>logical </em><em>,</em><em>in,</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/gridvariabletransforms_mod/gvt_transform_gsv" title="f/gridvariabletransforms_mod/gvt_transform_gsv"><code class="xref f f-func docutils literal notranslate"><span class="pre">gvt_transform_gsv()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_varexist" title="f/gridstatevector_mod/gsv_varexist"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_varexist()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_getdatakind" title="f/gridstatevector_mod/gsv_getdatakind"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_getdatakind()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_getnumlev" title="f/gridstatevector_mod/gsv_getnumlev"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_getnumlev()</span></code></a>, <a class="reference internal" href="varnamelist_mod.html#f/varnamelist_mod/vnl_varlevelfromvarname" title="f/varnamelist_mod/vnl_varlevelfromvarname"><code class="xref f f-func docutils literal notranslate"><span class="pre">vnl_varlevelfromvarname()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_modifyvarname" title="f/gridstatevector_mod/gsv_modifyvarname"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_modifyvarname()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/gridvariabletransforms_mod/zandp_tl">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">gridvariabletransforms_mod/</span></span><span class="sig-name descname"><span class="pre">zandp_tl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">statevector</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/gridvariabletransforms_mod/zandp_tl" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Tangeant linear of height and pressure computation.
+The computation order depends on the native model
+representation (height or pressure based).</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>statevector</strong><em> [</em><em>struct_gsv </em><em>,</em><em>inout</em><em>]</em></p>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/gridvariabletransforms_mod/gvt_transform_gsv" title="f/gridvariabletransforms_mod/gvt_transform_gsv"><code class="xref f f-func docutils literal notranslate"><span class="pre">gvt_transform_gsv()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/gridvariabletransforms_mod/zandp_ad">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">gridvariabletransforms_mod/</span></span><span class="sig-name descname"><span class="pre">zandp_ad</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">statevector</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/gridvariabletransforms_mod/zandp_ad" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Adjoint of the tangeant linear computation of both height and
+pressure. The computation order depends on the native model
+representation (height or pressure based).</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>statevector</strong><em> [</em><em>struct_gsv </em><em>,</em><em>inout</em><em>]</em></p>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/gridvariabletransforms_mod/gvt_transform_gsv" title="f/gridvariabletransforms_mod/gvt_transform_gsv"><code class="xref f f-func docutils literal notranslate"><span class="pre">gvt_transform_gsv()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/gridvariabletransforms_mod/uvtovortdiv_gsv">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">gridvariabletransforms_mod/</span></span><span class="sig-name descname"><span class="pre">uvtovortdiv_gsv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">statevector</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/gridvariabletransforms_mod/uvtovortdiv_gsv" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Wind components to relative vorticity and divergence transformation.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>statevector</strong><em> [</em><em>struct_gsv </em><em>,</em><em>inout</em><em>]</em></p>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/gridvariabletransforms_mod/gvt_transform_gsv" title="f/gridvariabletransforms_mod/gvt_transform_gsv"><code class="xref f f-func docutils literal notranslate"><span class="pre">gvt_transform_gsv()</span></code></a>, <a class="reference internal" href="#f/gridvariabletransforms_mod/uvtopsichi_gsv" title="f/gridvariabletransforms_mod/uvtopsichi_gsv"><code class="xref f f-func docutils literal notranslate"><span class="pre">uvtopsichi_gsv()</span></code></a>, <a class="reference internal" href="#f/gridvariabletransforms_mod/uvtovortdiv_ens" title="f/gridvariabletransforms_mod/uvtovortdiv_ens"><code class="xref f f-func docutils literal notranslate"><span class="pre">uvtovortdiv_ens()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_varexist" title="f/gridstatevector_mod/gsv_varexist"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_varexist()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_getnumlev" title="f/gridstatevector_mod/gsv_getnumlev"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_getnumlev()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="analysisgrid_mod.html#f/analysisgrid_mod/agd_uvtovortdiv" title="f/analysisgrid_mod/agd_uvtovortdiv"><code class="xref f f-func docutils literal notranslate"><span class="pre">agd_uvtovortdiv()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/gridvariabletransforms_mod/vortdivtopsichi_gsv">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">gridvariabletransforms_mod/</span></span><span class="sig-name descname"><span class="pre">vortdivtopsichi_gsv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">statevector</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/gridvariabletransforms_mod/vortdivtopsichi_gsv" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Relative vorticity and divergence to stream function and
+velocity potential transformation.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>statevector</strong><em> [</em><em>struct_gsv </em><em>,</em><em>inout</em><em>]</em> :: IN</p>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/gridvariabletransforms_mod/gvt_transform_gsv" title="f/gridvariabletransforms_mod/gvt_transform_gsv"><code class="xref f f-func docutils literal notranslate"><span class="pre">gvt_transform_gsv()</span></code></a>, <a class="reference internal" href="#f/gridvariabletransforms_mod/uvtopsichi_gsv" title="f/gridvariabletransforms_mod/uvtopsichi_gsv"><code class="xref f f-func docutils literal notranslate"><span class="pre">uvtopsichi_gsv()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_varexist" title="f/gridstatevector_mod/gsv_varexist"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_varexist()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_getnumlev" title="f/gridstatevector_mod/gsv_getnumlev"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_getnumlev()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="lamspectraltransform_mod.html#f/lamspectraltransform_mod/lst_setup" title="f/lamspectraltransform_mod/lst_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">lst_setup()</span></code></a>, <a class="reference internal" href="lamspectraltransform_mod.html#f/lamspectraltransform_mod/lst_laplacian" title="f/lamspectraltransform_mod/lst_laplacian"><code class="xref f f-func docutils literal notranslate"><span class="pre">lst_laplacian()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/gridvariabletransforms_mod/uvtopsichi_gsv">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">gridvariabletransforms_mod/</span></span><span class="sig-name descname"><span class="pre">uvtopsichi_gsv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">statevector</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/gridvariabletransforms_mod/uvtopsichi_gsv" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Wind components to stream function and velocity potential
+transformation.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>statevector</strong><em> [</em><em>struct_gsv </em><em>,</em><em>inout</em><em>]</em></p>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/gridvariabletransforms_mod/gvt_transform_gsv" title="f/gridvariabletransforms_mod/gvt_transform_gsv"><code class="xref f f-func docutils literal notranslate"><span class="pre">gvt_transform_gsv()</span></code></a>, <a class="reference internal" href="#f/gridvariabletransforms_mod/uvtopsichi_ens" title="f/gridvariabletransforms_mod/uvtopsichi_ens"><code class="xref f f-func docutils literal notranslate"><span class="pre">uvtopsichi_ens()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/gridvariabletransforms_mod/uvtovortdiv_gsv" title="f/gridvariabletransforms_mod/uvtovortdiv_gsv"><code class="xref f f-func docutils literal notranslate"><span class="pre">uvtovortdiv_gsv()</span></code></a>, <a class="reference internal" href="#f/gridvariabletransforms_mod/vortdivtopsichi_gsv" title="f/gridvariabletransforms_mod/vortdivtopsichi_gsv"><code class="xref f f-func docutils literal notranslate"><span class="pre">vortdivtopsichi_gsv()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_varexist" title="f/gridstatevector_mod/gsv_varexist"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_varexist()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_getnumlev" title="f/gridstatevector_mod/gsv_getnumlev"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_getnumlev()</span></code></a>, <a class="reference internal" href="globalspectraltransform_mod.html#f/globalspectraltransform_mod/gst_setup" title="f/globalspectraltransform_mod/gst_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">gst_setup()</span></code></a>, <a class="reference internal" href="midasmpi_mod.html#f/midasmpi_mod/mmpi_setup_m" title="f/midasmpi_mod/mmpi_setup_m"><code class="xref f f-func docutils literal notranslate"><span class="pre">mmpi_setup_m()</span></code></a>, <a class="reference internal" href="midasmpi_mod.html#f/midasmpi_mod/mmpi_setup_n" title="f/midasmpi_mod/mmpi_setup_n"><code class="xref f f-func docutils literal notranslate"><span class="pre">mmpi_setup_n()</span></code></a>, <a class="reference internal" href="globalspectraltransform_mod.html#f/globalspectraltransform_mod/gst_ilalist_mpiglobal" title="f/globalspectraltransform_mod/gst_ilalist_mpiglobal"><code class="xref f f-func docutils literal notranslate"><span class="pre">gst_ilalist_mpiglobal()</span></code></a>, <a class="reference internal" href="globalspectraltransform_mod.html#f/globalspectraltransform_mod/gst_ilalist_mpilocal" title="f/globalspectraltransform_mod/gst_ilalist_mpilocal"><code class="xref f f-func docutils literal notranslate"><span class="pre">gst_ilalist_mpilocal()</span></code></a>, <a class="reference internal" href="globalspectraltransform_mod.html#f/globalspectraltransform_mod/gst_setid" title="f/globalspectraltransform_mod/gst_setid"><code class="xref f f-func docutils literal notranslate"><span class="pre">gst_setid()</span></code></a>, <a class="reference internal" href="globalspectraltransform_mod.html#f/globalspectraltransform_mod/gst_gdsp" title="f/globalspectraltransform_mod/gst_gdsp"><code class="xref f f-func docutils literal notranslate"><span class="pre">gst_gdsp()</span></code></a>, <a class="reference internal" href="globalspectraltransform_mod.html#f/globalspectraltransform_mod/gst_getr1snp1" title="f/globalspectraltransform_mod/gst_getr1snp1"><code class="xref f f-func docutils literal notranslate"><span class="pre">gst_getr1snp1()</span></code></a>, <a class="reference internal" href="globalspectraltransform_mod.html#f/globalspectraltransform_mod/gst_speree" title="f/globalspectraltransform_mod/gst_speree"><code class="xref f f-func docutils literal notranslate"><span class="pre">gst_speree()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/gridvariabletransforms_mod/uvtopsichi_ens">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">gridvariabletransforms_mod/</span></span><span class="sig-name descname"><span class="pre">uvtopsichi_ens</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">ens</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/gridvariabletransforms_mod/uvtopsichi_ens" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Wind components to stream function and velocity potential
+transformation (ensemble processing).</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>ens</strong><em> [</em><em>struct_ens </em><em>,</em><em>inout</em><em>]</em></p>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/gridvariabletransforms_mod/gvt_transform_ens" title="f/gridvariabletransforms_mod/gvt_transform_ens"><code class="xref f f-func docutils literal notranslate"><span class="pre">gvt_transform_ens()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_gethco" title="f/ensemblestatevector_mod/ens_gethco"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_gethco()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_allocate" title="f/gridstatevector_mod/gsv_allocate"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_allocate()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_getvco" title="f/ensemblestatevector_mod/ens_getvco"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_getvco()</span></code></a>, <a class="reference internal" href="timecoord_mod.html#f/timecoord_mod/tim_getdatestamp" title="f/timecoord_mod/tim_getdatestamp"><code class="xref f f-func docutils literal notranslate"><span class="pre">tim_getdatestamp()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_getnummembers" title="f/ensemblestatevector_mod/ens_getnummembers"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_getnummembers()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_copymember" title="f/ensemblestatevector_mod/ens_copymember"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_copymember()</span></code></a>, <a class="reference internal" href="#f/gridvariabletransforms_mod/uvtopsichi_gsv" title="f/gridvariabletransforms_mod/uvtopsichi_gsv"><code class="xref f f-func docutils literal notranslate"><span class="pre">uvtopsichi_gsv()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_insertmember" title="f/ensemblestatevector_mod/ens_insertmember"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_insertmember()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_deallocate" title="f/gridstatevector_mod/gsv_deallocate"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_deallocate()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/gridvariabletransforms_mod/uvtovortdiv_ens">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">gridvariabletransforms_mod/</span></span><span class="sig-name descname"><span class="pre">uvtovortdiv_ens</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">ens</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/gridvariabletransforms_mod/uvtovortdiv_ens" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Wind components to relative vorticity and divergence transformation
+(ensemble processing)</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>ens</strong><em> [</em><em>struct_ens </em><em>,</em><em>inout</em><em>]</em></p>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/gridvariabletransforms_mod/gvt_transform_ens" title="f/gridvariabletransforms_mod/gvt_transform_ens"><code class="xref f f-func docutils literal notranslate"><span class="pre">gvt_transform_ens()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_gethco" title="f/ensemblestatevector_mod/ens_gethco"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_gethco()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_allocate" title="f/gridstatevector_mod/gsv_allocate"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_allocate()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_getvco" title="f/ensemblestatevector_mod/ens_getvco"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_getvco()</span></code></a>, <a class="reference internal" href="timecoord_mod.html#f/timecoord_mod/tim_getdatestamp" title="f/timecoord_mod/tim_getdatestamp"><code class="xref f f-func docutils literal notranslate"><span class="pre">tim_getdatestamp()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_getnummembers" title="f/ensemblestatevector_mod/ens_getnummembers"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_getnummembers()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_copymember" title="f/ensemblestatevector_mod/ens_copymember"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_copymember()</span></code></a>, <a class="reference internal" href="#f/gridvariabletransforms_mod/uvtovortdiv_gsv" title="f/gridvariabletransforms_mod/uvtovortdiv_gsv"><code class="xref f f-func docutils literal notranslate"><span class="pre">uvtovortdiv_gsv()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_insertmember" title="f/ensemblestatevector_mod/ens_insertmember"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_insertmember()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_deallocate" title="f/gridstatevector_mod/gsv_deallocate"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_deallocate()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/gridvariabletransforms_mod/logch_ens">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">gridvariabletransforms_mod/</span></span><span class="sig-name descname"><span class="pre">logch_ens</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">ens</span></em>, <em class="sig-param"><span class="pre">varname</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/gridvariabletransforms_mod/logch_ens" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Logarithmic transformation of a chemical species concentration
+(ensemble processing)</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>ens</strong><em> [</em><em>struct_ens </em><em>,</em><em>inout</em><em>]</em></p></li>
+<li><p><strong>varname</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/gridvariabletransforms_mod/gvt_transform_ens" title="f/gridvariabletransforms_mod/gvt_transform_ens"><code class="xref f f-func docutils literal notranslate"><span class="pre">gvt_transform_ens()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_getlatlonbounds" title="f/ensemblestatevector_mod/ens_getlatlonbounds"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_getlatlonbounds()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_getnumk" title="f/ensemblestatevector_mod/ens_getnumk"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_getnumk()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_getvarnamefromk" title="f/ensemblestatevector_mod/ens_getvarnamefromk"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_getvarnamefromk()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_getonelev_r4" title="f/ensemblestatevector_mod/ens_getonelev_r4"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_getonelev_r4()</span></code></a>, <a class="reference internal" href="varnamelist_mod.html#f/varnamelist_mod/vnl_varlistindex" title="f/varnamelist_mod/vnl_varlistindex"><code class="xref f f-func docutils literal notranslate"><span class="pre">vnl_varlistindex()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_getnumstep" title="f/ensemblestatevector_mod/ens_getnumstep"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_getnumstep()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_getnummembers" title="f/ensemblestatevector_mod/ens_getnummembers"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_getnummembers()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/gridvariabletransforms_mod/expch_tlm">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">gridvariabletransforms_mod/</span></span><span class="sig-name descname"><span class="pre">expch_tlm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">statevector</span></em>, <em class="sig-param"><span class="pre">varname</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">statevectorref_opt</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/gridvariabletransforms_mod/expch_tlm" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Tangent linear of exponentiation of chemical species
+concentration.
+Transform d[log(x)] to dx where x = ‘stateVectorRef_opt’,
+the input ‘statevector’ component is d[log(x)] and
+the output ‘statevector’ component is dx.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>statevector</strong><em> [</em><em>struct_gsv </em><em>,</em><em>inout</em><em>]</em></p></li>
+<li><p><strong>varname</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Options</dt>
+<dd class="field-odd"><p><strong>statevectorref_opt</strong><em> [</em><em>struct_gsv </em><em>,</em><em>in,</em><em>]</em></p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/gridvariabletransforms_mod/gvt_transform_gsv" title="f/gridvariabletransforms_mod/gvt_transform_gsv"><code class="xref f f-func docutils literal notranslate"><span class="pre">gvt_transform_gsv()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="varnamelist_mod.html#f/varnamelist_mod/vnl_varlistindex" title="f/varnamelist_mod/vnl_varlistindex"><code class="xref f f-func docutils literal notranslate"><span class="pre">vnl_varlistindex()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_getnumlev" title="f/gridstatevector_mod/gsv_getnumlev"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_getnumlev()</span></code></a>, <a class="reference internal" href="varnamelist_mod.html#f/varnamelist_mod/vnl_varlevelfromvarname" title="f/varnamelist_mod/vnl_varlevelfromvarname"><code class="xref f f-func docutils literal notranslate"><span class="pre">vnl_varlevelfromvarname()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/gridvariabletransforms_mod/ch_bounds">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">gridvariabletransforms_mod/</span></span><span class="sig-name descname"><span class="pre">ch_bounds</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">statevector</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/gridvariabletransforms_mod/ch_bounds" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Impose boundary values to variables of CH kind.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>statevector</strong><em> [</em><em>struct_gsv </em><em>,</em><em>inout</em><em>]</em></p>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/gridvariabletransforms_mod/gvt_transform_gsv" title="f/gridvariabletransforms_mod/gvt_transform_gsv"><code class="xref f f-func docutils literal notranslate"><span class="pre">gvt_transform_gsv()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_varexist" title="f/gridstatevector_mod/gsv_varexist"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_varexist()</span></code></a>, <a class="reference internal" href="varnamelist_mod.html#f/varnamelist_mod/vnl_varkindfromvarname" title="f/varnamelist_mod/vnl_varkindfromvarname"><code class="xref f f-func docutils literal notranslate"><span class="pre">vnl_varkindfromvarname()</span></code></a>, <a class="reference internal" href="varnamelist_mod.html#f/varnamelist_mod/vnl_varlistindex" title="f/varnamelist_mod/vnl_varlistindex"><code class="xref f f-func docutils literal notranslate"><span class="pre">vnl_varlistindex()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_getnumlev" title="f/gridstatevector_mod/gsv_getnumlev"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_getnumlev()</span></code></a>, <a class="reference internal" href="varnamelist_mod.html#f/varnamelist_mod/vnl_varlevelfromvarname" title="f/varnamelist_mod/vnl_varlevelfromvarname"><code class="xref f f-func docutils literal notranslate"><span class="pre">vnl_varlevelfromvarname()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/gridvariabletransforms_mod/gvt_oceanicecontinous">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">gridvariabletransforms_mod/</span></span><span class="sig-name descname"><span class="pre">gvt_oceanicecontinous</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">statevector</span></em>, <em class="sig-param"><span class="pre">statevectorref</span></em>, <em class="sig-param"><span class="pre">outputvarname</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/gridvariabletransforms_mod/gvt_oceanicecontinous" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Solve laplaces equation at a subset of gridpoints
+subject to the boundary conditions imposed by the
+surrounding points.  Uses the method of sequential
+relaxation or Liebmann relaxation, which converges
+more rapidly than the simultaneous relaxation (see
+numerical weather analysis and prediction by P. D.
+Thompson, 1961, pp92-98). NOTE: this subroutine
+currently uses the oceanMask only for the first level.
+Therefore, if it is applied to 3D masked fields that
+have level-dependent masks, the code will abort so
+that the user can make the necessary adjustments to
+ensure the correct behaviour.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>statevector</strong><em> [</em><em>struct_gsv </em><em>,</em><em>inout</em><em>]</em></p></li>
+<li><p><strong>statevectorref</strong><em> [</em><em>struct_gsv </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>outputvarname</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/gridvariabletransforms_mod/gvt_transform_gsv" title="f/gridvariabletransforms_mod/gvt_transform_gsv"><code class="xref f f-func docutils literal notranslate"><span class="pre">gvt_transform_gsv()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_allocate" title="f/gridstatevector_mod/gsv_allocate"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_allocate()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_transposetilestostep" title="f/gridstatevector_mod/gsv_transposetilestostep"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_transposetilestostep()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_isallocated" title="f/gridstatevector_mod/gsv_isallocated"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_isallocated()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_getnumlev" title="f/gridstatevector_mod/gsv_getnumlev"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_getnumlev()</span></code></a>, <a class="reference internal" href="varnamelist_mod.html#f/varnamelist_mod/vnl_varlevelfromvarname" title="f/varnamelist_mod/vnl_varlevelfromvarname"><code class="xref f f-func docutils literal notranslate"><span class="pre">vnl_varlevelfromvarname()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_transposesteptotiles" title="f/gridstatevector_mod/gsv_transposesteptotiles"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_transposesteptotiles()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_deallocate" title="f/gridstatevector_mod/gsv_deallocate"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_deallocate()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/gridvariabletransforms_mod/gvt_sstspread">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">gridvariabletransforms_mod/</span></span><span class="sig-name descname"><span class="pre">gvt_sstspread</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">statevector</span></em>, <em class="sig-param"><span class="pre">variablename</span></em>, <em class="sig-param"><span class="pre">maxboxsize</span></em>, <em class="sig-param"><span class="pre">subgrid</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/gridvariabletransforms_mod/gvt_sstspread" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Spread SST values on neigbouring land surface points</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>statevector</strong><em> [</em><em>struct_gsv </em><em>,</em><em>inout</em><em>]</em> :: state vector of SST analysis</p></li>
+<li><p><strong>variablename</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em> :: variable name</p></li>
+<li><p><strong>maxboxsize</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em> :: maximum box size of SST values spreading</p></li>
+<li><p><strong>subgrid</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em> :: spread SST values on neighbouring land points of “Yin” or “Yan” subgrid</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/gridvariabletransforms_mod/gvt_transform_gsv" title="f/gridvariabletransforms_mod/gvt_transform_gsv"><code class="xref f f-func docutils literal notranslate"><span class="pre">gvt_transform_gsv()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_getnumlev" title="f/gridstatevector_mod/gsv_getnumlev"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_getnumlev()</span></code></a>, <a class="reference internal" href="varnamelist_mod.html#f/varnamelist_mod/vnl_varlevelfromvarname" title="f/varnamelist_mod/vnl_varlevelfromvarname"><code class="xref f f-func docutils literal notranslate"><span class="pre">vnl_varlevelfromvarname()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_allocate" title="f/gridstatevector_mod/gsv_allocate"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_allocate()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_transposetilestostep" title="f/gridstatevector_mod/gsv_transposetilestostep"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_transposetilestostep()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_isallocated" title="f/gridstatevector_mod/gsv_isallocated"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_isallocated()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_transposesteptotiles" title="f/gridstatevector_mod/gsv_transposesteptotiles"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_transposesteptotiles()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_deallocate" title="f/gridstatevector_mod/gsv_deallocate"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_deallocate()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div></blockquote>
+</section>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="humiditylimits_mod.html" title="humiditylimits_mod"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="gridstatevectorfileio_mod.html" title="gridstatevectorfileio_mod"
+             >previous</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2018, ECCC.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.
+    </div>
+  </body>
+</html>

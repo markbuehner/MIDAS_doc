@@ -1,0 +1,22 @@
+==========================================
+kdtree2_priority_queue_mod
+==========================================
+
+    :doc:`link to source code <kdtree2_priority_queue_mod_src>`
+
+
+    **Dependency Diagrams:**
+
+    .. figure:: /kdtree2_priority_queue_mod.svg
+        :height: 100px
+
+        Direct Dependency Diagram
+
+    .. figure:: /kdtree2_priority_queue_mod_rev.svg
+        :height: 100px
+
+        Reverse Dependency Diagram
+
+
+    .. f:automodule:: kdtree2_priority_queue_mod
+

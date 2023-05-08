@@ -1,0 +1,327 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>rmatrix_mod &mdash; MIDAS  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="MIDAS  documentation" href="../index.html" />
+    <link rel="next" title="burpfiles_mod" href="burpfiles_mod.html" />
+    <link rel="prev" title="obserrors_mod" href="obserrors_mod.html" /> 
+  </head>
+  <body>
+  <div>
+    <img src="../_static/MIDAS_header.png" alt="MIDAS" />
+  </div>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="burpfiles_mod.html" title="burpfiles_mod"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="obserrors_mod.html" title="obserrors_mod"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="obserrors_mod.html"
+                          title="previous chapter">obserrors_mod</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="burpfiles_mod.html"
+                          title="next chapter">burpfiles_mod</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/modules/rmatrix_mod.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <section id="rmatrix-mod">
+<h1>rmatrix_mod<a class="headerlink" href="#rmatrix-mod" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><p><a class="reference internal" href="rmatrix_mod_src.html"><span class="doc">link to source code</span></a></p>
+<p><strong>Dependency Diagrams:</strong></p>
+<figure class="align-default" id="id1">
+<a class="reference internal image-reference" href="rmatrix_mod.svg"><img alt="rmatrix_mod.svg" height="100px" src="rmatrix_mod.svg" /></a>
+<figcaption>
+<p><span class="caption-text">Direct Dependency Diagram</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id2">
+<a class="reference internal image-reference" href="rmatrix_mod_rev.svg"><img alt="rmatrix_mod_rev.svg" height="100px" src="rmatrix_mod_rev.svg" /></a>
+<figcaption>
+<p><span class="caption-text">Reverse Dependency Diagram</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<span class="target" id="f/rmatrix_mod"></span><p class="rubric">Description</p>
+<p>MODULE rMatrix_mod (prefix=’rmat’ category=’2. B and R matrices’)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Purpose</dt>
+<dd class="field-odd"><p>Module to handle non-diagonal observation-error covariance
+matrices for assimilation of radiances</p>
+</dd>
+</dl>
+<p class="rubric">Quick access</p>
+<dl class="field-list simple">
+<dt class="field-odd">Types</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/rmatrix_mod/rmat_matrix" title="f/rmatrix_mod/rmat_matrix"><code class="xref f f-type docutils literal notranslate"><span class="pre">rmat_matrix</span></code></a></p>
+</dd>
+<dt class="field-even">Variables</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/rmatrix_mod/rmat_lnondiagr" title="f/rmatrix_mod/rmat_lnondiagr"><code class="xref f f-var docutils literal notranslate"><span class="pre">rmat_lnondiagr</span></code></a></p>
+</dd>
+<dt class="field-odd">Routines</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/rmatrix_mod/rmat_cleanup" title="f/rmatrix_mod/rmat_cleanup"><code class="xref f f-func docutils literal notranslate"><span class="pre">rmat_cleanup()</span></code></a>, <a class="reference internal" href="#f/rmatrix_mod/rmat_init" title="f/rmatrix_mod/rmat_init"><code class="xref f f-func docutils literal notranslate"><span class="pre">rmat_init()</span></code></a>, <a class="reference internal" href="#f/rmatrix_mod/rmat_readcmatrix" title="f/rmatrix_mod/rmat_readcmatrix"><code class="xref f f-func docutils literal notranslate"><span class="pre">rmat_readcmatrix()</span></code></a>, <a class="reference internal" href="#f/rmatrix_mod/rmat_readcmatrixbyfilename" title="f/rmatrix_mod/rmat_readcmatrixbyfilename"><code class="xref f f-func docutils literal notranslate"><span class="pre">rmat_readcmatrixbyfilename()</span></code></a>, <a class="reference internal" href="#f/rmatrix_mod/rmat_rsqrtinverseallobs" title="f/rmatrix_mod/rmat_rsqrtinverseallobs"><code class="xref f f-func docutils literal notranslate"><span class="pre">rmat_rsqrtinverseallobs()</span></code></a>, <a class="reference internal" href="#f/rmatrix_mod/rmat_rsqrtinverseoneobs" title="f/rmatrix_mod/rmat_rsqrtinverseoneobs"><code class="xref f f-func docutils literal notranslate"><span class="pre">rmat_rsqrtinverseoneobs()</span></code></a></p>
+</dd>
+</dl>
+<p class="rubric">Needed modules</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="rttov_interfaces_mod.html#f/rttov_interfaces_mod" title="f/rttov_interfaces_mod: MODULE rttov_interfaces_mod (prefix='' category='9. Global interfaces')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">rttov_interfaces_mod</span></code></a>: MODULE rttov_interfaces_mod (prefix=’’ category=’9. Global interfaces’)</p></li>
+<li><p><a class="reference internal" href="midasmpi_mod.html#f/midasmpi_mod" title="f/midasmpi_mod: MODULE midasMpi_mod (prefix='mmpi' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">midasmpi_mod</span></code></a>: MODULE midasMpi_mod (prefix=’mmpi’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><code class="xref f f-mod docutils literal notranslate"><span class="pre">rttov_const</span></code> (<code class="xref f f-func docutils literal notranslate"><span class="pre">errorstatus_success()</span></code>)</p></li>
+<li><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod" title="f/utilities_mod: MODULE utilities_mod (prefix='utl' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">utilities_mod</span></code></a>: MODULE utilities_mod (prefix=’utl’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod" title="f/obsspacedata_mod: MODULE obsSpaceData_mod (prefix='obs' category='6. High-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">obsspacedata_mod</span></code></a>: MODULE obsSpaceData_mod (prefix=’obs’ category=’6. High-level data objects’)</p></li>
+<li><p><a class="reference internal" href="tovs_nl_mod.html#f/tovs_nl_mod" title="f/tovs_nl_mod: MODULE tovs_nl (prefix='tvs' category='5. Observation operators')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">tovs_nl_mod</span></code></a>: MODULE tovs_nl (prefix=’tvs’ category=’5. Observation operators’)</p></li>
+</ul>
+<p class="rubric">Types</p>
+<ul>
+<li><dl>
+<dt class="sig sig-object f" id="f/rmatrix_mod/rmat_matrix">
+<em class="property"><span class="pre">type</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">rmatrix_mod/</span></span><span class="sig-name descname"><span class="pre">rmat_matrix</span></span><a class="headerlink" href="#f/rmatrix_mod/rmat_matrix" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type fields</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">listchans</span> (*)<em> [</em><em>integer </em><em>,</em><em>pointer</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">nchans</span><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">rmat</span> (*,*)<em> [</em><em>real </em><em>,</em><em>pointer</em><em>]</em></p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</li>
+</ul>
+<p class="rubric">Variables</p>
+<ul>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/rmatrix_mod/rmat_lnondiagr">
+<span class="sig-prename descclassname"><span class="pre">rmatrix_mod/</span></span><span class="sig-name descname"><span class="pre">rmat_lnondiagr</span></span><em> <span class="pre">[</span></em><em><span class="pre">logical</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/rmatrix_mod/rmat_lnondiagr" title="Permalink to this definition">¶</a></dt>
+<dd><p>choose to use non-diagonal R matrix (i.e. non-zero correlations)</p>
+</dd></dl>
+
+</li>
+</ul>
+<p class="rubric">Subroutines and functions</p>
+<dl>
+<dt class="sig sig-object f" id="f/rmatrix_mod/rmat_init">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">rmatrix_mod/</span></span><span class="sig-name descname"><span class="pre">rmat_init</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">nsensors</span></em>, <em class="sig-param"><span class="pre">nobtovs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/rmatrix_mod/rmat_init" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>nsensors</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>nobtovs</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="obserrors_mod.html#f/obserrors_mod/oer_setinterchancorr" title="f/obserrors_mod/oer_setinterchancorr"><code class="xref f f-func docutils literal notranslate"><span class="pre">oer_setinterchancorr()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/rmatrix_mod/rmat_cleanup">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">rmatrix_mod/</span></span><span class="sig-name descname"><span class="pre">rmat_cleanup</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#f/rmatrix_mod/rmat_cleanup" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../programs/midas_var.html#f/midas_var" title="f/midas_var"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_var</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/rmatrix_mod/rmat_readcmatrix">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">rmatrix_mod/</span></span><span class="sig-name descname"><span class="pre">rmat_readcmatrix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">instrument</span></em>, <em class="sig-param"><span class="pre">sensor_id</span></em>, <em class="sig-param"><span class="pre">ichan</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/rmatrix_mod/rmat_readcmatrix" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>instrument</strong> (3)<em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>sensor_id</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>ichan</strong> (*)<em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="obserrors_mod.html#f/obserrors_mod/oer_setinterchancorr" title="f/obserrors_mod/oer_setinterchancorr"><code class="xref f f-func docutils literal notranslate"><span class="pre">oer_setinterchancorr()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/rmatrix_mod/rmat_readcmatrixbyfilename" title="f/rmatrix_mod/rmat_readcmatrixbyfilename"><code class="xref f f-func docutils literal notranslate"><span class="pre">rmat_readcmatrixbyfilename()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/rmatrix_mod/rmat_readcmatrixbyfilename">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">rmatrix_mod/</span></span><span class="sig-name descname"><span class="pre">rmat_readcmatrixbyfilename</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">infile</span></em>, <em class="sig-param"><span class="pre">c</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">chanlist_opt</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/rmatrix_mod/rmat_readcmatrixbyfilename" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>infile</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em> :: name of input file</p></li>
+<li><p><strong>c</strong><em> [</em><em>rmat_matrix </em><em>,</em><em>inout</em><em>]</em> :: correlation matrix structure</p></li>
+</ul>
+</dd>
+<dt class="field-even">Options</dt>
+<dd class="field-even"><p><strong>chanlist_opt</strong> (*)<em> [</em><em>integer </em><em>,</em><em>in,</em><em>]</em> :: list of requested channels (if missing will read all file content)</p>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/rmatrix_mod/rmat_readcmatrix" title="f/rmatrix_mod/rmat_readcmatrix"><code class="xref f f-func docutils literal notranslate"><span class="pre">rmat_readcmatrix()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/rmatrix_mod/rmat_rsqrtinverseoneobs">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">rmatrix_mod/</span></span><span class="sig-name descname"><span class="pre">rmat_rsqrtinverseoneobs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">sensor_id</span></em>, <em class="sig-param"><span class="pre">nsubset</span></em>, <em class="sig-param"><span class="pre">obsin</span></em>, <em class="sig-param"><span class="pre">obsout</span></em>, <em class="sig-param"><span class="pre">list_sub</span></em>, <em class="sig-param"><span class="pre">list_oer</span></em>, <em class="sig-param"><span class="pre">indextovs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/rmatrix_mod/rmat_rsqrtinverseoneobs" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Apply the operator R**-1/2 to obsIn
+result in obsOut for the subset of channels specified
+in list_sub</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>sensor_id</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>nsubset</strong><em> [</em><em>integer </em><em>,</em><em>in,</em><em>]</em></p></li>
+<li><p><strong>obsin</strong> (nsubset)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>obsout</strong> (nsubset)<em> [</em><em>real </em><em>,</em><em>out</em><em>]</em></p></li>
+<li><p><strong>list_sub</strong> (nsubset)<em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>list_oer</strong> (nsubset)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>indextovs</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/rmatrix_mod/rmat_rsqrtinverseallobs" title="f/rmatrix_mod/rmat_rsqrtinverseallobs"><code class="xref f f-func docutils literal notranslate"><span class="pre">rmat_rsqrtinverseallobs()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_start" title="f/utilities_mod/utl_tmg_start"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_start()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_matsqrt" title="f/utilities_mod/utl_matsqrt"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_matsqrt()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_stop" title="f/utilities_mod/utl_tmg_stop"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_stop()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/rmatrix_mod/rmat_rsqrtinverseallobs">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">rmatrix_mod/</span></span><span class="sig-name descname"><span class="pre">rmat_rsqrtinverseallobs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">obsspacedata</span></em>, <em class="sig-param"><span class="pre">elem_dest_i</span></em>, <em class="sig-param"><span class="pre">elem_src_i</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/rmatrix_mod/rmat_rsqrtinverseallobs" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>To apply observation-error variances to ROBDATA8(k_src,*) and to
+store it in the elem_src_s of obsspacedata</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>obsspacedata</strong><em> [</em><em>struct_obs </em><em>,</em><em>inout</em><em>]</em></p></li>
+<li><p><strong>elem_dest_i</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em> :: destination index</p></li>
+<li><p><strong>elem_src_i</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em> :: source index</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="fsoi_mod.html#f/fsoi_mod/fso_ensemble" title="f/fsoi_mod/fso_ensemble"><code class="xref f f-func docutils literal notranslate"><span class="pre">fso_ensemble()</span></code></a>, <a class="reference internal" href="minimization_mod.html#f/minimization_mod/simvar" title="f/minimization_mod/simvar"><code class="xref f f-func docutils literal notranslate"><span class="pre">simvar()</span></code></a>, <a class="reference internal" href="innovation_mod.html#f/innovation_mod/inn_computeinnovation" title="f/innovation_mod/inn_computeinnovation"><code class="xref f f-func docutils literal notranslate"><span class="pre">inn_computeinnovation()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_numheader" title="f/obsspacedata_mod/obs_numheader"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_numheader()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_headelem_i" title="f/obsspacedata_mod/obs_headelem_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_headelem_i()</span></code></a>, <a class="reference internal" href="tovs_nl_mod.html#f/tovs_nl_mod/tvs_isidburptovs" title="f/tovs_nl_mod/tvs_isidburptovs"><code class="xref f f-func docutils literal notranslate"><span class="pre">tvs_isidburptovs()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyelem_i" title="f/obsspacedata_mod/obs_bodyelem_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyelem_i()</span></code></a>, <a class="reference internal" href="tovs_nl_mod.html#f/tovs_nl_mod/tvs_getchannelnumindexfromppp" title="f/tovs_nl_mod/tvs_getchannelnumindexfromppp"><code class="xref f f-func docutils literal notranslate"><span class="pre">tvs_getchannelnumindexfromppp()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyelem_r" title="f/obsspacedata_mod/obs_bodyelem_r"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyelem_r()</span></code></a>, <a class="reference internal" href="#f/rmatrix_mod/rmat_rsqrtinverseoneobs" title="f/rmatrix_mod/rmat_rsqrtinverseoneobs"><code class="xref f f-func docutils literal notranslate"><span class="pre">rmat_rsqrtinverseoneobs()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div></blockquote>
+</section>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="burpfiles_mod.html" title="burpfiles_mod"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="obserrors_mod.html" title="obserrors_mod"
+             >previous</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2018, ECCC.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.
+    </div>
+  </body>
+</html>

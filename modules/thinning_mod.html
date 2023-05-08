@@ -1,0 +1,724 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>thinning_mod &mdash; MIDAS  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="MIDAS  documentation" href="../index.html" />
+    <link rel="next" title="varqc_mod" href="varqc_mod.html" />
+    <link rel="prev" title="sstbias_mod" href="sstbias_mod.html" /> 
+  </head>
+  <body>
+  <div>
+    <img src="../_static/MIDAS_header.png" alt="MIDAS" />
+  </div>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="varqc_mod.html" title="varqc_mod"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="sstbias_mod.html" title="sstbias_mod"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="sstbias_mod.html"
+                          title="previous chapter">sstbias_mod</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="varqc_mod.html"
+                          title="next chapter">varqc_mod</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/modules/thinning_mod.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <section id="thinning-mod">
+<h1>thinning_mod<a class="headerlink" href="#thinning-mod" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><p><a class="reference internal" href="thinning_mod_src.html"><span class="doc">link to source code</span></a></p>
+<p><strong>Dependency Diagrams:</strong></p>
+<figure class="align-default" id="id1">
+<a class="reference internal image-reference" href="thinning_mod.svg"><img alt="thinning_mod.svg" height="100px" src="thinning_mod.svg" /></a>
+<figcaption>
+<p><span class="caption-text">Direct Dependency Diagram</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id2">
+<a class="reference internal image-reference" href="thinning_mod_rev.svg"><img alt="thinning_mod_rev.svg" height="100px" src="thinning_mod_rev.svg" /></a>
+<figcaption>
+<p><span class="caption-text">Reverse Dependency Diagram</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<span class="target" id="f/thinning_mod"></span><p class="rubric">Description</p>
+<p>MODULE thinning (prefix=’thn’ category=’1. High-level functionality’)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Purpose</dt>
+<dd class="field-odd"><p>Using observation-type-specific algorithms, set bit 11 of ‘flag’
+on data that are not to be assimilated.</p>
+</dd>
+<dt class="field-even">Note</dt>
+<dd class="field-even"><p>This module is intended to group all of the thinning methods in a
+single fortran module.</p>
+</dd>
+</dl>
+<p class="rubric">Quick access</p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/thinning_mod/thn_thinsatsst" title="f/thinning_mod/thn_thinsatsst"><code class="xref f f-var docutils literal notranslate"><span class="pre">thn_thinsatsst</span></code></a></p>
+</dd>
+<dt class="field-even">Routines</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/thinning_mod/intarraytompi" title="f/thinning_mod/intarraytompi"><code class="xref f f-func docutils literal notranslate"><span class="pre">intarraytompi()</span></code></a>, <a class="reference internal" href="#f/thinning_mod/logicalarraytompi" title="f/thinning_mod/logicalarraytompi"><code class="xref f f-func docutils literal notranslate"><span class="pre">logicalarraytompi()</span></code></a>, <a class="reference internal" href="#f/thinning_mod/raobs_blacklisting_ecmwf" title="f/thinning_mod/raobs_blacklisting_ecmwf"><code class="xref f f-func docutils literal notranslate"><span class="pre">raobs_blacklisting_ecmwf()</span></code></a>, <a class="reference internal" href="#f/thinning_mod/raobs_check_duplicated_stations" title="f/thinning_mod/raobs_check_duplicated_stations"><code class="xref f f-func docutils literal notranslate"><span class="pre">raobs_check_duplicated_stations()</span></code></a>, <a class="reference internal" href="#f/thinning_mod/raobs_check_if_same_profile" title="f/thinning_mod/raobs_check_if_same_profile"><code class="xref f f-func docutils literal notranslate"><span class="pre">raobs_check_if_same_profile()</span></code></a>, <a class="reference internal" href="#f/thinning_mod/raobs_compare_profiles" title="f/thinning_mod/raobs_compare_profiles"><code class="xref f f-func docutils literal notranslate"><span class="pre">raobs_compare_profiles()</span></code></a>, <a class="reference internal" href="#f/thinning_mod/raobs_thinning_es" title="f/thinning_mod/raobs_thinning_es"><code class="xref f f-func docutils literal notranslate"><span class="pre">raobs_thinning_es()</span></code></a>, <a class="reference internal" href="#f/thinning_mod/raobs_thinning_model" title="f/thinning_mod/raobs_thinning_model"><code class="xref f f-func docutils literal notranslate"><span class="pre">raobs_thinning_model()</span></code></a>, <a class="reference internal" href="#f/thinning_mod/realarraytompi" title="f/thinning_mod/realarraytompi"><code class="xref f f-func docutils literal notranslate"><span class="pre">realarraytompi()</span></code></a>, <a class="reference internal" href="#f/thinning_mod/stringarraytompi" title="f/thinning_mod/stringarraytompi"><code class="xref f f-func docutils literal notranslate"><span class="pre">stringarraytompi()</span></code></a>, <a class="reference internal" href="#f/thinning_mod/thn_gpsrovertical" title="f/thinning_mod/thn_gpsrovertical"><code class="xref f f-func docutils literal notranslate"><span class="pre">thn_gpsrovertical()</span></code></a>, <a class="reference internal" href="#f/thinning_mod/thn_radiosonde" title="f/thinning_mod/thn_radiosonde"><code class="xref f f-func docutils literal notranslate"><span class="pre">thn_radiosonde()</span></code></a>, <a class="reference internal" href="#f/thinning_mod/thn_surfaceintime" title="f/thinning_mod/thn_surfaceintime"><code class="xref f f-func docutils literal notranslate"><span class="pre">thn_surfaceintime()</span></code></a>, <a class="reference internal" href="#f/thinning_mod/thn_thinaircraft" title="f/thinning_mod/thn_thinaircraft"><code class="xref f f-func docutils literal notranslate"><span class="pre">thn_thinaircraft()</span></code></a>, <a class="reference internal" href="#f/thinning_mod/thn_thinaladin" title="f/thinning_mod/thn_thinaladin"><code class="xref f f-func docutils literal notranslate"><span class="pre">thn_thinaladin()</span></code></a>, <a class="reference internal" href="#f/thinning_mod/thn_thincsr" title="f/thinning_mod/thn_thincsr"><code class="xref f f-func docutils literal notranslate"><span class="pre">thn_thincsr()</span></code></a>, <a class="reference internal" href="#f/thinning_mod/thn_thingbgps" title="f/thinning_mod/thn_thingbgps"><code class="xref f f-func docutils literal notranslate"><span class="pre">thn_thingbgps()</span></code></a>, <a class="reference internal" href="#f/thinning_mod/thn_thingpsro" title="f/thinning_mod/thn_thingpsro"><code class="xref f f-func docutils literal notranslate"><span class="pre">thn_thingpsro()</span></code></a>, <a class="reference internal" href="#f/thinning_mod/thn_thinhyper" title="f/thinning_mod/thn_thinhyper"><code class="xref f f-func docutils literal notranslate"><span class="pre">thn_thinhyper()</span></code></a>, <a class="reference internal" href="#f/thinning_mod/thn_thinraobs" title="f/thinning_mod/thn_thinraobs"><code class="xref f f-func docutils literal notranslate"><span class="pre">thn_thinraobs()</span></code></a>, <a class="reference internal" href="#f/thinning_mod/thn_thinsatwinds" title="f/thinning_mod/thn_thinsatwinds"><code class="xref f f-func docutils literal notranslate"><span class="pre">thn_thinsatwinds()</span></code></a>, <a class="reference internal" href="#f/thinning_mod/thn_thinscat" title="f/thinning_mod/thn_thinscat"><code class="xref f f-func docutils literal notranslate"><span class="pre">thn_thinscat()</span></code></a>, <a class="reference internal" href="#f/thinning_mod/thn_thinsurface" title="f/thinning_mod/thn_thinsurface"><code class="xref f f-func docutils literal notranslate"><span class="pre">thn_thinsurface()</span></code></a>, <a class="reference internal" href="#f/thinning_mod/thn_thintovs" title="f/thinning_mod/thn_thintovs"><code class="xref f f-func docutils literal notranslate"><span class="pre">thn_thintovs()</span></code></a></p>
+</dd>
+</dl>
+<p class="rubric">Needed modules</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="midasmpi_mod.html#f/midasmpi_mod" title="f/midasmpi_mod: MODULE midasMpi_mod (prefix='mmpi' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">midasmpi_mod</span></code></a>: MODULE midasMpi_mod (prefix=’mmpi’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="bufr_mod.html#f/bufr_mod" title="f/bufr_mod: MODULE bufr_mod (prefix='bufr' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">bufr_mod</span></code></a>: MODULE bufr_mod (prefix=’bufr’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="mathphysconstants_mod.html#f/mathphysconstants_mod" title="f/mathphysconstants_mod: MODULE MathPhysConstants_mod (prefix='mpc' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">mathphysconstants_mod</span></code></a>: MODULE MathPhysConstants_mod (prefix=’mpc’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="earthconstants_mod.html#f/earthconstants_mod" title="f/earthconstants_mod: MODULE earthConstants_mod (prefix='ec' category='8. Low-level utilities and constants') Prefixes: ec_ (Earth constants), for miscellaneous values from diverse sources"><code class="xref f f-mod docutils literal notranslate"><span class="pre">earthconstants_mod</span></code></a>: MODULE earthConstants_mod (prefix=’ec’ category=’8. Low-level utilities and constants’) Prefixes: <a href="#id3"><span class="problematic" id="id4">ec_</span></a> (Earth constants), for miscellaneous values from diverse sources</p></li>
+<li><p><a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod" title="f/obsspacedata_mod: MODULE obsSpaceData_mod (prefix='obs' category='6. High-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">obsspacedata_mod</span></code></a>: MODULE obsSpaceData_mod (prefix=’obs’ category=’6. High-level data objects’)</p></li>
+<li><p><a class="reference internal" href="horizontalcoord_mod.html#f/horizontalcoord_mod" title="f/horizontalcoord_mod: MODULE HorizontalCoord_mod (prefix='hco' category='7. Low-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">horizontalcoord_mod</span></code></a>: MODULE HorizontalCoord_mod (prefix=’hco’ category=’7. Low-level data objects’)</p></li>
+<li><p><a class="reference internal" href="verticalcoord_mod.html#f/verticalcoord_mod" title="f/verticalcoord_mod: MODULE verticalcoord (prefix='vco' category='7. Low-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">verticalcoord_mod</span></code></a>: MODULE verticalcoord (prefix=’vco’ category=’7. Low-level data objects’)</p></li>
+<li><p><a class="reference internal" href="timecoord_mod.html#f/timecoord_mod" title="f/timecoord_mod: MODULE timeCoord (prefix='tim' category='7. Low-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">timecoord_mod</span></code></a>: MODULE timeCoord (prefix=’tim’ category=’7. Low-level data objects’)</p></li>
+<li><p><a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod" title="f/gridstatevector_mod: MODULE gridStateVector_mod (prefix='gsv' category='6. High-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">gridstatevector_mod</span></code></a>: MODULE gridStateVector_mod (prefix=’gsv’ category=’6. High-level data objects’)</p></li>
+<li><p><a class="reference internal" href="gridstatevectorfileio_mod.html#f/gridstatevectorfileio_mod" title="f/gridstatevectorfileio_mod: MODULE gridStateVectorFile_mod (prefix='gio' category='4. Data Object transformations')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">gridstatevectorfileio_mod</span></code></a>: MODULE gridStateVectorFile_mod (prefix=’gio’ category=’4. Data Object transformations’)</p></li>
+<li><p><a class="reference internal" href="codtyp_mod.html#f/codtyp_mod" title="f/codtyp_mod: MODULE codtyp_mod (prefix='codtyp' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">codtyp_mod</span></code></a>: MODULE codtyp_mod (prefix=’codtyp’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="physicsfunctions_mod.html#f/physicsfunctions_mod" title="f/physicsfunctions_mod: MODULE physicsFunctions_mod (prefix='phf' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">physicsfunctions_mod</span></code></a>: MODULE physicsFunctions_mod (prefix=’phf’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod" title="f/utilities_mod: MODULE utilities_mod (prefix='utl' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">utilities_mod</span></code></a>: MODULE utilities_mod (prefix=’utl’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="kdtree2_mod.html#f/kdtree2_mod" title="f/kdtree2_mod: MODULE kdtree2_mod (prefix='kdtree2' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">kdtree2_mod</span></code></a>: MODULE kdtree2_mod (prefix=’kdtree2’ category=’8. Low-level utilities and constants’)</p></li>
+</ul>
+<p class="rubric">Variables</p>
+<ul>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/thinning_mod/thn_thinsatsst">
+<span class="sig-prename descclassname"><span class="pre">thinning_mod/</span></span><span class="sig-name descname"><span class="pre">thn_thinsatsst</span></span><em> <span class="pre">[</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/thinning_mod/thn_thinsatsst" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+</ul>
+<p class="rubric">Subroutines and functions</p>
+<dl>
+<dt class="sig sig-object f" id="f/thinning_mod/thn_thinsurface">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">thinning_mod/</span></span><span class="sig-name descname"><span class="pre">thn_thinsurface</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">obsdat</span></em>, <em class="sig-param"><span class="pre">obsfamily</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/thinning_mod/thn_thinsurface" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Main subroutine for thinning of surface obs.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>obsdat</strong><em> [</em><em>struct_obs </em><em>,</em><em>inout</em><em>]</em></p></li>
+<li><p><strong>obsfamily</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../programs/midas_obsselection.html#f/midas_obsselection" title="f/midas_obsselection"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_obsselection</span></code></a>, <a class="reference internal" href="../programs/midas_thinning.html#f/midas_thinning" title="f/midas_thinning"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_thinning</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_famexist" title="f/obsspacedata_mod/obs_famexist"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_famexist()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_isnamelistpresent" title="f/utilities_mod/utl_isnamelistpresent"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_isnamelistpresent()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_start" title="f/utilities_mod/utl_tmg_start"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_start()</span></code></a>, <a class="reference internal" href="#f/thinning_mod/thn_surfaceintime" title="f/thinning_mod/thn_surfaceintime"><code class="xref f f-func docutils literal notranslate"><span class="pre">thn_surfaceintime()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_stop" title="f/utilities_mod/utl_tmg_stop"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_stop()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/thinning_mod/thn_thinraobs">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">thinning_mod/</span></span><span class="sig-name descname"><span class="pre">thn_thinraobs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">obsdat</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/thinning_mod/thn_thinraobs" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Main thinning subroutine Radiosonde obs.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>obsdat</strong><em> [</em><em>struct_obs </em><em>,</em><em>inout</em><em>]</em></p>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../programs/midas_obsselection.html#f/midas_obsselection" title="f/midas_obsselection"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_obsselection</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_famexist" title="f/obsspacedata_mod/obs_famexist"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_famexist()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_isnamelistpresent" title="f/utilities_mod/utl_isnamelistpresent"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_isnamelistpresent()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_start" title="f/utilities_mod/utl_tmg_start"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_start()</span></code></a>, <a class="reference internal" href="#f/thinning_mod/thn_radiosonde" title="f/thinning_mod/thn_radiosonde"><code class="xref f f-func docutils literal notranslate"><span class="pre">thn_radiosonde()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_stop" title="f/utilities_mod/utl_tmg_stop"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_stop()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/thinning_mod/thn_thinaircraft">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">thinning_mod/</span></span><span class="sig-name descname"><span class="pre">thn_thinaircraft</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">obsdat</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/thinning_mod/thn_thinaircraft" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Main thinning subroutine for aircraft obs.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>obsdat</strong><em> [</em><em>struct_obs </em><em>,</em><em>inout</em><em>]</em></p>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../programs/midas_obsselection.html#f/midas_obsselection" title="f/midas_obsselection"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_obsselection</span></code></a>, <a class="reference internal" href="../programs/midas_thinning.html#f/midas_thinning" title="f/midas_thinning"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_thinning</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_famexist" title="f/obsspacedata_mod/obs_famexist"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_famexist()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_isnamelistpresent" title="f/utilities_mod/utl_isnamelistpresent"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_isnamelistpresent()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_start" title="f/utilities_mod/utl_tmg_start"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_start()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_stop" title="f/utilities_mod/utl_tmg_stop"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_stop()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/thinning_mod/thn_thinsatwinds">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">thinning_mod/</span></span><span class="sig-name descname"><span class="pre">thn_thinsatwinds</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">obsdat</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/thinning_mod/thn_thinsatwinds" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Main thinning subroutine for satellite winds (AMVs).</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>obsdat</strong><em> [</em><em>struct_obs </em><em>,</em><em>inout</em><em>]</em></p>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../programs/midas_obsselection.html#f/midas_obsselection" title="f/midas_obsselection"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_obsselection</span></code></a>, <a class="reference internal" href="../programs/midas_thinning.html#f/midas_thinning" title="f/midas_thinning"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_thinning</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_famexist" title="f/obsspacedata_mod/obs_famexist"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_famexist()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_isnamelistpresent" title="f/utilities_mod/utl_isnamelistpresent"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_isnamelistpresent()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_start" title="f/utilities_mod/utl_tmg_start"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_start()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_stop" title="f/utilities_mod/utl_tmg_stop"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_stop()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/thinning_mod/thn_thingpsro">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">thinning_mod/</span></span><span class="sig-name descname"><span class="pre">thn_thingpsro</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">obsdat</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/thinning_mod/thn_thingpsro" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Main thinning subroutine GPS radio-occultation obs.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>obsdat</strong><em> [</em><em>struct_obs </em><em>,</em><em>inout</em><em>]</em></p>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../programs/midas_obsselection.html#f/midas_obsselection" title="f/midas_obsselection"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_obsselection</span></code></a>, <a class="reference internal" href="../programs/midas_thinning.html#f/midas_thinning" title="f/midas_thinning"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_thinning</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_famexist" title="f/obsspacedata_mod/obs_famexist"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_famexist()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_isnamelistpresent" title="f/utilities_mod/utl_isnamelistpresent"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_isnamelistpresent()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_start" title="f/utilities_mod/utl_tmg_start"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_start()</span></code></a>, <a class="reference internal" href="#f/thinning_mod/thn_gpsrovertical" title="f/thinning_mod/thn_gpsrovertical"><code class="xref f f-func docutils literal notranslate"><span class="pre">thn_gpsrovertical()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_stop" title="f/utilities_mod/utl_tmg_stop"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_stop()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/thinning_mod/thn_thingbgps">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">thinning_mod/</span></span><span class="sig-name descname"><span class="pre">thn_thingbgps</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">obsdat</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/thinning_mod/thn_thingbgps" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Main thinning subroutine ground-based GPS obs.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>obsdat</strong><em> [</em><em>struct_obs </em><em>,</em><em>inout</em><em>]</em></p>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../programs/midas_obsselection.html#f/midas_obsselection" title="f/midas_obsselection"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_obsselection</span></code></a>, <a class="reference internal" href="../programs/midas_thinning.html#f/midas_thinning" title="f/midas_thinning"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_thinning</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_famexist" title="f/obsspacedata_mod/obs_famexist"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_famexist()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_isnamelistpresent" title="f/utilities_mod/utl_isnamelistpresent"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_isnamelistpresent()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_start" title="f/utilities_mod/utl_tmg_start"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_start()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_stop" title="f/utilities_mod/utl_tmg_stop"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_stop()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/thinning_mod/thn_thinaladin">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">thinning_mod/</span></span><span class="sig-name descname"><span class="pre">thn_thinaladin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">obsdat</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/thinning_mod/thn_thinaladin" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Main thinning subroutine for Aladin winds obs.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>obsdat</strong><em> [</em><em>struct_obs </em><em>,</em><em>inout</em><em>]</em></p>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../programs/midas_obsselection.html#f/midas_obsselection" title="f/midas_obsselection"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_obsselection</span></code></a>, <a class="reference internal" href="../programs/midas_thinning.html#f/midas_thinning" title="f/midas_thinning"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_thinning</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_famexist" title="f/obsspacedata_mod/obs_famexist"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_famexist()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_isnamelistpresent" title="f/utilities_mod/utl_isnamelistpresent"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_isnamelistpresent()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_start" title="f/utilities_mod/utl_tmg_start"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_start()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_stop" title="f/utilities_mod/utl_tmg_stop"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_stop()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/thinning_mod/thn_thincsr">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">thinning_mod/</span></span><span class="sig-name descname"><span class="pre">thn_thincsr</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">obsdat</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/thinning_mod/thn_thincsr" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Main thinning subroutine for geostationary radiances (CSR).</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>obsdat</strong><em> [</em><em>struct_obs </em><em>,</em><em>inout</em><em>]</em></p>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../programs/midas_obsselection.html#f/midas_obsselection" title="f/midas_obsselection"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_obsselection</span></code></a>, <a class="reference internal" href="../programs/midas_thinning.html#f/midas_thinning" title="f/midas_thinning"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_thinning</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_famexist" title="f/obsspacedata_mod/obs_famexist"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_famexist()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_isnamelistpresent" title="f/utilities_mod/utl_isnamelistpresent"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_isnamelistpresent()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_start" title="f/utilities_mod/utl_tmg_start"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_start()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_stop" title="f/utilities_mod/utl_tmg_stop"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_stop()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/thinning_mod/thn_thinscat">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">thinning_mod/</span></span><span class="sig-name descname"><span class="pre">thn_thinscat</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">obsdat</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/thinning_mod/thn_thinscat" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Main thinning subroutine for scatterometer winds.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>obsdat</strong><em> [</em><em>struct_obs </em><em>,</em><em>inout</em><em>]</em></p>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../programs/midas_obsselection.html#f/midas_obsselection" title="f/midas_obsselection"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_obsselection</span></code></a>, <a class="reference internal" href="../programs/midas_thinning.html#f/midas_thinning" title="f/midas_thinning"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_thinning</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_famexist" title="f/obsspacedata_mod/obs_famexist"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_famexist()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_isnamelistpresent" title="f/utilities_mod/utl_isnamelistpresent"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_isnamelistpresent()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_start" title="f/utilities_mod/utl_tmg_start"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_start()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_stop" title="f/utilities_mod/utl_tmg_stop"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_stop()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/thinning_mod/thn_thintovs">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">thinning_mod/</span></span><span class="sig-name descname"><span class="pre">thn_thintovs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">obsdat</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/thinning_mod/thn_thintovs" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Main thinning subroutine for AMSU and ATMS obs.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>obsdat</strong><em> [</em><em>struct_obs </em><em>,</em><em>inout</em><em>]</em></p>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../programs/midas_obsselection.html#f/midas_obsselection" title="f/midas_obsselection"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_obsselection</span></code></a>, <a class="reference internal" href="../programs/midas_thinning.html#f/midas_thinning" title="f/midas_thinning"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_thinning</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_famexist" title="f/obsspacedata_mod/obs_famexist"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_famexist()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_isnamelistpresent" title="f/utilities_mod/utl_isnamelistpresent"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_isnamelistpresent()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_start" title="f/utilities_mod/utl_tmg_start"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_start()</span></code></a>, <a class="reference internal" href="codtyp_mod.html#f/codtyp_mod/codtyp_get_codtyp" title="f/codtyp_mod/codtyp_get_codtyp"><code class="xref f f-func docutils literal notranslate"><span class="pre">codtyp_get_codtyp()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_stop" title="f/utilities_mod/utl_tmg_stop"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_stop()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/thinning_mod/thn_thinhyper">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">thinning_mod/</span></span><span class="sig-name descname"><span class="pre">thn_thinhyper</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">obsdat</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/thinning_mod/thn_thinhyper" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Main thinning subroutine for hyperspectral infrared radiances.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>obsdat</strong><em> [</em><em>struct_obs </em><em>,</em><em>inout</em><em>]</em></p>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../programs/midas_obsselection.html#f/midas_obsselection" title="f/midas_obsselection"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_obsselection</span></code></a>, <a class="reference internal" href="../programs/midas_thinning.html#f/midas_thinning" title="f/midas_thinning"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_thinning</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_famexist" title="f/obsspacedata_mod/obs_famexist"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_famexist()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_isnamelistpresent" title="f/utilities_mod/utl_isnamelistpresent"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_isnamelistpresent()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_start" title="f/utilities_mod/utl_tmg_start"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_start()</span></code></a>, <a class="reference internal" href="codtyp_mod.html#f/codtyp_mod/codtyp_get_codtyp" title="f/codtyp_mod/codtyp_get_codtyp"><code class="xref f f-func docutils literal notranslate"><span class="pre">codtyp_get_codtyp()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_stop" title="f/utilities_mod/utl_tmg_stop"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_stop()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/thinning_mod/thn_surfaceintime">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">thinning_mod/</span></span><span class="sig-name descname"><span class="pre">thn_surfaceintime</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">obsdat</span></em>, <em class="sig-param"><span class="pre">obsfamily</span></em>, <em class="sig-param"><span class="pre">step</span></em>, <em class="sig-param"><span class="pre">deltmax</span></em>, <em class="sig-param"><span class="pre">useblacklist</span></em>, <em class="sig-param"><span class="pre">considershipstnid</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/thinning_mod/thn_surfaceintime" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Original method for thinning surface data in time.
+Set bit 11 of OBS_FLG on observations that are to be rejected.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>obsdat</strong><em> [</em><em>struct_obs </em><em>,</em><em>inout</em><em>]</em></p></li>
+<li><p><strong>obsfamily</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>step</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>deltmax</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>useblacklist</strong><em> [</em><em>logical </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>considershipstnid</strong><em> [</em><em>logical </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/thinning_mod/thn_thinsurface" title="f/thinning_mod/thn_thinsurface"><code class="xref f f-func docutils literal notranslate"><span class="pre">thn_thinsurface()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_getheaderindex" title="f/obsspacedata_mod/obs_getheaderindex"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_getheaderindex()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_headelem_i" title="f/obsspacedata_mod/obs_headelem_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_headelem_i()</span></code></a>, <a class="reference internal" href="codtyp_mod.html#f/codtyp_mod/codtyp_get_codtyp" title="f/codtyp_mod/codtyp_get_codtyp"><code class="xref f f-func docutils literal notranslate"><span class="pre">codtyp_get_codtyp()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyelem_i" title="f/obsspacedata_mod/obs_bodyelem_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyelem_i()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_elem_c" title="f/obsspacedata_mod/obs_elem_c"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_elem_c()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_headelem_r" title="f/obsspacedata_mod/obs_headelem_r"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_headelem_r()</span></code></a>, <a class="reference internal" href="timecoord_mod.html#f/timecoord_mod/tim_getstepobsindex" title="f/timecoord_mod/tim_getstepobsindex"><code class="xref f f-func docutils literal notranslate"><span class="pre">tim_getstepobsindex()</span></code></a>, <a class="reference internal" href="timecoord_mod.html#f/timecoord_mod/tim_getdatestamp" title="f/timecoord_mod/tim_getdatestamp"><code class="xref f f-func docutils literal notranslate"><span class="pre">tim_getdatestamp()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_allreduce" title="f/utilities_mod/utl_allreduce"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_allreduce()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="#f/thinning_mod/intarraytompi" title="f/thinning_mod/intarraytompi"><code class="xref f f-func docutils literal notranslate"><span class="pre">intarraytompi()</span></code></a>, <a class="reference internal" href="#f/thinning_mod/logicalarraytompi" title="f/thinning_mod/logicalarraytompi"><code class="xref f f-func docutils literal notranslate"><span class="pre">logicalarraytompi()</span></code></a>, <a class="reference internal" href="#f/thinning_mod/stringarraytompi" title="f/thinning_mod/stringarraytompi"><code class="xref f f-func docutils literal notranslate"><span class="pre">stringarraytompi()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyset_i" title="f/obsspacedata_mod/obs_bodyset_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyset_i()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/thinning_mod/thn_gpsrovertical">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">thinning_mod/</span></span><span class="sig-name descname"><span class="pre">thn_gpsrovertical</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">obsdat</span></em>, <em class="sig-param"><span class="pre">heightmin</span></em>, <em class="sig-param"><span class="pre">heightmax</span></em>, <em class="sig-param"><span class="pre">heightspacing</span></em>, <em class="sig-param"><span class="pre">gpsrovarno</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/thinning_mod/thn_gpsrovertical" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Original method for thinning GPSRO data by vertical distance.
+Set bit 11 of OBS_FLG on observations that are to be rejected.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>obsdat</strong><em> [</em><em>struct_obs </em><em>,</em><em>inout</em><em>]</em></p></li>
+<li><p><strong>heightmin</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>heightmax</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>heightspacing</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>gpsrovarno</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/thinning_mod/thn_thingpsro" title="f/thinning_mod/thn_thingpsro"><code class="xref f f-func docutils literal notranslate"><span class="pre">thn_thingpsro()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_getheaderindex" title="f/obsspacedata_mod/obs_getheaderindex"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_getheaderindex()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyelem_i" title="f/obsspacedata_mod/obs_bodyelem_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyelem_i()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyelem_r" title="f/obsspacedata_mod/obs_bodyelem_r"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyelem_r()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyset_i" title="f/obsspacedata_mod/obs_bodyset_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyset_i()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/thinning_mod/thn_radiosonde">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">thinning_mod/</span></span><span class="sig-name descname"><span class="pre">thn_radiosonde</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">obsdat</span></em>, <em class="sig-param"><span class="pre">verticalthinninges</span></em>, <em class="sig-param"><span class="pre">ecmwfrejetses</span></em>, <em class="sig-param"><span class="pre">tolerancefactor</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/thinning_mod/thn_radiosonde" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Original method for thinning radiosonde data vertically.
+We assume that each vertical level is stored in obsSpaceData
+with a separate headerIndex. That is, the 4D representation.
+Set bit 11 of OBS_FLG on observations that are to be rejected.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>obsdat</strong><em> [</em><em>struct_obs </em><em>,</em><em>inout</em><em>]</em></p></li>
+<li><p><strong>verticalthinninges</strong><em> [</em><em>logical </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>ecmwfrejetses</strong><em> [</em><em>logical </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>tolerancefactor</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/thinning_mod/thn_thinraobs" title="f/thinning_mod/thn_thinraobs"><code class="xref f f-func docutils literal notranslate"><span class="pre">thn_thinraobs()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_getheaderindex" title="f/obsspacedata_mod/obs_getheaderindex"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_getheaderindex()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyelem_i" title="f/obsspacedata_mod/obs_bodyelem_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyelem_i()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_headelem_i" title="f/obsspacedata_mod/obs_headelem_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_headelem_i()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_headelem_r" title="f/obsspacedata_mod/obs_headelem_r"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_headelem_r()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_elem_c" title="f/obsspacedata_mod/obs_elem_c"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_elem_c()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyelem_r" title="f/obsspacedata_mod/obs_bodyelem_r"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyelem_r()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_isnamelistpresent" title="f/utilities_mod/utl_isnamelistpresent"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_isnamelistpresent()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="verticalcoord_mod.html#f/verticalcoord_mod/vco_setupfromfile" title="f/verticalcoord_mod/vco_setupfromfile"><code class="xref f f-func docutils literal notranslate"><span class="pre">vco_setupfromfile()</span></code></a>, <a class="reference internal" href="horizontalcoord_mod.html#f/horizontalcoord_mod/hco_setupfromfile" title="f/horizontalcoord_mod/hco_setupfromfile"><code class="xref f f-func docutils literal notranslate"><span class="pre">hco_setupfromfile()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_allocate" title="f/gridstatevector_mod/gsv_allocate"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_allocate()</span></code></a>, <a class="reference internal" href="timecoord_mod.html#f/timecoord_mod/tim_getdatestamp" title="f/timecoord_mod/tim_getdatestamp"><code class="xref f f-func docutils literal notranslate"><span class="pre">tim_getdatestamp()</span></code></a>, <a class="reference internal" href="gridstatevectorfileio_mod.html#f/gridstatevectorfileio_mod/gio_readfromfile" title="f/gridstatevectorfileio_mod/gio_readfromfile"><code class="xref f f-func docutils literal notranslate"><span class="pre">gio_readfromfile()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_deallocate" title="f/gridstatevector_mod/gsv_deallocate"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_deallocate()</span></code></a>, <a class="reference internal" href="timecoord_mod.html#f/timecoord_mod/tim_getstepobsindex" title="f/timecoord_mod/tim_getstepobsindex"><code class="xref f f-func docutils literal notranslate"><span class="pre">tim_getstepobsindex()</span></code></a>, <a class="reference internal" href="#f/thinning_mod/intarraytompi" title="f/thinning_mod/intarraytompi"><code class="xref f f-func docutils literal notranslate"><span class="pre">intarraytompi()</span></code></a>, <a class="reference internal" href="#f/thinning_mod/realarraytompi" title="f/thinning_mod/realarraytompi"><code class="xref f f-func docutils literal notranslate"><span class="pre">realarraytompi()</span></code></a>, <a class="reference internal" href="#f/thinning_mod/stringarraytompi" title="f/thinning_mod/stringarraytompi"><code class="xref f f-func docutils literal notranslate"><span class="pre">stringarraytompi()</span></code></a>, <a class="reference internal" href="#f/thinning_mod/raobs_check_duplicated_stations" title="f/thinning_mod/raobs_check_duplicated_stations"><code class="xref f f-func docutils literal notranslate"><span class="pre">raobs_check_duplicated_stations()</span></code></a>, <a class="reference internal" href="#f/thinning_mod/raobs_thinning_model" title="f/thinning_mod/raobs_thinning_model"><code class="xref f f-func docutils literal notranslate"><span class="pre">raobs_thinning_model()</span></code></a>, <a class="reference internal" href="#f/thinning_mod/raobs_thinning_es" title="f/thinning_mod/raobs_thinning_es"><code class="xref f f-func docutils literal notranslate"><span class="pre">raobs_thinning_es()</span></code></a>, <a class="reference internal" href="#f/thinning_mod/raobs_blacklisting_ecmwf" title="f/thinning_mod/raobs_blacklisting_ecmwf"><code class="xref f f-func docutils literal notranslate"><span class="pre">raobs_blacklisting_ecmwf()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyset_i" title="f/obsspacedata_mod/obs_bodyset_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyset_i()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/thinning_mod/stringarraytompi">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">thinning_mod/</span></span><span class="sig-name descname"><span class="pre">stringarraytompi</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">array</span></em>, <em class="sig-param"><span class="pre">arraympi</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/thinning_mod/stringarraytompi" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Do the equivalent of mpi_allgatherv for a string array</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>array</strong> (*)<em> [</em><em>character </em><em>]</em></p></li>
+<li><p><strong>arraympi</strong> (*)<em> [</em><em>character </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/thinning_mod/thn_surfaceintime" title="f/thinning_mod/thn_surfaceintime"><code class="xref f f-func docutils literal notranslate"><span class="pre">thn_surfaceintime()</span></code></a>, <a class="reference internal" href="#f/thinning_mod/thn_radiosonde" title="f/thinning_mod/thn_radiosonde"><code class="xref f f-func docutils literal notranslate"><span class="pre">thn_radiosonde()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/thinning_mod/intarraytompi" title="f/thinning_mod/intarraytompi"><code class="xref f f-func docutils literal notranslate"><span class="pre">intarraytompi()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/thinning_mod/intarraytompi">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">thinning_mod/</span></span><span class="sig-name descname"><span class="pre">intarraytompi</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">array</span></em>, <em class="sig-param"><span class="pre">arraympi</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">is_obslevoffset_opt</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/thinning_mod/intarraytompi" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Do the equivalent of mpi_allgatherv for an integer array,
+but with special treatment if array of obsLevOffset.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>array</strong> (*)<em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><strong>arraympi</strong> (*)<em> [</em><em>integer </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Options</dt>
+<dd class="field-odd"><p><strong>is_obslevoffset_opt</strong><em> [</em><em>logical </em><em>]</em></p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/thinning_mod/thn_surfaceintime" title="f/thinning_mod/thn_surfaceintime"><code class="xref f f-func docutils literal notranslate"><span class="pre">thn_surfaceintime()</span></code></a>, <a class="reference internal" href="#f/thinning_mod/thn_radiosonde" title="f/thinning_mod/thn_radiosonde"><code class="xref f f-func docutils literal notranslate"><span class="pre">thn_radiosonde()</span></code></a>, <a class="reference internal" href="#f/thinning_mod/stringarraytompi" title="f/thinning_mod/stringarraytompi"><code class="xref f f-func docutils literal notranslate"><span class="pre">stringarraytompi()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/thinning_mod/realarraytompi">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">thinning_mod/</span></span><span class="sig-name descname"><span class="pre">realarraytompi</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">array</span></em>, <em class="sig-param"><span class="pre">arraympi</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/thinning_mod/realarraytompi" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Do the equivalent of mpi_allgatherv for a real array,</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>array</strong> (*)<em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>arraympi</strong> (*)<em> [</em><em>real </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/thinning_mod/thn_radiosonde" title="f/thinning_mod/thn_radiosonde"><code class="xref f f-func docutils literal notranslate"><span class="pre">thn_radiosonde()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/thinning_mod/logicalarraytompi">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">thinning_mod/</span></span><span class="sig-name descname"><span class="pre">logicalarraytompi</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">array</span></em>, <em class="sig-param"><span class="pre">arraympi</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/thinning_mod/logicalarraytompi" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Do the equivalent of mpi_allgatherv for a logical array,</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>array</strong> (*)<em> [</em><em>logical </em><em>]</em></p></li>
+<li><p><strong>arraympi</strong> (*)<em> [</em><em>logical </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/thinning_mod/thn_surfaceintime" title="f/thinning_mod/thn_surfaceintime"><code class="xref f f-func docutils literal notranslate"><span class="pre">thn_surfaceintime()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/thinning_mod/raobs_check_duplicated_stations">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">thinning_mod/</span></span><span class="sig-name descname"><span class="pre">raobs_check_duplicated_stations</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">stnid</span></em>, <em class="sig-param"><span class="pre">obslevoffset</span></em>, <em class="sig-param"><span class="pre">obslat</span></em>, <em class="sig-param"><span class="pre">obslon</span></em>, <em class="sig-param"><span class="pre">obsheaddate</span></em>, <em class="sig-param"><span class="pre">trajflags</span></em>, <em class="sig-param"><span class="pre">obsflags</span></em>, <em class="sig-param"><span class="pre">obsvalues</span></em>, <em class="sig-param"><span class="pre">ominusb</span></em>, <em class="sig-param"><span class="pre">obslaunchtime</span></em>, <em class="sig-param"><span class="pre">stationflags</span></em>, <em class="sig-param"><span class="pre">numvars</span></em>, <em class="sig-param"><span class="pre">numstation</span></em>, <em class="sig-param"><span class="pre">tolerancefactor</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/thinning_mod/raobs_check_duplicated_stations" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Check duplicated stations and select the best TAC/BUFR profiles</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>stnid</strong> (*)<em> [</em><em>character </em><em>,</em><em>inout</em><em>]</em></p></li>
+<li><p><strong>obslevoffset</strong> (*)<em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>obslat</strong> (*)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>obslon</strong> (*)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>obsheaddate</strong> (*)<em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>trajflags</strong> (*,*)<em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>obsflags</strong> (*,*)<em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>obsvalues</strong> (*,*)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>ominusb</strong> (*,*)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>obslaunchtime</strong> (*)<em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>stationflags</strong> (*)<em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>numvars</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>numstation</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>tolerancefactor</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/thinning_mod/thn_radiosonde" title="f/thinning_mod/thn_radiosonde"><code class="xref f f-func docutils literal notranslate"><span class="pre">thn_radiosonde()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/thinning_mod/raobs_check_if_same_profile" title="f/thinning_mod/raobs_check_if_same_profile"><code class="xref f f-func docutils literal notranslate"><span class="pre">raobs_check_if_same_profile()</span></code></a>, <a class="reference internal" href="#f/thinning_mod/raobs_compare_profiles" title="f/thinning_mod/raobs_compare_profiles"><code class="xref f f-func docutils literal notranslate"><span class="pre">raobs_compare_profiles()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/thinning_mod/raobs_check_if_same_profile">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">thinning_mod/</span></span><span class="sig-name descname"><span class="pre">raobs_check_if_same_profile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">stationindex</span></em>, <em class="sig-param"><span class="pre">stationindex2</span></em>, <em class="sig-param"><span class="pre">obsvalues</span></em>, <em class="sig-param"><span class="pre">obslevoffset</span></em>, <em class="sig-param"><span class="pre">sameprofile</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/thinning_mod/raobs_check_if_same_profile" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Check if two raobs profiles are the same.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>stationindex</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>stationindex2</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>obsvalues</strong> (*,*)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>obslevoffset</strong> (*)<em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>sameprofile</strong><em> [</em><em>logical </em><em>,</em><em>out</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/thinning_mod/raobs_check_duplicated_stations" title="f/thinning_mod/raobs_check_duplicated_stations"><code class="xref f f-func docutils literal notranslate"><span class="pre">raobs_check_duplicated_stations()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/thinning_mod/raobs_compare_profiles">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">thinning_mod/</span></span><span class="sig-name descname"><span class="pre">raobs_compare_profiles</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">stationindex</span></em>, <em class="sig-param"><span class="pre">stationindex2</span></em>, <em class="sig-param"><span class="pre">stationflags</span></em>, <em class="sig-param"><span class="pre">trajflags</span></em>, <em class="sig-param"><span class="pre">obsflags</span></em>, <em class="sig-param"><span class="pre">obsvalues</span></em>, <em class="sig-param"><span class="pre">ominusb</span></em>, <em class="sig-param"><span class="pre">obslevoffset</span></em>, <em class="sig-param"><span class="pre">numvars</span></em>, <em class="sig-param"><span class="pre">cloche</span></em>, <em class="sig-param"><span class="pre">selectcriteria</span></em>, <em class="sig-param"><span class="pre">selectstationindex</span></em>, <em class="sig-param"><span class="pre">tolerancefactor</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/thinning_mod/raobs_compare_profiles" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Perform a comparison between two raobs profiles.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>stationindex</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>stationindex2</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>stationflags</strong> (*)<em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>trajflags</strong> (*,*)<em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>obsflags</strong> (*,*)<em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>obsvalues</strong> (*,*)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>ominusb</strong> (*,*)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>obslevoffset</strong> (*)<em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>numvars</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>cloche</strong> (*)<em> [</em><em>integer </em><em>,</em><em>inout</em><em>]</em></p></li>
+<li><p><strong>selectcriteria</strong><em> [</em><em>integer </em><em>,</em><em>out</em><em>]</em></p></li>
+<li><p><strong>selectstationindex</strong><em> [</em><em>integer </em><em>,</em><em>out</em><em>]</em></p></li>
+<li><p><strong>tolerancefactor</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/thinning_mod/raobs_check_duplicated_stations" title="f/thinning_mod/raobs_check_duplicated_stations"><code class="xref f f-func docutils literal notranslate"><span class="pre">raobs_check_duplicated_stations()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/thinning_mod/raobs_thinning_model">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">thinning_mod/</span></span><span class="sig-name descname"><span class="pre">raobs_thinning_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">obsflags</span></em>, <em class="sig-param"><span class="pre">obsvalues</span></em>, <em class="sig-param"><span class="pre">presinterp</span></em>, <em class="sig-param"><span class="pre">numvars</span></em>, <em class="sig-param"><span class="pre">numlev</span></em>, <em class="sig-param"><span class="pre">numstation</span></em>, <em class="sig-param"><span class="pre">numlevstnmax</span></em>, <em class="sig-param"><span class="pre">obslevoffset</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/thinning_mod/raobs_thinning_model" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Perform raobs thinning by comparing with a set of model levels.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>obsflags</strong> (*,*)<em> [</em><em>integer </em><em>,</em><em>inout</em><em>]</em></p></li>
+<li><p><strong>obsvalues</strong> (*,*)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>presinterp</strong> (*,*)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>numvars</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>numlev</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>numstation</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>numlevstnmax</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>obslevoffset</strong> (*)<em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/thinning_mod/thn_radiosonde" title="f/thinning_mod/thn_radiosonde"><code class="xref f f-func docutils literal notranslate"><span class="pre">thn_radiosonde()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/thinning_mod/raobs_thinning_es">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">thinning_mod/</span></span><span class="sig-name descname"><span class="pre">raobs_thinning_es</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">obsflags</span></em>, <em class="sig-param"><span class="pre">obsvalues</span></em>, <em class="sig-param"><span class="pre">numstation</span></em>, <em class="sig-param"><span class="pre">numlevstnmax</span></em>, <em class="sig-param"><span class="pre">obslevoffset</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/thinning_mod/raobs_thinning_es" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Perform thinning of T-Td raobs observations.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>obsflags</strong> (*,*)<em> [</em><em>integer </em><em>,</em><em>inout</em><em>]</em></p></li>
+<li><p><strong>obsvalues</strong> (*,*)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>numstation</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>numlevstnmax</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>obslevoffset</strong> (*)<em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/thinning_mod/thn_radiosonde" title="f/thinning_mod/thn_radiosonde"><code class="xref f f-func docutils literal notranslate"><span class="pre">thn_radiosonde()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/thinning_mod/raobs_blacklisting_ecmwf">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">thinning_mod/</span></span><span class="sig-name descname"><span class="pre">raobs_blacklisting_ecmwf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">obsflags</span></em>, <em class="sig-param"><span class="pre">obsvalues</span></em>, <em class="sig-param"><span class="pre">obstype</span></em>, <em class="sig-param"><span class="pre">numstation</span></em>, <em class="sig-param"><span class="pre">obslevoffset</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/thinning_mod/raobs_blacklisting_ecmwf" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Perform filtering of T-Td raobs observations based on
+approach inspired by ECMWF approach</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>obsflags</strong> (*,*)<em> [</em><em>integer </em><em>,</em><em>inout</em><em>]</em></p></li>
+<li><p><strong>obsvalues</strong> (*,*)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>obstype</strong> (*)<em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>numstation</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>obslevoffset</strong> (*)<em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/thinning_mod/thn_radiosonde" title="f/thinning_mod/thn_radiosonde"><code class="xref f f-func docutils literal notranslate"><span class="pre">thn_radiosonde()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div></blockquote>
+</section>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="varqc_mod.html" title="varqc_mod"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="sstbias_mod.html" title="sstbias_mod"
+             >previous</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2018, ECCC.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.
+    </div>
+  </body>
+</html>

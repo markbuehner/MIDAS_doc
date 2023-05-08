@@ -1,0 +1,22 @@
+==========================================
+obsutil_mod
+==========================================
+
+    :doc:`link to source code <obsutil_mod_src>`
+
+
+    **Dependency Diagrams:**
+
+    .. figure:: /obsutil_mod.svg
+        :height: 100px
+
+        Direct Dependency Diagram
+
+    .. figure:: /obsutil_mod_rev.svg
+        :height: 100px
+
+        Reverse Dependency Diagram
+
+
+    .. f:automodule:: obsutil_mod
+

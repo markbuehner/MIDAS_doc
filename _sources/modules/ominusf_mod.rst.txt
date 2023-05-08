@@ -1,0 +1,22 @@
+==========================================
+ominusf_mod
+==========================================
+
+    :doc:`link to source code <ominusf_mod_src>`
+
+
+    **Dependency Diagrams:**
+
+    .. figure:: /ominusf_mod.svg
+        :height: 100px
+
+        Direct Dependency Diagram
+
+    .. figure:: /ominusf_mod_rev.svg
+        :height: 100px
+
+        Reverse Dependency Diagram
+
+
+    .. f:automodule:: ominusf_mod
+

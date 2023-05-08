@@ -1,0 +1,22 @@
+==========================================
+minimization_mod
+==========================================
+
+    :doc:`link to source code <minimization_mod_src>`
+
+
+    **Dependency Diagrams:**
+
+    .. figure:: /minimization_mod.svg
+        :height: 100px
+
+        Direct Dependency Diagram
+
+    .. figure:: /minimization_mod_rev.svg
+        :height: 100px
+
+        Reverse Dependency Diagram
+
+
+    .. f:automodule:: minimization_mod
+

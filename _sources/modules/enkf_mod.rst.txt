@@ -1,0 +1,22 @@
+==========================================
+enkf_mod
+==========================================
+
+    :doc:`link to source code <enkf_mod_src>`
+
+
+    **Dependency Diagrams:**
+
+    .. figure:: /enkf_mod.svg
+        :height: 100px
+
+        Direct Dependency Diagram
+
+    .. figure:: /enkf_mod_rev.svg
+        :height: 100px
+
+        Reverse Dependency Diagram
+
+
+    .. f:automodule:: enkf_mod
+

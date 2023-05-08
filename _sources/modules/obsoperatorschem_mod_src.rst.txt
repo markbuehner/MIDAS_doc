@@ -1,0 +1,8 @@
+==========================================
+obsoperatorschem_mod source
+==========================================
+
+    .. literalinclude:: ../_src_files/obsOperatorsChem_mod.f90
+       :language: fortran
+       :linenos:
+

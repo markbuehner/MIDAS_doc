@@ -1,0 +1,512 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>quasinewton_mod &mdash; MIDAS  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="MIDAS  documentation" href="../index.html" />
+    <link rel="next" title="residual_mod" href="residual_mod.html" />
+    <link rel="prev" title="ominusf_mod" href="ominusf_mod.html" /> 
+  </head>
+  <body>
+  <div>
+    <img src="../_static/MIDAS_header.png" alt="MIDAS" />
+  </div>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="residual_mod.html" title="residual_mod"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="ominusf_mod.html" title="ominusf_mod"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="ominusf_mod.html"
+                          title="previous chapter">ominusf_mod</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="residual_mod.html"
+                          title="next chapter">residual_mod</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/modules/quasinewton_mod.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <section id="quasinewton-mod">
+<h1>quasinewton_mod<a class="headerlink" href="#quasinewton-mod" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><p><a class="reference internal" href="quasinewton_mod_src.html"><span class="doc">link to source code</span></a></p>
+<p><strong>Dependency Diagrams:</strong></p>
+<figure class="align-default" id="id1">
+<a class="reference internal image-reference" href="quasinewton_mod.svg"><img alt="quasinewton_mod.svg" height="100px" src="quasinewton_mod.svg" /></a>
+<figcaption>
+<p><span class="caption-text">Direct Dependency Diagram</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id2">
+<a class="reference internal image-reference" href="quasinewton_mod_rev.svg"><img alt="quasinewton_mod_rev.svg" height="100px" src="quasinewton_mod_rev.svg" /></a>
+<figcaption>
+<p><span class="caption-text">Reverse Dependency Diagram</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<span class="target" id="f/quasinewton_mod"></span><p class="rubric">Description</p>
+<p>MODULE quasinewton_mod (prefix=’qna’ category=’1. High-level functionality’)</p>
+<p>Purpose: The n1qn3 routine, and its supporting subroutines</p>
+<p class="rubric">Quick access</p>
+<dl class="field-list simple">
+<dt class="field-odd">Routines</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/quasinewton_mod/dcube" title="f/quasinewton_mod/dcube"><code class="xref f f-func docutils literal notranslate"><span class="pre">dcube()</span></code></a>, <a class="reference internal" href="#f/quasinewton_mod/ddd" title="f/quasinewton_mod/ddd"><code class="xref f f-func docutils literal notranslate"><span class="pre">ddd()</span></code></a>, <a class="reference internal" href="#f/quasinewton_mod/ddds" title="f/quasinewton_mod/ddds"><code class="xref f f-func docutils literal notranslate"><span class="pre">ddds()</span></code></a>, <a class="reference internal" href="#f/quasinewton_mod/mupdts" title="f/quasinewton_mod/mupdts"><code class="xref f f-func docutils literal notranslate"><span class="pre">mupdts()</span></code></a>, <a class="reference internal" href="#f/quasinewton_mod/n1qn3a" title="f/quasinewton_mod/n1qn3a"><code class="xref f f-func docutils literal notranslate"><span class="pre">n1qn3a()</span></code></a>, <a class="reference internal" href="#f/quasinewton_mod/nlis0" title="f/quasinewton_mod/nlis0"><code class="xref f f-func docutils literal notranslate"><span class="pre">nlis0()</span></code></a>, <a class="reference internal" href="#f/quasinewton_mod/qna_n1qn3" title="f/quasinewton_mod/qna_n1qn3"><code class="xref f f-func docutils literal notranslate"><span class="pre">qna_n1qn3()</span></code></a></p>
+</dd>
+</dl>
+<p class="rubric">Needed modules</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="midasmpi_mod.html#f/midasmpi_mod" title="f/midasmpi_mod: MODULE midasMpi_mod (prefix='mmpi' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">midasmpi_mod</span></code></a>: MODULE midasMpi_mod (prefix=’mmpi’ category=’8. Low-level utilities and constants’)</p></li>
+</ul>
+<p class="rubric">Variables</p>
+<p class="rubric">Subroutines and functions</p>
+<dl>
+<dt class="sig sig-object f" id="f/quasinewton_mod/dcube">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">quasinewton_mod/</span></span><span class="sig-name descname"><span class="pre">dcube</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">t</span></em>, <em class="sig-param"><span class="pre">f</span></em>, <em class="sig-param"><span class="pre">fp</span></em>, <em class="sig-param"><span class="pre">ta</span></em>, <em class="sig-param"><span class="pre">fa</span></em>, <em class="sig-param"><span class="pre">fpa</span></em>, <em class="sig-param"><span class="pre">tlower</span></em>, <em class="sig-param"><span class="pre">tupper</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/quasinewton_mod/dcube" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>[to be completed]</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>t</strong><em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>f</strong><em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>fp</strong><em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>ta</strong><em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>fa</strong><em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>fpa</strong><em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>tlower</strong><em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>tupper</strong><em> [</em><em>real </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/quasinewton_mod/nlis0" title="f/quasinewton_mod/nlis0"><code class="xref f f-func docutils literal notranslate"><span class="pre">nlis0()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/quasinewton_mod/ddd">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">quasinewton_mod/</span></span><span class="sig-name descname"><span class="pre">ddd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">prosca</span></em>, <em class="sig-param"><span class="pre">dtonb</span></em>, <em class="sig-param"><span class="pre">dtcab</span></em>, <em class="sig-param"><span class="pre">n</span></em>, <em class="sig-param"><span class="pre">sscale</span></em>, <em class="sig-param"><span class="pre">nm</span></em>, <em class="sig-param"><span class="pre">depl</span></em>, <em class="sig-param"><span class="pre">aux</span></em>, <em class="sig-param"><span class="pre">jmin</span></em>, <em class="sig-param"><span class="pre">jmax</span></em>, <em class="sig-param"><span class="pre">precos</span></em>, <em class="sig-param"><span class="pre">diag</span></em>, <em class="sig-param"><span class="pre">ybar</span></em>, <em class="sig-param"><span class="pre">sbar</span></em>, <em class="sig-param"><span class="pre">izs</span></em>, <em class="sig-param"><span class="pre">rzs</span></em>, <em class="sig-param"><span class="pre">dzs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/quasinewton_mod/ddd" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Calcule le produit H.g ou</p>
+<ul class="simple">
+<li><p>H est une matrice construite par la formule de bfgs inverse
+a nm memoires a partir de la matrice diagonale diag
+dans un espace hilbertien dont le produit scalaire
+est donne par prosca
+(cf. J. Nocedal, Math. of Comp. 35/151 (1980) 773-782)</p></li>
+<li><p>g est un vecteur de dimension n (en general le gradient)</p></li>
+<li><p>la matrice diag apparait donc comme un preconditionneur diagonal</p></li>
+</ul>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>depl</strong> (n)<em> [</em><em>real </em><em>]</em> :: <p>g (en entree), = H g (en sortie)</p>
+<ul>
+<li><p>la matrice H est memorisee par les vecteurs des tableaux</p></li>
+</ul>
+</p></li>
+<li><p><strong>ybar</strong> (n,1)<em> [</em><em>real </em><em>]</em> :: <p>sbar et les pointeurs jmin, jmax</p>
+<ul>
+<li><p>alpha(nm) est une zone de travail</p></li>
+</ul>
+</p></li>
+<li><p><strong>izs</strong> (1)<em> [</em><em>integer </em><em>]</em> :: 1),rzs(1),dzs(1) sont des zones de travail pour prosca</p></li>
+<li><p><strong>prosca</strong><em> [</em><em>external</em><em>]</em></p></li>
+<li><p><strong>dtonb</strong><em> [</em><em>external</em><em>]</em></p></li>
+<li><p><strong>dtcab</strong><em> [</em><em>external</em><em>]</em></p></li>
+<li><p><strong>n</strong><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><strong>sscale</strong><em> [</em><em>logical </em><em>]</em></p></li>
+<li><p><strong>nm</strong><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><strong>aux</strong> (n)<em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>jmin</strong><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><strong>jmax</strong><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><strong>precos</strong><em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>diag</strong> (n)<em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>sbar</strong> (n,1)<em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>rzs</strong> (1)<em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>dzs</strong> (1)<em> [</em><em>real </em><em>]</em></p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Needed modules</p>
+<ul class="simple">
+<li><p><code class="xref f f-mod docutils literal notranslate"><span class="pre">ddd__user__routines</span></code></p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/quasinewton_mod/n1qn3a" title="f/quasinewton_mod/n1qn3a"><code class="xref f f-func docutils literal notranslate"><span class="pre">n1qn3a()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/quasinewton_mod/ddds">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">quasinewton_mod/</span></span><span class="sig-name descname"><span class="pre">ddds</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">prosca</span></em>, <em class="sig-param"><span class="pre">dtonb</span></em>, <em class="sig-param"><span class="pre">dtcab</span></em>, <em class="sig-param"><span class="pre">n</span></em>, <em class="sig-param"><span class="pre">sscale</span></em>, <em class="sig-param"><span class="pre">nm</span></em>, <em class="sig-param"><span class="pre">depl</span></em>, <em class="sig-param"><span class="pre">aux</span></em>, <em class="sig-param"><span class="pre">jmin</span></em>, <em class="sig-param"><span class="pre">jmax</span></em>, <em class="sig-param"><span class="pre">precos</span></em>, <em class="sig-param"><span class="pre">diag</span></em>, <em class="sig-param"><span class="pre">ybar</span></em>, <em class="sig-param"><span class="pre">sbar</span></em>, <em class="sig-param"><span class="pre">izs</span></em>, <em class="sig-param"><span class="pre">rzs</span></em>, <em class="sig-param"><span class="pre">dzs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/quasinewton_mod/ddds" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>This subroutine has the same role as ddd (computation of the
+product H.g). It supposes however that the (y,s) pairs are not
+stored in core memory, but on a devise chosen by the user.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>prosca</strong><em> [</em><em>external</em><em>]</em></p></li>
+<li><p><strong>dtonb</strong><em> [</em><em>external</em><em>]</em></p></li>
+<li><p><strong>dtcab</strong><em> [</em><em>external</em><em>]</em></p></li>
+<li><p><strong>n</strong><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><strong>sscale</strong><em> [</em><em>logical </em><em>]</em></p></li>
+<li><p><strong>nm</strong><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><strong>depl</strong> (n)<em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>aux</strong> (n)<em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>jmin</strong><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><strong>jmax</strong><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><strong>precos</strong><em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>diag</strong> (n)<em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>ybar</strong> (n)<em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>sbar</strong> (n)<em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>izs</strong> (1)<em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><strong>rzs</strong> (1)<em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>dzs</strong> (1)<em> [</em><em>real </em><em>]</em></p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Needed modules</p>
+<ul class="simple">
+<li><p><code class="xref f f-mod docutils literal notranslate"><span class="pre">ddds__user__routines</span></code></p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/quasinewton_mod/n1qn3a" title="f/quasinewton_mod/n1qn3a"><code class="xref f f-func docutils literal notranslate"><span class="pre">n1qn3a()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/quasinewton_mod/mupdts">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">quasinewton_mod/</span></span><span class="sig-name descname"><span class="pre">mupdts</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">sscale</span></em>, <em class="sig-param"><span class="pre">inmemo</span></em>, <em class="sig-param"><span class="pre">n</span></em>, <em class="sig-param"><span class="pre">m</span></em>, <em class="sig-param"><span class="pre">nrz</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/quasinewton_mod/mupdts" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sscale</strong><em> [</em><em>logical </em><em>]</em></p></li>
+<li><p><strong>inmemo</strong><em> [</em><em>logical </em><em>]</em></p></li>
+<li><p><strong>n</strong><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><strong>m</strong><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><strong>nrz</strong><em> [</em><em>integer </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/quasinewton_mod/qna_n1qn3" title="f/quasinewton_mod/qna_n1qn3"><code class="xref f f-func docutils literal notranslate"><span class="pre">qna_n1qn3()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/quasinewton_mod/qna_n1qn3">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">quasinewton_mod/</span></span><span class="sig-name descname"><span class="pre">qna_n1qn3</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">simul</span></em>, <em class="sig-param"><span class="pre">prosca</span></em>, <em class="sig-param"><span class="pre">dtonb</span></em>, <em class="sig-param"><span class="pre">dtcab</span></em>, <em class="sig-param"><span class="pre">n</span></em>, <em class="sig-param"><span class="pre">x</span></em>, <em class="sig-param"><span class="pre">f</span></em>, <em class="sig-param"><span class="pre">g</span></em>, <em class="sig-param"><span class="pre">dxmin</span></em>, <em class="sig-param"><span class="pre">df1</span></em>, <em class="sig-param"><span class="pre">epsg</span></em>, <em class="sig-param"><span class="pre">impres</span></em>, <em class="sig-param"><span class="pre">io</span></em>, <em class="sig-param"><span class="pre">mode</span></em>, <em class="sig-param"><span class="pre">niter</span></em>, <em class="sig-param"><span class="pre">nsim</span></em>, <em class="sig-param"><span class="pre">iz</span></em>, <em class="sig-param"><span class="pre">dz</span></em>, <em class="sig-param"><span class="pre">ndz</span></em>, <em class="sig-param"><span class="pre">izs</span></em>, <em class="sig-param"><span class="pre">rzs</span></em>, <em class="sig-param"><span class="pre">dzs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/quasinewton_mod/qna_n1qn3" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>N1QN3, Version 2.0c, June 1995
+Jean Charles Gilbert, Claude Lemarechal, INRIA.</p>
+<p>Double precision version of M1QN3.</p>
+<p>N1qn3 has two running modes: the SID (Scalar Initial Scaling) mode
+and the DIS (Diagonal Initial Scaling) mode. Both do not require
+the same amount of storage, the same subroutines, …
+In the description below, items that differ in the DIS mode with
+respect to the SIS mode are given in brakets.</p>
+<p>Use the following subroutines:</p>
+<ul class="simple">
+<li><p>N1QN3A</p></li>
+<li><p>DDD, DDDS</p></li>
+<li><p>NLIS0 + DCUBE (Dec 88)</p></li>
+<li><p>MUPDT</p></li>
+</ul>
+<p>The following routines are proposed to the user in case the
+Euclidean scalar product is used:
+DUCLID, DTONBE, DTCABE.</p>
+<p>La sous-routine N1QN3 est une interface entre le programme
+appelant et la sous-routine N1QN3A, le minimiseur proprement dit.</p>
+<p>Le module PROSCA est sense realiser le produit scalaire de deux
+vecteurs de Rn; le module DTONB est sense realiser le changement
+de coordonnees correspondant au changement de bases: base
+euclidienne -&gt; base orthonormale (pour le produit scalaire
+PROSCA); le module CTBAB fait la transformation inverse: base
+orthonormale -&gt; base euclidienne.</p>
+<p>Iz is an integer working zone for N1QN3A, its dimension is 5.
+It is formed of 5 scalars that are set by the optimizer:</p>
+<ul class="simple">
+<li><p>the dimension of the problem,</p></li>
+<li><p>a identifier of the scaling mode,</p></li>
+<li><p>the number of updates,</p></li>
+<li><p>two pointers.</p></li>
+</ul>
+<p>Dz est la zone de travail pour N1QN3A, de dimension ndz.
+Elle est subdivisee en</p>
+<ul class="simple">
+<li><p>3 [ou 4] vecteurs de dimension n: d,gg,[diag,]aux</p></li>
+<li><p>m vecteurs de dimension n: ybar</p></li>
+<li><p>m vecteurs de dimension n: sbar</p></li>
+</ul>
+<p>m est alors le plus grand entier tel que</p>
+<ul class="simple">
+<li><p>m*(2*n+1)+3*n .le. ndz [m*(2*n+1)+4*n .le. ndz)]</p></li>
+<li><p>soit m := (ndz-3*n) / (2*n+1) [m := (ndz-4*n) / (2*n+1)].</p></li>
+</ul>
+<p>Il faut avoir m &gt;= 1, donc ndz &gt;= 5n+1 [ndz &gt;= 6n+1].</p>
+<p>A chaque iteration la metrique est formee a partir d’un multiple
+de l’identite [d’une matrice diagonale] D qui est mise a jour m
+fois par la formule de BFGS en utilisant les m couples {y,s} les
+plus recents.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>simul</strong><em> [</em><em>external</em><em>]</em></p></li>
+<li><p><strong>prosca</strong><em> [</em><em>external</em><em>]</em></p></li>
+<li><p><strong>dtonb</strong><em> [</em><em>external</em><em>]</em></p></li>
+<li><p><strong>dtcab</strong><em> [</em><em>external</em><em>]</em></p></li>
+<li><p><strong>n</strong><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><strong>x</strong> (n)<em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>f</strong><em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>g</strong> (n)<em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>dxmin</strong><em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>df1</strong><em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>epsg</strong><em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>impres</strong><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><strong>io</strong><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><strong>mode</strong><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><strong>niter</strong><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><strong>nsim</strong><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><strong>iz</strong> (5)<em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><strong>dz</strong> (ndz)<em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>ndz</strong><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><strong>izs</strong> (1)<em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><strong>rzs</strong> (1)<em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>dzs</strong> (1)<em> [</em><em>real </em><em>]</em></p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Needed modules</p>
+<ul class="simple">
+<li><p><code class="xref f f-mod docutils literal notranslate"><span class="pre">qna_n1qn3__user__routines</span></code></p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="fsoi_mod.html#f/fsoi_mod/minimize" title="f/fsoi_mod/minimize"><code class="xref f f-func docutils literal notranslate"><span class="pre">minimize()</span></code></a>, <a class="reference internal" href="minimization_mod.html#f/minimization_mod/quasinewtonminimization" title="f/minimization_mod/quasinewtonminimization"><code class="xref f f-func docutils literal notranslate"><span class="pre">quasinewtonminimization()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/quasinewton_mod/mupdts" title="f/quasinewton_mod/mupdts"><code class="xref f f-func docutils literal notranslate"><span class="pre">mupdts()</span></code></a>, <a class="reference internal" href="#f/quasinewton_mod/n1qn3a" title="f/quasinewton_mod/n1qn3a"><code class="xref f f-func docutils literal notranslate"><span class="pre">n1qn3a()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/quasinewton_mod/n1qn3a">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">quasinewton_mod/</span></span><span class="sig-name descname"><span class="pre">n1qn3a</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">simul</span></em>, <em class="sig-param"><span class="pre">prosca</span></em>, <em class="sig-param"><span class="pre">dtonb</span></em>, <em class="sig-param"><span class="pre">dtcab</span></em>, <em class="sig-param"><span class="pre">n</span></em>, <em class="sig-param"><span class="pre">x</span></em>, <em class="sig-param"><span class="pre">f</span></em>, <em class="sig-param"><span class="pre">g</span></em>, <em class="sig-param"><span class="pre">dxmin</span></em>, <em class="sig-param"><span class="pre">df1</span></em>, <em class="sig-param"><span class="pre">epsg</span></em>, <em class="sig-param"><span class="pre">impres</span></em>, <em class="sig-param"><span class="pre">io</span></em>, <em class="sig-param"><span class="pre">mode</span></em>, <em class="sig-param"><span class="pre">niter</span></em>, <em class="sig-param"><span class="pre">nsim</span></em>, <em class="sig-param"><span class="pre">inmemo</span></em>, <em class="sig-param"><span class="pre">m</span></em>, <em class="sig-param"><span class="pre">jmin</span></em>, <em class="sig-param"><span class="pre">jmax</span></em>, <em class="sig-param"><span class="pre">d</span></em>, <em class="sig-param"><span class="pre">gg</span></em>, <em class="sig-param"><span class="pre">diag</span></em>, <em class="sig-param"><span class="pre">aux</span></em>, <em class="sig-param"><span class="pre">ybar</span></em>, <em class="sig-param"><span class="pre">sbar</span></em>, <em class="sig-param"><span class="pre">izs</span></em>, <em class="sig-param"><span class="pre">rzs</span></em>, <em class="sig-param"><span class="pre">dzs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/quasinewton_mod/n1qn3a" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Code d’optimisation proprement dit.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>simul</strong><em> [</em><em>external</em><em>]</em></p></li>
+<li><p><strong>prosca</strong><em> [</em><em>external</em><em>]</em></p></li>
+<li><p><strong>dtonb</strong><em> [</em><em>external</em><em>]</em></p></li>
+<li><p><strong>dtcab</strong><em> [</em><em>external</em><em>]</em></p></li>
+<li><p><strong>n</strong><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><strong>x</strong> (n)<em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>f</strong><em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>g</strong> (n)<em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>dxmin</strong><em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>df1</strong><em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>epsg</strong><em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>impres</strong><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><strong>io</strong><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><strong>mode</strong><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><strong>niter</strong><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><strong>nsim</strong><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><strong>inmemo</strong><em> [</em><em>logical </em><em>]</em></p></li>
+<li><p><strong>m</strong><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><strong>jmin</strong><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><strong>jmax</strong><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><strong>d</strong> (n)<em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>gg</strong> (n)<em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>diag</strong> (n)<em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>aux</strong> (n)<em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>ybar</strong> (n,1)<em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>sbar</strong> (n,1)<em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>izs</strong> (1)<em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><strong>rzs</strong> (1)<em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>dzs</strong> (1)<em> [</em><em>real </em><em>]</em></p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Needed modules</p>
+<ul class="simple">
+<li><p><code class="xref f f-mod docutils literal notranslate"><span class="pre">n1qn3a__user__routines</span></code></p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/quasinewton_mod/qna_n1qn3" title="f/quasinewton_mod/qna_n1qn3"><code class="xref f f-func docutils literal notranslate"><span class="pre">qna_n1qn3()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/quasinewton_mod/ddd" title="f/quasinewton_mod/ddd"><code class="xref f f-func docutils literal notranslate"><span class="pre">ddd()</span></code></a>, <a class="reference internal" href="#f/quasinewton_mod/ddds" title="f/quasinewton_mod/ddds"><code class="xref f f-func docutils literal notranslate"><span class="pre">ddds()</span></code></a>, <a class="reference internal" href="#f/quasinewton_mod/nlis0" title="f/quasinewton_mod/nlis0"><code class="xref f f-func docutils literal notranslate"><span class="pre">nlis0()</span></code></a>, <a class="reference internal" href="midasmpi_mod.html#f/midasmpi_mod/mmpi_allreduce_sumreal8scalar" title="f/midasmpi_mod/mmpi_allreduce_sumreal8scalar"><code class="xref f f-func docutils literal notranslate"><span class="pre">mmpi_allreduce_sumreal8scalar()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/quasinewton_mod/nlis0">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">quasinewton_mod/</span></span><span class="sig-name descname"><span class="pre">nlis0</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">n</span></em>, <em class="sig-param"><span class="pre">simul</span></em>, <em class="sig-param"><span class="pre">prosca</span></em>, <em class="sig-param"><span class="pre">xn</span></em>, <em class="sig-param"><span class="pre">fn</span></em>, <em class="sig-param"><span class="pre">fpn</span></em>, <em class="sig-param"><span class="pre">t</span></em>, <em class="sig-param"><span class="pre">tmin</span></em>, <em class="sig-param"><span class="pre">tmax</span></em>, <em class="sig-param"><span class="pre">d</span></em>, <em class="sig-param"><span class="pre">g</span></em>, <em class="sig-param"><span class="pre">amd</span></em>, <em class="sig-param"><span class="pre">amf</span></em>, <em class="sig-param"><span class="pre">imp</span></em>, <em class="sig-param"><span class="pre">io</span></em>, <em class="sig-param"><span class="pre">logic</span></em>, <em class="sig-param"><span class="pre">nap</span></em>, <em class="sig-param"><span class="pre">napmax</span></em>, <em class="sig-param"><span class="pre">x</span></em>, <em class="sig-param"><span class="pre">izs</span></em>, <em class="sig-param"><span class="pre">rzs</span></em>, <em class="sig-param"><span class="pre">dzs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/quasinewton_mod/nlis0" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>en sortie logic =</p>
+<ul class="simple">
+<li><p>0          descente serieuse</p></li>
+<li><p>1          descente bloquee</p></li>
+<li><p>4          nap &gt; napmax</p></li>
+<li><p>5          retour a l’utilisateur</p></li>
+<li><p>6          fonction et gradient pas d’accord</p></li>
+<li><p>&lt; 0        contrainte implicite active</p></li>
+</ul>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>n</strong><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><strong>simul</strong><em> [</em><em>external</em><em>]</em></p></li>
+<li><p><strong>prosca</strong><em> [</em><em>external</em><em>]</em></p></li>
+<li><p><strong>xn</strong> (n)<em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>fn</strong><em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>fpn</strong><em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>t</strong><em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>tmin</strong><em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>tmax</strong><em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>d</strong> (n)<em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>g</strong> (n)<em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>amd</strong><em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>amf</strong><em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>imp</strong><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><strong>io</strong><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><strong>logic</strong><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><strong>nap</strong><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><strong>napmax</strong><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><strong>x</strong> (n)<em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>izs</strong> (*)<em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><strong>rzs</strong> (*)<em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>dzs</strong> (*)<em> [</em><em>real </em><em>]</em></p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Needed modules</p>
+<ul class="simple">
+<li><p><code class="xref f f-mod docutils literal notranslate"><span class="pre">nlis0__user__routines</span></code></p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/quasinewton_mod/n1qn3a" title="f/quasinewton_mod/n1qn3a"><code class="xref f f-func docutils literal notranslate"><span class="pre">n1qn3a()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/quasinewton_mod/dcube" title="f/quasinewton_mod/dcube"><code class="xref f f-func docutils literal notranslate"><span class="pre">dcube()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div></blockquote>
+</section>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="residual_mod.html" title="residual_mod"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="ominusf_mod.html" title="ominusf_mod"
+             >previous</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2018, ECCC.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.
+    </div>
+  </body>
+</html>

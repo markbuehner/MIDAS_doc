@@ -1,0 +1,22 @@
+==========================================
+sqlitefiles_mod
+==========================================
+
+    :doc:`link to source code <sqlitefiles_mod_src>`
+
+
+    **Dependency Diagrams:**
+
+    .. figure:: /sqlitefiles_mod.svg
+        :height: 100px
+
+        Direct Dependency Diagram
+
+    .. figure:: /sqlitefiles_mod_rev.svg
+        :height: 100px
+
+        Reverse Dependency Diagram
+
+
+    .. f:automodule:: sqlitefiles_mod
+

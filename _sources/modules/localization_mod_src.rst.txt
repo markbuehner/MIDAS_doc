@@ -1,0 +1,8 @@
+==========================================
+localization_mod source
+==========================================
+
+    .. literalinclude:: ../_src_files/localization_mod.f90
+       :language: fortran
+       :linenos:
+

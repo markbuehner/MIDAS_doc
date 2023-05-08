@@ -1,0 +1,271 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>backgroundcheck_mod &mdash; MIDAS  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="MIDAS  documentation" href="../index.html" />
+    <link rel="next" title="bgckcsr_mod" href="bgckcsr_mod.html" />
+    <link rel="prev" title="analysiserroroi_mod" href="analysiserroroi_mod.html" /> 
+  </head>
+  <body>
+  <div>
+    <img src="../_static/MIDAS_header.png" alt="MIDAS" />
+  </div>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="bgckcsr_mod.html" title="bgckcsr_mod"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="analysiserroroi_mod.html" title="analysiserroroi_mod"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="analysiserroroi_mod.html"
+                          title="previous chapter">analysiserroroi_mod</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="bgckcsr_mod.html"
+                          title="next chapter">bgckcsr_mod</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/modules/backgroundcheck_mod.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <section id="backgroundcheck-mod">
+<h1>backgroundcheck_mod<a class="headerlink" href="#backgroundcheck-mod" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><p><a class="reference internal" href="backgroundcheck_mod_src.html"><span class="doc">link to source code</span></a></p>
+<p><strong>Dependency Diagrams:</strong></p>
+<figure class="align-default" id="id1">
+<a class="reference internal image-reference" href="backgroundcheck_mod.svg"><img alt="backgroundcheck_mod.svg" height="100px" src="backgroundcheck_mod.svg" /></a>
+<figcaption>
+<p><span class="caption-text">Direct Dependency Diagram</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id2">
+<a class="reference internal image-reference" href="backgroundcheck_mod_rev.svg"><img alt="backgroundcheck_mod_rev.svg" height="100px" src="backgroundcheck_mod_rev.svg" /></a>
+<figcaption>
+<p><span class="caption-text">Reverse Dependency Diagram</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<span class="target" id="f/backgroundcheck_mod"></span><p class="rubric">Description</p>
+<p>MODULE backgroundCheck_mod (prefix=’bgck’ category=’1. High-level functionality’)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Purpose</dt>
+<dd class="field-odd"><p>Performs the background check on all conventional observations</p>
+</dd>
+</dl>
+<p class="rubric">Quick access</p>
+<dl class="field-list simple">
+<dt class="field-odd">Routines</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/backgroundcheck_mod/bgck_bgcheck_conv" title="f/backgroundcheck_mod/bgck_bgcheck_conv"><code class="xref f f-func docutils literal notranslate"><span class="pre">bgck_bgcheck_conv()</span></code></a>, <a class="reference internal" href="#f/backgroundcheck_mod/bgck_data" title="f/backgroundcheck_mod/bgck_data"><code class="xref f f-func docutils literal notranslate"><span class="pre">bgck_data()</span></code></a>, <a class="reference internal" href="#f/backgroundcheck_mod/bgck_gpsro" title="f/backgroundcheck_mod/bgck_gpsro"><code class="xref f f-func docutils literal notranslate"><span class="pre">bgck_gpsro()</span></code></a>, <a class="reference internal" href="#f/backgroundcheck_mod/isetflag" title="f/backgroundcheck_mod/isetflag"><code class="xref f f-func docutils literal notranslate"><span class="pre">isetflag()</span></code></a></p>
+</dd>
+</dl>
+<p class="rubric">Needed modules</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="mathphysconstants_mod.html#f/mathphysconstants_mod" title="f/mathphysconstants_mod: MODULE MathPhysConstants_mod (prefix='mpc' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">mathphysconstants_mod</span></code></a>: MODULE MathPhysConstants_mod (prefix=’mpc’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="bufr_mod.html#f/bufr_mod" title="f/bufr_mod: MODULE bufr_mod (prefix='bufr' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">bufr_mod</span></code></a>: MODULE bufr_mod (prefix=’bufr’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod" title="f/obsspacedata_mod: MODULE obsSpaceData_mod (prefix='obs' category='6. High-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">obsspacedata_mod</span></code></a>: MODULE obsSpaceData_mod (prefix=’obs’ category=’6. High-level data objects’)</p></li>
+<li><p><a class="reference internal" href="gps_mod.html#f/gps_mod" title="f/gps_mod: MODULE gps_mod (prefix='gps' category='5. Observation operators')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">gps_mod</span></code></a>: MODULE gps_mod (prefix=’gps’ category=’5. Observation operators’)</p></li>
+<li><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod" title="f/utilities_mod: MODULE utilities_mod (prefix='utl' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">utilities_mod</span></code></a>: MODULE utilities_mod (prefix=’utl’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="columndata_mod.html#f/columndata_mod" title="f/columndata_mod: MODULE columnData_mod (prefix='col' category='6. High-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">columndata_mod</span></code></a>: MODULE columnData_mod (prefix=’col’ category=’6. High-level data objects’)</p></li>
+<li><p><a class="reference internal" href="obsspacediag_mod.html#f/obsspacediag_mod" title="f/obsspacediag_mod: MODULE obsSpaceDiag_mod (prefix=&quot;osd&quot; category='1. High-level functionality')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">obsspacediag_mod</span></code></a>: MODULE obsSpaceDiag_mod (prefix=”osd” category=’1. High-level functionality’)</p></li>
+<li><p><a class="reference internal" href="verticalcoord_mod.html#f/verticalcoord_mod" title="f/verticalcoord_mod: MODULE verticalcoord (prefix='vco' category='7. Low-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">verticalcoord_mod</span></code></a>: MODULE verticalcoord (prefix=’vco’ category=’7. Low-level data objects’)</p></li>
+<li><p><a class="reference internal" href="horizontalcoord_mod.html#f/horizontalcoord_mod" title="f/horizontalcoord_mod: MODULE HorizontalCoord_mod (prefix='hco' category='7. Low-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">horizontalcoord_mod</span></code></a>: MODULE HorizontalCoord_mod (prefix=’hco’ category=’7. Low-level data objects’)</p></li>
+<li><p><a class="reference internal" href="obsspaceerrorstddev_mod.html#f/obsspaceerrorstddev_mod" title="f/obsspaceerrorstddev_mod: MODULE obsSpaceErrorStdDev_mod (prefix='ose' category='1. High-level functionality')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">obsspaceerrorstddev_mod</span></code></a>: MODULE obsSpaceErrorStdDev_mod (prefix=’ose’ category=’1. High-level functionality’)</p></li>
+<li><p><a class="reference internal" href="obsfamilylist_mod.html#f/obsfamilylist_mod" title="f/obsfamilylist_mod: MODULE varNameList (prefix='ofl' category='7. Low-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">obsfamilylist_mod</span></code></a>: MODULE varNameList (prefix=’ofl’ category=’7. Low-level data objects’)</p></li>
+<li><p><a class="reference internal" href="codtyp_mod.html#f/codtyp_mod" title="f/codtyp_mod: MODULE codtyp_mod (prefix='codtyp' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">codtyp_mod</span></code></a>: MODULE codtyp_mod (prefix=’codtyp’ category=’8. Low-level utilities and constants’)</p></li>
+</ul>
+<p class="rubric">Variables</p>
+<p class="rubric">Subroutines and functions</p>
+<dl>
+<dt class="sig sig-object f" id="f/backgroundcheck_mod/bgck_bgcheck_conv">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">backgroundcheck_mod/</span></span><span class="sig-name descname"><span class="pre">bgck_bgcheck_conv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">columntrlonanlinclev</span></em>, <em class="sig-param"><span class="pre">columntrlontrllev</span></em>, <em class="sig-param"><span class="pre">hco_anl</span></em>, <em class="sig-param"><span class="pre">obsspacedata</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/backgroundcheck_mod/bgck_bgcheck_conv" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Do background check on all conventional observations</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>columntrlonanlinclev</strong><em> [</em><em>struct_columndata </em><em>,</em><em>inout</em><em>]</em> :: column data on analysis levels</p></li>
+<li><p><strong>columntrlontrllev</strong><em> [</em><em>struct_columndata </em><em>,</em><em>inout</em><em>]</em> :: column data on trial levels</p></li>
+<li><p><strong>hco_anl</strong><em> [</em><em>struct_hco </em><em>,</em><em>in,pointer</em><em>]</em> :: horizontal grid structure</p></li>
+<li><p><strong>obsspacedata</strong><em> [</em><em>struct_obs </em><em>,</em><em>inout</em><em>]</em> :: Observation-related data</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../programs/midas_obsselection.html#f/midas_obsselection" title="f/midas_obsselection"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_obsselection</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_famexist" title="f/obsspacedata_mod/obs_famexist"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_famexist()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_start" title="f/utilities_mod/utl_tmg_start"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_start()</span></code></a>, <a class="reference internal" href="obsspaceerrorstddev_mod.html#f/obsspaceerrorstddev_mod/ose_computestddev" title="f/obsspaceerrorstddev_mod/ose_computestddev"><code class="xref f f-func docutils literal notranslate"><span class="pre">ose_computestddev()</span></code></a>, <a class="reference internal" href="#f/backgroundcheck_mod/bgck_data" title="f/backgroundcheck_mod/bgck_data"><code class="xref f f-func docutils literal notranslate"><span class="pre">bgck_data()</span></code></a>, <a class="reference internal" href="#f/backgroundcheck_mod/bgck_gpsro" title="f/backgroundcheck_mod/bgck_gpsro"><code class="xref f f-func docutils literal notranslate"><span class="pre">bgck_gpsro()</span></code></a>, <a class="reference internal" href="obsspacediag_mod.html#f/obsspacediag_mod/osd_obsspacediag" title="f/obsspacediag_mod/osd_obsspacediag"><code class="xref f f-func docutils literal notranslate"><span class="pre">osd_obsspacediag()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_stop" title="f/utilities_mod/utl_tmg_stop"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_stop()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/backgroundcheck_mod/bgck_data">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">backgroundcheck_mod/</span></span><span class="sig-name descname"><span class="pre">bgck_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">obsfamily</span></em>, <em class="sig-param"><span class="pre">obsdata</span></em>, <em class="sig-param"><span class="pre">new_bgck_sw</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/backgroundcheck_mod/bgck_data" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Calculate a background check for a data family and set the
+appropriate quality-control flags in obsSpaceData</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>obsfamily</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em> :: current observation family</p></li>
+<li><p><strong>obsdata</strong><em> [</em><em>struct_obs </em><em>,</em><em>inout</em><em>]</em> :: obsSpaceData</p></li>
+<li><p><strong>new_bgck_sw</strong><em> [</em><em>logical </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/backgroundcheck_mod/bgck_bgcheck_conv" title="f/backgroundcheck_mod/bgck_bgcheck_conv"><code class="xref f f-func docutils literal notranslate"><span class="pre">bgck_bgcheck_conv()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_getheaderindex" title="f/obsspacedata_mod/obs_getheaderindex"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_getheaderindex()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_elem_c" title="f/obsspacedata_mod/obs_elem_c"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_elem_c()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyelem_i" title="f/obsspacedata_mod/obs_bodyelem_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyelem_i()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyelem_r" title="f/obsspacedata_mod/obs_bodyelem_r"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyelem_r()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_headelem_r" title="f/obsspacedata_mod/obs_headelem_r"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_headelem_r()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_headelem_i" title="f/obsspacedata_mod/obs_headelem_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_headelem_i()</span></code></a>, <a class="reference internal" href="#f/backgroundcheck_mod/isetflag" title="f/backgroundcheck_mod/isetflag"><code class="xref f f-func docutils literal notranslate"><span class="pre">isetflag()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyset_i" title="f/obsspacedata_mod/obs_bodyset_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyset_i()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_headset_i" title="f/obsspacedata_mod/obs_headset_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_headset_i()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/backgroundcheck_mod/bgck_gpsro">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">backgroundcheck_mod/</span></span><span class="sig-name descname"><span class="pre">bgck_gpsro</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">columntrlontrllev</span></em>, <em class="sig-param"><span class="pre">obsdata</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/backgroundcheck_mod/bgck_gpsro" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Set background-check flag on GPSRO data if ABS(O-P)/P is too
+large</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>columntrlontrllev</strong><em> [</em><em>struct_columndata </em><em>]</em></p></li>
+<li><p><strong>obsdata</strong><em> [</em><em>struct_obs </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/backgroundcheck_mod/bgck_bgcheck_conv" title="f/backgroundcheck_mod/bgck_bgcheck_conv"><code class="xref f f-func docutils literal notranslate"><span class="pre">bgck_bgcheck_conv()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_getvco" title="f/columndata_mod/col_getvco"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_getvco()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_getnumlev" title="f/columndata_mod/col_getnumlev"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_getnumlev()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_getheaderindex" title="f/obsspacedata_mod/obs_getheaderindex"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_getheaderindex()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_headelem_i" title="f/obsspacedata_mod/obs_headelem_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_headelem_i()</span></code></a>, <a class="reference internal" href="gps_mod.html#f/gps_mod/gps_iprofile_from_index" title="f/gps_mod/gps_iprofile_from_index"><code class="xref f f-func docutils literal notranslate"><span class="pre">gps_iprofile_from_index()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_headelem_r" title="f/obsspacedata_mod/obs_headelem_r"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_headelem_r()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyelem_i" title="f/obsspacedata_mod/obs_bodyelem_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyelem_i()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyelem_r" title="f/obsspacedata_mod/obs_bodyelem_r"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyelem_r()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyset_i" title="f/obsspacedata_mod/obs_bodyset_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyset_i()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/backgroundcheck_mod/isetflag">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">backgroundcheck_mod/</span></span><span class="sig-name descname"><span class="pre">isetflag</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">obsfamily</span></em>, <em class="sig-param"><span class="pre">kodtyp</span></em>, <em class="sig-param"><span class="pre">kvnam</span></em>, <em class="sig-param"><span class="pre">zbgchk</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/backgroundcheck_mod/isetflag" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Set BACKGROUND-CHECK FLAGS According to values set in a table.
+Original values in table come from ecmwf.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>obsfamily</strong><em> [</em><em>character </em><em>]</em> :: FAMILY  NAME ( ‘UA’ , ‘AI’   …etc.. )</p></li>
+<li><p><strong>kodtyp</strong><em> [</em><em>integer </em><em>]</em> :: BURP CODE TYPE</p></li>
+<li><p><strong>kvnam</strong><em> [</em><em>integer </em><em>]</em> :: VARIABLE NAME ( BURP )</p></li>
+<li><p><strong>zbgchk</strong><em> [</em><em>real </em><em>]</em> :: NORMALIZED BACKGROUND DEPARTURE</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Return</dt>
+<dd class="field-odd"><p><strong>isetflag</strong><em> [</em><em>integer </em><em>]</em></p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/backgroundcheck_mod/bgck_data" title="f/backgroundcheck_mod/bgck_data"><code class="xref f f-func docutils literal notranslate"><span class="pre">bgck_data()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div></blockquote>
+</section>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="bgckcsr_mod.html" title="bgckcsr_mod"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="analysiserroroi_mod.html" title="analysiserroroi_mod"
+             >previous</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2018, ECCC.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.
+    </div>
+  </body>
+</html>

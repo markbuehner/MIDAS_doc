@@ -1,0 +1,734 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>interpolation_mod &mdash; MIDAS  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="MIDAS  documentation" href="../index.html" />
+    <link rel="next" title="lamspectraltransform_mod" href="lamspectraltransform_mod.html" />
+    <link rel="prev" title="humiditylimits_mod" href="humiditylimits_mod.html" /> 
+  </head>
+  <body>
+  <div>
+    <img src="../_static/MIDAS_header.png" alt="MIDAS" />
+  </div>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="lamspectraltransform_mod.html" title="lamspectraltransform_mod"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="humiditylimits_mod.html" title="humiditylimits_mod"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="humiditylimits_mod.html"
+                          title="previous chapter">humiditylimits_mod</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="lamspectraltransform_mod.html"
+                          title="next chapter">lamspectraltransform_mod</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/modules/interpolation_mod.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <section id="interpolation-mod">
+<h1>interpolation_mod<a class="headerlink" href="#interpolation-mod" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><p><a class="reference internal" href="interpolation_mod_src.html"><span class="doc">link to source code</span></a></p>
+<p><strong>Dependency Diagrams:</strong></p>
+<figure class="align-default" id="id1">
+<a class="reference internal image-reference" href="interpolation_mod.svg"><img alt="interpolation_mod.svg" height="100px" src="interpolation_mod.svg" /></a>
+<figcaption>
+<p><span class="caption-text">Direct Dependency Diagram</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id2">
+<a class="reference internal image-reference" href="interpolation_mod_rev.svg"><img alt="interpolation_mod_rev.svg" height="100px" src="interpolation_mod_rev.svg" /></a>
+<figcaption>
+<p><span class="caption-text">Reverse Dependency Diagram</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<span class="target" id="f/interpolation_mod"></span><p class="rubric">Description</p>
+<p>MODULE interpolation_mod (prefix=’int’ category=’4. Data Object transformations’)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Purpose</dt>
+<dd class="field-odd"><p>The grid-point state vector interpolation.</p>
+</dd>
+</dl>
+<p class="rubric">Quick access</p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/interpolation_mod/int_hinterpscalar" title="f/interpolation_mod/int_hinterpscalar"><code class="xref f f-var docutils literal notranslate"><span class="pre">int_hinterpscalar</span></code></a></p>
+</dd>
+<dt class="field-even">Routines</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/interpolation_mod/int_cxgaig" title="f/interpolation_mod/int_cxgaig"><code class="xref f f-func docutils literal notranslate"><span class="pre">int_cxgaig()</span></code></a>, <a class="reference internal" href="#f/interpolation_mod/int_ezgdef" title="f/interpolation_mod/int_ezgdef"><code class="xref f f-func docutils literal notranslate"><span class="pre">int_ezgdef()</span></code></a>, <a class="reference internal" href="#f/interpolation_mod/int_hinterp_gsv" title="f/interpolation_mod/int_hinterp_gsv"><code class="xref f f-func docutils literal notranslate"><span class="pre">int_hinterp_gsv()</span></code></a>, <a class="reference internal" href="#f/interpolation_mod/int_hinterpscalar_gsv" title="f/interpolation_mod/int_hinterpscalar_gsv"><code class="xref f f-func docutils literal notranslate"><span class="pre">int_hinterpscalar_gsv()</span></code></a>, <a class="reference internal" href="#f/interpolation_mod/int_hinterpscalar_r4_2d" title="f/interpolation_mod/int_hinterpscalar_r4_2d"><code class="xref f f-func docutils literal notranslate"><span class="pre">int_hinterpscalar_r4_2d()</span></code></a>, <a class="reference internal" href="#f/interpolation_mod/int_hinterpscalar_r8_2d" title="f/interpolation_mod/int_hinterpscalar_r8_2d"><code class="xref f f-func docutils literal notranslate"><span class="pre">int_hinterpscalar_r8_2d()</span></code></a>, <a class="reference internal" href="#f/interpolation_mod/int_hinterpuv_gsv" title="f/interpolation_mod/int_hinterpuv_gsv"><code class="xref f f-func docutils literal notranslate"><span class="pre">int_hinterpuv_gsv()</span></code></a>, <a class="reference internal" href="#f/interpolation_mod/int_hinterpuv_r4_2d" title="f/interpolation_mod/int_hinterpuv_r4_2d"><code class="xref f f-func docutils literal notranslate"><span class="pre">int_hinterpuv_r4_2d()</span></code></a>, <a class="reference internal" href="#f/interpolation_mod/int_hinterpuv_r8_2d" title="f/interpolation_mod/int_hinterpuv_r8_2d"><code class="xref f f-func docutils literal notranslate"><span class="pre">int_hinterpuv_r8_2d()</span></code></a>, <a class="reference internal" href="#f/interpolation_mod/int_interp_gsv" title="f/interpolation_mod/int_interp_gsv"><code class="xref f f-func docutils literal notranslate"><span class="pre">int_interp_gsv()</span></code></a>, <a class="reference internal" href="#f/interpolation_mod/int_readnml" title="f/interpolation_mod/int_readnml"><code class="xref f f-func docutils literal notranslate"><span class="pre">int_readnml()</span></code></a>, <a class="reference internal" href="#f/interpolation_mod/int_setezopt" title="f/interpolation_mod/int_setezopt"><code class="xref f f-func docutils literal notranslate"><span class="pre">int_setezopt()</span></code></a>, <a class="reference internal" href="#f/interpolation_mod/int_sintcloudtogrid_gsv" title="f/interpolation_mod/int_sintcloudtogrid_gsv"><code class="xref f f-func docutils literal notranslate"><span class="pre">int_sintcloudtogrid_gsv()</span></code></a>, <a class="reference internal" href="#f/interpolation_mod/int_tinterp_gsv" title="f/interpolation_mod/int_tinterp_gsv"><code class="xref f f-func docutils literal notranslate"><span class="pre">int_tinterp_gsv()</span></code></a>, <a class="reference internal" href="#f/interpolation_mod/int_vinterp_col" title="f/interpolation_mod/int_vinterp_col"><code class="xref f f-func docutils literal notranslate"><span class="pre">int_vinterp_col()</span></code></a>, <a class="reference internal" href="#f/interpolation_mod/int_vinterp_gsv" title="f/interpolation_mod/int_vinterp_gsv"><code class="xref f f-func docutils literal notranslate"><span class="pre">int_vinterp_gsv()</span></code></a>, <a class="reference internal" href="#f/interpolation_mod/logp_r4" title="f/interpolation_mod/logp_r4"><code class="xref f f-func docutils literal notranslate"><span class="pre">logp_r4()</span></code></a>, <a class="reference internal" href="#f/interpolation_mod/logp_r8" title="f/interpolation_mod/logp_r8"><code class="xref f f-func docutils literal notranslate"><span class="pre">logp_r8()</span></code></a>, <a class="reference internal" href="#f/interpolation_mod/vinterp_gsv_r4" title="f/interpolation_mod/vinterp_gsv_r4"><code class="xref f f-func docutils literal notranslate"><span class="pre">vinterp_gsv_r4()</span></code></a>, <a class="reference internal" href="#f/interpolation_mod/vinterp_gsv_r8" title="f/interpolation_mod/vinterp_gsv_r8"><code class="xref f f-func docutils literal notranslate"><span class="pre">vinterp_gsv_r8()</span></code></a></p>
+</dd>
+</dl>
+<p class="rubric">Needed modules</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="midasmpi_mod.html#f/midasmpi_mod" title="f/midasmpi_mod: MODULE midasMpi_mod (prefix='mmpi' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">midasmpi_mod</span></code></a>: MODULE midasMpi_mod (prefix=’mmpi’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod" title="f/gridstatevector_mod: MODULE gridStateVector_mod (prefix='gsv' category='6. High-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">gridstatevector_mod</span></code></a>: MODULE gridStateVector_mod (prefix=’gsv’ category=’6. High-level data objects’)</p></li>
+<li><p><a class="reference internal" href="columndata_mod.html#f/columndata_mod" title="f/columndata_mod: MODULE columnData_mod (prefix='col' category='6. High-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">columndata_mod</span></code></a>: MODULE columnData_mod (prefix=’col’ category=’6. High-level data objects’)</p></li>
+<li><p><a class="reference internal" href="calcheightandpressure_mod.html#f/calcheightandpressure_mod" title="f/calcheightandpressure_mod: MODULE czp_calcHeightAndPressure (prefix='czp' category='4. Data Object transformations')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">calcheightandpressure_mod</span></code></a>: MODULE czp_calcHeightAndPressure (prefix=’czp’ category=’4. Data Object transformations’)</p></li>
+<li><p><a class="reference internal" href="varnamelist_mod.html#f/varnamelist_mod" title="f/varnamelist_mod: MODULE varNameList (prefix='vnl' category='7. Low-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">varnamelist_mod</span></code></a>: MODULE varNameList (prefix=’vnl’ category=’7. Low-level data objects’)</p></li>
+<li><p><a class="reference internal" href="verticalcoord_mod.html#f/verticalcoord_mod" title="f/verticalcoord_mod: MODULE verticalcoord (prefix='vco' category='7. Low-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">verticalcoord_mod</span></code></a>: MODULE verticalcoord (prefix=’vco’ category=’7. Low-level data objects’)</p></li>
+<li><p><a class="reference internal" href="horizontalcoord_mod.html#f/horizontalcoord_mod" title="f/horizontalcoord_mod: MODULE HorizontalCoord_mod (prefix='hco' category='7. Low-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">horizontalcoord_mod</span></code></a>: MODULE HorizontalCoord_mod (prefix=’hco’ category=’7. Low-level data objects’)</p></li>
+<li><p><a class="reference internal" href="mathphysconstants_mod.html#f/mathphysconstants_mod" title="f/mathphysconstants_mod: MODULE MathPhysConstants_mod (prefix='mpc' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">mathphysconstants_mod</span></code></a>: MODULE MathPhysConstants_mod (prefix=’mpc’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod" title="f/utilities_mod: MODULE utilities_mod (prefix='utl' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">utilities_mod</span></code></a>: MODULE utilities_mod (prefix=’utl’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="message_mod.html#f/message_mod" title="f/message_mod: MODULE message_mod (prefix='msg' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">message_mod</span></code></a>: MODULE message_mod (prefix=’msg’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="kdtree2_mod.html#f/kdtree2_mod" title="f/kdtree2_mod: MODULE kdtree2_mod (prefix='kdtree2' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">kdtree2_mod</span></code></a>: MODULE kdtree2_mod (prefix=’kdtree2’ category=’8. Low-level utilities and constants’)</p></li>
+</ul>
+<p class="rubric">Variables</p>
+<ul>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/interpolation_mod/int_hinterpscalar">
+<span class="sig-prename descclassname"><span class="pre">interpolation_mod/</span></span><span class="sig-name descname"><span class="pre">int_hinterpscalar</span></span><em> <span class="pre">[</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/interpolation_mod/int_hinterpscalar" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+</ul>
+<p class="rubric">Subroutines and functions</p>
+<dl>
+<dt class="sig sig-object f" id="f/interpolation_mod/int_readnml">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">interpolation_mod/</span></span><span class="sig-name descname"><span class="pre">int_readnml</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#f/interpolation_mod/int_readnml" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Read the namelist block NAMINT.</p>
+</dd>
+<dt class="field-even">Namelist parameters</dt>
+<dd class="field-even"><dl class="field-list simple">
+<dt class="field-odd">vInterpCopyLowestLevel</dt>
+<dd class="field-odd"><p>if true, will overwrite values at the lowest
+levels to avoid extrapolation</p>
+</dd>
+<dt class="field-even">maxBoxSize</dt>
+<dd class="field-even"><p>maximum size in terms of grid points used for filling
+in undefined values from neighbours when doing interpolation
+from a cloud of points to a grid</p>
+</dd>
+<dt class="field-odd">checkCloudToGridUnassigned</dt>
+<dd class="field-odd"><p>abort if any unmasked points are not assigned
+after doing cloudToGrid interpolation</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/interpolation_mod/int_vinterp_gsv" title="f/interpolation_mod/int_vinterp_gsv"><code class="xref f f-func docutils literal notranslate"><span class="pre">int_vinterp_gsv()</span></code></a>, <a class="reference internal" href="#f/interpolation_mod/int_tinterp_gsv" title="f/interpolation_mod/int_tinterp_gsv"><code class="xref f f-func docutils literal notranslate"><span class="pre">int_tinterp_gsv()</span></code></a>, <a class="reference internal" href="#f/interpolation_mod/int_hinterpscalar_gsv" title="f/interpolation_mod/int_hinterpscalar_gsv"><code class="xref f f-func docutils literal notranslate"><span class="pre">int_hinterpscalar_gsv()</span></code></a>, <a class="reference internal" href="#f/interpolation_mod/int_hinterpscalar_r4_2d" title="f/interpolation_mod/int_hinterpscalar_r4_2d"><code class="xref f f-func docutils literal notranslate"><span class="pre">int_hinterpscalar_r4_2d()</span></code></a>, <a class="reference internal" href="#f/interpolation_mod/int_hinterpscalar_r8_2d" title="f/interpolation_mod/int_hinterpscalar_r8_2d"><code class="xref f f-func docutils literal notranslate"><span class="pre">int_hinterpscalar_r8_2d()</span></code></a>, <a class="reference internal" href="#f/interpolation_mod/int_hinterpuv_gsv" title="f/interpolation_mod/int_hinterpuv_gsv"><code class="xref f f-func docutils literal notranslate"><span class="pre">int_hinterpuv_gsv()</span></code></a>, <a class="reference internal" href="#f/interpolation_mod/int_hinterpuv_r4_2d" title="f/interpolation_mod/int_hinterpuv_r4_2d"><code class="xref f f-func docutils literal notranslate"><span class="pre">int_hinterpuv_r4_2d()</span></code></a>, <a class="reference internal" href="#f/interpolation_mod/int_hinterpuv_r8_2d" title="f/interpolation_mod/int_hinterpuv_r8_2d"><code class="xref f f-func docutils literal notranslate"><span class="pre">int_hinterpuv_r8_2d()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="message_mod.html#f/message_mod/msg" title="f/message_mod/msg"><code class="xref f f-func docutils literal notranslate"><span class="pre">msg()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_isnamelistpresent" title="f/utilities_mod/utl_isnamelistpresent"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_isnamelistpresent()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/interpolation_mod/int_interp_gsv">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">interpolation_mod/</span></span><span class="sig-name descname"><span class="pre">int_interp_gsv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">statevector_in</span></em>, <em class="sig-param"><span class="pre">statevector_out</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">statevectorref_opt</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">checkmodeltop_opt</span></em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/interpolation_mod/int_interp_gsv" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>high-level interpolation subroutine that proceed with
+horizontal and vertical interpolation</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>statevector_in</strong><em> [</em><em>struct_gsv </em><em>,</em><em>in</em><em>]</em> :: Statevector input</p></li>
+<li><p><strong>statevector_out</strong><em> [</em><em>struct_gsv </em><em>,</em><em>inout</em><em>]</em> :: Statevector output (with target grids)</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Options</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>statevectorref_opt</strong><em> [</em><em>struct_gsv </em><em>,</em><em>in,</em><em>]</em> :: Reference statevector providing fields P0, TT and HU</p></li>
+<li><p><strong>checkmodeltop_opt</strong><em> [</em><em>logical </em><em>,</em><em>in,</em><em>]</em> :: If true, model top consistency checked in vertical interpolation</p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="enspostprocess_mod.html#f/enspostprocess_mod/epp_addrandompert" title="f/enspostprocess_mod/epp_addrandompert"><code class="xref f f-func docutils literal notranslate"><span class="pre">epp_addrandompert()</span></code></a>, <a class="reference internal" href="gridvariabletransforms_mod.html#f/gridvariabletransforms_mod/gvt_setupreffromstatevector" title="f/gridvariabletransforms_mod/gvt_setupreffromstatevector"><code class="xref f f-func docutils literal notranslate"><span class="pre">gvt_setupreffromstatevector()</span></code></a>, <a class="reference internal" href="increment_mod.html#f/increment_mod/inc_computehighresanalysis" title="f/increment_mod/inc_computehighresanalysis"><code class="xref f f-func docutils literal notranslate"><span class="pre">inc_computehighresanalysis()</span></code></a>, <a class="reference internal" href="increment_mod.html#f/increment_mod/inc_interpolateandadd" title="f/increment_mod/inc_interpolateandadd"><code class="xref f f-func docutils literal notranslate"><span class="pre">inc_interpolateandadd()</span></code></a>, <a class="reference internal" href="../programs/midas_randompert.html#f/midas_randompert" title="f/midas_randompert"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_randompert</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="message_mod.html#f/message_mod/msg" title="f/message_mod/msg"><code class="xref f f-func docutils literal notranslate"><span class="pre">msg()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_isallocated" title="f/gridstatevector_mod/gsv_isallocated"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_isallocated()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_varnameslist" title="f/gridstatevector_mod/gsv_varnameslist"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_varnameslist()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_allocate" title="f/gridstatevector_mod/gsv_allocate"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_allocate()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_getdatakind" title="f/gridstatevector_mod/gsv_getdatakind"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_getdatakind()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_transposetilestovarslevs" title="f/gridstatevector_mod/gsv_transposetilestovarslevs"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_transposetilestovarslevs()</span></code></a>, <a class="reference internal" href="#f/interpolation_mod/int_hinterp_gsv" title="f/interpolation_mod/int_hinterp_gsv"><code class="xref f f-func docutils literal notranslate"><span class="pre">int_hinterp_gsv()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_deallocate" title="f/gridstatevector_mod/gsv_deallocate"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_deallocate()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_transposevarslevstotiles" title="f/gridstatevector_mod/gsv_transposevarslevstotiles"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_transposevarslevstotiles()</span></code></a>, <a class="reference internal" href="#f/interpolation_mod/int_vinterp_gsv" title="f/interpolation_mod/int_vinterp_gsv"><code class="xref f f-func docutils literal notranslate"><span class="pre">int_vinterp_gsv()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/interpolation_mod/int_hinterp_gsv">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">interpolation_mod/</span></span><span class="sig-name descname"><span class="pre">int_hinterp_gsv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">statevector_in</span></em>, <em class="sig-param"><span class="pre">statevector_out</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/interpolation_mod/int_hinterp_gsv" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Horizontal interpolation</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>statevector_in</strong><em> [</em><em>struct_gsv </em><em>,</em><em>inout</em><em>]</em> :: Statevector input</p></li>
+<li><p><strong>statevector_out</strong><em> [</em><em>struct_gsv </em><em>,</em><em>inout</em><em>]</em> :: Statevector providing the target horizontal and vertical structure and will contain the interpolated fields</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_readensemble" title="f/ensemblestatevector_mod/ens_readensemble"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_readensemble()</span></code></a>, <a class="reference internal" href="gridstatevectorfileio_mod.html#f/gridstatevectorfileio_mod/readfromfileandinterptotiles" title="f/gridstatevectorfileio_mod/readfromfileandinterptotiles"><code class="xref f f-func docutils literal notranslate"><span class="pre">readfromfileandinterptotiles()</span></code></a>, <a class="reference internal" href="gridstatevectorfileio_mod.html#f/gridstatevectorfileio_mod/readfromfileandinterp1proc" title="f/gridstatevectorfileio_mod/readfromfileandinterp1proc"><code class="xref f f-func docutils literal notranslate"><span class="pre">readfromfileandinterp1proc()</span></code></a>, <a class="reference internal" href="#f/interpolation_mod/int_interp_gsv" title="f/interpolation_mod/int_interp_gsv"><code class="xref f f-func docutils literal notranslate"><span class="pre">int_interp_gsv()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="message_mod.html#f/message_mod/msg" title="f/message_mod/msg"><code class="xref f f-func docutils literal notranslate"><span class="pre">msg()</span></code></a>, <a class="reference internal" href="horizontalcoord_mod.html#f/horizontalcoord_mod/hco_equal" title="f/horizontalcoord_mod/hco_equal"><code class="xref f f-func docutils literal notranslate"><span class="pre">hco_equal()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_copy" title="f/gridstatevector_mod/gsv_copy"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_copy()</span></code></a>, <a class="reference internal" href="verticalcoord_mod.html#f/verticalcoord_mod/vco_equal" title="f/verticalcoord_mod/vco_equal"><code class="xref f f-func docutils literal notranslate"><span class="pre">vco_equal()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_varexist" title="f/gridstatevector_mod/gsv_varexist"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_varexist()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_getvarnamefromk" title="f/gridstatevector_mod/gsv_getvarnamefromk"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_getvarnamefromk()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_isassocheightsfc" title="f/gridstatevector_mod/gsv_isassocheightsfc"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_isassocheightsfc()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/interpolation_mod/int_vinterp_gsv">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">interpolation_mod/</span></span><span class="sig-name descname"><span class="pre">int_vinterp_gsv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">statevector_in</span></em>, <em class="sig-param"><span class="pre">statevector_out</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">statevectorref_opt</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">ps_in_hpa_opt</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">checkmodeltop_opt</span></em><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/interpolation_mod/int_vinterp_gsv" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Vertical interpolation.
+Interpolation coordinates are either height or log(P)
+based on target vertical descriptor vcode.
+* When target vertical coordinates are pressure (interpolating</p>
+<blockquote>
+<div><p>to GEM-P), log(P) is used;</p>
+</div></blockquote>
+<ul class="simple">
+<li><p>When they are height (interpolating to GEM-H), height is used.</p></li>
+</ul>
+<p>Call to <code class="docutils literal notranslate"><span class="pre">calcHeightAndPressure_mod</span></code> will return required
+interpolation coordinates (log is then applied when required).</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>statevector_in</strong><em> [</em><em>struct_gsv </em><em>,</em><em>in,target</em><em>]</em> :: Statevector input</p></li>
+<li><p><strong>statevector_out</strong><em> [</em><em>struct_gsv </em><em>,</em><em>inout</em><em>]</em> :: Statevector providing the target horizontal and vertical structure and will contain the interpolated fields</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Options</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>statevectorref_opt</strong><em> [</em><em>struct_gsv </em><em>,</em><em>in,target</em><em>]</em> :: Reference statevector providing fields P0, TT and HU</p></li>
+<li><p><strong>ps_in_hpa_opt</strong><em> [</em><em>logical </em><em>,</em><em>in,</em><em>]</em> :: If true, conversion from hPa to mbar will be done for surface pressure</p></li>
+<li><p><strong>checkmodeltop_opt</strong><em> [</em><em>logical </em><em>,</em><em>in,</em><em>]</em> :: Model top consistency will be checked prior to interpolation if true</p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_readensemble" title="f/ensemblestatevector_mod/ens_readensemble"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_readensemble()</span></code></a>, <a class="reference internal" href="gridstatevectorfileio_mod.html#f/gridstatevectorfileio_mod/readfromfileandinterptotiles" title="f/gridstatevectorfileio_mod/readfromfileandinterptotiles"><code class="xref f f-func docutils literal notranslate"><span class="pre">readfromfileandinterptotiles()</span></code></a>, <a class="reference internal" href="gridstatevectorfileio_mod.html#f/gridstatevectorfileio_mod/readfromfileandinterp1proc" title="f/gridstatevectorfileio_mod/readfromfileandinterp1proc"><code class="xref f f-func docutils literal notranslate"><span class="pre">readfromfileandinterp1proc()</span></code></a>, <a class="reference internal" href="increment_mod.html#f/increment_mod/inc_computehighresanalysis" title="f/increment_mod/inc_computehighresanalysis"><code class="xref f f-func docutils literal notranslate"><span class="pre">inc_computehighresanalysis()</span></code></a>, <a class="reference internal" href="#f/interpolation_mod/int_interp_gsv" title="f/interpolation_mod/int_interp_gsv"><code class="xref f f-func docutils literal notranslate"><span class="pre">int_interp_gsv()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="message_mod.html#f/message_mod/msg" title="f/message_mod/msg"><code class="xref f f-func docutils literal notranslate"><span class="pre">msg()</span></code></a>, <a class="reference internal" href="#f/interpolation_mod/int_readnml" title="f/interpolation_mod/int_readnml"><code class="xref f f-func docutils literal notranslate"><span class="pre">int_readnml()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_getdatakind" title="f/gridstatevector_mod/gsv_getdatakind"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_getdatakind()</span></code></a>, <a class="reference internal" href="#f/interpolation_mod/vinterp_gsv_r8" title="f/interpolation_mod/vinterp_gsv_r8"><code class="xref f f-func docutils literal notranslate"><span class="pre">vinterp_gsv_r8()</span></code></a>, <a class="reference internal" href="#f/interpolation_mod/vinterp_gsv_r4" title="f/interpolation_mod/vinterp_gsv_r4"><code class="xref f f-func docutils literal notranslate"><span class="pre">vinterp_gsv_r4()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/interpolation_mod/vinterp_gsv_r8">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">interpolation_mod/</span></span><span class="sig-name descname"><span class="pre">vinterp_gsv_r8</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">statevector_in</span></em>, <em class="sig-param"><span class="pre">statevector_out</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">statevectorref_opt</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">ps_in_hpa_opt</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">checkmodeltop_opt</span></em><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/interpolation_mod/vinterp_gsv_r8" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Vertical interpolation, <code class="docutils literal notranslate"><span class="pre">real(8)</span></code> version.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>statevector_in</strong><em> [</em><em>struct_gsv </em><em>,</em><em>in,target</em><em>]</em> :: Statevector input</p></li>
+<li><p><strong>statevector_out</strong><em> [</em><em>struct_gsv </em><em>,</em><em>inout</em><em>]</em> :: Statevector providing the target horizontal and vertical structure and will contain the interpolated fields</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Options</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>statevectorref_opt</strong><em> [</em><em>struct_gsv </em><em>,</em><em>in,target</em><em>]</em> :: Reference statevector providing fields P0, TT and HU</p></li>
+<li><p><strong>ps_in_hpa_opt</strong><em> [</em><em>logical </em><em>,</em><em>in,</em><em>]</em> :: If true, conversion from hPa to mbar will be done for surface pressure</p></li>
+<li><p><strong>checkmodeltop_opt</strong><em> [</em><em>logical </em><em>,</em><em>in,</em><em>]</em> :: Model top consistency will be checked prior to interpolation if true</p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/interpolation_mod/int_vinterp_gsv" title="f/interpolation_mod/int_vinterp_gsv"><code class="xref f f-func docutils literal notranslate"><span class="pre">int_vinterp_gsv()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="message_mod.html#f/message_mod/msg" title="f/message_mod/msg"><code class="xref f f-func docutils literal notranslate"><span class="pre">msg()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_getvco" title="f/gridstatevector_mod/gsv_getvco"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_getvco()</span></code></a>, <a class="reference internal" href="verticalcoord_mod.html#f/verticalcoord_mod/vco_equal" title="f/verticalcoord_mod/vco_equal"><code class="xref f f-func docutils literal notranslate"><span class="pre">vco_equal()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_copy" title="f/gridstatevector_mod/gsv_copy"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_copy()</span></code></a>, <a class="reference internal" href="horizontalcoord_mod.html#f/horizontalcoord_mod/hco_equal" title="f/horizontalcoord_mod/hco_equal"><code class="xref f f-func docutils literal notranslate"><span class="pre">hco_equal()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_getdatakind" title="f/gridstatevector_mod/gsv_getdatakind"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_getdatakind()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_isassocheightsfc" title="f/gridstatevector_mod/gsv_isassocheightsfc"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_isassocheightsfc()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_getheightsfc" title="f/gridstatevector_mod/gsv_getheightsfc"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_getheightsfc()</span></code></a>, <a class="reference internal" href="calcheightandpressure_mod.html#f/calcheightandpressure_mod/czp_ensurecompatibletops" title="f/calcheightandpressure_mod/czp_ensurecompatibletops"><code class="xref f f-func docutils literal notranslate"><span class="pre">czp_ensurecompatibletops()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_allocate" title="f/gridstatevector_mod/gsv_allocate"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_allocate()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_varexist" title="f/gridstatevector_mod/gsv_varexist"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_varexist()</span></code></a>, <a class="reference internal" href="varnamelist_mod.html#f/varnamelist_mod/vnl_varlevelfromvarname" title="f/varnamelist_mod/vnl_varlevelfromvarname"><code class="xref f f-func docutils literal notranslate"><span class="pre">vnl_varlevelfromvarname()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_getnumlev" title="f/gridstatevector_mod/gsv_getnumlev"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_getnumlev()</span></code></a>, <a class="reference internal" href="calcheightandpressure_mod.html#f/calcheightandpressure_mod/czp_calcreturnpressure_gsv_nl" title="f/calcheightandpressure_mod/czp_calcreturnpressure_gsv_nl"><code class="xref f f-func docutils literal notranslate"><span class="pre">czp_calcreturnpressure_gsv_nl()</span></code></a>, <a class="reference internal" href="calcheightandpressure_mod.html#f/calcheightandpressure_mod/czp_calcreturnheight_gsv_nl" title="f/calcheightandpressure_mod/czp_calcreturnheight_gsv_nl"><code class="xref f f-func docutils literal notranslate"><span class="pre">czp_calcreturnheight_gsv_nl()</span></code></a>, <a class="reference internal" href="#f/interpolation_mod/logp_r8" title="f/interpolation_mod/logp_r8"><code class="xref f f-func docutils literal notranslate"><span class="pre">logp_r8()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_deallocate" title="f/gridstatevector_mod/gsv_deallocate"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_deallocate()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/interpolation_mod/logp_r8">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">interpolation_mod/</span></span><span class="sig-name descname"><span class="pre">logp_r8</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">presinlogout</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/interpolation_mod/logp_r8" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>compute log of pressurce field, real(8) version</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>presinlogout</strong> (*,*,*,*)<em> [</em><em>real </em><em>,</em><em>inout</em><em>]</em></p>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/interpolation_mod/vinterp_gsv_r8" title="f/interpolation_mod/vinterp_gsv_r8"><code class="xref f f-func docutils literal notranslate"><span class="pre">vinterp_gsv_r8()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/interpolation_mod/vinterp_gsv_r4">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">interpolation_mod/</span></span><span class="sig-name descname"><span class="pre">vinterp_gsv_r4</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">statevector_in</span></em>, <em class="sig-param"><span class="pre">statevector_out</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">statevectorref_opt</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">ps_in_hpa_opt</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">checkmodeltop_opt</span></em><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/interpolation_mod/vinterp_gsv_r4" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Vertical interpolation, <code class="docutils literal notranslate"><span class="pre">real(4)</span></code> version.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>statevector_in</strong><em> [</em><em>struct_gsv </em><em>,</em><em>in,target</em><em>]</em> :: Statevector input</p></li>
+<li><p><strong>statevector_out</strong><em> [</em><em>struct_gsv </em><em>,</em><em>inout</em><em>]</em> :: Statevector providing the target horizontal and vertical structure and will contain the interpolated fields</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Options</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>statevectorref_opt</strong><em> [</em><em>struct_gsv </em><em>,</em><em>in,target</em><em>]</em> :: Reference statevector providing fields P0, TT and HU</p></li>
+<li><p><strong>ps_in_hpa_opt</strong><em> [</em><em>logical </em><em>,</em><em>in,</em><em>]</em> :: If true, conversion from hPa to mbar will be done for surface pressure</p></li>
+<li><p><strong>checkmodeltop_opt</strong><em> [</em><em>logical </em><em>,</em><em>in,</em><em>]</em> :: Model top consistency will be checked prior to interpolation if true</p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/interpolation_mod/int_vinterp_gsv" title="f/interpolation_mod/int_vinterp_gsv"><code class="xref f f-func docutils literal notranslate"><span class="pre">int_vinterp_gsv()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="message_mod.html#f/message_mod/msg" title="f/message_mod/msg"><code class="xref f f-func docutils literal notranslate"><span class="pre">msg()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_getvco" title="f/gridstatevector_mod/gsv_getvco"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_getvco()</span></code></a>, <a class="reference internal" href="verticalcoord_mod.html#f/verticalcoord_mod/vco_equal" title="f/verticalcoord_mod/vco_equal"><code class="xref f f-func docutils literal notranslate"><span class="pre">vco_equal()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_copy" title="f/gridstatevector_mod/gsv_copy"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_copy()</span></code></a>, <a class="reference internal" href="horizontalcoord_mod.html#f/horizontalcoord_mod/hco_equal" title="f/horizontalcoord_mod/hco_equal"><code class="xref f f-func docutils literal notranslate"><span class="pre">hco_equal()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_getdatakind" title="f/gridstatevector_mod/gsv_getdatakind"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_getdatakind()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_isassocheightsfc" title="f/gridstatevector_mod/gsv_isassocheightsfc"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_isassocheightsfc()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_getheightsfc" title="f/gridstatevector_mod/gsv_getheightsfc"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_getheightsfc()</span></code></a>, <a class="reference internal" href="calcheightandpressure_mod.html#f/calcheightandpressure_mod/czp_ensurecompatibletops" title="f/calcheightandpressure_mod/czp_ensurecompatibletops"><code class="xref f f-func docutils literal notranslate"><span class="pre">czp_ensurecompatibletops()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_allocate" title="f/gridstatevector_mod/gsv_allocate"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_allocate()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_varexist" title="f/gridstatevector_mod/gsv_varexist"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_varexist()</span></code></a>, <a class="reference internal" href="varnamelist_mod.html#f/varnamelist_mod/vnl_varlevelfromvarname" title="f/varnamelist_mod/vnl_varlevelfromvarname"><code class="xref f f-func docutils literal notranslate"><span class="pre">vnl_varlevelfromvarname()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_getnumlev" title="f/gridstatevector_mod/gsv_getnumlev"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_getnumlev()</span></code></a>, <a class="reference internal" href="calcheightandpressure_mod.html#f/calcheightandpressure_mod/czp_calcreturnpressure_gsv_nl" title="f/calcheightandpressure_mod/czp_calcreturnpressure_gsv_nl"><code class="xref f f-func docutils literal notranslate"><span class="pre">czp_calcreturnpressure_gsv_nl()</span></code></a>, <a class="reference internal" href="calcheightandpressure_mod.html#f/calcheightandpressure_mod/czp_calcreturnheight_gsv_nl" title="f/calcheightandpressure_mod/czp_calcreturnheight_gsv_nl"><code class="xref f f-func docutils literal notranslate"><span class="pre">czp_calcreturnheight_gsv_nl()</span></code></a>, <a class="reference internal" href="#f/interpolation_mod/logp_r4" title="f/interpolation_mod/logp_r4"><code class="xref f f-func docutils literal notranslate"><span class="pre">logp_r4()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_deallocate" title="f/gridstatevector_mod/gsv_deallocate"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_deallocate()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/interpolation_mod/logp_r4">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">interpolation_mod/</span></span><span class="sig-name descname"><span class="pre">logp_r4</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">presinlogout</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/interpolation_mod/logp_r4" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>compute log of pressurce field</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>presinlogout</strong> (*,*,*,*)<em> [</em><em>real </em><em>,</em><em>inout</em><em>]</em></p>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/interpolation_mod/vinterp_gsv_r4" title="f/interpolation_mod/vinterp_gsv_r4"><code class="xref f f-func docutils literal notranslate"><span class="pre">vinterp_gsv_r4()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/interpolation_mod/int_tinterp_gsv">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">interpolation_mod/</span></span><span class="sig-name descname"><span class="pre">int_tinterp_gsv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">statevector_in</span></em>, <em class="sig-param"><span class="pre">statevector_out</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/interpolation_mod/int_tinterp_gsv" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Time interpolation from statevector with low temporal resolution
+to statevector with high temporal resolution.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>statevector_in</strong><em> [</em><em>struct_gsv </em><em>,</em><em>in</em><em>]</em> :: Statevector input</p></li>
+<li><p><strong>statevector_out</strong><em> [</em><em>struct_gsv </em><em>,</em><em>inout</em><em>]</em> :: Statevector providing the target temporal structure and will contain the interpolated fields</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="increment_mod.html#f/increment_mod/inc_computehighresanalysis" title="f/increment_mod/inc_computehighresanalysis"><code class="xref f f-func docutils literal notranslate"><span class="pre">inc_computehighresanalysis()</span></code></a>, <a class="reference internal" href="increment_mod.html#f/increment_mod/inc_interpolateandadd" title="f/increment_mod/inc_interpolateandadd"><code class="xref f f-func docutils literal notranslate"><span class="pre">inc_interpolateandadd()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="message_mod.html#f/message_mod/msg" title="f/message_mod/msg"><code class="xref f f-func docutils literal notranslate"><span class="pre">msg()</span></code></a>, <a class="reference internal" href="#f/interpolation_mod/int_readnml" title="f/interpolation_mod/int_readnml"><code class="xref f f-func docutils literal notranslate"><span class="pre">int_readnml()</span></code></a>, <a class="reference internal" href="verticalcoord_mod.html#f/verticalcoord_mod/vco_equal" title="f/verticalcoord_mod/vco_equal"><code class="xref f f-func docutils literal notranslate"><span class="pre">vco_equal()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="horizontalcoord_mod.html#f/horizontalcoord_mod/hco_equal" title="f/horizontalcoord_mod/hco_equal"><code class="xref f f-func docutils literal notranslate"><span class="pre">hco_equal()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_copy" title="f/gridstatevector_mod/gsv_copy"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_copy()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_getdatakind" title="f/gridstatevector_mod/gsv_getdatakind"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_getdatakind()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/interpolation_mod/int_vinterp_col">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">interpolation_mod/</span></span><span class="sig-name descname"><span class="pre">int_vinterp_col</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">column_in</span></em>, <em class="sig-param"><span class="pre">column_out</span></em>, <em class="sig-param"><span class="pre">varname</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">usecolumnpressure_opt</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/interpolation_mod/int_vinterp_col" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Vertical interpolation of a columData object</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>column_in</strong><em> [</em><em>struct_columndata </em><em>,</em><em>in</em><em>]</em> :: ColumnData input</p></li>
+<li><p><strong>column_out</strong><em> [</em><em>struct_columndata </em><em>,</em><em>inout</em><em>]</em> :: ‘)</p></li>
+<li><p><strong>varname</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Options</dt>
+<dd class="field-odd"><p><strong>usecolumnpressure_opt</strong><em> [</em><em>logical </em><em>,</em><em>in,</em><em>]</em> :: if .true. use P_* instead of the pressure provided by calcHeightAndPressure_mod</p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="innovation_mod.html#f/innovation_mod/inn_setupcolumnsonanlinclev" title="f/innovation_mod/inn_setupcolumnsonanlinclev"><code class="xref f f-func docutils literal notranslate"><span class="pre">inn_setupcolumnsonanlinclev()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="message_mod.html#f/message_mod/msg" title="f/message_mod/msg"><code class="xref f f-func docutils literal notranslate"><span class="pre">msg()</span></code></a>, <a class="reference internal" href="varnamelist_mod.html#f/varnamelist_mod/vnl_varlevelfromvarname" title="f/varnamelist_mod/vnl_varlevelfromvarname"><code class="xref f f-func docutils literal notranslate"><span class="pre">vnl_varlevelfromvarname()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_varexist" title="f/columndata_mod/col_varexist"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_varexist()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_getnumlev" title="f/columndata_mod/col_getnumlev"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_getnumlev()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_getnumcol" title="f/columndata_mod/col_getnumcol"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_getnumcol()</span></code></a>, <a class="reference internal" href="calcheightandpressure_mod.html#f/calcheightandpressure_mod/czp_calcreturnpressure_col_nl" title="f/calcheightandpressure_mod/czp_calcreturnpressure_col_nl"><code class="xref f f-func docutils literal notranslate"><span class="pre">czp_calcreturnpressure_col_nl()</span></code></a>, <a class="reference internal" href="calcheightandpressure_mod.html#f/calcheightandpressure_mod/czp_calcreturnheight_col_nl" title="f/calcheightandpressure_mod/czp_calcreturnheight_col_nl"><code class="xref f f-func docutils literal notranslate"><span class="pre">czp_calcreturnheight_col_nl()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_getcolumn" title="f/columndata_mod/col_getcolumn"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_getcolumn()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="verticalcoord_mod.html#f/verticalcoord_mod/vco_levelmatchinglist" title="f/verticalcoord_mod/vco_levelmatchinglist"><code class="xref f f-func docutils literal notranslate"><span class="pre">vco_levelmatchinglist()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/interpolation_mod/int_setezopt">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">interpolation_mod/</span></span><span class="sig-name descname"><span class="pre">int_setezopt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">interpdegree</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">extrapdegree_opt</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/interpolation_mod/int_setezopt" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Wrapper subroutine for rmnlib routine setezopt.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>interpdegree</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em></p>
+</dd>
+<dt class="field-odd">Options</dt>
+<dd class="field-odd"><p><strong>extrapdegree_opt</strong><em> [</em><em>character </em><em>,</em><em>in,</em><em>]</em></p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/interpolation_mod/int_hinterpscalar_gsv" title="f/interpolation_mod/int_hinterpscalar_gsv"><code class="xref f f-func docutils literal notranslate"><span class="pre">int_hinterpscalar_gsv()</span></code></a>, <a class="reference internal" href="#f/interpolation_mod/int_hinterpscalar_r4_2d" title="f/interpolation_mod/int_hinterpscalar_r4_2d"><code class="xref f f-func docutils literal notranslate"><span class="pre">int_hinterpscalar_r4_2d()</span></code></a>, <a class="reference internal" href="#f/interpolation_mod/int_hinterpscalar_r8_2d" title="f/interpolation_mod/int_hinterpscalar_r8_2d"><code class="xref f f-func docutils literal notranslate"><span class="pre">int_hinterpscalar_r8_2d()</span></code></a>, <a class="reference internal" href="#f/interpolation_mod/int_hinterpuv_gsv" title="f/interpolation_mod/int_hinterpuv_gsv"><code class="xref f f-func docutils literal notranslate"><span class="pre">int_hinterpuv_gsv()</span></code></a>, <a class="reference internal" href="#f/interpolation_mod/int_hinterpuv_r4_2d" title="f/interpolation_mod/int_hinterpuv_r4_2d"><code class="xref f f-func docutils literal notranslate"><span class="pre">int_hinterpuv_r4_2d()</span></code></a>, <a class="reference internal" href="#f/interpolation_mod/int_hinterpuv_r8_2d" title="f/interpolation_mod/int_hinterpuv_r8_2d"><code class="xref f f-func docutils literal notranslate"><span class="pre">int_hinterpuv_r8_2d()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="message_mod.html#f/message_mod/msg" title="f/message_mod/msg"><code class="xref f f-func docutils literal notranslate"><span class="pre">msg()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/interpolation_mod/int_hinterpscalar_gsv">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">interpolation_mod/</span></span><span class="sig-name descname"><span class="pre">int_hinterpscalar_gsv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">statevectorout</span></em>, <em class="sig-param"><span class="pre">statevectorin</span></em>, <em class="sig-param"><span class="pre">varname</span></em>, <em class="sig-param"><span class="pre">levindex</span></em>, <em class="sig-param"><span class="pre">stepindex</span></em>, <em class="sig-param"><span class="pre">interpdegree</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">extrapdegree_opt</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/interpolation_mod/int_hinterpscalar_gsv" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Horizontal interpolation of 2D scalar field that use stateVector
+objects for input and output. Accessed through int_hInterpScalar.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>statevectorout</strong><em> [</em><em>struct_gsv </em><em>,</em><em>inout</em><em>]</em></p></li>
+<li><p><strong>statevectorin</strong><em> [</em><em>struct_gsv </em><em>,</em><em>inout</em><em>]</em></p></li>
+<li><p><strong>varname</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>levindex</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>stepindex</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>interpdegree</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Options</dt>
+<dd class="field-odd"><p><strong>extrapdegree_opt</strong><em> [</em><em>character </em><em>,</em><em>in,</em><em>]</em></p>
+</dd>
+<dt class="field-even">Return</dt>
+<dd class="field-even"><p><strong>ierr</strong><em> [</em><em>integer </em><em>]</em></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="message_mod.html#f/message_mod/msg" title="f/message_mod/msg"><code class="xref f f-func docutils literal notranslate"><span class="pre">msg()</span></code></a>, <a class="reference internal" href="#f/interpolation_mod/int_readnml" title="f/interpolation_mod/int_readnml"><code class="xref f f-func docutils literal notranslate"><span class="pre">int_readnml()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_getdatakind" title="f/gridstatevector_mod/gsv_getdatakind"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_getdatakind()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="#f/interpolation_mod/int_sintcloudtogrid_gsv" title="f/interpolation_mod/int_sintcloudtogrid_gsv"><code class="xref f f-func docutils literal notranslate"><span class="pre">int_sintcloudtogrid_gsv()</span></code></a>, <a class="reference internal" href="#f/interpolation_mod/int_setezopt" title="f/interpolation_mod/int_setezopt"><code class="xref f f-func docutils literal notranslate"><span class="pre">int_setezopt()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_getheightsfc" title="f/gridstatevector_mod/gsv_getheightsfc"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_getheightsfc()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/interpolation_mod/int_hinterpscalar_r4_2d">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">interpolation_mod/</span></span><span class="sig-name descname"><span class="pre">int_hinterpscalar_r4_2d</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">fieldout_r4</span></em>, <em class="sig-param"><span class="pre">fieldin_r4</span></em>, <em class="sig-param"><span class="pre">interpdegree</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">extrapdegree_opt</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/interpolation_mod/int_hinterpscalar_r4_2d" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Horizontal interpolation of 2D scalar field that use real(4) arrays
+for input and output. Accessed through int_hInterpScalar.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>fieldout_r4</strong> (*,*)<em> [</em><em>real </em><em>,</em><em>inout</em><em>]</em></p></li>
+<li><p><strong>fieldin_r4</strong> (*,*)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>interpdegree</strong><em> [</em><em>character </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Options</dt>
+<dd class="field-odd"><p><strong>extrapdegree_opt</strong><em> [</em><em>character </em><em>]</em></p>
+</dd>
+<dt class="field-even">Return</dt>
+<dd class="field-even"><p><strong>ierr</strong><em> [</em><em>integer </em><em>]</em></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="message_mod.html#f/message_mod/msg" title="f/message_mod/msg"><code class="xref f f-func docutils literal notranslate"><span class="pre">msg()</span></code></a>, <a class="reference internal" href="#f/interpolation_mod/int_readnml" title="f/interpolation_mod/int_readnml"><code class="xref f f-func docutils literal notranslate"><span class="pre">int_readnml()</span></code></a>, <a class="reference internal" href="#f/interpolation_mod/int_setezopt" title="f/interpolation_mod/int_setezopt"><code class="xref f f-func docutils literal notranslate"><span class="pre">int_setezopt()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/interpolation_mod/int_sintcloudtogrid_gsv">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">interpolation_mod/</span></span><span class="sig-name descname"><span class="pre">int_sintcloudtogrid_gsv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">statevectorgrid</span></em>, <em class="sig-param"><span class="pre">statevectorcloud</span></em>, <em class="sig-param"><span class="pre">varname</span></em>, <em class="sig-param"><span class="pre">levindex</span></em>, <em class="sig-param"><span class="pre">stepindex</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/interpolation_mod/int_sintcloudtogrid_gsv" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Perform horizontal interpolation for 1 level and time step (and variable)
+in the case where the input data is a cloud of points (i.e. a Y grid) and
+the output is on a regular grid. Accessed through int_hInterpScalar.</p>
+</dd>
+<dt class="field-even">Note </dt>
+<dd class="field-even"><p>When varName==’ALL’, the argument levIndex is actually kIndex</p>
+</dd>
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>statevectorgrid</strong><em> [</em><em>struct_gsv </em><em>,</em><em>inout</em><em>]</em></p></li>
+<li><p><strong>statevectorcloud</strong><em> [</em><em>struct_gsv </em><em>,</em><em>inout</em><em>]</em></p></li>
+<li><p><strong>varname</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>levindex</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>stepindex</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Return</dt>
+<dd class="field-even"><p><strong>ierr</strong><em> [</em><em>integer </em><em>]</em></p>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/interpolation_mod/int_hinterpscalar_gsv" title="f/interpolation_mod/int_hinterpscalar_gsv"><code class="xref f f-func docutils literal notranslate"><span class="pre">int_hinterpscalar_gsv()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_start" title="f/utilities_mod/utl_tmg_start"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_start()</span></code></a>, <a class="reference internal" href="message_mod.html#f/message_mod/msg" title="f/message_mod/msg"><code class="xref f f-func docutils literal notranslate"><span class="pre">msg()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_getlevfromk" title="f/gridstatevector_mod/gsv_getlevfromk"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_getlevfromk()</span></code></a>, <a class="reference internal" href="kdtree2_mod.html#f/kdtree2_mod/kdtree2_3dposition" title="f/kdtree2_mod/kdtree2_3dposition"><code class="xref f f-func docutils literal notranslate"><span class="pre">kdtree2_3dposition()</span></code></a>, <a class="reference internal" href="kdtree2_mod.html#f/kdtree2_mod/kdtree2_create" title="f/kdtree2_mod/kdtree2_create"><code class="xref f f-func docutils literal notranslate"><span class="pre">kdtree2_create()</span></code></a>, <a class="reference internal" href="kdtree2_mod.html#f/kdtree2_mod/kdtree2_r_nearest" title="f/kdtree2_mod/kdtree2_r_nearest"><code class="xref f f-func docutils literal notranslate"><span class="pre">kdtree2_r_nearest()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="kdtree2_mod.html#f/kdtree2_mod/kdtree2_destroy" title="f/kdtree2_mod/kdtree2_destroy"><code class="xref f f-func docutils literal notranslate"><span class="pre">kdtree2_destroy()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_stop" title="f/utilities_mod/utl_tmg_stop"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_stop()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/interpolation_mod/int_hinterpscalar_r8_2d">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">interpolation_mod/</span></span><span class="sig-name descname"><span class="pre">int_hinterpscalar_r8_2d</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">fieldout_r8</span></em>, <em class="sig-param"><span class="pre">fieldin_r8</span></em>, <em class="sig-param"><span class="pre">interpdegree</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">extrapdegree_opt</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/interpolation_mod/int_hinterpscalar_r8_2d" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Horizontal interpolation of 2D scalar field that use real(8) arrays
+for input and output. Accessed through int_hInterpScalar.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>fieldout_r8</strong> (*,*)<em> [</em><em>real </em><em>,</em><em>inout</em><em>]</em></p></li>
+<li><p><strong>fieldin_r8</strong> (*,*)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>interpdegree</strong><em> [</em><em>character </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Options</dt>
+<dd class="field-odd"><p><strong>extrapdegree_opt</strong><em> [</em><em>character </em><em>]</em></p>
+</dd>
+<dt class="field-even">Return</dt>
+<dd class="field-even"><p><strong>ierr</strong><em> [</em><em>integer </em><em>]</em></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="message_mod.html#f/message_mod/msg" title="f/message_mod/msg"><code class="xref f f-func docutils literal notranslate"><span class="pre">msg()</span></code></a>, <a class="reference internal" href="#f/interpolation_mod/int_readnml" title="f/interpolation_mod/int_readnml"><code class="xref f f-func docutils literal notranslate"><span class="pre">int_readnml()</span></code></a>, <a class="reference internal" href="#f/interpolation_mod/int_setezopt" title="f/interpolation_mod/int_setezopt"><code class="xref f f-func docutils literal notranslate"><span class="pre">int_setezopt()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/interpolation_mod/int_hinterpuv_gsv">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">interpolation_mod/</span></span><span class="sig-name descname"><span class="pre">int_hinterpuv_gsv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">statevectorout</span></em>, <em class="sig-param"><span class="pre">statevectorin</span></em>, <em class="sig-param"><span class="pre">varname</span></em>, <em class="sig-param"><span class="pre">levindex</span></em>, <em class="sig-param"><span class="pre">stepindex</span></em>, <em class="sig-param"><span class="pre">interpdegree</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">extrapdegree_opt</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/interpolation_mod/int_hinterpuv_gsv" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Horizontal interpolation of 2D vector field that use stateVector objects
+for input and output. Accessed through int_hInterpUV.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>statevectorout</strong><em> [</em><em>struct_gsv </em><em>,</em><em>inout</em><em>]</em></p></li>
+<li><p><strong>statevectorin</strong><em> [</em><em>struct_gsv </em><em>,</em><em>inout</em><em>]</em></p></li>
+<li><p><strong>varname</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>levindex</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>stepindex</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>interpdegree</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Options</dt>
+<dd class="field-odd"><p><strong>extrapdegree_opt</strong><em> [</em><em>character </em><em>,</em><em>in,</em><em>]</em></p>
+</dd>
+<dt class="field-even">Return</dt>
+<dd class="field-even"><p><strong>ierr</strong><em> [</em><em>integer </em><em>]</em></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="message_mod.html#f/message_mod/msg" title="f/message_mod/msg"><code class="xref f f-func docutils literal notranslate"><span class="pre">msg()</span></code></a>, <a class="reference internal" href="#f/interpolation_mod/int_readnml" title="f/interpolation_mod/int_readnml"><code class="xref f f-func docutils literal notranslate"><span class="pre">int_readnml()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="#f/interpolation_mod/int_setezopt" title="f/interpolation_mod/int_setezopt"><code class="xref f f-func docutils literal notranslate"><span class="pre">int_setezopt()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_getdatakind" title="f/gridstatevector_mod/gsv_getdatakind"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_getdatakind()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/interpolation_mod/int_hinterpuv_r4_2d">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">interpolation_mod/</span></span><span class="sig-name descname"><span class="pre">int_hinterpuv_r4_2d</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">uuout</span></em>, <em class="sig-param"><span class="pre">vvout</span></em>, <em class="sig-param"><span class="pre">uuin</span></em>, <em class="sig-param"><span class="pre">vvin</span></em>, <em class="sig-param"><span class="pre">interpdegree</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">extrapdegree_opt</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/interpolation_mod/int_hinterpuv_r4_2d" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Horizontal interpolation of 2D vector field that use real(4) arrays
+for input and output. Accessed through int_hInterpUV.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>uuout</strong> (*,*)<em> [</em><em>real </em><em>,</em><em>inout</em><em>]</em></p></li>
+<li><p><strong>vvout</strong> (*,*)<em> [</em><em>real </em><em>,</em><em>inout</em><em>]</em></p></li>
+<li><p><strong>uuin</strong> (*,*)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>vvin</strong> (*,*)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>interpdegree</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Options</dt>
+<dd class="field-odd"><p><strong>extrapdegree_opt</strong><em> [</em><em>character </em><em>,</em><em>in,</em><em>]</em></p>
+</dd>
+<dt class="field-even">Return</dt>
+<dd class="field-even"><p><strong>ierr</strong><em> [</em><em>integer </em><em>]</em></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="message_mod.html#f/message_mod/msg" title="f/message_mod/msg"><code class="xref f f-func docutils literal notranslate"><span class="pre">msg()</span></code></a>, <a class="reference internal" href="#f/interpolation_mod/int_readnml" title="f/interpolation_mod/int_readnml"><code class="xref f f-func docutils literal notranslate"><span class="pre">int_readnml()</span></code></a>, <a class="reference internal" href="#f/interpolation_mod/int_setezopt" title="f/interpolation_mod/int_setezopt"><code class="xref f f-func docutils literal notranslate"><span class="pre">int_setezopt()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/interpolation_mod/int_hinterpuv_r8_2d">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">interpolation_mod/</span></span><span class="sig-name descname"><span class="pre">int_hinterpuv_r8_2d</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">uuout</span></em>, <em class="sig-param"><span class="pre">vvout</span></em>, <em class="sig-param"><span class="pre">uuin</span></em>, <em class="sig-param"><span class="pre">vvin</span></em>, <em class="sig-param"><span class="pre">interpdegree</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">extrapdegree_opt</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/interpolation_mod/int_hinterpuv_r8_2d" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Horizontal interpolation of 2D vector field that use real(8) arrays
+for input and output. Accessed through int_hInterpUV.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>uuout</strong> (*,*)<em> [</em><em>real </em><em>,</em><em>inout</em><em>]</em></p></li>
+<li><p><strong>vvout</strong> (*,*)<em> [</em><em>real </em><em>,</em><em>inout</em><em>]</em></p></li>
+<li><p><strong>uuin</strong> (*,*)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>vvin</strong> (*,*)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>interpdegree</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Options</dt>
+<dd class="field-odd"><p><strong>extrapdegree_opt</strong><em> [</em><em>character </em><em>,</em><em>in,</em><em>]</em></p>
+</dd>
+<dt class="field-even">Return</dt>
+<dd class="field-even"><p><strong>ierr</strong><em> [</em><em>integer </em><em>]</em></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="message_mod.html#f/message_mod/msg" title="f/message_mod/msg"><code class="xref f f-func docutils literal notranslate"><span class="pre">msg()</span></code></a>, <a class="reference internal" href="#f/interpolation_mod/int_readnml" title="f/interpolation_mod/int_readnml"><code class="xref f f-func docutils literal notranslate"><span class="pre">int_readnml()</span></code></a>, <a class="reference internal" href="#f/interpolation_mod/int_setezopt" title="f/interpolation_mod/int_setezopt"><code class="xref f f-func docutils literal notranslate"><span class="pre">int_setezopt()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/interpolation_mod/int_ezgdef">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">interpolation_mod/</span></span><span class="sig-name descname"><span class="pre">int_ezgdef</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">ni</span></em>, <em class="sig-param"><span class="pre">nj</span></em>, <em class="sig-param"><span class="pre">grtyp</span></em>, <em class="sig-param"><span class="pre">grtypref</span></em>, <em class="sig-param"><span class="pre">ig1</span></em>, <em class="sig-param"><span class="pre">ig2</span></em>, <em class="sig-param"><span class="pre">ig3</span></em>, <em class="sig-param"><span class="pre">ig4</span></em>, <em class="sig-param"><span class="pre">ax</span></em>, <em class="sig-param"><span class="pre">ay</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/interpolation_mod/int_ezgdef" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Subroutine wrapper for rmnlib procedure ezgdef.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>ni</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>nj</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>grtyp</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>grtypref</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>ig1</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>ig2</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>ig3</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>ig4</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>ax</strong> (*)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>ay</strong> (*)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Return</dt>
+<dd class="field-odd"><p><strong>vezgdef</strong><em> [</em><em>integer </em><em>]</em></p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="tovs_nl_mod.html#f/tovs_nl_mod/interp_sfc" title="f/tovs_nl_mod/interp_sfc"><code class="xref f f-func docutils literal notranslate"><span class="pre">interp_sfc()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/interpolation_mod/int_cxgaig">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">interpolation_mod/</span></span><span class="sig-name descname"><span class="pre">int_cxgaig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">grtyp</span></em>, <em class="sig-param"><span class="pre">ig1</span></em>, <em class="sig-param"><span class="pre">ig2</span></em>, <em class="sig-param"><span class="pre">ig3</span></em>, <em class="sig-param"><span class="pre">ig4</span></em>, <em class="sig-param"><span class="pre">xlat0</span></em>, <em class="sig-param"><span class="pre">xlon0</span></em>, <em class="sig-param"><span class="pre">dlat</span></em>, <em class="sig-param"><span class="pre">dlon</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/interpolation_mod/int_cxgaig" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Subroutine wrapper for rmnlib procedure cxgaig.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>grtyp</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>ig1</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>ig2</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>ig3</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>ig4</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>xlat0</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>xlon0</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>dlat</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>dlon</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="tovs_nl_mod.html#f/tovs_nl_mod/interp_sfc" title="f/tovs_nl_mod/interp_sfc"><code class="xref f f-func docutils literal notranslate"><span class="pre">interp_sfc()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div></blockquote>
+</section>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="lamspectraltransform_mod.html" title="lamspectraltransform_mod"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="humiditylimits_mod.html" title="humiditylimits_mod"
+             >previous</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2018, ECCC.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.
+    </div>
+  </body>
+</html>

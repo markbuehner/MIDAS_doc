@@ -1,0 +1,22 @@
+==========================================
+obsdatacolumn_mod
+==========================================
+
+    :doc:`link to source code <obsdatacolumn_mod_src>`
+
+
+    **Dependency Diagrams:**
+
+    .. figure:: /obsdatacolumn_mod.svg
+        :height: 100px
+
+        Direct Dependency Diagram
+
+    .. figure:: /obsdatacolumn_mod_rev.svg
+        :height: 100px
+
+        Reverse Dependency Diagram
+
+
+    .. f:automodule:: obsdatacolumn_mod
+

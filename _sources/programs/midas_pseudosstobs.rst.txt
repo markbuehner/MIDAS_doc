@@ -1,0 +1,17 @@
+==========================================
+midas_pseudosstobs
+==========================================
+
+    :doc:`link to source code <midas_pseudosstobs_src>`
+
+
+    **Dependency Diagrams:**
+
+    .. figure:: /midas_pseudosstobs.svg
+        :height: 100px
+
+        Direct Dependency Diagram
+
+
+    .. f:autoprogram:: midas_pseudosstobs
+

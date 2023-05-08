@@ -1,0 +1,8 @@
+==========================================
+midas_thinning source
+==========================================
+
+    .. literalinclude:: ../_src_files/thinning.f90
+       :language: fortran
+       :linenos:
+

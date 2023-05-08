@@ -1,0 +1,244 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>midas_calcstats &mdash; MIDAS  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="MIDAS  documentation" href="../index.html" />
+    <link rel="next" title="midas_diagbmatrix" href="midas_diagbmatrix.html" />
+    <link rel="prev" title="midas_analysiserroroi" href="midas_analysiserroroi.html" /> 
+  </head>
+  <body>
+  <div>
+    <img src="../_static/MIDAS_header.png" alt="MIDAS" />
+  </div>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="midas_diagbmatrix.html" title="midas_diagbmatrix"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="midas_analysiserroroi.html" title="midas_analysiserroroi"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="midas_analysiserroroi.html"
+                          title="previous chapter">midas_analysiserroroi</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="midas_diagbmatrix.html"
+                          title="next chapter">midas_diagbmatrix</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/programs/midas_calcstats.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <section id="midas-calcstats">
+<h1>midas_calcstats<a class="headerlink" href="#midas-calcstats" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><p><a class="reference internal" href="midas_calcstats_src.html"><span class="doc">link to source code</span></a></p>
+<p><strong>Dependency Diagrams:</strong></p>
+<figure class="align-default" id="id1">
+<a class="reference internal image-reference" href="midas_calcstats.svg"><img alt="midas_calcstats.svg" height="100px" src="midas_calcstats.svg" /></a>
+<figcaption>
+<p><span class="caption-text">Direct Dependency Diagram</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<dl>
+<dt class="sig sig-object f" id="f/midas_calcstats">
+<em class="property"><span class="pre">program</span>&#160; </em><span class="sig-name descname"><span class="pre">midas_calcstats</span></span><a class="headerlink" href="#f/midas_calcstats" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="field-list">
+<dt class="field-odd">Purpose</dt>
+<dd class="field-odd"><p>Swiss-knife type program originally used only for computing background-error covariances
+(<strong>B</strong>) based on homogeneous and isotropic (HI) correlations that was extended with time
+to compute various statistics and diagnostics from an ensemble of background-error estimates</p>
+<p>—</p>
+</dd>
+<dt class="field-even">Algorithm</dt>
+<dd class="field-even"><p>The <code class="docutils literal notranslate"><span class="pre">calcStats</span></code> program performs various types of statistics and diagnostics based on
+two modes defined through namelist options.</p>
+<blockquote>
+<div><ul class="simple">
+<li><dl class="simple">
+<dt><strong>BHI</strong>: Compute HI <strong>B</strong>. The approach for  limited-area applications is based on a bi-Fourier</dt><dd><p>spectral representation and the CVT described in &lt;<a class="reference external" href="https://doi.org/10.1175/2010WAF2222401.1">https://doi.org/10.1175/2010WAF2222401.1</a>&gt;.
+For global applications, two formulations based on sperical-harmonics spectral representation
+are available and controlled controlled by <code class="docutils literal notranslate"><span class="pre">NAMCOMPUTEBHI</span></code>: 1) the legacy CVT formulation
+described in &lt;<a class="reference external" href="https://doi.org/10.1175/MWR-D-11-00097.1">https://doi.org/10.1175/MWR-D-11-00097.1</a>&gt; and refereces therein,
+and 2) an experimental-only formulation that mimics the CVT model used in the limited-area mode.</p>
+</dd>
+</dl>
+</li>
+<li><p><strong>TOOLBOX</strong>: The swiss-knife component of this program controlled by <code class="docutils literal notranslate"><span class="pre">NAMTOOLBOX</span></code> from the
+global and LAM calcstats-related modules. Compute various statistics and diagnostics from
+an ensemble of background-error estimates in model-variable and/or control-variable space,
+such as:
+- HI vertical correlations
+- HI horizontal correlation functions
+- Variances
+- Local correlations
+- Optimal covariance localization radii
+- Power spectra
+Note that the above options are not all available in both global and limited-area
+applications.</p></li>
+</ul>
+</div></blockquote>
+<p>—</p>
+</dd>
+</dl>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 42%" />
+<col style="width: 58%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Input and Output Files</p></th>
+<th class="head"><p>Description of file</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">flnml</span></code></p></td>
+<td><p>In - Main namelist file with parameters user may modify</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">ensemble/$YYYYMMDDHH_$HHH_$NNNN</span></code></p></td>
+<td><p>In - Background-error estimates</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">various</span></code></p></td>
+<td><p>Out - Too many to be listed here</p></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<div><p>–</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Synopsis</dt>
+<dd class="field-odd"><p>Below is a summary of the <code class="docutils literal notranslate"><span class="pre">calcStats</span></code> program calling sequence:</p>
+<ul class="simple">
+<li><p><strong>Initial setups:</strong></p>
+<ul>
+<li><p>Read the NAMCONF and NAMENS namelist</p></li>
+<li><p>Setup horizontal and vertical grid objects using the first ensemble member</p></li>
+<li><p>Various modules are setup: <code class="docutils literal notranslate"><span class="pre">gridStateVector_mod</span></code>, <code class="docutils literal notranslate"><span class="pre">timeCoord_mod</span></code> and <code class="docutils literal notranslate"><span class="pre">bmatrix_mod</span></code></p></li>
+</ul>
+</li>
+<li><p><strong>Statistics and Diagnostics:</strong></p>
+<ul>
+<li><p>Intialize the module for global or limited-area applications</p></li>
+<li><p>Select the appropriate master routine based on the chosen mode</p></li>
+<li><p>The I/O and number crunching is performed within the global and limited-area modules</p></li>
+</ul>
+</li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Needed modules</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../modules/version_mod.html#f/version_mod" title="f/version_mod: MODULE version_mod (prefix='ver' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">version_mod</span></code></a>: MODULE version_mod (prefix=’ver’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="../modules/midasmpi_mod.html#f/midasmpi_mod" title="f/midasmpi_mod: MODULE midasMpi_mod (prefix='mmpi' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">midasmpi_mod</span></code></a>: MODULE midasMpi_mod (prefix=’mmpi’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="../modules/filenames_mod.html#f/filenames_mod" title="f/filenames_mod: MODULE fileNames_mod (prefix='fln' category='7. Low-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">filenames_mod</span></code></a>: MODULE fileNames_mod (prefix=’fln’ category=’7. Low-level data objects’)</p></li>
+<li><p><a class="reference internal" href="../modules/horizontalcoord_mod.html#f/horizontalcoord_mod" title="f/horizontalcoord_mod: MODULE HorizontalCoord_mod (prefix='hco' category='7. Low-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">horizontalcoord_mod</span></code></a>: MODULE HorizontalCoord_mod (prefix=’hco’ category=’7. Low-level data objects’)</p></li>
+<li><p><a class="reference internal" href="../modules/verticalcoord_mod.html#f/verticalcoord_mod" title="f/verticalcoord_mod: MODULE verticalcoord (prefix='vco' category='7. Low-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">verticalcoord_mod</span></code></a>: MODULE verticalcoord (prefix=’vco’ category=’7. Low-level data objects’)</p></li>
+<li><p><a class="reference internal" href="../modules/calcstatsglb_mod.html#f/calcstatsglb_mod" title="f/calcstatsglb_mod: MODULE CalcStatsGlb_mod (prefix='csg' category='1. High-level functionality')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">calcstatsglb_mod</span></code></a>: MODULE CalcStatsGlb_mod (prefix=’csg’ category=’1. High-level functionality’)</p></li>
+<li><p><a class="reference internal" href="../modules/calcstatslam_mod.html#f/calcstatslam_mod" title="f/calcstatslam_mod: MODULE calcStatsLam_mod (prefix='csl' category='1. High-level functionality')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">calcstatslam_mod</span></code></a>: MODULE calcStatsLam_mod (prefix=’csl’ category=’1. High-level functionality’)</p></li>
+<li><p><a class="reference internal" href="../modules/utilities_mod.html#f/utilities_mod" title="f/utilities_mod: MODULE utilities_mod (prefix='utl' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">utilities_mod</span></code></a>: MODULE utilities_mod (prefix=’utl’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="../modules/ramdisk_mod.html#f/ramdisk_mod" title="f/ramdisk_mod: MODULE ramDisk_mod (prefix='ram' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">ramdisk_mod</span></code></a>: MODULE ramDisk_mod (prefix=’ram’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="../modules/gridstatevector_mod.html#f/gridstatevector_mod" title="f/gridstatevector_mod: MODULE gridStateVector_mod (prefix='gsv' category='6. High-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">gridstatevector_mod</span></code></a>: MODULE gridStateVector_mod (prefix=’gsv’ category=’6. High-level data objects’)</p></li>
+<li><p><a class="reference internal" href="../modules/timecoord_mod.html#f/timecoord_mod" title="f/timecoord_mod: MODULE timeCoord (prefix='tim' category='7. Low-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">timecoord_mod</span></code></a>: MODULE timeCoord (prefix=’tim’ category=’7. Low-level data objects’)</p></li>
+</ul>
+<p class="rubric">Routines called</p>
+<p><a class="reference internal" href="../modules/version_mod.html#f/version_mod/ver_printnameandversion" title="f/version_mod/ver_printnameandversion"><code class="xref f f-func docutils literal notranslate"><span class="pre">ver_printnameandversion()</span></code></a>, <a class="reference internal" href="../modules/midasmpi_mod.html#f/midasmpi_mod/mmpi_initialize" title="f/midasmpi_mod/mmpi_initialize"><code class="xref f f-func docutils literal notranslate"><span class="pre">mmpi_initialize()</span></code></a>, <a class="reference internal" href="../modules/utilities_mod.html#f/utilities_mod/utl_tmg_start" title="f/utilities_mod/utl_tmg_start"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_start()</span></code></a>, <a class="reference internal" href="../modules/ramdisk_mod.html#f/ramdisk_mod/ram_setup" title="f/ramdisk_mod/ram_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">ram_setup()</span></code></a>, <a class="reference internal" href="../modules/timecoord_mod.html#f/timecoord_mod/tim_setup" title="f/timecoord_mod/tim_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">tim_setup()</span></code></a>, <a class="reference internal" href="../modules/gridstatevector_mod.html#f/gridstatevector_mod/gsv_setup" title="f/gridstatevector_mod/gsv_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_setup()</span></code></a>, <a class="reference internal" href="../modules/filenames_mod.html#f/filenames_mod/fln_ensfilename" title="f/filenames_mod/fln_ensfilename"><code class="xref f f-func docutils literal notranslate"><span class="pre">fln_ensfilename()</span></code></a>, <a class="reference internal" href="../modules/gridstatevector_mod.html#f/gridstatevector_mod/gsv_varnameslist" title="f/gridstatevector_mod/gsv_varnameslist"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_varnameslist()</span></code></a>, <a class="reference internal" href="../modules/horizontalcoord_mod.html#f/horizontalcoord_mod/hco_setupfromfile" title="f/horizontalcoord_mod/hco_setupfromfile"><code class="xref f f-func docutils literal notranslate"><span class="pre">hco_setupfromfile()</span></code></a>, <a class="reference internal" href="../modules/verticalcoord_mod.html#f/verticalcoord_mod/vco_setupfromfile" title="f/verticalcoord_mod/vco_setupfromfile"><code class="xref f f-func docutils literal notranslate"><span class="pre">vco_setupfromfile()</span></code></a>, <a class="reference internal" href="../modules/calcstatsglb_mod.html#f/calcstatsglb_mod/csg_setup" title="f/calcstatsglb_mod/csg_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">csg_setup()</span></code></a>, <a class="reference internal" href="../modules/calcstatslam_mod.html#f/calcstatslam_mod/csl_setup" title="f/calcstatslam_mod/csl_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">csl_setup()</span></code></a>, <a class="reference internal" href="../modules/calcstatsglb_mod.html#f/calcstatsglb_mod/csg_computebhi" title="f/calcstatsglb_mod/csg_computebhi"><code class="xref f f-func docutils literal notranslate"><span class="pre">csg_computebhi()</span></code></a>, <a class="reference internal" href="../modules/calcstatslam_mod.html#f/calcstatslam_mod/csl_computebhi" title="f/calcstatslam_mod/csl_computebhi"><code class="xref f f-func docutils literal notranslate"><span class="pre">csl_computebhi()</span></code></a>, <a class="reference internal" href="../modules/calcstatsglb_mod.html#f/calcstatsglb_mod/csg_toolbox" title="f/calcstatsglb_mod/csg_toolbox"><code class="xref f f-func docutils literal notranslate"><span class="pre">csg_toolbox()</span></code></a>, <a class="reference internal" href="../modules/calcstatslam_mod.html#f/calcstatslam_mod/csl_toolbox" title="f/calcstatslam_mod/csl_toolbox"><code class="xref f f-func docutils literal notranslate"><span class="pre">csl_toolbox()</span></code></a>, <a class="reference internal" href="../modules/utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="../modules/utilities_mod.html#f/utilities_mod/utl_tmg_stop" title="f/utilities_mod/utl_tmg_stop"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_stop()</span></code></a></p>
+</div></blockquote>
+</section>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="midas_diagbmatrix.html" title="midas_diagbmatrix"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="midas_analysiserroroi.html" title="midas_analysiserroroi"
+             >previous</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2018, ECCC.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.
+    </div>
+  </body>
+</html>

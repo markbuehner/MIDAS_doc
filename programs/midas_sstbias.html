@@ -1,0 +1,297 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>midas_sstbias &mdash; MIDAS  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="MIDAS  documentation" href="../index.html" />
+    <link rel="next" title="midas_ssttrial" href="midas_ssttrial.html" />
+    <link rel="prev" title="midas_randompert" href="midas_randompert.html" /> 
+  </head>
+  <body>
+  <div>
+    <img src="../_static/MIDAS_header.png" alt="MIDAS" />
+  </div>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="midas_ssttrial.html" title="midas_ssttrial"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="midas_randompert.html" title="midas_randompert"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="midas_randompert.html"
+                          title="previous chapter">midas_randompert</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="midas_ssttrial.html"
+                          title="next chapter">midas_ssttrial</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/programs/midas_sstbias.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <section id="midas-sstbias">
+<h1>midas_sstbias<a class="headerlink" href="#midas-sstbias" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><p><a class="reference internal" href="midas_sstbias_src.html"><span class="doc">link to source code</span></a></p>
+<p><strong>Dependency Diagrams:</strong></p>
+<figure class="align-default" id="id1">
+<a class="reference internal image-reference" href="midas_sstbias.svg"><img alt="midas_sstbias.svg" height="100px" src="midas_sstbias.svg" /></a>
+<figcaption>
+<p><span class="caption-text">Direct Dependency Diagram</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<dl>
+<dt class="sig sig-object f" id="f/midas_sstbias">
+<em class="property"><span class="pre">program</span>&#160; </em><span class="sig-name descname"><span class="pre">midas_sstbias</span></span><a class="headerlink" href="#f/midas_sstbias" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="field-list">
+<dt class="field-odd">Purpose</dt>
+<dd class="field-odd"><p>Main program to compute Sea Surface Temperature (SST)
+satellite observations bias estimate.</p>
+<p>—</p>
+</dd>
+<dt class="field-even">Algorithm</dt>
+<dd class="field-even"><p>The bias estimation of SST satellite observations is computed
+with respect to insitu observations that are considered unbiased.
+The bias estimation is produced for each sensor separately
+for day and night time.</p>
+<p>–</p>
+<p>First, each dataset is put on a regular grid using a small
+search radius (of ~25 km). It is currently a 1800x900 Gaussian grid.
+Second, the bias estimation at every gridpoint is computed as
+an average difference between satellite and insitu observations
+between all collocated valid satellite and insitu observations
+within a larger search radius (of ~1500km).</p>
+<p>–</p>
+<p>The resulting bias estimation <span class="math notranslate nohighlight">\(B_{a}(k)\)</span> at point <span class="math notranslate nohighlight">\(k\)</span>
+is computed as follows:
+<span class="math notranslate nohighlight">\(B_{a}(k) = (1 - w(k)) * B_{b}(k) * \beta + w(k) * B_{a}(k)\)</span>,
+where <span class="math notranslate nohighlight">\(B_{b}(k)\)</span> is a background state of the bias estimation
+computed on the previous day,
+<span class="math notranslate nohighlight">\(\beta\)</span> is a background term for zero bias in unobserved areas,
+and <span class="math notranslate nohighlight">\(w(k)\)</span> is a weight which is defined as:
+<span class="math notranslate nohighlight">\(w(k) = N_{a}(k) / (N_{a}(k) + N_{b})\)</span>,
+where <span class="math notranslate nohighlight">\(N_{a}(k)\)</span> is the number of observations involved in the
+computation of the current bias estimate <span class="math notranslate nohighlight">\(B_{a}(k)\)</span> at point <span class="math notranslate nohighlight">\(k\)</span>
+and <span class="math notranslate nohighlight">\(N_{b}\)</span> is a parameter for corresponding number
+of observations used to compute the background state <span class="math notranslate nohighlight">\(B_{b}(k)\)</span>.</p>
+</dd>
+</dl>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 51%" />
+<col style="width: 49%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Input and Output Files</p></th>
+<th class="head"><p>Description of file</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">analysisgrid</span></code></p></td>
+<td><p>In - File containing the grid where the bias is computed</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">seaice_analysis</span></code></p></td>
+<td><p>In - File containing <code class="docutils literal notranslate"><span class="pre">LG</span></code> and <code class="docutils literal notranslate"><span class="pre">VF</span></code> fields</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">obsfiles_$FAM/obs$FAM_$NNNN_$NNNN</span></code></p></td>
+<td><p>In - Observation file for each “family” and MPI task</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">searchRadius</span></code></p></td>
+<td><p>In - ‘Large’ search radius field to compute biases</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">trlm_01</span></code></p></td>
+<td><p>In - Background state of the bias estimation</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">satellite_bias.fst</span></code></p></td>
+<td><p>Out - Bias estimations</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">auxOutput.fst</span></code></p></td>
+<td><p>Out - Auxiliary output (optional):
+number of observations and weight fields</p></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<div><p>–</p>
+</div></blockquote>
+<dl class="field-list">
+<dt class="field-odd">Synopsis</dt>
+<dd class="field-odd"><p>Below is a summary of the <code class="docutils literal notranslate"><span class="pre">SSTbias</span></code> program calling sequence:</p>
+<ul class="simple">
+<li><p><strong>Initial setups:</strong></p>
+<ul>
+<li><p>Setup horizontal and vertical grid objects for “analysis
+grid” from <code class="docutils literal notranslate"><span class="pre">analysisgrid</span></code>.</p></li>
+<li><p>Setup <code class="docutils literal notranslate"><span class="pre">obsSpaceData</span></code> object and read observations from
+files: <code class="docutils literal notranslate"><span class="pre">inn_setupObs</span></code>.</p></li>
+<li><p>Setup <code class="docutils literal notranslate"><span class="pre">columnData</span></code> and <code class="docutils literal notranslate"><span class="pre">gridStateVector</span></code> modules.</p></li>
+</ul>
+</li>
+<li><p><strong>Computation</strong></p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">ocm_readMaskFromFile</span></code> get the land-ocean mask</p></li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">oobs_computeObsData</span></code> compute pseudo observation values</dt><dd><p>and their coordinates and save them in SQLite files.</p>
+</dd>
+</dl>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sstb_getGriddedObs</span></code> get all datasets on a regular grid</p></li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">sstb_getGriddedBias</span></code> compute bias estimation for each sensor,</dt><dd><p>for day time or night time on a regular grid,
+and save the results into an output standard file.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</li>
+</ul>
+<p>–</p>
+</dd>
+<dt class="field-even">Options</dt>
+<dd class="field-even"><p><a class="reference external" href="../namelists_in_each_program.html#sstbias">List of namelist blocks</a>
+that can affect the <code class="docutils literal notranslate"><span class="pre">SSTbias</span></code> program.</p>
+<ul>
+<li><p>The use of <code class="docutils literal notranslate"><span class="pre">SSTbias</span></code> program is controlled by the namelist block
+<code class="docutils literal notranslate"><span class="pre">&amp;namSSTbiasEstimate</span></code> read by the <code class="docutils literal notranslate"><span class="pre">SSTbias</span></code> program.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">iceFractionThreshold</span></code> the sea-ice fraction threshold to define
+the presence of ice</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">searchRadius</span></code> horizontal search radius for observation gridding</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">maxBias</span></code> max allowed insitu-satellite difference in degrees</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">numberPointsBG</span></code> <span class="math notranslate nohighlight">\(N_{b}\)</span>, number of points to compute
+the background bias estimation</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sensorList</span></code> name of sensor</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">weightMin</span></code> minimum value of weight</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">weightMax</span></code> maximum value of weight</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">saveAuxFields</span></code> to store or not auxiliary fields: nobs and weight</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bgTermZeroBias</span></code> background term to zero bias</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<blockquote>
+<div><p>–</p>
+</div></blockquote>
+</dd>
+</dl>
+<p class="rubric">Needed modules</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../modules/version_mod.html#f/version_mod" title="f/version_mod: MODULE version_mod (prefix='ver' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">version_mod</span></code></a>: MODULE version_mod (prefix=’ver’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="../modules/ramdisk_mod.html#f/ramdisk_mod" title="f/ramdisk_mod: MODULE ramDisk_mod (prefix='ram' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">ramdisk_mod</span></code></a>: MODULE ramDisk_mod (prefix=’ram’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="../modules/utilities_mod.html#f/utilities_mod" title="f/utilities_mod: MODULE utilities_mod (prefix='utl' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">utilities_mod</span></code></a>: MODULE utilities_mod (prefix=’utl’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="../modules/midasmpi_mod.html#f/midasmpi_mod" title="f/midasmpi_mod: MODULE midasMpi_mod (prefix='mmpi' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">midasmpi_mod</span></code></a>: MODULE midasMpi_mod (prefix=’mmpi’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="../modules/mathphysconstants_mod.html#f/mathphysconstants_mod" title="f/mathphysconstants_mod: MODULE MathPhysConstants_mod (prefix='mpc' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">mathphysconstants_mod</span></code></a>: MODULE MathPhysConstants_mod (prefix=’mpc’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="../modules/horizontalcoord_mod.html#f/horizontalcoord_mod" title="f/horizontalcoord_mod: MODULE HorizontalCoord_mod (prefix='hco' category='7. Low-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">horizontalcoord_mod</span></code></a>: MODULE HorizontalCoord_mod (prefix=’hco’ category=’7. Low-level data objects’)</p></li>
+<li><p><a class="reference internal" href="../modules/verticalcoord_mod.html#f/verticalcoord_mod" title="f/verticalcoord_mod: MODULE verticalcoord (prefix='vco' category='7. Low-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">verticalcoord_mod</span></code></a>: MODULE verticalcoord (prefix=’vco’ category=’7. Low-level data objects’)</p></li>
+<li><p><a class="reference internal" href="../modules/timecoord_mod.html#f/timecoord_mod" title="f/timecoord_mod: MODULE timeCoord (prefix='tim' category='7. Low-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">timecoord_mod</span></code></a>: MODULE timeCoord (prefix=’tim’ category=’7. Low-level data objects’)</p></li>
+<li><p><a class="reference internal" href="../modules/obsspacedata_mod.html#f/obsspacedata_mod" title="f/obsspacedata_mod: MODULE obsSpaceData_mod (prefix='obs' category='6. High-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">obsspacedata_mod</span></code></a>: MODULE obsSpaceData_mod (prefix=’obs’ category=’6. High-level data objects’)</p></li>
+<li><p><a class="reference internal" href="../modules/gridstatevector_mod.html#f/gridstatevector_mod" title="f/gridstatevector_mod: MODULE gridStateVector_mod (prefix='gsv' category='6. High-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">gridstatevector_mod</span></code></a>: MODULE gridStateVector_mod (prefix=’gsv’ category=’6. High-level data objects’)</p></li>
+<li><p><a class="reference internal" href="../modules/obsfiles_mod.html#f/obsfiles_mod" title="f/obsfiles_mod: MODULE obsFiles_mod (prefix='obsf' category='3. Observation input/output')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">obsfiles_mod</span></code></a>: MODULE obsFiles_mod (prefix=’obsf’ category=’3. Observation input/output’)</p></li>
+<li><p><a class="reference internal" href="../modules/innovation_mod.html#f/innovation_mod" title="f/innovation_mod: MODULE innovation_mod (prefix='inn' category='1. High-level functionality')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">innovation_mod</span></code></a>: MODULE innovation_mod (prefix=’inn’ category=’1. High-level functionality’)</p></li>
+<li><p><a class="reference internal" href="../modules/analysisgrid_mod.html#f/analysisgrid_mod" title="f/analysisgrid_mod: MODULE analysisGrid_mod (prefix='agd' category='7. Low-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">analysisgrid_mod</span></code></a>: MODULE analysisGrid_mod (prefix=’agd’ category=’7. Low-level data objects’)</p></li>
+<li><p><a class="reference internal" href="../modules/sstbias_mod.html#f/sstbias_mod" title="f/sstbias_mod"><code class="xref f f-mod docutils literal notranslate"><span class="pre">sstbias_mod</span></code></a></p></li>
+<li><p><a class="reference internal" href="../modules/columndata_mod.html#f/columndata_mod" title="f/columndata_mod: MODULE columnData_mod (prefix='col' category='6. High-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">columndata_mod</span></code></a>: MODULE columnData_mod (prefix=’col’ category=’6. High-level data objects’)</p></li>
+</ul>
+<p class="rubric">Routines called</p>
+<p><a class="reference internal" href="../modules/version_mod.html#f/version_mod/ver_printnameandversion" title="f/version_mod/ver_printnameandversion"><code class="xref f f-func docutils literal notranslate"><span class="pre">ver_printnameandversion()</span></code></a>, <a class="reference internal" href="../modules/midasmpi_mod.html#f/midasmpi_mod/mmpi_initialize" title="f/midasmpi_mod/mmpi_initialize"><code class="xref f f-func docutils literal notranslate"><span class="pre">mmpi_initialize()</span></code></a>, <a class="reference internal" href="../modules/utilities_mod.html#f/utilities_mod/utl_tmg_start" title="f/utilities_mod/utl_tmg_start"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_start()</span></code></a>, <a class="reference internal" href="../modules/ramdisk_mod.html#f/ramdisk_mod/ram_setup" title="f/ramdisk_mod/ram_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">ram_setup()</span></code></a>, <a class="reference internal" href="../modules/sstbias_mod.html#f/sstbias_mod/sstb_computebias" title="f/sstbias_mod/sstb_computebias"><code class="xref f f-func docutils literal notranslate"><span class="pre">sstb_computebias()</span></code></a>, <a class="reference internal" href="../modules/obsspacedata_mod.html#f/obsspacedata_mod/obs_finalize" title="f/obsspacedata_mod/obs_finalize"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_finalize()</span></code></a>, <a class="reference internal" href="../modules/columndata_mod.html#f/columndata_mod/col_deallocate" title="f/columndata_mod/col_deallocate"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_deallocate()</span></code></a>, <a class="reference internal" href="../modules/utilities_mod.html#f/utilities_mod/utl_tmg_stop" title="f/utilities_mod/utl_tmg_stop"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_stop()</span></code></a>, <a class="reference internal" href="../modules/timecoord_mod.html#f/timecoord_mod/tim_setup" title="f/timecoord_mod/tim_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">tim_setup()</span></code></a>, <a class="reference internal" href="../modules/obsfiles_mod.html#f/obsfiles_mod/obsf_setup" title="f/obsfiles_mod/obsf_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">obsf_setup()</span></code></a>, <a class="reference internal" href="../modules/timecoord_mod.html#f/timecoord_mod/tim_getdatestamp" title="f/timecoord_mod/tim_getdatestamp"><code class="xref f f-func docutils literal notranslate"><span class="pre">tim_getdatestamp()</span></code></a>, <a class="reference internal" href="../modules/timecoord_mod.html#f/timecoord_mod/tim_setdatestamp" title="f/timecoord_mod/tim_setdatestamp"><code class="xref f f-func docutils literal notranslate"><span class="pre">tim_setdatestamp()</span></code></a>, <a class="reference internal" href="../modules/utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="../modules/mathphysconstants_mod.html#f/mathphysconstants_mod/mpc_printconstants" title="f/mathphysconstants_mod/mpc_printconstants"><code class="xref f f-func docutils literal notranslate"><span class="pre">mpc_printconstants()</span></code></a>, <a class="reference internal" href="../modules/gridstatevector_mod.html#f/gridstatevector_mod/gsv_setup" title="f/gridstatevector_mod/gsv_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_setup()</span></code></a>, <a class="reference internal" href="../modules/horizontalcoord_mod.html#f/horizontalcoord_mod/hco_setupfromfile" title="f/horizontalcoord_mod/hco_setupfromfile"><code class="xref f f-func docutils literal notranslate"><span class="pre">hco_setupfromfile()</span></code></a>, <a class="reference internal" href="../modules/analysisgrid_mod.html#f/analysisgrid_mod/agd_setupfromhco" title="f/analysisgrid_mod/agd_setupfromhco"><code class="xref f f-func docutils literal notranslate"><span class="pre">agd_setupfromhco()</span></code></a>, <a class="reference internal" href="../modules/verticalcoord_mod.html#f/verticalcoord_mod/vco_setupfromfile" title="f/verticalcoord_mod/vco_setupfromfile"><code class="xref f f-func docutils literal notranslate"><span class="pre">vco_setupfromfile()</span></code></a>, <a class="reference internal" href="../modules/columndata_mod.html#f/columndata_mod/col_setvco" title="f/columndata_mod/col_setvco"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_setvco()</span></code></a>, <a class="reference internal" href="../modules/innovation_mod.html#f/innovation_mod/inn_setupobs" title="f/innovation_mod/inn_setupobs"><code class="xref f f-func docutils literal notranslate"><span class="pre">inn_setupobs()</span></code></a>, <a class="reference internal" href="../modules/columndata_mod.html#f/columndata_mod/col_setup" title="f/columndata_mod/col_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_setup()</span></code></a>, <a class="reference internal" href="../modules/columndata_mod.html#f/columndata_mod/col_allocate" title="f/columndata_mod/col_allocate"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_allocate()</span></code></a>, <a class="reference internal" href="../modules/obsspacedata_mod.html#f/obsspacedata_mod/obs_numheader" title="f/obsspacedata_mod/obs_numheader"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_numheader()</span></code></a></p>
+</div></blockquote>
+</section>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="midas_ssttrial.html" title="midas_ssttrial"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="midas_randompert.html" title="midas_randompert"
+             >previous</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2018, ECCC.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,437 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>filenames_mod source &mdash; MIDAS  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="MIDAS  documentation" href="../index.html" /> 
+  </head>
+  <body>
+  <div>
+    <img src="../_static/MIDAS_header.png" alt="MIDAS" />
+  </div>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/modules/filenames_mod_src.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <section id="filenames-mod-source">
+<h1>filenames_mod source<a class="headerlink" href="#filenames-mod-source" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="linenos">  1</span><span class="c">!--------------------------------------- LICENCE BEGIN -----------------------------------</span>
+<span class="linenos">  2</span><span class="c">!Environment Canada - Atmospheric Science and Technology License/Disclaimer,</span>
+<span class="linenos">  3</span><span class="c">!                     version 3; Last Modified: May 7, 2008.</span>
+<span class="linenos">  4</span><span class="c">!This is free but copyrighted software; you can use/redistribute/modify it under the terms</span>
+<span class="linenos">  5</span><span class="c">!of the Environment Canada - Atmospheric Science and Technology License/Disclaimer</span>
+<span class="linenos">  6</span><span class="c">!version 3 or (at your option) any later version that should be found at:</span>
+<span class="linenos">  7</span><span class="c">!http://collaboration.cmc.ec.gc.ca/science/rpn.comm/license.html</span>
+<span class="linenos">  8</span><span class="c">!</span>
+<span class="linenos">  9</span><span class="c">!This software is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;</span>
+<span class="linenos"> 10</span><span class="c">!without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.</span>
+<span class="linenos"> 11</span><span class="c">!See the above mentioned License/Disclaimer for more details.</span>
+<span class="linenos"> 12</span><span class="c">!You should have received a copy of the License/Disclaimer along with this software;</span>
+<span class="linenos"> 13</span><span class="c">!if not, you can write to: EC-RPN COMM Group, 2121 TransCanada, suite 500, Dorval (Quebec),</span>
+<span class="linenos"> 14</span><span class="c">!CANADA, H9P 1J3; or send e-mail to service.rpn@ec.gc.ca</span>
+<span class="linenos"> 15</span><span class="c">!-------------------------------------- LICENCE END --------------------------------------</span>
+<span class="linenos"> 16</span>
+<span class="linenos"> 17</span><span class="k">module </span><span class="n">fileNames_mod</span><span class="w"></span>
+<span class="linenos"> 18</span><span class="w">  </span><span class="c">! MODULE fileNames_mod (prefix=&#39;fln&#39; category=&#39;7. Low-level data objects&#39;)</span>
+<span class="linenos"> 19</span><span class="w">  </span><span class="c">!</span>
+<span class="linenos"> 20</span><span class="w">  </span><span class="c">!:Purpose: Routines related to file names</span>
+<span class="linenos"> 21</span><span class="w">  </span><span class="c">!</span>
+<span class="linenos"> 22</span><span class="w">  </span><span class="k">use </span><span class="n">utilities_mod</span><span class="w"></span>
+<span class="linenos"> 23</span><span class="w">  </span><span class="k">use </span><span class="n">clib_interfaces_mod</span><span class="w"></span>
+<span class="linenos"> 24</span><span class="w">  </span><span class="k">use </span><span class="n">ramDisk_mod</span><span class="w"></span>
+<span class="linenos"> 25</span><span class="w">  </span><span class="k">use </span><span class="n">timeCoord_mod</span><span class="w"></span>
+<span class="linenos"> 26</span><span class="w">  </span><span class="k">implicit none</span>
+<span class="linenos"> 27</span><span class="k">  save</span>
+<span class="linenos"> 28</span><span class="k">  private</span><span class="w"></span>
+<span class="linenos"> 29</span>
+<span class="linenos"> 30</span><span class="w">  </span><span class="c">! public procedures</span>
+<span class="linenos"> 31</span><span class="w">  </span><span class="k">public</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">fln_ensFileName</span><span class="p">,</span><span class="w"> </span><span class="n">fln_ensAnlFileName</span><span class="p">,</span><span class="w"> </span><span class="n">fln_ensTrlFileName</span><span class="w"></span>
+<span class="linenos"> 32</span>
+<span class="linenos"> 33</span><span class="k">contains</span><span class="w"></span>
+<span class="linenos"> 34</span>
+<span class="linenos"> 35</span><span class="w">  </span><span class="c">!--------------------------------------------------------------------------</span>
+<span class="linenos"> 36</span><span class="w">  </span><span class="c">! fln_ensFileName</span>
+<span class="linenos"> 37</span><span class="w">  </span><span class="c">!--------------------------------------------------------------------------</span>
+<span class="linenos"> 38</span><span class="w">  </span><span class="k">subroutine </span><span class="n">fln_ensFileName</span><span class="p">(</span><span class="n">ensFileName</span><span class="p">,</span><span class="w"> </span><span class="n">ensPathName</span><span class="p">,</span><span class="w"> </span><span class="n">memberIndex_opt</span><span class="p">,</span><span class="w"> </span><span class="n">ensFileNamePrefix_opt</span><span class="p">,</span><span class="w">  </span><span class="p">&amp;</span><span class="w"></span>
+<span class="linenos"> 39</span><span class="w">                             </span><span class="n">ensFileBaseName_opt</span><span class="p">,</span><span class="w"> </span><span class="n">shouldExist_opt</span><span class="p">,</span><span class="w"> </span><span class="n">ensembleFileExtLength_opt</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span><span class="w"></span>
+<span class="linenos"> 40</span><span class="w">                             </span><span class="n">copyToRamDisk_opt</span><span class="p">,</span><span class="w"> </span><span class="n">resetFileInfo_opt</span><span class="p">,</span><span class="w"> </span><span class="n">fileMemberIndex1_opt</span><span class="p">)</span><span class="w"></span>
+<span class="linenos"> 41</span><span class="w">    </span><span class="c">!:Purpose: Return the filename of an ensemble member. Will also call routine in </span>
+<span class="linenos"> 42</span><span class="w">    </span><span class="c">!           ramdisk_mod module that will copy the file (if shouldExist_opt is true)</span>
+<span class="linenos"> 43</span><span class="w">    </span><span class="c">!           to the ram disk. If the memberIndex_opt is not specified, the filename</span>
+<span class="linenos"> 44</span><span class="w">    </span><span class="c">!           is returned without the member index extension (used to read deterministic</span>
+<span class="linenos"> 45</span><span class="w">    </span><span class="c">!           background state that is stored in the ensemble directory for LETKF).</span>
+<span class="linenos"> 46</span><span class="w">    </span><span class="c">!</span>
+<span class="linenos"> 47</span><span class="w">    </span><span class="k">implicit none</span><span class="w"></span>
+<span class="linenos"> 48</span>
+<span class="linenos"> 49</span><span class="w">    </span><span class="c">! Arguments:</span>
+<span class="linenos"> 50</span><span class="w">    </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=*</span><span class="p">)</span><span class="w">  </span><span class="kd">::</span><span class="w"> </span><span class="n">ensFileName</span><span class="w"></span>
+<span class="linenos"> 51</span><span class="w">    </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=*</span><span class="p">)</span><span class="w">  </span><span class="kd">::</span><span class="w"> </span><span class="n">ensPathName</span><span class="w"></span>
+<span class="linenos"> 52</span><span class="w">    </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">optional</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">memberIndex_opt</span><span class="w"></span>
+<span class="linenos"> 53</span><span class="w">    </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=*</span><span class="p">),</span><span class="k">optional</span><span class="w">  </span><span class="kd">::</span><span class="w"> </span><span class="n">ensFileBaseName_opt</span><span class="p">,</span><span class="w"> </span><span class="n">ensFileNamePrefix_opt</span><span class="w"></span>
+<span class="linenos"> 54</span><span class="w">    </span><span class="kt">logical</span><span class="p">,</span><span class="w"> </span><span class="k">optional</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">shouldExist_opt</span><span class="w"></span>
+<span class="linenos"> 55</span><span class="w">    </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">optional</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">ensembleFileExtLength_opt</span><span class="w"></span>
+<span class="linenos"> 56</span><span class="w">    </span><span class="kt">logical</span><span class="p">,</span><span class="w"> </span><span class="k">optional</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">copyToRamDisk_opt</span><span class="w"></span>
+<span class="linenos"> 57</span><span class="w">    </span><span class="kt">logical</span><span class="p">,</span><span class="w"> </span><span class="k">optional</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">resetFileInfo_opt</span><span class="w"></span>
+<span class="linenos"> 58</span><span class="w">    </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">optional</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">fileMemberIndex1_opt</span><span class="w"></span>
+<span class="linenos"> 59</span>
+<span class="linenos"> 60</span><span class="w">    </span><span class="c">! Locals:</span>
+<span class="linenos"> 61</span><span class="w">    </span><span class="kt">integer</span><span class="w">          </span><span class="kd">::</span><span class="w"> </span><span class="n">numFiles</span><span class="p">,</span><span class="w"> </span><span class="n">returnCode</span><span class="p">,</span><span class="w"> </span><span class="n">totalLength</span><span class="p">,</span><span class="w"> </span><span class="n">ensembleBaseFileNameLength</span><span class="w"></span>
+<span class="linenos"> 62</span><span class="w">    </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span><span class="kd">::</span><span class="w"> </span><span class="n">ensNumber</span><span class="w">  </span><span class="c">!! this is sufficient until we reach 10^10 members</span>
+<span class="linenos"> 63</span><span class="w">    </span><span class="kt">logical</span><span class="w">          </span><span class="kd">::</span><span class="w"> </span><span class="n">shouldExist</span><span class="w"></span>
+<span class="linenos"> 64</span><span class="w">    </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="mi">2000</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">fileList</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span><span class="w"> </span><span class="n">fileNamePattern</span><span class="w"></span>
+<span class="linenos"> 65</span><span class="w">    </span><span class="kt">character</span><span class="w">        </span><span class="kd">::</span><span class="w"> </span><span class="n">ensembleFileExtLengthStr</span><span class="w"></span>
+<span class="linenos"> 66</span><span class="w">    </span><span class="kt">logical</span><span class="p">,</span><span class="w"> </span><span class="k">save</span><span class="w">    </span><span class="kd">::</span><span class="w"> </span><span class="n">firstTime</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">true</span><span class="p">.</span><span class="w"></span>
+<span class="linenos"> 67</span><span class="w">    </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">save</span><span class="w">    </span><span class="kd">::</span><span class="w"> </span><span class="n">ensembleFileExtLength</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span><span class="w"></span>
+<span class="linenos"> 68</span><span class="w">    </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">save</span><span class="w">    </span><span class="kd">::</span><span class="w"> </span><span class="n">fileMemberIndex1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="linenos"> 69</span><span class="w">    </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="mi">4</span><span class="p">),</span><span class="w">   </span><span class="k">save</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">fileMemberIndex1Str</span><span class="w"></span>
+<span class="linenos"> 70</span><span class="w">    </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="mi">200</span><span class="p">),</span><span class="w"> </span><span class="k">save</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">ensFileBaseName</span><span class="w"></span>
+<span class="linenos"> 71</span>
+<span class="linenos"> 72</span><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="nb">present</span><span class="p">(</span><span class="n">resetFileInfo_opt</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="linenos"> 73</span><span class="k">      if</span><span class="w"> </span><span class="p">(</span><span class="n">resetFileInfo_opt</span><span class="p">)</span><span class="w"> </span><span class="n">firstTime</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">true</span><span class="p">.</span><span class="w"></span>
+<span class="linenos"> 74</span><span class="w">      </span><span class="k">return</span>
+<span class="linenos"> 75</span><span class="k">    end if</span>
+<span class="linenos"> 76</span>
+<span class="linenos"> 77</span><span class="k">    if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="nb">present</span><span class="p">(</span><span class="n">shouldExist_opt</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="linenos"> 78</span><span class="k">      </span><span class="n">shouldExist</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">shouldExist_opt</span><span class="w"></span>
+<span class="linenos"> 79</span><span class="w">    </span><span class="k">else</span>
+<span class="linenos"> 80</span><span class="k">      </span><span class="n">shouldExist</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">true</span><span class="p">.</span><span class="w"></span>
+<span class="linenos"> 81</span><span class="w">    </span><span class="k">end if</span><span class="w"></span>
+<span class="linenos"> 82</span>
+<span class="linenos"> 83</span><span class="w">    </span><span class="c">! Do this step only once in the program since this should not change during the program is running.</span>
+<span class="linenos"> 84</span><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">firstTime</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="linenos"> 85</span><span class="k">      if</span><span class="w"> </span><span class="p">(</span><span class="nb">present</span><span class="p">(</span><span class="n">fileMemberIndex1_opt</span><span class="p">))</span><span class="w"> </span><span class="n">fileMemberIndex1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fileMemberIndex1_opt</span><span class="w"></span>
+<span class="linenos"> 86</span><span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">fileMemberIndex1</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">999</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="linenos"> 87</span><span class="k">        write</span><span class="p">(</span><span class="n">fileMemberIndex1Str</span><span class="p">,</span><span class="s1">&#39;(i4.4)&#39;</span><span class="p">)</span><span class="w"> </span><span class="n">fileMemberIndex1</span><span class="w"></span>
+<span class="linenos"> 88</span><span class="w">      </span><span class="k">else</span>
+<span class="linenos"> 89</span><span class="k">        write</span><span class="p">(</span><span class="n">fileMemberIndex1Str</span><span class="p">,</span><span class="s1">&#39;(i3.3)&#39;</span><span class="p">)</span><span class="w"> </span><span class="n">fileMemberIndex1</span><span class="w"></span>
+<span class="linenos"> 90</span><span class="w">      </span><span class="k">end if</span>
+<span class="linenos"> 91</span>
+<span class="linenos"> 92</span><span class="k">      write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;fln_ensFileName: looking for ./&#39;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="nb">trim</span><span class="p">(</span><span class="n">enspathname</span><span class="p">)</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="s1">&#39;/&#39;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="s1">&#39;*_*&#39;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="nb">trim</span><span class="p">(</span><span class="n">fileMemberIndex1Str</span><span class="p">)</span><span class="w"></span>
+<span class="linenos"> 93</span><span class="w">      </span><span class="n">fileNamePattern</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;./&#39;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="nb">trim</span><span class="p">(</span><span class="n">enspathname</span><span class="p">)</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="s1">&#39;/&#39;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="s1">&#39;*_*&#39;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="nb">trim</span><span class="p">(</span><span class="n">fileMemberIndex1Str</span><span class="p">)</span><span class="w"></span>
+<span class="linenos"> 94</span><span class="w">      </span><span class="n">returnCode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">clib_glob</span><span class="p">(</span><span class="n">fileList</span><span class="p">,</span><span class="n">numFiles</span><span class="p">,</span><span class="nb">trim</span><span class="p">(</span><span class="n">fileNamePattern</span><span class="p">),</span><span class="mi">10</span><span class="p">)</span><span class="w"></span>
+<span class="linenos"> 95</span><span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">returnCode</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="linenos"> 96</span><span class="k">        if</span><span class="w"> </span><span class="p">(</span><span class="n">shouldExist</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="linenos"> 97</span><span class="k">          call </span><span class="n">utl_abort</span><span class="p">(</span><span class="s1">&#39;fln_ensFileName: reached maximum number of files or no file is available&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="linenos"> 98</span><span class="w">        </span><span class="k">else</span>
+<span class="linenos"> 99</span><span class="k">          write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;fln_ensFileName: reached maximum number of files or no file is available&#39;</span><span class="w"></span>
+<span class="linenos">100</span><span class="w">          </span><span class="n">ensFileName</span><span class="o">=</span><span class="s1">&#39;missing&#39;</span><span class="w"></span>
+<span class="linenos">101</span><span class="w">          </span><span class="k">return</span>
+<span class="linenos">102</span><span class="k">        end if</span>
+<span class="linenos">103</span><span class="k">      end if</span>
+<span class="linenos">104</span>
+<span class="linenos">105</span><span class="k">      </span><span class="n">ensFileName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">trim</span><span class="p">(</span><span class="n">fileList</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span><span class="w"></span>
+<span class="linenos">106</span><span class="w">      </span><span class="n">totalLength</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">len_trim</span><span class="p">(</span><span class="n">ensFileName</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">107</span><span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">totalLength</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="linenos">108</span><span class="k">        call </span><span class="n">utl_abort</span><span class="p">(</span><span class="s1">&#39;fln_ensFileName: ensFileName seems empty: &#39;&#39;ensFileName=&#39;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="nb">trim</span><span class="p">(</span><span class="n">ensFileName</span><span class="p">)</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="s1">&#39;&#39;&#39;&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">109</span><span class="w">      </span><span class="k">end if</span><span class="w"></span>
+<span class="linenos">110</span>
+<span class="linenos">111</span><span class="w">      </span><span class="c">! find number of digits used to identify ensemble member index</span>
+<span class="linenos">112</span><span class="w">      </span><span class="n">ensembleFileExtLength</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
+<span class="linenos">113</span><span class="w">      </span><span class="k">do</span>
+<span class="linenos">114</span><span class="k">        if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">ensFileName</span><span class="p">((</span><span class="n">totalLength</span><span class="o">-</span><span class="n">ensembleFileExtLength</span><span class="p">):(</span><span class="n">totalLength</span><span class="o">-</span><span class="n">ensembleFileExtLength</span><span class="p">))</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s1">&#39;_&#39;</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">exit</span>
+<span class="linenos">115</span><span class="k">        </span><span class="n">ensembleFileExtLength</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ensembleFileExtLength</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="linenos">116</span><span class="w">      </span><span class="k">end do</span>
+<span class="linenos">117</span>
+<span class="linenos">118</span><span class="k">      if</span><span class="w"> </span><span class="p">(</span><span class="n">ensembleFileExtLength</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="linenos">119</span><span class="k">        call </span><span class="n">utl_abort</span><span class="p">(</span><span class="s1">&#39;fln_ensFileName: Cannot determine the ensemble file extention length with &#39;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="nb">trim</span><span class="p">(</span><span class="n">ensFileName</span><span class="p">))</span><span class="w"></span>
+<span class="linenos">120</span><span class="w">      </span><span class="k">end if</span><span class="w"></span>
+<span class="linenos">121</span>
+<span class="linenos">122</span><span class="w">      </span><span class="c">! find the last &#39;/&#39; in the file name to get the basename of the file</span>
+<span class="linenos">123</span><span class="w">      </span><span class="n">ensembleBaseFileNameLength</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
+<span class="linenos">124</span><span class="w">      </span><span class="k">do</span>
+<span class="linenos">125</span><span class="k">        if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">totalLength</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">ensembleBaseFileNameLength</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">exit</span>
+<span class="linenos">126</span><span class="k">        if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">ensFileName</span><span class="p">((</span><span class="n">totalLength</span><span class="o">-</span><span class="n">ensembleBaseFileNameLength</span><span class="p">):(</span><span class="n">totalLength</span><span class="o">-</span><span class="n">ensembleBaseFileNameLength</span><span class="p">))</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s1">&#39;/&#39;</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">exit</span>
+<span class="linenos">127</span><span class="k">        </span><span class="n">ensembleBaseFileNameLength</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ensembleBaseFileNameLength</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="linenos">128</span><span class="w">      </span><span class="k">end do</span><span class="w"></span>
+<span class="linenos">129</span>
+<span class="linenos">130</span><span class="w">      </span><span class="c">! if &#39;ensFileName = ./abc/def/ghi/123_456_001&#39; then</span>
+<span class="linenos">131</span><span class="w">      </span><span class="c">!    totalLength = 25</span>
+<span class="linenos">132</span><span class="w">      </span><span class="c">!    ensembleFileExtLength = 3</span>
+<span class="linenos">133</span><span class="w">      </span><span class="c">!    ensembleBaseFileNameLength = 11</span>
+<span class="linenos">134</span><span class="w">      </span><span class="c">!    ensFileBaseName = &#39;123_456&#39;</span>
+<span class="linenos">135</span><span class="w">      </span><span class="c">! if &#39;ensFileName = 123_456_001&#39; then</span>
+<span class="linenos">136</span><span class="w">      </span><span class="c">!    totalLength = 11</span>
+<span class="linenos">137</span><span class="w">      </span><span class="c">!    ensembleFileExtLength = 3</span>
+<span class="linenos">138</span><span class="w">      </span><span class="c">!    ensembleBaseFileNameLength = 11</span>
+<span class="linenos">139</span><span class="w">      </span><span class="c">!    ensFileBaseName = &#39;123_456&#39;</span>
+<span class="linenos">140</span><span class="w">      </span><span class="n">ensFileBasename</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ensFileName</span><span class="p">((</span><span class="n">totalLength</span><span class="o">-</span><span class="n">ensembleBaseFileNameLength</span><span class="o">+</span><span class="mi">1</span><span class="p">):(</span><span class="n">totalLength</span><span class="o">-</span><span class="n">ensembleFileExtLength</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span><span class="w"></span>
+<span class="linenos">141</span>
+<span class="linenos">142</span><span class="w">      </span><span class="n">firstTime</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">false</span><span class="p">.</span><span class="w"></span>
+<span class="linenos">143</span><span class="w">    </span><span class="k">end if</span>
+<span class="linenos">144</span>
+<span class="linenos">145</span><span class="k">    if</span><span class="w"> </span><span class="p">(</span><span class="nb">present</span><span class="p">(</span><span class="n">memberIndex_opt</span><span class="p">))</span><span class="w"> </span><span class="k">then</span>
+<span class="linenos">146</span><span class="k">      write</span><span class="p">(</span><span class="n">ensembleFileExtLengthStr</span><span class="p">,</span><span class="s1">&#39;(i1.1)&#39;</span><span class="p">)</span><span class="w"> </span><span class="n">ensembleFileExtLength</span><span class="w"></span>
+<span class="linenos">147</span><span class="w">      </span><span class="k">write</span><span class="p">(</span><span class="n">ensNumber</span><span class="p">,</span><span class="s1">&#39;(i&#39;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="n">ensembleFileExtLengthStr</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="s1">&#39;.&#39;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="n">ensembleFileExtLengthStr</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="s1">&#39;)&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">&amp;</span><span class="w"></span>
+<span class="linenos">148</span><span class="w">          </span><span class="n">memberIndex_opt</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">fileMemberIndex1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="linenos">149</span><span class="w">    </span><span class="k">end if</span>
+<span class="linenos">150</span>
+<span class="linenos">151</span><span class="k">    if</span><span class="w"> </span><span class="p">(</span><span class="nb">present</span><span class="p">(</span><span class="n">memberIndex_opt</span><span class="p">))</span><span class="w"> </span><span class="k">then</span>
+<span class="linenos">152</span><span class="k">      if</span><span class="w"> </span><span class="p">(</span><span class="nb">present</span><span class="p">(</span><span class="n">ensFileNamePrefix_opt</span><span class="p">))</span><span class="w"> </span><span class="k">then</span>
+<span class="linenos">153</span><span class="k">        </span><span class="n">ensFileName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">trim</span><span class="p">(</span><span class="n">enspathname</span><span class="p">)</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="s1">&#39;/&#39;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="nb">trim</span><span class="p">(</span><span class="n">ensFileNamePrefix_opt</span><span class="p">)</span><span class="w"> </span><span class="o">//</span><span class="w">  </span><span class="p">&amp;</span><span class="w"></span>
+<span class="linenos">154</span><span class="w">                      </span><span class="nb">trim</span><span class="p">(</span><span class="n">ensFileBaseName</span><span class="p">)</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="s1">&#39;_&#39;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="nb">trim</span><span class="p">(</span><span class="n">ensNumber</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">155</span><span class="w">      </span><span class="k">else</span>
+<span class="linenos">156</span><span class="k">        </span><span class="n">ensFileName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">trim</span><span class="p">(</span><span class="n">enspathname</span><span class="p">)</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="s1">&#39;/&#39;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="nb">trim</span><span class="p">(</span><span class="n">ensFileBaseName</span><span class="p">)</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="s1">&#39;_&#39;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="nb">trim</span><span class="p">(</span><span class="n">ensNumber</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">157</span><span class="w">      </span><span class="k">end if</span>
+<span class="linenos">158</span><span class="k">    else</span>
+<span class="linenos">159</span><span class="k">      if</span><span class="w"> </span><span class="p">(</span><span class="nb">present</span><span class="p">(</span><span class="n">ensFileNamePrefix_opt</span><span class="p">))</span><span class="w"> </span><span class="k">then</span>
+<span class="linenos">160</span><span class="k">        </span><span class="n">ensFileName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">trim</span><span class="p">(</span><span class="n">enspathname</span><span class="p">)</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="s1">&#39;/&#39;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="nb">trim</span><span class="p">(</span><span class="n">ensFileNamePrefix_opt</span><span class="p">)</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="nb">trim</span><span class="p">(</span><span class="n">ensFileBaseName</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">161</span><span class="w">      </span><span class="k">else</span>
+<span class="linenos">162</span><span class="k">        </span><span class="n">ensFileName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">trim</span><span class="p">(</span><span class="n">enspathname</span><span class="p">)</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="s1">&#39;/&#39;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="nb">trim</span><span class="p">(</span><span class="n">ensFileBaseName</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">163</span><span class="w">      </span><span class="k">end if</span>
+<span class="linenos">164</span><span class="k">    end if</span>
+<span class="linenos">165</span>
+<span class="linenos">166</span><span class="k">    write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;fln_ensFileName: ensFileName = &#39;</span><span class="p">,</span><span class="w"> </span><span class="nb">trim</span><span class="p">(</span><span class="n">ensFileName</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">167</span>
+<span class="linenos">168</span><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">shouldExist</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">ensFileName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ram_fullWorkingPath</span><span class="p">(</span><span class="n">ensFileName</span><span class="p">,</span><span class="w"> </span><span class="n">copyToRamDisk_opt</span><span class="o">=</span><span class="n">copyToRamDisk_opt</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">169</span>
+<span class="linenos">170</span><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nb">present</span><span class="p">(</span><span class="n">ensFileBaseName_opt</span><span class="p">))</span><span class="w"> </span><span class="n">ensFileBaseName_opt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">trim</span><span class="p">(</span><span class="n">ensFileBaseName</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">171</span><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nb">present</span><span class="p">(</span><span class="n">ensembleFileExtLength_opt</span><span class="p">))</span><span class="w"> </span><span class="n">ensembleFileExtLength_opt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ensembleFileExtLength</span><span class="w"></span>
+<span class="linenos">172</span>
+<span class="linenos">173</span><span class="w">  </span><span class="k">end subroutine </span><span class="n">fln_ensFileName</span><span class="w"></span>
+<span class="linenos">174</span>
+<span class="linenos">175</span><span class="w">  </span><span class="c">!--------------------------------------------------------------------------</span>
+<span class="linenos">176</span><span class="w">  </span><span class="c">! fln_ensAnlFileName</span>
+<span class="linenos">177</span><span class="w">  </span><span class="c">!--------------------------------------------------------------------------</span>
+<span class="linenos">178</span><span class="w">  </span><span class="k">subroutine </span><span class="n">fln_ensAnlFileName</span><span class="p">(</span><span class="w"> </span><span class="n">ensFileName</span><span class="p">,</span><span class="w"> </span><span class="n">ensPathName</span><span class="p">,</span><span class="w"> </span><span class="n">dateStamp</span><span class="p">,</span><span class="w">  </span><span class="p">&amp;</span><span class="w"></span>
+<span class="linenos">179</span><span class="w">                                 </span><span class="n">memberIndex_opt</span><span class="p">,</span><span class="w"> </span><span class="n">ensFileNamePrefix_opt</span><span class="p">,</span><span class="w"> </span><span class="n">ensFileNameSuffix_opt</span><span class="w"> </span><span class="p">)</span><span class="w"></span>
+<span class="linenos">180</span><span class="w">    </span><span class="c">!:Purpose: Return the filename for an analysis state, including for</span>
+<span class="linenos">181</span><span class="w">    </span><span class="c">!           ensemble members (by specifying memberIndex_opt). The member</span>
+<span class="linenos">182</span><span class="w">    </span><span class="c">!           index extension is assumed to be 4 digits.</span>
+<span class="linenos">183</span><span class="w">    </span><span class="c">!</span>
+<span class="linenos">184</span><span class="w">    </span><span class="k">implicit none</span><span class="w"></span>
+<span class="linenos">185</span>
+<span class="linenos">186</span><span class="w">    </span><span class="c">! arguments</span>
+<span class="linenos">187</span><span class="w">    </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=*</span><span class="p">)</span><span class="w">  </span><span class="kd">::</span><span class="w"> </span><span class="n">ensFileName</span><span class="w"></span>
+<span class="linenos">188</span><span class="w">    </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=*</span><span class="p">)</span><span class="w">  </span><span class="kd">::</span><span class="w"> </span><span class="n">ensPathName</span><span class="w"></span>
+<span class="linenos">189</span><span class="w">    </span><span class="kt">integer</span><span class="w">           </span><span class="kd">::</span><span class="w"> </span><span class="n">dateStamp</span><span class="w"></span>
+<span class="linenos">190</span><span class="w">    </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">optional</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">memberIndex_opt</span><span class="w"></span>
+<span class="linenos">191</span><span class="w">    </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=*</span><span class="p">),</span><span class="w"> </span><span class="k">optional</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">ensFileNamePrefix_opt</span><span class="w"></span>
+<span class="linenos">192</span><span class="w">    </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=*</span><span class="p">),</span><span class="w"> </span><span class="k">optional</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">ensFileNameSuffix_opt</span><span class="w"></span>
+<span class="linenos">193</span>
+<span class="linenos">194</span><span class="w">    </span><span class="c">! locals</span>
+<span class="linenos">195</span><span class="w">    </span><span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">imode</span><span class="p">,</span><span class="w"> </span><span class="n">ierr</span><span class="p">,</span><span class="w"> </span><span class="n">hours</span><span class="p">,</span><span class="w"> </span><span class="n">prntdate</span><span class="p">,</span><span class="w"> </span><span class="n">prnttime</span><span class="p">,</span><span class="w"> </span><span class="n">newdate</span><span class="w"></span>
+<span class="linenos">196</span><span class="w">    </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span><span class="w">  </span><span class="kd">::</span><span class="w"> </span><span class="n">ensNumber</span><span class="w"></span>
+<span class="linenos">197</span><span class="w">    </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">dateStrAnl</span><span class="w"></span>
+<span class="linenos">198</span>
+<span class="linenos">199</span><span class="w">    </span><span class="c">! Set the printable date for analysis related file names</span>
+<span class="linenos">200</span><span class="w">    </span><span class="n">imode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">3</span><span class="w"> </span><span class="c">! stamp to printable date and time: YYYYMMDD, HHMMSShh</span>
+<span class="linenos">201</span><span class="w">    </span><span class="n">ierr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">newdate</span><span class="p">(</span><span class="n">dateStamp</span><span class="p">,</span><span class="w"> </span><span class="n">prntdate</span><span class="p">,</span><span class="w"> </span><span class="n">prnttime</span><span class="p">,</span><span class="w"> </span><span class="n">imode</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">202</span><span class="w">    </span><span class="n">hours</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">prnttime</span><span class="o">/</span><span class="mi">1000000</span><span class="w"></span>
+<span class="linenos">203</span><span class="w">    </span><span class="k">write</span><span class="p">(</span><span class="n">dateStrAnl</span><span class="p">,</span><span class="s1">&#39;(i10.10)&#39;</span><span class="p">)</span><span class="w"> </span><span class="n">prntdate</span><span class="o">*</span><span class="mi">100</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">hours</span><span class="w"></span>
+<span class="linenos">204</span>
+<span class="linenos">205</span><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nb">present</span><span class="p">(</span><span class="n">memberIndex_opt</span><span class="p">))</span><span class="w"> </span><span class="k">then</span>
+<span class="linenos">206</span><span class="k">      write</span><span class="p">(</span><span class="n">ensNumber</span><span class="p">,</span><span class="s1">&#39;(i4.4)&#39;</span><span class="p">)</span><span class="w"> </span><span class="n">memberIndex_opt</span><span class="w"></span>
+<span class="linenos">207</span><span class="w">    </span><span class="k">end if</span>
+<span class="linenos">208</span>
+<span class="linenos">209</span><span class="k">    if</span><span class="w"> </span><span class="p">(</span><span class="nb">present</span><span class="p">(</span><span class="n">memberIndex_opt</span><span class="p">))</span><span class="w"> </span><span class="k">then</span>
+<span class="linenos">210</span><span class="k">      if</span><span class="w"> </span><span class="p">(</span><span class="nb">present</span><span class="p">(</span><span class="n">ensFileNamePrefix_opt</span><span class="p">))</span><span class="w"> </span><span class="k">then</span>
+<span class="linenos">211</span><span class="k">        if</span><span class="w"> </span><span class="p">(</span><span class="nb">present</span><span class="p">(</span><span class="n">ensFileNameSuffix_opt</span><span class="p">))</span><span class="w"> </span><span class="k">then</span>
+<span class="linenos">212</span><span class="k">          </span><span class="n">ensFileName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">trim</span><span class="p">(</span><span class="n">ensPathName</span><span class="p">)</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="s1">&#39;/&#39;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="nb">trim</span><span class="p">(</span><span class="n">ensFileNamePrefix_opt</span><span class="p">)</span><span class="w"> </span><span class="o">//</span><span class="w">  </span><span class="p">&amp;</span><span class="w"></span>
+<span class="linenos">213</span><span class="w">                        </span><span class="n">dateStrAnl</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="s1">&#39;_000_&#39;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="nb">trim</span><span class="p">(</span><span class="n">ensFileNameSuffix_opt</span><span class="p">)</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="s1">&#39;_&#39;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="nb">trim</span><span class="p">(</span><span class="n">ensNumber</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">214</span><span class="w">        </span><span class="k">else</span>
+<span class="linenos">215</span><span class="k">          </span><span class="n">ensFileName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">trim</span><span class="p">(</span><span class="n">ensPathName</span><span class="p">)</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="s1">&#39;/&#39;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="nb">trim</span><span class="p">(</span><span class="n">ensFileNamePrefix_opt</span><span class="p">)</span><span class="w"> </span><span class="o">//</span><span class="w">  </span><span class="p">&amp;</span><span class="w"></span>
+<span class="linenos">216</span><span class="w">                        </span><span class="n">dateStrAnl</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="s1">&#39;_000_&#39;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="nb">trim</span><span class="p">(</span><span class="n">ensNumber</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">217</span><span class="w">        </span><span class="k">end if</span>
+<span class="linenos">218</span><span class="k">      else</span>
+<span class="linenos">219</span><span class="k">        if</span><span class="w"> </span><span class="p">(</span><span class="nb">present</span><span class="p">(</span><span class="n">ensFileNameSuffix_opt</span><span class="p">))</span><span class="w"> </span><span class="k">then</span>
+<span class="linenos">220</span><span class="k">          </span><span class="n">ensFileName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">trim</span><span class="p">(</span><span class="n">ensPathName</span><span class="p">)</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="s1">&#39;/&#39;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="n">dateStrAnl</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="s1">&#39;_000_&#39;</span><span class="w"> </span><span class="o">//</span><span class="w">  </span><span class="p">&amp;</span><span class="w"></span>
+<span class="linenos">221</span><span class="w">                        </span><span class="nb">trim</span><span class="p">(</span><span class="n">ensFileNameSuffix_opt</span><span class="p">)</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="s1">&#39;_&#39;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="nb">trim</span><span class="p">(</span><span class="n">ensNumber</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">222</span><span class="w">        </span><span class="k">else</span>
+<span class="linenos">223</span><span class="k">          </span><span class="n">ensFileName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">trim</span><span class="p">(</span><span class="n">ensPathName</span><span class="p">)</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="s1">&#39;/&#39;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="n">dateStrAnl</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="s1">&#39;_000_&#39;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="nb">trim</span><span class="p">(</span><span class="n">ensNumber</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">224</span><span class="w">        </span><span class="k">end if</span>
+<span class="linenos">225</span><span class="k">      end if</span>
+<span class="linenos">226</span><span class="k">    else</span>
+<span class="linenos">227</span><span class="k">      if</span><span class="w"> </span><span class="p">(</span><span class="nb">present</span><span class="p">(</span><span class="n">ensFileNamePrefix_opt</span><span class="p">))</span><span class="w"> </span><span class="k">then</span>
+<span class="linenos">228</span><span class="k">        if</span><span class="w"> </span><span class="p">(</span><span class="nb">present</span><span class="p">(</span><span class="n">ensFileNameSuffix_opt</span><span class="p">))</span><span class="w"> </span><span class="k">then</span>
+<span class="linenos">229</span><span class="k">          </span><span class="n">ensFileName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">trim</span><span class="p">(</span><span class="n">ensPathName</span><span class="p">)</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="s1">&#39;/&#39;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="nb">trim</span><span class="p">(</span><span class="n">ensFileNamePrefix_opt</span><span class="p">)</span><span class="w"> </span><span class="o">//</span><span class="w">  </span><span class="p">&amp;</span><span class="w"></span>
+<span class="linenos">230</span><span class="w">                        </span><span class="n">dateStrAnl</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="s1">&#39;_000_&#39;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="nb">trim</span><span class="p">(</span><span class="n">ensFileNameSuffix_opt</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">231</span><span class="w">        </span><span class="k">else</span>
+<span class="linenos">232</span><span class="k">          </span><span class="n">ensFileName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">trim</span><span class="p">(</span><span class="n">ensPathName</span><span class="p">)</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="s1">&#39;/&#39;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="nb">trim</span><span class="p">(</span><span class="n">ensFileNamePrefix_opt</span><span class="p">)</span><span class="w"> </span><span class="o">//</span><span class="w">  </span><span class="p">&amp;</span><span class="w"></span>
+<span class="linenos">233</span><span class="w">                        </span><span class="n">dateStrAnl</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="s1">&#39;_000&#39;</span><span class="w"></span>
+<span class="linenos">234</span><span class="w">        </span><span class="k">end if</span>
+<span class="linenos">235</span><span class="k">      else</span>
+<span class="linenos">236</span><span class="k">        if</span><span class="w"> </span><span class="p">(</span><span class="nb">present</span><span class="p">(</span><span class="n">ensFileNameSuffix_opt</span><span class="p">))</span><span class="w"> </span><span class="k">then</span>
+<span class="linenos">237</span><span class="k">          </span><span class="n">ensFileName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">trim</span><span class="p">(</span><span class="n">ensPathName</span><span class="p">)</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="s1">&#39;/&#39;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="n">dateStrAnl</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="s1">&#39;_000_&#39;</span><span class="w"> </span><span class="o">//</span><span class="w">  </span><span class="p">&amp;</span><span class="w"></span>
+<span class="linenos">238</span><span class="w">                        </span><span class="nb">trim</span><span class="p">(</span><span class="n">ensFileNameSuffix_opt</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">239</span><span class="w">        </span><span class="k">else</span>
+<span class="linenos">240</span><span class="k">          </span><span class="n">ensFileName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">trim</span><span class="p">(</span><span class="n">ensPathName</span><span class="p">)</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="s1">&#39;/&#39;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="n">dateStrAnl</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="s1">&#39;_000&#39;</span><span class="w"></span>
+<span class="linenos">241</span><span class="w">        </span><span class="k">end if</span>
+<span class="linenos">242</span><span class="k">      end if</span>
+<span class="linenos">243</span><span class="k">    end if</span>
+<span class="linenos">244</span>
+<span class="linenos">245</span><span class="k">    write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;fln_ensAnlFileName: ensFileName = &#39;</span><span class="p">,</span><span class="w"> </span><span class="nb">trim</span><span class="p">(</span><span class="n">ensFileName</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">246</span>
+<span class="linenos">247</span><span class="w">  </span><span class="k">end subroutine </span><span class="n">fln_ensAnlFileName</span><span class="w"></span>
+<span class="linenos">248</span>
+<span class="linenos">249</span><span class="w">  </span><span class="c">!--------------------------------------------------------------------------</span>
+<span class="linenos">250</span><span class="w">  </span><span class="c">! fln_ensTrlFileName</span>
+<span class="linenos">251</span><span class="w">  </span><span class="c">!--------------------------------------------------------------------------</span>
+<span class="linenos">252</span><span class="w">  </span><span class="k">subroutine </span><span class="n">fln_ensTrlFileName</span><span class="p">(</span><span class="w"> </span><span class="n">ensFileName</span><span class="p">,</span><span class="w"> </span><span class="n">ensPathName</span><span class="p">,</span><span class="w"> </span><span class="n">dateStamp</span><span class="p">,</span><span class="w">  </span><span class="p">&amp;</span><span class="w"></span>
+<span class="linenos">253</span><span class="w">                                 </span><span class="n">memberIndex_opt</span><span class="p">,</span><span class="w"> </span><span class="n">ensFileNamePrefix_opt</span><span class="p">,</span><span class="w"> </span><span class="n">ensFileNameSuffix_opt</span><span class="w"> </span><span class="p">)</span><span class="w"></span>
+<span class="linenos">254</span><span class="w">    </span><span class="c">!:Purpose: Return the filename for a trial state, including for</span>
+<span class="linenos">255</span><span class="w">    </span><span class="c">!           ensemble members (by specifying memberIndex_opt). The member</span>
+<span class="linenos">256</span><span class="w">    </span><span class="c">!           index extension is assumed to be 4 digits.</span>
+<span class="linenos">257</span><span class="w">    </span><span class="c">!</span>
+<span class="linenos">258</span><span class="w">    </span><span class="k">implicit none</span><span class="w"></span>
+<span class="linenos">259</span>
+<span class="linenos">260</span><span class="w">    </span><span class="c">! arguments</span>
+<span class="linenos">261</span><span class="w">    </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=*</span><span class="p">)</span><span class="w">  </span><span class="kd">::</span><span class="w"> </span><span class="n">ensFileName</span><span class="w"></span>
+<span class="linenos">262</span><span class="w">    </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=*</span><span class="p">)</span><span class="w">  </span><span class="kd">::</span><span class="w"> </span><span class="n">ensPathName</span><span class="w"></span>
+<span class="linenos">263</span><span class="w">    </span><span class="kt">integer</span><span class="w">           </span><span class="kd">::</span><span class="w"> </span><span class="n">dateStamp</span><span class="w"></span>
+<span class="linenos">264</span><span class="w">    </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">optional</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">memberIndex_opt</span><span class="w"></span>
+<span class="linenos">265</span><span class="w">    </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=*</span><span class="p">),</span><span class="w"> </span><span class="k">optional</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">ensFileNamePrefix_opt</span><span class="w"></span>
+<span class="linenos">266</span><span class="w">    </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=*</span><span class="p">),</span><span class="w"> </span><span class="k">optional</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">ensFileNameSuffix_opt</span><span class="w"></span>
+<span class="linenos">267</span>
+<span class="linenos">268</span><span class="w">    </span><span class="c">! locals</span>
+<span class="linenos">269</span><span class="w">    </span><span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">imode</span><span class="p">,</span><span class="w"> </span><span class="n">ierr</span><span class="p">,</span><span class="w"> </span><span class="n">hours</span><span class="p">,</span><span class="w"> </span><span class="n">prntdate</span><span class="p">,</span><span class="w"> </span><span class="n">prnttime</span><span class="p">,</span><span class="w"> </span><span class="n">newdate</span><span class="p">,</span><span class="w"> </span><span class="n">dateStampTrl</span><span class="w"></span>
+<span class="linenos">270</span><span class="w">    </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span><span class="w">  </span><span class="kd">::</span><span class="w"> </span><span class="n">ensNumber</span><span class="w"></span>
+<span class="linenos">271</span><span class="w">    </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span><span class="w">  </span><span class="kd">::</span><span class="w"> </span><span class="n">leadTimeStr</span><span class="w"></span>
+<span class="linenos">272</span><span class="w">    </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">dateStrTrl</span><span class="w"></span>
+<span class="linenos">273</span>
+<span class="linenos">274</span><span class="w">    </span><span class="c">! Compute the datestamp for the origin time of the trial forecasts</span>
+<span class="linenos">275</span><span class="w">    </span><span class="k">call </span><span class="n">incdatr</span><span class="p">(</span><span class="n">dateStampTrl</span><span class="p">,</span><span class="w"> </span><span class="n">dateStamp</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="n">tim_windowsize</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">276</span><span class="w">    </span>
+<span class="linenos">277</span><span class="w">    </span><span class="c">! Set the printable date for trial related file names</span>
+<span class="linenos">278</span><span class="w">    </span><span class="n">imode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">3</span><span class="w"> </span><span class="c">! stamp to printable date and time: YYYYMMDD, HHMMSShh</span>
+<span class="linenos">279</span><span class="w">    </span><span class="n">ierr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">newdate</span><span class="p">(</span><span class="n">dateStampTrl</span><span class="p">,</span><span class="w"> </span><span class="n">prntdate</span><span class="p">,</span><span class="w"> </span><span class="n">prnttime</span><span class="p">,</span><span class="w"> </span><span class="n">imode</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">280</span><span class="w">    </span><span class="n">hours</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">prnttime</span><span class="o">/</span><span class="mi">1000000</span><span class="w"></span>
+<span class="linenos">281</span><span class="w">    </span><span class="k">write</span><span class="p">(</span><span class="n">dateStrTrl</span><span class="p">,</span><span class="s1">&#39;(i10.10)&#39;</span><span class="p">)</span><span class="w"> </span><span class="n">prntdate</span><span class="o">*</span><span class="mi">100</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">hours</span><span class="w"></span>
+<span class="linenos">282</span>
+<span class="linenos">283</span><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nb">present</span><span class="p">(</span><span class="n">memberIndex_opt</span><span class="p">))</span><span class="w"> </span><span class="k">then</span>
+<span class="linenos">284</span><span class="k">      write</span><span class="p">(</span><span class="n">ensNumber</span><span class="p">,</span><span class="s1">&#39;(i4.4)&#39;</span><span class="p">)</span><span class="w"> </span><span class="n">memberIndex_opt</span><span class="w"></span>
+<span class="linenos">285</span><span class="w">    </span><span class="k">end if</span>
+<span class="linenos">286</span><span class="k">    write</span><span class="p">(</span><span class="n">leadTimeStr</span><span class="p">,</span><span class="s1">&#39;(i3.3)&#39;</span><span class="p">)</span><span class="w"> </span><span class="nb">nint</span><span class="p">(</span><span class="n">tim_windowsize</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">287</span>
+<span class="linenos">288</span><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nb">present</span><span class="p">(</span><span class="n">memberIndex_opt</span><span class="p">))</span><span class="w"> </span><span class="k">then</span>
+<span class="linenos">289</span><span class="k">      if</span><span class="w"> </span><span class="p">(</span><span class="nb">present</span><span class="p">(</span><span class="n">ensFileNamePrefix_opt</span><span class="p">))</span><span class="w"> </span><span class="k">then</span>
+<span class="linenos">290</span><span class="k">        if</span><span class="w"> </span><span class="p">(</span><span class="nb">present</span><span class="p">(</span><span class="n">ensFileNameSuffix_opt</span><span class="p">))</span><span class="w"> </span><span class="k">then</span>
+<span class="linenos">291</span><span class="k">          </span><span class="n">ensFileName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">trim</span><span class="p">(</span><span class="n">ensPathName</span><span class="p">)</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="s1">&#39;/&#39;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="nb">trim</span><span class="p">(</span><span class="n">ensFileNamePrefix_opt</span><span class="p">)</span><span class="w"> </span><span class="o">//</span><span class="w">  </span><span class="p">&amp;</span><span class="w"></span>
+<span class="linenos">292</span><span class="w">                        </span><span class="n">dateStrTrl</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="s1">&#39;_&#39;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="n">leadTimeStr</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="s1">&#39;_&#39;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="nb">trim</span><span class="p">(</span><span class="n">ensFileNameSuffix_opt</span><span class="p">)</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="s1">&#39;_&#39;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="nb">trim</span><span class="p">(</span><span class="n">ensNumber</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">293</span><span class="w">        </span><span class="k">else</span>
+<span class="linenos">294</span><span class="k">          </span><span class="n">ensFileName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">trim</span><span class="p">(</span><span class="n">ensPathName</span><span class="p">)</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="s1">&#39;/&#39;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="nb">trim</span><span class="p">(</span><span class="n">ensFileNamePrefix_opt</span><span class="p">)</span><span class="w"> </span><span class="o">//</span><span class="w">  </span><span class="p">&amp;</span><span class="w"></span>
+<span class="linenos">295</span><span class="w">                        </span><span class="n">dateStrTrl</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="s1">&#39;_&#39;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="n">leadTimeStr</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="s1">&#39;_&#39;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="nb">trim</span><span class="p">(</span><span class="n">ensNumber</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">296</span><span class="w">        </span><span class="k">end if</span>
+<span class="linenos">297</span><span class="k">      else</span>
+<span class="linenos">298</span><span class="k">        if</span><span class="w"> </span><span class="p">(</span><span class="nb">present</span><span class="p">(</span><span class="n">ensFileNameSuffix_opt</span><span class="p">))</span><span class="w"> </span><span class="k">then</span>
+<span class="linenos">299</span><span class="k">          </span><span class="n">ensFileName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">trim</span><span class="p">(</span><span class="n">ensPathName</span><span class="p">)</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="s1">&#39;/&#39;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="n">dateStrTrl</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="s1">&#39;_&#39;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="n">leadTimeStr</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="s1">&#39;_&#39;</span><span class="w"> </span><span class="o">//</span><span class="w">  </span><span class="p">&amp;</span><span class="w"></span>
+<span class="linenos">300</span><span class="w">                        </span><span class="nb">trim</span><span class="p">(</span><span class="n">ensFileNameSuffix_opt</span><span class="p">)</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="s1">&#39;_&#39;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="nb">trim</span><span class="p">(</span><span class="n">ensNumber</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">301</span><span class="w">        </span><span class="k">else</span>
+<span class="linenos">302</span><span class="k">          </span><span class="n">ensFileName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">trim</span><span class="p">(</span><span class="n">ensPathName</span><span class="p">)</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="s1">&#39;/&#39;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="n">dateStrTrl</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="s1">&#39;_&#39;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="n">leadTimeStr</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="s1">&#39;_&#39;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="nb">trim</span><span class="p">(</span><span class="n">ensNumber</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">303</span><span class="w">        </span><span class="k">end if</span>
+<span class="linenos">304</span><span class="k">      end if</span>
+<span class="linenos">305</span><span class="k">    else</span>
+<span class="linenos">306</span><span class="k">      if</span><span class="w"> </span><span class="p">(</span><span class="nb">present</span><span class="p">(</span><span class="n">ensFileNamePrefix_opt</span><span class="p">))</span><span class="w"> </span><span class="k">then</span>
+<span class="linenos">307</span><span class="k">        if</span><span class="w"> </span><span class="p">(</span><span class="nb">present</span><span class="p">(</span><span class="n">ensFileNameSuffix_opt</span><span class="p">))</span><span class="w"> </span><span class="k">then</span>
+<span class="linenos">308</span><span class="k">          </span><span class="n">ensFileName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">trim</span><span class="p">(</span><span class="n">ensPathName</span><span class="p">)</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="s1">&#39;/&#39;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="nb">trim</span><span class="p">(</span><span class="n">ensFileNamePrefix_opt</span><span class="p">)</span><span class="w"> </span><span class="o">//</span><span class="w">  </span><span class="p">&amp;</span><span class="w"></span>
+<span class="linenos">309</span><span class="w">                        </span><span class="n">dateStrTrl</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="s1">&#39;_&#39;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="n">leadTimeStr</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="s1">&#39;_&#39;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="nb">trim</span><span class="p">(</span><span class="n">ensFileNameSuffix_opt</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">310</span><span class="w">        </span><span class="k">else</span>
+<span class="linenos">311</span><span class="k">          </span><span class="n">ensFileName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">trim</span><span class="p">(</span><span class="n">ensPathName</span><span class="p">)</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="s1">&#39;/&#39;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="nb">trim</span><span class="p">(</span><span class="n">ensFileNamePrefix_opt</span><span class="p">)</span><span class="w"> </span><span class="o">//</span><span class="w">  </span><span class="p">&amp;</span><span class="w"></span>
+<span class="linenos">312</span><span class="w">                        </span><span class="n">dateStrTrl</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="s1">&#39;_&#39;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="n">leadTimeStr</span><span class="w"></span>
+<span class="linenos">313</span><span class="w">        </span><span class="k">end if</span>
+<span class="linenos">314</span><span class="k">      else</span>
+<span class="linenos">315</span><span class="k">        if</span><span class="w"> </span><span class="p">(</span><span class="nb">present</span><span class="p">(</span><span class="n">ensFileNameSuffix_opt</span><span class="p">))</span><span class="w"> </span><span class="k">then</span>
+<span class="linenos">316</span><span class="k">          </span><span class="n">ensFileName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">trim</span><span class="p">(</span><span class="n">ensPathName</span><span class="p">)</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="s1">&#39;/&#39;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="n">dateStrTrl</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="s1">&#39;_&#39;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="n">leadTimeStr</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="s1">&#39;_&#39;</span><span class="w"> </span><span class="o">//</span><span class="w">  </span><span class="p">&amp;</span><span class="w"></span>
+<span class="linenos">317</span><span class="w">                        </span><span class="nb">trim</span><span class="p">(</span><span class="n">ensFileNameSuffix_opt</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">318</span><span class="w">        </span><span class="k">else</span>
+<span class="linenos">319</span><span class="k">          </span><span class="n">ensFileName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">trim</span><span class="p">(</span><span class="n">ensPathName</span><span class="p">)</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="s1">&#39;/&#39;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="n">dateStrTrl</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="s1">&#39;_&#39;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="n">leadTimeStr</span><span class="w"></span>
+<span class="linenos">320</span><span class="w">        </span><span class="k">end if</span>
+<span class="linenos">321</span><span class="k">      end if</span>
+<span class="linenos">322</span><span class="k">    end if</span>
+<span class="linenos">323</span>
+<span class="linenos">324</span><span class="k">    write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;fln_ensTrlFileName: ensFileName = &#39;</span><span class="p">,</span><span class="w"> </span><span class="nb">trim</span><span class="p">(</span><span class="n">ensFileName</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">325</span>
+<span class="linenos">326</span><span class="w">  </span><span class="k">end subroutine </span><span class="n">fln_ensTrlFileName</span><span class="w"></span>
+<span class="linenos">327</span>
+<span class="linenos">328</span><span class="k">end module </span><span class="n">fileNames_mod</span><span class="w"></span>
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2018, ECCC.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.
+    </div>
+  </body>
+</html>

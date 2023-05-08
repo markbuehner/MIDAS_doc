@@ -1,0 +1,3265 @@
+  <HTML style="font-family:arial">
+  <HEAD>
+     <TITLE> MIDAS fortran software namelists </TITLE>
+  </HEAD>
+  <H1> Namelists used in MIDAS fortran software </H1>
+<H2> Code in directory: ./programs </H2>
+<H3>NAMELIST: NAMADT (in file adjointTest.f90)</H3>
+<p style="padding:6px; color: black; background-color: white; border: black 2px solid">
+<table style="width:100%">
+<tr>
+<td>test</td>
+<td>character(len=20) ::  test <b>! adjoint test type ('Bhi','Bens','advEns','advGSV','loc')</b></td>
+</tr>
+</table>
+</p>
+<H3>NAMELIST: NAMCONF (in file calcStats.f90)</H3>
+<p style="padding:6px; color: black; background-color: white; border: black 2px solid">
+<table style="width:100%">
+<tr>
+<td>mode</td>
+<td>character(len=60) :: mode   <b>! can be 'BHI', 'TOOLBOX', 'STDDEV or 'POWERSPEC'</b></td>
+</tr>
+</table>
+</p>
+<H3>NAMELIST: NAMENS (in file calcStats.f90)</H3>
+<p style="padding:6px; color: black; background-color: white; border: black 2px solid">
+<table style="width:100%">
+<tr>
+<td>ip2</td>
+<td>integer           :: ip2    <b>! Ensemble lead time (hour) selected within the file</b></td>
+</tr>
+<tr>
+<td>nens</td>
+<td>integer           :: nens   <b>! Ensemble size</b></td>
+</tr>
+</table>
+</p>
+<H3>NAMELIST: NAMDIAG (in file diagBmatrix.f90)</H3>
+<p style="padding:6px; color: black; background-color: white; border: black 2px solid">
+<table style="width:100%">
+<tr>
+<td>nrandseed</td>
+<td>integer :: nrandseed               <b>! initial random seed value</b></td>
+</tr>
+<tr>
+<td>numperturbations</td>
+<td>integer :: numperturbations        <b>! number of perturbations for randomization estimate of stddev</b></td>
+</tr>
+<tr>
+<td>oneobs_levs</td>
+<td>integer :: oneobs_levs(100)        <b>! list of level indexes where B matrix columns are computed </b></td>
+</tr>
+<tr>
+<td>oneobs_lonlat</td>
+<td>integer :: oneobs_lonlat(100,2)    <b>! list of lon,lat index pairs where B matrix columns are computed</b></td>
+</tr>
+<tr>
+<td>oneobs_timeStep</td>
+<td>character(len=128) :: oneobs_timeStep <b>! can be 'first', 'last' or 'middle'</b></td>
+</tr>
+<tr>
+<td>oneobs_varName</td>
+<td>character(len=4) :: oneobs_varName <b>! can be 'all' or a specific variable name (default='all')</b></td>
+</tr>
+<tr>
+<td>writeEnsAmplitude</td>
+<td>logical :: writeEnsAmplitude       <b>! choose to write ensemble amplitude fields (for ensemble B)</b></td>
+</tr>
+<tr>
+<td>writePsiChiStddev</td>
+<td>logical :: writePsiChiStddev       <b>! choose to also write stddev of Psi/Chi in addition to UU/VV</b></td>
+</tr>
+<tr>
+<td>writeTextStddev</td>
+<td>logical :: writeTextStddev         <b>! choose to write stddev to text file in addition to standard file</b></td>
+</tr>
+</table>
+</p>
+<H3>NAMELIST: NAMENSEMBLEH (in file ensembleH.f90)</H3>
+<p style="padding:6px; color: black; background-color: white; border: black 2px solid">
+<table style="width:100%">
+<tr>
+<td>ensPathName</td>
+<td>character(len=256) :: ensPathName       <b>! path of ensemble member files</b></td>
+</tr>
+<tr>
+<td>fileMemberIndex1</td>
+<td>integer  :: fileMemberIndex1 <b>! first member index in ensemble set to be read</b></td>
+</tr>
+<tr>
+<td>nEns</td>
+<td>integer  :: nEns             <b>! ensemble size</b></td>
+</tr>
+<tr>
+<td>numFullEns</td>
+<td>integer  :: numFullEns       <b>! number of full ensemble set (needed only for modulated ensemble)</b></td>
+</tr>
+<tr>
+<td>numRetainedEigen</td>
+<td>integer  :: numRetainedEigen <b>! number of retained eigen modes used for modulated ensemble</b></td>
+</tr>
+<tr>
+<td>obsTimeInterpType</td>
+<td>character(len=20)  :: obsTimeInterpType <b>! type of time interpolation to obs time</b></td>
+</tr>
+<tr>
+<td>readEnsMeanFromFile</td>
+<td>logical  :: readEnsMeanFromFile <b>! choose to read ens mean from file (when reading subset of members)</b></td>
+</tr>
+<tr>
+<td>vLocalize</td>
+<td>real(8)  :: vLocalize        <b>! vertical localization lengthscale (needed only for modulated ensemble)</b></td>
+</tr>
+</table>
+</p>
+<H3>NAMELIST: NAMENSPOSTPROC (in file ensPostProcess.f90)</H3>
+<p style="padding:6px; color: black; background-color: white; border: black 2px solid">
+<table style="width:100%">
+<tr>
+<td>hInterpolationDegree</td>
+<td>character(len=12) :: hInterpolationDegree <b>! select degree of horizontal interpolation (if needed)</b></td>
+</tr>
+<tr>
+<td>nEns</td>
+<td>integer :: nEns             <b>! ensemble size</b></td>
+</tr>
+<tr>
+<td>readAnlEnsemble</td>
+<td>logical :: readAnlEnsemble  <b>! activate reading of analysis ensemble</b></td>
+</tr>
+<tr>
+<td>readTrlEnsemble</td>
+<td>logical :: readTrlEnsemble  <b>! activate reading of trial ensemble</b></td>
+</tr>
+<tr>
+<td>writeTrlEnsemble</td>
+<td>logical :: writeTrlEnsemble <b>! activate writing of the trial ensemble (useful when it's interpolated)</b></td>
+</tr>
+</table>
+</p>
+<H3>NAMELIST: NAMEXTRACT (in file extractBmatrixFor1Dvar.f90)</H3>
+<p style="padding:6px; color: black; background-color: white; border: black 2px solid">
+<table style="width:100%">
+<tr>
+<td>extractdate</td>
+<td>integer :: extractdate               <b>! date for the B matrix extracted</b></td>
+</tr>
+<tr>
+<td>lonlatExtract</td>
+<td>integer :: lonlatExtract(nmaxLevs,2) <b>! lon lat pairs definining the locations where the B matrix is to be extracted</b></td>
+</tr>
+<tr>
+<td>stepBinExtract</td>
+<td>character(len=128) :: stepBinExtract <b>! number of step bins to extract (1 typically for B NMC)</b></td>
+</tr>
+<tr>
+<td>varNameExtract</td>
+<td>character(len=4)   :: varNameExtract <b>! variable to extract (all to extract everything in namstate)</b></td>
+</tr>
+</table>
+</p>
+<H3>NAMELIST: NAMLETKF (in file letkf.f90)</H3>
+<p style="padding:6px; color: black; background-color: white; border: black 2px solid">
+<table style="width:100%">
+<tr>
+<td>algorithm</td>
+<td>character(len=20)  :: algorithm  <b>! name of the chosen LETKF algorithm: 'LETKF', 'CVLETKF'</b></td>
+</tr>
+<tr>
+<td>backgroundCheck</td>
+<td>logical  :: backgroundCheck      <b>! apply additional background check using ensemble spread</b></td>
+</tr>
+<tr>
+<td>debug</td>
+<td>logical  :: debug                <b>! debug option to print values to the listings.</b></td>
+</tr>
+<tr>
+<td>edaObsFamily</td>
+<td>character(len=2)  :: edaObsFamily      <b>! family for EDA-based observation simulation experiment ('UA', 'AI', etc.)</b></td>
+</tr>
+<tr>
+<td>edaObsImpact</td>
+<td>logical  :: edaObsImpact         <b>! perform EDA-based observation simulation experiment (if true, also set edaObsFamily)</b></td>
+</tr>
+<tr>
+<td>ensPathName</td>
+<td>character(len=256) :: ensPathName <b>! absolute or relative path to ensemble directory</b></td>
+</tr>
+<tr>
+<td>ensPostProcessing</td>
+<td>logical            :: ensPostProcessing <b>! do all post-processing of analysis ensemble</b></td>
+</tr>
+<tr>
+<td>etiket_anl</td>
+<td>character(len=12) :: etiket_anl        <b>! etiket for output files</b></td>
+</tr>
+<tr>
+<td>hLocalize</td>
+<td>real(8)  :: hLocalize(4)         <b>! horizontal localization radius (in km)</b></td>
+</tr>
+<tr>
+<td>hLocalizePressure</td>
+<td>real(8)  :: hLocalizePressure(3) <b>! pressures where horizontal localization changes (in hPa)</b></td>
+</tr>
+<tr>
+<td>huberize</td>
+<td>logical  :: huberize             <b>! apply huber norm quality control procedure</b></td>
+</tr>
+<tr>
+<td>ignoreEnsDate</td>
+<td>logical  :: ignoreEnsDate        <b>! when reading ensemble, ignore the date</b></td>
+</tr>
+<tr>
+<td>maxNumLocalObs</td>
+<td>integer  :: maxNumLocalObs       <b>! maximum number of obs in each local volume to assimilate</b></td>
+</tr>
+<tr>
+<td>minDistanceToLand</td>
+<td>real(8)  :: minDistanceToLand    <b>! for ice/ocean DA: minimum distance to land for assimilating obs</b></td>
+</tr>
+<tr>
+<td>modifyAmsubObsError</td>
+<td>logical  :: modifyAmsubObsError  <b>! reduce AMSU-B obs error stddev in tropics</b></td>
+</tr>
+<tr>
+<td>mpiDistribution</td>
+<td>character(len=20) :: mpiDistribution   <b>! type of mpiDistribution for weight calculation ('ROUNDROBIN' or 'TILES')</b></td>
+</tr>
+<tr>
+<td>nEns</td>
+<td>integer  :: nEns                 <b>! ensemble size</b></td>
+</tr>
+<tr>
+<td>numRetainedEigen</td>
+<td>integer  :: numRetainedEigen     <b>! number of retained eigenValues/Vectors of vertical localization matrix</b></td>
+</tr>
+<tr>
+<td>numSubEns</td>
+<td>integer            :: numSubEns  <b>! number of sub-ensembles to split the full ensemble</b></td>
+</tr>
+<tr>
+<td>obsTimeInterpType</td>
+<td>character(len=20) :: obsTimeInterpType <b>! type of time interpolation to obs time</b></td>
+</tr>
+<tr>
+<td>outputEnsObs</td>
+<td>logical  :: outputEnsObs         <b>! to write trial and analysis ensemble members in observation space to sqlite </b></td>
+</tr>
+<tr>
+<td>outputOnlyEnsMean</td>
+<td>logical  :: outputOnlyEnsMean    <b>! when writing ensemble, can choose to only write member zero</b></td>
+</tr>
+<tr>
+<td>randomShuffleSubEns</td>
+<td>logical  :: randomShuffleSubEns  <b>! choose to randomly shuffle members into subensembles </b></td>
+</tr>
+<tr>
+<td>readEnsObsFromFile</td>
+<td>logical  :: readEnsObsFromFile   <b>! instead of computing innovations, read ensObs%Yb from file.</b></td>
+</tr>
+<tr>
+<td>recenterInputEns</td>
+<td>logical            :: recenterInputEns  <b>! read a deterministic state to recenter ensemble</b></td>
+</tr>
+<tr>
+<td>rejectHighLatIR</td>
+<td>logical  :: rejectHighLatIR      <b>! reject all IR observations at high latitudes</b></td>
+</tr>
+<tr>
+<td>rejectRadNearSfc</td>
+<td>logical  :: rejectRadNearSfc     <b>! reject radiance observations near the surface</b></td>
+</tr>
+<tr>
+<td>vLocalize</td>
+<td>real(8)  :: vLocalize            <b>! vertical localization radius (units: ln(Pressure in Pa) or meters)</b></td>
+</tr>
+<tr>
+<td>weightLatLonStep</td>
+<td>integer  :: weightLatLonStep     <b>! separation of lat-lon grid points for weight calculation</b></td>
+</tr>
+<tr>
+<td>writeLocalEnsObsToFile</td>
+<td>logical  :: writeLocalEnsObsToFile <b>! Controls writing the ensObs to file.</b></td>
+</tr>
+</table>
+</p>
+<H3>NAMELIST: NAMOBSSELECTION (in file obsSelection.f90)</H3>
+<p style="padding:6px; color: black; background-color: white; border: black 2px solid">
+<table style="width:100%">
+<tr>
+<td>doThinning</td>
+<td>logical                        :: doThinning  <b>! Control whether or not thinning is done</b></td>
+</tr>
+</table>
+</p>
+<H3>NAMELIST: NAMOMF (in file oMinusF.f90)</H3>
+<p style="padding:6px; color: black; background-color: white; border: black 2px solid">
+<table style="width:100%">
+<tr>
+<td>addHBHT</td>
+<td>logical :: addHBHT    <b>! choose to add the value of HBHT to obsSpaceData so it can be output</b></td>
+</tr>
+<tr>
+<td>addSigmaO</td>
+<td>logical :: addSigmaO  <b>! choose to add the value of sigma_obs to obsSpaceData so it can be output</b></td>
+</tr>
+<tr>
+<td>nEns</td>
+<td>integer :: nEns       <b>! ensemble size</b></td>
+</tr>
+</table>
+</p>
+<H3>NAMELIST: NAMPREPCMA (in file prepcma.f90)</H3>
+<p style="padding:6px; color: black; background-color: white; border: black 2px solid">
+<table style="width:100%">
+<tr>
+<td>applySatUtil</td>
+<td>logical :: applySatUtil             <b>! choose to reject satellite obs based on 'util' column of stats_tovs</b></td>
+</tr>
+<tr>
+<td>brpform</td>
+<td>character(len=256) :: brpform       <b>! should not be used anymore</b></td>
+</tr>
+<tr>
+<td>cmabdy</td>
+<td>character(len=256) :: cmabdy        <b>! should not be used anymore</b></td>
+</tr>
+<tr>
+<td>cmadim</td>
+<td>character(len=256) :: cmadim        <b>! should not be used anymore</b></td>
+</tr>
+<tr>
+<td>cmahdr</td>
+<td>character(len=256) :: cmahdr        <b>! should not be used anymore</b></td>
+</tr>
+<tr>
+<td>modifyAmsubObsError</td>
+<td>logical :: modifyAmsubObsError      <b>! choose to modify the obs error stddev for AMSUB/MHS in the tropics</b></td>
+</tr>
+<tr>
+<td>obsClean</td>
+<td>logical :: obsClean                 <b>! choose to remove rejected observations from files</b></td>
+</tr>
+<tr>
+<td>obsout</td>
+<td>character(len=256) :: obsout        <b>! file name for ascii output</b></td>
+</tr>
+<tr>
+<td>rejectHighLatIR</td>
+<td>logical :: rejectHighLatIR          <b>! choose to reject IR data in high latitudes</b></td>
+</tr>
+<tr>
+<td>rejectOutsideTimeWindow</td>
+<td>logical :: rejectOutsideTimeWindow  <b>! choose to reject obs outside time window</b></td>
+</tr>
+<tr>
+<td>suprep</td>
+<td>logical :: suprep                   <b>! choose to execute 'suprep' obs filtering</b></td>
+</tr>
+<tr>
+<td>thinning</td>
+<td>logical :: thinning                 <b>! choose to apply 'extra' thinning of some obs types</b></td>
+</tr>
+<tr>
+<td>writeAsciiCmaFiles</td>
+<td>logical :: writeAsciiCmaFiles       <b>! choose to write ascii output</b></td>
+</tr>
+<tr>
+<td>writeObsFiles</td>
+<td>logical :: writeObsFiles            <b>! choose to update the (burp or sqlite) observation files</b></td>
+</tr>
+</table>
+</p>
+<H3>NAMELIST: PSEUDOSSTOBS (in file pseudoSSTobs.f90)</H3>
+<p style="padding:6px; color: black; background-color: white; border: black 2px solid">
+<table style="width:100%">
+<tr>
+<td>iceFractionThreshold</td>
+<td>real(4)                     :: iceFractionThreshold    <b>! consider no ice condition below this threshold</b></td>
+</tr>
+<tr>
+<td>outputFileName</td>
+<td>character(len=100)          :: outputFileName          <b>! name of the file containing the generated observations</b></td>
+</tr>
+<tr>
+<td>outputFreshWaterST</td>
+<td>real(4)                     :: outputFreshWaterST      <b>! output fresh water surface temperature for pseudo obs.  </b></td>
+</tr>
+<tr>
+<td>outputSST</td>
+<td>real(4)                     :: outputSST               <b>! output SST value for pseudo observations</b></td>
+</tr>
+<tr>
+<td>seaiceThinning</td>
+<td>integer                     :: seaiceThinning          <b>! generate pseudo obs in every 'seaiceThinning' points </b></td>
+</tr>
+<tr>
+<td>seaWaterThreshold</td>
+<td>real(4)                     :: seaWaterThreshold       <b>! to distinguish inland water from sea water</b></td>
+</tr>
+</table>
+</p>
+<H3>NAMELIST: NAMENKF (in file randomPert.f90)</H3>
+<p style="padding:6px; color: black; background-color: white; border: black 2px solid">
+<table style="width:100%">
+<tr>
+<td>iceFractionThreshold</td>
+<td>real(4) :: iceFractionThreshold <b>! ice fraction threshold to use in combination with 'setPertZeroUnderIce'</b></td>
+</tr>
+<tr>
+<td>mpiTopoIndependent</td>
+<td>logical :: mpiTopoIndependent   <b>! choose to compute random numbers with mpi-topology-independent method </b></td>
+</tr>
+<tr>
+<td>nens</td>
+<td>integer :: nens                 <b>! number of perturbations to compute</b></td>
+</tr>
+<tr>
+<td>numBits</td>
+<td>integer :: numBits              <b>! number of bits to use when writing to standard files</b></td>
+</tr>
+<tr>
+<td>out_etiket</td>
+<td>character(len=12) :: out_etiket <b>! the 'etiket' to write to standard files</b></td>
+</tr>
+<tr>
+<td>previousDateFraction</td>
+<td>real(4) :: previousDateFraction <b>! relative amount of previous date perturbations to include in current perturbations</b></td>
+</tr>
+<tr>
+<td>readEnsMean</td>
+<td>logical :: readEnsMean          <b>! choose to read ens mean and add this to the perturbations</b></td>
+</tr>
+<tr>
+<td>remove_mean</td>
+<td>logical :: remove_mean          <b>! choose to remove mean from perturbations</b></td>
+</tr>
+<tr>
+<td>seed</td>
+<td>integer :: seed                 <b>! initial value of the random seed</b></td>
+</tr>
+<tr>
+<td>setPertZeroUnderIce</td>
+<td>logical :: setPertZeroUnderIce  <b>! choose to set perturbation to zero under sea ice (for SST)</b></td>
+</tr>
+<tr>
+<td>smoothVariances</td>
+<td>logical :: smoothVariances      <b>! choose to impose horizontally constant perturbation variances</b></td>
+</tr>
+</table>
+</p>
+<H3>NAMELIST: NAMSSTTRIAL (in file SSTtrial.f90)</H3>
+<p style="padding:6px; color: black; background-color: white; border: black 2px solid">
+<table style="width:100%">
+<tr>
+<td>alphaClim</td>
+<td>real(4)           :: alphaClim         <b>! scaling factor to relax towards climatology</b></td>
+</tr>
+<tr>
+<td>datestampClim</td>
+<td>integer           :: datestampClim(12) <b>! datestamps of input climatology fields </b></td>
+</tr>
+<tr>
+<td>etiketAnalysis</td>
+<td>character(len=10) :: etiketAnalysis    <b>! etiket in the analysis file for grid setup</b></td>
+</tr>
+</table>
+</p>
+<H3>NAMELIST: NAMVAR (in file var.f90)</H3>
+<p style="padding:6px; color: black; background-color: white; border: black 2px solid">
+<table style="width:100%">
+<tr>
+<td>computeFinalNlJo</td>
+<td>logical :: computeFinalNlJo                          <b>! compute final cost function using non-linear H()</b></td>
+</tr>
+<tr>
+<td>limitHuInOuterLoop</td>
+<td>logical :: limitHuInOuterLoop                        <b>! impose humidity limits on each outer loop iteration</b></td>
+</tr>
+<tr>
+<td>numIterMaxInnerLoop</td>
+<td>integer :: numIterMaxInnerLoop(maxNumOuterLoopIter)  <b>! number of each inner loop iterations</b></td>
+</tr>
+<tr>
+<td>numOuterLoopIterations</td>
+<td>integer :: numOuterLoopIterations                    <b>! number of outer loop iterations (default=1)</b></td>
+</tr>
+</table>
+</p>
+<H2> Code in directory: ./modules </H2>
+<H3>NAMELIST: NAMAER (in file analysisErrorOI_mod.f90)</H3>
+<p style="padding:6px; color: black; background-color: white; border: black 2px solid">
+<table style="width:100%">
+<tr>
+<td>maxAnalysisErrorStdDev</td>
+<td>real(8) :: maxAnalysisErrorStdDev <b>! maximum limit imposed on analysis error stddev</b></td>
+</tr>
+</table>
+</p>
+<H3>NAMELIST: NAMBGCKCONV (in file backgroundCheck_mod.f90)</H3>
+<p style="padding:6px; color: black; background-color: white; border: black 2px solid">
+<table style="width:100%">
+<tr>
+<td>new_bgck_sw</td>
+<td>logical                     :: new_bgck_sw <b>! choose to use the 'new' background check for SW obs</b></td>
+</tr>
+</table>
+</p>
+<H3>NAMELIST: NAMBCHM (in file bCovarSetupChem_mod.f90)</H3>
+<p style="padding:6px; color: black; background-color: white; border: black 2px solid">
+<table style="width:100%">
+<tr>
+<td>CrossCornsVarKindCH</td>
+<td>character(len=4)    :: CrossCornsVarKindCH(vnl_numvarmax) <b>! not sure what this is for...</b></td>
+</tr>
+<tr>
+<td>getPhysSpaceHCorrel</td>
+<td>logical             :: getPhysSpaceHCorrel  <b>! calculate correlation lengths from spectral cov (needed for some CH obs operator settings)</b></td>
+</tr>
+<tr>
+<td>getPhysSpaceStats</td>
+<td>logical             :: getPhysSpaceStats    <b>! choose to calculate/save physical space cov (stddev, corverti)</b></td>
+</tr>
+<tr>
+<td>IncludeAnlVarKindCH</td>
+<td>character(len=4)    :: IncludeAnlVarKindCH(vnl_numvarmax) <b>! list of CH variable names to consider</b></td>
+</tr>
+<tr>
+<td>ntrunc</td>
+<td>integer             :: ntrunc               <b>! spectral truncation</b></td>
+</tr>
+<tr>
+<td>numModeZero</td>
+<td>integer             :: numModeZero          <b>! number of eigenmodes to set to zero</b></td>
+</tr>
+<tr>
+<td>ReadWrite_sqrt</td>
+<td>logical             :: ReadWrite_sqrt       <b>! choose to read and/or write sqrt of correlations</b></td>
+</tr>
+<tr>
+<td>rpor</td>
+<td>real(8)             :: rpor(vnl_numvarmax)  <b>! horizontal localization distance (Gaussian)</b></td>
+</tr>
+<tr>
+<td>rvloc</td>
+<td>real(8)             :: rvloc(vnl_numvarmax) <b>! vertical localization distance (GC)</b></td>
+</tr>
+<tr>
+<td>scaleFactor</td>
+<td>real(8)             :: scaleFactor(vnl_numvarmax,vco_maxNumLevels) <b>! variable and level dependent scale factor applied to variances</b></td>
+</tr>
+<tr>
+<td>stddevMode</td>
+<td>character(len=4)    :: stddevMode           <b>! can be 'GD2D', 'GD3D' or 'SP2D'</b></td>
+</tr>
+<tr>
+<td>TransformVarKindCH</td>
+<td>character(len=20)   :: TransformVarKindCH                 <b>! name of variable transform to apply to chemistry variables</b></td>
+</tr>
+<tr>
+<td>WritePhysSpaceStats</td>
+<td>logical             :: WritePhysSpaceStats  <b>! choose to output physical space stats in 'bCovarSetupChem_out.fst'</b></td>
+</tr>
+</table>
+</p>
+<H3>NAMELIST: NAMCSR (in file bgckcsr_mod.f90)</H3>
+<p style="padding:6px; color: black; background-color: white; border: black 2px solid">
+<table style="width:100%">
+<tr>
+<td>burpSatName</td>
+<td>character (len=9)  :: burpSatName(maxNumSat)                   <b>! list of platform names to treat (BURP file station id)</b></td>
+</tr>
+<tr>
+<td>satCloudCoverLimit</td>
+<td>integer            :: satCloudCoverLimit(maxNumSat,maxNumchan) <b>! maximum limit of cloud cover (careful this is an integer!)</b></td>
+</tr>
+</table>
+</p>
+<H3>NAMELIST: NAMOCEANBGCHECK (in file bgckOcean_mod.f90)</H3>
+<p style="padding:6px; color: black; background-color: white; border: black 2px solid">
+<table style="width:100%">
+<tr>
+<td>checkWinds</td>
+<td>logical           :: checkWinds        = .false.   <b>! check winds for last 4 days to amplify error in zone of max wind speed</b></td>
+</tr>
+<tr>
+<td>globalSelectCriteria</td>
+<td>real(8)           :: globalSelectCriteria(3) = (/5.d0, 25.d0, 30.d0/) <b>! global selection criteria</b></td>
+</tr>
+<tr>
+<td>inlandWaterSelectCriteriaInsitu</td>
+<td>real(8)           :: inlandWaterSelectCriteriaInsitu(3)  = (/5.d0, 25.d0, 30.d0/) <b>! inland water, insitu selection criteria</b></td>
+</tr>
+<tr>
+<td>inlandWaterSelectCriteriaSatData</td>
+<td>real(8)           :: inlandWaterSelectCriteriaSatData(3) = (/5.d0, 25.d0, 30.d0/) <b>! inland water, satellite selection criteria</b></td>
+</tr>
+<tr>
+<td>maxLatExceptionNH</td>
+<td>real(4)           :: maxLatExceptionNH = 45.       <b>! max lat of N. hemisphere lat band allows TS to penetrate further North in some months</b></td>
+</tr>
+<tr>
+<td>maxLatNH</td>
+<td>real(4)           :: maxLatNH = 40.                <b>! max lat of N. hemisphere lat band where TS is detected</b></td>
+</tr>
+<tr>
+<td>maxLatSH</td>
+<td>real(4)           :: maxLatSH = -10.               <b>! max lat of Southern hemisphere latutude band where TS is detected</b></td>
+</tr>
+<tr>
+<td>minLatNH</td>
+<td>real(4)           :: minLatNH = 10.                <b>! min lat of N. hemisphere lat band where TS is detected</b></td>
+</tr>
+<tr>
+<td>minLatSH</td>
+<td>real(4)           :: minLatSH = -35.               <b>! min lat of Southern hemisphere latutude band where TS is detected</b></td>
+</tr>
+<tr>
+<td>monthExceptionNH</td>
+<td>character(len=3)  :: monthExceptionNH(12) = '   '  <b>! exceptional months where TS allowed to penetrated further North </b></td>
+</tr>
+<tr>
+<td>ndaysWinds</td>
+<td>integer           :: ndaysWinds        = 4         <b>! number of days in the 'winds' file to detect tropical storm (TS)</b></td>
+</tr>
+<tr>
+<td>nmonthsExceptionNH</td>
+<td>integer           :: nmonthsExceptionNH  = 0       <b>! MUST NOT BE INCLUDED IN NAMELIST!</b></td>
+</tr>
+<tr>
+<td>numObsBatches</td>
+<td>integer           :: numObsBatches     = 20        <b>! number of batches for calling interp setup</b></td>
+</tr>
+<tr>
+<td>seaWaterSelectCriteriaInsitu</td>
+<td>real(8)           :: seaWaterSelectCriteriaInsitu(3)     = (/5.d0, 25.d0, 30.d0/) <b>! sea water, insitu selection criteria</b></td>
+</tr>
+<tr>
+<td>seaWaterSelectCriteriaSatData</td>
+<td>real(8)           :: seaWaterSelectCriteriaSatData(3)    = (/5.d0, 25.d0, 30.d0/) <b>! sea water, satellite selection criteria</b></td>
+</tr>
+<tr>
+<td>seaWaterThreshold</td>
+<td>real(4)           :: seaWaterThreshold = 0.1       <b>! threshold to distinguish inland water from sea water</b></td>
+</tr>
+<tr>
+<td>separateSelectCriteria</td>
+<td>logical           :: separateSelectCriteria = .false. <b>! apply separate selection criteria: sea/inland waters; insitu/satellite</b></td>
+</tr>
+<tr>
+<td>smoothLenghtScale</td>
+<td>real(8)           :: smoothLenghtScale = 50000.    <b>! length scale. in m, to smooth the amplification error field</b></td>
+</tr>
+<tr>
+<td>timeInterpType_nl</td>
+<td>character(len=20) :: timeInterpType_nl = 'NEAREST' <b>! 'NEAREST' or 'LINEAR'</b></td>
+</tr>
+<tr>
+<td>timeStepWinds</td>
+<td>integer           :: timeStepWinds     = 6         <b>! in hours, winds are available every timeStepWinds-hours</b></td>
+</tr>
+<tr>
+<td>windForecastLeadtime</td>
+<td>integer           :: windForecastLeadtime = 6      <b>! in hours, lead time of wind forecast in the input file</b></td>
+</tr>
+</table>
+</p>
+<H3>NAMELIST: NAMICEBGCHECK (in file bgckOcean_mod.f90)</H3>
+<p style="padding:6px; color: black; background-color: white; border: black 2px solid">
+<table style="width:100%">
+<tr>
+<td>idStation</td>
+<td>character(len=12) :: idStation(numStationMax) = 'null'  <b>! list of obsSpaceData 'idStation' values to consider</b></td>
+</tr>
+<tr>
+<td>maxPerSwath</td>
+<td>integer           :: maxPerSwath = 200000               <b>! maximum number of data per swath</b></td>
+</tr>
+<tr>
+<td>maxSwath</td>
+<td>integer           :: maxSwath = 10                      <b>! maximum number of swaths</b></td>
+</tr>
+<tr>
+<td>numStation</td>
+<td>integer           :: numStation = MPC_missingValue_INT  <b>! MUST NOT BE INCLUDED IN NAMELIST!</b></td>
+</tr>
+<tr>
+<td>OmpRmsdThresh</td>
+<td>real              :: OmpRmsdThresh(numStationMax) = 0.0 <b>! rejection threshold applied to RMS of O-P for entire swath</b></td>
+</tr>
+</table>
+</p>
+<H3>NAMELIST: NAMBIASCONV (in file biascorrectionConv_mod.f90)</H3>
+<p style="padding:6px; color: black; background-color: white; border: black 2px solid">
+<table style="width:100%">
+<tr>
+<td>aiBiasActive</td>
+<td>logical :: aiBiasActive <b>! Control if bias correction is applied to aircraft data</b></td>
+</tr>
+<tr>
+<td>aiRevOnly</td>
+<td>logical :: aiRevOnly    <b>! Don't apply new correction but simply reverse any old corrections for AI</b></td>
+</tr>
+<tr>
+<td>gpBiasActive</td>
+<td>logical :: gpBiasActive <b>! Control if bias correction is applied to ground-based GPS data</b></td>
+</tr>
+<tr>
+<td>gpRevOnly</td>
+<td>logical :: gpRevOnly    <b>! Don't apply new correction but simply reverse any old corrections for GP</b></td>
+</tr>
+<tr>
+<td>uaBiasActive</td>
+<td>logical :: uaBiasActive <b>! Control if bias correction is applied to radiosonde data</b></td>
+</tr>
+<tr>
+<td>uaNbiasCat</td>
+<td>integer :: uaNbiasCat   <b>! Number of bias profile categories in UA bcor files, e.g. 1, or 2 for "asc" and "desc" phase categories</b></td>
+</tr>
+<tr>
+<td>uaNlatBands</td>
+<td>integer :: uaNlatBands  <b>! Number of latitude bands in ua_bcors_stype bcor file (= 5 or 1). Set to 1 if there are no latitude bands in file</b></td>
+</tr>
+<tr>
+<td>uaNprofsMin</td>
+<td>integer :: uaNprofsMin  <b>! Min number of bias profiles required for a station/stype/time-of-day to use biases 'ua_bcors_stn' as corrections</b></td>
+</tr>
+<tr>
+<td>uaRejUnBcor</td>
+<td>logical :: uaRejUnBcor  <b>! Set DATA QC flag bit 11 on to exclude uncorrected UA observations from assimilation </b></td>
+</tr>
+<tr>
+<td>uaRevOnly</td>
+<td>logical :: uaRevOnly    <b>! Don't apply new correction but simply reverse any old corrections for UA</b></td>
+</tr>
+</table>
+</p>
+<H3>NAMELIST: NAMSONDETYPES (in file biascorrectionConv_mod.f90)</H3>
+<p style="padding:6px; color: black; background-color: white; border: black 2px solid">
+<table style="width:100%">
+<tr>
+<td>nlNbSondes</td>
+<td>integer          :: nlNbSondes                  <b>! Number of radiosonde types in lists</b></td>
+</tr>
+<tr>
+<td>nlSondeCodes</td>
+<td>integer          :: nlSondeCodes(nSondesMax,20) <b>! List of radiosonde type codes</b></td>
+</tr>
+<tr>
+<td>nlSondeTypes</td>
+<td>character(len=8) :: nlSondeTypes(nSondesMax)    <b>! List of radiosonde type names</b></td>
+</tr>
+</table>
+</p>
+<H3>NAMELIST: NAMBIASSAT (in file biascorrectionSat_mod.f90)</H3>
+<p style="padding:6px; color: black; background-color: white; border: black 2px solid">
+<table style="width:100%">
+<tr>
+<td>allModeCsr</td>
+<td>logical  :: allModeCsr    <b>! flag to select "ALL" mode for CSR (GOES, SEVIRI, MVIRI, ABI, etc..)</b></td>
+</tr>
+<tr>
+<td>allModeHyperIr</td>
+<td>logical  :: allModeHyperIr<b>! flag to select "ALL" mode for hyperSpectral Infrared (AIRS, IASI, CrIS)</b></td>
+</tr>
+<tr>
+<td>allModeSsmis</td>
+<td>logical  :: allModeSsmis  <b>! flag to select "ALL" mode for SSMIS</b></td>
+</tr>
+<tr>
+<td>allModeTovs</td>
+<td>logical  :: allModeTovs   <b>! flag to select "ALL" mode for TOVS (AMSU-A, AMSU-B, MHS, ATMS, MWHS-2)</b></td>
+</tr>
+<tr>
+<td>bg_stddev</td>
+<td>real(8)  :: bg_stddev(NumPredictors) <b>! background error for predictors ("varbc" mode)</b></td>
+</tr>
+<tr>
+<td>biasActive</td>
+<td>logical  :: biasActive        <b>! logical variable to activate the module</b></td>
+</tr>
+<tr>
+<td>biasMode</td>
+<td>character(len=5) :: biasMode  <b>! "varbc" for varbc, "reg" to compute bias correction coefficients by regression, "apply" to compute and apply bias correction</b></td>
+</tr>
+<tr>
+<td>centerPredictors</td>
+<td>logical  :: centerPredictors      <b>! flag to transparently remove predictor mean in "reg" mode (more stable problem; very little impact on the result)</b></td>
+</tr>
+<tr>
+<td>cglobal</td>
+<td>character(len=3) :: cglobal(maxNumInst) <b>! a "global" parameter and</b></td>
+</tr>
+<tr>
+<td>cinst</td>
+<td>character(len=7) :: cinst(maxNumInst)   <b>! to read the bcif file for each instrument in cinst</b></td>
+</tr>
+<tr>
+<td>dumpToSqliteAfterThinning</td>
+<td>logical  :: dumpToSqliteAfterThinning  <b>! option to output all usefull parameters to sqlite files after thinning</b></td>
+</tr>
+<tr>
+<td>filterObs</td>
+<td>logical  :: filterObs         <b>! flag to activate additional observation filtering in "reg" mode. If it is .false. only observations selected for assimilation will be used in the linear regression</b></td>
+</tr>
+<tr>
+<td>mimicSatbcor</td>
+<td>logical  :: mimicSatbcor      <b>! in "reg" mode compute regression coefficients the same way as the original satbcor program</b></td>
+</tr>
+<tr>
+<td>nbscan</td>
+<td>integer          :: nbscan( maxNumInst)  <b>! the number of scan positions are necessary</b></td>
+</tr>
+<tr>
+<td>offlineMode</td>
+<td>logical  :: offlineMode   <b>! flag to select offline mode for bias correction computation</b></td>
+</tr>
+<tr>
+<td>outCoeffCov</td>
+<td>logical  :: outCoeffCov           <b>! flag to activate output of coefficients error covariance (useful for EnKF system)</b></td>
+</tr>
+<tr>
+<td>outOmFPredCov</td>
+<td>logical  :: outOmFPredCov         <b>! flag to activate output of O-F/predictors coefficients covariances and correlations</b></td>
+</tr>
+<tr>
+<td>outstats</td>
+<td>logical  :: outstats          <b>! flag to activate output of residual statistics in "reg" mode </b></td>
+</tr>
+<tr>
+<td>refreshBiasCorrection</td>
+<td>logical  :: refreshBiasCorrection <b>!flag to replace an existing bias correction with a new one</b></td>
+</tr>
+<tr>
+<td>removeBiasCorrection</td>
+<td>logical  :: removeBiasCorrection  <b>! flag to activate removal of an already present bias correction</b></td>
+</tr>
+<tr>
+<td>scanBiasCorLength</td>
+<td>real(8)  :: scanBiasCorLength     <b>! if positive and .not. mimicSatBcor use error correlation between scan positions with the given correlation length</b></td>
+</tr>
+<tr>
+<td>weightedEstimate</td>
+<td>logical  :: weightedestimate  <b>! flag to activate radiosonde weighting for bias correction computation in "reg" mode</b></td>
+</tr>
+</table>
+</p>
+<H3>NAMELIST: NAMBMAT1D (in file bmatrix1DVar_mod.f90)</H3>
+<p style="padding:6px; color: black; background-color: white; border: black 2px solid">
+<table style="width:100%">
+<tr>
+<td>includeAnlVar</td>
+<td>character(len=4) :: includeAnlVar(vnl_numvarmax)     <b>! list of variable names to include in B matrix</b></td>
+</tr>
+<tr>
+<td>nEns</td>
+<td>integer          :: nEns                             <b>! ensemble size</b></td>
+</tr>
+<tr>
+<td>numIncludeAnlVar</td>
+<td>integer :: numIncludeAnlVar                          <b>! MUST NOT BE INCLUDED IN NAMELIST!</b></td>
+</tr>
+<tr>
+<td>scaleFactorENs</td>
+<td>real(8) :: scaleFactorEns(vco_maxNumLevels)          <b>! scaling factors for Ens variances</b></td>
+</tr>
+<tr>
+<td>scaleFactorEnsHumidity</td>
+<td>real(8) :: scaleFactorEnsHumidity(vco_maxNumLevels)  <b>! scaling factors for Ens humidity variances</b></td>
+</tr>
+<tr>
+<td>scaleFactorHI</td>
+<td>real(8) :: scaleFactorHI(vco_maxNumLevels)           <b>! scaling factors for HI variances</b></td>
+</tr>
+<tr>
+<td>scaleFactorHIHumidity</td>
+<td>real(8) :: scaleFactorHIHumidity(vco_maxNumLevels)   <b>! scaling factors for HI humidity variances</b></td>
+</tr>
+<tr>
+<td>vLocalize</td>
+<td>real(8)          :: vlocalize                        <b>! vertical localization length scale</b></td>
+</tr>
+</table>
+</p>
+<H3>NAMELIST: NAMBDIFF (in file bmatrixdiff_mod.f90)</H3>
+<p style="padding:6px; color: black; background-color: white; border: black 2px solid">
+<table style="width:100%">
+<tr>
+<td>corr_len</td>
+<td>real    :: corr_len( maxNumVars )  <b>! Horizontal correlation length scale (km)</b></td>
+</tr>
+<tr>
+<td>homogeneous_std</td>
+<td>real(8)          :: homogeneous_std(maxNumVars) <b>! homogeneous standard deviation (when stddevMode is 'HOMO')</b></td>
+</tr>
+<tr>
+<td>latIgnoreFraction</td>
+<td>real(8) :: latIgnoreFraction       <b>! Relative zonal grid spacing limit where lats near each numerical pole are ignored</b></td>
+</tr>
+<tr>
+<td>nsamp</td>
+<td>integer :: nsamp(maxNumVars)       <b>! Number of samples in the estimation of the normalization factors by randomization</b></td>
+</tr>
+<tr>
+<td>scaleFactor</td>
+<td>real(8)          :: scaleFactor(maxNumVars)     <b>! scale factor applied to variances</b></td>
+</tr>
+<tr>
+<td>stab</td>
+<td>real    :: stab( maxNumVars )      <b>! Stability criteria (definitely < 0.5)</b></td>
+</tr>
+<tr>
+<td>stddevMode</td>
+<td>character(len=4) :: stddevMode                  <b>! can be 'GD2D' or 'HOMO'</b></td>
+</tr>
+<tr>
+<td>useImplicit</td>
+<td>logical :: useImplicit(maxNumVars) <b>! choose to use implicit formulation of diffusion operator (.true.) or explicit version (.false.)</b></td>
+</tr>
+</table>
+</p>
+<H3>NAMELIST: NAMBEN (in file bmatrixensemble_mod.f90)</H3>
+<p style="padding:6px; color: black; background-color: white; border: black 2px solid">
+<table style="width:100%">
+<tr>
+<td>advDiagnostic</td>
+<td>logical             :: advDiagnostic                          <b>! when `.true.` write diagnostic info related to advection to files </b></td>
+</tr>
+<tr>
+<td>advectFactorAssimWindow</td>
+<td>real(8)             :: advectFactorAssimWindow(vco_maxNumLevels) <b>! level-dependent scaling of winds used to advect localization</b></td>
+</tr>
+<tr>
+<td>advectFactorFSOFcst</td>
+<td>real(8)             :: advectFactorFSOFcst(vco_maxNumLevels)     <b>! level-dependent scaling of winds used to advect localization</b></td>
+</tr>
+<tr>
+<td>advectStartTimeIndexAssimWindow</td>
+<td>character(len=32)   :: advectStartTimeIndexAssimWindow        <b>! time index where advection originates from "first" or "middle"</b></td>
+</tr>
+<tr>
+<td>advectTypeAssimWindow</td>
+<td>character(len=32)   :: advectTypeAssimWindow                  <b>! what is advected in assim. window: "amplitude" or "ensPertAnlInc"</b></td>
+</tr>
+<tr>
+<td>ctrlVarHumidity</td>
+<td>character(len=2)    :: ctrlVarHumidity                        <b>! name of humidity variable used for ensemble perturbations (LQ or HU)</b></td>
+</tr>
+<tr>
+<td>ensContainsFullField</td>
+<td>logical             :: ensContainsFullField                   <b>! indicates full fields and not perturbations are in the ens. files</b></td>
+</tr>
+<tr>
+<td>ensDateOfValidity</td>
+<td>integer             :: ensDateOfValidity                      <b>! when set to -1, date in ens. files is ignored (only for 3D ens.)</b></td>
+</tr>
+<tr>
+<td>ensDiagnostic</td>
+<td>logical             :: ensDiagnostic                          <b>! when `.true.` write diagnostic info related to ens. to files</b></td>
+</tr>
+<tr>
+<td>enspathname</td>
+<td>character(len=256)  :: enspathname                            <b>! path where ensemble members are located (usually ./ensemble)</b></td>
+</tr>
+<tr>
+<td>footprintRadius</td>
+<td>real(8)             :: footprintRadius                        <b>! parameter for variance smoothing (in meters)</b></td>
+</tr>
+<tr>
+<td>footprintTopoThreshold</td>
+<td>real(8)             :: footprintTopoThreshold                 <b>! parameter for variance smoothing (in meters)</b></td>
+</tr>
+<tr>
+<td>hInterpolationDegree</td>
+<td>character(len=12)   :: hInterpolationDegree                   <b>! select degree of horizontal interpolation (if needed)</b></td>
+</tr>
+<tr>
+<td>hLocalize</td>
+<td>real(8)             :: hLocalize(maxNumLocalLength)           <b>! horiz. localization length scale for each waveband (in km)</b></td>
+</tr>
+<tr>
+<td>huMinValue</td>
+<td>real(8)             :: huMinValue                             <b>! minimum humidity value imposed on ensemble members </b></td>
+</tr>
+<tr>
+<td>IncludeAnlVar</td>
+<td>character(len=4)    :: includeAnlVar(vnl_numvarmax)           <b>! list of state variables for this ensemble B matrix; use all if blank</b></td>
+</tr>
+<tr>
+<td>keepAmplitude</td>
+<td>logical             :: keepAmplitude                          <b>! activate storage of ens. amplitudes in instance of struct_ens</b></td>
+</tr>
+<tr>
+<td>LocalizationType</td>
+<td>character(len=256)  :: localizationType                       <b>! "LevelDependent", "ScaleDependent" or "ScaleDependentWithSpectralLoc"</b></td>
+</tr>
+<tr>
+<td>nEns</td>
+<td>integer             :: nEns                                   <b>! number of ensemble members</b></td>
+</tr>
+<tr>
+<td>ntrunc</td>
+<td>integer             :: ntrunc                                 <b>! spectral truncation used for horizontal localization function</b></td>
+</tr>
+<tr>
+<td>removeSubEnsMeans</td>
+<td>logical             :: removeSubEnsMeans                      <b>! remove mean of each subsensemble defined by "subEnsembleIndex.txt"</b></td>
+</tr>
+<tr>
+<td>scaleFactor</td>
+<td>real(8)             :: scaleFactor(vco_maxNumLevels)             <b>! level-dependent scaling of variances for all variables </b></td>
+</tr>
+<tr>
+<td>scaleFactorHumidity</td>
+<td>real(8)             :: scaleFactorHumidity(vco_maxNumLevels)     <b>! level-dependent scaling of variances for humidity</b></td>
+</tr>
+<tr>
+<td>transformVarKindCH</td>
+<td>character(len=20)   :: transformVarKindCH                     <b>! name of transform performed on chemistry-related variables in ens.</b></td>
+</tr>
+<tr>
+<td>useCmatrixOnly</td>
+<td>logical             :: useCmatrixOnly                         <b>! activate normalization of ens. perturbations by ens. stddev</b></td>
+</tr>
+<tr>
+<td>varianceSmoothing</td>
+<td>character(len=24)   :: varianceSmoothing                      <b>! "none", "horizMean", "footprint" or "footprintLandSeaTopo"</b></td>
+</tr>
+<tr>
+<td>vLocalize</td>
+<td>real(8)             :: vLocalize(maxNumLocalLength)           <b>! vert. localization length scale for each waveband (in scale heights)</b></td>
+</tr>
+<tr>
+<td>waveBandIndexSelected</td>
+<td>integer             :: waveBandIndexSelected                  <b>! for multiple NAMBEN blocks, waveband index of this block</b></td>
+</tr>
+<tr>
+<td>waveBandPeaks</td>
+<td>integer             :: waveBandPeaks(maxNumLocalLength)       <b>! total wavenumber corresponding to peak of each waveband for SDL</b></td>
+</tr>
+</table>
+</p>
+<H3>NAMELIST: NAMBHI (in file bmatrixhi_mod.f90)</H3>
+<p style="padding:6px; color: black; background-color: white; border: black 2px solid">
+<table style="width:100%">
+<tr>
+<td>ntrunc</td>
+<td>integer             :: ntrunc                          <b>! spectral trunction</b></td>
+</tr>
+<tr>
+<td>numModeZero</td>
+<td>integer             :: numModeZero                     <b>! number of eigenmodes to set to zero</b></td>
+</tr>
+<tr>
+<td>ReadWrite_sqrt</td>
+<td>logical             :: ReadWrite_sqrt                  <b>! choose to read or write the sqrt of correlations</b></td>
+</tr>
+<tr>
+<td>scaleFactor</td>
+<td>real(8)             :: scaleFactor(vco_maxNumLevels)   <b>! scale factor applied to variances (all variables)</b></td>
+</tr>
+<tr>
+<td>scaleFactorCC</td>
+<td>real(8)             :: scaleFactorCC(vco_maxNumLevels) <b>! scale factor applied to velocity potential</b></td>
+</tr>
+<tr>
+<td>scaleFactorLQ</td>
+<td>real(8)             :: scaleFactorLQ(vco_maxNumLevels) <b>! scale factor applied to humidity</b></td>
+</tr>
+<tr>
+<td>scaleTG</td>
+<td>logical             :: scaleTG                         <b>! scale factor applied to skin temperature</b></td>
+</tr>
+<tr>
+<td>squareSqrt</td>
+<td>logical             :: squareSqrt                      <b>! choose to use the 'square' formulation of corr matrix (not used)</b></td>
+</tr>
+<tr>
+<td>stddevMode</td>
+<td>character(len=4)    :: stddevMode                      <b>! can be 'GD2D' or 'SP2D'</b></td>
+</tr>
+<tr>
+<td>TweakTG</td>
+<td>logical             :: TweakTG                         <b>! adjust skin temp variance based on land-sea mask and sea ice</b></td>
+</tr>
+</table>
+</p>
+<H3>NAMELIST: NAMBURP_FILTER_CONV (in file burpread_mod.f90)</H3>
+<p style="padding:6px; color: black; background-color: white; border: black 2px solid">
+<table style="width:100%">
+<tr>
+<td>BLISTELEMENTS</td>
+<td>INTEGER          :: BLISTELEMENTS(maxElements) <b>! list of bufr element ids to read</b></td>
+</tr>
+<tr>
+<td>ENFORCE_CLASSIC_SONDES</td>
+<td>LOGICAL          :: ENFORCE_CLASSIC_SONDES       <b>! choose to ignore high-res raobs lat/lon/time information</b></td>
+</tr>
+<tr>
+<td>NELEMS</td>
+<td>INTEGER          :: NELEMS           <b>! MUST NOT BE INCLUDED IN NAMELIST!</b></td>
+</tr>
+<tr>
+<td>READ_QI_GA_MT_SW</td>
+<td>LOGICAL          :: READ_QI_GA_MT_SW <b>! read additional QC-related elements for AMV obs</b></td>
+</tr>
+<tr>
+<td>UA_FLAG_HIGH_PRECISION_TT_ES</td>
+<td>LOGICAL          :: UA_FLAG_HIGH_PRECISION_TT_ES <b>! choose to read flag of higher precision elements for raobs</b></td>
+</tr>
+<tr>
+<td>UA_HIGH_PRECISION_TT_ES</td>
+<td>LOGICAL          :: UA_HIGH_PRECISION_TT_ES      <b>! choose to use higher precision elements for raobs </b></td>
+</tr>
+</table>
+</p>
+<H3>NAMELIST: NAMBURP_FILTER_SFC (in file burpread_mod.f90)</H3>
+<p style="padding:6px; color: black; background-color: white; border: black 2px solid">
+<table style="width:100%">
+<tr>
+<td>BLISTELEMENTS_SFC</td>
+<td>INTEGER          :: BLISTELEMENTS_SFC(maxElements) <b>! list of bufr element ids to read</b></td>
+</tr>
+<tr>
+<td>LISTE_ELE_GPS</td>
+<td>INTEGER          :: LISTE_ELE_GPS(maxElements) <b>! list of bufr element ids to read</b></td>
+</tr>
+<tr>
+<td>NELEMS_GPS</td>
+<td>INTEGER          :: NELEMS_GPS       <b>! MUST NOT BE INCLUDED IN NAMELIST!</b></td>
+</tr>
+<tr>
+<td>NELEMS_SFC</td>
+<td>INTEGER          :: NELEMS_SFC       <b>! MUST NOT BE INCLUDED IN NAMELIST!</b></td>
+</tr>
+</table>
+</p>
+<H3>NAMELIST: NAMBURP_FILTER_TOVS (in file burpread_mod.f90)</H3>
+<p style="padding:6px; color: black; background-color: white; border: black 2px solid">
+<table style="width:100%">
+<tr>
+<td>BLISTELEMENTS</td>
+<td>INTEGER          :: BLISTELEMENTS(maxElements) <b>! list of bufr element ids to read</b></td>
+</tr>
+<tr>
+<td>NELEMS</td>
+<td>INTEGER          :: NELEMS           <b>! MUST NOT BE INCLUDED IN NAMELIST!</b></td>
+</tr>
+</table>
+</p>
+<H3>NAMELIST: NAMBURP_FILTER_CHM_SFC (in file burpread_mod.f90)</H3>
+<p style="padding:6px; color: black; background-color: white; border: black 2px solid">
+<table style="width:100%">
+<tr>
+<td>BLISTELEMENTS_SFC</td>
+<td>INTEGER          :: BLISTELEMENTS_SFC(maxElements) <b>! list of bufr element ids to read</b></td>
+</tr>
+<tr>
+<td>NELEMS_SFC</td>
+<td>INTEGER          :: NELEMS_SFC       <b>! MUST NOT BE INCLUDED IN NAMELIST!</b></td>
+</tr>
+</table>
+</p>
+<H3>NAMELIST: NAMBURP_UPDATE (in file burpread_mod.f90)</H3>
+<p style="padding:6px; color: black; background-color: white; border: black 2px solid">
+<table style="width:100%">
+<tr>
+<td>BITEMLIST</td>
+<td>CHARACTER(len=3) :: BITEMLIST(maxItems) <b>! list of blocks to include in updated file (e.g. 'OMP','OMA')</b></td>
+</tr>
+<tr>
+<td>BN_ITEMS</td>
+<td>INTEGER          :: BN_ITEMS         <b>! MUST NOT BE INCLUDED IN NAMELIST!</b></td>
+</tr>
+<tr>
+<td>TYPE_RESUME</td>
+<td>CHARACTER(len=7) :: TYPE_RESUME = 'UNKNOWN'      <b>! can be 'BGCKALT', 'POSTALT' or 'DERIALT'</b></td>
+</tr>
+</table>
+</p>
+<H3>NAMELIST: NAMADDTOBURP (in file burpread_mod.f90)</H3>
+<p style="padding:6px; color: black; background-color: white; border: black 2px solid">
+<table style="width:100%">
+<tr>
+<td>addBtClearToBurp</td>
+<td>logical          :: addBtClearToBurp <b>! choose to write clear-sky radiance to file in all-sky mode</b></td>
+</tr>
+<tr>
+<td>btClearElementId</td>
+<td>integer          :: btClearElementId <b>! bufr element id of clear-sky radiance in all-sky mode</b></td>
+</tr>
+<tr>
+<td>clwFgElementId</td>
+<td>integer          :: clwFgElementId   <b>! bufr element id of cloud liquid water from background in all-sky mode</b></td>
+</tr>
+<tr>
+<td>siFgElementId</td>
+<td>integer          :: siFgElementId    <b>! bufr element id of scattering index in all-sky mode</b></td>
+</tr>
+</table>
+</p>
+<H3>NAMELIST: NAMCALCSTATS_GLB (in file calcstatsglb_mod.f90)</H3>
+<p style="padding:6px; color: black; background-color: white; border: black 2px solid">
+<table style="width:100%">
+<tr>
+<td>ntrunc</td>
+<td>integer :: ntrunc</td>
+</tr>
+<tr>
+<td>waveBandPeaks</td>
+<td>integer :: waveBandPeaks(maxNumLocalLength) <b>! For wave band decomposition</b></td>
+</tr>
+</table>
+</p>
+<H3>NAMELIST: NAMCOMPUTEBHI (in file calcstatsglb_mod.f90)</H3>
+<p style="padding:6px; color: black; background-color: white; border: black 2px solid">
+<table style="width:100%">
+<tr>
+<td>formulation</td>
+<td>character(len=12) :: formulation <b>! Bhi formulation</b></td>
+</tr>
+</table>
+</p>
+<H3>NAMELIST: NAMTOOLBOX (in file calcstatsglb_mod.f90)</H3>
+<p style="padding:6px; color: black; background-color: white; border: black 2px solid">
+<table style="width:100%">
+<tr>
+<td>doSpectralFilter</td>
+<td>logical :: doSpectralFilter</td>
+</tr>
+<tr>
+<td>ensContainsFullField</td>
+<td>logical :: ensContainsFullField</td>
+</tr>
+<tr>
+<td>tool</td>
+<td>character(len=60) :: tool</td>
+</tr>
+</table>
+</p>
+<H3>NAMELIST: NAMHVCORREL_LOCAL (in file calcstatsglb_mod.f90)</H3>
+<p style="padding:6px; color: black; background-color: white; border: black 2px solid">
+<table style="width:100%">
+<tr>
+<td>blockpadding</td>
+<td>integer :: blockpadding</td>
+</tr>
+<tr>
+<td>nirefpoint</td>
+<td>integer :: nirefpoint</td>
+</tr>
+<tr>
+<td>njrefpoint</td>
+<td>integer :: njrefpoint</td>
+</tr>
+</table>
+</p>
+<H3>NAMELIST: NAMCALCSTATS_LAM (in file calcstatslam_mod.f90)</H3>
+<p style="padding:6px; color: black; background-color: white; border: black 2px solid">
+<table style="width:100%">
+<tr>
+<td>correlatedVariables</td>
+<td>character(len=4)  :: correlatedVariables(vnl_numvarmax)</td>
+</tr>
+<tr>
+<td>grd_ext_x</td>
+<td>integer :: grd_ext_x</td>
+</tr>
+<tr>
+<td>grd_ext_y</td>
+<td>integer :: grd_ext_y</td>
+</tr>
+<tr>
+<td>hlocalize_humidity</td>
+<td>real(8) :: hlocalize_humidity <b>! horizontal length scale (in km)</b></td>
+</tr>
+<tr>
+<td>hlocalize_mass</td>
+<td>real(8) :: hlocalize_mass     <b>! horizontal length scale (in km)</b></td>
+</tr>
+<tr>
+<td>hLocalize_other</td>
+<td>real(8) :: hlocalize_other    <b>! horizontal length scale (in km)</b></td>
+</tr>
+<tr>
+<td>hLocalize_wind</td>
+<td>real(8) :: hlocalize_wind     <b>! horizontal length scale (in km)</b></td>
+</tr>
+<tr>
+<td>NormByStdDev</td>
+<td>logical :: NormByStdDev</td>
+</tr>
+<tr>
+<td>nTrunc</td>
+<td>integer :: nTrunc</td>
+</tr>
+<tr>
+<td>scaleFactor</td>
+<td>real(8) :: scaleFactor(vco_maxNumLevels)</td>
+</tr>
+<tr>
+<td>SetTGtoZero</td>
+<td>logical :: SetTGtoZero</td>
+</tr>
+<tr>
+<td>SpectralWeights</td>
+<td>character(len=12) :: SpectralWeights</td>
+</tr>
+<tr>
+<td>vlocalize_humidity</td>
+<td>real(8) :: vlocalize_humidity <b>! vertical length scale (in units of ln(Pressure))</b></td>
+</tr>
+<tr>
+<td>vlocalize_mass</td>
+<td>real(8) :: vlocalize_mass     <b>! vertical length scale (in units of ln(Pressure))</b></td>
+</tr>
+<tr>
+<td>vlocalize_other</td>
+<td>real(8) :: vlocalize_other    <b>! vertical length scale (in units of ln(Pressure))</b></td>
+</tr>
+<tr>
+<td>vLocalize_wind</td>
+<td>real(8) :: vLocalize_wind     <b>! vertical length scale (in units of ln(Pressure))</b></td>
+</tr>
+<tr>
+<td>WindTransform</td>
+<td>character(len=12) :: WindTransform</td>
+</tr>
+<tr>
+<td>writeEnsPert</td>
+<td>logical :: writeEnsPert</td>
+</tr>
+</table>
+</p>
+<H3>NAMELIST: NAMCODTYP (in file codtyp_mod.f90)</H3>
+<p style="padding:6px; color: black; background-color: white; border: black 2px solid">
+<table style="width:100%">
+<tr>
+<td>cnames</td>
+<td>character(len=codtyp_name_length) :: cnames(codtyp_maxNumber) <b>! names for new additions to standard codtype list</b></td>
+</tr>
+<tr>
+<td>icod</td>
+<td>integer                           :: icod (codtyp_maxNumber)  <b>! codes for new additions to standard codtype list</b></td>
+</tr>
+</table>
+</p>
+<H3>NAMELIST: NAMSTATE (in file columndata_mod.f90)</H3>
+<p style="padding:6px; color: black; background-color: white; border: black 2px solid">
+<table style="width:100%">
+<tr>
+<td>abortOnMpiImbalance</td>
+<td>logical          :: abortOnMpiImbalance             <b>! choose to abort program when MPI imbalance is too large</b></td>
+</tr>
+<tr>
+<td>addHeightSfcOffset</td>
+<td>logical :: addHeightSfcOffset             <b>! choose to add non-zero height offset to diagnostic (sfc) levels</b></td>
+</tr>
+<tr>
+<td>anltime_bin</td>
+<td>character(len=8) :: anltime_bin                     <b>! can be 'MIDDLE', 'FIRST' or 'LAST'</b></td>
+</tr>
+<tr>
+<td>anlvar</td>
+<td>character(len=4) :: anlvar(vnl_numvarmax)           <b>! list of state variable names</b></td>
+</tr>
+<tr>
+<td>conversionVarKindCHtoMicrograms</td>
+<td>logical          :: conversionVarKindCHtoMicrograms <b>! activate unit conversion for CH variables</b></td>
+</tr>
+<tr>
+<td>minValVarKindCH</td>
+<td>real(8) :: minValVarKindCH(vnl_numVarMax) <b>! variable-dependent minimum value applied to chemistry variables</b></td>
+</tr>
+<tr>
+<td>rhumin</td>
+<td>real(8) :: rhumin                         <b>! minimum humidity value imposed after interpolation to columns</b></td>
+</tr>
+</table>
+</p>
+<H3>NAMELIST: NAMENSPOSTPROCMODULE (in file enspostprocess_mod.f90)</H3>
+<p style="padding:6px; color: black; background-color: white; border: black 2px solid">
+<table style="width:100%">
+<tr>
+<td>alphaRandomPert</td>
+<td>real(8)  :: alphaRandomPert      <b>! Random perturbation additive inflation coeff (0->1)</b></td>
+</tr>
+<tr>
+<td>alphaRandomPertSubSample</td>
+<td>real(8)  :: alphaRandomPertSubSample <b>! Random pert. additive inflation coeff for medium-range fcsts</b></td>
+</tr>
+<tr>
+<td>alphaRTPP</td>
+<td>real(8)  :: alphaRTPP            <b>! RTPP coefficient (between 0 and 1; 0 means no relaxation)</b></td>
+</tr>
+<tr>
+<td>alphaRTPS</td>
+<td>real(8)  :: alphaRTPS            <b>! RTPS coefficient (between 0 and 1; 0 means no relaxation)</b></td>
+</tr>
+<tr>
+<td>etiket_anl</td>
+<td>character(len=8)  :: etiket_anl <b>! etiket for ensemble output files (member number will be appended)</b></td>
+</tr>
+<tr>
+<td>etiket_anlmean</td>
+<td>character(len=12) :: etiket_anlmean <b>! etiket for mean of analyses and mean of increments files</b></td>
+</tr>
+<tr>
+<td>etiket_anlmeanpert</td>
+<td>character(len=12) :: etiket_anlmeanpert <b>! etiket for mean of perturbed analyses</b></td>
+</tr>
+<tr>
+<td>etiket_anlmean_raw</td>
+<td>character(len=12) :: etiket_anlmean_raw <b>! etiket for mean of raw analyses</b></td>
+</tr>
+<tr>
+<td>etiket_anlrms</td>
+<td>character(len=12) :: etiket_anlrms  <b>! etiket for rms of analyses files</b></td>
+</tr>
+<tr>
+<td>etiket_anlrmspert</td>
+<td>character(len=12) :: etiket_anlrmspert  <b>! etiket for rms of perturbed analyses</b></td>
+</tr>
+<tr>
+<td>etiket_anlrms_raw</td>
+<td>character(len=12) :: etiket_anlrms_raw  <b>! etiket for rms of raw analyses</b></td>
+</tr>
+<tr>
+<td>etiket_inc</td>
+<td>character(len=8)  :: etiket_inc <b>! etiket for ensemble output files (member number will be appended)</b></td>
+</tr>
+<tr>
+<td>etiket_trl</td>
+<td>character(len=8)  :: etiket_trl <b>! etiket for ensemble output files (member number will be appended)</b></td>
+</tr>
+<tr>
+<td>etiket_trlmean</td>
+<td>character(len=12) :: etiket_trlmean     <b>! etiket for mean of trials</b></td>
+</tr>
+<tr>
+<td>etiket_trlrms</td>
+<td>character(len=12) :: etiket_trlrms      <b>! etiket for rms of trials</b></td>
+</tr>
+<tr>
+<td>huLimitsBeforeRecenter</td>
+<td>logical  :: huLimitsBeforeRecenter   <b>! Choose to apply humidity limits before recentering</b></td>
+</tr>
+<tr>
+<td>imposeRttovHuLimits</td>
+<td>logical  :: imposeRttovHuLimits    <b>! switch for choosing to impose the RTTOV limits on humidity</b></td>
+</tr>
+<tr>
+<td>imposeSaturationLimit</td>
+<td>logical  :: imposeSaturationLimit  <b>! switch for choosing to impose saturation limit of humidity</b></td>
+</tr>
+<tr>
+<td>includeYearInSeed</td>
+<td>logical  :: includeYearInSeed    <b>! switch for choosing to include year in default random seed</b></td>
+</tr>
+<tr>
+<td>numBits</td>
+<td>integer  :: numBits <b>! number of bits when writing ensemble mean and spread</b></td>
+</tr>
+<tr>
+<td>numMembersToRecenter</td>
+<td>integer  :: numMembersToRecenter   <b>! number of members that get recentered on supplied analysis</b></td>
+</tr>
+<tr>
+<td>randomSeed</td>
+<td>integer  :: randomSeed           <b>! seed used for random perturbation additive inflation</b></td>
+</tr>
+<tr>
+<td>useAnalIncMask</td>
+<td>logical  :: useAnalIncMask        <b>! mask out the increment on the pilot zone</b></td>
+</tr>
+<tr>
+<td>useMemberAsHuRefState</td>
+<td>logical  :: useMemberAsHuRefState <b>! use each member as reference state for variable transforms </b></td>
+</tr>
+<tr>
+<td>useOptionTableRecenter</td>
+<td>logical  :: useOptionTableRecenter <b>! use values in the optiontable file</b></td>
+</tr>
+<tr>
+<td>weightRecenter</td>
+<td>real(8)  :: weightRecenter(vco_maxNumLevels)  <b>! weight applied to recentering increment (between 0 and 1; 0 means no recentering)</b></td>
+</tr>
+<tr>
+<td>weightRecenterLand</td>
+<td>real(8)  :: weightRecenterLand     <b>! weight applied to recentering increment for land variables</b></td>
+</tr>
+<tr>
+<td>writeRawAnalStats</td>
+<td>logical  :: writeRawAnalStats     <b>! write mean and standard deviation of the raw analysis ensemble</b></td>
+</tr>
+<tr>
+<td>writeSubSample</td>
+<td>logical  :: writeSubSample       <b>! write sub-sample members for initializing medium-range fcsts</b></td>
+</tr>
+<tr>
+<td>writeSubSampleUnPert</td>
+<td>logical  :: writeSubSampleUnPert <b>! write unperturbed sub-sample members for medium-range fcsts</b></td>
+</tr>
+</table>
+</p>
+<H3>NAMELIST: NAMFSO (in file fsoi_mod.f90)</H3>
+<p style="padding:6px; color: black; background-color: white; border: black 2px solid">
+<table style="width:100%">
+<tr>
+<td>forecastPath</td>
+<td>character(len=256)  :: forecastPath  <b>! relative path where forecast files are stored</b></td>
+</tr>
+<tr>
+<td>fsoMode</td>
+<td>character(len=4)    :: fsoMode       <b>! type of FSOI algorithm: can be 'HFSO' or 'EFSO'</b></td>
+</tr>
+<tr>
+<td>includeHUnorm</td>
+<td>logical             :: includeHUnorm <b>! choose to include humidity in forecast error norm</b></td>
+</tr>
+<tr>
+<td>includeP0norm</td>
+<td>logical             :: includeP0norm <b>! choose to include surface pressure in forecast error norm</b></td>
+</tr>
+<tr>
+<td>includeTGnorm</td>
+<td>logical             :: includeTGnorm <b>! choose to include surface skin temperature in forecast error norm</b></td>
+</tr>
+<tr>
+<td>includeTTnorm</td>
+<td>logical             :: includeTTnorm <b>! choose to include temperature in forecast error norm</b></td>
+</tr>
+<tr>
+<td>includeUVnorm</td>
+<td>logical             :: includeUVnorm <b>! choose to include winds in forecast error norm</b></td>
+</tr>
+<tr>
+<td>latMaxNorm</td>
+<td>real(8)             :: latMaxNorm    <b>! maximum latitude for area included in forecast error norm (in degrees)</b></td>
+</tr>
+<tr>
+<td>latMinNorm</td>
+<td>real(8)             :: latMinNorm    <b>! minimum latitude for area included in forecast error norm (in degrees)</b></td>
+</tr>
+<tr>
+<td>leadTime</td>
+<td>real(8)             :: leadTime      <b>! lead time of forecast (in hours)</b></td>
+</tr>
+<tr>
+<td>lonMaxNorm</td>
+<td>real(8)             :: lonMaxNorm    <b>! maximum longitude for area included in forecast error norm (in degrees)</b></td>
+</tr>
+<tr>
+<td>lonMinNorm</td>
+<td>real(8)             :: lonMinNorm    <b>! minimum longitude for area included in forecast error norm (in degrees)</b></td>
+</tr>
+<tr>
+<td>nitermax</td>
+<td>integer             :: nitermax      <b>! maximum number of minimization iterations</b></td>
+</tr>
+<tr>
+<td>nsimmax</td>
+<td>integer             :: nsimmax       <b>! maximum number of cost function evaluations during minimization</b></td>
+</tr>
+<tr>
+<td>nvamaj</td>
+<td>integer             :: nvamaj        <b>! number of vector pairs to store in memory for Hessian approximation</b></td>
+</tr>
+<tr>
+<td>rdf1fac</td>
+<td>real(8)             :: rdf1fac       <b>! factor applied to initial cost function value to approximate final value</b></td>
+</tr>
+<tr>
+<td>repsg</td>
+<td>real(8)             :: repsg         <b>! relative gradient amplitude used as stopping criteria</b></td>
+</tr>
+</table>
+</p>
+<H3>NAMELIST: NAMGPSRO (in file gps_mod.f90)</H3>
+<p style="padding:6px; color: black; background-color: white; border: black 2px solid">
+<table style="width:100%">
+<tr>
+<td>BGCKBAND</td>
+<td>REAL(8) :: BGCKBAND         <b>! Maximum allowed deviation abs(O-P)/P          (default 0.05)</b></td>
+</tr>
+<tr>
+<td>gpsroBNorm</td>
+<td>LOGICAL :: gpsroBNorm       <b>! Choose to normalize based on B=H(x) (default=.True.), or approximate exponential reference</b></td>
+</tr>
+<tr>
+<td>gpsroEotvos</td>
+<td>LOGICAL :: gpsroEotvos      <b>! Add an operator-only Eotvos correction to local gravity (shift of altitudes, default False)</b></td>
+</tr>
+<tr>
+<td>gpsroError</td>
+<td>character(len=20) :: gpsroError <b>! key for using dynamic/static refractivity error estimation (default 'DYNAMIC')</b></td>
+</tr>
+<tr>
+<td>GPSRO_MAXPRFSIZE</td>
+<td>INTEGER :: GPSRO_MAXPRFSIZE <b>! Maximal number of data that is expected from a profile (default 300)</b></td>
+</tr>
+<tr>
+<td>gpsroNsigma</td>
+<td>REAL(8) :: gpsroNsigma      <b>! Factor applied to observation error for background departure check when gpsroBNorm is .true. (default 1.d6)</b></td>
+</tr>
+<tr>
+<td>HSFMIN</td>
+<td>REAL(8) :: HSFMIN           <b>! Minimum allowed MSL height of an obs          (default 0 m)</b></td>
+</tr>
+<tr>
+<td>HTPMAX</td>
+<td>REAL(8) :: HTPMAX           <b>! Maximum allowed MSL height of an obs          (default 70000 m)</b></td>
+</tr>
+<tr>
+<td>HTPMAXER</td>
+<td>REAL(8) :: HTPMAXER         <b>! Maximum MSL height to evaluate the obs error  (default to HTPMAX)</b></td>
+</tr>
+<tr>
+<td>LEVELGPSRO</td>
+<td>INTEGER :: LEVELGPSRO       <b>! Data level to use (1 for bending angle, 2 for refractivity)</b></td>
+</tr>
+<tr>
+<td>SURFMIN</td>
+<td>REAL(8) :: SURFMIN          <b>! Minimum allowed distance to the model surface (default 0 m)</b></td>
+</tr>
+<tr>
+<td>WGPS</td>
+<td>REAL(4) :: WGPS(0:1023,4)   <b>! WGPS values for each satellite sensor</b></td>
+</tr>
+</table>
+</p>
+<H3>NAMELIST: NAMGPSGB (in file gps_mod.f90)</H3>
+<p style="padding:6px; color: black; background-color: white; border: black 2px solid">
+<table style="width:100%">
+<tr>
+<td>DZMAX</td>
+<td>REAL(8) :: DZMAX = 1000.0D0 <b>! Maximum DZ (m) over which ZTD rejected due to topography (when LTOPOFILT = .TRUE.)</b></td>
+</tr>
+<tr>
+<td>DZMIN</td>
+<td>REAL(8) :: DZMIN            <b>! Minimum DZ = Zobs-Zmod (m) for which DZ adjustment to ZTD will be made</b></td>
+</tr>
+<tr>
+<td>IREFOPT</td>
+<td>INTEGER :: IREFOPT          <b>! 1 = conventional expression for N using k1,k2,k3; 2 = Aparicio & Laroche N (incl. compressibility)</b></td>
+</tr>
+<tr>
+<td>IZTDOP</td>
+<td>INTEGER :: IZTDOP           <b>! 1 = use stored ZTD profiles to get ZTDmod; 2 = Vedel & Huang ZTD formulation: ZTDmod = ZHD(Pobs) + ZWD</b></td>
+</tr>
+<tr>
+<td>L1OBS</td>
+<td>LOGICAL :: L1OBS            <b>! Choose to select a single ZTD observation</b></td>
+</tr>
+<tr>
+<td>LASSMET</td>
+<td>LOGICAL :: LASSMET          <b>! Choose to assimilate GPS Met surface P, T, T-Td</b></td>
+</tr>
+<tr>
+<td>LBEVIS</td>
+<td>logical           , intent(in)  :: lbevis <b>! determines which set of refractivity constants to use (Bevis or Rueger)</b></td>
+</tr>
+<tr>
+<td>LLBLMET</td>
+<td>LOGICAL :: LLBLMET          <b>! Indicate that surface met data blacklisted for GPS sites close to surface weather stations.</b></td>
+</tr>
+<tr>
+<td>LTESTOP</td>
+<td>LOGICAL :: LTESTOP          <b>! Choose to test ZTD observation operator (Omp and Bgck modes only)</b></td>
+</tr>
+<tr>
+<td>YSFERRWGT</td>
+<td>REAL(8) :: YSFERRWGT        <b>! Scale factor for GPS surface met errors (account for time series obs with error correlations)</b></td>
+</tr>
+<tr>
+<td>YZDERRWGT</td>
+<td>REAL(8) :: YZDERRWGT        <b>! Scale factor for GPS ZTD errors (account for time series obs with error correlations)</b></td>
+</tr>
+<tr>
+<td>YZTDERR</td>
+<td>REAL(8) :: YZTDERR          <b>! If < 0 use errors in input files; if > 0 use value as constant error (m); if 0 compute error as f(ZWD)</b></td>
+</tr>
+</table>
+</p>
+<H3>NAMELIST: NAMSTIO (in file gridstatevectorFileIO_mod.f90)</H3>
+<p style="padding:6px; color: black; background-color: white; border: black 2px solid">
+<table style="width:100%">
+<tr>
+<td>interpToPhysicsGrid</td>
+<td>logical :: interpToPhysicsGrid  <b>! for LAM grid, choose to keep physics variables on their original grid</b></td>
+</tr>
+</table>
+</p>
+<H3>NAMELIST: NAMQLIM (in file humiditylimits_mod.f90)</H3>
+<p style="padding:6px; color: black; background-color: white; border: black 2px solid">
+<table style="width:100%">
+<tr>
+<td>maxValueCLDR</td>
+<td>real(8) :: maxValueCLDR <b>! maximum CLDR value</b></td>
+</tr>
+<tr>
+<td>maxValueIWCR</td>
+<td>real(8) :: maxValueIWCR <b>! maximum IWCR value</b></td>
+</tr>
+<tr>
+<td>maxValueLWCR</td>
+<td>real(8) :: maxValueLWCR <b>! maximum LWCR value</b></td>
+</tr>
+<tr>
+<td>maxValueRF</td>
+<td>real(8) :: maxValueRF   <b>! maximum   RF value</b></td>
+</tr>
+<tr>
+<td>maxValueSF</td>
+<td>real(8) :: maxValueSF   <b>! maximum   SF value</b></td>
+</tr>
+<tr>
+<td>minValueCLDR</td>
+<td>real(8) :: minValueCLDR <b>! minimum CLDR value</b></td>
+</tr>
+<tr>
+<td>minValueIWCR</td>
+<td>real(8) :: minValueIWCR <b>! minimum IWCR value</b></td>
+</tr>
+<tr>
+<td>minValueLWCR</td>
+<td>real(8) :: minValueLWCR <b>! minimum LWCR value</b></td>
+</tr>
+<tr>
+<td>minValueRF</td>
+<td>real(8) :: minValueRF   <b>! minimum   RF value</b></td>
+</tr>
+<tr>
+<td>minValueSF</td>
+<td>real(8) :: minValueSF   <b>! minimum   SF value</b></td>
+</tr>
+</table>
+</p>
+<H3>NAMELIST: NAMINC (in file increment_mod.f90)</H3>
+<p style="padding:6px; color: black; background-color: white; border: black 2px solid">
+<table style="width:100%">
+<tr>
+<td>applyLiebmann</td>
+<td>logical           :: applyLiebmann         <b>! choose to apply Liebmann extrapolation to SST and/or sea ice</b></td>
+</tr>
+<tr>
+<td>etiket_anlm</td>
+<td>character(len=12) :: etiket_anlm           <b>! 'etiket' used when writing the analysis</b></td>
+</tr>
+<tr>
+<td>etiket_rebm</td>
+<td>character(len=12) :: etiket_rebm           <b>! 'etiket' used when writing the low-res increment</b></td>
+</tr>
+<tr>
+<td>etiket_rehm</td>
+<td>character(len=12) :: etiket_rehm           <b>! 'etiket' used when writing the high-res increment</b></td>
+</tr>
+<tr>
+<td>hInterpolationDegree</td>
+<td>character(len=12) :: hInterpolationDegree  <b>! type of interpolation to use: 'LINEAR' or 'CUBIC'</b></td>
+</tr>
+<tr>
+<td>imposeRttovHuLimits</td>
+<td>logical           :: imposeRttovHuLimits   <b>! choose to impose "rttov" humidity limits to analysis</b></td>
+</tr>
+<tr>
+<td>SSTSpread</td>
+<td>logical           :: SSTSpread             <b>! choose to apply spatial spreading of the SST increment onto land</b></td>
+</tr>
+<tr>
+<td>SSTSpreadMaxBoxSize</td>
+<td>integer           :: SSTSpreadMaxBoxSize   <b>! control the amount of SST increment spreading</b></td>
+</tr>
+<tr>
+<td>SSTSubgrid</td>
+<td>character(len=10) :: SSTSubgrid            <b>! select subgrid on which to apply spreading: 'Yin' or 'Yan'</b></td>
+</tr>
+<tr>
+<td>useAnalIncMask</td>
+<td>logical           :: useAnalIncMask        <b>! for LAM only, choose to apply scale factor from a mask file to the increment  </b></td>
+</tr>
+<tr>
+<td>writeHiresIncrement</td>
+<td>logical           :: writeHiresIncrement   <b>! choose to write the high-res increment to a file</b></td>
+</tr>
+<tr>
+<td>writeNumBits</td>
+<td>integer           :: writeNumBits          <b>! number of bits to use when writing analysis and high-res increment</b></td>
+</tr>
+</table>
+</p>
+<H3>NAMELIST: NAMINN (in file innovation_mod.f90)</H3>
+<p style="padding:6px; color: black; background-color: white; border: black 2px solid">
+<table style="width:100%">
+<tr>
+<td>numObsBatches</td>
+<td>integer           :: numObsBatches      <b>! number of batches for calling interp setup</b></td>
+</tr>
+<tr>
+<td>timeInterpType_nl</td>
+<td>character(len=20) :: timeInterpType_nl  <b>! 'NEAREST' or 'LINEAR'</b></td>
+</tr>
+</table>
+</p>
+<H3>NAMELIST: NAMINT (in file interpolation_mod.f90)</H3>
+<p style="padding:6px; color: black; background-color: white; border: black 2px solid">
+<table style="width:100%">
+<tr>
+<td>checkCloudToGridUnassigned</td>
+<td>logical :: checkCloudToGridUnassigned <b>! abort if unmasked points not assigned from cloudToGrid interp</b></td>
+</tr>
+<tr>
+<td>maxBoxSize</td>
+<td>integer :: maxBoxSize             <b>! max size used to fill values for cloudToGrid interpolation</b></td>
+</tr>
+<tr>
+<td>vInterpCopyLowestLevel</td>
+<td>logical :: vInterpCopyLowestLevel <b>! overwrite values at lowest level to avoid extrapolation</b></td>
+</tr>
+</table>
+</p>
+<H3>NAMELIST: NAMLOCALIZATIONRADII (in file menetrierdiag_mod.f90)</H3>
+<p style="padding:6px; color: black; background-color: white; border: black 2px solid">
+<table style="width:100%">
+<tr>
+<td>hLoc</td>
+<td>logical :: hLoc</td>
+</tr>
+<tr>
+<td>horizPadding</td>
+<td>integer :: horizPadding</td>
+</tr>
+<tr>
+<td>strideForHLoc</td>
+<td>integer :: strideForHLoc</td>
+</tr>
+<tr>
+<td>strideForVloc</td>
+<td>integer :: strideForVloc</td>
+</tr>
+<tr>
+<td>vLoc</td>
+<td>logical :: vLoc</td>
+</tr>
+</table>
+</p>
+<H3>NAMELIST: NAMMSG (in file message_mod.f90)</H3>
+<p style="padding:6px; color: black; background-color: white; border: black 2px solid">
+<table style="width:100%">
+<tr>
+<td>arrayVertical</td>
+<td>logical :: arrayVertical  <b>! choose to use array vertical representation by default</b></td>
+</tr>
+<tr>
+<td>verbosity</td>
+<td>integer :: verbosity      <b>! maximum verbosity level of messages to be printed in the listing</b></td>
+</tr>
+</table>
+</p>
+<H3>NAMELIST: PTOPO (in file midasMpi_mod.f90)</H3>
+<p style="padding:6px; color: black; background-color: white; border: black 2px solid">
+<table style="width:100%">
+<tr>
+<td>npex</td>
+<td>integer :: npex  <b>! number of MPI tasks in 'x' direction (set automatically by launch script)</b></td>
+</tr>
+<tr>
+<td>npey</td>
+<td>integer :: npey  <b>! number of MPI tasks in 'y' direction (set automatically by launch script)</b></td>
+</tr>
+</table>
+</p>
+<H3>NAMELIST: NAMMIN (in file minimization_mod.f90)</H3>
+<p style="padding:6px; color: black; background-color: white; border: black 2px solid">
+<table style="width:100%">
+<tr>
+<td>LGRTEST</td>
+<td>logical :: lgrtest  <b>! choose to perform the 'gradient test" before and after minimization</b></td>
+</tr>
+<tr>
+<td>LVARQC</td>
+<td>logical :: lvarqc   <b>! choose to activate varQC</b></td>
+</tr>
+<tr>
+<td>lvazx</td>
+<td>logical :: lvazx    <b>! generally not used any longer</b></td>
+</tr>
+<tr>
+<td>lwrthess</td>
+<td>logical :: lwrthess <b>! choose to write the Hessian approximation</b></td>
+</tr>
+<tr>
+<td>lxbar</td>
+<td>logical :: lxbar    <b>! generally not used any longer</b></td>
+</tr>
+<tr>
+<td>NITERMAX</td>
+<td>integer :: NITERMAX <b>! maximum number of minimization iterations</b></td>
+</tr>
+<tr>
+<td>NSIMMAX</td>
+<td>integer :: NSIMMAX  <b>! maximum number of cost function evaluations during minimization</b></td>
+</tr>
+<tr>
+<td>NVAMAJ</td>
+<td>integer :: NVAMAJ   <b>! number of vector pairs to store in memory for Hessian approximation</b></td>
+</tr>
+<tr>
+<td>NWOQCV</td>
+<td>integer :: nwoqcv   <b>! number of iterations to initially perform without varQC</b></td>
+</tr>
+<tr>
+<td>rdf1fac</td>
+<td>real(8) :: rdf1fac  <b>! factor applied to initial cost function value to approximate final value</b></td>
+</tr>
+<tr>
+<td>REPSG</td>
+<td>real(8) :: REPSG    <b>! relative gradient amplitude used as stopping criteria</b></td>
+</tr>
+</table>
+</p>
+<H3>NAMELIST: NAMBGCKIR (in file multi_ir_bgck_mod.f90)</H3>
+<p style="padding:6px; color: black; background-color: white; border: black 2px solid">
+<table style="width:100%">
+<tr>
+<td>crisCloudFractionThreshold</td>
+<td>real(8) :: crisCloudFractionThreshold <b>! threshold for CrIS cloud detection from VIIRS cloud mask</b></td>
+</tr>
+<tr>
+<td>dtl</td>
+<td>real(8) :: dtl                        <b>! Max delta allowed btwn guess and true skin temp over land</b></td>
+</tr>
+<tr>
+<td>dtw</td>
+<td>real(8) :: dtw                        <b>! Max delta allowed btwn guess and true skin temp over water</b></td>
+</tr>
+<tr>
+<td>ilist1</td>
+<td>integer :: ilist1(nmaxinst,nch_he)    <b>! Chan numbers for cloud top height detection: background profile matching </b></td>
+</tr>
+<tr>
+<td>ilist2</td>
+<td>integer :: ilist2(nmaxinst,nco2)      <b>! Chan numbers for cloud top height detection: CO2-slicing</b></td>
+</tr>
+<tr>
+<td>ilist2_pair</td>
+<td>integer :: ilist2_pair(nmaxinst,nco2) <b>! Chan number pairs for cloud top height detection: CO2-slicing</b></td>
+</tr>
+<tr>
+<td>inst</td>
+<td>character(len=7) :: inst(nmaxinst)    <b>! List of instrument names</b></td>
+</tr>
+<tr>
+<td>iwindow</td>
+<td>integer :: iwindow(nmaxinst)          <b>! Ref window channel for clear/cloudy profile detection</b></td>
+</tr>
+<tr>
+<td>iwindow_alt</td>
+<td>integer :: iwindow_alt(nmaxinst)      <b>! Alternate window channel for clear/cloudy profile detection</b></td>
+</tr>
+<tr>
+<td>night_ang</td>
+<td>real(8) :: night_ang                  <b>! Min solar zenith angle for night (between 90 and 180)</b></td>
+</tr>
+<tr>
+<td>ninst</td>
+<td>integer :: ninst                      <b>! MUST NOT BE INCLUDED IN NAMELIST!</b></td>
+</tr>
+<tr>
+<td>pco2max</td>
+<td>real(8) :: pco2max                    <b>! Max RTTOV level for lev_start variable entering CO2 slicing in mb</b></td>
+</tr>
+<tr>
+<td>pco2min</td>
+<td>real(8) :: pco2min                    <b>! Min RTTOV level for lev_start variable entering CO2 slicing in mb</b></td>
+</tr>
+</table>
+</p>
+<H3>NAMELIST: NAMOBSDB (in file obsdbfiles_mod.f90)</H3>
+<p style="padding:6px; color: black; background-color: white; border: black 2px solid">
+<table style="width:100%">
+<tr>
+<td>elemIdList</td>
+<td>integer :: elemIdList(maxElementNumber) <b>! list of bufr element IDs to read from file</b></td>
+</tr>
+<tr>
+<td>numElemIdList</td>
+<td>integer :: numElemIdList                <b>! MUST NOT BE INCLUDED IN NAMELIST!</b></td>
+</tr>
+</table>
+</p>
+<H3>NAMELIST: NAMOBSDBMIDASHEADERUPDATE (in file obsdbfiles_mod.f90)</H3>
+<p style="padding:6px; color: black; background-color: white; border: black 2px solid">
+<table style="width:100%">
+<tr>
+<td>numberUpdateItems</td>
+<td>integer,          save :: numberUpdateItems             <b>! MUST NOT BE INCLUDED IN NAMELIST!</b></td>
+</tr>
+<tr>
+<td>updateItemList</td>
+<td>character(len=4), save :: updateItemList(maxItemNumber) <b>! obsSpace column names used to update the file</b></td>
+</tr>
+</table>
+</p>
+<H3>NAMELIST: NAMOBSDBMIDASBODYUPDATE (in file obsdbfiles_mod.f90)</H3>
+<p style="padding:6px; color: black; background-color: white; border: black 2px solid">
+<table style="width:100%">
+<tr>
+<td>numberUpdateItems</td>
+<td>integer,          save :: numberUpdateItems             <b>! MUST NOT BE INCLUDED IN NAMELIST!</b></td>
+</tr>
+<tr>
+<td>updateItemList</td>
+<td>character(len=4), save :: updateItemList(maxItemNumber) <b>! obsSpace column names used to update the file</b></td>
+</tr>
+</table>
+</p>
+<H3>NAMELIST: NAMOBSDBCLEAN (in file obsdbfiles_mod.f90)</H3>
+<p style="padding:6px; color: black; background-color: white; border: black 2px solid">
+<table style="width:100%">
+<tr>
+<td>useVacuum</td>
+<td>logical, save               :: useVacuum <b>! choose to 'vacuum' the file after cleaning to reduce file size</b></td>
+</tr>
+</table>
+</p>
+<H3>NAMELIST: NAMOER (in file obserrors_mod.f90)</H3>
+<p style="padding:6px; color: black; background-color: white; border: black 2px solid">
+<table style="width:100%">
+<tr>
+<td>amsuaClearCldPredThresh</td>
+<td>real(8) :: amsuaClearCldPredThresh(5) <b>! cloud threshold for considering obs as clear sky</b></td>
+</tr>
+<tr>
+<td>amsuaInflateErrAllskyCoeff</td>
+<td>real(8) :: amsuaInflateErrAllskyCoeff <b>! state dependent obs error inflation factor</b></td>
+</tr>
+<tr>
+<td>mwAllskyHuInflateByOmp</td>
+<td>logical :: mwAllskyHuInflateByOmp     <b>! choose to inflate all sky HU radiance errors by an amount related to O-P</b></td>
+</tr>
+<tr>
+<td>mwAllskyHuInflateBySiDiff</td>
+<td>logical :: mwAllskyHuInflateBySiDiff  <b>! choose to inflate all sky HU radiance errors by an amount related to cloud O-P</b></td>
+</tr>
+<tr>
+<td>mwAllskyTtInflateByClwDiff</td>
+<td>logical :: mwAllskyTtInflateByClwDiff <b>! choose to inflate all sky TT radiance errors by an amount related to cloud O-P</b></td>
+</tr>
+<tr>
+<td>mwAllskyTtInflateByOmp</td>
+<td>logical :: mwAllskyTtInflateByOmp     <b>! choose to inflate all sky TT radiance errors by an amount related to O-P</b></td>
+</tr>
+<tr>
+<td>new_oer_sw</td>
+<td>logical :: new_oer_sw                 <b>! use the 'new' method to compute errors for AMV observations</b></td>
+</tr>
+<tr>
+<td>obsfile_oer_sw</td>
+<td>logical :: obsfile_oer_sw             <b>! choose to read errors for AMV from the obs files</b></td>
+</tr>
+<tr>
+<td>readOldSymmetricObsErrFile</td>
+<td>logical :: readOldSymmetricObsErrFile <b>! choose to read 'old style' obs error file, when only AMSU-A was all sky</b></td>
+</tr>
+<tr>
+<td>visAndGustAdded</td>
+<td>logical :: visAndGustAdded            <b>! choose to read visibility and gust errors in addition to other conv variables</b></td>
+</tr>
+</table>
+</p>
+<H3>NAMELIST: NAMSSTOBSERRORS (in file obserrors_mod.f90)</H3>
+<p style="padding:6px; color: black; background-color: white; border: black 2px solid">
+<table style="width:100%">
+<tr>
+<td>numberSSTDatasets</td>
+<td>integer :: numberSSTDatasets = MPC_missingValue_INT            <b>! MUST NOT BE INCLUDED IN NAMELIST!</b></td>
+</tr>
+<tr>
+<td>SSTdataParams</td>
+<td>type(SSTdataParamsType) :: SSTdataParams(maxNumberSSTDatasets) <b>! list of SSTdataParamsType defining SST obs errors</b></td>
+</tr>
+</table>
+</p>
+<H3>NAMELIST: NAMWRITEDIAG (in file obsfiles_mod.f90)</H3>
+<p style="padding:6px; color: black; background-color: white; border: black 2px solid">
+<table style="width:100%">
+<tr>
+<td>addFSOdiag</td>
+<td>logical :: addFSOdiag    <b>! choose to include FSO column in body table</b></td>
+</tr>
+<tr>
+<td>lwritediagsql</td>
+<td>logical :: lwritediagsql <b>! choose to write 'diag' sqlite observation files</b></td>
+</tr>
+<tr>
+<td>onlyAssimObs</td>
+<td>logical :: onlyAssimObs  <b>! choose to not include unassimilated obs in 'diag' sqlite files</b></td>
+</tr>
+</table>
+</p>
+<H3>NAMELIST: NAMFILT (in file obsfilter_mod.f90)</H3>
+<p style="padding:6px; color: black; background-color: white; border: black 2px solid">
+<table style="width:100%">
+<tr>
+<td>discardlandsfcwind</td>
+<td>logical :: discardlandsfcwind       <b>! choose to reject surface wind obs over land</b></td>
+</tr>
+<tr>
+<td>list_altDiffMax</td>
+<td>integer :: list_altDiffMax(numElem)  <b>! list of bufr element IDs to apply maximum altitude difference</b></td>
+</tr>
+<tr>
+<td>list_topoFilt</td>
+<td>character(len=2) :: list_topoFilt(nTopoFiltFam) <b>! list of obs family names for applying max altitude</b></td>
+</tr>
+<tr>
+<td>nelems</td>
+<td>integer :: nelems                    <b>! MUST NOT BE INCLUDED IN NAMELIST!</b></td>
+</tr>
+<tr>
+<td>nelems_altDiffMax</td>
+<td>integer :: nelems_altDiffMax         <b>! MUST NOT BE INCLUDED IN NAMELIST!</b></td>
+</tr>
+<tr>
+<td>nflags</td>
+<td>integer :: nflags                    <b>! MUST NOT BE INCLUDED IN NAMELIST!</b></td>
+</tr>
+<tr>
+<td>nlist</td>
+<td>integer :: nlist(nelemsMax)          <b>! list of bufr element IDs to consider for assimilation</b></td>
+</tr>
+<tr>
+<td>nlistflg</td>
+<td>integer :: nlistflg(nFLagsMax)       <b>! list of flag 'reference numbers' to use for rejecting obs</b></td>
+</tr>
+<tr>
+<td>rlimlvhu</td>
+<td>real(8) :: rlimlvhu                  <b>! pressure level (in hPa) above which humidity (ES) obs are rejected</b></td>
+</tr>
+<tr>
+<td>surfaceBufferZone_Height</td>
+<td>real(8) :: surfaceBufferZone_Height <b>! height of buffer zone (in m) for rejecting obs near sfc</b></td>
+</tr>
+<tr>
+<td>surfaceBufferZone_Pres</td>
+<td>real(8) :: surfaceBufferZone_Pres   <b>! height of buffer zone (in Pa) for rejecting obs near sfc</b></td>
+</tr>
+<tr>
+<td>useEnkfTopoFilt</td>
+<td>logical :: useEnkfTopoFilt          <b>! choose to use simpler approach (originally in EnKF) for rejecting obs near sfc</b></td>
+</tr>
+<tr>
+<td>value_altDiffMax</td>
+<td>real(8) :: value_altDiffMax(numElem) <b>! value of maximum difference between model sfc and obs altitude</b></td>
+</tr>
+</table>
+</p>
+<H3>NAMELIST: NAMRADVEL (in file obsfilter_mod.f90)</H3>
+<p style="padding:6px; color: black; background-color: white; border: black 2px solid">
+<table style="width:100%">
+<tr>
+<td>maxRangeInterp</td>
+<td>real(8), save :: maxRangeInterp <b>! max allowable horizontal distance between levels (in m) for radar winds</b></td>
+</tr>
+</table>
+</p>
+<H3>NAMELIST: NAMPLATFORMICE (in file obsfilter_mod.f90)</H3>
+<p style="padding:6px; color: black; background-color: white; border: black 2px solid">
+<table style="width:100%">
+<tr>
+<td>listPlatformIce</td>
+<td>character(len=12), save  :: listPlatformIce(maxPlatformIce) <b>! list of ice obs 'platforms' (station IDs) to assimilate </b></td>
+</tr>
+<tr>
+<td>nPlatformIce</td>
+<td>integer, save            :: nPlatformIce                    <b>! MUST NOT BE INCLUDED IN NAMELIST!</b></td>
+</tr>
+</table>
+</p>
+<H3>NAMELIST: NAMCHEM (in file obsOperatorsChem_mod.f90)</H3>
+<p style="padding:6px; color: black; background-color: white; border: black 2px solid">
+<table style="width:100%">
+<tr>
+<td>assim_all</td>
+<td>logical :: assim_all(assim_maxfamnum) <b>! Choose to assimilate all obs of specified family</b></td>
+</tr>
+<tr>
+<td>assim_exclude_flag</td>
+<td>integer :: assim_exclude_flag(assim_maxfamnum,assim_maxsize) <b>! Number of bits for excluding obs</b></td>
+</tr>
+<tr>
+<td>assim_exclude_nflag</td>
+<td>integer :: assim_exclude_nflag(assim_maxfamnum) <b>! List of bits for excluding obs from assimilation</b></td>
+</tr>
+<tr>
+<td>assim_fam</td>
+<td>character(len=2) :: assim_fam(assim_maxfamnum) <b>! List of families to which filt_diagnOnly is to apply</b></td>
+</tr>
+<tr>
+<td>assim_nlev</td>
+<td>integer :: assim_nlev(assim_maxfamnum,assim_maxsize) <b>! 0: multi- and uni-lev; 1: uni-lev; >1 multi-lev</b></td>
+</tr>
+<tr>
+<td>assim_num</td>
+<td>integer :: assim_num(assim_maxfamnum) <b>! Number of combinations identified for assimilation</b></td>
+</tr>
+<tr>
+<td>assim_stnid</td>
+<td>character(len=9) :: assim_stnid(assim_maxfamnum,assim_maxsize) <b>! List of stnid to assimilation '*' for wild card</b></td>
+</tr>
+<tr>
+<td>assim_varno</td>
+<td>integer :: assim_varno(assim_maxfamnum,assim_maxsize) <b>! List of bufr elements to assimilate (0 means all)</b></td>
+</tr>
+<tr>
+<td>genOperConstraintType</td>
+<td>character(len=5) :: genOperConstraintType(0:oopc_constituentsSize) <b>! Strong constraint for generalized obs operator (see oopc_genOper)</b></td>
+</tr>
+<tr>
+<td>genOperHCorrlenExpnt</td>
+<td>real(8) :: genOperHCorrlenExpnt(0:oopc_constituentsSize)  <b>! Exponent for horiz. correl. length weighting in oopc_genOper</b></td>
+</tr>
+<tr>
+<td>genOperOmAStatsFactor</td>
+<td>real(8) :: genOperOmAStatsFactor(0:oopc_constituentsSize) <b>! Additional OmAStats normalization factor for oopc_genOper</b></td>
+</tr>
+<tr>
+<td>modelName</td>
+<td>character(len=10) :: modelName = 'GEM-MACH' <b>! Identification of the model</b></td>
+</tr>
+<tr>
+<td>obsdata_maxsize</td>
+<td>integer :: obsdata_maxsize <b>! Max number of obs associated with ordered obs indices</b></td>
+</tr>
+<tr>
+<td>operatorSubType</td>
+<td>character(len=20) :: operatorSubType(2,assim_maxsize) <b>! Operator sub-type name</b></td>
+</tr>
+<tr>
+<td>storeOperators</td>
+<td>logical :: storeOperators <b>! Choose to store linear operators for re-use in TL/AD</b></td>
+</tr>
+<tr>
+<td>tropo_bound</td>
+<td>integer :: tropo_bound(0:oopc_constituentsSize) <b>! Indicate which column top value used for special treatment</b></td>
+</tr>
+<tr>
+<td>tropo_column_top</td>
+<td>real(8) :: tropo_column_top(0:oopc_constituentsSize) <b>! Default for column boundary (in Pa) of total column obs</b></td>
+</tr>
+<tr>
+<td>tropo_mode</td>
+<td>integer :: tropo_mode(0:oopc_constituentsSize) <b>! Special treatment for troposphere of total column obs</b></td>
+</tr>
+</table>
+</p>
+<H3>NAMELIST: NAMALADIN_OBS (in file obsoperators_mod.f90)</H3>
+<p style="padding:6px; color: black; background-color: white; border: black 2px solid">
+<table style="width:100%">
+<tr>
+<td>do_adjust_aladin</td>
+<td>logical :: do_adjust_aladin <b>! choose to adjust obs value as if it was retrieved using our temp and pressure </b></td>
+</tr>
+</table>
+</p>
+<H3>NAMELIST: NAMSURFACEOBS (in file obsoperators_mod.f90)</H3>
+<p style="padding:6px; color: black; background-color: white; border: black 2px solid">
+<table style="width:100%">
+<tr>
+<td>adjustTemperature</td>
+<td>logical, save :: adjustTemperature <b>! choose to adjust near-sfc temperature using lapse rate and height difference</b></td>
+</tr>
+</table>
+</p>
+<H3>NAMELIST: NAMDIMO (in file obsspacedata_mod.f90)</H3>
+<p style="padding:6px; color: black; background-color: white; border: black 2px solid">
+<table style="width:100%">
+<tr>
+<td>ndatamx</td>
+<td>integer :: ndatamx <b>! maximum number of rows in 'body' table (used for initial allocation)</b></td>
+</tr>
+<tr>
+<td>nmxobs</td>
+<td>integer :: nmxobs  <b>! maximum number of rows in 'header' table (used for initial allocation)</b></td>
+</tr>
+</table>
+</p>
+<H3>NAMELIST: NAMOSD (in file obsspacediag_mod.f90)</H3>
+<p style="padding:6px; color: black; background-color: white; border: black 2px solid">
+<table style="width:100%">
+<tr>
+<td>deltaHeight</td>
+<td>real(8) :: deltaHeight                                      <b>! Size of vertical bins for diagnostics (meters)</b></td>
+</tr>
+<tr>
+<td>deltaLat</td>
+<td>real(8) :: deltaLat                                         <b>! Size of latitude bins for diagnostics (degrees)</b></td>
+</tr>
+<tr>
+<td>deltaLon</td>
+<td>real(8) :: deltaLon                                         <b>! Size of longitude bins for diagnostics (degrees)</b></td>
+</tr>
+<tr>
+<td>deltaPressure</td>
+<td>real(8) :: deltaPressure                                    <b>! Size of vertical bins for diagnostics (Pascal)</b></td>
+</tr>
+<tr>
+<td>diagn_all</td>
+<td>logical :: diagn_all(ofl_numFamily)                         <b>! Choose to use all combinations specified by diagn_nset</b></td>
+</tr>
+<tr>
+<td>diagn_nset</td>
+<td>integer :: diagn_nset(ofl_numFamily)                        <b>! Choose to group by 1: stnid, 2: stnid,bufr, 3: stnid,bufr,nlev</b></td>
+</tr>
+<tr>
+<td>diagn_num</td>
+<td>integer :: diagn_num(ofl_numFamily)                         <b>! Prescribed (starting) number of (stnid, bufr, nlev) for diag calc</b></td>
+</tr>
+<tr>
+<td>diagn_pressmin</td>
+<td>real(8) :: diagn_pressmin(ofl_numFamily)                    <b>! Bottom of top layer for diagnostics (in Pa)</b></td>
+</tr>
+<tr>
+<td>diagn_save</td>
+<td>logical :: diagn_save(ofl_numFamily)                        <b>! Choose to save gridded info in ascii file</b></td>
+</tr>
+<tr>
+<td>diagn_stnid</td>
+<td>character(len=9) :: diagn_stnid(ofl_numFamily,max_cfg_size) <b>! List of stnid for diag calc</b></td>
+</tr>
+<tr>
+<td>diagn_unilev</td>
+<td>logical :: diagn_unilev(ofl_numFamily,max_cfg_size)         <b>! List indicating if uni-lev obs for diag calc</b></td>
+</tr>
+<tr>
+<td>diagn_varno</td>
+<td>integer :: diagn_varno(ofl_numFamily,max_cfg_size)          <b>! List of bufr element ids for diag calc</b></td>
+</tr>
+<tr>
+<td>elementList</td>
+<td>integer :: elementList(ofl_numFamily)                       <b>! List of bufr element ids to consider</b></td>
+</tr>
+<tr>
+<td>familyList</td>
+<td>character(len=2) :: familyList(ofl_numFamily)               <b>! List of family names to consider</b></td>
+</tr>
+<tr>
+<td>lrandom</td>
+<td>logical :: lrandom                                          <b>! Perform diagnostics from random perturbations</b></td>
+</tr>
+<tr>
+<td>nrandseed</td>
+<td>integer :: nrandseed                                        <b>! Random seed value</b></td>
+</tr>
+<tr>
+<td>numElement</td>
+<td>integer :: numElement                                       <b>! MUST NOT BE INCLUDED IN NAMELIST!</b></td>
+</tr>
+<tr>
+<td>numFamily</td>
+<td>integer :: numFamily                                        <b>! MUST NOT BE INCLUDED IN NAMELIST!</b></td>
+</tr>
+</table>
+</p>
+<H3>NAMELIST: NAMHBHT (in file obsSpaceErrorStdDev_mod.f90)</H3>
+<p style="padding:6px; color: black; background-color: white; border: black 2px solid">
+<table style="width:100%">
+<tr>
+<td>hybrid_mode</td>
+<td>character(len=12) :: hybrid_mode <b>! can be 'WEIGHTED_SUM' or 'MAX_VALUE'</b></td>
+</tr>
+</table>
+</p>
+<H3>NAMELIST: NAMPHY (in file physicsfunctions_mod.f90)</H3>
+<p style="padding:6px; color: black; background-color: white; border: black 2px solid">
+<table style="width:100%">
+<tr>
+<td>saturationCurve</td>
+<td>character(len=20) :: saturationCurve   <b>! saturationCurve must be one of 'Tetens_1930', 'Tetens_2018a', 'Tetens_2018'</b></td>
+</tr>
+</table>
+</p>
+<H3>NAMELIST: NAMRMAT (in file rmatrix_mod.f90)</H3>
+<p style="padding:6px; color: black; background-color: white; border: black 2px solid">
+<table style="width:100%">
+<tr>
+<td>rmat_lnonDiagR</td>
+<td>logical :: rmat_lnondiagr <b>! choose to use non-diagonal R matrix (i.e. non-zero correlations)</b></td>
+</tr>
+</table>
+</p>
+<H3>NAMELIST: NAMSLANTPATH (in file slantprofilelatlon_mod.f90)</H3>
+<p style="padding:6px; color: black; background-color: white; border: black 2px solid">
+<table style="width:100%">
+<tr>
+<td>maxNumIteration</td>
+<td>integer :: maxNumIteration      <b>! maximum number of iterations for determining slant path</b></td>
+</tr>
+<tr>
+<td>toleranceHeightDiff</td>
+<td>real(4) :: toleranceHeightDiff  <b>! threshold of height diff (in m) for convergence of slant path</b></td>
+</tr>
+</table>
+</p>
+<H3>NAMELIST: NAMSQLTOVS (in file sqliteread_mod.f90)</H3>
+<p style="padding:6px; color: black; background-color: white; border: black 2px solid">
+<table style="width:100%">
+<tr>
+<td>listElem</td>
+<td>character(len=256)       :: listElem          <b>! list of bufr element ids to read</b></td>
+</tr>
+<tr>
+<td>numberElem</td>
+<td>integer                  :: numberElem        <b>! MUST NOT BE INCLUDED IN NAMELIST!</b></td>
+</tr>
+<tr>
+<td>sqlExtraDat</td>
+<td>character(len=256)       :: sqlExtraDat       <b>! can be used e.g. for ' and id_obs in (select id_obs from header where...) '</b></td>
+</tr>
+<tr>
+<td>sqlExtraHeader</td>
+<td>character(len=256)       :: sqlExtraHeader    <b>! can be used e.g. for ' id_stn in (...) '</b></td>
+</tr>
+<tr>
+<td>sqlNull</td>
+<td>character(len=256)       :: sqlNull           <b>! can be used e.g. for ' and obsvalue is not null '</b></td>
+</tr>
+</table>
+</p>
+<H3>NAMELIST: NAMSQLUA (in file sqliteread_mod.f90)</H3>
+<p style="padding:6px; color: black; background-color: white; border: black 2px solid">
+<table style="width:100%">
+<tr>
+<td>listElem</td>
+<td>character(len=256)       :: listElem          <b>! list of bufr element ids to read</b></td>
+</tr>
+<tr>
+<td>numberElem</td>
+<td>integer                  :: numberElem        <b>! MUST NOT BE INCLUDED IN NAMELIST!</b></td>
+</tr>
+<tr>
+<td>sqlExtraDat</td>
+<td>character(len=256)       :: sqlExtraDat       <b>! can be used e.g. for ' and id_obs in (select id_obs from header where...) '</b></td>
+</tr>
+<tr>
+<td>sqlExtraHeader</td>
+<td>character(len=256)       :: sqlExtraHeader    <b>! can be used e.g. for ' id_stn in (...) '</b></td>
+</tr>
+<tr>
+<td>sqlNull</td>
+<td>character(len=256)       :: sqlNull           <b>! can be used e.g. for ' and obsvalue is not null '</b></td>
+</tr>
+</table>
+</p>
+<H3>NAMELIST: NAMSQLAI (in file sqliteread_mod.f90)</H3>
+<p style="padding:6px; color: black; background-color: white; border: black 2px solid">
+<table style="width:100%">
+<tr>
+<td>listElem</td>
+<td>character(len=256)       :: listElem          <b>! list of bufr element ids to read</b></td>
+</tr>
+<tr>
+<td>numberElem</td>
+<td>integer                  :: numberElem        <b>! MUST NOT BE INCLUDED IN NAMELIST!</b></td>
+</tr>
+<tr>
+<td>sqlExtraDat</td>
+<td>character(len=256)       :: sqlExtraDat       <b>! can be used e.g. for ' and id_obs in (select id_obs from header where...) '</b></td>
+</tr>
+<tr>
+<td>sqlExtraHeader</td>
+<td>character(len=256)       :: sqlExtraHeader    <b>! can be used e.g. for ' id_stn in (...) '</b></td>
+</tr>
+<tr>
+<td>sqlNull</td>
+<td>character(len=256)       :: sqlNull           <b>! can be used e.g. for ' and obsvalue is not null '</b></td>
+</tr>
+</table>
+</p>
+<H3>NAMELIST: NAMSQLSW (in file sqliteread_mod.f90)</H3>
+<p style="padding:6px; color: black; background-color: white; border: black 2px solid">
+<table style="width:100%">
+<tr>
+<td>listElem</td>
+<td>character(len=256)       :: listElem          <b>! list of bufr element ids to read</b></td>
+</tr>
+<tr>
+<td>numberElem</td>
+<td>integer                  :: numberElem        <b>! MUST NOT BE INCLUDED IN NAMELIST!</b></td>
+</tr>
+<tr>
+<td>sqlExtraDat</td>
+<td>character(len=256)       :: sqlExtraDat       <b>! can be used e.g. for ' and id_obs in (select id_obs from header where...) '</b></td>
+</tr>
+<tr>
+<td>sqlExtraHeader</td>
+<td>character(len=256)       :: sqlExtraHeader    <b>! can be used e.g. for ' id_stn in (...) '</b></td>
+</tr>
+<tr>
+<td>sqlNull</td>
+<td>character(len=256)       :: sqlNull           <b>! can be used e.g. for ' and obsvalue is not null '</b></td>
+</tr>
+</table>
+</p>
+<H3>NAMELIST: NAMSQLRO (in file sqliteread_mod.f90)</H3>
+<p style="padding:6px; color: black; background-color: white; border: black 2px solid">
+<table style="width:100%">
+<tr>
+<td>listElem</td>
+<td>character(len=256)       :: listElem          <b>! list of bufr element ids to read</b></td>
+</tr>
+<tr>
+<td>numberElem</td>
+<td>integer                  :: numberElem        <b>! MUST NOT BE INCLUDED IN NAMELIST!</b></td>
+</tr>
+<tr>
+<td>sqlExtraDat</td>
+<td>character(len=256)       :: sqlExtraDat       <b>! can be used e.g. for ' and id_obs in (select id_obs from header where...) '</b></td>
+</tr>
+<tr>
+<td>sqlExtraHeader</td>
+<td>character(len=256)       :: sqlExtraHeader    <b>! can be used e.g. for ' id_stn in (...) '</b></td>
+</tr>
+<tr>
+<td>sqlNull</td>
+<td>character(len=256)       :: sqlNull           <b>! can be used e.g. for ' and obsvalue is not null '</b></td>
+</tr>
+</table>
+</p>
+<H3>NAMELIST: NAMSQLSFC (in file sqliteread_mod.f90)</H3>
+<p style="padding:6px; color: black; background-color: white; border: black 2px solid">
+<table style="width:100%">
+<tr>
+<td>listElem</td>
+<td>character(len=256)       :: listElem          <b>! list of bufr element ids to read</b></td>
+</tr>
+<tr>
+<td>numberElem</td>
+<td>integer                  :: numberElem        <b>! MUST NOT BE INCLUDED IN NAMELIST!</b></td>
+</tr>
+<tr>
+<td>sqlExtraDat</td>
+<td>character(len=256)       :: sqlExtraDat       <b>! can be used e.g. for ' and id_obs in (select id_obs from header where...) '</b></td>
+</tr>
+<tr>
+<td>sqlExtraHeader</td>
+<td>character(len=256)       :: sqlExtraHeader    <b>! can be used e.g. for ' id_stn in (...) '</b></td>
+</tr>
+<tr>
+<td>sqlNull</td>
+<td>character(len=256)       :: sqlNull           <b>! can be used e.g. for ' and obsvalue is not null '</b></td>
+</tr>
+</table>
+</p>
+<H3>NAMELIST: NAMSQLSC (in file sqliteread_mod.f90)</H3>
+<p style="padding:6px; color: black; background-color: white; border: black 2px solid">
+<table style="width:100%">
+<tr>
+<td>listElem</td>
+<td>character(len=256)       :: listElem          <b>! list of bufr element ids to read</b></td>
+</tr>
+<tr>
+<td>numberElem</td>
+<td>integer                  :: numberElem        <b>! MUST NOT BE INCLUDED IN NAMELIST!</b></td>
+</tr>
+<tr>
+<td>sqlExtraDat</td>
+<td>character(len=256)       :: sqlExtraDat       <b>! can be used e.g. for ' and id_obs in (select id_obs from header where...) '</b></td>
+</tr>
+<tr>
+<td>sqlExtraHeader</td>
+<td>character(len=256)       :: sqlExtraHeader    <b>! can be used e.g. for ' id_stn in (...) '</b></td>
+</tr>
+<tr>
+<td>sqlNull</td>
+<td>character(len=256)       :: sqlNull           <b>! can be used e.g. for ' and obsvalue is not null '</b></td>
+</tr>
+</table>
+</p>
+<H3>NAMELIST: NAMSQLPR (in file sqliteread_mod.f90)</H3>
+<p style="padding:6px; color: black; background-color: white; border: black 2px solid">
+<table style="width:100%">
+<tr>
+<td>listElem</td>
+<td>character(len=256)       :: listElem          <b>! list of bufr element ids to read</b></td>
+</tr>
+<tr>
+<td>numberElem</td>
+<td>integer                  :: numberElem        <b>! MUST NOT BE INCLUDED IN NAMELIST!</b></td>
+</tr>
+<tr>
+<td>sqlExtraDat</td>
+<td>character(len=256)       :: sqlExtraDat       <b>! can be used e.g. for ' and id_obs in (select id_obs from header where...) '</b></td>
+</tr>
+<tr>
+<td>sqlExtraHeader</td>
+<td>character(len=256)       :: sqlExtraHeader    <b>! can be used e.g. for ' id_stn in (...) '</b></td>
+</tr>
+<tr>
+<td>sqlNull</td>
+<td>character(len=256)       :: sqlNull           <b>! can be used e.g. for ' and obsvalue is not null '</b></td>
+</tr>
+</table>
+</p>
+<H3>NAMELIST: NAMSQLAL (in file sqliteread_mod.f90)</H3>
+<p style="padding:6px; color: black; background-color: white; border: black 2px solid">
+<table style="width:100%">
+<tr>
+<td>listElem</td>
+<td>character(len=256)       :: listElem          <b>! list of bufr element ids to read</b></td>
+</tr>
+<tr>
+<td>numberElem</td>
+<td>integer                  :: numberElem        <b>! MUST NOT BE INCLUDED IN NAMELIST!</b></td>
+</tr>
+<tr>
+<td>sqlExtraDat</td>
+<td>character(len=256)       :: sqlExtraDat       <b>! can be used e.g. for ' and id_obs in (select id_obs from header where...) '</b></td>
+</tr>
+<tr>
+<td>sqlExtraHeader</td>
+<td>character(len=256)       :: sqlExtraHeader    <b>! can be used e.g. for ' id_stn in (...) '</b></td>
+</tr>
+<tr>
+<td>sqlNull</td>
+<td>character(len=256)       :: sqlNull           <b>! can be used e.g. for ' and obsvalue is not null '</b></td>
+</tr>
+</table>
+</p>
+<H3>NAMELIST: NAMSQLGL (in file sqliteread_mod.f90)</H3>
+<p style="padding:6px; color: black; background-color: white; border: black 2px solid">
+<table style="width:100%">
+<tr>
+<td>listElem</td>
+<td>character(len=256)       :: listElem          <b>! list of bufr element ids to read</b></td>
+</tr>
+<tr>
+<td>numberElem</td>
+<td>integer                  :: numberElem        <b>! MUST NOT BE INCLUDED IN NAMELIST!</b></td>
+</tr>
+<tr>
+<td>sqlExtraDat</td>
+<td>character(len=256)       :: sqlExtraDat       <b>! can be used e.g. for ' and id_obs in (select id_obs from header where...) '</b></td>
+</tr>
+<tr>
+<td>sqlExtraHeader</td>
+<td>character(len=256)       :: sqlExtraHeader    <b>! can be used e.g. for ' id_stn in (...) '</b></td>
+</tr>
+<tr>
+<td>sqlNull</td>
+<td>character(len=256)       :: sqlNull           <b>! can be used e.g. for ' and obsvalue is not null '</b></td>
+</tr>
+</table>
+</p>
+<H3>NAMELIST: NAMSQLRADAR (in file sqliteread_mod.f90)</H3>
+<p style="padding:6px; color: black; background-color: white; border: black 2px solid">
+<table style="width:100%">
+<tr>
+<td>listElem</td>
+<td>character(len=256)       :: listElem          <b>! list of bufr element ids to read</b></td>
+</tr>
+<tr>
+<td>numberElem</td>
+<td>integer                  :: numberElem        <b>! MUST NOT BE INCLUDED IN NAMELIST!</b></td>
+</tr>
+<tr>
+<td>sqlExtraDat</td>
+<td>character(len=256)       :: sqlExtraDat       <b>! can be used e.g. for ' and id_obs in (select id_obs from header where...) '</b></td>
+</tr>
+<tr>
+<td>sqlExtraHeader</td>
+<td>character(len=256)       :: sqlExtraHeader    <b>! can be used e.g. for ' id_stn in (...) '</b></td>
+</tr>
+<tr>
+<td>sqlNull</td>
+<td>character(len=256)       :: sqlNull           <b>! can be used e.g. for ' and obsvalue is not null '</b></td>
+</tr>
+</table>
+</p>
+<H3>NAMELIST: NAMSQLSST (in file sqliteread_mod.f90)</H3>
+<p style="padding:6px; color: black; background-color: white; border: black 2px solid">
+<table style="width:100%">
+<tr>
+<td>codtyp_sat</td>
+<td>integer                  :: codtyp_sat(10)    <b>! list of codtyp values of SST satellite obs (default is 88)</b></td>
+</tr>
+<tr>
+<td>listElem</td>
+<td>character(len=256)       :: listElem          <b>! list of bufr element ids to read</b></td>
+</tr>
+<tr>
+<td>numberElem</td>
+<td>integer                  :: numberElem        <b>! MUST NOT BE INCLUDED IN NAMELIST!</b></td>
+</tr>
+<tr>
+<td>sqlExtraDat</td>
+<td>character(len=256)       :: sqlExtraDat       <b>! can be used e.g. for ' and id_obs in (select id_obs from header where...) '</b></td>
+</tr>
+<tr>
+<td>sqlExtraDat_sat</td>
+<td>character(len=256)       :: sqlExtraDat_sat   <b>! same as sqlExtraDat, but only for SST satellite obs</b></td>
+</tr>
+<tr>
+<td>sqlExtraHeader</td>
+<td>character(len=256)       :: sqlExtraHeader    <b>! can be used e.g. for ' id_stn in (...) '</b></td>
+</tr>
+<tr>
+<td>sqlExtraHeader_sat</td>
+<td>character(len=256)       :: sqlExtraHeader_sat<b>! same as sqlExtraHeader, but only for SST satellite obs</b></td>
+</tr>
+<tr>
+<td>sqlNull</td>
+<td>character(len=256)       :: sqlNull           <b>! can be used e.g. for ' and obsvalue is not null '</b></td>
+</tr>
+</table>
+</p>
+<H3>NAMELIST: NAMSQLUPDATE (in file sqliteread_mod.f90)</H3>
+<p style="padding:6px; color: black; background-color: white; border: black 2px solid">
+<table style="width:100%">
+<tr>
+<td>itemUpdateList</td>
+<td>character(len=3) :: itemUpdateList(maxNumberUpdate)      <b>! List of columns to be updated (e.g.'OMA','OMP')</b></td>
+</tr>
+<tr>
+<td>itemUpdateListRadar</td>
+<td>character(len=3) :: itemUpdateListRadar(maxNumberUpdate) <b>! List of columns to be updated for Radar data</b></td>
+</tr>
+<tr>
+<td>numberUpdateItems</td>
+<td>integer          :: numberUpdateItems                    <b>! MUST NOT BE INCLUDED IN NAMELIST!</b></td>
+</tr>
+<tr>
+<td>numberUpdateItemsRadar</td>
+<td>integer          :: numberUpdateItemsRadar               <b>! MUST NOT BE INCLUDED IN NAMELIST!</b></td>
+</tr>
+</table>
+</p>
+<H3>NAMELIST: NAMSQLINSERT (in file sqliteread_mod.f90)</H3>
+<p style="padding:6px; color: black; background-color: white; border: black 2px solid">
+<table style="width:100%">
+<tr>
+<td>itemInsertList</td>
+<td>integer :: itemInsertList(maxNumberInsertItems) <b>! List of bufr element ids to insert in sql file data table</b></td>
+</tr>
+<tr>
+<td>numberInsertItems</td>
+<td>integer :: numberInsertItems                    <b>! MUST NOT BE INCLUDED IN NAMELIST!</b></td>
+</tr>
+</table>
+</p>
+<H3>NAMELIST: NAMSSTBIASESTIMATE (in file sstbias_mod.f90)</H3>
+<p style="padding:6px; color: black; background-color: white; border: black 2px solid">
+<table style="width:100%">
+<tr>
+<td>bgTermZeroBias</td>
+<td>real(4)            :: bgTermZeroBias               <b>! background term of zero bias estimate</b></td>
+</tr>
+<tr>
+<td>iceFractionThreshold</td>
+<td>real(4)            :: iceFractionThreshold         <b>! consider no ice condition below this threshold</b></td>
+</tr>
+<tr>
+<td>maxBias</td>
+<td>real(4)            :: maxBias                      <b>! max acceptable difference (insitu - satellite)</b></td>
+</tr>
+<tr>
+<td>numberPointsBG</td>
+<td>integer            :: numberPointsBG               <b>! parameter, number of matchups of the background bias estimation</b></td>
+</tr>
+<tr>
+<td>numberSensors</td>
+<td>integer            :: numberSensors                <b>! MUST NOT BE INCLUDED IN NAMELIST!</b></td>
+</tr>
+<tr>
+<td>numObsBatches</td>
+<td>integer            :: numObsBatches                <b>! number of batches for calling interp setup</b></td>
+</tr>
+<tr>
+<td>saveAuxFields</td>
+<td>logical            :: saveAuxFields                <b>! to store or not auxiliary fields: nobs and weight        </b></td>
+</tr>
+<tr>
+<td>searchRadius</td>
+<td>real(8)            :: searchRadius                 <b>! horizontal search radius, in km, for obs gridding</b></td>
+</tr>
+<tr>
+<td>sensorList</td>
+<td>character(len=10)  :: sensorList(maxNumberSensors) <b>! list of sensors</b></td>
+</tr>
+<tr>
+<td>timeInterpType_nl</td>
+<td>character(len=20)  :: timeInterpType_nl            <b>! 'NEAREST' or 'LINEAR'</b></td>
+</tr>
+<tr>
+<td>weightMax</td>
+<td>real(4)            :: weightMax                    <b>! maximum value of weight for the current day bias</b></td>
+</tr>
+<tr>
+<td>weightMin</td>
+<td>real(4)            :: weightMin                    <b>! minimum value of weight for the current day bias</b></td>
+</tr>
+</table>
+</p>
+<H3>NAMELIST: NAMS2C (in file statetocolumn_mod.f90)</H3>
+<p style="padding:6px; color: black; background-color: white; border: black 2px solid">
+<table style="width:100%">
+<tr>
+<td>calcHeightPressIncrOnColumn</td>
+<td>logical :: calcHeightPressIncrOnColumn   <b>! choose to compute Z and P increment on column, instead of grid</b></td>
+</tr>
+<tr>
+<td>rejectObsNonMonotonicPressure</td>
+<td>logical :: rejectObsNonMonotonicPressure <b>! choose to reject obs when interpolated column pressure is non-monotonic</b></td>
+</tr>
+<tr>
+<td>slantPath_RA_nl</td>
+<td>logical :: slantPath_RA_nl               <b>! choose to use slant path for non-linear radar operator</b></td>
+</tr>
+<tr>
+<td>slantPath_RO_nl</td>
+<td>logical :: slantPath_RO_nl               <b>! choose to use slant path for non-linear GPS-RO operator</b></td>
+</tr>
+<tr>
+<td>slantPath_TO_nl</td>
+<td>logical :: slantPath_TO_nl               <b>! choose to use slant path for non-linear radiance operator</b></td>
+</tr>
+<tr>
+<td>slantPath_TO_tlad</td>
+<td>logical :: slantPath_TO_tlad             <b>! choose to use slant path for linearized radiance operators</b></td>
+</tr>
+<tr>
+<td>useFootprintForTovs</td>
+<td>logical :: useFootprintForTovs           <b>! choose to use a horizontal footprint operator for radiance obs</b></td>
+</tr>
+</table>
+</p>
+<H3>NAMELIST: THIN_SURFACE (in file thinning_mod.f90)</H3>
+<p style="padding:6px; color: black; background-color: white; border: black 2px solid">
+<table style="width:100%">
+<tr>
+<td>considerSHIPstnID</td>
+<td>logical :: considerSHIPstnID <b>! signal if SHIP stn ID should be considered in thinning</b></td>
+</tr>
+<tr>
+<td>deltmax</td>
+<td>integer :: deltmax           <b>! maximum time difference (in minutes)</b></td>
+</tr>
+<tr>
+<td>doThinning</td>
+<td>logical :: doThinning        <b>! if false, we return immediately</b></td>
+</tr>
+<tr>
+<td>step</td>
+<td>real(8) :: step              <b>! time resolution (in hours)</b></td>
+</tr>
+<tr>
+<td>useBlackList</td>
+<td>logical :: useBlackList      <b>! signal if blacklist file should be read and used</b></td>
+</tr>
+</table>
+</p>
+<H3>NAMELIST: THIN_RAOBS (in file thinning_mod.f90)</H3>
+<p style="padding:6px; color: black; background-color: white; border: black 2px solid">
+<table style="width:100%">
+<tr>
+<td>ecmwfRejetsES</td>
+<td>logical :: ecmwfRejetsES      <b>! choose to do filtering of T-Td obs with approach similar to ECMWF</b></td>
+</tr>
+<tr>
+<td>toleranceFactor</td>
+<td>real(4) :: toleranceFactor    <b>! Tolerance factor for TAC vs BUFR selection</b></td>
+</tr>
+<tr>
+<td>verticalThinningES</td>
+<td>logical :: verticalThinningES <b>! choose to do vertical thinning of humidity obs</b></td>
+</tr>
+</table>
+</p>
+<H3>NAMELIST: THIN_AIRCRAFT (in file thinning_mod.f90)</H3>
+<p style="padding:6px; color: black; background-color: white; border: black 2px solid">
+<table style="width:100%">
+<tr>
+<td>deltmax</td>
+<td>integer :: deltmax           <b>! maximum time difference (in minutes)</b></td>
+</tr>
+</table>
+</p>
+<H3>NAMELIST: THIN_SATWIND (in file thinning_mod.f90)</H3>
+<p style="padding:6px; color: black; background-color: white; border: black 2px solid">
+<table style="width:100%">
+<tr>
+<td>deldist</td>
+<td>integer :: deldist  <b>! minimal distance in km between adjacent observations</b></td>
+</tr>
+<tr>
+<td>deltemps</td>
+<td>integer :: deltemps <b>! number of time bins between adjacent observations</b></td>
+</tr>
+</table>
+</p>
+<H3>NAMELIST: THIN_GPSRO (in file thinning_mod.f90)</H3>
+<p style="padding:6px; color: black; background-color: white; border: black 2px solid">
+<table style="width:100%">
+<tr>
+<td>gpsroVarNo</td>
+<td>integer :: gpsroVarNo    <b>! bufr element id to be used</b></td>
+</tr>
+<tr>
+<td>heightMax</td>
+<td>real(8) :: heightMax     <b>! niveau a partir du quel on rejette les donnees</b></td>
+</tr>
+<tr>
+<td>heightMin</td>
+<td>real(8) :: heightMin     <b>! niveau a partir du quel on accepte les donnees</b></td>
+</tr>
+<tr>
+<td>heightSpacing</td>
+<td>real(8) :: heightSpacing <b>! epaisseur minimale entre deux niveaux</b></td>
+</tr>
+</table>
+</p>
+<H3>NAMELIST: THIN_GBGPS (in file thinning_mod.f90)</H3>
+<p style="padding:6px; color: black; background-color: white; border: black 2px solid">
+<table style="width:100%">
+<tr>
+<td>deldist</td>
+<td>integer :: deldist  <b>! minimal distance in km between adjacent observations</b></td>
+</tr>
+<tr>
+<td>deltemps</td>
+<td>integer :: deltemps <b>! number of time bins between adjacent observations</b></td>
+</tr>
+<tr>
+<td>rejectNoZTDScore</td>
+<td>logical :: rejectNoZTDScore <b>! reject GB-GPS obs if no ZTD quality score available</b></td>
+</tr>
+<tr>
+<td>removeUncorrected</td>
+<td>logical :: removeUncorrected <b>! remove obs that are not bias corrected (bit 6)</b></td>
+</tr>
+</table>
+</p>
+<H3>NAMELIST: THIN_ALADIN (in file thinning_mod.f90)</H3>
+<p style="padding:6px; color: black; background-color: white; border: black 2px solid">
+<table style="width:100%">
+<tr>
+<td>keepNthVertical</td>
+<td>integer :: keepNthVertical <b>! keep every nth vertical datum</b></td>
+</tr>
+</table>
+</p>
+<H3>NAMELIST: THIN_CSR (in file thinning_mod.f90)</H3>
+<p style="padding:6px; color: black; background-color: white; border: black 2px solid">
+<table style="width:100%">
+<tr>
+<td>deltax</td>
+<td>integer :: deltax     <b>! thinning (dimension of box sides) (in km)</b></td>
+</tr>
+<tr>
+<td>deltrad</td>
+<td>integer :: deltrad    <b>! radius around box center for chosen obs (in km)</b></td>
+</tr>
+</table>
+</p>
+<H3>NAMELIST: THIN_SCAT (in file thinning_mod.f90)</H3>
+<p style="padding:6px; color: black; background-color: white; border: black 2px solid">
+<table style="width:100%">
+<tr>
+<td>deltax</td>
+<td>integer :: deltax     <b>! thinning (dimension of box sides) (in km)</b></td>
+</tr>
+<tr>
+<td>deltmax</td>
+<td>integer :: deltmax           <b>! maximum time difference (in minutes)</b></td>
+</tr>
+</table>
+</p>
+<H3>NAMELIST: THIN_TOVS (in file thinning_mod.f90)</H3>
+<p style="padding:6px; color: black; background-color: white; border: black 2px solid">
+<table style="width:100%">
+<tr>
+<td>delta</td>
+<td>integer :: delta    <b>! thinning (dimension of box sides) (in km)</b></td>
+</tr>
+<tr>
+<td>deltrad</td>
+<td>integer :: deltrad    <b>! radius around box center for chosen obs (in km)</b></td>
+</tr>
+</table>
+</p>
+<H3>NAMELIST: THIN_HYPER (in file thinning_mod.f90)</H3>
+<p style="padding:6px; color: black; background-color: white; border: black 2px solid">
+<table style="width:100%">
+<tr>
+<td>deltax</td>
+<td>integer :: deltax     <b>! thinning (dimension of box sides) (in km)</b></td>
+</tr>
+<tr>
+<td>deltmax</td>
+<td>integer :: deltmax           <b>! maximum time difference (in minutes)</b></td>
+</tr>
+<tr>
+<td>deltrad</td>
+<td>integer :: deltrad    <b>! radius around box center for chosen obs (in km)</b></td>
+</tr>
+<tr>
+<td>removeUnCorrected</td>
+<td>logical :: removeUncorrected <b>! remove obs that are not bias corrected (bit 6)</b></td>
+</tr>
+</table>
+</p>
+<H3>NAMELIST: NAMGEM (in file thinning_mod.f90)</H3>
+<p style="padding:6px; color: black; background-color: white; border: black 2px solid">
+<table style="width:100%">
+<tr>
+<td>numlev</td>
+<td>integer :: numlev          <b>! MUST NOT BE INCLUDED IN NAMELIST!</b></td>
+</tr>
+<tr>
+<td>rcoefinc</td>
+<td>real(8) :: rcoefinc        <b>! parameter for defining fixed set of model levels for vertical thinning</b></td>
+</tr>
+<tr>
+<td>rprefinc</td>
+<td>real(8) :: rprefinc        <b>! parameter for defining fixed set of model levels for vertical thinning</b></td>
+</tr>
+<tr>
+<td>rptopinc</td>
+<td>real(8) :: rptopinc        <b>! parameter for defining fixed set of model levels for vertical thinning</b></td>
+</tr>
+<tr>
+<td>vlev</td>
+<td>real(4) :: vlev(maxNumLev) <b>! parameter for defining fixed set of model levels for vertical thinning</b></td>
+</tr>
+</table>
+</p>
+<H3>NAMELIST: THIN_SATSST (in file thinning_mod.f90)</H3>
+<p style="padding:6px; color: black; background-color: white; border: black 2px solid">
+<table style="width:100%">
+<tr>
+<td>dataSetSST</td>
+<td>character(len=10) :: dataSetSST(maxNumDataSetSST) <b>! array of SST dataset names considered in thinning</b></td>
+</tr>
+<tr>
+<td>deltmax</td>
+<td>integer :: deltmax           <b>! maximum time difference (in minutes)</b></td>
+</tr>
+<tr>
+<td>doThinning</td>
+<td>logical :: doThinning        <b>! if false, we return immediately</b></td>
+</tr>
+<tr>
+<td>fractionGridCell</td>
+<td>real(4) :: fractionGridCell                       <b>! keep data only inside a fraction of the grid cell size</b></td>
+</tr>
+<tr>
+<td>numTimesteps</td>
+<td>integer :: numTimesteps                           <b>! thinning number of timesteps</b></td>
+</tr>
+</table>
+</p>
+<H3>NAMELIST: NAMTIME (in file timecoord_mod.f90)</H3>
+<p style="padding:6px; color: black; background-color: white; border: black 2px solid">
+<table style="width:100%">
+<tr>
+<td>dstepobs</td>
+<td>real(8) :: dstepobs      <b>! time step length for background state (in hours)</b></td>
+</tr>
+<tr>
+<td>dstepobsinc</td>
+<td>real(8) :: dstepobsinc   <b>! time step length for increment and/or B matrix (in hours)</b></td>
+</tr>
+<tr>
+<td>dwindowsize</td>
+<td>real(8) :: dwindowsize   <b>! length of assimilation window (in hours)</b></td>
+</tr>
+<tr>
+<td>fullyUseExtremeTimeBins</td>
+<td>logical :: fullyUseExtremeTimeBins <b>! choose to use full-size bins at both ends of window (usually only half size)</b></td>
+</tr>
+<tr>
+<td>referencetime</td>
+<td>character(len=6) :: referencetime  <b>! location of 'date' within the window: 'middle' or 'start'</b></td>
+</tr>
+</table>
+</p>
+<H3>NAMELIST: NAMTOV (in file tovs_nl_mod.f90)</H3>
+<p style="padding:6px; color: black; background-color: white; border: black 2px solid">
+<table style="width:100%">
+<tr>
+<td>cinstrumentid</td>
+<td>character(len=15) :: cinstrumentid(tvs_maxNumberOfSensors) <b>! List of incstrument names</b></td>
+</tr>
+<tr>
+<td>cloudScaleFactor</td>
+<td>real(8) :: cloudScaleFactor  <b>! Scale factor applied to model produced clouds to account for bias</b></td>
+</tr>
+<tr>
+<td>crtmodl</td>
+<td>character(len=8)  :: crtmodl <b>! For now, must equal 'RTTOV'</b></td>
+</tr>
+<tr>
+<td>csatid</td>
+<td>character(len=15) :: csatid(tvs_maxNumberOfSensors)        <b>! List of satellite names</b></td>
+</tr>
+<tr>
+<td>doAzimuthCorrection</td>
+<td>logical :: doAzimuthCorrection(tvs_maxNumberOfSensors) <b>! Choose to apply correction to azimuth angle</b></td>
+</tr>
+<tr>
+<td>instrumentNamesUsingCLW</td>
+<td>character(len=15) :: instrumentNamesUsingCLW(tvs_maxNumberOfSensors) <b>! List of inst names using CLW</b></td>
+</tr>
+<tr>
+<td>instrumentNamesUsingHydrometeors</td>
+<td>character(len=15) :: instrumentNamesUsingHydrometeors(tvs_maxNumberOfSensors) <b>! List of inst name using full set of hydromet variables</b></td>
+</tr>
+<tr>
+<td>isAzimuthValid</td>
+<td>logical :: isAzimuthValid(tvs_maxNumberOfSensors) <b>! Indicate if azimuth angle is valid</b></td>
+</tr>
+<tr>
+<td>ldbgtov</td>
+<td>logical :: ldbgtov  <b>! Choose to print simulated and observed Tb to listing</b></td>
+</tr>
+<tr>
+<td>mpiTask0ReadCoeffs</td>
+<td>logical :: mpiTask0ReadCoeffs <b>! Choose to read coeffs only on task 0 and broadcast</b></td>
+</tr>
+<tr>
+<td>mwAllskyAssim</td>
+<td>logical :: mwAllskyAssim <b>! High-level key to activate all-sky treatment of MW radiances</b></td>
+</tr>
+<tr>
+<td>mWAtlasId</td>
+<td>integer mWAtlasId                                <b>! MW Atlas Id used when useMWEmissivityAtlas == .true. ; 1 TELSEM2, 2 CNRM atlas</b></td>
+</tr>
+<tr>
+<td>mwInstrumUsingCLW_tl</td>
+<td>logical :: mwInstrumUsingCLW_tl <b>! Choose to use CLW increment in TL/AD if exists as state variable</b></td>
+</tr>
+<tr>
+<td>mwInstrumUsingHydrometeors_tl</td>
+<td>logical :: mwInstrumUsingHydrometeors_tl <b>! Choose to all hydomet variables in TL/AD if exist as state variables</b></td>
+</tr>
+<tr>
+<td>nsensors</td>
+<td>integer :: nsensors <b>! MUST NOT BE INCLUDED IN NAMELIST!</b></td>
+</tr>
+<tr>
+<td>regLimitExtrap</td>
+<td>logical :: regLimitExtrap <b>! Choose to use RTTOV reg_limit_extrap option</b></td>
+</tr>
+<tr>
+<td>useMWEmissivityAtlas</td>
+<td>logical useMWEmissivityAtlas                     <b>! Flag to activate use of RTTOV built-in MW emissivity Atlases      </b></td>
+</tr>
+<tr>
+<td>useO3Climatology</td>
+<td>logical :: useO3Climatology <b>! Choose to use ozone climatology (otherwise model field)</b></td>
+</tr>
+<tr>
+<td>userDefinedDoAzimuthCorrection</td>
+<td>logical :: userDefinedDoAzimuthCorrection <b>! Indicate if user defined azimuth correction is to be used</b></td>
+</tr>
+<tr>
+<td>userDefinedIsAzimuthValid</td>
+<td>logical :: userDefinedIsAzimuthValid <b>! Indicate if user defined azimuth angle is valid</b></td>
+</tr>
+<tr>
+<td>useUofWIREmiss</td>
+<td>logical useUofWIREmiss                           <b>! Flag to activate use of RTTOV U of W IR emissivity Atlases</b></td>
+</tr>
+</table>
+</p>
+<H3>NAMELIST: NAMCHANOFFSET (in file tovs_nl_mod.f90)</H3>
+<p style="padding:6px; color: black; background-color: white; border: black 2px solid">
+<table style="width:100%">
+<tr>
+<td>listinstrum</td>
+<td>character(len=8) :: listinstrum(0:ninst-1) <b>! List of instrument names</b></td>
+</tr>
+<tr>
+<td>listoffset</td>
+<td>integer          :: listoffset(0:ninst-1)  <b>! Corresponding list of channel offset values</b></td>
+</tr>
+</table>
+</p>
+<H3>NAMELIST: NAMTOVSINST (in file tovs_nl_mod.f90)</H3>
+<p style="padding:6px; color: black; background-color: white; border: black 2px solid">
+<table style="width:100%">
+<tr>
+<td>inst_names</td>
+<td>character(len=22) :: inst_names(ninst) <b>! List of instrument names for all radiance types</b></td>
+</tr>
+</table>
+</p>
+<H3>NAMELIST: NAMHYPER (in file tovs_nl_mod.f90)</H3>
+<p style="padding:6px; color: black; background-color: white; border: black 2px solid">
+<table style="width:100%">
+<tr>
+<td>name_inst</td>
+<td>character(len=22) :: name_inst(ninst) <b>! List of instrument names for hyperspectral IR</b></td>
+</tr>
+</table>
+</p>
+<H3>NAMELIST: NAMGEO (in file tovs_nl_mod.f90)</H3>
+<p style="padding:6px; color: black; background-color: white; border: black 2px solid">
+<table style="width:100%">
+<tr>
+<td>name_inst</td>
+<td>character(len=22) :: name_inst(ninst) <b>! List of instrument names for hyperspectral IR</b></td>
+</tr>
+</table>
+</p>
+<H3>NAMELIST: NAMINST (in file tovs_nl_mod.f90)</H3>
+<p style="padding:6px; color: black; background-color: white; border: black 2px solid">
+<table style="width:100%">
+<tr>
+<td>listburp</td>
+<td>integer, save ::   listburp(mxinstrumburp)           <b>! List of instrument ID values from obs file</b></td>
+</tr>
+<tr>
+<td>listinstrum</td>
+<td>character(len=8) :: listinstrum(0:ninst-1) <b>! List of instrument names</b></td>
+</tr>
+</table>
+</p>
+<H3>NAMELIST: NAMGEOBUFR (in file tovs_nl_mod.f90)</H3>
+<p style="padding:6px; color: black; background-color: white; border: black 2px solid">
+<table style="width:100%">
+<tr>
+<td>name_inst</td>
+<td>character(len=22) :: name_inst(ninst) <b>! List of instrument names for hyperspectral IR</b></td>
+</tr>
+</table>
+</p>
+<H3>NAMELIST: NAMSAT (in file tovs_nl_mod.f90)</H3>
+<p style="padding:6px; color: black; background-color: white; border: black 2px solid">
+<table style="width:100%">
+<tr>
+<td>listburp</td>
+<td>integer, save ::   listburp(mxinstrumburp)           <b>! List of instrument ID values from obs file</b></td>
+</tr>
+<tr>
+<td>listplat</td>
+<td>character(len=8), save :: listplat(mxsatburp) <b>! Table of RTTOV platform identifier</b></td>
+</tr>
+<tr>
+<td>listsat</td>
+<td>integer, save          :: listsat (mxsatburp) <b>! Table of RTTOV satellite identifier</b></td>
+</tr>
+</table>
+</p>
+<H3>NAMELIST: NAMVNL (in file varnamelist_mod.f90)</H3>
+<p style="padding:6px; color: black; background-color: white; border: black 2px solid">
+<table style="width:100%">
+<tr>
+<td>forceSfcOnly</td>
+<td>character(len=4), save :: forceSfcOnly(vnl_numVarMax) <b>! List of 3D variable names only allocated at the surface</b></td>
+</tr>
+</table>
+</p>
+</HTML>

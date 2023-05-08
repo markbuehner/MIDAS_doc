@@ -1,0 +1,257 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>getgridposition_mod &mdash; MIDAS  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="MIDAS  documentation" href="../index.html" />
+    <link rel="next" title="kdtree2_mod" href="kdtree2_mod.html" />
+    <link rel="prev" title="earthconstants_mod" href="earthconstants_mod.html" /> 
+  </head>
+  <body>
+  <div>
+    <img src="../_static/MIDAS_header.png" alt="MIDAS" />
+  </div>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="kdtree2_mod.html" title="kdtree2_mod"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="earthconstants_mod.html" title="earthconstants_mod"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="earthconstants_mod.html"
+                          title="previous chapter">earthconstants_mod</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="kdtree2_mod.html"
+                          title="next chapter">kdtree2_mod</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/modules/getgridposition_mod.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <section id="getgridposition-mod">
+<h1>getgridposition_mod<a class="headerlink" href="#getgridposition-mod" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><p><a class="reference internal" href="getgridposition_mod_src.html"><span class="doc">link to source code</span></a></p>
+<p><strong>Dependency Diagrams:</strong></p>
+<figure class="align-default" id="id1">
+<a class="reference internal image-reference" href="getgridposition_mod.svg"><img alt="getgridposition_mod.svg" height="100px" src="getgridposition_mod.svg" /></a>
+<figcaption>
+<p><span class="caption-text">Direct Dependency Diagram</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id2">
+<a class="reference internal image-reference" href="getgridposition_mod_rev.svg"><img alt="getgridposition_mod_rev.svg" height="100px" src="getgridposition_mod_rev.svg" /></a>
+<figcaption>
+<p><span class="caption-text">Reverse Dependency Diagram</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<span class="target" id="f/getgridposition_mod"></span><p class="rubric">Description</p>
+<p>MODULE getGridPosition_mod (prefix=’gpos’ category=’8. Low-level utilities and constants’)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Purpose</dt>
+<dd class="field-odd"><p>A place to collect numerous interpolation related routines.
+The main task of the module is to compute the grid XY position from a lat-lon.
+This simply calls the ezsint routine gdxyfll for simple grids. For
+Yin-Yan grids it calls the function gpos_xyfll_yinYangGrid
+(see below in this module). There is also support for
+RPN Y grids, in which case it calls the subroutine gpos_xyfll_unstructGrid.</p>
+</dd>
+</dl>
+<p class="rubric">Quick access</p>
+<dl class="field-list simple">
+<dt class="field-odd">Routines</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/getgridposition_mod/gpos_getpositionxy" title="f/getgridposition_mod/gpos_getpositionxy"><code class="xref f f-func docutils literal notranslate"><span class="pre">gpos_getpositionxy()</span></code></a>, <a class="reference internal" href="#f/getgridposition_mod/gpos_xyfll_unstructgrid" title="f/getgridposition_mod/gpos_xyfll_unstructgrid"><code class="xref f f-func docutils literal notranslate"><span class="pre">gpos_xyfll_unstructgrid()</span></code></a>, <a class="reference internal" href="#f/getgridposition_mod/gpos_xyfll_yinyanggrid" title="f/getgridposition_mod/gpos_xyfll_yinyanggrid"><code class="xref f f-func docutils literal notranslate"><span class="pre">gpos_xyfll_yinyanggrid()</span></code></a></p>
+</dd>
+</dl>
+<p class="rubric">Needed modules</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="kdtree2_mod.html#f/kdtree2_mod" title="f/kdtree2_mod: MODULE kdtree2_mod (prefix='kdtree2' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">kdtree2_mod</span></code></a>: MODULE kdtree2_mod (prefix=’kdtree2’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="mathphysconstants_mod.html#f/mathphysconstants_mod" title="f/mathphysconstants_mod: MODULE MathPhysConstants_mod (prefix='mpc' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">mathphysconstants_mod</span></code></a>: MODULE MathPhysConstants_mod (prefix=’mpc’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="physicsfunctions_mod.html#f/physicsfunctions_mod" title="f/physicsfunctions_mod: MODULE physicsFunctions_mod (prefix='phf' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">physicsfunctions_mod</span></code></a>: MODULE physicsFunctions_mod (prefix=’phf’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod" title="f/utilities_mod: MODULE utilities_mod (prefix='utl' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">utilities_mod</span></code></a>: MODULE utilities_mod (prefix=’utl’ category=’8. Low-level utilities and constants’)</p></li>
+</ul>
+<p class="rubric">Variables</p>
+<p class="rubric">Subroutines and functions</p>
+<dl>
+<dt class="sig sig-object f" id="f/getgridposition_mod/gpos_getpositionxy">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">getgridposition_mod/</span></span><span class="sig-name descname"><span class="pre">gpos_getpositionxy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">gdid</span></em>, <em class="sig-param"><span class="pre">xpos_r4</span></em>, <em class="sig-param"><span class="pre">ypos_r4</span></em>, <em class="sig-param"><span class="pre">xpos2_r4</span></em>, <em class="sig-param"><span class="pre">ypos2_r4</span></em>, <em class="sig-param"><span class="pre">lat_deg_r4</span></em>, <em class="sig-param"><span class="pre">lon_deg_r4</span></em>, <em class="sig-param"><span class="pre">subgridindex</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/getgridposition_mod/gpos_getpositionxy" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Compute the grid XY position from a lat-lon. This
+simply calls the ezsint routine gdxyfll for simple grids. For
+Yin-Yan grids it calls the function gpos_xyfll_yinYangGrid
+(see below in this module). There is also support for
+RPN Y grids, in which case it calls the subroutine gpos_xyfll_unstructGrid.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>gdid</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>xpos_r4</strong><em> [</em><em>real </em><em>,</em><em>out</em><em>]</em></p></li>
+<li><p><strong>ypos_r4</strong><em> [</em><em>real </em><em>,</em><em>out</em><em>]</em></p></li>
+<li><p><strong>xpos2_r4</strong><em> [</em><em>real </em><em>,</em><em>out</em><em>]</em></p></li>
+<li><p><strong>ypos2_r4</strong><em> [</em><em>real </em><em>,</em><em>out</em><em>]</em></p></li>
+<li><p><strong>lat_deg_r4</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>lon_deg_r4</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>subgridindex</strong><em> [</em><em>integer </em><em>,</em><em>out</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Return</dt>
+<dd class="field-odd"><p><strong>ierr</strong><em> [</em><em>integer </em><em>]</em> :: returned value of function</p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="slantprofilelatlon_mod.html#f/slantprofilelatlon_mod/heightbilinearinterp" title="f/slantprofilelatlon_mod/heightbilinearinterp"><code class="xref f f-func docutils literal notranslate"><span class="pre">heightbilinearinterp()</span></code></a>, <a class="reference internal" href="statetocolumn_mod.html#f/statetocolumn_mod/latlonchecksanlgrid" title="f/statetocolumn_mod/latlonchecksanlgrid"><code class="xref f f-func docutils literal notranslate"><span class="pre">latlonchecksanlgrid()</span></code></a>, <a class="reference internal" href="statetocolumn_mod.html#f/statetocolumn_mod/s2c_setupinterpinfo" title="f/statetocolumn_mod/s2c_setupinterpinfo"><code class="xref f f-func docutils literal notranslate"><span class="pre">s2c_setupinterpinfo()</span></code></a>, <a class="reference internal" href="statetocolumn_mod.html#f/statetocolumn_mod/s2c_bgcheck_bilin" title="f/statetocolumn_mod/s2c_bgcheck_bilin"><code class="xref f f-func docutils literal notranslate"><span class="pre">s2c_bgcheck_bilin()</span></code></a>, <a class="reference internal" href="statetocolumn_mod.html#f/statetocolumn_mod/s2c_setupbilinearinterp" title="f/statetocolumn_mod/s2c_setupbilinearinterp"><code class="xref f f-func docutils literal notranslate"><span class="pre">s2c_setupbilinearinterp()</span></code></a>, <a class="reference internal" href="statetocolumn_mod.html#f/statetocolumn_mod/s2c_setupfootprintinterp" title="f/statetocolumn_mod/s2c_setupfootprintinterp"><code class="xref f f-func docutils literal notranslate"><span class="pre">s2c_setupfootprintinterp()</span></code></a>, <a class="reference internal" href="statetocolumn_mod.html#f/statetocolumn_mod/s2c_setuplakeinterp" title="f/statetocolumn_mod/s2c_setuplakeinterp"><code class="xref f f-func docutils literal notranslate"><span class="pre">s2c_setuplakeinterp()</span></code></a>, <a class="reference internal" href="statetocolumn_mod.html#f/statetocolumn_mod/s2c_setupnearestneighbor" title="f/statetocolumn_mod/s2c_setupnearestneighbor"><code class="xref f f-func docutils literal notranslate"><span class="pre">s2c_setupnearestneighbor()</span></code></a>, <a class="reference internal" href="statetocolumn_mod.html#f/statetocolumn_mod/latlonchecks" title="f/statetocolumn_mod/latlonchecks"><code class="xref f f-func docutils literal notranslate"><span class="pre">latlonchecks()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/getgridposition_mod/gpos_xyfll_unstructgrid" title="f/getgridposition_mod/gpos_xyfll_unstructgrid"><code class="xref f f-func docutils literal notranslate"><span class="pre">gpos_xyfll_unstructgrid()</span></code></a>, <a class="reference internal" href="#f/getgridposition_mod/gpos_xyfll_yinyanggrid" title="f/getgridposition_mod/gpos_xyfll_yinyanggrid"><code class="xref f f-func docutils literal notranslate"><span class="pre">gpos_xyfll_yinyanggrid()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/getgridposition_mod/gpos_xyfll_yinyanggrid">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">getgridposition_mod/</span></span><span class="sig-name descname"><span class="pre">gpos_xyfll_yinyanggrid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">gdid</span></em>, <em class="sig-param"><span class="pre">xpos_r4</span></em>, <em class="sig-param"><span class="pre">ypos_r4</span></em>, <em class="sig-param"><span class="pre">xpos2_r4</span></em>, <em class="sig-param"><span class="pre">ypos2_r4</span></em>, <em class="sig-param"><span class="pre">lat_deg_r4</span></em>, <em class="sig-param"><span class="pre">lon_deg_r4</span></em>, <em class="sig-param"><span class="pre">subgridindex</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/getgridposition_mod/gpos_xyfll_yinyanggrid" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>gdid</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>xpos_r4</strong><em> [</em><em>real </em><em>,</em><em>out</em><em>]</em></p></li>
+<li><p><strong>ypos_r4</strong><em> [</em><em>real </em><em>,</em><em>out</em><em>]</em></p></li>
+<li><p><strong>xpos2_r4</strong><em> [</em><em>real </em><em>,</em><em>out</em><em>]</em></p></li>
+<li><p><strong>ypos2_r4</strong><em> [</em><em>real </em><em>,</em><em>out</em><em>]</em></p></li>
+<li><p><strong>lat_deg_r4</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>lon_deg_r4</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>subgridindex</strong><em> [</em><em>integer </em><em>,</em><em>out</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Return</dt>
+<dd class="field-even"><p><strong>ierr</strong><em> [</em><em>integer </em><em>]</em> :: returned value of function</p>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/getgridposition_mod/gpos_getpositionxy" title="f/getgridposition_mod/gpos_getpositionxy"><code class="xref f f-func docutils literal notranslate"><span class="pre">gpos_getpositionxy()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/getgridposition_mod/gpos_xyfll_unstructgrid">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">getgridposition_mod/</span></span><span class="sig-name descname"><span class="pre">gpos_xyfll_unstructgrid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">gdid</span></em>, <em class="sig-param"><span class="pre">xpos_r4</span></em>, <em class="sig-param"><span class="pre">ypos_r4</span></em>, <em class="sig-param"><span class="pre">lat_deg_r4</span></em>, <em class="sig-param"><span class="pre">lon_deg_r4</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/getgridposition_mod/gpos_xyfll_unstructgrid" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>gdid</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>xpos_r4</strong><em> [</em><em>real </em><em>,</em><em>out</em><em>]</em></p></li>
+<li><p><strong>ypos_r4</strong><em> [</em><em>real </em><em>,</em><em>out</em><em>]</em></p></li>
+<li><p><strong>lat_deg_r4</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>lon_deg_r4</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Return</dt>
+<dd class="field-even"><p><strong>ierr</strong><em> [</em><em>integer </em><em>]</em> :: returned value of function</p>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/getgridposition_mod/gpos_getpositionxy" title="f/getgridposition_mod/gpos_getpositionxy"><code class="xref f f-func docutils literal notranslate"><span class="pre">gpos_getpositionxy()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="kdtree2_mod.html#f/kdtree2_mod/kdtree2_3dposition" title="f/kdtree2_mod/kdtree2_3dposition"><code class="xref f f-func docutils literal notranslate"><span class="pre">kdtree2_3dposition()</span></code></a>, <a class="reference internal" href="kdtree2_mod.html#f/kdtree2_mod/kdtree2_create" title="f/kdtree2_mod/kdtree2_create"><code class="xref f f-func docutils literal notranslate"><span class="pre">kdtree2_create()</span></code></a>, <a class="reference internal" href="kdtree2_mod.html#f/kdtree2_mod/kdtree2_r_nearest" title="f/kdtree2_mod/kdtree2_r_nearest"><code class="xref f f-func docutils literal notranslate"><span class="pre">kdtree2_r_nearest()</span></code></a>, <a class="reference internal" href="physicsfunctions_mod.html#f/physicsfunctions_mod/phf_calcdistance" title="f/physicsfunctions_mod/phf_calcdistance"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_calcdistance()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div></blockquote>
+</section>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="kdtree2_mod.html" title="kdtree2_mod"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="earthconstants_mod.html" title="earthconstants_mod"
+             >previous</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2018, ECCC.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,268 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>earthconstants_mod source &mdash; MIDAS  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="MIDAS  documentation" href="../index.html" /> 
+  </head>
+  <body>
+  <div>
+    <img src="../_static/MIDAS_header.png" alt="MIDAS" />
+  </div>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/modules/earthconstants_mod_src.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <section id="earthconstants-mod-source">
+<h1>earthconstants_mod source<a class="headerlink" href="#earthconstants-mod-source" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="linenos">  1</span><span class="k">MODULE </span><span class="n">earthConstants_mod</span><span class="w"></span>
+<span class="linenos">  2</span><span class="w">  </span><span class="c">! MODULE earthConstants_mod (prefix=&#39;ec&#39; category=&#39;8. Low-level utilities and constants&#39;)</span>
+<span class="linenos">  3</span><span class="w">  </span><span class="c">! Prefixes:</span>
+<span class="linenos">  4</span><span class="w">  </span><span class="c">!    ec_ (Earth constants), for miscellaneous values from diverse sources</span>
+<span class="linenos">  5</span><span class="w">  </span><span class="c">! or</span>
+<span class="linenos">  6</span><span class="w">  </span><span class="c">!    ec_wgs_ (World Geodetic Syatem) when they are explicitly from WGS84 specification.</span>
+<span class="linenos">  7</span><span class="w">  </span><span class="c">!</span>
+<span class="linenos">  8</span><span class="w">  </span><span class="k">use </span><span class="n">MathPhysConstants_mod</span><span class="w"></span>
+<span class="linenos">  9</span><span class="w">  </span><span class="c">!</span>
+<span class="linenos"> 10</span><span class="w">  </span><span class="c">! The following constants should ultimately be taken from module</span>
+<span class="linenos"> 11</span><span class="w">  </span><span class="c">! modgps02wgs84const OR module modgps06gravity.  They have been placed here</span>
+<span class="linenos"> 12</span><span class="w">  </span><span class="c">! as an intermediate step.</span>
+<span class="linenos"> 13</span><span class="w">  </span><span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">ec_Omega</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="mi">729200</span><span class="mf">0.D-11</span><span class="w">               </span><span class="c">! Approximation, see for instance ec_wgs_Omega below.</span>
+<span class="linenos"> 14</span><span class="w">  </span><span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">ec_rg</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="mf">9.80616000000000000000D+00</span><span class="w"> </span><span class="c">! ...616 ? This is Lambert IGF at 45 lat (g45). The WMO standard for conversions is ...665.</span>
+<span class="linenos"> 15</span><span class="w">  </span><span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">ec_ra</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="mi">637122</span><span class="mf">9.00000000000000D+00</span><span class="w"> </span><span class="c">! ECMWF topographical mean radius (Authalic radius, eg ec_wgs_R2,+average topography)</span>
+<span class="linenos"> 16</span><span class="w">  </span><span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">ec_r1sa</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="mf">1.D0</span><span class="o">/</span><span class="n">ec_ra</span><span class="w">                 </span><span class="c">! 1.56955588945241177170D-07          ! Modified to explicitly 1/ec_ra</span>
+<span class="linenos"> 17</span><span class="w">  </span><span class="c">!real(8), parameter :: RV       = 4.61524993308387870310D+02 ! WV gas constant? Seems unused.</span>
+<span class="linenos"> 18</span><span class="w">  </span><span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">ec_rayt</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="mi">637122</span><span class="mf">0.00000000000000D+00</span><span class="w"> </span><span class="c">! Another topographical mean (NOAA)</span>
+<span class="linenos"> 19</span><span class="w">  </span><span class="c">!</span>
+<span class="linenos"> 20</span><span class="w">  </span><span class="c">! Further values through the code:</span>
+<span class="linenos"> 21</span><span class="w">  </span><span class="c">!</span>
+<span class="linenos"> 22</span><span class="w">  </span><span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">ec_RDay</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="mi">8640</span><span class="mf">0.D0</span><span class="w">                                   </span><span class="c">! Standard day</span>
+<span class="linenos"> 23</span><span class="w">  </span><span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">ec_JYear</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="mi">36</span><span class="mf">5.25D0</span><span class="w">                                   </span><span class="c">! Standard (Julian) year</span>
+<span class="linenos"> 24</span><span class="w">  </span><span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">ec_SidYear</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ec_JYear</span><span class="o">*</span><span class="n">ec_RDAY</span><span class="o">*</span><span class="mf">2.D0</span><span class="o">*</span><span class="n">MPC_PI_R8</span><span class="o">/</span><span class="mf">6.283076D0</span><span class="w"> </span><span class="c">! Not really sidereal year, seems rather anomalistic year (odd).</span>
+<span class="linenos"> 25</span><span class="w">  </span><span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">ec_SidDay</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="n">ec_RDAY</span><span class="o">/</span><span class="p">(</span><span class="mf">1.D0</span><span class="o">+</span><span class="n">ec_RDAY</span><span class="o">/</span><span class="n">ec_SidYear</span><span class="p">)</span><span class="w">          </span><span class="c">! Approx sidereal day (wrt perihelion?), odd expression.</span>
+<span class="linenos"> 26</span><span class="w">  </span><span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">ec_ROmega</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="mf">2.D0</span><span class="o">*</span><span class="n">MPC_PI_R8</span><span class="o">/</span><span class="n">ec_SidDay</span><span class="w">                   </span><span class="c">! Angular rotation (approx., again)</span>
+<span class="linenos"> 27</span><span class="w">  </span><span class="c">!                                                                             ! ec_SidDay ~= 86164.0996</span>
+<span class="linenos"> 28</span><span class="w">  </span><span class="c">!                                                                             ! ec_ROmega ~= 7292115.D-11</span>
+<span class="linenos"> 29</span><span class="w">  </span><span class="c">!                                                                             ! First seven digits as ec_wgs_Omega</span>
+<span class="linenos"> 30</span>
+<span class="linenos"> 31</span><span class="w">  </span><span class="c">! WGS (World Geodetic System, 1984) constants</span>
+<span class="linenos"> 32</span>
+<span class="linenos"> 33</span><span class="w">  </span><span class="c">! Semimajor axis (a) (m)                             [*Defining constant*]</span>
+<span class="linenos"> 34</span><span class="w">  </span><span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">ec_wgs_a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">637813</span><span class="mf">7.0D0</span><span class="w"></span>
+<span class="linenos"> 35</span>
+<span class="linenos"> 36</span><span class="w">  </span><span class="c">! Flattening (f)                                     [*Defining constant*]</span>
+<span class="linenos"> 37</span><span class="w">  </span><span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">ec_wgs_f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.D0</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">29</span><span class="mf">8.257223563D0</span><span class="w"></span>
+<span class="linenos"> 38</span>
+<span class="linenos"> 39</span><span class="w">  </span><span class="c">! m = omega^2 a^2 b / GM</span>
+<span class="linenos"> 40</span><span class="w">  </span><span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">ec_wgs_m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.00344978650684D0</span><span class="w"></span>
+<span class="linenos"> 41</span>
+<span class="linenos"> 42</span><span class="w">  </span><span class="c">! Theoretical (Normal) Gravity Formula Constant:</span>
+<span class="linenos"> 43</span><span class="w">  </span><span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">ec_wgs_TNGk</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.00193185265241D0</span><span class="w"></span>
+<span class="linenos"> 44</span>
+<span class="linenos"> 45</span><span class="w">  </span><span class="c">! First eccentricity squared:</span>
+<span class="linenos"> 46</span><span class="w">  </span><span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">ec_wgs_e2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">6.69437999014D-3</span><span class="w"></span>
+<span class="linenos"> 47</span>
+<span class="linenos"> 48</span><span class="w">  </span><span class="c">! Theoretical (Normal) Gravity at the equator (m/s2):</span>
+<span class="linenos"> 49</span><span class="w">  </span><span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">ec_wgs_GammaE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">9.7803253359D0</span><span class="w"></span>
+<span class="linenos"> 50</span>
+<span class="linenos"> 51</span><span class="w">  </span><span class="c">! Earth&#39;s Gravitational Constant (GM) (m3/s2).       [*Defining constant*]</span>
+<span class="linenos"> 52</span><span class="w">  </span><span class="c">! This is the GM value with Earth&#39;s atmosphere included.</span>
+<span class="linenos"> 53</span><span class="w">  </span><span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">ec_wgs_GM</span><span class="w">         </span><span class="o">=</span><span class="w"> </span><span class="mi">398600</span><span class="mf">4.418D8</span><span class="w"></span>
+<span class="linenos"> 54</span>
+<span class="linenos"> 55</span><span class="w">  </span><span class="c">! Angular velocity of the Earth (omega) (radians/s). [*Defining constant*]</span>
+<span class="linenos"> 56</span><span class="w">  </span><span class="c">! Standard Earth, rotating with a constant angular velocity.</span>
+<span class="linenos"> 57</span><span class="w">  </span><span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">ec_wgs_Omega</span><span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="mi">729211</span><span class="mf">5.D-11</span><span class="w"></span>
+<span class="linenos"> 58</span>
+<span class="linenos"> 59</span><span class="w">  </span><span class="c">!  ***********************************************************</span>
+<span class="linenos"> 60</span><span class="w">  </span><span class="c">!  Parameter values for special applications:</span>
+<span class="linenos"> 61</span><span class="w">  </span><span class="c">!  ***********************************************************</span>
+<span class="linenos"> 62</span>
+<span class="linenos"> 63</span><span class="w">  </span><span class="c">! Earth&#39;s Gravitational Constant (GM_KEP) (m3/s2).</span>
+<span class="linenos"> 64</span><span class="w">  </span><span class="c">!</span>
+<span class="linenos"> 65</span><span class="w">  </span><span class="c">! This is the old GM value with Earth&#39;s atmosphere included,</span>
+<span class="linenos"> 66</span><span class="w">  </span><span class="c">! but still used for consistency in the transformations</span>
+<span class="linenos"> 67</span><span class="w">  </span><span class="c">! instantaneous keplerian &lt;-&gt; cartesian state vector.</span>
+<span class="linenos"> 68</span><span class="w">  </span><span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">ec_wgs_GM_KEP</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="mi">398600</span><span class="mf">5.0D8</span><span class="w"></span>
+<span class="linenos"> 69</span>
+<span class="linenos"> 70</span><span class="w">  </span><span class="c">! Earth&#39;s Atmosphere Gravitational Constant (GMA) (m3/s2).</span>
+<span class="linenos"> 71</span><span class="w">  </span><span class="c">! This is the GM value of the Earth&#39;s atmosphere alone.</span>
+<span class="linenos"> 72</span><span class="w">  </span><span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">ec_wgs_GMA</span><span class="w">        </span><span class="o">=</span><span class="w"> </span><span class="mf">3.5D8</span><span class="w"></span>
+<span class="linenos"> 73</span>
+<span class="linenos"> 74</span><span class="w">  </span><span class="c">! Earth&#39;s Gravitational Constant (GMPrime) (m3/s2).</span>
+<span class="linenos"> 75</span><span class="w">  </span><span class="c">! This is the GM value with Earth&#39;s atmosphere excluded.</span>
+<span class="linenos"> 76</span><span class="w">  </span><span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">ec_wgs_GMPrime</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="mi">398600</span><span class="mf">0.9D8</span><span class="w"></span>
+<span class="linenos"> 77</span>
+<span class="linenos"> 78</span><span class="w">  </span><span class="c">! Angular velocity of the Earth (omegaPrime) (radians/s).</span>
+<span class="linenos"> 79</span><span class="w">  </span><span class="c">! Standard Earth, rotating with a constant angular velocity (IAU, GRS67).</span>
+<span class="linenos"> 80</span><span class="w">  </span><span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">ec_wgs_OmegaPrime</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">729211</span><span class="mf">5.1467D-11</span><span class="w"></span>
+<span class="linenos"> 81</span>
+<span class="linenos"> 82</span><span class="w">  </span><span class="c">! Angular velocity of the Earth (omegaStar) (radians/s).</span>
+<span class="linenos"> 83</span><span class="w">  </span><span class="c">! Standard Earth, in a precessing frame (TU: Julian centuries since J2000.0)</span>
+<span class="linenos"> 84</span><span class="w">  </span><span class="c">! OmegaStar = OmegaStar0 + OmegaStar1 * TU</span>
+<span class="linenos"> 85</span><span class="w">  </span><span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">ec_wgs_OmegaStar0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">729211</span><span class="mf">5.8553D-11</span><span class="w"></span>
+<span class="linenos"> 86</span><span class="w">  </span><span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">ec_wgs_OmegaStar1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">4.3D-15</span><span class="w"></span>
+<span class="linenos"> 87</span>
+<span class="linenos"> 88</span><span class="w">  </span><span class="c">!  ***********************************************************</span>
+<span class="linenos"> 89</span><span class="w">  </span><span class="c">!  Derived geometric constants:</span>
+<span class="linenos"> 90</span><span class="w">  </span><span class="c">!  ***********************************************************</span>
+<span class="linenos"> 91</span>
+<span class="linenos"> 92</span><span class="w">  </span><span class="c">! Inverse flattening: 1/f = ec_wgs_1f</span>
+<span class="linenos"> 93</span><span class="w">  </span><span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">ec_wgs_1f</span><span class="w">         </span><span class="o">=</span><span class="w"> </span><span class="mi">29</span><span class="mf">8.257223563D0</span><span class="w"></span>
+<span class="linenos"> 94</span>
+<span class="linenos"> 95</span><span class="w">  </span><span class="c">! Second degree zonal coefficient:</span>
+<span class="linenos"> 96</span><span class="w">  </span><span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">ec_wgs_C20</span><span class="w">        </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mf">0.484166774985D-3</span><span class="w"></span>
+<span class="linenos"> 97</span>
+<span class="linenos"> 98</span><span class="w">  </span><span class="c">! Semiminor axis:</span>
+<span class="linenos"> 99</span><span class="w">  </span><span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">ec_wgs_b</span><span class="w">          </span><span class="o">=</span><span class="w"> </span><span class="mi">635675</span><span class="mf">2.3142D0</span><span class="w"></span>
+<span class="linenos">100</span>
+<span class="linenos">101</span><span class="w">  </span><span class="c">! First eccentricity:</span>
+<span class="linenos">102</span><span class="w">  </span><span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">ec_wgs_e</span><span class="w">          </span><span class="o">=</span><span class="w"> </span><span class="mf">8.1819190842622D-2</span><span class="w"></span>
+<span class="linenos">103</span>
+<span class="linenos">104</span><span class="w">  </span><span class="c">! Second eccentricity:</span>
+<span class="linenos">105</span><span class="w">  </span><span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">ec_wgs_ePrime</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="mf">8.2094437949696D-2</span><span class="w"></span>
+<span class="linenos">106</span>
+<span class="linenos">107</span><span class="w">  </span><span class="c">! Second eccentricity squared:</span>
+<span class="linenos">108</span><span class="w">  </span><span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">ec_wgs_ePrime2</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="mf">6.73949674228D-3</span><span class="w"></span>
+<span class="linenos">109</span>
+<span class="linenos">110</span><span class="w">  </span><span class="c">! Linear eccentricity:</span>
+<span class="linenos">111</span><span class="w">  </span><span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">ec_wgs_ELinear</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="mf">5.2185400842339D5</span><span class="w"></span>
+<span class="linenos">112</span>
+<span class="linenos">113</span><span class="w">  </span><span class="c">! Polar radius of curvature:</span>
+<span class="linenos">114</span><span class="w">  </span><span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">ec_wgs_c</span><span class="w">          </span><span class="o">=</span><span class="w"> </span><span class="mi">639959</span><span class="mf">3.6258D0</span><span class="w"></span>
+<span class="linenos">115</span>
+<span class="linenos">116</span><span class="w">  </span><span class="c">! Focal length:</span>
+<span class="linenos">117</span><span class="w">  </span><span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">ec_wgs_EFocal</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="mi">52185</span><span class="mf">4.00897D0</span><span class="w"></span>
+<span class="linenos">118</span>
+<span class="linenos">119</span><span class="w">  </span><span class="c">! Axis ratio:</span>
+<span class="linenos">120</span><span class="w">  </span><span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">ec_wgs_ba</span><span class="w">         </span><span class="o">=</span><span class="w"> </span><span class="mf">0.996647189335D0</span><span class="w"></span>
+<span class="linenos">121</span>
+<span class="linenos">122</span><span class="w">  </span><span class="c">! Mean radius of semiaxes:</span>
+<span class="linenos">123</span><span class="w">  </span><span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">ec_wgs_R1</span><span class="w">         </span><span class="o">=</span><span class="w"> </span><span class="mi">637100</span><span class="mf">8.7714D0</span><span class="w"></span>
+<span class="linenos">124</span>
+<span class="linenos">125</span><span class="w">  </span><span class="c">! Radius of sphere of equal area:</span>
+<span class="linenos">126</span><span class="w">  </span><span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">ec_wgs_R2</span><span class="w">         </span><span class="o">=</span><span class="w"> </span><span class="mi">637100</span><span class="mf">7.1809D0</span><span class="w"></span>
+<span class="linenos">127</span>
+<span class="linenos">128</span><span class="w">  </span><span class="c">! Radius of sphere of equal volume:</span>
+<span class="linenos">129</span><span class="w">  </span><span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">ec_wgs_R3</span><span class="w">         </span><span class="o">=</span><span class="w"> </span><span class="mi">637100</span><span class="mf">0.7900D0</span><span class="w"></span>
+<span class="linenos">130</span>
+<span class="linenos">131</span><span class="w">  </span><span class="c">!  ***********************************************************</span>
+<span class="linenos">132</span><span class="w">  </span><span class="c">!  Derived physical constants:</span>
+<span class="linenos">133</span><span class="w">  </span><span class="c">!  ***********************************************************</span>
+<span class="linenos">134</span>
+<span class="linenos">135</span><span class="w">  </span><span class="c">! Theoretical (Normal) Gravity potential of the ellipsoid (m2/s2):</span>
+<span class="linenos">136</span><span class="w">  </span><span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">ec_wgs_U0</span><span class="w">         </span><span class="o">=</span><span class="w"> </span><span class="mi">6263686</span><span class="mf">0.8497D0</span><span class="w"></span>
+<span class="linenos">137</span>
+<span class="linenos">138</span><span class="w">  </span><span class="c">! Theoretical (Normal) Gravity at the pole (m/s2):</span>
+<span class="linenos">139</span><span class="w">  </span><span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">ec_wgs_GammaP</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="mf">9.8321849378D0</span><span class="w"></span>
+<span class="linenos">140</span>
+<span class="linenos">141</span><span class="w">  </span><span class="c">! Mean Value of the Theoretical (Normal) Gravity (m/s2):</span>
+<span class="linenos">142</span><span class="w">  </span><span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">ec_wgs_GammaM</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="mf">9.7976432222D0</span><span class="w"></span>
+<span class="linenos">143</span>
+<span class="linenos">144</span><span class="w">  </span><span class="c">! Mass of the Earth (Atmosphere Included):</span>
+<span class="linenos">145</span><span class="w">  </span><span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">ec_wgs_Mass</span><span class="w">       </span><span class="o">=</span><span class="w"> </span><span class="mf">5.9733328D24</span><span class="w"></span>
+<span class="linenos">146</span>
+<span class="linenos">147</span><span class="w">  </span><span class="c">! Dynamical Ellipticity H:</span>
+<span class="linenos">148</span><span class="w">  </span><span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">ec_wgs_H</span><span class="w">          </span><span class="o">=</span><span class="w"> </span><span class="mf">1.D0</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">30</span><span class="mf">5.4413D0</span><span class="w"></span>
+<span class="linenos">149</span>
+<span class="linenos">150</span><span class="w">  </span><span class="c">! Universal Constant of Gravitation (m3/kg*s2):</span>
+<span class="linenos">151</span><span class="w">  </span><span class="c">! (value to be used only within WGS, for internal consistency)</span>
+<span class="linenos">152</span><span class="w">  </span><span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">ec_wgs_G</span><span class="w">          </span><span class="o">=</span><span class="w"> </span><span class="mf">6.673D-11</span><span class="w"></span>
+<span class="linenos">153</span>
+<span class="linenos">154</span><span class="w">  </span><span class="c">! Earth&#39;s principal moments of inertia (A, B, C) (kg m2):</span>
+<span class="linenos">155</span><span class="w">  </span><span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">ec_wgs_PMI_A</span><span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="mf">8.0091029D37</span><span class="w"></span>
+<span class="linenos">156</span><span class="w">  </span><span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">ec_wgs_PMI_B</span><span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="mf">8.0092559D37</span><span class="w"></span>
+<span class="linenos">157</span><span class="w">  </span><span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">ec_wgs_PMI_C</span><span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="mf">8.0354872D37</span><span class="w"></span>
+<span class="linenos">158</span>
+<span class="linenos">159</span><span class="k">end MODULE </span><span class="n">earthConstants_mod</span><span class="w"></span>
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2018, ECCC.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.
+    </div>
+  </body>
+</html>

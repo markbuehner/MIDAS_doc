@@ -1,0 +1,583 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>message_mod &mdash; MIDAS  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="MIDAS  documentation" href="../index.html" />
+    <link rel="next" title="midasmpi_mod" href="midasmpi_mod.html" />
+    <link rel="prev" title="mathphysconstants_mod" href="mathphysconstants_mod.html" /> 
+  </head>
+  <body>
+  <div>
+    <img src="../_static/MIDAS_header.png" alt="MIDAS" />
+  </div>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="midasmpi_mod.html" title="midasmpi_mod"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="mathphysconstants_mod.html" title="mathphysconstants_mod"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="mathphysconstants_mod.html"
+                          title="previous chapter">mathphysconstants_mod</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="midasmpi_mod.html"
+                          title="next chapter">midasmpi_mod</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/modules/message_mod.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <section id="message-mod">
+<h1>message_mod<a class="headerlink" href="#message-mod" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><p><a class="reference internal" href="message_mod_src.html"><span class="doc">link to source code</span></a></p>
+<p><strong>Dependency Diagrams:</strong></p>
+<figure class="align-default" id="id1">
+<a class="reference internal image-reference" href="message_mod.svg"><img alt="message_mod.svg" height="100px" src="message_mod.svg" /></a>
+<figcaption>
+<p><span class="caption-text">Direct Dependency Diagram</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id2">
+<a class="reference internal image-reference" href="message_mod_rev.svg"><img alt="message_mod_rev.svg" height="100px" src="message_mod_rev.svg" /></a>
+<figcaption>
+<p><span class="caption-text">Reverse Dependency Diagram</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<span class="target" id="f/message_mod"></span><p class="rubric">Description</p>
+<p>MODULE message_mod (prefix=’msg’ category=’8. Low-level utilities and constants’)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Purpose</dt>
+<dd class="field-odd"><p>Output message interface with configurable verbosity.
+Also provides string representation for some intrinsic types.</p>
+</dd>
+</dl>
+<p class="rubric">Quick access</p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/message_mod/msg_always" title="f/message_mod/msg_always"><code class="xref f f-var docutils literal notranslate"><span class="pre">msg_always</span></code></a>, <a class="reference internal" href="#f/message_mod/msg_default" title="f/message_mod/msg_default"><code class="xref f f-var docutils literal notranslate"><span class="pre">msg_default</span></code></a>, <a class="reference internal" href="#f/message_mod/msg_never" title="f/message_mod/msg_never"><code class="xref f f-var docutils literal notranslate"><span class="pre">msg_never</span></code></a>, <a class="reference internal" href="#f/message_mod/msg_nml" title="f/message_mod/msg_nml"><code class="xref f f-var docutils literal notranslate"><span class="pre">msg_nml</span></code></a>, <a class="reference internal" href="#f/message_mod/str" title="f/message_mod/str"><code class="xref f f-var docutils literal notranslate"><span class="pre">str</span></code></a></p>
+</dd>
+<dt class="field-even">Routines</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/message_mod/msg" title="f/message_mod/msg"><code class="xref f f-func docutils literal notranslate"><span class="pre">msg()</span></code></a>, <a class="reference internal" href="#f/message_mod/msg_chararray2str" title="f/message_mod/msg_chararray2str"><code class="xref f f-func docutils literal notranslate"><span class="pre">msg_chararray2str()</span></code></a>, <a class="reference internal" href="#f/message_mod/msg_int2str" title="f/message_mod/msg_int2str"><code class="xref f f-func docutils literal notranslate"><span class="pre">msg_int2str()</span></code></a>, <a class="reference internal" href="#f/message_mod/msg_intarray2str" title="f/message_mod/msg_intarray2str"><code class="xref f f-func docutils literal notranslate"><span class="pre">msg_intarray2str()</span></code></a>, <a class="reference internal" href="#f/message_mod/msg_log2str" title="f/message_mod/msg_log2str"><code class="xref f f-func docutils literal notranslate"><span class="pre">msg_log2str()</span></code></a>, <a class="reference internal" href="#f/message_mod/msg_logarray2str" title="f/message_mod/msg_logarray2str"><code class="xref f f-func docutils literal notranslate"><span class="pre">msg_logarray2str()</span></code></a>, <a class="reference internal" href="#f/message_mod/msg_memusage" title="f/message_mod/msg_memusage"><code class="xref f f-func docutils literal notranslate"><span class="pre">msg_memusage()</span></code></a>, <a class="reference internal" href="#f/message_mod/msg_readnml" title="f/message_mod/msg_readnml"><code class="xref f f-func docutils literal notranslate"><span class="pre">msg_readnml()</span></code></a>, <a class="reference internal" href="#f/message_mod/msg_real42str" title="f/message_mod/msg_real42str"><code class="xref f f-func docutils literal notranslate"><span class="pre">msg_real42str()</span></code></a>, <a class="reference internal" href="#f/message_mod/msg_real4array2str" title="f/message_mod/msg_real4array2str"><code class="xref f f-func docutils literal notranslate"><span class="pre">msg_real4array2str()</span></code></a>, <a class="reference internal" href="#f/message_mod/msg_real82str" title="f/message_mod/msg_real82str"><code class="xref f f-func docutils literal notranslate"><span class="pre">msg_real82str()</span></code></a>, <a class="reference internal" href="#f/message_mod/msg_real8array2str" title="f/message_mod/msg_real8array2str"><code class="xref f f-func docutils literal notranslate"><span class="pre">msg_real8array2str()</span></code></a>, <a class="reference internal" href="#f/message_mod/msg_section" title="f/message_mod/msg_section"><code class="xref f f-func docutils literal notranslate"><span class="pre">msg_section()</span></code></a>, <a class="reference internal" href="#f/message_mod/msg_setverbthreshold" title="f/message_mod/msg_setverbthreshold"><code class="xref f f-func docutils literal notranslate"><span class="pre">msg_setverbthreshold()</span></code></a>, <a class="reference internal" href="#f/message_mod/msg_str2str" title="f/message_mod/msg_str2str"><code class="xref f f-func docutils literal notranslate"><span class="pre">msg_str2str()</span></code></a>, <a class="reference internal" href="#f/message_mod/msg_write" title="f/message_mod/msg_write"><code class="xref f f-func docutils literal notranslate"><span class="pre">msg_write()</span></code></a></p>
+</dd>
+</dl>
+<p class="rubric">Needed modules</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="midasmpi_mod.html#f/midasmpi_mod" title="f/midasmpi_mod: MODULE midasMpi_mod (prefix='mmpi' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">midasmpi_mod</span></code></a>: MODULE midasMpi_mod (prefix=’mmpi’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod" title="f/utilities_mod: MODULE utilities_mod (prefix='utl' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">utilities_mod</span></code></a>: MODULE utilities_mod (prefix=’utl’ category=’8. Low-level utilities and constants’)</p></li>
+</ul>
+<p class="rubric">Variables</p>
+<ul>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/message_mod/msg_always">
+<span class="sig-prename descclassname"><span class="pre">message_mod/</span></span><span class="sig-name descname"><span class="pre">msg_always</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">parameter/public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/message_mod/msg_always" title="Permalink to this definition">¶</a></dt>
+<dd><p>verbosity level indicating a message is always printed irrespectively of set threshold</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/message_mod/msg_default">
+<span class="sig-prename descclassname"><span class="pre">message_mod/</span></span><span class="sig-name descname"><span class="pre">msg_default</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">parameter/public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/message_mod/msg_default" title="Permalink to this definition">¶</a></dt>
+<dd><p>default verbosity level</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/message_mod/msg_never">
+<span class="sig-prename descclassname"><span class="pre">message_mod/</span></span><span class="sig-name descname"><span class="pre">msg_never</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">parameter/public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/message_mod/msg_never" title="Permalink to this definition">¶</a></dt>
+<dd><p>verbosity level indicating a message is never printed irrespectively of set threshold</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/message_mod/msg_nml">
+<span class="sig-prename descclassname"><span class="pre">message_mod/</span></span><span class="sig-name descname"><span class="pre">msg_nml</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/message_mod/msg_nml" title="Permalink to this definition">¶</a></dt>
+<dd><p>verbosity level fixed from namelist</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/message_mod/str">
+<span class="sig-prename descclassname"><span class="pre">message_mod/</span></span><span class="sig-name descname"><span class="pre">str</span></span><em> <span class="pre">[</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/message_mod/str" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+</ul>
+<p class="rubric">Subroutines and functions</p>
+<dl>
+<dt class="sig sig-object f" id="f/message_mod/msg">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">message_mod/</span></span><span class="sig-name descname"><span class="pre">msg</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">origin</span></em>, <em class="sig-param"><span class="pre">message</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">verb_opt</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">mpiall_opt</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">separator_opt</span></em><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/message_mod/msg" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Output message if its verbosity level is less than or equal to
+the user provided verbosity threshold (see <cite>msg_readNml()</cite>).
+The verbosity levels are:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>msg_ALWAYS : always printed, irrespectively of the threshold</p></li>
+<li><p>0          : critical, should always printed</p></li>
+<li><p>1          : default priority; printed in operational context</p></li>
+<li><p>2          : detailed output, provides extra information</p></li>
+<li><p>3          : intended for developers, printed for debugging or specific diagnostcs</p></li>
+<li><p>msg_NEVER  : never printed, irrespectively of the threshold</p></li>
+</ul>
+</div></blockquote>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>origin</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em> :: originating subroutine, function or program</p></li>
+<li><p><strong>message</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em> :: message to be printed</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Options</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>verb_opt</strong><em> [</em><em>integer </em><em>,</em><em>in,</em><em>]</em> :: maximum verbosity level of messages to be printed, defaults to 1</p></li>
+<li><p><strong>mpiall_opt</strong><em> [</em><em>logical </em><em>,</em><em>in,</em><em>]</em> :: choose to prints to all MPI tasks (default), otherwise only task 0</p></li>
+<li><p><strong>separator_opt</strong><em> [</em><em>character </em><em>,</em><em>in,</em><em>]</em> :: separator string between origin and message</p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="analysiserroroi_mod.html#f/analysiserroroi_mod/aer_analysiserror" title="f/analysiserroroi_mod/aer_analysiserror"><code class="xref f f-func docutils literal notranslate"><span class="pre">aer_analysiserror()</span></code></a>, <a class="reference internal" href="bgckocean_mod.html#f/bgckocean_mod/ocebg_bgchecksst" title="f/bgckocean_mod/ocebg_bgchecksst"><code class="xref f f-func docutils literal notranslate"><span class="pre">ocebg_bgchecksst()</span></code></a>, <a class="reference internal" href="bgckocean_mod.html#f/bgckocean_mod/ocebg_bgcheckseaice" title="f/bgckocean_mod/ocebg_bgcheckseaice"><code class="xref f f-func docutils literal notranslate"><span class="pre">ocebg_bgcheckseaice()</span></code></a>, <a class="reference internal" href="bgckocean_mod.html#f/bgckocean_mod/ocebg_getfgeamplification" title="f/bgckocean_mod/ocebg_getfgeamplification"><code class="xref f f-func docutils literal notranslate"><span class="pre">ocebg_getfgeamplification()</span></code></a>, <a class="reference internal" href="calcheightandpressure_mod.html#f/calcheightandpressure_mod/calczandp_gsv_nl" title="f/calcheightandpressure_mod/calczandp_gsv_nl"><code class="xref f f-func docutils literal notranslate"><span class="pre">calczandp_gsv_nl()</span></code></a>, <a class="reference internal" href="calcheightandpressure_mod.html#f/calcheightandpressure_mod/calczandp_gsv_tl" title="f/calcheightandpressure_mod/calczandp_gsv_tl"><code class="xref f f-func docutils literal notranslate"><span class="pre">calczandp_gsv_tl()</span></code></a>, <a class="reference internal" href="calcheightandpressure_mod.html#f/calcheightandpressure_mod/calczandp_gsv_ad" title="f/calcheightandpressure_mod/calczandp_gsv_ad"><code class="xref f f-func docutils literal notranslate"><span class="pre">calczandp_gsv_ad()</span></code></a>, <a class="reference internal" href="calcheightandpressure_mod.html#f/calcheightandpressure_mod/calcheight_gsv_nl" title="f/calcheightandpressure_mod/calcheight_gsv_nl"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcheight_gsv_nl()</span></code></a>, <a class="reference internal" href="calcheightandpressure_mod.html#f/calcheightandpressure_mod/czp_calcreturnheight_gsv_nl" title="f/calcheightandpressure_mod/czp_calcreturnheight_gsv_nl"><code class="xref f f-func docutils literal notranslate"><span class="pre">czp_calcreturnheight_gsv_nl()</span></code></a>, <a class="reference internal" href="calcheightandpressure_mod.html#f/calcheightandpressure_mod/calcheight_gsv_nl_vcode2100x_r4" title="f/calcheightandpressure_mod/calcheight_gsv_nl_vcode2100x_r4"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcheight_gsv_nl_vcode2100x_r4()</span></code></a>, <a class="reference internal" href="calcheightandpressure_mod.html#f/calcheightandpressure_mod/calcheight_gsv_nl_vcode2100x_r8" title="f/calcheightandpressure_mod/calcheight_gsv_nl_vcode2100x_r8"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcheight_gsv_nl_vcode2100x_r8()</span></code></a>, <a class="reference internal" href="calcheightandpressure_mod.html#f/calcheightandpressure_mod/calcheight_gsv_nl_vcode5xxx" title="f/calcheightandpressure_mod/calcheight_gsv_nl_vcode5xxx"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcheight_gsv_nl_vcode5xxx()</span></code></a>, <a class="reference internal" href="calcheightandpressure_mod.html#f/calcheightandpressure_mod/calcheight_gsv_tl" title="f/calcheightandpressure_mod/calcheight_gsv_tl"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcheight_gsv_tl()</span></code></a>, <a class="reference internal" href="calcheightandpressure_mod.html#f/calcheightandpressure_mod/calcheight_gsv_ad" title="f/calcheightandpressure_mod/calcheight_gsv_ad"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcheight_gsv_ad()</span></code></a>, <a class="reference internal" href="calcheightandpressure_mod.html#f/calcheightandpressure_mod/calcpressure_gsv_nl" title="f/calcheightandpressure_mod/calcpressure_gsv_nl"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcpressure_gsv_nl()</span></code></a>, <a class="reference internal" href="calcheightandpressure_mod.html#f/calcheightandpressure_mod/czp_calcreturnpressure_gsv_nl" title="f/calcheightandpressure_mod/czp_calcreturnpressure_gsv_nl"><code class="xref f f-func docutils literal notranslate"><span class="pre">czp_calcreturnpressure_gsv_nl()</span></code></a>, <a class="reference internal" href="calcheightandpressure_mod.html#f/calcheightandpressure_mod/calcpressure_gsv_nl_vcode2100x" title="f/calcheightandpressure_mod/calcpressure_gsv_nl_vcode2100x"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcpressure_gsv_nl_vcode2100x()</span></code></a>, <a class="reference internal" href="calcheightandpressure_mod.html#f/calcheightandpressure_mod/calcpressure_gsv_nl_vcode5xxx_r8" title="f/calcheightandpressure_mod/calcpressure_gsv_nl_vcode5xxx_r8"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcpressure_gsv_nl_vcode5xxx_r8()</span></code></a>, <a class="reference internal" href="calcheightandpressure_mod.html#f/calcheightandpressure_mod/calcpressure_gsv_nl_vcode5xxx_r4" title="f/calcheightandpressure_mod/calcpressure_gsv_nl_vcode5xxx_r4"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcpressure_gsv_nl_vcode5xxx_r4()</span></code></a>, <a class="reference internal" href="calcheightandpressure_mod.html#f/calcheightandpressure_mod/calcpressure_gsv_tl" title="f/calcheightandpressure_mod/calcpressure_gsv_tl"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcpressure_gsv_tl()</span></code></a>, <a class="reference internal" href="calcheightandpressure_mod.html#f/calcheightandpressure_mod/calcpressure_gsv_ad" title="f/calcheightandpressure_mod/calcpressure_gsv_ad"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcpressure_gsv_ad()</span></code></a>, <a class="reference internal" href="calcheightandpressure_mod.html#f/calcheightandpressure_mod/calczandp_col_nl" title="f/calcheightandpressure_mod/calczandp_col_nl"><code class="xref f f-func docutils literal notranslate"><span class="pre">calczandp_col_nl()</span></code></a>, <a class="reference internal" href="calcheightandpressure_mod.html#f/calcheightandpressure_mod/calczandp_col_tl" title="f/calcheightandpressure_mod/calczandp_col_tl"><code class="xref f f-func docutils literal notranslate"><span class="pre">calczandp_col_tl()</span></code></a>, <a class="reference internal" href="calcheightandpressure_mod.html#f/calcheightandpressure_mod/calczandp_col_ad" title="f/calcheightandpressure_mod/calczandp_col_ad"><code class="xref f f-func docutils literal notranslate"><span class="pre">calczandp_col_ad()</span></code></a>, <a class="reference internal" href="calcheightandpressure_mod.html#f/calcheightandpressure_mod/calcheight_col_nl" title="f/calcheightandpressure_mod/calcheight_col_nl"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcheight_col_nl()</span></code></a>, <a class="reference internal" href="calcheightandpressure_mod.html#f/calcheightandpressure_mod/czp_calcreturnheight_col_nl" title="f/calcheightandpressure_mod/czp_calcreturnheight_col_nl"><code class="xref f f-func docutils literal notranslate"><span class="pre">czp_calcreturnheight_col_nl()</span></code></a>, <a class="reference internal" href="calcheightandpressure_mod.html#f/calcheightandpressure_mod/calcheight_col_nl_vcode2100x" title="f/calcheightandpressure_mod/calcheight_col_nl_vcode2100x"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcheight_col_nl_vcode2100x()</span></code></a>, <a class="reference internal" href="calcheightandpressure_mod.html#f/calcheightandpressure_mod/calcheight_col_nl_vcode5xxx" title="f/calcheightandpressure_mod/calcheight_col_nl_vcode5xxx"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcheight_col_nl_vcode5xxx()</span></code></a>, <a class="reference internal" href="calcheightandpressure_mod.html#f/calcheightandpressure_mod/calcheight_col_tl" title="f/calcheightandpressure_mod/calcheight_col_tl"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcheight_col_tl()</span></code></a>, <a class="reference internal" href="calcheightandpressure_mod.html#f/calcheightandpressure_mod/calcheight_col_ad" title="f/calcheightandpressure_mod/calcheight_col_ad"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcheight_col_ad()</span></code></a>, <a class="reference internal" href="calcheightandpressure_mod.html#f/calcheightandpressure_mod/calcpressure_col_nl" title="f/calcheightandpressure_mod/calcpressure_col_nl"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcpressure_col_nl()</span></code></a>, <a class="reference internal" href="calcheightandpressure_mod.html#f/calcheightandpressure_mod/czp_calcreturnpressure_col_nl" title="f/calcheightandpressure_mod/czp_calcreturnpressure_col_nl"><code class="xref f f-func docutils literal notranslate"><span class="pre">czp_calcreturnpressure_col_nl()</span></code></a>, <a class="reference internal" href="calcheightandpressure_mod.html#f/calcheightandpressure_mod/calcpressure_col_nl_vcode2100x" title="f/calcheightandpressure_mod/calcpressure_col_nl_vcode2100x"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcpressure_col_nl_vcode2100x()</span></code></a>, <a class="reference internal" href="calcheightandpressure_mod.html#f/calcheightandpressure_mod/calcpressure_col_nl_vcode5xxx" title="f/calcheightandpressure_mod/calcpressure_col_nl_vcode5xxx"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcpressure_col_nl_vcode5xxx()</span></code></a>, <a class="reference internal" href="calcheightandpressure_mod.html#f/calcheightandpressure_mod/calcpressure_col_tl" title="f/calcheightandpressure_mod/calcpressure_col_tl"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcpressure_col_tl()</span></code></a>, <a class="reference internal" href="calcheightandpressure_mod.html#f/calcheightandpressure_mod/calcpressure_col_ad" title="f/calcheightandpressure_mod/calcpressure_col_ad"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcpressure_col_ad()</span></code></a>, <a class="reference internal" href="calcheightandpressure_mod.html#f/calcheightandpressure_mod/fetch3dlevels_r8" title="f/calcheightandpressure_mod/fetch3dlevels_r8"><code class="xref f f-func docutils literal notranslate"><span class="pre">fetch3dlevels_r8()</span></code></a>, <a class="reference internal" href="calcheightandpressure_mod.html#f/calcheightandpressure_mod/fetch3dlevels_r4" title="f/calcheightandpressure_mod/fetch3dlevels_r4"><code class="xref f f-func docutils literal notranslate"><span class="pre">fetch3dlevels_r4()</span></code></a>, <a class="reference internal" href="calcheightandpressure_mod.html#f/calcheightandpressure_mod/fetch1dlevels_r8" title="f/calcheightandpressure_mod/fetch1dlevels_r8"><code class="xref f f-func docutils literal notranslate"><span class="pre">fetch1dlevels_r8()</span></code></a>, <a class="reference internal" href="calcheightandpressure_mod.html#f/calcheightandpressure_mod/fetch1ddpdps_r8" title="f/calcheightandpressure_mod/fetch1ddpdps_r8"><code class="xref f f-func docutils literal notranslate"><span class="pre">fetch1ddpdps_r8()</span></code></a>, <a class="reference internal" href="calcheightandpressure_mod.html#f/calcheightandpressure_mod/calcheightcoeff_gsv" title="f/calcheightandpressure_mod/calcheightcoeff_gsv"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcheightcoeff_gsv()</span></code></a>, <a class="reference internal" href="calcheightandpressure_mod.html#f/calcheightandpressure_mod/calcheightcoeff_col" title="f/calcheightandpressure_mod/calcheightcoeff_col"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcheightcoeff_col()</span></code></a>, <a class="reference internal" href="increment_mod.html#f/increment_mod/readnamelist" title="f/increment_mod/readnamelist"><code class="xref f f-func docutils literal notranslate"><span class="pre">readnamelist()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_setup" title="f/gridstatevector_mod/gsv_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_setup()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_allocate" title="f/gridstatevector_mod/gsv_allocate"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_allocate()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_communicatetimeparams" title="f/gridstatevector_mod/gsv_communicatetimeparams"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_communicatetimeparams()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_checkmpidistribution" title="f/gridstatevector_mod/gsv_checkmpidistribution"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_checkmpidistribution()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_copy" title="f/gridstatevector_mod/gsv_copy"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_copy()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_copy4dto3d" title="f/gridstatevector_mod/gsv_copy4dto3d"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_copy4dto3d()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_transposetilestovarslevs" title="f/gridstatevector_mod/gsv_transposetilestovarslevs"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_transposetilestovarslevs()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_horizsubsample" title="f/gridstatevector_mod/gsv_horizsubsample"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_horizsubsample()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_transposesteptovarslevs" title="f/gridstatevector_mod/gsv_transposesteptovarslevs"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_transposesteptovarslevs()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_transposesteptotiles" title="f/gridstatevector_mod/gsv_transposesteptotiles"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_transposesteptotiles()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_transposetilestostep" title="f/gridstatevector_mod/gsv_transposetilestostep"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_transposetilestostep()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_transposetilestompiglobal" title="f/gridstatevector_mod/gsv_transposetilestompiglobal"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_transposetilestompiglobal()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_smoothhorizontal" title="f/gridstatevector_mod/gsv_smoothhorizontal"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_smoothhorizontal()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_applymasklam" title="f/gridstatevector_mod/gsv_applymasklam"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_applymasklam()</span></code></a>, <a class="reference internal" href="increment_mod.html#f/increment_mod/inc_computehighresanalysis" title="f/increment_mod/inc_computehighresanalysis"><code class="xref f f-func docutils literal notranslate"><span class="pre">inc_computehighresanalysis()</span></code></a>, <a class="reference internal" href="increment_mod.html#f/increment_mod/inc_analpostprocessing" title="f/increment_mod/inc_analpostprocessing"><code class="xref f f-func docutils literal notranslate"><span class="pre">inc_analpostprocessing()</span></code></a>, <a class="reference internal" href="increment_mod.html#f/increment_mod/inc_writeincandanalhighres" title="f/increment_mod/inc_writeincandanalhighres"><code class="xref f f-func docutils literal notranslate"><span class="pre">inc_writeincandanalhighres()</span></code></a>, <a class="reference internal" href="increment_mod.html#f/increment_mod/inc_getincrement" title="f/increment_mod/inc_getincrement"><code class="xref f f-func docutils literal notranslate"><span class="pre">inc_getincrement()</span></code></a>, <a class="reference internal" href="increment_mod.html#f/increment_mod/inc_writeincrement" title="f/increment_mod/inc_writeincrement"><code class="xref f f-func docutils literal notranslate"><span class="pre">inc_writeincrement()</span></code></a>, <a class="reference internal" href="increment_mod.html#f/increment_mod/inc_writeanalysis" title="f/increment_mod/inc_writeanalysis"><code class="xref f f-func docutils literal notranslate"><span class="pre">inc_writeanalysis()</span></code></a>, <a class="reference internal" href="increment_mod.html#f/increment_mod/inc_interpolateandadd" title="f/increment_mod/inc_interpolateandadd"><code class="xref f f-func docutils literal notranslate"><span class="pre">inc_interpolateandadd()</span></code></a>, <a class="reference internal" href="innovation_mod.html#f/innovation_mod/inn_setupcolumnsonanlinclev" title="f/innovation_mod/inn_setupcolumnsonanlinclev"><code class="xref f f-func docutils literal notranslate"><span class="pre">inn_setupcolumnsonanlinclev()</span></code></a>, <a class="reference internal" href="interpolation_mod.html#f/interpolation_mod/int_readnml" title="f/interpolation_mod/int_readnml"><code class="xref f f-func docutils literal notranslate"><span class="pre">int_readnml()</span></code></a>, <a class="reference internal" href="interpolation_mod.html#f/interpolation_mod/int_interp_gsv" title="f/interpolation_mod/int_interp_gsv"><code class="xref f f-func docutils literal notranslate"><span class="pre">int_interp_gsv()</span></code></a>, <a class="reference internal" href="interpolation_mod.html#f/interpolation_mod/int_hinterp_gsv" title="f/interpolation_mod/int_hinterp_gsv"><code class="xref f f-func docutils literal notranslate"><span class="pre">int_hinterp_gsv()</span></code></a>, <a class="reference internal" href="interpolation_mod.html#f/interpolation_mod/int_vinterp_gsv" title="f/interpolation_mod/int_vinterp_gsv"><code class="xref f f-func docutils literal notranslate"><span class="pre">int_vinterp_gsv()</span></code></a>, <a class="reference internal" href="interpolation_mod.html#f/interpolation_mod/vinterp_gsv_r8" title="f/interpolation_mod/vinterp_gsv_r8"><code class="xref f f-func docutils literal notranslate"><span class="pre">vinterp_gsv_r8()</span></code></a>, <a class="reference internal" href="interpolation_mod.html#f/interpolation_mod/vinterp_gsv_r4" title="f/interpolation_mod/vinterp_gsv_r4"><code class="xref f f-func docutils literal notranslate"><span class="pre">vinterp_gsv_r4()</span></code></a>, <a class="reference internal" href="interpolation_mod.html#f/interpolation_mod/int_tinterp_gsv" title="f/interpolation_mod/int_tinterp_gsv"><code class="xref f f-func docutils literal notranslate"><span class="pre">int_tinterp_gsv()</span></code></a>, <a class="reference internal" href="interpolation_mod.html#f/interpolation_mod/int_vinterp_col" title="f/interpolation_mod/int_vinterp_col"><code class="xref f f-func docutils literal notranslate"><span class="pre">int_vinterp_col()</span></code></a>, <a class="reference internal" href="interpolation_mod.html#f/interpolation_mod/int_setezopt" title="f/interpolation_mod/int_setezopt"><code class="xref f f-func docutils literal notranslate"><span class="pre">int_setezopt()</span></code></a>, <a class="reference internal" href="interpolation_mod.html#f/interpolation_mod/int_hinterpscalar_gsv" title="f/interpolation_mod/int_hinterpscalar_gsv"><code class="xref f f-func docutils literal notranslate"><span class="pre">int_hinterpscalar_gsv()</span></code></a>, <a class="reference internal" href="interpolation_mod.html#f/interpolation_mod/int_hinterpscalar_r4_2d" title="f/interpolation_mod/int_hinterpscalar_r4_2d"><code class="xref f f-func docutils literal notranslate"><span class="pre">int_hinterpscalar_r4_2d()</span></code></a>, <a class="reference internal" href="interpolation_mod.html#f/interpolation_mod/int_sintcloudtogrid_gsv" title="f/interpolation_mod/int_sintcloudtogrid_gsv"><code class="xref f f-func docutils literal notranslate"><span class="pre">int_sintcloudtogrid_gsv()</span></code></a>, <a class="reference internal" href="interpolation_mod.html#f/interpolation_mod/int_hinterpscalar_r8_2d" title="f/interpolation_mod/int_hinterpscalar_r8_2d"><code class="xref f f-func docutils literal notranslate"><span class="pre">int_hinterpscalar_r8_2d()</span></code></a>, <a class="reference internal" href="interpolation_mod.html#f/interpolation_mod/int_hinterpuv_gsv" title="f/interpolation_mod/int_hinterpuv_gsv"><code class="xref f f-func docutils literal notranslate"><span class="pre">int_hinterpuv_gsv()</span></code></a>, <a class="reference internal" href="interpolation_mod.html#f/interpolation_mod/int_hinterpuv_r4_2d" title="f/interpolation_mod/int_hinterpuv_r4_2d"><code class="xref f f-func docutils literal notranslate"><span class="pre">int_hinterpuv_r4_2d()</span></code></a>, <a class="reference internal" href="interpolation_mod.html#f/interpolation_mod/int_hinterpuv_r8_2d" title="f/interpolation_mod/int_hinterpuv_r8_2d"><code class="xref f f-func docutils literal notranslate"><span class="pre">int_hinterpuv_r8_2d()</span></code></a>, <a class="reference internal" href="#f/message_mod/msg_memusage" title="f/message_mod/msg_memusage"><code class="xref f f-func docutils literal notranslate"><span class="pre">msg_memusage()</span></code></a>, <a class="reference internal" href="#f/message_mod/msg_section" title="f/message_mod/msg_section"><code class="xref f f-func docutils literal notranslate"><span class="pre">msg_section()</span></code></a>, <a class="reference internal" href="#f/message_mod/msg_setverbthreshold" title="f/message_mod/msg_setverbthreshold"><code class="xref f f-func docutils literal notranslate"><span class="pre">msg_setverbthreshold()</span></code></a>, <a class="reference internal" href="#f/message_mod/msg_readnml" title="f/message_mod/msg_readnml"><code class="xref f f-func docutils literal notranslate"><span class="pre">msg_readnml()</span></code></a>, <a class="reference internal" href="physicsfunctions_mod.html#f/physicsfunctions_mod/phf_tetens_coefs_switch" title="f/physicsfunctions_mod/phf_tetens_coefs_switch"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_tetens_coefs_switch()</span></code></a>, <a class="reference internal" href="../programs/midas_analysiserroroi.html#f/midas_analysiserroroi" title="f/midas_analysiserroroi"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_analysiserroroi</span></code></a>, <a class="reference internal" href="../programs/midas_var.html#f/midas_var" title="f/midas_var"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_var</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/message_mod/msg_write" title="f/message_mod/msg_write"><code class="xref f f-func docutils literal notranslate"><span class="pre">msg_write()</span></code></a>, <a class="reference internal" href="#f/message_mod/msg_readnml" title="f/message_mod/msg_readnml"><code class="xref f f-func docutils literal notranslate"><span class="pre">msg_readnml()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/message_mod/msg_memusage">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">message_mod/</span></span><span class="sig-name descname"><span class="pre">msg_memusage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">origin</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">verb_opt</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">mpiall_opt</span></em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/message_mod/msg_memusage" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Report memory usage</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>origin</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em> :: originating subroutine, function or program</p>
+</dd>
+<dt class="field-odd">Options</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>verb_opt</strong><em> [</em><em>integer </em><em>,</em><em>in,</em><em>]</em> :: verbosity level of the message</p></li>
+<li><p><strong>mpiall_opt</strong><em> [</em><em>logical </em><em>,</em><em>in,</em><em>]</em> :: choose to prints to all MPI tasks (default), otherwise only task 0</p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_transposetilestovarslevs" title="f/gridstatevector_mod/gsv_transposetilestovarslevs"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_transposetilestovarslevs()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_transposesteptovarslevs" title="f/gridstatevector_mod/gsv_transposesteptovarslevs"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_transposesteptovarslevs()</span></code></a>, <a class="reference internal" href="increment_mod.html#f/increment_mod/inc_computehighresanalysis" title="f/increment_mod/inc_computehighresanalysis"><code class="xref f f-func docutils literal notranslate"><span class="pre">inc_computehighresanalysis()</span></code></a>, <a class="reference internal" href="increment_mod.html#f/increment_mod/inc_analpostprocessing" title="f/increment_mod/inc_analpostprocessing"><code class="xref f f-func docutils literal notranslate"><span class="pre">inc_analpostprocessing()</span></code></a>, <a class="reference internal" href="increment_mod.html#f/increment_mod/inc_writeincandanalhighres" title="f/increment_mod/inc_writeincandanalhighres"><code class="xref f f-func docutils literal notranslate"><span class="pre">inc_writeincandanalhighres()</span></code></a>, <a class="reference internal" href="../programs/midas_analysiserroroi.html#f/midas_analysiserroroi" title="f/midas_analysiserroroi"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_analysiserroroi</span></code></a>, <a class="reference internal" href="../programs/midas_var.html#f/midas_var" title="f/midas_var"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_var</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/message_mod/msg" title="f/message_mod/msg"><code class="xref f f-func docutils literal notranslate"><span class="pre">msg()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/message_mod/msg_section">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">message_mod/</span></span><span class="sig-name descname"><span class="pre">msg_section</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">origin</span></em>, <em class="sig-param"><span class="pre">section</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">description_opt</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">verb_opt</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">mpiall_opt</span></em><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/message_mod/msg_section" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Document, both in source and runtime listings, sections of a program.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>origin</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em> :: originating subroutine, function or program</p></li>
+<li><p><strong>section</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em> :: section number</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Options</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>description_opt</strong><em> [</em><em>character </em><em>,</em><em>in,</em><em>]</em> :: optional description message to be printed</p></li>
+<li><p><strong>verb_opt</strong><em> [</em><em>integer </em><em>,</em><em>in,</em><em>]</em> :: verbosity level of the message</p></li>
+<li><p><strong>mpiall_opt</strong><em> [</em><em>logical </em><em>,</em><em>in,</em><em>]</em> :: choose to prints to all MPI tasks (default), otherwise only task 0</p></li>
+</ul>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/message_mod/msg" title="f/message_mod/msg"><code class="xref f f-func docutils literal notranslate"><span class="pre">msg()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/message_mod/msg_setverbthreshold">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">message_mod/</span></span><span class="sig-name descname"><span class="pre">msg_setverbthreshold</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">threshold</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">besilent_opt</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/message_mod/msg_setverbthreshold" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Sets the maximum verbosity level of messages to be printed.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>threshold</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em> :: maximum verbosity level of messages to be printed to listing</p>
+</dd>
+<dt class="field-odd">Options</dt>
+<dd class="field-odd"><p><strong>besilent_opt</strong><em> [</em><em>logical </em><em>,</em><em>in,</em><em>]</em> :: choose to not print warning message (default .false.)</p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/message_mod/msg_readnml" title="f/message_mod/msg_readnml"><code class="xref f f-func docutils literal notranslate"><span class="pre">msg_readnml()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/message_mod/msg" title="f/message_mod/msg"><code class="xref f f-func docutils literal notranslate"><span class="pre">msg()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/message_mod/msg_readnml">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">message_mod/</span></span><span class="sig-name descname"><span class="pre">msg_readnml</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#f/message_mod/msg_readnml" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Reads the module configuration namelist</p>
+</dd>
+<dt class="field-even">Namelist parameters</dt>
+<dd class="field-even"><dl class="field-list simple">
+<dt class="field-odd">verbosity</dt>
+<dd class="field-odd"><p>Each call to <cite>msg()</cite> specifies a verbosity level;
+this threshold configures until which level
+messages will be outputed.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/message_mod/msg" title="f/message_mod/msg"><code class="xref f f-func docutils literal notranslate"><span class="pre">msg()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_isnamelistpresent" title="f/utilities_mod/utl_isnamelistpresent"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_isnamelistpresent()</span></code></a>, <a class="reference internal" href="#f/message_mod/msg" title="f/message_mod/msg"><code class="xref f f-func docutils literal notranslate"><span class="pre">msg()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="#f/message_mod/msg_setverbthreshold" title="f/message_mod/msg_setverbthreshold"><code class="xref f f-func docutils literal notranslate"><span class="pre">msg_setverbthreshold()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/message_mod/msg_write">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">message_mod/</span></span><span class="sig-name descname"><span class="pre">msg_write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">origin</span></em>, <em class="sig-param"><span class="pre">message</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">separator_opt</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/message_mod/msg_write" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Format and write message to default output</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>origin</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em> :: originating subroutine/function</p></li>
+<li><p><strong>message</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em> :: message to be printed</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Options</dt>
+<dd class="field-odd"><p><strong>separator_opt</strong><em> [</em><em>character </em><em>,</em><em>in,</em><em>]</em> :: separator string between origin and message</p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/message_mod/msg" title="f/message_mod/msg"><code class="xref f f-func docutils literal notranslate"><span class="pre">msg()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/message_mod/msg_str2str">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">message_mod/</span></span><span class="sig-name descname"><span class="pre">msg_str2str</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">stringin</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">trim_opt</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">quote_opt</span></em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/message_mod/msg_str2str" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Trivial overloading (for uniformity of concatenation)</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>stringin</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em> :: input string to be processed</p>
+</dd>
+<dt class="field-odd">Options</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>trim_opt</strong><em> [</em><em>logical </em><em>]</em> :: choose to trim the string (possibly inside quotes)</p></li>
+<li><p><strong>quote_opt</strong><em> [</em><em>logical </em><em>]</em> :: choose to write preceding and following single quote “’” to insist it is a string</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return</dt>
+<dd class="field-even"><p><strong>string</strong> :: resulting string that was processed</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/message_mod/msg_log2str">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">message_mod/</span></span><span class="sig-name descname"><span class="pre">msg_log2str</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">num</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/message_mod/msg_log2str" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Returns string representation of <cite>logical</cite> variable value</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>num</strong><em> [</em><em>logical </em><em>,</em><em>in</em><em>]</em> :: input logical variable to be interpreted</p>
+</dd>
+<dt class="field-odd">Return</dt>
+<dd class="field-odd"><p><strong>string</strong> :: resulting string with logical value</p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/message_mod/msg_logarray2str" title="f/message_mod/msg_logarray2str"><code class="xref f f-func docutils literal notranslate"><span class="pre">msg_logarray2str()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/message_mod/msg_int2str">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">message_mod/</span></span><span class="sig-name descname"><span class="pre">msg_int2str</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">num</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/message_mod/msg_int2str" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Returns string representation of <cite>integer</cite></p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>num</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em> :: input integer variable to be interpreted</p>
+</dd>
+<dt class="field-odd">Return</dt>
+<dd class="field-odd"><p><strong>string</strong> :: resulting string with integer value</p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/message_mod/msg_intarray2str" title="f/message_mod/msg_intarray2str"><code class="xref f f-func docutils literal notranslate"><span class="pre">msg_intarray2str()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/message_mod/msg_real42str">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">message_mod/</span></span><span class="sig-name descname"><span class="pre">msg_real42str</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">num</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">digits_opt</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/message_mod/msg_real42str" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Returns string representation of <cite>real(4)</cite></p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>num</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: input real(4) variable to be interpreted</p>
+</dd>
+<dt class="field-odd">Options</dt>
+<dd class="field-odd"><p><strong>digits_opt</strong><em> [</em><em>integer </em><em>,</em><em>in,</em><em>]</em> :: number of digits to include in output</p>
+</dd>
+<dt class="field-even">Return</dt>
+<dd class="field-even"><p><strong>string</strong> :: resulting string with variable’s value</p>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/message_mod/msg_real4array2str" title="f/message_mod/msg_real4array2str"><code class="xref f f-func docutils literal notranslate"><span class="pre">msg_real4array2str()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/message_mod/msg_real82str">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">message_mod/</span></span><span class="sig-name descname"><span class="pre">msg_real82str</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">num</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">digits_opt</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/message_mod/msg_real82str" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Returns string representation of <cite>real(8)</cite></p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>num</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: input real(8) variable to be interpreted</p>
+</dd>
+<dt class="field-odd">Options</dt>
+<dd class="field-odd"><p><strong>digits_opt</strong><em> [</em><em>integer </em><em>,</em><em>in,</em><em>]</em> :: number of digits to include in output</p>
+</dd>
+<dt class="field-even">Return</dt>
+<dd class="field-even"><p><strong>string</strong> :: resulting string with variable’s value</p>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/message_mod/msg_real8array2str" title="f/message_mod/msg_real8array2str"><code class="xref f f-func docutils literal notranslate"><span class="pre">msg_real8array2str()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/message_mod/msg_chararray2str">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">message_mod/</span></span><span class="sig-name descname"><span class="pre">msg_chararray2str</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">array</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">vertical_opt</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/message_mod/msg_chararray2str" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Returns string representation of <cite>character(len=*), dimension(:)</cite></p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>array</strong> (*)<em> [</em><em>character </em><em>,</em><em>in</em><em>]</em> :: input character string array</p>
+</dd>
+<dt class="field-odd">Options</dt>
+<dd class="field-odd"><p><strong>vertical_opt</strong><em> [</em><em>logical </em><em>,</em><em>in,</em><em>]</em> :: choose to represent array vertically (default .false.)</p>
+</dd>
+<dt class="field-even">Return</dt>
+<dd class="field-even"><p><strong>string</strong> :: resulting string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/message_mod/msg_logarray2str">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">message_mod/</span></span><span class="sig-name descname"><span class="pre">msg_logarray2str</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">array</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">vertical_opt</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/message_mod/msg_logarray2str" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Returns string representation of <cite>logical, dimension(:)</cite></p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>array</strong> (*)<em> [</em><em>logical </em><em>,</em><em>in</em><em>]</em> :: input array of logical variables</p>
+</dd>
+<dt class="field-odd">Options</dt>
+<dd class="field-odd"><p><strong>vertical_opt</strong><em> [</em><em>logical </em><em>,</em><em>in,</em><em>]</em> :: choose to represent the array vertically (default .false.)</p>
+</dd>
+<dt class="field-even">Return</dt>
+<dd class="field-even"><p><strong>string</strong> :: resulting string</p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/message_mod/msg_log2str" title="f/message_mod/msg_log2str"><code class="xref f f-func docutils literal notranslate"><span class="pre">msg_log2str()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/message_mod/msg_intarray2str">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">message_mod/</span></span><span class="sig-name descname"><span class="pre">msg_intarray2str</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">array</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">vertical_opt</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/message_mod/msg_intarray2str" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Returns string representation of <cite>integer, dimension(:)</cite></p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>array</strong> (*)<em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em> :: input array of integer variables</p>
+</dd>
+<dt class="field-odd">Options</dt>
+<dd class="field-odd"><p><strong>vertical_opt</strong><em> [</em><em>logical </em><em>,</em><em>in,</em><em>]</em> :: choose to represent the array vertically (defaults .false.)</p>
+</dd>
+<dt class="field-even">Return</dt>
+<dd class="field-even"><p><strong>string</strong> :: resulting string</p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/message_mod/msg_int2str" title="f/message_mod/msg_int2str"><code class="xref f f-func docutils literal notranslate"><span class="pre">msg_int2str()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/message_mod/msg_real4array2str">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">message_mod/</span></span><span class="sig-name descname"><span class="pre">msg_real4array2str</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">array</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">digits_opt</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">vertical_opt</span></em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/message_mod/msg_real4array2str" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Returns string representation of <cite>real(4), dimension(:)</cite></p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>array</strong> (*)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: input array of real(4) variables</p>
+</dd>
+<dt class="field-odd">Options</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>digits_opt</strong><em> [</em><em>integer </em><em>,</em><em>in,</em><em>]</em> :: number of digits to include in output</p></li>
+<li><p><strong>vertical_opt</strong><em> [</em><em>logical </em><em>,</em><em>in,</em><em>]</em> :: choose to represent array vertically (default .false.)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return</dt>
+<dd class="field-even"><p><strong>string</strong> :: resulting string</p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/message_mod/msg_real42str" title="f/message_mod/msg_real42str"><code class="xref f f-func docutils literal notranslate"><span class="pre">msg_real42str()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/message_mod/msg_real8array2str">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">message_mod/</span></span><span class="sig-name descname"><span class="pre">msg_real8array2str</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">array</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">digits_opt</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">vertical_opt</span></em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/message_mod/msg_real8array2str" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Returns string representation of <cite>real(8), dimension(:)</cite></p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>array</strong> (*)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: input array of real(4) variables</p>
+</dd>
+<dt class="field-odd">Options</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>digits_opt</strong><em> [</em><em>integer </em><em>,</em><em>in,</em><em>]</em> :: number of digits to include in output</p></li>
+<li><p><strong>vertical_opt</strong><em> [</em><em>logical </em><em>,</em><em>in,</em><em>]</em> :: choose to represent array vertically (default .false.)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return</dt>
+<dd class="field-even"><p><strong>string</strong> :: resulting string</p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/message_mod/msg_real82str" title="f/message_mod/msg_real82str"><code class="xref f f-func docutils literal notranslate"><span class="pre">msg_real82str()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div></blockquote>
+</section>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="midasmpi_mod.html" title="midasmpi_mod"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="mathphysconstants_mod.html" title="mathphysconstants_mod"
+             >previous</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2018, ECCC.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,528 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>lambmatrixhi_mod &mdash; MIDAS  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="MIDAS  documentation" href="../index.html" />
+    <link rel="next" title="localizationfunction_mod" href="localizationfunction_mod.html" />
+    <link rel="prev" title="bmatrix_mod" href="bmatrix_mod.html" /> 
+  </head>
+  <body>
+  <div>
+    <img src="../_static/MIDAS_header.png" alt="MIDAS" />
+  </div>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="localizationfunction_mod.html" title="localizationfunction_mod"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="bmatrix_mod.html" title="bmatrix_mod"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="bmatrix_mod.html"
+                          title="previous chapter">bmatrix_mod</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="localizationfunction_mod.html"
+                          title="next chapter">localizationfunction_mod</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/modules/lambmatrixhi_mod.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <section id="lambmatrixhi-mod">
+<h1>lambmatrixhi_mod<a class="headerlink" href="#lambmatrixhi-mod" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><p><a class="reference internal" href="lambmatrixhi_mod_src.html"><span class="doc">link to source code</span></a></p>
+<p><strong>Dependency Diagrams:</strong></p>
+<figure class="align-default" id="id1">
+<a class="reference internal image-reference" href="lambmatrixhi_mod.svg"><img alt="lambmatrixhi_mod.svg" height="100px" src="lambmatrixhi_mod.svg" /></a>
+<figcaption>
+<p><span class="caption-text">Direct Dependency Diagram</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id2">
+<a class="reference internal image-reference" href="lambmatrixhi_mod_rev.svg"><img alt="lambmatrixhi_mod_rev.svg" height="100px" src="lambmatrixhi_mod_rev.svg" /></a>
+<figcaption>
+<p><span class="caption-text">Reverse Dependency Diagram</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<span class="target" id="f/lambmatrixhi_mod"></span><p class="rubric">Description</p>
+<p>MODULE lamBMatrixHI_mod (prefix=’lbhi’ category=’2. B and R matrices’)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Purpose</dt>
+<dd class="field-odd"><p>Performs transformation from control vector to analysis increment
+using the homogeneous and isotropic background error covariance
+matrix.</p>
+</dd>
+</dl>
+<p class="rubric">Quick access</p>
+<dl class="field-list simple">
+<dt class="field-odd">Routines</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/lambmatrixhi_mod/lbhi_bsqrt" title="f/lambmatrixhi_mod/lbhi_bsqrt"><code class="xref f f-func docutils literal notranslate"><span class="pre">lbhi_bsqrt()</span></code></a>, <a class="reference internal" href="#f/lambmatrixhi_mod/lbhi_bsqrtadj" title="f/lambmatrixhi_mod/lbhi_bsqrtadj"><code class="xref f f-func docutils literal notranslate"><span class="pre">lbhi_bsqrtadj()</span></code></a>, <a class="reference internal" href="#f/lambmatrixhi_mod/lbhi_bsqrtxi" title="f/lambmatrixhi_mod/lbhi_bsqrtxi"><code class="xref f f-func docutils literal notranslate"><span class="pre">lbhi_bsqrtxi()</span></code></a>, <a class="reference internal" href="#f/lambmatrixhi_mod/lbhi_cain" title="f/lambmatrixhi_mod/lbhi_cain"><code class="xref f f-func docutils literal notranslate"><span class="pre">lbhi_cain()</span></code></a>, <a class="reference internal" href="#f/lambmatrixhi_mod/lbhi_cainadj" title="f/lambmatrixhi_mod/lbhi_cainadj"><code class="xref f f-func docutils literal notranslate"><span class="pre">lbhi_cainadj()</span></code></a>, <a class="reference internal" href="#f/lambmatrixhi_mod/lbhi_cv2gd" title="f/lambmatrixhi_mod/lbhi_cv2gd"><code class="xref f f-func docutils literal notranslate"><span class="pre">lbhi_cv2gd()</span></code></a>, <a class="reference internal" href="#f/lambmatrixhi_mod/lbhi_cv2gdadj" title="f/lambmatrixhi_mod/lbhi_cv2gdadj"><code class="xref f f-func docutils literal notranslate"><span class="pre">lbhi_cv2gdadj()</span></code></a>, <a class="reference internal" href="#f/lambmatrixhi_mod/lbhi_expandtompiglobal" title="f/lambmatrixhi_mod/lbhi_expandtompiglobal"><code class="xref f f-func docutils literal notranslate"><span class="pre">lbhi_expandtompiglobal()</span></code></a>, <a class="reference internal" href="#f/lambmatrixhi_mod/lbhi_expandtompiglobal_r4" title="f/lambmatrixhi_mod/lbhi_expandtompiglobal_r4"><code class="xref f f-func docutils literal notranslate"><span class="pre">lbhi_expandtompiglobal_r4()</span></code></a>, <a class="reference internal" href="#f/lambmatrixhi_mod/lbhi_finalize" title="f/lambmatrixhi_mod/lbhi_finalize"><code class="xref f f-func docutils literal notranslate"><span class="pre">lbhi_finalize()</span></code></a>, <a class="reference internal" href="#f/lambmatrixhi_mod/lbhi_getcontrolvariableinfo" title="f/lambmatrixhi_mod/lbhi_getcontrolvariableinfo"><code class="xref f f-func docutils literal notranslate"><span class="pre">lbhi_getcontrolvariableinfo()</span></code></a>, <a class="reference internal" href="#f/lambmatrixhi_mod/lbhi_gethorizgridinfo" title="f/lambmatrixhi_mod/lbhi_gethorizgridinfo"><code class="xref f f-func docutils literal notranslate"><span class="pre">lbhi_gethorizgridinfo()</span></code></a>, <a class="reference internal" href="#f/lambmatrixhi_mod/lbhi_readbsqrt" title="f/lambmatrixhi_mod/lbhi_readbsqrt"><code class="xref f f-func docutils literal notranslate"><span class="pre">lbhi_readbsqrt()</span></code></a>, <a class="reference internal" href="#f/lambmatrixhi_mod/lbhi_readgridpointstddev" title="f/lambmatrixhi_mod/lbhi_readgridpointstddev"><code class="xref f f-func docutils literal notranslate"><span class="pre">lbhi_readgridpointstddev()</span></code></a>, <a class="reference internal" href="#f/lambmatrixhi_mod/lbhi_readstats" title="f/lambmatrixhi_mod/lbhi_readstats"><code class="xref f f-func docutils literal notranslate"><span class="pre">lbhi_readstats()</span></code></a>, <a class="reference internal" href="#f/lambmatrixhi_mod/lbhi_reducetompilocal" title="f/lambmatrixhi_mod/lbhi_reducetompilocal"><code class="xref f f-func docutils literal notranslate"><span class="pre">lbhi_reducetompilocal()</span></code></a>, <a class="reference internal" href="#f/lambmatrixhi_mod/lbhi_reducetompilocal_r4" title="f/lambmatrixhi_mod/lbhi_reducetompilocal_r4"><code class="xref f f-func docutils literal notranslate"><span class="pre">lbhi_reducetompilocal_r4()</span></code></a>, <a class="reference internal" href="#f/lambmatrixhi_mod/lbhi_setup" title="f/lambmatrixhi_mod/lbhi_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">lbhi_setup()</span></code></a>, <a class="reference internal" href="#f/lambmatrixhi_mod/statevectorinterface" title="f/lambmatrixhi_mod/statevectorinterface"><code class="xref f f-func docutils literal notranslate"><span class="pre">statevectorinterface()</span></code></a></p>
+</dd>
+</dl>
+<p class="rubric">Needed modules</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="midasmpi_mod.html#f/midasmpi_mod" title="f/midasmpi_mod: MODULE midasMpi_mod (prefix='mmpi' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">midasmpi_mod</span></code></a>: MODULE midasMpi_mod (prefix=’mmpi’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="horizontalcoord_mod.html#f/horizontalcoord_mod" title="f/horizontalcoord_mod: MODULE HorizontalCoord_mod (prefix='hco' category='7. Low-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">horizontalcoord_mod</span></code></a>: MODULE HorizontalCoord_mod (prefix=’hco’ category=’7. Low-level data objects’)</p></li>
+<li><p><a class="reference internal" href="verticalcoord_mod.html#f/verticalcoord_mod" title="f/verticalcoord_mod: MODULE verticalcoord (prefix='vco' category='7. Low-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">verticalcoord_mod</span></code></a>: MODULE verticalcoord (prefix=’vco’ category=’7. Low-level data objects’)</p></li>
+<li><p><a class="reference internal" href="lamspectraltransform_mod.html#f/lamspectraltransform_mod" title="f/lamspectraltransform_mod: MODULE lamSpectralTransform_mod (prefix='lst' category='4. Data Object transformations')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">lamspectraltransform_mod</span></code></a>: MODULE lamSpectralTransform_mod (prefix=’lst’ category=’4. Data Object transformations’)</p></li>
+<li><p><a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod" title="f/gridstatevector_mod: MODULE gridStateVector_mod (prefix='gsv' category='6. High-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">gridstatevector_mod</span></code></a>: MODULE gridStateVector_mod (prefix=’gsv’ category=’6. High-level data objects’)</p></li>
+<li><p><a class="reference internal" href="analysisgrid_mod.html#f/analysisgrid_mod" title="f/analysisgrid_mod: MODULE analysisGrid_mod (prefix='agd' category='7. Low-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">analysisgrid_mod</span></code></a>: MODULE analysisGrid_mod (prefix=’agd’ category=’7. Low-level data objects’)</p></li>
+<li><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod" title="f/utilities_mod: MODULE utilities_mod (prefix='utl' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">utilities_mod</span></code></a>: MODULE utilities_mod (prefix=’utl’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="gridvariabletransforms_mod.html#f/gridvariabletransforms_mod" title="f/gridvariabletransforms_mod: MODULE gridVariableTransforms (prefix='gvt' category='4. Data Object transformations')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">gridvariabletransforms_mod</span></code></a>: MODULE gridVariableTransforms (prefix=’gvt’ category=’4. Data Object transformations’)</p></li>
+<li><p><a class="reference internal" href="varnamelist_mod.html#f/varnamelist_mod" title="f/varnamelist_mod: MODULE varNameList (prefix='vnl' category='7. Low-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">varnamelist_mod</span></code></a>: MODULE varNameList (prefix=’vnl’ category=’7. Low-level data objects’)</p></li>
+<li><p><a class="reference internal" href="interpolation_mod.html#f/interpolation_mod" title="f/interpolation_mod: MODULE interpolation_mod (prefix='int' category='4. Data Object transformations')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">interpolation_mod</span></code></a>: MODULE interpolation_mod (prefix=’int’ category=’4. Data Object transformations’)</p></li>
+</ul>
+<p class="rubric">Types</p>
+<ul>
+<li><dl>
+<dt class="sig sig-object f" id="f/lambmatrixhi_mod/unknown_type">
+<em class="property"><span class="pre">type</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">lambmatrixhi_mod/</span></span><span class="sig-name descname"><span class="pre">unknown_type</span></span><a class="headerlink" href="#f/lambmatrixhi_mod/unknown_type" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type fields</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">gpstddev</span> (*,*,*)<em> [</em><em>real </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">gridtype</span><em> [</em><em>character </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">ip1</span> (*)<em> [</em><em>integer </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">kdimend</span><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">kdimstart</span><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">nlev</span><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">nomvar</span> (2)<em> [</em><em>character </em><em>]</em></p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</li>
+</ul>
+<p class="rubric">Variables</p>
+<p class="rubric">Subroutines and functions</p>
+<dl>
+<dt class="sig sig-object f" id="f/lambmatrixhi_mod/lbhi_setup">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">lambmatrixhi_mod/</span></span><span class="sig-name descname"><span class="pre">lbhi_setup</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">hco_anl_in</span></em>, <em class="sig-param"><span class="pre">hco_core_in</span></em>, <em class="sig-param"><span class="pre">vco_anl_in</span></em>, <em class="sig-param"><span class="pre">cvdim_out</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/lambmatrixhi_mod/lbhi_setup" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>hco_anl_in</strong><em> [</em><em>struct_hco </em><em>,</em><em>in,pointer</em><em>]</em></p></li>
+<li><p><strong>hco_core_in</strong><em> [</em><em>struct_hco </em><em>,</em><em>in,pointer</em><em>]</em></p></li>
+<li><p><strong>vco_anl_in</strong><em> [</em><em>struct_vco </em><em>,</em><em>in,pointer</em><em>]</em></p></li>
+<li><p><strong>cvdim_out</strong><em> [</em><em>integer </em><em>,</em><em>out</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="bmatrix_mod.html#f/bmatrix_mod/bmat_setup" title="f/bmatrix_mod/bmat_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">bmat_setup()</span></code></a>, <a class="reference internal" href="../programs/midas_adjointtest.html#f/midas_adjointtest" title="f/midas_adjointtest"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_adjointtest</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="analysisgrid_mod.html#f/analysisgrid_mod/agd_setupfromhco" title="f/analysisgrid_mod/agd_setupfromhco"><code class="xref f f-func docutils literal notranslate"><span class="pre">agd_setupfromhco()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="verticalcoord_mod.html#f/verticalcoord_mod/vco_setupfromfile" title="f/verticalcoord_mod/vco_setupfromfile"><code class="xref f f-func docutils literal notranslate"><span class="pre">vco_setupfromfile()</span></code></a>, <a class="reference internal" href="verticalcoord_mod.html#f/verticalcoord_mod/vco_equal" title="f/verticalcoord_mod/vco_equal"><code class="xref f f-func docutils literal notranslate"><span class="pre">vco_equal()</span></code></a>, <a class="reference internal" href="#f/lambmatrixhi_mod/lbhi_getcontrolvariableinfo" title="f/lambmatrixhi_mod/lbhi_getcontrolvariableinfo"><code class="xref f f-func docutils literal notranslate"><span class="pre">lbhi_getcontrolvariableinfo()</span></code></a>, <a class="reference internal" href="#f/lambmatrixhi_mod/lbhi_gethorizgridinfo" title="f/lambmatrixhi_mod/lbhi_gethorizgridinfo"><code class="xref f f-func docutils literal notranslate"><span class="pre">lbhi_gethorizgridinfo()</span></code></a>, <a class="reference internal" href="midasmpi_mod.html#f/midasmpi_mod/mmpi_setup_lonbands" title="f/midasmpi_mod/mmpi_setup_lonbands"><code class="xref f f-func docutils literal notranslate"><span class="pre">mmpi_setup_lonbands()</span></code></a>, <a class="reference internal" href="midasmpi_mod.html#f/midasmpi_mod/mmpi_setup_latbands" title="f/midasmpi_mod/mmpi_setup_latbands"><code class="xref f f-func docutils literal notranslate"><span class="pre">mmpi_setup_latbands()</span></code></a>, <a class="reference internal" href="lamspectraltransform_mod.html#f/lamspectraltransform_mod/lst_setup" title="f/lamspectraltransform_mod/lst_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">lst_setup()</span></code></a>, <a class="reference internal" href="#f/lambmatrixhi_mod/lbhi_readstats" title="f/lambmatrixhi_mod/lbhi_readstats"><code class="xref f f-func docutils literal notranslate"><span class="pre">lbhi_readstats()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/lambmatrixhi_mod/lbhi_getcontrolvariableinfo">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">lambmatrixhi_mod/</span></span><span class="sig-name descname"><span class="pre">lbhi_getcontrolvariableinfo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">iu_bstats</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/lambmatrixhi_mod/lbhi_getcontrolvariableinfo" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><p><strong>iu_bstats</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em> :: IN</p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/lambmatrixhi_mod/lbhi_setup" title="f/lambmatrixhi_mod/lbhi_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">lbhi_setup()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_varexist" title="f/gridstatevector_mod/gsv_varexist"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_varexist()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/lambmatrixhi_mod/lbhi_gethorizgridinfo">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">lambmatrixhi_mod/</span></span><span class="sig-name descname"><span class="pre">lbhi_gethorizgridinfo</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#f/lambmatrixhi_mod/lbhi_gethorizgridinfo" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/lambmatrixhi_mod/lbhi_setup" title="f/lambmatrixhi_mod/lbhi_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">lbhi_setup()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="horizontalcoord_mod.html#f/horizontalcoord_mod/hco_setupfromfile" title="f/horizontalcoord_mod/hco_setupfromfile"><code class="xref f f-func docutils literal notranslate"><span class="pre">hco_setupfromfile()</span></code></a>, <a class="reference internal" href="horizontalcoord_mod.html#f/horizontalcoord_mod/hco_equal" title="f/horizontalcoord_mod/hco_equal"><code class="xref f f-func docutils literal notranslate"><span class="pre">hco_equal()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/lambmatrixhi_mod/lbhi_readstats">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">lambmatrixhi_mod/</span></span><span class="sig-name descname"><span class="pre">lbhi_readstats</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">iu_bstats</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/lambmatrixhi_mod/lbhi_readstats" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><p><strong>iu_bstats</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/lambmatrixhi_mod/lbhi_setup" title="f/lambmatrixhi_mod/lbhi_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">lbhi_setup()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/lambmatrixhi_mod/lbhi_readbsqrt" title="f/lambmatrixhi_mod/lbhi_readbsqrt"><code class="xref f f-func docutils literal notranslate"><span class="pre">lbhi_readbsqrt()</span></code></a>, <a class="reference internal" href="#f/lambmatrixhi_mod/lbhi_readgridpointstddev" title="f/lambmatrixhi_mod/lbhi_readgridpointstddev"><code class="xref f f-func docutils literal notranslate"><span class="pre">lbhi_readgridpointstddev()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/lambmatrixhi_mod/lbhi_readbsqrt">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">lambmatrixhi_mod/</span></span><span class="sig-name descname"><span class="pre">lbhi_readbsqrt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">iu_bstats</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/lambmatrixhi_mod/lbhi_readbsqrt" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><p><strong>iu_bstats</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em> :: IN</p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/lambmatrixhi_mod/lbhi_readstats" title="f/lambmatrixhi_mod/lbhi_readstats"><code class="xref f f-func docutils literal notranslate"><span class="pre">lbhi_readstats()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_fstlir" title="f/utilities_mod/utl_fstlir"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_fstlir()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/lambmatrixhi_mod/lbhi_readgridpointstddev">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">lambmatrixhi_mod/</span></span><span class="sig-name descname"><span class="pre">lbhi_readgridpointstddev</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">iu_bstats</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/lambmatrixhi_mod/lbhi_readgridpointstddev" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><p><strong>iu_bstats</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em> :: IN</p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/lambmatrixhi_mod/lbhi_readstats" title="f/lambmatrixhi_mod/lbhi_readstats"><code class="xref f f-func docutils literal notranslate"><span class="pre">lbhi_readstats()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_fstlir" title="f/utilities_mod/utl_fstlir"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_fstlir()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/lambmatrixhi_mod/lbhi_bsqrt">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">lambmatrixhi_mod/</span></span><span class="sig-name descname"><span class="pre">lbhi_bsqrt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">controlvector_in</span></em>, <em class="sig-param"><span class="pre">statevector</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">statevectorref_opt</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/lambmatrixhi_mod/lbhi_bsqrt" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>controlvector_in</strong> (cvdim)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>statevector</strong><em> [</em><em>struct_gsv </em><em>,</em><em>inout</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Options</dt>
+<dd class="field-even"><p><strong>statevectorref_opt</strong><em> [</em><em>struct_gsv </em><em>,</em><em>in,</em><em>]</em></p>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="bmatrix_mod.html#f/bmatrix_mod/bmat_sqrtb" title="f/bmatrix_mod/bmat_sqrtb"><code class="xref f f-func docutils literal notranslate"><span class="pre">bmat_sqrtb()</span></code></a>, <a class="reference internal" href="../programs/midas_adjointtest.html#f/midas_adjointtest" title="f/midas_adjointtest"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_adjointtest</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/lambmatrixhi_mod/lbhi_cain" title="f/lambmatrixhi_mod/lbhi_cain"><code class="xref f f-func docutils literal notranslate"><span class="pre">lbhi_cain()</span></code></a>, <a class="reference internal" href="#f/lambmatrixhi_mod/lbhi_cv2gd" title="f/lambmatrixhi_mod/lbhi_cv2gd"><code class="xref f f-func docutils literal notranslate"><span class="pre">lbhi_cv2gd()</span></code></a>, <a class="reference internal" href="#f/lambmatrixhi_mod/statevectorinterface" title="f/lambmatrixhi_mod/statevectorinterface"><code class="xref f f-func docutils literal notranslate"><span class="pre">statevectorinterface()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_varexist" title="f/gridstatevector_mod/gsv_varexist"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_varexist()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/lambmatrixhi_mod/lbhi_bsqrtadj">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">lambmatrixhi_mod/</span></span><span class="sig-name descname"><span class="pre">lbhi_bsqrtadj</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">statevector</span></em>, <em class="sig-param"><span class="pre">controlvector_out</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">statevectorref_opt</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/lambmatrixhi_mod/lbhi_bsqrtadj" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>statevector</strong><em> [</em><em>struct_gsv </em><em>,</em><em>inout</em><em>]</em></p></li>
+<li><p><strong>controlvector_out</strong> (cvdim)<em> [</em><em>real </em><em>,</em><em>out</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Options</dt>
+<dd class="field-even"><p><strong>statevectorref_opt</strong><em> [</em><em>struct_gsv </em><em>,</em><em>in,</em><em>]</em></p>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="bmatrix_mod.html#f/bmatrix_mod/bmat_sqrtbt" title="f/bmatrix_mod/bmat_sqrtbt"><code class="xref f f-func docutils literal notranslate"><span class="pre">bmat_sqrtbt()</span></code></a>, <a class="reference internal" href="../programs/midas_adjointtest.html#f/midas_adjointtest" title="f/midas_adjointtest"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_adjointtest</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_varexist" title="f/gridstatevector_mod/gsv_varexist"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_varexist()</span></code></a>, <a class="reference internal" href="#f/lambmatrixhi_mod/statevectorinterface" title="f/lambmatrixhi_mod/statevectorinterface"><code class="xref f f-func docutils literal notranslate"><span class="pre">statevectorinterface()</span></code></a>, <a class="reference internal" href="#f/lambmatrixhi_mod/lbhi_cv2gdadj" title="f/lambmatrixhi_mod/lbhi_cv2gdadj"><code class="xref f f-func docutils literal notranslate"><span class="pre">lbhi_cv2gdadj()</span></code></a>, <a class="reference internal" href="#f/lambmatrixhi_mod/lbhi_cainadj" title="f/lambmatrixhi_mod/lbhi_cainadj"><code class="xref f f-func docutils literal notranslate"><span class="pre">lbhi_cainadj()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/lambmatrixhi_mod/lbhi_cv2gd">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">lambmatrixhi_mod/</span></span><span class="sig-name descname"><span class="pre">lbhi_cv2gd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">hicontrolvector_in</span></em>, <em class="sig-param"><span class="pre">gd_out</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/lambmatrixhi_mod/lbhi_cv2gd" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>hicontrolvector_in</strong> (lst_bhi%nla,lst_bhi%nphase,nksdim)<em> [</em><em>real </em><em>,</em><em>inout</em><em>]</em> :: IN</p></li>
+<li><p><strong>gd_out</strong> (mylonend-(mylonbeg)+1,mylatend-(mylatbeg)+1,nksdim)<em> [</em><em>real </em><em>,</em><em>out</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/lambmatrixhi_mod/lbhi_bsqrt" title="f/lambmatrixhi_mod/lbhi_bsqrt"><code class="xref f f-func docutils literal notranslate"><span class="pre">lbhi_bsqrt()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/lambmatrixhi_mod/lbhi_bsqrtxi" title="f/lambmatrixhi_mod/lbhi_bsqrtxi"><code class="xref f f-func docutils literal notranslate"><span class="pre">lbhi_bsqrtxi()</span></code></a>, <a class="reference internal" href="lamspectraltransform_mod.html#f/lamspectraltransform_mod/lst_vartransform" title="f/lamspectraltransform_mod/lst_vartransform"><code class="xref f f-func docutils literal notranslate"><span class="pre">lst_vartransform()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="lamspectraltransform_mod.html#f/lamspectraltransform_mod/lst_laplacian" title="f/lamspectraltransform_mod/lst_laplacian"><code class="xref f f-func docutils literal notranslate"><span class="pre">lst_laplacian()</span></code></a>, <a class="reference internal" href="analysisgrid_mod.html#f/analysisgrid_mod/agd_psichitouv" title="f/analysisgrid_mod/agd_psichitouv"><code class="xref f f-func docutils literal notranslate"><span class="pre">agd_psichitouv()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/lambmatrixhi_mod/lbhi_cv2gdadj">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">lambmatrixhi_mod/</span></span><span class="sig-name descname"><span class="pre">lbhi_cv2gdadj</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">hicontrolvector_out</span></em>, <em class="sig-param"><span class="pre">gd_in</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/lambmatrixhi_mod/lbhi_cv2gdadj" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>hicontrolvector_out</strong> (lst_bhi%nla,lst_bhi%nphase,nksdim)<em> [</em><em>real </em><em>,</em><em>out</em><em>]</em> :: OUT</p></li>
+<li><p><strong>gd_in</strong> (mylonend-(mylonbeg)+1,mylatend-(mylatbeg)+1,nksdim)<em> [</em><em>real </em><em>,</em><em>inout</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/lambmatrixhi_mod/lbhi_bsqrtadj" title="f/lambmatrixhi_mod/lbhi_bsqrtadj"><code class="xref f f-func docutils literal notranslate"><span class="pre">lbhi_bsqrtadj()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="analysisgrid_mod.html#f/analysisgrid_mod/agd_psichitouvadj" title="f/analysisgrid_mod/agd_psichitouvadj"><code class="xref f f-func docutils literal notranslate"><span class="pre">agd_psichitouvadj()</span></code></a>, <a class="reference internal" href="lamspectraltransform_mod.html#f/lamspectraltransform_mod/lst_laplacian" title="f/lamspectraltransform_mod/lst_laplacian"><code class="xref f f-func docutils literal notranslate"><span class="pre">lst_laplacian()</span></code></a>, <a class="reference internal" href="lamspectraltransform_mod.html#f/lamspectraltransform_mod/lst_vartransform" title="f/lamspectraltransform_mod/lst_vartransform"><code class="xref f f-func docutils literal notranslate"><span class="pre">lst_vartransform()</span></code></a>, <a class="reference internal" href="#f/lambmatrixhi_mod/lbhi_bsqrtxi" title="f/lambmatrixhi_mod/lbhi_bsqrtxi"><code class="xref f f-func docutils literal notranslate"><span class="pre">lbhi_bsqrtxi()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/lambmatrixhi_mod/lbhi_bsqrtxi">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">lambmatrixhi_mod/</span></span><span class="sig-name descname"><span class="pre">lbhi_bsqrtxi</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">hicontrolvector_in</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/lambmatrixhi_mod/lbhi_bsqrtxi" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><p><strong>hicontrolvector_in</strong> (lst_bhi%nla,lst_bhi%nphase,nksdim)<em> [</em><em>real </em><em>,</em><em>inout</em><em>]</em></p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/lambmatrixhi_mod/lbhi_cv2gd" title="f/lambmatrixhi_mod/lbhi_cv2gd"><code class="xref f f-func docutils literal notranslate"><span class="pre">lbhi_cv2gd()</span></code></a>, <a class="reference internal" href="#f/lambmatrixhi_mod/lbhi_cv2gdadj" title="f/lambmatrixhi_mod/lbhi_cv2gdadj"><code class="xref f f-func docutils literal notranslate"><span class="pre">lbhi_cv2gdadj()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/lambmatrixhi_mod/lbhi_cain">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">lambmatrixhi_mod/</span></span><span class="sig-name descname"><span class="pre">lbhi_cain</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">controlvector_in</span></em>, <em class="sig-param"><span class="pre">hicontrolvector_out</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/lambmatrixhi_mod/lbhi_cain" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>controlvector_in</strong> (cvdim)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>hicontrolvector_out</strong> (lst_bhi%nla,lst_bhi%nphase,nksdim)<em> [</em><em>real </em><em>,</em><em>out</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/lambmatrixhi_mod/lbhi_bsqrt" title="f/lambmatrixhi_mod/lbhi_bsqrt"><code class="xref f f-func docutils literal notranslate"><span class="pre">lbhi_bsqrt()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/lambmatrixhi_mod/lbhi_cainadj">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">lambmatrixhi_mod/</span></span><span class="sig-name descname"><span class="pre">lbhi_cainadj</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">controlvector_out</span></em>, <em class="sig-param"><span class="pre">hicontrolvector_in</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/lambmatrixhi_mod/lbhi_cainadj" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>controlvector_out</strong> (cvdim)<em> [</em><em>real </em><em>,</em><em>out</em><em>]</em></p></li>
+<li><p><strong>hicontrolvector_in</strong> (lst_bhi%nla,lst_bhi%nphase,nksdim)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/lambmatrixhi_mod/lbhi_bsqrtadj" title="f/lambmatrixhi_mod/lbhi_bsqrtadj"><code class="xref f f-func docutils literal notranslate"><span class="pre">lbhi_bsqrtadj()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/lambmatrixhi_mod/statevectorinterface">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">lambmatrixhi_mod/</span></span><span class="sig-name descname"><span class="pre">statevectorinterface</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">statevector</span></em>, <em class="sig-param"><span class="pre">gd</span></em>, <em class="sig-param"><span class="pre">direction</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/lambmatrixhi_mod/statevectorinterface" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>statevector</strong><em> [</em><em>struct_gsv </em><em>,</em><em>inout</em><em>]</em></p></li>
+<li><p><strong>gd</strong> (mylonend-(mylonbeg)+1,mylatend-(mylatbeg)+1,nksdim)<em> [</em><em>real </em><em>,</em><em>inout</em><em>]</em></p></li>
+<li><p><strong>direction</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/lambmatrixhi_mod/lbhi_bsqrt" title="f/lambmatrixhi_mod/lbhi_bsqrt"><code class="xref f f-func docutils literal notranslate"><span class="pre">lbhi_bsqrt()</span></code></a>, <a class="reference internal" href="#f/lambmatrixhi_mod/lbhi_bsqrtadj" title="f/lambmatrixhi_mod/lbhi_bsqrtadj"><code class="xref f f-func docutils literal notranslate"><span class="pre">lbhi_bsqrtadj()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_varexist" title="f/gridstatevector_mod/gsv_varexist"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_varexist()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_getdatakind" title="f/gridstatevector_mod/gsv_getdatakind"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_getdatakind()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_getnumlev" title="f/gridstatevector_mod/gsv_getnumlev"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_getnumlev()</span></code></a>, <a class="reference internal" href="varnamelist_mod.html#f/varnamelist_mod/vnl_varlevelfromvarname" title="f/varnamelist_mod/vnl_varlevelfromvarname"><code class="xref f f-func docutils literal notranslate"><span class="pre">vnl_varlevelfromvarname()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/lambmatrixhi_mod/lbhi_reducetompilocal">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">lambmatrixhi_mod/</span></span><span class="sig-name descname"><span class="pre">lbhi_reducetompilocal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">cv_mpilocal</span></em>, <em class="sig-param"><span class="pre">cv_mpiglobal</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/lambmatrixhi_mod/lbhi_reducetompilocal" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>cv_mpilocal</strong> (cvdim)<em> [</em><em>real </em><em>,</em><em>out</em><em>]</em></p></li>
+<li><p><strong>cv_mpiglobal</strong> (*)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="bmatrix_mod.html#f/bmatrix_mod/bmat_reducetompilocal" title="f/bmatrix_mod/bmat_reducetompilocal"><code class="xref f f-func docutils literal notranslate"><span class="pre">bmat_reducetompilocal()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/lambmatrixhi_mod/lbhi_reducetompilocal_r4">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">lambmatrixhi_mod/</span></span><span class="sig-name descname"><span class="pre">lbhi_reducetompilocal_r4</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">cv_mpilocal</span></em>, <em class="sig-param"><span class="pre">cv_mpiglobal</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/lambmatrixhi_mod/lbhi_reducetompilocal_r4" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>cv_mpilocal</strong> (cvdim)<em> [</em><em>real </em><em>,</em><em>out</em><em>]</em></p></li>
+<li><p><strong>cv_mpiglobal</strong> (*)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="bmatrix_mod.html#f/bmatrix_mod/bmat_reducetompilocal_r4" title="f/bmatrix_mod/bmat_reducetompilocal_r4"><code class="xref f f-func docutils literal notranslate"><span class="pre">bmat_reducetompilocal_r4()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/lambmatrixhi_mod/lbhi_expandtompiglobal">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">lambmatrixhi_mod/</span></span><span class="sig-name descname"><span class="pre">lbhi_expandtompiglobal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">cv_mpilocal</span></em>, <em class="sig-param"><span class="pre">cv_mpiglobal</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/lambmatrixhi_mod/lbhi_expandtompiglobal" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>cv_mpilocal</strong> (cvdim)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>cv_mpiglobal</strong> (*)<em> [</em><em>real </em><em>,</em><em>out</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="bmatrix_mod.html#f/bmatrix_mod/bmat_expandtompiglobal" title="f/bmatrix_mod/bmat_expandtompiglobal"><code class="xref f f-func docutils literal notranslate"><span class="pre">bmat_expandtompiglobal()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/lambmatrixhi_mod/lbhi_expandtompiglobal_r4">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">lambmatrixhi_mod/</span></span><span class="sig-name descname"><span class="pre">lbhi_expandtompiglobal_r4</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">cv_mpilocal</span></em>, <em class="sig-param"><span class="pre">cv_mpiglobal</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/lambmatrixhi_mod/lbhi_expandtompiglobal_r4" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>cv_mpilocal</strong> (cvdim)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>cv_mpiglobal</strong> (*)<em> [</em><em>real </em><em>,</em><em>out</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="bmatrix_mod.html#f/bmatrix_mod/bmat_expandtompiglobal_r4" title="f/bmatrix_mod/bmat_expandtompiglobal_r4"><code class="xref f f-func docutils literal notranslate"><span class="pre">bmat_expandtompiglobal_r4()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/lambmatrixhi_mod/lbhi_finalize">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">lambmatrixhi_mod/</span></span><span class="sig-name descname"><span class="pre">lbhi_finalize</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#f/lambmatrixhi_mod/lbhi_finalize" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="bmatrix_mod.html#f/bmatrix_mod/bmat_finalize" title="f/bmatrix_mod/bmat_finalize"><code class="xref f f-func docutils literal notranslate"><span class="pre">bmat_finalize()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div></blockquote>
+</section>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="localizationfunction_mod.html" title="localizationfunction_mod"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="bmatrix_mod.html" title="bmatrix_mod"
+             >previous</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2018, ECCC.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.
+    </div>
+  </body>
+</html>

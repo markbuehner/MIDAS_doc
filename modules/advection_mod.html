@@ -1,0 +1,452 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>advection_mod &mdash; MIDAS  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="MIDAS  documentation" href="../index.html" />
+    <link rel="next" title="calcheightandpressure_mod" href="calcheightandpressure_mod.html" />
+    <link rel="prev" title="sqliteutilities_mod" href="sqliteutilities_mod.html" /> 
+  </head>
+  <body>
+  <div>
+    <img src="../_static/MIDAS_header.png" alt="MIDAS" />
+  </div>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="calcheightandpressure_mod.html" title="calcheightandpressure_mod"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="sqliteutilities_mod.html" title="sqliteutilities_mod"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="sqliteutilities_mod.html"
+                          title="previous chapter">sqliteutilities_mod</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="calcheightandpressure_mod.html"
+                          title="next chapter">calcheightandpressure_mod</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/modules/advection_mod.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <section id="advection-mod">
+<h1>advection_mod<a class="headerlink" href="#advection-mod" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><p><a class="reference internal" href="advection_mod_src.html"><span class="doc">link to source code</span></a></p>
+<p><strong>Dependency Diagrams:</strong></p>
+<figure class="align-default" id="id1">
+<a class="reference internal image-reference" href="advection_mod.svg"><img alt="advection_mod.svg" height="100px" src="advection_mod.svg" /></a>
+<figcaption>
+<p><span class="caption-text">Direct Dependency Diagram</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id2">
+<a class="reference internal image-reference" href="advection_mod_rev.svg"><img alt="advection_mod_rev.svg" height="100px" src="advection_mod_rev.svg" /></a>
+<figcaption>
+<p><span class="caption-text">Reverse Dependency Diagram</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<span class="target" id="f/advection_mod"></span><p class="rubric">Description</p>
+<p>MODULE advection_mod (prefix=”adv” category=’4. Data Object transformations’)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Purpose</dt>
+<dd class="field-odd"><p>To perform forward and/or backward advection (based on
+semi-lagrangian trajectories) for both gridStateVector and
+ensemble of gridStateVectors</p>
+</dd>
+</dl>
+<p class="rubric">Quick access</p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/advection_mod/struct_adv" title="f/advection_mod/struct_adv"><code class="xref f f-var docutils literal notranslate"><span class="pre">struct_adv</span></code></a></p>
+</dd>
+<dt class="field-even">Routines</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/advection_mod/adv_ensemble_ad" title="f/advection_mod/adv_ensemble_ad"><code class="xref f f-func docutils literal notranslate"><span class="pre">adv_ensemble_ad()</span></code></a>, <a class="reference internal" href="#f/advection_mod/adv_ensemble_tl" title="f/advection_mod/adv_ensemble_tl"><code class="xref f f-func docutils literal notranslate"><span class="pre">adv_ensemble_tl()</span></code></a>, <a class="reference internal" href="#f/advection_mod/adv_ensemble_tl_r4" title="f/advection_mod/adv_ensemble_tl_r4"><code class="xref f f-func docutils literal notranslate"><span class="pre">adv_ensemble_tl_r4()</span></code></a>, <a class="reference internal" href="#f/advection_mod/adv_ensemble_tl_r8" title="f/advection_mod/adv_ensemble_tl_r8"><code class="xref f f-func docutils literal notranslate"><span class="pre">adv_ensemble_tl_r8()</span></code></a>, <a class="reference internal" href="#f/advection_mod/adv_setup" title="f/advection_mod/adv_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">adv_setup()</span></code></a>, <a class="reference internal" href="#f/advection_mod/adv_statevector_ad" title="f/advection_mod/adv_statevector_ad"><code class="xref f f-func docutils literal notranslate"><span class="pre">adv_statevector_ad()</span></code></a>, <a class="reference internal" href="#f/advection_mod/adv_statevector_tl" title="f/advection_mod/adv_statevector_tl"><code class="xref f f-func docutils literal notranslate"><span class="pre">adv_statevector_tl()</span></code></a>, <a class="reference internal" href="#f/advection_mod/calctrajectory" title="f/advection_mod/calctrajectory"><code class="xref f f-func docutils literal notranslate"><span class="pre">calctrajectory()</span></code></a>, <a class="reference internal" href="#f/advection_mod/calcweights" title="f/advection_mod/calcweights"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcweights()</span></code></a>, <a class="reference internal" href="#f/advection_mod/processsteeringflow" title="f/advection_mod/processsteeringflow"><code class="xref f f-func docutils literal notranslate"><span class="pre">processsteeringflow()</span></code></a></p>
+</dd>
+</dl>
+<p class="rubric">Needed modules</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="ramdisk_mod.html#f/ramdisk_mod" title="f/ramdisk_mod: MODULE ramDisk_mod (prefix='ram' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">ramdisk_mod</span></code></a>: MODULE ramDisk_mod (prefix=’ram’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="midasmpi_mod.html#f/midasmpi_mod" title="f/midasmpi_mod: MODULE midasMpi_mod (prefix='mmpi' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">midasmpi_mod</span></code></a>: MODULE midasMpi_mod (prefix=’mmpi’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="mathphysconstants_mod.html#f/mathphysconstants_mod" title="f/mathphysconstants_mod: MODULE MathPhysConstants_mod (prefix='mpc' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">mathphysconstants_mod</span></code></a>: MODULE MathPhysConstants_mod (prefix=’mpc’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="earthconstants_mod.html#f/earthconstants_mod" title="f/earthconstants_mod: MODULE earthConstants_mod (prefix='ec' category='8. Low-level utilities and constants') Prefixes: ec_ (Earth constants), for miscellaneous values from diverse sources"><code class="xref f f-mod docutils literal notranslate"><span class="pre">earthconstants_mod</span></code></a>: MODULE earthConstants_mod (prefix=’ec’ category=’8. Low-level utilities and constants’) Prefixes: <a href="#id3"><span class="problematic" id="id4">ec_</span></a> (Earth constants), for miscellaneous values from diverse sources</p></li>
+<li><p><a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod" title="f/ensemblestatevector_mod: MODULE ensembleStateVector_mod (prefix='ens' category='6. High-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">ensemblestatevector_mod</span></code></a>: MODULE ensembleStateVector_mod (prefix=’ens’ category=’6. High-level data objects’)</p></li>
+<li><p><a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod" title="f/gridstatevector_mod: MODULE gridStateVector_mod (prefix='gsv' category='6. High-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">gridstatevector_mod</span></code></a>: MODULE gridStateVector_mod (prefix=’gsv’ category=’6. High-level data objects’)</p></li>
+<li><p><a class="reference internal" href="gridstatevectorfileio_mod.html#f/gridstatevectorfileio_mod" title="f/gridstatevectorfileio_mod: MODULE gridStateVectorFile_mod (prefix='gio' category='4. Data Object transformations')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">gridstatevectorfileio_mod</span></code></a>: MODULE gridStateVectorFile_mod (prefix=’gio’ category=’4. Data Object transformations’)</p></li>
+<li><p><a class="reference internal" href="horizontalcoord_mod.html#f/horizontalcoord_mod" title="f/horizontalcoord_mod: MODULE HorizontalCoord_mod (prefix='hco' category='7. Low-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">horizontalcoord_mod</span></code></a>: MODULE HorizontalCoord_mod (prefix=’hco’ category=’7. Low-level data objects’)</p></li>
+<li><p><a class="reference internal" href="verticalcoord_mod.html#f/verticalcoord_mod" title="f/verticalcoord_mod: MODULE verticalcoord (prefix='vco' category='7. Low-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">verticalcoord_mod</span></code></a>: MODULE verticalcoord (prefix=’vco’ category=’7. Low-level data objects’)</p></li>
+<li><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod" title="f/utilities_mod: MODULE utilities_mod (prefix='utl' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">utilities_mod</span></code></a>: MODULE utilities_mod (prefix=’utl’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="varnamelist_mod.html#f/varnamelist_mod" title="f/varnamelist_mod: MODULE varNameList (prefix='vnl' category='7. Low-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">varnamelist_mod</span></code></a>: MODULE varNameList (prefix=’vnl’ category=’7. Low-level data objects’)</p></li>
+</ul>
+<p class="rubric">Types</p>
+<ul>
+<li><dl>
+<dt class="sig sig-object f" id="f/advection_mod/unknown_type">
+<em class="property"><span class="pre">type</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">advection_mod/</span></span><span class="sig-name descname"><span class="pre">unknown_type</span></span><a class="headerlink" href="#f/advection_mod/unknown_type" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type fields</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">interpweight_bl</span> (*,*,*)<em> [</em><em>real </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">interpweight_br</span> (*,*,*)<em> [</em><em>real </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">interpweight_tl</span> (*,*,*)<em> [</em><em>real </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">interpweight_tr</span> (*,*,*)<em> [</em><em>real </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">latindex</span> (*,*,*)<em> [</em><em>integer </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">lonindex</span> (*,*,*)<em> [</em><em>integer </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</li>
+<li><dl>
+<dt class="sig sig-object f">
+<em class="property"><span class="pre">type</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">advection_mod/</span></span><span class="sig-name descname"><span class="pre">unknown_type</span></span></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type fields</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">levtype</span> (*)<em> [</em><em>struct_adv_levtype </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</li>
+<li><dl>
+<dt class="sig sig-object f">
+<em class="property"><span class="pre">type</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">advection_mod/</span></span><span class="sig-name descname"><span class="pre">unknown_type</span></span></dt>
+<dd></dd></dl>
+
+</li>
+</ul>
+<p class="rubric">Variables</p>
+<ul>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/advection_mod/struct_adv">
+<span class="sig-prename descclassname"><span class="pre">advection_mod/</span></span><span class="sig-name descname"><span class="pre">struct_adv</span></span><em> <span class="pre">[</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/advection_mod/struct_adv" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+</ul>
+<p class="rubric">Subroutines and functions</p>
+<dl>
+<dt class="sig sig-object f" id="f/advection_mod/adv_setup">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">advection_mod/</span></span><span class="sig-name descname"><span class="pre">adv_setup</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">adv</span></em>, <em class="sig-param"><span class="pre">mode</span></em>, <em class="sig-param"><span class="pre">hco_in</span></em>, <em class="sig-param"><span class="pre">vco_in</span></em>, <em class="sig-param"><span class="pre">numstepadvectedfield</span></em>, <em class="sig-param"><span class="pre">datestamplistadvectedfield</span></em>, <em class="sig-param"><span class="pre">numstepsteeringflow_in</span></em>, <em class="sig-param"><span class="pre">steeringflowdelthour</span></em>, <em class="sig-param"><span class="pre">steeringflowfactor_in</span></em>, <em class="sig-param"><span class="pre">levtypelist</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">steeringflowfilename_opt</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">statevector_steeringflow_opt</span></em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/advection_mod/adv_setup" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>adv</strong><em> [</em><em>struct_adv </em><em>]</em></p></li>
+<li><p><strong>mode</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>hco_in</strong><em> [</em><em>struct_hco </em><em>,</em><em>pointer</em><em>]</em></p></li>
+<li><p><strong>vco_in</strong><em> [</em><em>struct_vco </em><em>,</em><em>pointer</em><em>]</em></p></li>
+<li><p><strong>numstepadvectedfield</strong><em> [</em><em>integer </em><em>,</em><em>in,</em><em>]</em></p></li>
+<li><p><strong>datestamplistadvectedfield</strong> (numstepadvectedfield)<em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>numstepsteeringflow_in</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>steeringflowdelthour</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>steeringflowfactor_in</strong> (vco_in%nlev_m)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>levtypelist</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Options</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>steeringflowfilename_opt</strong><em> [</em><em>character </em><em>,</em><em>in,</em><em>]</em></p></li>
+<li><p><strong>statevector_steeringflow_opt</strong><em> [</em><em>struct_gsv </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="bmatrixensemble_mod.html#f/bmatrixensemble_mod/ben_setuponeinstance" title="f/bmatrixensemble_mod/ben_setuponeinstance"><code class="xref f f-func docutils literal notranslate"><span class="pre">ben_setuponeinstance()</span></code></a>, <a class="reference internal" href="../programs/midas_adjointtest.html#f/midas_adjointtest" title="f/midas_adjointtest"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_adjointtest</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="midasmpi_mod.html#f/midasmpi_mod/mmpi_setup_latbands" title="f/midasmpi_mod/mmpi_setup_latbands"><code class="xref f f-func docutils literal notranslate"><span class="pre">mmpi_setup_latbands()</span></code></a>, <a class="reference internal" href="midasmpi_mod.html#f/midasmpi_mod/mmpi_setup_lonbands" title="f/midasmpi_mod/mmpi_setup_lonbands"><code class="xref f f-func docutils literal notranslate"><span class="pre">mmpi_setup_lonbands()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_allocate" title="f/gridstatevector_mod/gsv_allocate"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_allocate()</span></code></a>, <a class="reference internal" href="ramdisk_mod.html#f/ramdisk_mod/ram_fullworkingpath" title="f/ramdisk_mod/ram_fullworkingpath"><code class="xref f f-func docutils literal notranslate"><span class="pre">ram_fullworkingpath()</span></code></a>, <a class="reference internal" href="gridstatevectorfileio_mod.html#f/gridstatevectorfileio_mod/gio_readfromfile" title="f/gridstatevectorfileio_mod/gio_readfromfile"><code class="xref f f-func docutils literal notranslate"><span class="pre">gio_readfromfile()</span></code></a>, <a class="reference internal" href="#f/advection_mod/processsteeringflow" title="f/advection_mod/processsteeringflow"><code class="xref f f-func docutils literal notranslate"><span class="pre">processsteeringflow()</span></code></a>, <a class="reference internal" href="#f/advection_mod/calctrajectory" title="f/advection_mod/calctrajectory"><code class="xref f f-func docutils literal notranslate"><span class="pre">calctrajectory()</span></code></a>, <a class="reference internal" href="#f/advection_mod/calcweights" title="f/advection_mod/calcweights"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcweights()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_deallocate" title="f/gridstatevector_mod/gsv_deallocate"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_deallocate()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/advection_mod/processsteeringflow">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">advection_mod/</span></span><span class="sig-name descname"><span class="pre">processsteeringflow</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">levtypeindex</span></em>, <em class="sig-param"><span class="pre">levindex</span></em>, <em class="sig-param"><span class="pre">uu_steeringflow_mpiglobaltiles</span></em>, <em class="sig-param"><span class="pre">vv_steeringflow_mpiglobaltiles</span></em>, <em class="sig-param"><span class="pre">nlev_m</span></em>, <em class="sig-param"><span class="pre">nlev_t</span></em>, <em class="sig-param"><span class="pre">mylatbeg</span></em>, <em class="sig-param"><span class="pre">mylatend</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/advection_mod/processsteeringflow" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>levtypeindex</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>levindex</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>uu_steeringflow_mpiglobaltiles</strong> (*,*,*,*)<em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>vv_steeringflow_mpiglobaltiles</strong> (*,*,*,*)<em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>nlev_m</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>nlev_t</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>mylatbeg</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>mylatend</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/advection_mod/adv_setup" title="f/advection_mod/adv_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">adv_setup()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/advection_mod/calctrajectory">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">advection_mod/</span></span><span class="sig-name descname"><span class="pre">calctrajectory</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">xpos_r4</span></em>, <em class="sig-param"><span class="pre">ypos_r4</span></em>, <em class="sig-param"><span class="pre">latindex0</span></em>, <em class="sig-param"><span class="pre">lonindex0</span></em>, <em class="sig-param"><span class="pre">levindex</span></em>, <em class="sig-param"><span class="pre">stepindexsf_start</span></em>, <em class="sig-param"><span class="pre">stepindexsf_end</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/advection_mod/calctrajectory" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>xpos_r4</strong><em> [</em><em>real </em><em>,</em><em>out</em><em>]</em></p></li>
+<li><p><strong>ypos_r4</strong><em> [</em><em>real </em><em>,</em><em>out</em><em>]</em></p></li>
+<li><p><strong>latindex0</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>lonindex0</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>levindex</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>stepindexsf_start</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>stepindexsf_end</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/advection_mod/adv_setup" title="f/advection_mod/adv_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">adv_setup()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/advection_mod/calcweights">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">advection_mod/</span></span><span class="sig-name descname"><span class="pre">calcweights</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">lonindex</span></em>, <em class="sig-param"><span class="pre">latindex</span></em>, <em class="sig-param"><span class="pre">interpweight_bl</span></em>, <em class="sig-param"><span class="pre">interpweight_br</span></em>, <em class="sig-param"><span class="pre">interpweight_tl</span></em>, <em class="sig-param"><span class="pre">interpweight_tr</span></em>, <em class="sig-param"><span class="pre">xpos_r4</span></em>, <em class="sig-param"><span class="pre">ypos_r4</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/advection_mod/calcweights" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>lonindex</strong><em> [</em><em>integer </em><em>,</em><em>out</em><em>]</em></p></li>
+<li><p><strong>latindex</strong><em> [</em><em>integer </em><em>,</em><em>out</em><em>]</em></p></li>
+<li><p><strong>interpweight_bl</strong><em> [</em><em>real </em><em>,</em><em>out</em><em>]</em></p></li>
+<li><p><strong>interpweight_br</strong><em> [</em><em>real </em><em>,</em><em>out</em><em>]</em></p></li>
+<li><p><strong>interpweight_tl</strong><em> [</em><em>real </em><em>,</em><em>out</em><em>]</em></p></li>
+<li><p><strong>interpweight_tr</strong><em> [</em><em>real </em><em>,</em><em>out</em><em>]</em></p></li>
+<li><p><strong>xpos_r4</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>ypos_r4</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/advection_mod/adv_setup" title="f/advection_mod/adv_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">adv_setup()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/advection_mod/adv_ensemble_tl">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">advection_mod/</span></span><span class="sig-name descname"><span class="pre">adv_ensemble_tl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">ens</span></em>, <em class="sig-param"><span class="pre">adv</span></em>, <em class="sig-param"><span class="pre">nens</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/advection_mod/adv_ensemble_tl" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ens</strong><em> [</em><em>struct_ens </em><em>]</em></p></li>
+<li><p><strong>adv</strong><em> [</em><em>struct_adv </em><em>]</em></p></li>
+<li><p><strong>nens</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="bmatrixensemble_mod.html#f/bmatrixensemble_mod/ben_setuponeinstance" title="f/bmatrixensemble_mod/ben_setuponeinstance"><code class="xref f f-func docutils literal notranslate"><span class="pre">ben_setuponeinstance()</span></code></a>, <a class="reference internal" href="bmatrixensemble_mod.html#f/bmatrixensemble_mod/ben_bsqrt" title="f/bmatrixensemble_mod/ben_bsqrt"><code class="xref f f-func docutils literal notranslate"><span class="pre">ben_bsqrt()</span></code></a>, <a class="reference internal" href="../programs/midas_adjointtest.html#f/midas_adjointtest" title="f/midas_adjointtest"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_adjointtest</span></code></a>, <a class="reference internal" href="../programs/midas_diagbmatrix.html#f/midas_diagbmatrix" title="f/midas_diagbmatrix"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_diagbmatrix</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_getnumlev" title="f/ensemblestatevector_mod/ens_getnumlev"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_getnumlev()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_getdatakind" title="f/ensemblestatevector_mod/ens_getdatakind"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_getdatakind()</span></code></a>, <a class="reference internal" href="#f/advection_mod/adv_ensemble_tl_r8" title="f/advection_mod/adv_ensemble_tl_r8"><code class="xref f f-func docutils literal notranslate"><span class="pre">adv_ensemble_tl_r8()</span></code></a>, <a class="reference internal" href="#f/advection_mod/adv_ensemble_tl_r4" title="f/advection_mod/adv_ensemble_tl_r4"><code class="xref f f-func docutils literal notranslate"><span class="pre">adv_ensemble_tl_r4()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/advection_mod/adv_ensemble_tl_r8">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">advection_mod/</span></span><span class="sig-name descname"><span class="pre">adv_ensemble_tl_r8</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">ens</span></em>, <em class="sig-param"><span class="pre">adv</span></em>, <em class="sig-param"><span class="pre">nens</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/advection_mod/adv_ensemble_tl_r8" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ens</strong><em> [</em><em>struct_ens </em><em>]</em></p></li>
+<li><p><strong>adv</strong><em> [</em><em>struct_adv </em><em>]</em></p></li>
+<li><p><strong>nens</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/advection_mod/adv_ensemble_tl" title="f/advection_mod/adv_ensemble_tl"><code class="xref f f-func docutils literal notranslate"><span class="pre">adv_ensemble_tl()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_getnumk" title="f/ensemblestatevector_mod/ens_getnumk"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_getnumk()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_getlevfromk" title="f/ensemblestatevector_mod/ens_getlevfromk"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_getlevfromk()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_getvarnamefromk" title="f/ensemblestatevector_mod/ens_getvarnamefromk"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_getvarnamefromk()</span></code></a>, <a class="reference internal" href="varnamelist_mod.html#f/varnamelist_mod/vnl_varlevelfromvarname" title="f/varnamelist_mod/vnl_varlevelfromvarname"><code class="xref f f-func docutils literal notranslate"><span class="pre">vnl_varlevelfromvarname()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_getonelev_r8" title="f/ensemblestatevector_mod/ens_getonelev_r8"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_getonelev_r8()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/advection_mod/adv_ensemble_tl_r4">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">advection_mod/</span></span><span class="sig-name descname"><span class="pre">adv_ensemble_tl_r4</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">ens</span></em>, <em class="sig-param"><span class="pre">adv</span></em>, <em class="sig-param"><span class="pre">nens</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/advection_mod/adv_ensemble_tl_r4" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ens</strong><em> [</em><em>struct_ens </em><em>]</em></p></li>
+<li><p><strong>adv</strong><em> [</em><em>struct_adv </em><em>]</em></p></li>
+<li><p><strong>nens</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/advection_mod/adv_ensemble_tl" title="f/advection_mod/adv_ensemble_tl"><code class="xref f f-func docutils literal notranslate"><span class="pre">adv_ensemble_tl()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_getnumk" title="f/ensemblestatevector_mod/ens_getnumk"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_getnumk()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_getlevfromk" title="f/ensemblestatevector_mod/ens_getlevfromk"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_getlevfromk()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_getvarnamefromk" title="f/ensemblestatevector_mod/ens_getvarnamefromk"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_getvarnamefromk()</span></code></a>, <a class="reference internal" href="varnamelist_mod.html#f/varnamelist_mod/vnl_varlevelfromvarname" title="f/varnamelist_mod/vnl_varlevelfromvarname"><code class="xref f f-func docutils literal notranslate"><span class="pre">vnl_varlevelfromvarname()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_getonelev_r4" title="f/ensemblestatevector_mod/ens_getonelev_r4"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_getonelev_r4()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/advection_mod/adv_ensemble_ad">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">advection_mod/</span></span><span class="sig-name descname"><span class="pre">adv_ensemble_ad</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">ens</span></em>, <em class="sig-param"><span class="pre">adv</span></em>, <em class="sig-param"><span class="pre">nens</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/advection_mod/adv_ensemble_ad" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ens</strong><em> [</em><em>struct_ens </em><em>]</em></p></li>
+<li><p><strong>adv</strong><em> [</em><em>struct_adv </em><em>]</em></p></li>
+<li><p><strong>nens</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="bmatrixensemble_mod.html#f/bmatrixensemble_mod/ben_bsqrtad" title="f/bmatrixensemble_mod/ben_bsqrtad"><code class="xref f f-func docutils literal notranslate"><span class="pre">ben_bsqrtad()</span></code></a>, <a class="reference internal" href="../programs/midas_adjointtest.html#f/midas_adjointtest" title="f/midas_adjointtest"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_adjointtest</span></code></a>, <a class="reference internal" href="../programs/midas_diagbmatrix.html#f/midas_diagbmatrix" title="f/midas_diagbmatrix"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_diagbmatrix</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_getdatakind" title="f/ensemblestatevector_mod/ens_getdatakind"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_getdatakind()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_getnumlev" title="f/ensemblestatevector_mod/ens_getnumlev"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_getnumlev()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_getnumk" title="f/ensemblestatevector_mod/ens_getnumk"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_getnumk()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_getlevfromk" title="f/ensemblestatevector_mod/ens_getlevfromk"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_getlevfromk()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_getvarnamefromk" title="f/ensemblestatevector_mod/ens_getvarnamefromk"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_getvarnamefromk()</span></code></a>, <a class="reference internal" href="varnamelist_mod.html#f/varnamelist_mod/vnl_varlevelfromvarname" title="f/varnamelist_mod/vnl_varlevelfromvarname"><code class="xref f f-func docutils literal notranslate"><span class="pre">vnl_varlevelfromvarname()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_getonelev_r8" title="f/ensemblestatevector_mod/ens_getonelev_r8"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_getonelev_r8()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/advection_mod/adv_statevector_tl">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">advection_mod/</span></span><span class="sig-name descname"><span class="pre">adv_statevector_tl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">statevector</span></em>, <em class="sig-param"><span class="pre">adv</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/advection_mod/adv_statevector_tl" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>statevector</strong><em> [</em><em>struct_gsv </em><em>]</em></p></li>
+<li><p><strong>adv</strong><em> [</em><em>struct_adv </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="bmatrixensemble_mod.html#f/bmatrixensemble_mod/ben_bsqrt" title="f/bmatrixensemble_mod/ben_bsqrt"><code class="xref f f-func docutils literal notranslate"><span class="pre">ben_bsqrt()</span></code></a>, <a class="reference internal" href="../programs/midas_adjointtest.html#f/midas_adjointtest" title="f/midas_adjointtest"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_adjointtest</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_getdatakind" title="f/gridstatevector_mod/gsv_getdatakind"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_getdatakind()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_start" title="f/utilities_mod/utl_tmg_start"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_start()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_getnumk" title="f/gridstatevector_mod/gsv_getnumk"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_getnumk()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_getlevfromk" title="f/gridstatevector_mod/gsv_getlevfromk"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_getlevfromk()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_getvarnamefromk" title="f/gridstatevector_mod/gsv_getvarnamefromk"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_getvarnamefromk()</span></code></a>, <a class="reference internal" href="varnamelist_mod.html#f/varnamelist_mod/vnl_varlevelfromvarname" title="f/varnamelist_mod/vnl_varlevelfromvarname"><code class="xref f f-func docutils literal notranslate"><span class="pre">vnl_varlevelfromvarname()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_stop" title="f/utilities_mod/utl_tmg_stop"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_stop()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/advection_mod/adv_statevector_ad">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">advection_mod/</span></span><span class="sig-name descname"><span class="pre">adv_statevector_ad</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">statevector</span></em>, <em class="sig-param"><span class="pre">adv</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/advection_mod/adv_statevector_ad" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>statevector</strong><em> [</em><em>struct_gsv </em><em>]</em></p></li>
+<li><p><strong>adv</strong><em> [</em><em>struct_adv </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="bmatrixensemble_mod.html#f/bmatrixensemble_mod/ben_bsqrtad" title="f/bmatrixensemble_mod/ben_bsqrtad"><code class="xref f f-func docutils literal notranslate"><span class="pre">ben_bsqrtad()</span></code></a>, <a class="reference internal" href="../programs/midas_adjointtest.html#f/midas_adjointtest" title="f/midas_adjointtest"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_adjointtest</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_getdatakind" title="f/gridstatevector_mod/gsv_getdatakind"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_getdatakind()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_getnumk" title="f/gridstatevector_mod/gsv_getnumk"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_getnumk()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_getlevfromk" title="f/gridstatevector_mod/gsv_getlevfromk"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_getlevfromk()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_getvarnamefromk" title="f/gridstatevector_mod/gsv_getvarnamefromk"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_getvarnamefromk()</span></code></a>, <a class="reference internal" href="varnamelist_mod.html#f/varnamelist_mod/vnl_varlevelfromvarname" title="f/varnamelist_mod/vnl_varlevelfromvarname"><code class="xref f f-func docutils literal notranslate"><span class="pre">vnl_varlevelfromvarname()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div></blockquote>
+</section>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="calcheightandpressure_mod.html" title="calcheightandpressure_mod"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="sqliteutilities_mod.html" title="sqliteutilities_mod"
+             >previous</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2018, ECCC.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.
+    </div>
+  </body>
+</html>

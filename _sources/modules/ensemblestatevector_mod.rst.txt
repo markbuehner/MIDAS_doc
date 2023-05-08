@@ -1,0 +1,22 @@
+==========================================
+ensemblestatevector_mod
+==========================================
+
+    :doc:`link to source code <ensemblestatevector_mod_src>`
+
+
+    **Dependency Diagrams:**
+
+    .. figure:: /ensemblestatevector_mod.svg
+        :height: 100px
+
+        Direct Dependency Diagram
+
+    .. figure:: /ensemblestatevector_mod_rev.svg
+        :height: 100px
+
+        Reverse Dependency Diagram
+
+
+    .. f:automodule:: ensemblestatevector_mod
+

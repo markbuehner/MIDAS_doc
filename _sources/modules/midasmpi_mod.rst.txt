@@ -1,0 +1,22 @@
+==========================================
+midasmpi_mod
+==========================================
+
+    :doc:`link to source code <midasmpi_mod_src>`
+
+
+    **Dependency Diagrams:**
+
+    .. figure:: /midasmpi_mod.svg
+        :height: 100px
+
+        Direct Dependency Diagram
+
+    .. figure:: /midasmpi_mod_rev.svg
+        :height: 100px
+
+        Reverse Dependency Diagram
+
+
+    .. f:automodule:: midasmpi_mod
+

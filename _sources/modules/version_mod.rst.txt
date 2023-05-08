@@ -1,0 +1,19 @@
+==========================================
+version_mod
+==========================================
+
+    :doc:`link to source code <version_mod_src>`
+
+
+    **Dependency Diagrams:**
+
+      No Direct Dependency
+
+    .. figure:: /version_mod_rev.svg
+        :height: 100px
+
+        Reverse Dependency Diagram
+
+
+    .. f:automodule:: version_mod
+

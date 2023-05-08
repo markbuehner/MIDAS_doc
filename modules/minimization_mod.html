@@ -1,0 +1,550 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>minimization_mod &mdash; MIDAS  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="MIDAS  documentation" href="../index.html" />
+    <link rel="next" title="multi_ir_bgck_mod" href="multi_ir_bgck_mod.html" />
+    <link rel="prev" title="menetrierdiag_mod" href="menetrierdiag_mod.html" /> 
+  </head>
+  <body>
+  <div>
+    <img src="../_static/MIDAS_header.png" alt="MIDAS" />
+  </div>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="multi_ir_bgck_mod.html" title="multi_ir_bgck_mod"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="menetrierdiag_mod.html" title="menetrierdiag_mod"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="menetrierdiag_mod.html"
+                          title="previous chapter">menetrierdiag_mod</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="multi_ir_bgck_mod.html"
+                          title="next chapter">multi_ir_bgck_mod</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/modules/minimization_mod.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <section id="minimization-mod">
+<h1>minimization_mod<a class="headerlink" href="#minimization-mod" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><p><a class="reference internal" href="minimization_mod_src.html"><span class="doc">link to source code</span></a></p>
+<p><strong>Dependency Diagrams:</strong></p>
+<figure class="align-default" id="id1">
+<a class="reference internal image-reference" href="minimization_mod.svg"><img alt="minimization_mod.svg" height="100px" src="minimization_mod.svg" /></a>
+<figcaption>
+<p><span class="caption-text">Direct Dependency Diagram</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id2">
+<a class="reference internal image-reference" href="minimization_mod_rev.svg"><img alt="minimization_mod_rev.svg" height="100px" src="minimization_mod_rev.svg" /></a>
+<figcaption>
+<p><span class="caption-text">Reverse Dependency Diagram</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<span class="target" id="f/minimization_mod"></span><p class="rubric">Description</p>
+<p>MODULE minimization_mod (prefix=’min’ category=’1. High-level functionality’)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Purpose</dt>
+<dd class="field-odd"><p>Minimization for variational assimilation, including the
+subroutine that evaluates the cost function and its gradient.</p>
+</dd>
+</dl>
+<p class="rubric">Quick access</p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/minimization_mod/min_niter" title="f/minimization_mod/min_niter"><code class="xref f f-var docutils literal notranslate"><span class="pre">min_niter</span></code></a>, <a class="reference internal" href="#f/minimization_mod/min_nsim" title="f/minimization_mod/min_nsim"><code class="xref f f-var docutils literal notranslate"><span class="pre">min_nsim</span></code></a></p>
+</dd>
+<dt class="field-even">Routines</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/minimization_mod/dcanab" title="f/minimization_mod/dcanab"><code class="xref f f-func docutils literal notranslate"><span class="pre">dcanab()</span></code></a>, <a class="reference internal" href="#f/minimization_mod/dcanonb" title="f/minimization_mod/dcanonb"><code class="xref f f-func docutils literal notranslate"><span class="pre">dcanonb()</span></code></a>, <a class="reference internal" href="#f/minimization_mod/dscalqn" title="f/minimization_mod/dscalqn"><code class="xref f f-func docutils literal notranslate"><span class="pre">dscalqn()</span></code></a>, <a class="reference internal" href="#f/minimization_mod/grtest2" title="f/minimization_mod/grtest2"><code class="xref f f-func docutils literal notranslate"><span class="pre">grtest2()</span></code></a>, <a class="reference internal" href="#f/minimization_mod/hessianio" title="f/minimization_mod/hessianio"><code class="xref f f-func docutils literal notranslate"><span class="pre">hessianio()</span></code></a>, <a class="reference internal" href="#f/minimization_mod/min_minimize" title="f/minimization_mod/min_minimize"><code class="xref f f-func docutils literal notranslate"><span class="pre">min_minimize()</span></code></a>, <a class="reference internal" href="#f/minimization_mod/min_setup" title="f/minimization_mod/min_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">min_setup()</span></code></a>, <a class="reference internal" href="#f/minimization_mod/min_writehessian" title="f/minimization_mod/min_writehessian"><code class="xref f f-func docutils literal notranslate"><span class="pre">min_writehessian()</span></code></a>, <a class="reference internal" href="#f/minimization_mod/prscal" title="f/minimization_mod/prscal"><code class="xref f f-func docutils literal notranslate"><span class="pre">prscal()</span></code></a>, <a class="reference internal" href="#f/minimization_mod/quasinewtonminimization" title="f/minimization_mod/quasinewtonminimization"><code class="xref f f-func docutils literal notranslate"><span class="pre">quasinewtonminimization()</span></code></a>, <a class="reference internal" href="#f/minimization_mod/simvar" title="f/minimization_mod/simvar"><code class="xref f f-func docutils literal notranslate"><span class="pre">simvar()</span></code></a></p>
+</dd>
+</dl>
+<p class="rubric">Needed modules</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="codeprecision_mod.html#f/codeprecision_mod" title="f/codeprecision_mod: MODULE codePrecision_mod (prefix='pre' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">codeprecision_mod</span></code></a>: MODULE codePrecision_mod (prefix=’pre’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="timecoord_mod.html#f/timecoord_mod" title="f/timecoord_mod: MODULE timeCoord (prefix='tim' category='7. Low-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">timecoord_mod</span></code></a>: MODULE timeCoord (prefix=’tim’ category=’7. Low-level data objects’)</p></li>
+<li><p><a class="reference internal" href="obstimeinterp_mod.html#f/obstimeinterp_mod" title="f/obstimeinterp_mod: MODULE obsTimeInterp_mod (prefix='oti' category='4. Data Object transformations')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">obstimeinterp_mod</span></code></a>: MODULE obsTimeInterp_mod (prefix=’oti’ category=’4. Data Object transformations’)</p></li>
+<li><p><a class="reference internal" href="verticalcoord_mod.html#f/verticalcoord_mod" title="f/verticalcoord_mod: MODULE verticalcoord (prefix='vco' category='7. Low-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">verticalcoord_mod</span></code></a>: MODULE verticalcoord (prefix=’vco’ category=’7. Low-level data objects’)</p></li>
+<li><p><a class="reference internal" href="columndata_mod.html#f/columndata_mod" title="f/columndata_mod: MODULE columnData_mod (prefix='col' category='6. High-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">columndata_mod</span></code></a>: MODULE columnData_mod (prefix=’col’ category=’6. High-level data objects’)</p></li>
+<li><p><a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod" title="f/obsspacedata_mod: MODULE obsSpaceData_mod (prefix='obs' category='6. High-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">obsspacedata_mod</span></code></a>: MODULE obsSpaceData_mod (prefix=’obs’ category=’6. High-level data objects’)</p></li>
+<li><p><a class="reference internal" href="controlvector_mod.html#f/controlvector_mod" title="f/controlvector_mod: MODULE controlVector_mod (prefix='cvm' category='6. High-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">controlvector_mod</span></code></a>: MODULE controlVector_mod (prefix=’cvm’ category=’6. High-level data objects’)</p></li>
+<li><p><a class="reference internal" href="midasmpi_mod.html#f/midasmpi_mod" title="f/midasmpi_mod: MODULE midasMpi_mod (prefix='mmpi' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">midasmpi_mod</span></code></a>: MODULE midasMpi_mod (prefix=’mmpi’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="horizontalcoord_mod.html#f/horizontalcoord_mod" title="f/horizontalcoord_mod: MODULE HorizontalCoord_mod (prefix='hco' category='7. Low-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">horizontalcoord_mod</span></code></a>: MODULE HorizontalCoord_mod (prefix=’hco’ category=’7. Low-level data objects’)</p></li>
+<li><p><a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod" title="f/gridstatevector_mod: MODULE gridStateVector_mod (prefix='gsv' category='6. High-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">gridstatevector_mod</span></code></a>: MODULE gridStateVector_mod (prefix=’gsv’ category=’6. High-level data objects’)</p></li>
+<li><p><a class="reference internal" href="gridstatevectorfileio_mod.html#f/gridstatevectorfileio_mod" title="f/gridstatevectorfileio_mod: MODULE gridStateVectorFile_mod (prefix='gio' category='4. Data Object transformations')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">gridstatevectorfileio_mod</span></code></a>: MODULE gridStateVectorFile_mod (prefix=’gio’ category=’4. Data Object transformations’)</p></li>
+<li><p><a class="reference internal" href="bmatrix_mod.html#f/bmatrix_mod" title="f/bmatrix_mod: MODULE BMatrix_mod (prefix='bmat' category='2. B and R matrices')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">bmatrix_mod</span></code></a>: MODULE BMatrix_mod (prefix=’bmat’ category=’2. B and R matrices’)</p></li>
+<li><p><a class="reference internal" href="bmatrix1dvar_mod.html#f/bmatrix1dvar_mod" title="f/bmatrix1dvar_mod: MODULE bmatrix1DVar_mod (prefix='bmat1D' category='2. B and R matrices')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">bmatrix1dvar_mod</span></code></a>: MODULE bmatrix1DVar_mod (prefix=’bmat1D’ category=’2. B and R matrices’)</p></li>
+<li><p><a class="reference internal" href="statetocolumn_mod.html#f/statetocolumn_mod" title="f/statetocolumn_mod: MODULE stateToColumn (prefix='s2c' category='4. Data Object transformations')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">statetocolumn_mod</span></code></a>: MODULE stateToColumn (prefix=’s2c’ category=’4. Data Object transformations’)</p></li>
+<li><p><a class="reference internal" href="varqc_mod.html#f/varqc_mod" title="f/varqc_mod: MODULE varqc (prefix='vqc' category='1. High-level functionality')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">varqc_mod</span></code></a>: MODULE varqc (prefix=’vqc’ category=’1. High-level functionality’)</p></li>
+<li><p><a class="reference internal" href="rmatrix_mod.html#f/rmatrix_mod" title="f/rmatrix_mod: MODULE rMatrix_mod (prefix='rmat' category='2. B and R matrices')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">rmatrix_mod</span></code></a>: MODULE rMatrix_mod (prefix=’rmat’ category=’2. B and R matrices’)</p></li>
+<li><p><a class="reference internal" href="costfunction_mod.html#f/costfunction_mod" title="f/costfunction_mod: MODULE costfunction_mod, (prefix=&quot;cfn&quot; category='5. Observation operators')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">costfunction_mod</span></code></a>: MODULE costfunction_mod, (prefix=”cfn” category=’5. Observation operators’)</p></li>
+<li><p><a class="reference internal" href="residual_mod.html#f/residual_mod" title="f/residual_mod: MODULE residual_mod (prefix='res' category='1. High-level functionality')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">residual_mod</span></code></a>: MODULE residual_mod (prefix=’res’ category=’1. High-level functionality’)</p></li>
+<li><p><a class="reference internal" href="obsoperators_mod.html#f/obsoperators_mod" title="f/obsoperators_mod: MODULE obsOperators_mod (prefix='oop' category='5. Observation operators')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">obsoperators_mod</span></code></a>: MODULE obsOperators_mod (prefix=’oop’ category=’5. Observation operators’)</p></li>
+<li><p><a class="reference internal" href="quasinewton_mod.html#f/quasinewton_mod" title="f/quasinewton_mod: MODULE quasinewton_mod (prefix='qna' category='1. High-level functionality')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">quasinewton_mod</span></code></a>: MODULE quasinewton_mod (prefix=’qna’ category=’1. High-level functionality’)</p></li>
+<li><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod" title="f/utilities_mod: MODULE utilities_mod (prefix='utl' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">utilities_mod</span></code></a>: MODULE utilities_mod (prefix=’utl’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="biascorrectionsat_mod.html#f/biascorrectionsat_mod" title="f/biascorrectionsat_mod: MODULE biasCorrectionSat_mod (prefix=&quot;bcs&quot; category='1. High-level functionality')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">biascorrectionsat_mod</span></code></a>: MODULE biasCorrectionSat_mod (prefix=”bcs” category=’1. High-level functionality’)</p></li>
+<li><p><a class="reference internal" href="columnvariabletransforms_mod.html#f/columnvariabletransforms_mod" title="f/columnvariabletransforms_mod: MODULE columnVariableTransforms (prefix='cvt' category='4. Data Object transformations')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">columnvariabletransforms_mod</span></code></a>: MODULE columnVariableTransforms (prefix=’cvt’ category=’4. Data Object transformations’)</p></li>
+</ul>
+<p class="rubric">Variables</p>
+<ul>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/minimization_mod/min_niter">
+<span class="sig-prename descclassname"><span class="pre">minimization_mod/</span></span><span class="sig-name descname"><span class="pre">min_niter</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/minimization_mod/min_niter" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/minimization_mod/min_nsim">
+<span class="sig-prename descclassname"><span class="pre">minimization_mod/</span></span><span class="sig-name descname"><span class="pre">min_nsim</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/minimization_mod/min_nsim" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+</ul>
+<p class="rubric">Subroutines and functions</p>
+<dl>
+<dt class="sig sig-object f" id="f/minimization_mod/min_setup">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">minimization_mod/</span></span><span class="sig-name descname"><span class="pre">min_setup</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">nvadim_mpilocal_in</span></em>, <em class="sig-param"><span class="pre">hco_anl_in</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">onedvarmode_opt</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">varqc_opt</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">nwoqcv_opt</span></em><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/minimization_mod/min_setup" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Reading NAMMIN namelist to setup variables for minimization.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>nvadim_mpilocal_in</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>hco_anl_in</strong><em> [</em><em>struct_hco </em><em>,</em><em>in,pointer</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Options</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>onedvarmode_opt</strong><em> [</em><em>logical </em><em>,</em><em>in,</em><em>]</em></p></li>
+<li><p><strong>varqc_opt</strong><em> [</em><em>logical </em><em>,</em><em>out,</em><em>]</em></p></li>
+<li><p><strong>nwoqcv_opt</strong><em> [</em><em>integer </em><em>,</em><em>out,</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="../programs/midas_var.html#f/midas_var" title="f/midas_var"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_var</span></code></a>, <a class="reference internal" href="../programs/midas_var1d.html#f/midas_var1d" title="f/midas_var1d"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_var1d</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_start" title="f/utilities_mod/utl_tmg_start"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_start()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_stop" title="f/utilities_mod/utl_tmg_stop"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_stop()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/minimization_mod/min_minimize">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">minimization_mod/</span></span><span class="sig-name descname"><span class="pre">min_minimize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">outerloopindex_in</span></em>, <em class="sig-param"><span class="pre">columntrlonanlinclev</span></em>, <em class="sig-param"><span class="pre">obsspacedata</span></em>, <em class="sig-param"><span class="pre">controlvectorincrsum</span></em>, <em class="sig-param"><span class="pre">vazx</span></em>, <em class="sig-param"><span class="pre">numitermaxinnerloop</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">deallochessian_opt</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">isminimizationfinalcall_opt</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">numitermaxinnerloopused_opt</span></em><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/minimization_mod/min_minimize" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Minimizing cost function to get the increments.
+The maximum number of inner-loop iterations is set to nitermax if the
+namelist variable nitermax is provided. Otherwise, it is set to the
+numIterMaxInnerLoop supplied by the calling subroutine/program.
+numIterMaxInnerLoopUsed_opt is passing the maximum number of inner-loop
+iterations to the calling subroutine/program.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>outerloopindex_in</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>columntrlonanlinclev</strong><em> [</em><em>struct_columndata </em><em>,</em><em>inout</em><em>]</em></p></li>
+<li><p><strong>obsspacedata</strong><em> [</em><em>struct_obs </em><em>,</em><em>inout</em><em>]</em></p></li>
+<li><p><strong>controlvectorincrsum</strong> (*)<em> [</em><em>real </em><em>,</em><em>inout,target</em><em>]</em></p></li>
+<li><p><strong>vazx</strong> (*)<em> [</em><em>real </em><em>,</em><em>inout</em><em>]</em></p></li>
+<li><p><strong>numitermaxinnerloop</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Options</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>deallochessian_opt</strong><em> [</em><em>logical </em><em>,</em><em>in,</em><em>]</em></p></li>
+<li><p><strong>isminimizationfinalcall_opt</strong><em> [</em><em>logical </em><em>,</em><em>in,</em><em>]</em></p></li>
+<li><p><strong>numitermaxinnerloopused_opt</strong><em> [</em><em>integer </em><em>,</em><em>out,</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="../programs/midas_var.html#f/midas_var" title="f/midas_var"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_var</span></code></a>, <a class="reference internal" href="../programs/midas_var1d.html#f/midas_var1d" title="f/midas_var1d"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_var1d</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_start" title="f/utilities_mod/utl_tmg_start"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_start()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_setvco" title="f/columndata_mod/col_setvco"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_setvco()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_getvco" title="f/columndata_mod/col_getvco"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_getvco()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_allocate" title="f/columndata_mod/col_allocate"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_allocate()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_getnumcol" title="f/columndata_mod/col_getnumcol"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_getnumcol()</span></code></a>, <a class="reference internal" href="obstimeinterp_mod.html#f/obstimeinterp_mod/oti_timebinning" title="f/obstimeinterp_mod/oti_timebinning"><code class="xref f f-func docutils literal notranslate"><span class="pre">oti_timebinning()</span></code></a>, <a class="reference internal" href="#f/minimization_mod/quasinewtonminimization" title="f/minimization_mod/quasinewtonminimization"><code class="xref f f-func docutils literal notranslate"><span class="pre">quasinewtonminimization()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_deallocate" title="f/columndata_mod/col_deallocate"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_deallocate()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_stop" title="f/utilities_mod/utl_tmg_stop"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_stop()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/minimization_mod/quasinewtonminimization">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">minimization_mod/</span></span><span class="sig-name descname"><span class="pre">quasinewtonminimization</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">columnanlinc</span></em>, <em class="sig-param"><span class="pre">columntrlonanlinclev</span></em>, <em class="sig-param"><span class="pre">obsspacedata</span></em>, <em class="sig-param"><span class="pre">vazx</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/minimization_mod/quasinewtonminimization" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>3D/En-VAR minimization</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>columnanlinc</strong><em> [</em><em>struct_columndata </em><em>,</em><em>target</em><em>]</em></p></li>
+<li><p><strong>columntrlonanlinclev</strong><em> [</em><em>struct_columndata </em><em>,</em><em>target</em><em>]</em></p></li>
+<li><p><strong>obsspacedata</strong><em> [</em><em>struct_obs </em><em>,</em><em>target</em><em>]</em></p></li>
+<li><p><strong>vazx</strong> (*)<em> [</em><em>real </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/minimization_mod/min_minimize" title="f/minimization_mod/min_minimize"><code class="xref f f-func docutils literal notranslate"><span class="pre">min_minimize()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="varqc_mod.html#f/varqc_mod/vqc_setup" title="f/varqc_mod/vqc_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">vqc_setup()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="timecoord_mod.html#f/timecoord_mod/tim_getdatestamp" title="f/timecoord_mod/tim_getdatestamp"><code class="xref f f-func docutils literal notranslate"><span class="pre">tim_getdatestamp()</span></code></a>, <a class="reference internal" href="#f/minimization_mod/hessianio" title="f/minimization_mod/hessianio"><code class="xref f f-func docutils literal notranslate"><span class="pre">hessianio()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_start" title="f/utilities_mod/utl_tmg_start"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_start()</span></code></a>, <a class="reference internal" href="#f/minimization_mod/grtest2" title="f/minimization_mod/grtest2"><code class="xref f f-func docutils literal notranslate"><span class="pre">grtest2()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_stop" title="f/utilities_mod/utl_tmg_stop"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_stop()</span></code></a>, <a class="reference internal" href="#f/minimization_mod/simvar" title="f/minimization_mod/simvar"><code class="xref f f-func docutils literal notranslate"><span class="pre">simvar()</span></code></a>, <a class="reference internal" href="#f/minimization_mod/prscal" title="f/minimization_mod/prscal"><code class="xref f f-func docutils literal notranslate"><span class="pre">prscal()</span></code></a>, <a class="reference internal" href="quasinewton_mod.html#f/quasinewton_mod/qna_n1qn3" title="f/quasinewton_mod/qna_n1qn3"><code class="xref f f-func docutils literal notranslate"><span class="pre">qna_n1qn3()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_numheader" title="f/obsspacedata_mod/obs_numheader"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_numheader()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_prnthdr" title="f/obsspacedata_mod/obs_prnthdr"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_prnthdr()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_prntbdy" title="f/obsspacedata_mod/obs_prntbdy"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_prntbdy()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/minimization_mod/min_writehessian">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">minimization_mod/</span></span><span class="sig-name descname"><span class="pre">min_writehessian</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">vazx</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/minimization_mod/min_writehessian" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><p><strong>vazx</strong> (*)<em> [</em><em>real </em><em>]</em></p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="../programs/midas_var.html#f/midas_var" title="f/midas_var"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_var</span></code></a>, <a class="reference internal" href="../programs/midas_var1d.html#f/midas_var1d" title="f/midas_var1d"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_var1d</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_start" title="f/utilities_mod/utl_tmg_start"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_start()</span></code></a>, <a class="reference internal" href="#f/minimization_mod/hessianio" title="f/minimization_mod/hessianio"><code class="xref f f-func docutils literal notranslate"><span class="pre">hessianio()</span></code></a>, <a class="reference internal" href="timecoord_mod.html#f/timecoord_mod/tim_getdatestamp" title="f/timecoord_mod/tim_getdatestamp"><code class="xref f f-func docutils literal notranslate"><span class="pre">tim_getdatestamp()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_stop" title="f/utilities_mod/utl_tmg_stop"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_stop()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/minimization_mod/simvar">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">minimization_mod/</span></span><span class="sig-name descname"><span class="pre">simvar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">na_indic</span></em>, <em class="sig-param"><span class="pre">na_dim</span></em>, <em class="sig-param"><span class="pre">da_v</span></em>, <em class="sig-param"><span class="pre">da_j</span></em>, <em class="sig-param"><span class="pre">da_gradj</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/minimization_mod/simvar" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>To implement the Variational solver as described in
+Courtier, 1997, Dual Formulation of Four-Dimentional Variational
+Assimilation, Q.J.R., pp2449-2461.</p>
+</dd>
+<dt class="field-even">Arguments </dt>
+<dd class="field-even"><p></p></dd>
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>na_indic</strong><em> [</em><em>integer </em><em>]</em> :: <p>=1 No action taken</p>
+<dl class="simple">
+<dt>=2 Same as 4 (compute J and gradJ) but do not interrupt</dt><dd><p>timer of the minimizer.</p>
+</dd>
+</dl>
+<p>=3 Compute Jo and gradJo only.</p>
+<p>=4 Both J(u) and its gradient are computed.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>1 and 4 are reserved values for call back from
+m1qn3. For direct calls, use a value other than 1
+and 4.</p>
+</div>
+</p></li>
+<li><p><strong>na_dim</strong><em> [</em><em>integer </em><em>]</em> :: Control-vector dimension, forecast-error covariance space</p></li>
+<li><p><strong>da_v</strong> (na_dim)<em> [</em><em>real </em><em>]</em> :: Control variable, forecast-error covariance space</p></li>
+<li><p><strong>da_j</strong><em> [</em><em>real </em><em>]</em> :: Cost function of the Variational algorithm</p></li>
+<li><p><strong>da_gradj</strong> (na_dim)<em> [</em><em>real </em><em>]</em> :: Gradient of the Variational Cost funtion</p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="fsoi_mod.html#f/fsoi_mod/minimize" title="f/fsoi_mod/minimize"><code class="xref f f-func docutils literal notranslate"><span class="pre">minimize()</span></code></a>, <a class="reference internal" href="#f/minimization_mod/quasinewtonminimization" title="f/minimization_mod/quasinewtonminimization"><code class="xref f f-func docutils literal notranslate"><span class="pre">quasinewtonminimization()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_stop" title="f/utilities_mod/utl_tmg_stop"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_stop()</span></code></a>, <a class="reference internal" href="midasmpi_mod.html#f/midasmpi_mod/mmpi_allreduce_sumreal8scalar" title="f/midasmpi_mod/mmpi_allreduce_sumreal8scalar"><code class="xref f f-func docutils literal notranslate"><span class="pre">mmpi_allreduce_sumreal8scalar()</span></code></a>, <a class="reference internal" href="bmatrix1dvar_mod.html#f/bmatrix1dvar_mod/bmat1d_sqrtb" title="f/bmatrix1dvar_mod/bmat1d_sqrtb"><code class="xref f f-func docutils literal notranslate"><span class="pre">bmat1d_sqrtb()</span></code></a>, <a class="reference internal" href="columnvariabletransforms_mod.html#f/columnvariabletransforms_mod/cvt_transform" title="f/columnvariabletransforms_mod/cvt_transform"><code class="xref f f-func docutils literal notranslate"><span class="pre">cvt_transform()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_isallocated" title="f/gridstatevector_mod/gsv_isallocated"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_isallocated()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_getvco" title="f/columndata_mod/col_getvco"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_getvco()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_allocate" title="f/gridstatevector_mod/gsv_allocate"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_allocate()</span></code></a>, <a class="reference internal" href="gridstatevectorfileio_mod.html#f/gridstatevectorfileio_mod/gio_readmaskfromfile" title="f/gridstatevectorfileio_mod/gio_readmaskfromfile"><code class="xref f f-func docutils literal notranslate"><span class="pre">gio_readmaskfromfile()</span></code></a>, <a class="reference internal" href="bmatrix_mod.html#f/bmatrix_mod/bmat_sqrtb" title="f/bmatrix_mod/bmat_sqrtb"><code class="xref f f-func docutils literal notranslate"><span class="pre">bmat_sqrtb()</span></code></a>, <a class="reference internal" href="statetocolumn_mod.html#f/statetocolumn_mod/s2c_tl" title="f/statetocolumn_mod/s2c_tl"><code class="xref f f-func docutils literal notranslate"><span class="pre">s2c_tl()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_start" title="f/utilities_mod/utl_tmg_start"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_start()</span></code></a>, <a class="reference internal" href="obsoperators_mod.html#f/obsoperators_mod/oop_htl" title="f/obsoperators_mod/oop_htl"><code class="xref f f-func docutils literal notranslate"><span class="pre">oop_htl()</span></code></a>, <a class="reference internal" href="residual_mod.html#f/residual_mod/res_compute" title="f/residual_mod/res_compute"><code class="xref f f-func docutils literal notranslate"><span class="pre">res_compute()</span></code></a>, <a class="reference internal" href="biascorrectionsat_mod.html#f/biascorrectionsat_mod/bcs_calcbias_tl" title="f/biascorrectionsat_mod/bcs_calcbias_tl"><code class="xref f f-func docutils literal notranslate"><span class="pre">bcs_calcbias_tl()</span></code></a>, <a class="reference internal" href="rmatrix_mod.html#f/rmatrix_mod/rmat_rsqrtinverseallobs" title="f/rmatrix_mod/rmat_rsqrtinverseallobs"><code class="xref f f-func docutils literal notranslate"><span class="pre">rmat_rsqrtinverseallobs()</span></code></a>, <a class="reference internal" href="costfunction_mod.html#f/costfunction_mod/cfn_calcjo" title="f/costfunction_mod/cfn_calcjo"><code class="xref f f-func docutils literal notranslate"><span class="pre">cfn_calcjo()</span></code></a>, <a class="reference internal" href="varqc_mod.html#f/varqc_mod/vqc_nltl" title="f/varqc_mod/vqc_nltl"><code class="xref f f-func docutils literal notranslate"><span class="pre">vqc_nltl()</span></code></a>, <a class="reference internal" href="costfunction_mod.html#f/costfunction_mod/cfn_sumjo" title="f/costfunction_mod/cfn_sumjo"><code class="xref f f-func docutils literal notranslate"><span class="pre">cfn_sumjo()</span></code></a>, <a class="reference internal" href="varqc_mod.html#f/varqc_mod/vqc_ad" title="f/varqc_mod/vqc_ad"><code class="xref f f-func docutils literal notranslate"><span class="pre">vqc_ad()</span></code></a>, <a class="reference internal" href="residual_mod.html#f/residual_mod/res_computead" title="f/residual_mod/res_computead"><code class="xref f f-func docutils literal notranslate"><span class="pre">res_computead()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_zero" title="f/columndata_mod/col_zero"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_zero()</span></code></a>, <a class="reference internal" href="obsoperators_mod.html#f/obsoperators_mod/oop_had" title="f/obsoperators_mod/oop_had"><code class="xref f f-func docutils literal notranslate"><span class="pre">oop_had()</span></code></a>, <a class="reference internal" href="statetocolumn_mod.html#f/statetocolumn_mod/s2c_ad" title="f/statetocolumn_mod/s2c_ad"><code class="xref f f-func docutils literal notranslate"><span class="pre">s2c_ad()</span></code></a>, <a class="reference internal" href="biascorrectionsat_mod.html#f/biascorrectionsat_mod/bcs_calcbias_ad" title="f/biascorrectionsat_mod/bcs_calcbias_ad"><code class="xref f f-func docutils literal notranslate"><span class="pre">bcs_calcbias_ad()</span></code></a>, <a class="reference internal" href="bmatrix1dvar_mod.html#f/bmatrix1dvar_mod/bmat1d_sqrtbt" title="f/bmatrix1dvar_mod/bmat1d_sqrtbt"><code class="xref f f-func docutils literal notranslate"><span class="pre">bmat1d_sqrtbt()</span></code></a>, <a class="reference internal" href="bmatrix_mod.html#f/bmatrix_mod/bmat_sqrtbt" title="f/bmatrix_mod/bmat_sqrtbt"><code class="xref f f-func docutils literal notranslate"><span class="pre">bmat_sqrtbt()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/minimization_mod/dscalqn">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">minimization_mod/</span></span><span class="sig-name descname"><span class="pre">dscalqn</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">kdim</span></em>, <em class="sig-param"><span class="pre">px</span></em>, <em class="sig-param"><span class="pre">py</span></em>, <em class="sig-param"><span class="pre">ddsc</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/minimization_mod/dscalqn" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Interface for the inner product to be used by the minimization
+subroutines QNA_N1QN3.</p>
+</dd>
+<dt class="field-even">Arguments </dt>
+<dd class="field-even"><p>i : kdim
+i : px,py
+o : ddsc
+i : kzs
+i : pzs
+i : ddzs</p>
+</dd>
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>kdim</strong><em> [</em><em>integer </em><em>]</em> :: dimension of the vectors</p></li>
+<li><p><strong>px</strong> (kdim)<em> [</em><em>real </em><em>]</em> :: vector for which &lt;PX,PY&gt; is being calculated</p></li>
+<li><p><strong>py</strong> (kdim)<em> [</em><em>real </em><em>]</em> :: vector for which &lt;PX,PY&gt; is being calculated</p></li>
+<li><p><strong>ddsc</strong><em> [</em><em>real </em><em>]</em> :: result of the inner product</p></li>
+</ul>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/minimization_mod/prscal" title="f/minimization_mod/prscal"><code class="xref f f-func docutils literal notranslate"><span class="pre">prscal()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/minimization_mod/prscal">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">minimization_mod/</span></span><span class="sig-name descname"><span class="pre">prscal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">kdim</span></em>, <em class="sig-param"><span class="pre">px</span></em>, <em class="sig-param"><span class="pre">py</span></em>, <em class="sig-param"><span class="pre">ddsc</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/minimization_mod/prscal" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>To evaluate the inner product used in the minimization</p>
+</dd>
+<dt class="field-even">Arguments </dt>
+<dd class="field-even"><p>i : KDIM
+i : PX, PY
+o : DDSC</p>
+</dd>
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>kdim</strong><em> [</em><em>integer </em><em>]</em> :: dimension of the vectors</p></li>
+<li><p><strong>px</strong> (kdim)<em> [</em><em>real </em><em>]</em> :: vector for which &lt;PX,PY&gt; is being calculated</p></li>
+<li><p><strong>py</strong> (kdim)<em> [</em><em>real </em><em>]</em> :: vector for which &lt;PX,PY&gt; is being calculated</p></li>
+<li><p><strong>ddsc</strong><em> [</em><em>real </em><em>]</em> :: result of the inner product</p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="fsoi_mod.html#f/fsoi_mod/minimize" title="f/fsoi_mod/minimize"><code class="xref f f-func docutils literal notranslate"><span class="pre">minimize()</span></code></a>, <a class="reference internal" href="#f/minimization_mod/quasinewtonminimization" title="f/minimization_mod/quasinewtonminimization"><code class="xref f f-func docutils literal notranslate"><span class="pre">quasinewtonminimization()</span></code></a>, <a class="reference internal" href="#f/minimization_mod/dscalqn" title="f/minimization_mod/dscalqn"><code class="xref f f-func docutils literal notranslate"><span class="pre">dscalqn()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="midasmpi_mod.html#f/midasmpi_mod/mmpi_allreduce_sumreal8scalar" title="f/midasmpi_mod/mmpi_allreduce_sumreal8scalar"><code class="xref f f-func docutils literal notranslate"><span class="pre">mmpi_allreduce_sumreal8scalar()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/minimization_mod/dcanab">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">minimization_mod/</span></span><span class="sig-name descname"><span class="pre">dcanab</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">kdim</span></em>, <em class="sig-param"><span class="pre">py</span></em>, <em class="sig-param"><span class="pre">px</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/minimization_mod/dcanab" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Change of variable associated with the canonical inner product:</p>
+<ul class="simple">
+<li><p>PX = L^-1 * Py with L related to the inner product</p></li>
+<li><p>&lt;PX,PY&gt; = PX^t  L^t  L PY</p></li>
+<li><p>(see the modulopt documentation aboutn DTCAB)</p></li>
+<li><p>NOTE: L is assumed to be the identity!</p></li>
+</ul>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>kdim</strong><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><strong>py</strong> (kdim)<em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>px</strong> (kdim)<em> [</em><em>real </em><em>]</em></p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/minimization_mod/dcanonb">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">minimization_mod/</span></span><span class="sig-name descname"><span class="pre">dcanonb</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">kdim</span></em>, <em class="sig-param"><span class="pre">px</span></em>, <em class="sig-param"><span class="pre">py</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/minimization_mod/dcanonb" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Change of variable associated with the canonical inner product:</p>
+<ul class="simple">
+<li><p>PY = L * PX with L related to the inner product</p></li>
+<li><p>&lt;PX,PY&gt; = PX^t  L^t  L PY</p></li>
+<li><p>(see the modulopt documentation about DTONB)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>kdim</strong><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><strong>px</strong> (kdim)<em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>py</strong> (kdim)<em> [</em><em>real </em><em>]</em></p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/minimization_mod/hessianio">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">minimization_mod/</span></span><span class="sig-name descname"><span class="pre">hessianio</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">cfname</span></em>, <em class="sig-param"><span class="pre">status</span></em>, <em class="sig-param"><span class="pre">nsim</span></em>, <em class="sig-param"><span class="pre">kbrpstamp</span></em>, <em class="sig-param"><span class="pre">zeps1</span></em>, <em class="sig-param"><span class="pre">zdf1</span></em>, <em class="sig-param"><span class="pre">itertot</span></em>, <em class="sig-param"><span class="pre">isimtot</span></em>, <em class="sig-param"><span class="pre">iztrl</span></em>, <em class="sig-param"><span class="pre">vatra</span></em>, <em class="sig-param"><span class="pre">vazxbar</span></em>, <em class="sig-param"><span class="pre">vazx</span></em>, <em class="sig-param"><span class="pre">llxbar</span></em>, <em class="sig-param"><span class="pre">llvazx</span></em>, <em class="sig-param"><span class="pre">k1gc</span></em>, <em class="sig-param"><span class="pre">imode</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/minimization_mod/hessianio" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Read-Write Hessian and increment (possibly for outer loop) on a
+file</p>
+</dd>
+<dt class="field-even">Arguments </dt>
+<dd class="field-even"><ul class="simple">
+<li><p>i   cfname</p></li>
+<li><p>i   status</p></li>
+<li><p>i   nsim</p></li>
+<li><p>io  kbrpstamp</p></li>
+<li><p>i   zeps1</p></li>
+<li><p>i   zdf1</p></li>
+<li><p>i   itertot</p></li>
+<li><p>i   isimtot</p></li>
+<li><p>i   iztrl</p></li>
+<li><p>i   vatra</p></li>
+<li><p>i   vazxbar</p></li>
+<li><p>i   vazx</p></li>
+<li><p>i   llxbar</p></li>
+<li><p>i   llvazx</p></li>
+<li><p>i   k1gc</p></li>
+<li><p>o   imode</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>cfname</strong><em> [</em><em>character </em><em>]</em> :: precon file</p></li>
+<li><p><strong>status</strong><em> [</em><em>integer </em><em>]</em> :: = 0 if READ, = 1 if WRITE</p></li>
+<li><p><strong>nsim</strong><em> [</em><em>integer </em><em>]</em> :: Number of simulations in QNA_N1QN3</p></li>
+<li><p><strong>kbrpstamp</strong><em> [</em><em>integer </em><em>]</em> :: Date</p></li>
+<li><p><strong>zeps1</strong><em> [</em><em>real </em><em>]</em> :: Parameter in QNA_N1QN3</p></li>
+<li><p><strong>zdf1</strong><em> [</em><em>real </em><em>]</em> :: Parameter in QNA_N1QN3</p></li>
+<li><p><strong>itertot</strong><em> [</em><em>integer </em><em>]</em> :: Parameter in QNA_N1QN3</p></li>
+<li><p><strong>isimtot</strong><em> [</em><em>integer </em><em>]</em> :: Parameter in QNA_N1QN3</p></li>
+<li><p><strong>iztrl</strong> (5)<em> [</em><em>integer </em><em>,</em><em>target</em><em>]</em> :: Localisation parameters for Hessian</p></li>
+<li><p><strong>vatra</strong> (nmtra)<em> [</em><em>real </em><em>,</em><em>target</em><em>]</em> :: Hessian</p></li>
+<li><p><strong>vazxbar</strong> (nvadim_mpilocal)<em> [</em><em>real </em><em>,</em><em>target</em><em>]</em> :: Vazx of previous loop</p></li>
+<li><p><strong>vazx</strong> (nvadim_mpilocal)<em> [</em><em>real </em><em>,</em><em>target</em><em>]</em> :: Current state of the minimization</p></li>
+<li><p><strong>llxbar</strong><em> [</em><em>logical </em><em>]</em> :: read in vaxzbar if dates are compatible</p></li>
+<li><p><strong>llvazx</strong><em> [</em><em>logical </em><em>]</em> :: Logical to read vazx</p></li>
+<li><p><strong>k1gc</strong><em> [</em><em>integer </em><em>]</em> :: Minimizer ID (2: m1qn2, 3: m1qn3)</p></li>
+<li><p><strong>imode</strong><em> [</em><em>integer </em><em>]</em> :: If status=0, set imode=0 (no prec) or 2 (prec)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/minimization_mod/quasinewtonminimization" title="f/minimization_mod/quasinewtonminimization"><code class="xref f f-func docutils literal notranslate"><span class="pre">quasinewtonminimization()</span></code></a>, <a class="reference internal" href="#f/minimization_mod/min_writehessian" title="f/minimization_mod/min_writehessian"><code class="xref f f-func docutils literal notranslate"><span class="pre">min_writehessian()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_start" title="f/utilities_mod/utl_tmg_start"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_start()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="bmatrix_mod.html#f/bmatrix_mod/bmat_reducetompilocal_r4" title="f/bmatrix_mod/bmat_reducetompilocal_r4"><code class="xref f f-func docutils literal notranslate"><span class="pre">bmat_reducetompilocal_r4()</span></code></a>, <a class="reference internal" href="bmatrix_mod.html#f/bmatrix_mod/bmat_reducetompilocal" title="f/bmatrix_mod/bmat_reducetompilocal"><code class="xref f f-func docutils literal notranslate"><span class="pre">bmat_reducetompilocal()</span></code></a>, <a class="reference internal" href="bmatrix_mod.html#f/bmatrix_mod/bmat_expandtompiglobal_r4" title="f/bmatrix_mod/bmat_expandtompiglobal_r4"><code class="xref f f-func docutils literal notranslate"><span class="pre">bmat_expandtompiglobal_r4()</span></code></a>, <a class="reference internal" href="bmatrix_mod.html#f/bmatrix_mod/bmat_expandtompiglobal" title="f/bmatrix_mod/bmat_expandtompiglobal"><code class="xref f f-func docutils literal notranslate"><span class="pre">bmat_expandtompiglobal()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_stop" title="f/utilities_mod/utl_tmg_stop"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_stop()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/minimization_mod/grtest2">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">minimization_mod/</span></span><span class="sig-name descname"><span class="pre">grtest2</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">simul</span></em>, <em class="sig-param"><span class="pre">na_dim</span></em>, <em class="sig-param"><span class="pre">da_x0</span></em>, <em class="sig-param"><span class="pre">na_range</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/minimization_mod/grtest2" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>To compare the variation of the functional against what the
+gradient gives for small changes in the control variable. This test
+should be accurate for values as small as DLALPHA =  SQRT(machine
+precision). (see Courtier, 1987)</p>
+</dd>
+<dt class="field-even">Arguments </dt>
+<dd class="field-even"><p></p></dd>
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>na_range</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em> :: the test will be carried over values of ALPHA ranging between
+10**(-NA_RANGE) &lt; ALPHA &lt; 0.1</p></li>
+<li><p><strong>simul</strong><em> [</em><em>external</em><em>]</em> :: simulator: return cost function estimate and its gradient</p></li>
+<li><p><strong>na_dim</strong><em> [</em><em>integer </em><em>,</em><em>in,</em><em>]</em> :: Size of the control vector</p></li>
+<li><p><strong>da_x0</strong> (na_dim)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: Control vector</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Needed modules</p>
+<ul class="simple">
+<li><p><code class="xref f f-mod docutils literal notranslate"><span class="pre">grtest2__user__routines</span></code></p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/minimization_mod/quasinewtonminimization" title="f/minimization_mod/quasinewtonminimization"><code class="xref f f-func docutils literal notranslate"><span class="pre">quasinewtonminimization()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="midasmpi_mod.html#f/midasmpi_mod/mmpi_allreduce_sumreal8scalar" title="f/midasmpi_mod/mmpi_allreduce_sumreal8scalar"><code class="xref f f-func docutils literal notranslate"><span class="pre">mmpi_allreduce_sumreal8scalar()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div></blockquote>
+</section>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="multi_ir_bgck_mod.html" title="multi_ir_bgck_mod"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="menetrierdiag_mod.html" title="menetrierdiag_mod"
+             >previous</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2018, ECCC.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.
+    </div>
+  </body>
+</html>

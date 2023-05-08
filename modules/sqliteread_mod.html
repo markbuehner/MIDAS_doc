@@ -1,0 +1,442 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>sqliteread_mod &mdash; MIDAS  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="MIDAS  documentation" href="../index.html" />
+    <link rel="next" title="sqliteutilities_mod" href="sqliteutilities_mod.html" />
+    <link rel="prev" title="sqlitefiles_mod" href="sqlitefiles_mod.html" /> 
+  </head>
+  <body>
+  <div>
+    <img src="../_static/MIDAS_header.png" alt="MIDAS" />
+  </div>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="sqliteutilities_mod.html" title="sqliteutilities_mod"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="sqlitefiles_mod.html" title="sqlitefiles_mod"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="sqlitefiles_mod.html"
+                          title="previous chapter">sqlitefiles_mod</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="sqliteutilities_mod.html"
+                          title="next chapter">sqliteutilities_mod</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/modules/sqliteread_mod.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <section id="sqliteread-mod">
+<h1>sqliteread_mod<a class="headerlink" href="#sqliteread-mod" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><p><a class="reference internal" href="sqliteread_mod_src.html"><span class="doc">link to source code</span></a></p>
+<p><strong>Dependency Diagrams:</strong></p>
+<figure class="align-default" id="id1">
+<a class="reference internal image-reference" href="sqliteread_mod.svg"><img alt="sqliteread_mod.svg" height="100px" src="sqliteread_mod.svg" /></a>
+<figcaption>
+<p><span class="caption-text">Direct Dependency Diagram</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id2">
+<a class="reference internal image-reference" href="sqliteread_mod_rev.svg"><img alt="sqliteread_mod_rev.svg" height="100px" src="sqliteread_mod_rev.svg" /></a>
+<figcaption>
+<p><span class="caption-text">Reverse Dependency Diagram</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<span class="target" id="f/sqliteread_mod"></span><p class="rubric">Description</p>
+<p>MODULE sqliteRead (prefix=’sqlr’ category=’3. Observation input/output’)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Purpose</dt>
+<dd class="field-odd"><p>To read and update SQLITE observation files. Data is stored in
+obsSpaceData object.</p>
+</dd>
+</dl>
+<p class="rubric">Quick access</p>
+<dl class="field-list simple">
+<dt class="field-odd">Routines</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/sqliteread_mod/sqlr_addcloudparametersandemissivity" title="f/sqliteread_mod/sqlr_addcloudparametersandemissivity"><code class="xref f f-func docutils literal notranslate"><span class="pre">sqlr_addcloudparametersandemissivity()</span></code></a>, <a class="reference internal" href="#f/sqliteread_mod/sqlr_addcolumn" title="f/sqliteread_mod/sqlr_addcolumn"><code class="xref f f-func docutils literal notranslate"><span class="pre">sqlr_addcolumn()</span></code></a>, <a class="reference internal" href="#f/sqliteread_mod/sqlr_addextradatarow" title="f/sqliteread_mod/sqlr_addextradatarow"><code class="xref f f-func docutils literal notranslate"><span class="pre">sqlr_addextradatarow()</span></code></a>, <a class="reference internal" href="#f/sqliteread_mod/sqlr_cleansqlite" title="f/sqliteread_mod/sqlr_cleansqlite"><code class="xref f f-func docutils literal notranslate"><span class="pre">sqlr_cleansqlite()</span></code></a>, <a class="reference internal" href="#f/sqliteread_mod/sqlr_getcolumnvaluesdate" title="f/sqliteread_mod/sqlr_getcolumnvaluesdate"><code class="xref f f-func docutils literal notranslate"><span class="pre">sqlr_getcolumnvaluesdate()</span></code></a>, <a class="reference internal" href="#f/sqliteread_mod/sqlr_insertsqlite" title="f/sqliteread_mod/sqlr_insertsqlite"><code class="xref f f-func docutils literal notranslate"><span class="pre">sqlr_insertsqlite()</span></code></a>, <a class="reference internal" href="#f/sqliteread_mod/sqlr_readsqlite" title="f/sqliteread_mod/sqlr_readsqlite"><code class="xref f f-func docutils literal notranslate"><span class="pre">sqlr_readsqlite()</span></code></a>, <a class="reference internal" href="#f/sqliteread_mod/sqlr_readsqlite_avhrr" title="f/sqliteread_mod/sqlr_readsqlite_avhrr"><code class="xref f f-func docutils literal notranslate"><span class="pre">sqlr_readsqlite_avhrr()</span></code></a>, <a class="reference internal" href="#f/sqliteread_mod/sqlr_updatesqlite" title="f/sqliteread_mod/sqlr_updatesqlite"><code class="xref f f-func docutils literal notranslate"><span class="pre">sqlr_updatesqlite()</span></code></a>, <a class="reference internal" href="#f/sqliteread_mod/sqlr_writeemptypseudosstobsfile" title="f/sqliteread_mod/sqlr_writeemptypseudosstobsfile"><code class="xref f f-func docutils literal notranslate"><span class="pre">sqlr_writeemptypseudosstobsfile()</span></code></a>, <a class="reference internal" href="#f/sqliteread_mod/sqlr_writepseudosstobs" title="f/sqliteread_mod/sqlr_writepseudosstobs"><code class="xref f f-func docutils literal notranslate"><span class="pre">sqlr_writepseudosstobs()</span></code></a></p>
+</dd>
+</dl>
+<p class="rubric">Needed modules</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="codeprecision_mod.html#f/codeprecision_mod" title="f/codeprecision_mod: MODULE codePrecision_mod (prefix='pre' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">codeprecision_mod</span></code></a>: MODULE codePrecision_mod (prefix=’pre’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod" title="f/obsspacedata_mod: MODULE obsSpaceData_mod (prefix='obs' category='6. High-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">obsspacedata_mod</span></code></a>: MODULE obsSpaceData_mod (prefix=’obs’ category=’6. High-level data objects’)</p></li>
+<li><p><a class="reference internal" href="midasmpi_mod.html#f/midasmpi_mod" title="f/midasmpi_mod: MODULE midasMpi_mod (prefix='mmpi' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">midasmpi_mod</span></code></a>: MODULE midasMpi_mod (prefix=’mmpi’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><code class="xref f f-mod docutils literal notranslate"><span class="pre">fsqlite</span></code></p></li>
+<li><p><a class="reference internal" href="mathphysconstants_mod.html#f/mathphysconstants_mod" title="f/mathphysconstants_mod: MODULE MathPhysConstants_mod (prefix='mpc' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">mathphysconstants_mod</span></code></a>: MODULE MathPhysConstants_mod (prefix=’mpc’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="obsutil_mod.html#f/obsutil_mod" title="f/obsutil_mod: MODULE obsUtil_mod (prefix='obsu' category='3. Observation input/output')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">obsutil_mod</span></code></a>: MODULE obsUtil_mod (prefix=’obsu’ category=’3. Observation input/output’)</p></li>
+<li><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod" title="f/utilities_mod: MODULE utilities_mod (prefix='utl' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">utilities_mod</span></code></a>: MODULE utilities_mod (prefix=’utl’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="bufr_mod.html#f/bufr_mod" title="f/bufr_mod: MODULE bufr_mod (prefix='bufr' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">bufr_mod</span></code></a>: MODULE bufr_mod (prefix=’bufr’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="ramdisk_mod.html#f/ramdisk_mod" title="f/ramdisk_mod: MODULE ramDisk_mod (prefix='ram' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">ramdisk_mod</span></code></a>: MODULE ramDisk_mod (prefix=’ram’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="codtyp_mod.html#f/codtyp_mod" title="f/codtyp_mod: MODULE codtyp_mod (prefix='codtyp' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">codtyp_mod</span></code></a>: MODULE codtyp_mod (prefix=’codtyp’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="obsvariabletransforms_mod.html#f/obsvariabletransforms_mod" title="f/obsvariabletransforms_mod: MODULE obsVariableTransforms_mod (prefix='ovt' category='4. Data Object transformations')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">obsvariabletransforms_mod</span></code></a>: MODULE obsVariableTransforms_mod (prefix=’ovt’ category=’4. Data Object transformations’)</p></li>
+<li><p><a class="reference internal" href="obsfilter_mod.html#f/obsfilter_mod" title="f/obsfilter_mod: MODULE obsFilter_mod (prefix='filt' category='5. Observation operators')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">obsfilter_mod</span></code></a>: MODULE obsFilter_mod (prefix=’filt’ category=’5. Observation operators’)</p></li>
+<li><p><a class="reference internal" href="sqliteutilities_mod.html#f/sqliteutilities_mod" title="f/sqliteutilities_mod: MODULE sqliteUtilities (prefix='sqlu' category='3. Observation input/output')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">sqliteutilities_mod</span></code></a>: MODULE sqliteUtilities (prefix=’sqlu’ category=’3. Observation input/output’)</p></li>
+<li><p><a class="reference internal" href="radvel_mod.html#f/radvel_mod" title="f/radvel_mod: MODULE radvel_mod (prefix='rdv' category='5. Observation operators')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">radvel_mod</span></code></a>: MODULE radvel_mod (prefix=’rdv’ category=’5. Observation operators’)</p></li>
+</ul>
+<p class="rubric">Variables</p>
+<p class="rubric">Subroutines and functions</p>
+<dl>
+<dt class="sig sig-object f" id="f/sqliteread_mod/sqlr_readsqlite_avhrr">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">sqliteread_mod/</span></span><span class="sig-name descname"><span class="pre">sqlr_readsqlite_avhrr</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">obsdat</span></em>, <em class="sig-param"><span class="pre">filename</span></em>, <em class="sig-param"><span class="pre">headerindexbegin</span></em>, <em class="sig-param"><span class="pre">headerindexend</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/sqliteread_mod/sqlr_readsqlite_avhrr" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>To read SQLite avhrr_cloud parameters.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>obsdat</strong><em> [</em><em>struct_obs </em><em>,</em><em>inout</em><em>]</em> :: ObsSpaceData Structure</p></li>
+<li><p><strong>filename</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em> :: SQLite filename</p></li>
+<li><p><strong>headerindexbegin</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>headerindexend</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="sqlitefiles_mod.html#f/sqlitefiles_mod/sqlf_readfile" title="f/sqlitefiles_mod/sqlf_readfile"><code class="xref f f-func docutils literal notranslate"><span class="pre">sqlf_readfile()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="sqliteutilities_mod.html#f/sqliteutilities_mod/sqlu_sqltableexists" title="f/sqliteutilities_mod/sqlu_sqltableexists"><code class="xref f f-func docutils literal notranslate"><span class="pre">sqlu_sqltableexists()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_getnchanavhrr" title="f/obsspacedata_mod/obs_getnchanavhrr"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_getnchanavhrr()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_headprimarykey" title="f/obsspacedata_mod/obs_headprimarykey"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_headprimarykey()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_columnactive_rh" title="f/obsspacedata_mod/obs_columnactive_rh"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_columnactive_rh()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/sqliteread_mod/sqlr_readsqlite">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">sqliteread_mod/</span></span><span class="sig-name descname"><span class="pre">sqlr_readsqlite</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">obsdat</span></em>, <em class="sig-param"><span class="pre">familytype</span></em>, <em class="sig-param"><span class="pre">filename</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/sqliteread_mod/sqlr_readsqlite" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>To read SQLite namelist and files.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>obsdat</strong><em> [</em><em>struct_obs </em><em>,</em><em>inout</em><em>]</em> :: ObsSpaceData Structure</p></li>
+<li><p><strong>familytype</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em> :: Family Type</p></li>
+<li><p><strong>filename</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em> :: SQLite filename</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="sqlitefiles_mod.html#f/sqlitefiles_mod/sqlf_readfile" title="f/sqlitefiles_mod/sqlf_readfile"><code class="xref f f-func docutils literal notranslate"><span class="pre">sqlf_readfile()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="sqliteutilities_mod.html#f/sqliteutilities_mod/sqlu_getcolumnvaluesnum" title="f/sqliteutilities_mod/sqlu_getcolumnvaluesnum"><code class="xref f f-func docutils literal notranslate"><span class="pre">sqlu_getcolumnvaluesnum()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_splitstring" title="f/utilities_mod/utl_splitstring"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_splitstring()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_stringarraytointegerarray" title="f/utilities_mod/utl_stringarraytointegerarray"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_stringarraytointegerarray()</span></code></a>, <a class="reference internal" href="obsvariabletransforms_mod.html#f/obsvariabletransforms_mod/ovt_setup" title="f/obsvariabletransforms_mod/ovt_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">ovt_setup()</span></code></a>, <a class="reference internal" href="sqliteutilities_mod.html#f/sqliteutilities_mod/sqlu_getsqlcolumnnames" title="f/sqliteutilities_mod/sqlu_getsqlcolumnnames"><code class="xref f f-func docutils literal notranslate"><span class="pre">sqlu_getsqlcolumnnames()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_removeemptystrings" title="f/utilities_mod/utl_removeemptystrings"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_removeemptystrings()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_combinestring" title="f/utilities_mod/utl_combinestring"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_combinestring()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_numheader" title="f/obsspacedata_mod/obs_numheader"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_numheader()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_numbody" title="f/obsspacedata_mod/obs_numbody"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_numbody()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_setbodyprimarykey" title="f/obsspacedata_mod/obs_setbodyprimarykey"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_setbodyprimarykey()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_headset_i" title="f/obsspacedata_mod/obs_headset_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_headset_i()</span></code></a>, <a class="reference internal" href="sqliteutilities_mod.html#f/sqliteutilities_mod/sqlu_handleerror" title="f/sqliteutilities_mod/sqlu_handleerror"><code class="xref f f-func docutils literal notranslate"><span class="pre">sqlu_handleerror()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_setfamily" title="f/obsspacedata_mod/obs_setfamily"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_setfamily()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_setheadprimarykey" title="f/obsspacedata_mod/obs_setheadprimarykey"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_setheadprimarykey()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_set_c" title="f/obsspacedata_mod/obs_set_c"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_set_c()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_columnactive_ih" title="f/obsspacedata_mod/obs_columnactive_ih"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_columnactive_ih()</span></code></a>, <a class="reference internal" href="codtyp_mod.html#f/codtyp_mod/codtyp_get_codtyp" title="f/codtyp_mod/codtyp_get_codtyp"><code class="xref f f-func docutils literal notranslate"><span class="pre">codtyp_get_codtyp()</span></code></a>, <a class="reference internal" href="obsutil_mod.html#f/obsutil_mod/obsu_cvt_obs_instrum" title="f/obsutil_mod/obsu_cvt_obs_instrum"><code class="xref f f-func docutils literal notranslate"><span class="pre">obsu_cvt_obs_instrum()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_columnactive_rb" title="f/obsspacedata_mod/obs_columnactive_rb"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_columnactive_rb()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyset_i" title="f/obsspacedata_mod/obs_bodyset_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyset_i()</span></code></a>, <a class="reference internal" href="radvel_mod.html#f/radvel_mod/rdv_getlatlonhrfromrange" title="f/radvel_mod/rdv_getlatlonhrfromrange"><code class="xref f f-func docutils literal notranslate"><span class="pre">rdv_getlatlonhrfromrange()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyelem_i" title="f/obsspacedata_mod/obs_bodyelem_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyelem_i()</span></code></a>, <a class="reference internal" href="obsfilter_mod.html#f/obsfilter_mod/filt_bufrcodeassimilated" title="f/obsfilter_mod/filt_bufrcodeassimilated"><code class="xref f f-func docutils literal notranslate"><span class="pre">filt_bufrcodeassimilated()</span></code></a>, <a class="reference internal" href="obsvariabletransforms_mod.html#f/obsvariabletransforms_mod/ovt_bufrcodeskipped" title="f/obsvariabletransforms_mod/ovt_bufrcodeskipped"><code class="xref f f-func docutils literal notranslate"><span class="pre">ovt_bufrcodeskipped()</span></code></a>, <a class="reference internal" href="#f/sqliteread_mod/sqlr_addextradatarow" title="f/sqliteread_mod/sqlr_addextradatarow"><code class="xref f f-func docutils literal notranslate"><span class="pre">sqlr_addextradatarow()</span></code></a>, <a class="reference internal" href="obsvariabletransforms_mod.html#f/obsvariabletransforms_mod/ovt_getdestinationbufrcode" title="f/obsvariabletransforms_mod/ovt_getdestinationbufrcode"><code class="xref f f-func docutils literal notranslate"><span class="pre">ovt_getdestinationbufrcode()</span></code></a>, <a class="reference internal" href="obsvariabletransforms_mod.html#f/obsvariabletransforms_mod/ovt_iswindobs" title="f/obsvariabletransforms_mod/ovt_iswindobs"><code class="xref f f-func docutils literal notranslate"><span class="pre">ovt_iswindobs()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/sqliteread_mod/sqlr_addextradatarow">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">sqliteread_mod/</span></span><span class="sig-name descname"><span class="pre">sqlr_addextradatarow</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">obsdat</span></em>, <em class="sig-param"><span class="pre">vertcoord</span></em>, <em class="sig-param"><span class="pre">obsvarno</span></em>, <em class="sig-param"><span class="pre">vertcoordtype</span></em>, <em class="sig-param"><span class="pre">numberdata</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/sqliteread_mod/sqlr_addextradatarow" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Initialize data values for an extra row in data table.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>obsdat</strong><em> [</em><em>struct_obs </em><em>,</em><em>inout</em><em>]</em></p></li>
+<li><p><strong>vertcoord</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>obsvarno</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>vertcoordtype</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>numberdata</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/sqliteread_mod/sqlr_readsqlite" title="f/sqliteread_mod/sqlr_readsqlite"><code class="xref f f-func docutils literal notranslate"><span class="pre">sqlr_readsqlite()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyset_i" title="f/obsspacedata_mod/obs_bodyset_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyset_i()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/sqliteread_mod/sqlr_addcolumn">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">sqliteread_mod/</span></span><span class="sig-name descname"><span class="pre">sqlr_addcolumn</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">obsspacecolindexsource</span></em>, <em class="sig-param"><span class="pre">columnname</span></em>, <em class="sig-param"><span class="pre">tablename</span></em>, <em class="sig-param"><span class="pre">filename</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/sqliteread_mod/sqlr_addcolumn" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Add columns to sqlite tables that does not previously exists.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>obsspacecolindexsource</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>columnname</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>tablename</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>filename</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/sqliteread_mod/sqlr_updatesqlite" title="f/sqliteread_mod/sqlr_updatesqlite"><code class="xref f f-func docutils literal notranslate"><span class="pre">sqlr_updatesqlite()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_columndatatype" title="f/obsspacedata_mod/obs_columndatatype"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_columndatatype()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/sqliteread_mod/sqlr_updatesqlite">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">sqliteread_mod/</span></span><span class="sig-name descname"><span class="pre">sqlr_updatesqlite</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">db</span></em>, <em class="sig-param"><span class="pre">obsdat</span></em>, <em class="sig-param"><span class="pre">familytype</span></em>, <em class="sig-param"><span class="pre">filename</span></em>, <em class="sig-param"><span class="pre">filenumber</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/sqliteread_mod/sqlr_updatesqlite" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>update SQLite files. List of items to update is in the
+namSQLUpdate namelist</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>db</strong><em> [</em><em>fsql_database </em><em>,</em><em>inout</em><em>]</em> :: SQL database</p></li>
+<li><p><strong>obsdat</strong><em> [</em><em>struct_obs </em><em>,</em><em>inout</em><em>]</em> :: obsSpaceData</p></li>
+<li><p><strong>familytype</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em> :: Observation Family Type</p></li>
+<li><p><strong>filename</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em> :: file name</p></li>
+<li><p><strong>filenumber</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em> :: FILE NUMBER ASSOCIATED WITH db</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="sqlitefiles_mod.html#f/sqlitefiles_mod/sqlf_updatefile" title="f/sqlitefiles_mod/sqlf_updatefile"><code class="xref f f-func docutils literal notranslate"><span class="pre">sqlf_updatefile()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="sqliteutilities_mod.html#f/sqliteutilities_mod/sqlu_sqlcolumnexists" title="f/sqliteutilities_mod/sqlu_sqlcolumnexists"><code class="xref f f-func docutils literal notranslate"><span class="pre">sqlu_sqlcolumnexists()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_numheader" title="f/obsspacedata_mod/obs_numheader"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_numheader()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_headelem_i" title="f/obsspacedata_mod/obs_headelem_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_headelem_i()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyelem_r" title="f/obsspacedata_mod/obs_bodyelem_r"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyelem_r()</span></code></a>, <a class="reference internal" href="#f/sqliteread_mod/sqlr_addcolumn" title="f/sqliteread_mod/sqlr_addcolumn"><code class="xref f f-func docutils literal notranslate"><span class="pre">sqlr_addcolumn()</span></code></a>, <a class="reference internal" href="sqliteutilities_mod.html#f/sqliteutilities_mod/sqlu_handleerror" title="f/sqliteutilities_mod/sqlu_handleerror"><code class="xref f f-func docutils literal notranslate"><span class="pre">sqlu_handleerror()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_headprimarykey" title="f/obsspacedata_mod/obs_headprimarykey"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_headprimarykey()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyelem_i" title="f/obsspacedata_mod/obs_bodyelem_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyelem_i()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyprimarykey" title="f/obsspacedata_mod/obs_bodyprimarykey"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyprimarykey()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/sqliteread_mod/sqlr_addcloudparametersandemissivity">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">sqliteread_mod/</span></span><span class="sig-name descname"><span class="pre">sqlr_addcloudparametersandemissivity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">db</span></em>, <em class="sig-param"><span class="pre">obsdat</span></em>, <em class="sig-param"><span class="pre">filenumber</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/sqliteread_mod/sqlr_addcloudparametersandemissivity" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Add a new table if it doesn’t already exist <cite>cld_params</cite> with
+cloud-related information.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>db</strong><em> [</em><em>fsql_database </em><em>,</em><em>inout</em><em>]</em> :: SQLite file handle</p></li>
+<li><p><strong>obsdat</strong><em> [</em><em>struct_obs </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>filenumber</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="sqlitefiles_mod.html#f/sqlitefiles_mod/sqlf_addcloudparametersandemissivity" title="f/sqlitefiles_mod/sqlf_addcloudparametersandemissivity"><code class="xref f f-func docutils literal notranslate"><span class="pre">sqlf_addcloudparametersandemissivity()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="sqliteutilities_mod.html#f/sqliteutilities_mod/sqlu_handleerror" title="f/sqliteutilities_mod/sqlu_handleerror"><code class="xref f f-func docutils literal notranslate"><span class="pre">sqlu_handleerror()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_numheader" title="f/obsspacedata_mod/obs_numheader"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_numheader()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_headelem_i" title="f/obsspacedata_mod/obs_headelem_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_headelem_i()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_headprimarykey" title="f/obsspacedata_mod/obs_headprimarykey"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_headprimarykey()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_headelem_r" title="f/obsspacedata_mod/obs_headelem_r"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_headelem_r()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/sqliteread_mod/sqlr_insertsqlite">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">sqliteread_mod/</span></span><span class="sig-name descname"><span class="pre">sqlr_insertsqlite</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">db</span></em>, <em class="sig-param"><span class="pre">obsdat</span></em>, <em class="sig-param"><span class="pre">familytype</span></em>, <em class="sig-param"><span class="pre">filename</span></em>, <em class="sig-param"><span class="pre">filenumber</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/sqliteread_mod/sqlr_insertsqlite" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Insert rows in the sqlite file data table for bufr element IDs
+specified in the namelist block <cite>namSQLInsert</cite>.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>db</strong><em> [</em><em>fsql_database </em><em>]</em> :: type for SQLIte  file handle</p></li>
+<li><p><strong>obsdat</strong><em> [</em><em>struct_obs </em><em>]</em></p></li>
+<li><p><strong>familytype</strong><em> [</em><em>character </em><em>]</em></p></li>
+<li><p><strong>filename</strong><em> [</em><em>character </em><em>]</em></p></li>
+<li><p><strong>filenumber</strong><em> [</em><em>integer </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="sqlitefiles_mod.html#f/sqlitefiles_mod/sqlf_updatefile" title="f/sqlitefiles_mod/sqlf_updatefile"><code class="xref f f-func docutils literal notranslate"><span class="pre">sqlf_updatefile()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_numheader" title="f/obsspacedata_mod/obs_numheader"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_numheader()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="sqliteutilities_mod.html#f/sqliteutilities_mod/sqlu_handleerror" title="f/sqliteutilities_mod/sqlu_handleerror"><code class="xref f f-func docutils literal notranslate"><span class="pre">sqlu_handleerror()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_headelem_i" title="f/obsspacedata_mod/obs_headelem_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_headelem_i()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_headprimarykey" title="f/obsspacedata_mod/obs_headprimarykey"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_headprimarykey()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyprimarykey" title="f/obsspacedata_mod/obs_bodyprimarykey"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyprimarykey()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyelem_i" title="f/obsspacedata_mod/obs_bodyelem_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyelem_i()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyelem_r" title="f/obsspacedata_mod/obs_bodyelem_r"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyelem_r()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/sqliteread_mod/sqlr_cleansqlite">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">sqliteread_mod/</span></span><span class="sig-name descname"><span class="pre">sqlr_cleansqlite</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">db</span></em>, <em class="sig-param"><span class="pre">filename</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/sqliteread_mod/sqlr_cleansqlite" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Remove flagged (bit 11 set) observations in an SQLite file</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>db</strong><em> [</em><em>fsql_database </em><em>,</em><em>inout</em><em>]</em> :: SQLite file handle</p></li>
+<li><p><strong>filename</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="sqlitefiles_mod.html#f/sqlitefiles_mod/sqlf_cleanfile" title="f/sqlitefiles_mod/sqlf_cleanfile"><code class="xref f f-func docutils literal notranslate"><span class="pre">sqlf_cleanfile()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="sqliteutilities_mod.html#f/sqliteutilities_mod/sqlu_handleerror" title="f/sqliteutilities_mod/sqlu_handleerror"><code class="xref f f-func docutils literal notranslate"><span class="pre">sqlu_handleerror()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/sqliteread_mod/sqlr_writepseudosstobs">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">sqliteread_mod/</span></span><span class="sig-name descname"><span class="pre">sqlr_writepseudosstobs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">obsdata</span></em>, <em class="sig-param"><span class="pre">obsfamily</span></em>, <em class="sig-param"><span class="pre">instrumentfilename</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/sqliteread_mod/sqlr_writepseudosstobs" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>To write the obsSpaceData content into SQLite format files</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>obsdata</strong><em> [</em><em>struct_obs </em><em>,</em><em>inout</em><em>]</em></p></li>
+<li><p><strong>obsfamily</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>instrumentfilename</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="oceanobservations_mod.html#f/oceanobservations_mod/oobs_computeobsdata" title="f/oceanobservations_mod/oobs_computeobsdata"><code class="xref f f-func docutils literal notranslate"><span class="pre">oobs_computeobsdata()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="sqliteutilities_mod.html#f/sqliteutilities_mod/sqlu_getinitialidobsdata" title="f/sqliteutilities_mod/sqlu_getinitialidobsdata"><code class="xref f f-func docutils literal notranslate"><span class="pre">sqlu_getinitialidobsdata()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_getheaderindex" title="f/obsspacedata_mod/obs_getheaderindex"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_getheaderindex()</span></code></a>, <a class="reference internal" href="ramdisk_mod.html#f/ramdisk_mod/ram_getramdiskdir" title="f/ramdisk_mod/ram_getramdiskdir"><code class="xref f f-func docutils literal notranslate"><span class="pre">ram_getramdiskdir()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_mpilocal" title="f/obsspacedata_mod/obs_mpilocal"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_mpilocal()</span></code></a>, <a class="reference internal" href="sqliteutilities_mod.html#f/sqliteutilities_mod/sqlu_handleerror" title="f/sqliteutilities_mod/sqlu_handleerror"><code class="xref f f-func docutils literal notranslate"><span class="pre">sqlu_handleerror()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_headelem_i" title="f/obsspacedata_mod/obs_headelem_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_headelem_i()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_elem_c" title="f/obsspacedata_mod/obs_elem_c"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_elem_c()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_headelem_r" title="f/obsspacedata_mod/obs_headelem_r"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_headelem_r()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyelem_i" title="f/obsspacedata_mod/obs_bodyelem_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyelem_i()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyelem_r" title="f/obsspacedata_mod/obs_bodyelem_r"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyelem_r()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/sqliteread_mod/sqlr_writeemptypseudosstobsfile">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">sqliteread_mod/</span></span><span class="sig-name descname"><span class="pre">sqlr_writeemptypseudosstobsfile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">obsdata</span></em>, <em class="sig-param"><span class="pre">obsfamily</span></em>, <em class="sig-param"><span class="pre">instrumentfilename</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/sqliteread_mod/sqlr_writeemptypseudosstobsfile" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>to generate an empty SQLite SST pseudo obs file for mpi tasks,
+with no sea-ice on them.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>obsdata</strong><em> [</em><em>struct_obs </em><em>,</em><em>inout</em><em>]</em></p></li>
+<li><p><strong>obsfamily</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>instrumentfilename</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="oceanobservations_mod.html#f/oceanobservations_mod/oobs_pseudosst" title="f/oceanobservations_mod/oobs_pseudosst"><code class="xref f f-func docutils literal notranslate"><span class="pre">oobs_pseudosst()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="sqliteutilities_mod.html#f/sqliteutilities_mod/sqlu_getinitialidobsdata" title="f/sqliteutilities_mod/sqlu_getinitialidobsdata"><code class="xref f f-func docutils literal notranslate"><span class="pre">sqlu_getinitialidobsdata()</span></code></a>, <a class="reference internal" href="ramdisk_mod.html#f/ramdisk_mod/ram_getramdiskdir" title="f/ramdisk_mod/ram_getramdiskdir"><code class="xref f f-func docutils literal notranslate"><span class="pre">ram_getramdiskdir()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_mpilocal" title="f/obsspacedata_mod/obs_mpilocal"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_mpilocal()</span></code></a>, <a class="reference internal" href="sqliteutilities_mod.html#f/sqliteutilities_mod/sqlu_handleerror" title="f/sqliteutilities_mod/sqlu_handleerror"><code class="xref f f-func docutils literal notranslate"><span class="pre">sqlu_handleerror()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/sqliteread_mod/sqlr_getcolumnvaluesdate">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">sqliteread_mod/</span></span><span class="sig-name descname"><span class="pre">sqlr_getcolumnvaluesdate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">columndatevalues</span></em>, <em class="sig-param"><span class="pre">columntimevalues</span></em>, <em class="sig-param"><span class="pre">filename</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/sqliteread_mod/sqlr_getcolumnvaluesdate" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Read the date and time column values from sqlite file.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>columndatevalues</strong> (*)<em> [</em><em>integer </em><em>,</em><em>out,allocatable</em><em>]</em></p></li>
+<li><p><strong>columntimevalues</strong> (*)<em> [</em><em>integer </em><em>,</em><em>out,allocatable</em><em>]</em></p></li>
+<li><p><strong>filename</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="sqlitefiles_mod.html#f/sqlitefiles_mod/sqlf_getdatestamp" title="f/sqlitefiles_mod/sqlf_getdatestamp"><code class="xref f f-func docutils literal notranslate"><span class="pre">sqlf_getdatestamp()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div></blockquote>
+</section>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="sqliteutilities_mod.html" title="sqliteutilities_mod"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="sqlitefiles_mod.html" title="sqlitefiles_mod"
+             >previous</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2018, ECCC.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.
+    </div>
+  </body>
+</html>

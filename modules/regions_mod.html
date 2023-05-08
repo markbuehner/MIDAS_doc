@@ -1,0 +1,335 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>regions_mod &mdash; MIDAS  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="MIDAS  documentation" href="../index.html" />
+    <link rel="next" title="timecoord_mod" href="timecoord_mod.html" />
+    <link rel="prev" title="oceanmask_mod" href="oceanmask_mod.html" /> 
+  </head>
+  <body>
+  <div>
+    <img src="../_static/MIDAS_header.png" alt="MIDAS" />
+  </div>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="timecoord_mod.html" title="timecoord_mod"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="oceanmask_mod.html" title="oceanmask_mod"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="oceanmask_mod.html"
+                          title="previous chapter">oceanmask_mod</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="timecoord_mod.html"
+                          title="next chapter">timecoord_mod</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/modules/regions_mod.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <section id="regions-mod">
+<h1>regions_mod<a class="headerlink" href="#regions-mod" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><p><a class="reference internal" href="regions_mod_src.html"><span class="doc">link to source code</span></a></p>
+<p><strong>Dependency Diagrams:</strong></p>
+<figure class="align-default" id="id1">
+<a class="reference internal image-reference" href="regions_mod.svg"><img alt="regions_mod.svg" height="100px" src="regions_mod.svg" /></a>
+<figcaption>
+<p><span class="caption-text">Direct Dependency Diagram</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id2">
+<a class="reference internal image-reference" href="regions_mod_rev.svg"><img alt="regions_mod_rev.svg" height="100px" src="regions_mod_rev.svg" /></a>
+<figcaption>
+<p><span class="caption-text">Reverse Dependency Diagram</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<span class="target" id="f/regions_mod"></span><p class="rubric">Description</p>
+<p>MODULE regions_mod (prefix=’reg’ category=’7. Low-level data objects’)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Purpose</dt>
+<dd class="field-odd"><p>This is a subset of the EnKF module that deals with
+operations involving the generation of a set of regions.
+Each region consists of a small number of observations
+which is to be assimilated simultaneously in the
+sequential algorithm.</p>
+</dd>
+</dl>
+<p class="rubric">Quick access</p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/regions_mod/struct_reg" title="f/regions_mod/struct_reg"><code class="xref f f-var docutils literal notranslate"><span class="pre">struct_reg</span></code></a></p>
+</dd>
+<dt class="field-even">Routines</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/regions_mod/getr0" title="f/regions_mod/getr0"><code class="xref f f-func docutils literal notranslate"><span class="pre">getr0()</span></code></a>, <a class="reference internal" href="#f/regions_mod/reg_getblock" title="f/regions_mod/reg_getblock"><code class="xref f f-func docutils literal notranslate"><span class="pre">reg_getblock()</span></code></a>, <a class="reference internal" href="#f/regions_mod/reg_getlatitude" title="f/regions_mod/reg_getlatitude"><code class="xref f f-func docutils literal notranslate"><span class="pre">reg_getlatitude()</span></code></a>, <a class="reference internal" href="#f/regions_mod/reg_init_struct" title="f/regions_mod/reg_init_struct"><code class="xref f f-func docutils literal notranslate"><span class="pre">reg_init_struct()</span></code></a>, <a class="reference internal" href="#f/regions_mod/reg_locatestn" title="f/regions_mod/reg_locatestn"><code class="xref f f-func docutils literal notranslate"><span class="pre">reg_locatestn()</span></code></a></p>
+</dd>
+</dl>
+<p class="rubric">Needed modules</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="mathphysconstants_mod.html#f/mathphysconstants_mod" title="f/mathphysconstants_mod: MODULE MathPhysConstants_mod (prefix='mpc' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">mathphysconstants_mod</span></code></a>: MODULE MathPhysConstants_mod (prefix=’mpc’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="midasmpi_mod.html#f/midasmpi_mod" title="f/midasmpi_mod: MODULE midasMpi_mod (prefix='mmpi' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">midasmpi_mod</span></code></a>: MODULE midasMpi_mod (prefix=’mmpi’ category=’8. Low-level utilities and constants’)</p></li>
+</ul>
+<p class="rubric">Types</p>
+<ul>
+<li><dl>
+<dt class="sig sig-object f" id="f/regions_mod/unknown_type">
+<em class="property"><span class="pre">type</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">regions_mod/</span></span><span class="sig-name descname"><span class="pre">unknown_type</span></span><a class="headerlink" href="#f/regions_mod/unknown_type" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type fields</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">mxreg</span><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">nlatband</span><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">r0_km</span><em> [</em><em>real </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">r0_rad</span><em> [</em><em>real </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">r1_km</span><em> [</em><em>real </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">r1_rad</span><em> [</em><em>real </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">rz_logp</span><em> [</em><em>real </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">scale_hor</span><em> [</em><em>real </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">scale_ver</span><em> [</em><em>real </em><em>]</em></p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</li>
+</ul>
+<p class="rubric">Variables</p>
+<ul>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/regions_mod/struct_reg">
+<span class="sig-prename descclassname"><span class="pre">regions_mod/</span></span><span class="sig-name descname"><span class="pre">struct_reg</span></span><em> <span class="pre">[</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/regions_mod/struct_reg" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+</ul>
+<p class="rubric">Subroutines and functions</p>
+<dl>
+<dt class="sig sig-object f" id="f/regions_mod/reg_getblock">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">regions_mod/</span></span><span class="sig-name descname"><span class="pre">reg_getblock</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">nlatband</span></em>, <em class="sig-param"><span class="pre">r0</span></em>, <em class="sig-param"><span class="pre">latmin</span></em>, <em class="sig-param"><span class="pre">latmax</span></em>, <em class="sig-param"><span class="pre">nlonblock</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/regions_mod/reg_getblock" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>We have nlatband latitude bands (bounded by latitudes</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>latmin</strong> (nlatband)<em> [</em><em>real </em><em>]</em> :: and latmax). For each band determine how many
+longitidunal blocks of at most r0*root(2) radians it
+contains. Output is in nlonblock.</p></li>
+<li><p><strong>nlatband</strong><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><strong>r0</strong><em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>latmax</strong> (nlatband)<em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>nlonblock</strong> (nlatband)<em> [</em><em>integer </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../programs/midas_prepcma.html#f/midas_prepcma" title="f/midas_prepcma"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_prepcma</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/regions_mod/reg_getlatitude">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">regions_mod/</span></span><span class="sig-name descname"><span class="pre">reg_getlatitude</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">r0</span></em>, <em class="sig-param"><span class="pre">nlatband</span></em>, <em class="sig-param"><span class="pre">latmin</span></em>, <em class="sig-param"><span class="pre">latcenter</span></em>, <em class="sig-param"><span class="pre">latmax</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/regions_mod/reg_getlatitude" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>the circle is covered with nlatband latitude bands.
+the polar caps (with radius r0 radians) form the first and
+last band. Intermediate bands are of width r0*(2**0.5)
+For reach band we have the southern most latitude latmin,
+the central latitude latcenter (at the poles for the extreme
+bands) and the northern most latitude latcenter</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>r0</strong><em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>nlatband</strong><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><strong>latmin</strong> (nlatband)<em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>latcenter</strong> (nlatband)<em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>latmax</strong> (nlatband)<em> [</em><em>real </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../programs/midas_prepcma.html#f/midas_prepcma" title="f/midas_prepcma"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_prepcma</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/regions_mod/getr0">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">regions_mod/</span></span><span class="sig-name descname"><span class="pre">getr0</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">r0km</span></em>, <em class="sig-param"><span class="pre">r0</span></em>, <em class="sig-param"><span class="pre">nlatband</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/regions_mod/getr0" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>The user specifies a radius of r0km (in km) within which
+stations can be taken together for simultaneous analysis
+in a single batch. For simplicity of the search procedures
+we - instead - use somewhat smaller squares with sides of
+at most r0km*root(2). We do have circles at the two poles.
+Here we compute the radius r0 in radians such that we arrive
+exactly at nlatband latitude bands. The equator separates
+two latitude bands.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>r0km</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>r0</strong><em> [</em><em>real </em><em>,</em><em>out</em><em>]</em></p></li>
+<li><p><strong>nlatband</strong><em> [</em><em>integer </em><em>,</em><em>out</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/regions_mod/reg_init_struct" title="f/regions_mod/reg_init_struct"><code class="xref f f-func docutils literal notranslate"><span class="pre">reg_init_struct()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/regions_mod/reg_init_struct">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">regions_mod/</span></span><span class="sig-name descname"><span class="pre">reg_init_struct</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">lsc</span></em>, <em class="sig-param"><span class="pre">r0_km</span></em>, <em class="sig-param"><span class="pre">r1_km</span></em>, <em class="sig-param"><span class="pre">rz_logp</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/regions_mod/reg_init_struct" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>store and derive parameters related to the localization
+in a structure.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>lsc</strong><em> [</em><em>struct_reg </em><em>,</em><em>out</em><em>]</em></p></li>
+<li><p><strong>r0_km</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>r1_km</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>rz_logp</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../programs/midas_prepcma.html#f/midas_prepcma" title="f/midas_prepcma"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_prepcma</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/regions_mod/getr0" title="f/regions_mod/getr0"><code class="xref f f-func docutils literal notranslate"><span class="pre">getr0()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/regions_mod/reg_locatestn">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">regions_mod/</span></span><span class="sig-name descname"><span class="pre">reg_locatestn</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">r0</span></em>, <em class="sig-param"><span class="pre">lat</span></em>, <em class="sig-param"><span class="pre">lon</span></em>, <em class="sig-param"><span class="pre">nlatband</span></em>, <em class="sig-param"><span class="pre">nlonblock</span></em>, <em class="sig-param"><span class="pre">nblockoffset</span></em>, <em class="sig-param"><span class="pre">iblock</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/regions_mod/reg_locatestn" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>locate the lat-lon block in which position (lat,lon) falls</p>
+</dd>
+<dt class="field-even">Arguments </dt>
+<dd class="field-even"><p></p></dd>
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>r0</strong><em> [</em><em>real </em><em>]</em> :: radius of a region (in radians)
+(lat,lon): latitude and longitude in radians</p></li>
+<li><p><strong>nlatband</strong><em> [</em><em>integer </em><em>]</em> :: number of latitude bands</p></li>
+<li><p><strong>nlonblock</strong> (nlatband)<em> [</em><em>integer </em><em>]</em> :: number of longitudinal blocks at each latitude band</p></li>
+<li><p><strong>nblockoffset</strong> (nlatband)<em> [</em><em>integer </em><em>]</em> :: offset (the number of blocks south of each
+latitude band)</p></li>
+<li><p><strong>iblock</strong><em> [</em><em>integer </em><em>]</em> :: block number</p></li>
+<li><p><strong>lat</strong><em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>lon</strong><em> [</em><em>real </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="../programs/midas_prepcma.html#f/midas_prepcma" title="f/midas_prepcma"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_prepcma</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div></blockquote>
+</section>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="timecoord_mod.html" title="timecoord_mod"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="oceanmask_mod.html" title="oceanmask_mod"
+             >previous</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2018, ECCC.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.
+    </div>
+  </body>
+</html>

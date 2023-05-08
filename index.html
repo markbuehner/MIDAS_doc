@@ -1,0 +1,377 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Welcome to MIDAS documentation &mdash; MIDAS  documentation</title>
+    
+    <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="top" title="MIDAS  documentation" href="#" />
+    <link rel="next" title="midas_adjointtest" href="programs/midas_adjointtest.html" /> 
+  </head>
+  <body>
+  <div>
+    <img src="_static/MIDAS_header.png" alt="MIDAS" />
+  </div>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="programs/midas_adjointtest.html" title="midas_adjointtest"
+             accesskey="N">next</a> |</li>
+        <li><a href="#">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="#">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Welcome to MIDAS documentation</a></li>
+<li><a class="reference internal" href="#high-level-documentation">High-level documentation</a></li>
+<li><a class="reference internal" href="#programs">Programs</a></li>
+<li><a class="reference internal" href="#modules-1-high-level-functionality">Modules: 1. High-level functionality</a></li>
+<li><a class="reference internal" href="#modules-2-b-and-r-matrices">Modules: 2. B and R matrices</a></li>
+<li><a class="reference internal" href="#modules-3-observation-input-output">Modules: 3. Observation input/output</a></li>
+<li><a class="reference internal" href="#modules-4-data-object-transformations">Modules: 4. Data object transformations</a></li>
+<li><a class="reference internal" href="#modules-5-observation-operators">Modules: 5. Observation operators</a></li>
+<li><a class="reference internal" href="#modules-6-high-level-data-objects">Modules: 6. High-level data objects</a></li>
+<li><a class="reference internal" href="#modules-7-low-level-data-objects">Modules: 7. Low-level data objects</a></li>
+<li><a class="reference internal" href="#modules-8-low-level-utilities-and-constants">Modules: 8. Low-level utilities and constants</a></li>
+<li><a class="reference internal" href="#modules-9-global-interfaces">Modules: 9. Global interfaces</a></li>
+<li><a class="reference internal" href="#additional-information">Additional information</a></li>
+<li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="programs/midas_adjointtest.html"
+                          title="next chapter">midas_adjointtest</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/index.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <section id="welcome-to-midas-documentation">
+<h1>Welcome to MIDAS documentation<a class="headerlink" href="#welcome-to-midas-documentation" title="Permalink to this headline">¶</a></h1>
+<p>This is the documentation for version v_3.9.0-rc1-151-g5b55b63</p>
+<p>This is the automatically generated MIDAS documentation. Below you
+will find a list of all fortran programs and modules that make up
+the MIDAS software. Documentation in the fortran code that appears
+in comments immediately following the program or module or subroutine
+statement will be included. It can be formatted using <em>reStructuredText</em>.
+A primer on this markup language can be found here:</p>
+<p><a class="reference external" href="https://sphinx-tutorial.readthedocs.io/cheatsheet/">https://sphinx-tutorial.readthedocs.io/cheatsheet/</a></p>
+<p><a class="reference external" href="https://matplotlib.org/sampledoc/cheatsheet.html">https://matplotlib.org/sampledoc/cheatsheet.html</a></p>
+</section>
+<section id="high-level-documentation">
+<h1>High-level documentation<a class="headerlink" href="#high-level-documentation" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Introduction: <a class="reference internal" href="what_is_midas.html"><span class="doc">what is MIDAS?</span></a></p></li>
+<li><p>MIDAS <a class="reference internal" href="midas_design_philosophy.html"><span class="doc">code design philosophy.</span></a></p></li>
+<li><p>Overall MIDAS <a class="reference internal" href="overall_midas_design.html"><span class="doc">code design description.</span></a></p></li>
+<li><p>Use of <a class="reference internal" href="mpi_in_midas.html"><span class="doc">MPI parallelization in MIDAS.</span></a></p></li>
+<li><p>MIDAS  <a class="reference external" href="https://gitlab.science.gc.ca/atmospheric-data-assimilation/midas/blob/main/docs/codingStandards.md">coding standards</a></p></li>
+</ul>
+</section>
+<section id="programs">
+<h1>Programs<a class="headerlink" href="#programs" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="programs/midas_adjointtest.html">midas_adjointtest</a></li>
+<li class="toctree-l1"><a class="reference internal" href="programs/midas_analysiserroroi.html">midas_analysiserroroi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="programs/midas_calcstats.html">midas_calcstats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="programs/midas_diagbmatrix.html">midas_diagbmatrix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="programs/midas_diaghbht.html">midas_diaghbht</a></li>
+<li class="toctree-l1"><a class="reference internal" href="programs/midas_ensembleh.html">midas_ensembleh</a></li>
+<li class="toctree-l1"><a class="reference internal" href="programs/midas_enspostprocess.html">midas_enspostprocess</a></li>
+<li class="toctree-l1"><a class="reference internal" href="programs/midas_extractbmatrixfor1dvar.html">midas_extractbmatrixfor1dvar</a></li>
+<li class="toctree-l1"><a class="reference internal" href="programs/midas_gencoeff.html">midas_gencoeff</a></li>
+<li class="toctree-l1"><a class="reference internal" href="programs/midas_letkf.html">midas_letkf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="programs/midas_obsimpact.html">midas_obsimpact</a></li>
+<li class="toctree-l1"><a class="reference internal" href="programs/midas_obsselection.html">midas_obsselection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="programs/midas_ominusf.html">midas_ominusf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="programs/midas_prepcma.html">midas_prepcma</a></li>
+<li class="toctree-l1"><a class="reference internal" href="programs/midas_pseudosstobs.html">midas_pseudosstobs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="programs/midas_randompert.html">midas_randompert</a></li>
+<li class="toctree-l1"><a class="reference internal" href="programs/midas_sstbias.html">midas_sstbias</a></li>
+<li class="toctree-l1"><a class="reference internal" href="programs/midas_ssttrial.html">midas_ssttrial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="programs/midas_thinning.html">midas_thinning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="programs/midas_var1d.html">midas_var1d</a></li>
+<li class="toctree-l1"><a class="reference internal" href="programs/midas_var.html">midas_var</a></li>
+</ul>
+</div>
+</section>
+<section id="modules-1-high-level-functionality">
+<h1>Modules: 1. High-level functionality<a class="headerlink" href="#modules-1-high-level-functionality" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="modules/analysiserroroi_mod.html">analysiserroroi_mod</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/backgroundcheck_mod.html">backgroundcheck_mod</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/bgckcsr_mod.html">bgckcsr_mod</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/bgckmicrowave_mod.html">bgckmicrowave_mod</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/bgckocean_mod.html">bgckocean_mod</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/bgckssmis_mod.html">bgckssmis_mod</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/biascorrectionconv_mod.html">biascorrectionconv_mod</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/biascorrectionsat_mod.html">biascorrectionsat_mod</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/calcstatsglb_mod.html">calcstatsglb_mod</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/calcstatslam_mod.html">calcstatslam_mod</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/enkf_mod.html">enkf_mod</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/enspostprocess_mod.html">enspostprocess_mod</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/fsoi_mod.html">fsoi_mod</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/increment_mod.html">increment_mod</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/innovation_mod.html">innovation_mod</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/menetrierdiag_mod.html">menetrierdiag_mod</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/minimization_mod.html">minimization_mod</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/multi_ir_bgck_mod.html">multi_ir_bgck_mod</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/obsspacediag_mod.html">obsspacediag_mod</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/obsspaceerrorstddev_mod.html">obsspaceerrorstddev_mod</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/oceanbackground_mod.html">oceanbackground_mod</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/oceanobservations_mod.html">oceanobservations_mod</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/ominusf_mod.html">ominusf_mod</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/quasinewton_mod.html">quasinewton_mod</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/residual_mod.html">residual_mod</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/sstbias_mod.html">sstbias_mod</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/thinning_mod.html">thinning_mod</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/varqc_mod.html">varqc_mod</a></li>
+</ul>
+</div>
+</section>
+<section id="modules-2-b-and-r-matrices">
+<h1>Modules: 2. B and R matrices<a class="headerlink" href="#modules-2-b-and-r-matrices" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="modules/bmatrix1dvar_mod.html">bmatrix1dvar_mod</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/bmatrixchem_mod.html">bmatrixchem_mod</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/bmatrixdiff_mod.html">bmatrixdiff_mod</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/bmatrixensemble_mod.html">bmatrixensemble_mod</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/bmatrixhi_mod.html">bmatrixhi_mod</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/bmatrix_mod.html">bmatrix_mod</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/lambmatrixhi_mod.html">lambmatrixhi_mod</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/localizationfunction_mod.html">localizationfunction_mod</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/localization_mod.html">localization_mod</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/localizationspectral_mod.html">localizationspectral_mod</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/obserrors_mod.html">obserrors_mod</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/rmatrix_mod.html">rmatrix_mod</a></li>
+</ul>
+</div>
+</section>
+<section id="modules-3-observation-input-output">
+<h1>Modules: 3. Observation input/output<a class="headerlink" href="#modules-3-observation-input-output" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="modules/burpfiles_mod.html">burpfiles_mod</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/burpread_mod.html">burpread_mod</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/obsdbfiles_mod.html">obsdbfiles_mod</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/obsdiagfiles_mod.html">obsdiagfiles_mod</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/obsfiles_mod.html">obsfiles_mod</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/obsutil_mod.html">obsutil_mod</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/sqlitefiles_mod.html">sqlitefiles_mod</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/sqliteread_mod.html">sqliteread_mod</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/sqliteutilities_mod.html">sqliteutilities_mod</a></li>
+</ul>
+</div>
+</section>
+<section id="modules-4-data-object-transformations">
+<h1>Modules: 4. Data object transformations<a class="headerlink" href="#modules-4-data-object-transformations" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="modules/advection_mod.html">advection_mod</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/calcheightandpressure_mod.html">calcheightandpressure_mod</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/columnvariabletransforms_mod.html">columnvariabletransforms_mod</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/diffusion_mod.html">diffusion_mod</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/globalspectraltransform_mod.html">globalspectraltransform_mod</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/gridbinning_mod.html">gridbinning_mod</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/gridstatevectorfileio_mod.html">gridstatevectorfileio_mod</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/gridvariabletransforms_mod.html">gridvariabletransforms_mod</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/humiditylimits_mod.html">humiditylimits_mod</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/interpolation_mod.html">interpolation_mod</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/lamspectraltransform_mod.html">lamspectraltransform_mod</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/obstimeinterp_mod.html">obstimeinterp_mod</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/obsvariabletransforms_mod.html">obsvariabletransforms_mod</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/statetocolumn_mod.html">statetocolumn_mod</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/var1d_mod.html">var1d_mod</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/windrotation_mod.html">windrotation_mod</a></li>
+</ul>
+</div>
+</section>
+<section id="modules-5-observation-operators">
+<h1>Modules: 5. Observation operators<a class="headerlink" href="#modules-5-observation-operators" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="modules/costfunction_mod.html">costfunction_mod</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/gps_mod.html">gps_mod</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/obsfilter_mod.html">obsfilter_mod</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/obsoperatorschem_mod.html">obsoperatorschem_mod</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/obsoperators_mod.html">obsoperators_mod</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/ozoneclim_mod.html">ozoneclim_mod</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/radvel_mod.html">radvel_mod</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/slantprofilelatlon_mod.html">slantprofilelatlon_mod</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/tovs_lin_mod.html">tovs_lin_mod</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/tovs_nl_mod.html">tovs_nl_mod</a></li>
+</ul>
+</div>
+</section>
+<section id="modules-6-high-level-data-objects">
+<h1>Modules: 6. High-level data objects<a class="headerlink" href="#modules-6-high-level-data-objects" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="modules/bcovarsetupchem_mod.html">bcovarsetupchem_mod</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/columndata_mod.html">columndata_mod</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/controlvector_mod.html">controlvector_mod</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/ensembleobservations_mod.html">ensembleobservations_mod</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/ensemblestatevector_mod.html">ensemblestatevector_mod</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/gridstatevector_mod.html">gridstatevector_mod</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/obsspacedata_mod.html">obsspacedata_mod</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/obssubspacedata_mod.html">obssubspacedata_mod</a></li>
+</ul>
+</div>
+</section>
+<section id="modules-7-low-level-data-objects">
+<h1>Modules: 7. Low-level data objects<a class="headerlink" href="#modules-7-low-level-data-objects" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="modules/analysisgrid_mod.html">analysisgrid_mod</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/filenames_mod.html">filenames_mod</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/horizontalcoord_mod.html">horizontalcoord_mod</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/indexlistdepot_mod.html">indexlistdepot_mod</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/obscolumnnames_mod.html">obscolumnnames_mod</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/obsdatacolumn_mod.html">obsdatacolumn_mod</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/obsfamilylist_mod.html">obsfamilylist_mod</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/oceanmask_mod.html">oceanmask_mod</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/regions_mod.html">regions_mod</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/timecoord_mod.html">timecoord_mod</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/varnamelist_mod.html">varnamelist_mod</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/verticalcoord_mod.html">verticalcoord_mod</a></li>
+</ul>
+</div>
+</section>
+<section id="modules-8-low-level-utilities-and-constants">
+<h1>Modules: 8. Low-level utilities and constants<a class="headerlink" href="#modules-8-low-level-utilities-and-constants" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="modules/bufr_mod.html">bufr_mod</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/codeprecision_mod.html">codeprecision_mod</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/codtyp_mod.html">codtyp_mod</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/earthconstants_mod.html">earthconstants_mod</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/getgridposition_mod.html">getgridposition_mod</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/kdtree2_mod.html">kdtree2_mod</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/kdtree2_precision_mod.html">kdtree2_precision_mod</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/kdtree2_priority_queue_mod.html">kdtree2_priority_queue_mod</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/mathphysconstants_mod.html">mathphysconstants_mod</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/message_mod.html">message_mod</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/midasmpi_mod.html">midasmpi_mod</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/physicsfunctions_mod.html">physicsfunctions_mod</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/presprofileoperators_mod.html">presprofileoperators_mod</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/ramdisk_mod.html">ramdisk_mod</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/randomnumber_mod.html">randomnumber_mod</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/spectralfilter_mod.html">spectralfilter_mod</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/utilities_mod.html">utilities_mod</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/version_mod.html">version_mod</a></li>
+</ul>
+</div>
+</section>
+<section id="modules-9-global-interfaces">
+<h1>Modules: 9. Global interfaces<a class="headerlink" href="#modules-9-global-interfaces" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="modules/clib_interfaces_mod.html">clib_interfaces_mod</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/rttov_interfaces_mod.html">rttov_interfaces_mod</a></li>
+</ul>
+</div>
+</section>
+<section id="additional-information">
+<h1>Additional information<a class="headerlink" href="#additional-information" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Namelists: Information is <a class="reference internal" href="namelists_in_each_program.html"><span class="doc">here on which namelists are used for each program.</span></a></p></li>
+<li><p>Namelists: Information is <a class="reference external" href="namelists.html">here on the definition of all namelists.</a></p></li>
+<li><p>TMG timing blocks: Information is <a class="reference internal" href="tmg_information.html"><span class="doc">here on the numbering and labelling of all TMG timing blocks.</span></a></p></li>
+</ul>
+</section>
+<section id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
+<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
+</ul>
+</section>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="programs/midas_adjointtest.html" title="midas_adjointtest"
+             >next</a> |</li>
+        <li><a href="#">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2018, ECCC.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.
+    </div>
+  </body>
+</html>

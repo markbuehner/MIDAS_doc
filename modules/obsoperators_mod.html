@@ -1,0 +1,731 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>obsoperators_mod &mdash; MIDAS  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="MIDAS  documentation" href="../index.html" />
+    <link rel="next" title="ozoneclim_mod" href="ozoneclim_mod.html" />
+    <link rel="prev" title="obsoperatorschem_mod" href="obsoperatorschem_mod.html" /> 
+  </head>
+  <body>
+  <div>
+    <img src="../_static/MIDAS_header.png" alt="MIDAS" />
+  </div>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="ozoneclim_mod.html" title="ozoneclim_mod"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="obsoperatorschem_mod.html" title="obsoperatorschem_mod"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="obsoperatorschem_mod.html"
+                          title="previous chapter">obsoperatorschem_mod</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="ozoneclim_mod.html"
+                          title="next chapter">ozoneclim_mod</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/modules/obsoperators_mod.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <section id="obsoperators-mod">
+<h1>obsoperators_mod<a class="headerlink" href="#obsoperators-mod" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><p><a class="reference internal" href="obsoperators_mod_src.html"><span class="doc">link to source code</span></a></p>
+<p><strong>Dependency Diagrams:</strong></p>
+<figure class="align-default" id="id1">
+<a class="reference internal image-reference" href="obsoperators_mod.svg"><img alt="obsoperators_mod.svg" height="100px" src="obsoperators_mod.svg" /></a>
+<figcaption>
+<p><span class="caption-text">Direct Dependency Diagram</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id2">
+<a class="reference internal image-reference" href="obsoperators_mod_rev.svg"><img alt="obsoperators_mod_rev.svg" height="100px" src="obsoperators_mod_rev.svg" /></a>
+<figcaption>
+<p><span class="caption-text">Reverse Dependency Diagram</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<span class="target" id="f/obsoperators_mod"></span><p class="rubric">Description</p>
+<p>MODULE obsOperators_mod (prefix=’oop’ category=’5. Observation operators’)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Purpose</dt>
+<dd class="field-odd"><p>All observation operators, including nonlinear, tangent-linear
+and adjoint versions.</p>
+</dd>
+</dl>
+<p class="rubric">Quick access</p>
+<dl class="field-list simple">
+<dt class="field-odd">Routines</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/obsoperators_mod/hutoes" title="f/obsoperators_mod/hutoes"><code class="xref f f-func docutils literal notranslate"><span class="pre">hutoes()</span></code></a>, <a class="reference internal" href="#f/obsoperators_mod/hutoes_ad" title="f/obsoperators_mod/hutoes_ad"><code class="xref f f-func docutils literal notranslate"><span class="pre">hutoes_ad()</span></code></a>, <a class="reference internal" href="#f/obsoperators_mod/hutoes_tl" title="f/obsoperators_mod/hutoes_tl"><code class="xref f f-func docutils literal notranslate"><span class="pre">hutoes_tl()</span></code></a>, <a class="reference internal" href="#f/obsoperators_mod/oop_calcgpsgbjacobian" title="f/obsoperators_mod/oop_calcgpsgbjacobian"><code class="xref f f-func docutils literal notranslate"><span class="pre">oop_calcgpsgbjacobian()</span></code></a>, <a class="reference internal" href="#f/obsoperators_mod/oop_calcgpsrojacobian" title="f/obsoperators_mod/oop_calcgpsrojacobian"><code class="xref f f-func docutils literal notranslate"><span class="pre">oop_calcgpsrojacobian()</span></code></a>, <a class="reference internal" href="#f/obsoperators_mod/oop_chm_nl" title="f/obsoperators_mod/oop_chm_nl"><code class="xref f f-func docutils literal notranslate"><span class="pre">oop_chm_nl()</span></code></a>, <a class="reference internal" href="#f/obsoperators_mod/oop_gpsgb_nl" title="f/obsoperators_mod/oop_gpsgb_nl"><code class="xref f f-func docutils literal notranslate"><span class="pre">oop_gpsgb_nl()</span></code></a>, <a class="reference internal" href="#f/obsoperators_mod/oop_gpsro_nl" title="f/obsoperators_mod/oop_gpsro_nl"><code class="xref f f-func docutils literal notranslate"><span class="pre">oop_gpsro_nl()</span></code></a>, <a class="reference internal" href="#f/obsoperators_mod/oop_had" title="f/obsoperators_mod/oop_had"><code class="xref f f-func docutils literal notranslate"><span class="pre">oop_had()</span></code></a>, <a class="reference internal" href="#f/obsoperators_mod/oop_htl" title="f/obsoperators_mod/oop_htl"><code class="xref f f-func docutils literal notranslate"><span class="pre">oop_htl()</span></code></a>, <a class="reference internal" href="#f/obsoperators_mod/oop_hydro_nl" title="f/obsoperators_mod/oop_hydro_nl"><code class="xref f f-func docutils literal notranslate"><span class="pre">oop_hydro_nl()</span></code></a>, <a class="reference internal" href="#f/obsoperators_mod/oop_ice_nl" title="f/obsoperators_mod/oop_ice_nl"><code class="xref f f-func docutils literal notranslate"><span class="pre">oop_ice_nl()</span></code></a>, <a class="reference internal" href="#f/obsoperators_mod/oop_icescaling" title="f/obsoperators_mod/oop_icescaling"><code class="xref f f-func docutils literal notranslate"><span class="pre">oop_icescaling()</span></code></a>, <a class="reference internal" href="#f/obsoperators_mod/oop_ppp_nl" title="f/obsoperators_mod/oop_ppp_nl"><code class="xref f f-func docutils literal notranslate"><span class="pre">oop_ppp_nl()</span></code></a>, <a class="reference internal" href="#f/obsoperators_mod/oop_radvel_nl" title="f/obsoperators_mod/oop_radvel_nl"><code class="xref f f-func docutils literal notranslate"><span class="pre">oop_radvel_nl()</span></code></a>, <a class="reference internal" href="#f/obsoperators_mod/oop_sfc_nl" title="f/obsoperators_mod/oop_sfc_nl"><code class="xref f f-func docutils literal notranslate"><span class="pre">oop_sfc_nl()</span></code></a>, <a class="reference internal" href="#f/obsoperators_mod/oop_sst_nl" title="f/obsoperators_mod/oop_sst_nl"><code class="xref f f-func docutils literal notranslate"><span class="pre">oop_sst_nl()</span></code></a>, <a class="reference internal" href="#f/obsoperators_mod/oop_tovs_nl" title="f/obsoperators_mod/oop_tovs_nl"><code class="xref f f-func docutils literal notranslate"><span class="pre">oop_tovs_nl()</span></code></a>, <a class="reference internal" href="#f/obsoperators_mod/oop_vobslyrs" title="f/obsoperators_mod/oop_vobslyrs"><code class="xref f f-func docutils literal notranslate"><span class="pre">oop_vobslyrs()</span></code></a>, <a class="reference internal" href="#f/obsoperators_mod/oop_zzz_nl" title="f/obsoperators_mod/oop_zzz_nl"><code class="xref f f-func docutils literal notranslate"><span class="pre">oop_zzz_nl()</span></code></a></p>
+</dd>
+</dl>
+<p class="rubric">Needed modules</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="codeprecision_mod.html#f/codeprecision_mod" title="f/codeprecision_mod: MODULE codePrecision_mod (prefix='pre' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">codeprecision_mod</span></code></a>: MODULE codePrecision_mod (prefix=’pre’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="earthconstants_mod.html#f/earthconstants_mod" title="f/earthconstants_mod: MODULE earthConstants_mod (prefix='ec' category='8. Low-level utilities and constants') Prefixes: ec_ (Earth constants), for miscellaneous values from diverse sources"><code class="xref f f-mod docutils literal notranslate"><span class="pre">earthconstants_mod</span></code></a>: MODULE earthConstants_mod (prefix=’ec’ category=’8. Low-level utilities and constants’) Prefixes: <a href="#id3"><span class="problematic" id="id4">ec_</span></a> (Earth constants), for miscellaneous values from diverse sources</p></li>
+<li><p><a class="reference internal" href="mathphysconstants_mod.html#f/mathphysconstants_mod" title="f/mathphysconstants_mod: MODULE MathPhysConstants_mod (prefix='mpc' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">mathphysconstants_mod</span></code></a>: MODULE MathPhysConstants_mod (prefix=’mpc’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod" title="f/obsspacedata_mod: MODULE obsSpaceData_mod (prefix='obs' category='6. High-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">obsspacedata_mod</span></code></a>: MODULE obsSpaceData_mod (prefix=’obs’ category=’6. High-level data objects’)</p></li>
+<li><p><a class="reference internal" href="columndata_mod.html#f/columndata_mod" title="f/columndata_mod: MODULE columnData_mod (prefix='col' category='6. High-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">columndata_mod</span></code></a>: MODULE columnData_mod (prefix=’col’ category=’6. High-level data objects’)</p></li>
+<li><p><a class="reference internal" href="bufr_mod.html#f/bufr_mod" title="f/bufr_mod: MODULE bufr_mod (prefix='bufr' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">bufr_mod</span></code></a>: MODULE bufr_mod (prefix=’bufr’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="physicsfunctions_mod.html#f/physicsfunctions_mod" title="f/physicsfunctions_mod: MODULE physicsFunctions_mod (prefix='phf' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">physicsfunctions_mod</span></code></a>: MODULE physicsFunctions_mod (prefix=’phf’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="gps_mod.html#f/gps_mod" title="f/gps_mod: MODULE gps_mod (prefix='gps' category='5. Observation operators')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">gps_mod</span></code></a>: MODULE gps_mod (prefix=’gps’ category=’5. Observation operators’)</p></li>
+<li><p><a class="reference internal" href="midasmpi_mod.html#f/midasmpi_mod" title="f/midasmpi_mod: MODULE midasMpi_mod (prefix='mmpi' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">midasmpi_mod</span></code></a>: MODULE midasMpi_mod (prefix=’mmpi’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="timecoord_mod.html#f/timecoord_mod" title="f/timecoord_mod: MODULE timeCoord (prefix='tim' category='7. Low-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">timecoord_mod</span></code></a>: MODULE timeCoord (prefix=’tim’ category=’7. Low-level data objects’)</p></li>
+<li><p><a class="reference internal" href="tovs_nl_mod.html#f/tovs_nl_mod" title="f/tovs_nl_mod: MODULE tovs_nl (prefix='tvs' category='5. Observation operators')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">tovs_nl_mod</span></code></a>: MODULE tovs_nl (prefix=’tvs’ category=’5. Observation operators’)</p></li>
+<li><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod" title="f/utilities_mod: MODULE utilities_mod (prefix='utl' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">utilities_mod</span></code></a>: MODULE utilities_mod (prefix=’utl’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="tovs_lin_mod.html#f/tovs_lin_mod" title="f/tovs_lin_mod: MODULE tovs_lin (prefix='tvslin' category='5. Observation operators')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">tovs_lin_mod</span></code></a>: MODULE tovs_lin (prefix=’tvslin’ category=’5. Observation operators’)</p></li>
+<li><p><a class="reference internal" href="verticalcoord_mod.html#f/verticalcoord_mod" title="f/verticalcoord_mod: MODULE verticalcoord (prefix='vco' category='7. Low-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">verticalcoord_mod</span></code></a>: MODULE verticalcoord (prefix=’vco’ category=’7. Low-level data objects’)</p></li>
+<li><p><a class="reference internal" href="varnamelist_mod.html#f/varnamelist_mod" title="f/varnamelist_mod: MODULE varNameList (prefix='vnl' category='7. Low-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">varnamelist_mod</span></code></a>: MODULE varNameList (prefix=’vnl’ category=’7. Low-level data objects’)</p></li>
+<li><p><a class="reference internal" href="obsoperatorschem_mod.html#f/obsoperatorschem_mod" title="f/obsoperatorschem_mod: MODULE obsOperatorsChem_mod (prefix='oopc' category='5. Observation operators')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">obsoperatorschem_mod</span></code></a>: MODULE obsOperatorsChem_mod (prefix=’oopc’ category=’5. Observation operators’)</p></li>
+<li><p><a class="reference internal" href="obserrors_mod.html#f/obserrors_mod" title="f/obserrors_mod: MODULE obsErrors_mod (prefix='oer' category='2. B and R matrices')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">obserrors_mod</span></code></a>: MODULE obsErrors_mod (prefix=’oer’ category=’2. B and R matrices’)</p></li>
+</ul>
+<p class="rubric">Variables</p>
+<p class="rubric">Subroutines and functions</p>
+<dl>
+<dt class="sig sig-object f" id="f/obsoperators_mod/oop_vobslyrs">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obsoperators_mod/</span></span><span class="sig-name descname"><span class="pre">oop_vobslyrs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">columntrl</span></em>, <em class="sig-param"><span class="pre">obsspacedata</span></em>, <em class="sig-param"><span class="pre">besilent</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/obsoperators_mod/oop_vobslyrs" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Find which model levels to use for the vertical interpolation
+of model fields to obs data.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>columntrl</strong><em> [</em><em>struct_columndata </em><em>]</em></p></li>
+<li><p><strong>obsspacedata</strong><em> [</em><em>struct_obs </em><em>]</em></p></li>
+<li><p><strong>besilent</strong><em> [</em><em>logical </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="innovation_mod.html#f/innovation_mod/inn_computeinnovation" title="f/innovation_mod/inn_computeinnovation"><code class="xref f f-func docutils literal notranslate"><span class="pre">inn_computeinnovation()</span></code></a>, <a class="reference internal" href="obsspaceerrorstddev_mod.html#f/obsspaceerrorstddev_mod/ose_compute_hbht_static" title="f/obsspaceerrorstddev_mod/ose_compute_hbht_static"><code class="xref f f-func docutils literal notranslate"><span class="pre">ose_compute_hbht_static()</span></code></a>, <a class="reference internal" href="#f/obsoperators_mod/oop_htl" title="f/obsoperators_mod/oop_htl"><code class="xref f f-func docutils literal notranslate"><span class="pre">oop_htl()</span></code></a>, <a class="reference internal" href="#f/obsoperators_mod/oop_had" title="f/obsoperators_mod/oop_had"><code class="xref f f-func docutils literal notranslate"><span class="pre">oop_had()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_getnumlev" title="f/columndata_mod/col_getnumlev"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_getnumlev()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_numbody" title="f/obsspacedata_mod/obs_numbody"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_numbody()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyelem_i" title="f/obsspacedata_mod/obs_bodyelem_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyelem_i()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyset_i" title="f/obsspacedata_mod/obs_bodyset_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyset_i()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyelem_r" title="f/obsspacedata_mod/obs_bodyelem_r"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyelem_r()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="bufr_mod.html#f/bufr_mod/bufr_isatmosconstituent" title="f/bufr_mod/bufr_isatmosconstituent"><code class="xref f f-func docutils literal notranslate"><span class="pre">bufr_isatmosconstituent()</span></code></a>, <a class="reference internal" href="varnamelist_mod.html#f/varnamelist_mod/vnl_varlevelfromvarnum" title="f/varnamelist_mod/vnl_varlevelfromvarnum"><code class="xref f f-func docutils literal notranslate"><span class="pre">vnl_varlevelfromvarnum()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_headelem_i" title="f/obsspacedata_mod/obs_headelem_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_headelem_i()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_getpressure" title="f/columndata_mod/col_getpressure"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_getpressure()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_headelem_r" title="f/obsspacedata_mod/obs_headelem_r"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_headelem_r()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_getheight" title="f/columndata_mod/col_getheight"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_getheight()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/obsoperators_mod/oop_ppp_nl">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obsoperators_mod/</span></span><span class="sig-name descname"><span class="pre">oop_ppp_nl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">columntrlontrllev</span></em>, <em class="sig-param"><span class="pre">obsspacedata</span></em>, <em class="sig-param"><span class="pre">besilent</span></em>, <em class="sig-param"><span class="pre">cdfam</span></em>, <em class="sig-param"><span class="pre">destobscolumn</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/obsoperators_mod/oop_ppp_nl" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Computation of y - H(x)
+for pressure-level observations.
+Interpolate vertically columnTrlOnTrlLev to
+the pressure levels of the observations.
+A linear interpolation in ln(p) is performed.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>columntrlontrllev</strong><em> [</em><em>struct_columndata </em><em>]</em></p></li>
+<li><p><strong>obsspacedata</strong><em> [</em><em>struct_obs </em><em>]</em></p></li>
+<li><p><strong>besilent</strong><em> [</em><em>logical </em><em>]</em></p></li>
+<li><p><strong>cdfam</strong><em> [</em><em>character </em><em>]</em> :: family of obsservation</p></li>
+<li><p><strong>destobscolumn</strong><em> [</em><em>integer </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="innovation_mod.html#f/innovation_mod/inn_computeinnovation" title="f/innovation_mod/inn_computeinnovation"><code class="xref f f-func docutils literal notranslate"><span class="pre">inn_computeinnovation()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_getnumlev" title="f/columndata_mod/col_getnumlev"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_getnumlev()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyelem_i" title="f/obsspacedata_mod/obs_bodyelem_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyelem_i()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyelem_r" title="f/obsspacedata_mod/obs_bodyelem_r"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyelem_r()</span></code></a>, <a class="reference internal" href="varnamelist_mod.html#f/varnamelist_mod/vnl_varnamefromvarnum" title="f/varnamelist_mod/vnl_varnamefromvarnum"><code class="xref f f-func docutils literal notranslate"><span class="pre">vnl_varnamefromvarnum()</span></code></a>, <a class="reference internal" href="varnamelist_mod.html#f/varnamelist_mod/vnl_varlevelfromvarnum" title="f/varnamelist_mod/vnl_varlevelfromvarnum"><code class="xref f f-func docutils literal notranslate"><span class="pre">vnl_varlevelfromvarnum()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_getpressure" title="f/columndata_mod/col_getpressure"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_getpressure()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_headelem_r" title="f/obsspacedata_mod/obs_headelem_r"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_headelem_r()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_getcolumn" title="f/columndata_mod/col_getcolumn"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_getcolumn()</span></code></a>, <a class="reference internal" href="#f/obsoperators_mod/hutoes" title="f/obsoperators_mod/hutoes"><code class="xref f f-func docutils literal notranslate"><span class="pre">hutoes()</span></code></a>, <a class="reference internal" href="physicsfunctions_mod.html#f/physicsfunctions_mod/phf_height2geopotential" title="f/physicsfunctions_mod/phf_height2geopotential"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_height2geopotential()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_getelem" title="f/columndata_mod/col_getelem"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_getelem()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_getheight" title="f/columndata_mod/col_getheight"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_getheight()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/obsoperators_mod/oop_zzz_nl">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obsoperators_mod/</span></span><span class="sig-name descname"><span class="pre">oop_zzz_nl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">columntrlontrllev</span></em>, <em class="sig-param"><span class="pre">obsspacedata</span></em>, <em class="sig-param"><span class="pre">besilent</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">cdfam</span></em>, <em class="sig-param"><span class="pre">destobscolumn</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/obsoperators_mod/oop_zzz_nl" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Computation of y - H(x) for geometric-height observations
+Interpolate vertically columnTrlOnTrlLev to the geometric heights (in
+meters) of the observations.
+A linear interpolation in z is performed.</p>
+</dd>
+<dt class="field-even">Notes </dt>
+<dd class="field-even"><p>As a first approximation, use the geopotential height.  Once this is
+working, this should be changed for a calculation of the geometric
+height.</p>
+<p>Note that, in the case of an aladin HLOS wind, the correction to zvar
+(OBS_VAR) is not written back to obsSpaceData.  It is simply used to
+calculate OMP (which is written to obsSpaceData) and then is discarded.
+Thereafter, if one calculates OMP - O (this will be the uncorrected O),
+the result will be a corrected P.</p>
+</dd>
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>columntrlontrllev</strong><em> [</em><em>struct_columndata </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>obsspacedata</strong><em> [</em><em>struct_obs </em><em>,</em><em>inout</em><em>]</em></p></li>
+<li><p><strong>besilent</strong><em> [</em><em>logical </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>destobscolumn</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Options</dt>
+<dd class="field-even"><p><strong>cdfam</strong><em> [</em><em>character </em><em>,</em><em>in,</em><em>]</em> :: family of observation</p>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="innovation_mod.html#f/innovation_mod/inn_computeinnovation" title="f/innovation_mod/inn_computeinnovation"><code class="xref f f-func docutils literal notranslate"><span class="pre">inn_computeinnovation()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyelem_i" title="f/obsspacedata_mod/obs_bodyelem_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyelem_i()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyelem_r" title="f/obsspacedata_mod/obs_bodyelem_r"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyelem_r()</span></code></a>, <a class="reference internal" href="varnamelist_mod.html#f/varnamelist_mod/vnl_varlevelfromvarnum" title="f/varnamelist_mod/vnl_varlevelfromvarnum"><code class="xref f f-func docutils literal notranslate"><span class="pre">vnl_varlevelfromvarnum()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_getheight" title="f/columndata_mod/col_getheight"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_getheight()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_headelem_i" title="f/obsspacedata_mod/obs_headelem_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_headelem_i()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyset_i" title="f/obsspacedata_mod/obs_bodyset_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyset_i()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_getelem" title="f/columndata_mod/col_getelem"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_getelem()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_getpressure" title="f/columndata_mod/col_getpressure"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_getpressure()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_getoffsetfromvarno" title="f/columndata_mod/col_getoffsetfromvarno"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_getoffsetfromvarno()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/obsoperators_mod/oop_sfc_nl">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obsoperators_mod/</span></span><span class="sig-name descname"><span class="pre">oop_sfc_nl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">columntrlontrllev</span></em>, <em class="sig-param"><span class="pre">obsspacedata</span></em>, <em class="sig-param"><span class="pre">besilent</span></em>, <em class="sig-param"><span class="pre">cdfam</span></em>, <em class="sig-param"><span class="pre">destobscolumn</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/obsoperators_mod/oop_sfc_nl" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Computation of the residuals to the observations
+FOR SURFACE DATA (except ground-based GPS zenith delay).</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>columntrlontrllev</strong><em> [</em><em>struct_columndata </em><em>]</em></p></li>
+<li><p><strong>obsspacedata</strong><em> [</em><em>struct_obs </em><em>]</em></p></li>
+<li><p><strong>besilent</strong><em> [</em><em>logical </em><em>]</em></p></li>
+<li><p><strong>cdfam</strong><em> [</em><em>character </em><em>]</em> :: family of observation</p></li>
+<li><p><strong>destobscolumn</strong><em> [</em><em>integer </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="innovation_mod.html#f/innovation_mod/inn_computeinnovation" title="f/innovation_mod/inn_computeinnovation"><code class="xref f f-func docutils literal notranslate"><span class="pre">inn_computeinnovation()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_isnamelistpresent" title="f/utilities_mod/utl_isnamelistpresent"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_isnamelistpresent()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_getheaderindex" title="f/obsspacedata_mod/obs_getheaderindex"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_getheaderindex()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyelem_i" title="f/obsspacedata_mod/obs_bodyelem_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyelem_i()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyelem_r" title="f/obsspacedata_mod/obs_bodyelem_r"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyelem_r()</span></code></a>, <a class="reference internal" href="varnamelist_mod.html#f/varnamelist_mod/vnl_varlevelfromvarnum" title="f/varnamelist_mod/vnl_varlevelfromvarnum"><code class="xref f f-func docutils literal notranslate"><span class="pre">vnl_varlevelfromvarnum()</span></code></a>, <a class="reference internal" href="#f/obsoperators_mod/hutoes" title="f/obsoperators_mod/hutoes"><code class="xref f f-func docutils literal notranslate"><span class="pre">hutoes()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_getelem" title="f/columndata_mod/col_getelem"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_getelem()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_getnumlev" title="f/columndata_mod/col_getnumlev"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_getnumlev()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_getpressure" title="f/columndata_mod/col_getpressure"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_getpressure()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_getoffsetfromvarno" title="f/columndata_mod/col_getoffsetfromvarno"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_getoffsetfromvarno()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_getheight" title="f/columndata_mod/col_getheight"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_getheight()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/obsoperators_mod/oop_sst_nl">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obsoperators_mod/</span></span><span class="sig-name descname"><span class="pre">oop_sst_nl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">columntrlontrllev</span></em>, <em class="sig-param"><span class="pre">obsspacedata</span></em>, <em class="sig-param"><span class="pre">besilent</span></em>, <em class="sig-param"><span class="pre">cdfam</span></em>, <em class="sig-param"><span class="pre">destobscolumn</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/obsoperators_mod/oop_sst_nl" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Computation of Jo and the residuals to the observations
+for Sea Surface Temperature (SST) data.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>columntrlontrllev</strong><em> [</em><em>struct_columndata </em><em>]</em></p></li>
+<li><p><strong>obsspacedata</strong><em> [</em><em>struct_obs </em><em>]</em></p></li>
+<li><p><strong>besilent</strong><em> [</em><em>logical </em><em>]</em></p></li>
+<li><p><strong>cdfam</strong><em> [</em><em>character </em><em>]</em> :: family of observation</p></li>
+<li><p><strong>destobscolumn</strong><em> [</em><em>integer </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="innovation_mod.html#f/innovation_mod/inn_computeinnovation" title="f/innovation_mod/inn_computeinnovation"><code class="xref f f-func docutils literal notranslate"><span class="pre">inn_computeinnovation()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_getheaderindex" title="f/obsspacedata_mod/obs_getheaderindex"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_getheaderindex()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyelem_i" title="f/obsspacedata_mod/obs_bodyelem_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyelem_i()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_varexist" title="f/columndata_mod/col_varexist"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_varexist()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyelem_r" title="f/obsspacedata_mod/obs_bodyelem_r"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyelem_r()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_getelem" title="f/columndata_mod/col_getelem"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_getelem()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/obsoperators_mod/oop_hydro_nl">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obsoperators_mod/</span></span><span class="sig-name descname"><span class="pre">oop_hydro_nl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">columntrlontrllev</span></em>, <em class="sig-param"><span class="pre">obsspacedata</span></em>, <em class="sig-param"><span class="pre">besilent</span></em>, <em class="sig-param"><span class="pre">cdfam</span></em>, <em class="sig-param"><span class="pre">destobscolumn</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/obsoperators_mod/oop_hydro_nl" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>To computate Jo and the residuals to the observations
+for hydrological data</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>columntrlontrllev</strong><em> [</em><em>struct_columndata </em><em>]</em></p></li>
+<li><p><strong>obsspacedata</strong><em> [</em><em>struct_obs </em><em>]</em></p></li>
+<li><p><strong>besilent</strong><em> [</em><em>logical </em><em>]</em></p></li>
+<li><p><strong>cdfam</strong><em> [</em><em>character </em><em>]</em> :: family of observation</p></li>
+<li><p><strong>destobscolumn</strong><em> [</em><em>integer </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="innovation_mod.html#f/innovation_mod/inn_computeinnovation" title="f/innovation_mod/inn_computeinnovation"><code class="xref f f-func docutils literal notranslate"><span class="pre">inn_computeinnovation()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_getheaderindex" title="f/obsspacedata_mod/obs_getheaderindex"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_getheaderindex()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyelem_i" title="f/obsspacedata_mod/obs_bodyelem_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyelem_i()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyelem_r" title="f/obsspacedata_mod/obs_bodyelem_r"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyelem_r()</span></code></a>, <a class="reference internal" href="varnamelist_mod.html#f/varnamelist_mod/vnl_varnamefromvarnum" title="f/varnamelist_mod/vnl_varnamefromvarnum"><code class="xref f f-func docutils literal notranslate"><span class="pre">vnl_varnamefromvarnum()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_getelem" title="f/columndata_mod/col_getelem"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_getelem()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/obsoperators_mod/oop_ice_nl">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obsoperators_mod/</span></span><span class="sig-name descname"><span class="pre">oop_ice_nl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">columntrlontrllev</span></em>, <em class="sig-param"><span class="pre">obsspacedata</span></em>, <em class="sig-param"><span class="pre">besilent</span></em>, <em class="sig-param"><span class="pre">cdfam</span></em>, <em class="sig-param"><span class="pre">destobscolumn</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/obsoperators_mod/oop_ice_nl" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Computation of Jo and the residuals to the observations
+FOR SEA ICE CONCENTRATION DATA</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>columntrlontrllev</strong><em> [</em><em>struct_columndata </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>obsspacedata</strong><em> [</em><em>struct_obs </em><em>,</em><em>inout</em><em>]</em></p></li>
+<li><p><strong>besilent</strong><em> [</em><em>logical </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>cdfam</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em> :: family of observation</p></li>
+<li><p><strong>destobscolumn</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="innovation_mod.html#f/innovation_mod/inn_computeinnovation" title="f/innovation_mod/inn_computeinnovation"><code class="xref f f-func docutils literal notranslate"><span class="pre">inn_computeinnovation()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyelem_i" title="f/obsspacedata_mod/obs_bodyelem_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyelem_i()</span></code></a>, <a class="reference internal" href="varnamelist_mod.html#f/varnamelist_mod/vnl_varnamefromvarnum" title="f/varnamelist_mod/vnl_varnamefromvarnum"><code class="xref f f-func docutils literal notranslate"><span class="pre">vnl_varnamefromvarnum()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_getelem" title="f/columndata_mod/col_getelem"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_getelem()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_headelem_i" title="f/obsspacedata_mod/obs_headelem_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_headelem_i()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyelem_r" title="f/obsspacedata_mod/obs_bodyelem_r"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyelem_r()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/obsoperators_mod/oop_radvel_nl">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obsoperators_mod/</span></span><span class="sig-name descname"><span class="pre">oop_radvel_nl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">columntrlontrllev</span></em>, <em class="sig-param"><span class="pre">obsspacedata</span></em>, <em class="sig-param"><span class="pre">besilent</span></em>, <em class="sig-param"><span class="pre">cdfam</span></em>, <em class="sig-param"><span class="pre">destobscolumn</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/obsoperators_mod/oop_radvel_nl" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Computation of Jo and OMP for Radar Doppler velocity observations</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>columntrlontrllev</strong><em> [</em><em>struct_columndata </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>obsspacedata</strong><em> [</em><em>struct_obs </em><em>,</em><em>inout</em><em>]</em></p></li>
+<li><p><strong>besilent</strong><em> [</em><em>logical </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>cdfam</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em> :: family of observation</p></li>
+<li><p><strong>destobscolumn</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="innovation_mod.html#f/innovation_mod/inn_computeinnovation" title="f/innovation_mod/inn_computeinnovation"><code class="xref f f-func docutils literal notranslate"><span class="pre">inn_computeinnovation()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_getheaderindex" title="f/obsspacedata_mod/obs_getheaderindex"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_getheaderindex()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_headelem_r" title="f/obsspacedata_mod/obs_headelem_r"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_headelem_r()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyelem_i" title="f/obsspacedata_mod/obs_bodyelem_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyelem_i()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyelem_r" title="f/obsspacedata_mod/obs_bodyelem_r"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyelem_r()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_getheight" title="f/columndata_mod/col_getheight"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_getheight()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_getelem" title="f/columndata_mod/col_getelem"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_getelem()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/obsoperators_mod/oop_gpsro_nl">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obsoperators_mod/</span></span><span class="sig-name descname"><span class="pre">oop_gpsro_nl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">columntrlontrllev</span></em>, <em class="sig-param"><span class="pre">obsspacedata</span></em>, <em class="sig-param"><span class="pre">besilent</span></em>, <em class="sig-param"><span class="pre">destobscolumn</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/obsoperators_mod/oop_gpsro_nl" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Computation of Jo and the residuals to the GPSRO observations</p>
+</dd>
+<dt class="field-even">Note </dt>
+<dd class="field-even"><p>gps_struct1sw_v2 allows calculation of partial derivatives of refractivity
+in gps_diff object w.r.t TT/HU/GZ/P0. The indirect dependency refractivity
+to TT/HU/P0 through GZ is now attributed to direct dependency of refractivity on GZ.</p>
+</dd>
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>columntrlontrllev</strong><em> [</em><em>struct_columndata </em><em>]</em></p></li>
+<li><p><strong>obsspacedata</strong><em> [</em><em>struct_obs </em><em>]</em></p></li>
+<li><p><strong>besilent</strong><em> [</em><em>logical </em><em>]</em></p></li>
+<li><p><strong>destobscolumn</strong><em> [</em><em>integer </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="innovation_mod.html#f/innovation_mod/inn_computeinnovation" title="f/innovation_mod/inn_computeinnovation"><code class="xref f f-func docutils literal notranslate"><span class="pre">inn_computeinnovation()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_getvco" title="f/columndata_mod/col_getvco"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_getvco()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_getnumlev" title="f/columndata_mod/col_getnumlev"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_getnumlev()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_getheaderindex" title="f/obsspacedata_mod/obs_getheaderindex"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_getheaderindex()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_headelem_i" title="f/obsspacedata_mod/obs_headelem_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_headelem_i()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyelem_i" title="f/obsspacedata_mod/obs_bodyelem_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyelem_i()</span></code></a>, <a class="reference internal" href="gps_mod.html#f/gps_mod/gps_iprofile_from_index" title="f/gps_mod/gps_iprofile_from_index"><code class="xref f f-func docutils literal notranslate"><span class="pre">gps_iprofile_from_index()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_headelem_r" title="f/obsspacedata_mod/obs_headelem_r"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_headelem_r()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_getheight" title="f/columndata_mod/col_getheight"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_getheight()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_getelem" title="f/columndata_mod/col_getelem"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_getelem()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_getpressure" title="f/columndata_mod/col_getpressure"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_getpressure()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="gps_mod.html#f/gps_mod/gps_struct1sw_v2" title="f/gps_mod/gps_struct1sw_v2"><code class="xref f f-func docutils literal notranslate"><span class="pre">gps_struct1sw_v2()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyelem_r" title="f/obsspacedata_mod/obs_bodyelem_r"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyelem_r()</span></code></a>, <a class="reference internal" href="gps_mod.html#f/gps_mod/gps_bndopv1" title="f/gps_mod/gps_bndopv1"><code class="xref f f-func docutils literal notranslate"><span class="pre">gps_bndopv1()</span></code></a>, <a class="reference internal" href="gps_mod.html#f/gps_mod/gps_refopv" title="f/gps_mod/gps_refopv"><code class="xref f f-func docutils literal notranslate"><span class="pre">gps_refopv()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/obsoperators_mod/oop_gpsgb_nl">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obsoperators_mod/</span></span><span class="sig-name descname"><span class="pre">oop_gpsgb_nl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">columntrlontrllev</span></em>, <em class="sig-param"><span class="pre">obsspacedata</span></em>, <em class="sig-param"><span class="pre">besilent</span></em>, <em class="sig-param"><span class="pre">destobscolumn</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">analysismode_opt</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/obsoperators_mod/oop_gpsgb_nl" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Computation of the residuals to the GB-GPS ZTD observations</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>columntrlontrllev</strong><em> [</em><em>struct_columndata </em><em>]</em></p></li>
+<li><p><strong>obsspacedata</strong><em> [</em><em>struct_obs </em><em>]</em></p></li>
+<li><p><strong>besilent</strong><em> [</em><em>logical </em><em>]</em></p></li>
+<li><p><strong>destobscolumn</strong><em> [</em><em>integer </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Options</dt>
+<dd class="field-odd"><p><strong>analysismode_opt</strong><em> [</em><em>logical </em><em>]</em></p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="innovation_mod.html#f/innovation_mod/inn_computeinnovation" title="f/innovation_mod/inn_computeinnovation"><code class="xref f f-func docutils literal notranslate"><span class="pre">inn_computeinnovation()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_getnumlev" title="f/columndata_mod/col_getnumlev"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_getnumlev()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_getheaderindex" title="f/obsspacedata_mod/obs_getheaderindex"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_getheaderindex()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_headelem_i" title="f/obsspacedata_mod/obs_headelem_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_headelem_i()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_elem_c" title="f/obsspacedata_mod/obs_elem_c"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_elem_c()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyelem_i" title="f/obsspacedata_mod/obs_bodyelem_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyelem_i()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyelem_r" title="f/obsspacedata_mod/obs_bodyelem_r"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyelem_r()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_headelem_r" title="f/obsspacedata_mod/obs_headelem_r"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_headelem_r()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_getheight" title="f/columndata_mod/col_getheight"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_getheight()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_getelem" title="f/columndata_mod/col_getelem"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_getelem()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_getpressure" title="f/columndata_mod/col_getpressure"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_getpressure()</span></code></a>, <a class="reference internal" href="gps_mod.html#f/gps_mod/gps_structztd_v2" title="f/gps_mod/gps_structztd_v2"><code class="xref f f-func docutils literal notranslate"><span class="pre">gps_structztd_v2()</span></code></a>, <a class="reference internal" href="gps_mod.html#f/gps_mod/gps_ztdopv" title="f/gps_mod/gps_ztdopv"><code class="xref f f-func docutils literal notranslate"><span class="pre">gps_ztdopv()</span></code></a>, <a class="reference internal" href="gps_mod.html#f/gps_mod/gps_pw" title="f/gps_mod/gps_pw"><code class="xref f f-func docutils literal notranslate"><span class="pre">gps_pw()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyset_i" title="f/obsspacedata_mod/obs_bodyset_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyset_i()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/obsoperators_mod/oop_tovs_nl">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obsoperators_mod/</span></span><span class="sig-name descname"><span class="pre">oop_tovs_nl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">columntrl</span></em>, <em class="sig-param"><span class="pre">obsspacedata</span></em>, <em class="sig-param"><span class="pre">datestamp</span></em>, <em class="sig-param"><span class="pre">besilent</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">bgckmode_opt</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">option_opt</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">sourceobs_opt</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">destobs_opt</span></em><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/obsoperators_mod/oop_tovs_nl" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Computation of the residuals to the tovs observations</p>
+</dd>
+<dt class="field-even">Options</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>option_opt</strong><em> [</em><em>character </em><em>]</em> :: only valid value is HR
+- ‘HR’: High Resolution background state,
+- ‘LR’: Low  Resolution background state, (CURRENTLY NOT SUPPORTED)
+- ‘MO’: Model state. (CURRENTLY NOT SUPPORTED)</p></li>
+<li><p><strong>bgckmode_opt</strong><em> [</em><em>logical </em><em>]</em></p></li>
+<li><p><strong>sourceobs_opt</strong><em> [</em><em>integer </em><em>,</em><em>in,</em><em>]</em> :: usually set to OBS_VAR</p></li>
+<li><p><strong>destobs_opt</strong><em> [</em><em>integer </em><em>,</em><em>in,</em><em>]</em> :: usually set to OBS_OMP</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>columntrl</strong><em> [</em><em>struct_columndata </em><em>]</em></p></li>
+<li><p><strong>obsspacedata</strong><em> [</em><em>struct_obs </em><em>]</em></p></li>
+<li><p><strong>datestamp</strong><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><strong>besilent</strong><em> [</em><em>logical </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="innovation_mod.html#f/innovation_mod/inn_computeinnovation" title="f/innovation_mod/inn_computeinnovation"><code class="xref f f-func docutils literal notranslate"><span class="pre">inn_computeinnovation()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_famexist" title="f/obsspacedata_mod/obs_famexist"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_famexist()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="tovs_nl_mod.html#f/tovs_nl_mod/tvs_fillprofiles" title="f/tovs_nl_mod/tvs_fillprofiles"><code class="xref f f-func docutils literal notranslate"><span class="pre">tvs_fillprofiles()</span></code></a>, <a class="reference internal" href="tovs_nl_mod.html#f/tovs_nl_mod/tvs_rttov" title="f/tovs_nl_mod/tvs_rttov"><code class="xref f f-func docutils literal notranslate"><span class="pre">tvs_rttov()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_numbody" title="f/obsspacedata_mod/obs_numbody"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_numbody()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyelem_r" title="f/obsspacedata_mod/obs_bodyelem_r"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyelem_r()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_getheaderindex" title="f/obsspacedata_mod/obs_getheaderindex"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_getheaderindex()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_headelem_i" title="f/obsspacedata_mod/obs_headelem_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_headelem_i()</span></code></a>, <a class="reference internal" href="tovs_nl_mod.html#f/tovs_nl_mod/tvs_isidburptovs" title="f/tovs_nl_mod/tvs_isidburptovs"><code class="xref f f-func docutils literal notranslate"><span class="pre">tvs_isidburptovs()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyelem_i" title="f/obsspacedata_mod/obs_bodyelem_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyelem_i()</span></code></a>, <a class="reference internal" href="tovs_nl_mod.html#f/tovs_nl_mod/tvs_getchannelnumindexfromppp" title="f/tovs_nl_mod/tvs_getchannelnumindexfromppp"><code class="xref f f-func docutils literal notranslate"><span class="pre">tvs_getchannelnumindexfromppp()</span></code></a>, <a class="reference internal" href="obserrors_mod.html#f/obserrors_mod/oer_inflateerrallsky" title="f/obserrors_mod/oer_inflateerrallsky"><code class="xref f f-func docutils literal notranslate"><span class="pre">oer_inflateerrallsky()</span></code></a>, <a class="reference internal" href="tovs_nl_mod.html#f/tovs_nl_mod/tvs_printdetailledomfstatistics" title="f/tovs_nl_mod/tvs_printdetailledomfstatistics"><code class="xref f f-func docutils literal notranslate"><span class="pre">tvs_printdetailledomfstatistics()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/obsoperators_mod/oop_chm_nl">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obsoperators_mod/</span></span><span class="sig-name descname"><span class="pre">oop_chm_nl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">columntrlontrllev</span></em>, <em class="sig-param"><span class="pre">obsspacedata</span></em>, <em class="sig-param"><span class="pre">destobscolumn</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/obsoperators_mod/oop_chm_nl" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Computation of the residuals to the observations
+for all observations of the CH (chemical constituents) family.
+The array columnTrlOnTrlLev contains the input model array.
+Stores OmP in OBS_OMP in obsSpaceData.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>columntrlontrllev</strong><em> [</em><em>struct_columndata </em><em>]</em></p></li>
+<li><p><strong>obsspacedata</strong><em> [</em><em>struct_obs </em><em>]</em></p></li>
+<li><p><strong>destobscolumn</strong><em> [</em><em>integer </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="innovation_mod.html#f/innovation_mod/inn_computeinnovation" title="f/innovation_mod/inn_computeinnovation"><code class="xref f f-func docutils literal notranslate"><span class="pre">inn_computeinnovation()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_famexist" title="f/obsspacedata_mod/obs_famexist"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_famexist()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/obsoperators_mod/oop_htl">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obsoperators_mod/</span></span><span class="sig-name descname"><span class="pre">oop_htl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">columnanlinc</span></em>, <em class="sig-param"><span class="pre">columntrlonanlinclev</span></em>, <em class="sig-param"><span class="pre">obsspacedata</span></em>, <em class="sig-param"><span class="pre">min_nsim</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">initializelinearization_opt</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/obsoperators_mod/oop_htl" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Compute simulated observations from profiled model increments.
+It returns Hdx in OBS_WORK. Calls the several linear observation operators.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>columnanlinc</strong><em> [</em><em>struct_columndata </em><em>]</em></p></li>
+<li><p><strong>columntrlonanlinclev</strong><em> [</em><em>struct_columndata </em><em>]</em></p></li>
+<li><p><strong>obsspacedata</strong><em> [</em><em>struct_obs </em><em>]</em></p></li>
+<li><p><strong>min_nsim</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Options</dt>
+<dd class="field-odd"><p><strong>initializelinearization_opt</strong><em> [</em><em>logical </em><em>]</em></p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="fsoi_mod.html#f/fsoi_mod/fso_ensemble" title="f/fsoi_mod/fso_ensemble"><code class="xref f f-func docutils literal notranslate"><span class="pre">fso_ensemble()</span></code></a>, <a class="reference internal" href="minimization_mod.html#f/minimization_mod/simvar" title="f/minimization_mod/simvar"><code class="xref f f-func docutils literal notranslate"><span class="pre">simvar()</span></code></a>, <a class="reference internal" href="obsspaceerrorstddev_mod.html#f/obsspaceerrorstddev_mod/ose_compute_hbht_ensemble" title="f/obsspaceerrorstddev_mod/ose_compute_hbht_ensemble"><code class="xref f f-func docutils literal notranslate"><span class="pre">ose_compute_hbht_ensemble()</span></code></a>, <a class="reference internal" href="obsspacediag_mod.html#f/obsspacediag_mod/osd_calcinflation" title="f/obsspacediag_mod/osd_calcinflation"><code class="xref f f-func docutils literal notranslate"><span class="pre">osd_calcinflation()</span></code></a>, <a class="reference internal" href="../programs/midas_diaghbht.html#f/midas_diaghbht" title="f/midas_diaghbht"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_diaghbht</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_getvco" title="f/columndata_mod/col_getvco"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_getvco()</span></code></a>, <a class="reference internal" href="#f/obsoperators_mod/oop_vobslyrs" title="f/obsoperators_mod/oop_vobslyrs"><code class="xref f f-func docutils literal notranslate"><span class="pre">oop_vobslyrs()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_getnumlev" title="f/columndata_mod/col_getnumlev"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_getnumlev()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_varexist" title="f/columndata_mod/col_varexist"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_varexist()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_getnumcol" title="f/columndata_mod/col_getnumcol"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_getnumcol()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_getelem" title="f/columndata_mod/col_getelem"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_getelem()</span></code></a>, <a class="reference internal" href="physicsfunctions_mod.html#f/physicsfunctions_mod/phf_fottva" title="f/physicsfunctions_mod/phf_fottva"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_fottva()</span></code></a>, <a class="reference internal" href="physicsfunctions_mod.html#f/physicsfunctions_mod/phf_folnqva" title="f/physicsfunctions_mod/phf_folnqva"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_folnqva()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/obsoperators_mod/oop_had">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obsoperators_mod/</span></span><span class="sig-name descname"><span class="pre">oop_had</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">columnanlinc</span></em>, <em class="sig-param"><span class="pre">columntrlonanlinclev</span></em>, <em class="sig-param"><span class="pre">obsspacedata</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">initializelinearization_opt</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/obsoperators_mod/oop_had" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Call the several adjoint of observation operators</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>columnanlinc</strong><em> [</em><em>struct_columndata </em><em>]</em></p></li>
+<li><p><strong>columntrlonanlinclev</strong><em> [</em><em>struct_columndata </em><em>]</em></p></li>
+<li><p><strong>obsspacedata</strong><em> [</em><em>struct_obs </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Options</dt>
+<dd class="field-odd"><p><strong>initializelinearization_opt</strong><em> [</em><em>logical </em><em>]</em></p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="minimization_mod.html#f/minimization_mod/simvar" title="f/minimization_mod/simvar"><code class="xref f f-func docutils literal notranslate"><span class="pre">simvar()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_getvco" title="f/columndata_mod/col_getvco"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_getvco()</span></code></a>, <a class="reference internal" href="#f/obsoperators_mod/oop_vobslyrs" title="f/obsoperators_mod/oop_vobslyrs"><code class="xref f f-func docutils literal notranslate"><span class="pre">oop_vobslyrs()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_getnumlev" title="f/columndata_mod/col_getnumlev"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_getnumlev()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyelem_i" title="f/obsspacedata_mod/obs_bodyelem_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyelem_i()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyelem_r" title="f/obsspacedata_mod/obs_bodyelem_r"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyelem_r()</span></code></a>, <a class="reference internal" href="varnamelist_mod.html#f/varnamelist_mod/vnl_varlevelfromvarnum" title="f/varnamelist_mod/vnl_varlevelfromvarnum"><code class="xref f f-func docutils literal notranslate"><span class="pre">vnl_varlevelfromvarnum()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_getoffsetfromvarno" title="f/columndata_mod/col_getoffsetfromvarno"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_getoffsetfromvarno()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_getpressure" title="f/columndata_mod/col_getpressure"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_getpressure()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_getcolumn" title="f/columndata_mod/col_getcolumn"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_getcolumn()</span></code></a>, <a class="reference internal" href="#f/obsoperators_mod/hutoes_ad" title="f/obsoperators_mod/hutoes_ad"><code class="xref f f-func docutils literal notranslate"><span class="pre">hutoes_ad()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_getelem" title="f/columndata_mod/col_getelem"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_getelem()</span></code></a>, <a class="reference internal" href="#f/obsoperators_mod/hutoes" title="f/obsoperators_mod/hutoes"><code class="xref f f-func docutils literal notranslate"><span class="pre">hutoes()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/obsoperators_mod/hutoes">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obsoperators_mod/</span></span><span class="sig-name descname"><span class="pre">hutoes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">hu</span></em>, <em class="sig-param"><span class="pre">tt</span></em>, <em class="sig-param"><span class="pre">pressure</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/obsoperators_mod/hutoes" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>to calculate the dew point depression from specific
+humidity, temperature and pressure.  No ice phase
+is permitted and the pressure vector is given.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>hu</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>tt</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>pressure</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Return</dt>
+<dd class="field-odd"><p><strong>es</strong><em> [</em><em>real </em><em>]</em></p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/obsoperators_mod/oop_ppp_nl" title="f/obsoperators_mod/oop_ppp_nl"><code class="xref f f-func docutils literal notranslate"><span class="pre">oop_ppp_nl()</span></code></a>, <a class="reference internal" href="#f/obsoperators_mod/oop_sfc_nl" title="f/obsoperators_mod/oop_sfc_nl"><code class="xref f f-func docutils literal notranslate"><span class="pre">oop_sfc_nl()</span></code></a>, <a class="reference internal" href="#f/obsoperators_mod/oop_had" title="f/obsoperators_mod/oop_had"><code class="xref f f-func docutils literal notranslate"><span class="pre">oop_had()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="physicsfunctions_mod.html#f/physicsfunctions_mod/phf_foefq8" title="f/physicsfunctions_mod/phf_foefq8"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_foefq8()</span></code></a>, <a class="reference internal" href="physicsfunctions_mod.html#f/physicsfunctions_mod/phf_fotw8" title="f/physicsfunctions_mod/phf_fotw8"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_fotw8()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/obsoperators_mod/hutoes_tl">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obsoperators_mod/</span></span><span class="sig-name descname"><span class="pre">hutoes_tl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">hu_inc</span></em>, <em class="sig-param"><span class="pre">tt_inc</span></em>, <em class="sig-param"><span class="pre">p_inc</span></em>, <em class="sig-param"><span class="pre">hu_trl</span></em>, <em class="sig-param"><span class="pre">pres_trl</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/obsoperators_mod/hutoes_tl" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>TLM VERSION
+to calculate the dew point depression from specific
+humidity, temperature and pressure.  No ice phase
+is permitted and the pressure vector is given.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>hu_inc</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>tt_inc</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>p_inc</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>hu_trl</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>pres_trl</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Return</dt>
+<dd class="field-odd"><p><strong>es_inc</strong><em> [</em><em>real </em><em>]</em></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="physicsfunctions_mod.html#f/physicsfunctions_mod/phf_foefq8" title="f/physicsfunctions_mod/phf_foefq8"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_foefq8()</span></code></a>, <a class="reference internal" href="physicsfunctions_mod.html#f/physicsfunctions_mod/phf_fotw8" title="f/physicsfunctions_mod/phf_fotw8"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_fotw8()</span></code></a>, <a class="reference internal" href="physicsfunctions_mod.html#f/physicsfunctions_mod/phf_fodtw8" title="f/physicsfunctions_mod/phf_fodtw8"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_fodtw8()</span></code></a>, <a class="reference internal" href="physicsfunctions_mod.html#f/physicsfunctions_mod/phf_fqbranch" title="f/physicsfunctions_mod/phf_fqbranch"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_fqbranch()</span></code></a>, <a class="reference internal" href="physicsfunctions_mod.html#f/physicsfunctions_mod/phf_foefqa" title="f/physicsfunctions_mod/phf_foefqa"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_foefqa()</span></code></a>, <a class="reference internal" href="physicsfunctions_mod.html#f/physicsfunctions_mod/phf_foefqpsa" title="f/physicsfunctions_mod/phf_foefqpsa"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_foefqpsa()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/obsoperators_mod/hutoes_ad">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obsoperators_mod/</span></span><span class="sig-name descname"><span class="pre">hutoes_ad</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">hu_inc</span></em>, <em class="sig-param"><span class="pre">tt_inc</span></em>, <em class="sig-param"><span class="pre">p_inc</span></em>, <em class="sig-param"><span class="pre">es_inc</span></em>, <em class="sig-param"><span class="pre">hu_trl</span></em>, <em class="sig-param"><span class="pre">pres_trl</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/obsoperators_mod/hutoes_ad" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>Purpose: ADJOINT VERSION</dt><dd><p>to calculate the dew point depression from specific
+humidity, temperature and pressure.  No ice phase
+is permitted and the pressure vector is given.</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>hu_inc</strong><em> [</em><em>real </em><em>,</em><em>inout</em><em>]</em></p></li>
+<li><p><strong>tt_inc</strong><em> [</em><em>real </em><em>,</em><em>inout</em><em>]</em></p></li>
+<li><p><strong>p_inc</strong><em> [</em><em>real </em><em>,</em><em>inout</em><em>]</em></p></li>
+<li><p><strong>es_inc</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>hu_trl</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>pres_trl</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/obsoperators_mod/oop_had" title="f/obsoperators_mod/oop_had"><code class="xref f f-func docutils literal notranslate"><span class="pre">oop_had()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="physicsfunctions_mod.html#f/physicsfunctions_mod/phf_foefq8" title="f/physicsfunctions_mod/phf_foefq8"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_foefq8()</span></code></a>, <a class="reference internal" href="physicsfunctions_mod.html#f/physicsfunctions_mod/phf_fotw8" title="f/physicsfunctions_mod/phf_fotw8"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_fotw8()</span></code></a>, <a class="reference internal" href="physicsfunctions_mod.html#f/physicsfunctions_mod/phf_fodtw8" title="f/physicsfunctions_mod/phf_fodtw8"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_fodtw8()</span></code></a>, <a class="reference internal" href="physicsfunctions_mod.html#f/physicsfunctions_mod/phf_fqbranch" title="f/physicsfunctions_mod/phf_fqbranch"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_fqbranch()</span></code></a>, <a class="reference internal" href="physicsfunctions_mod.html#f/physicsfunctions_mod/phf_foefqa" title="f/physicsfunctions_mod/phf_foefqa"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_foefqa()</span></code></a>, <a class="reference internal" href="physicsfunctions_mod.html#f/physicsfunctions_mod/phf_foefqpsa" title="f/physicsfunctions_mod/phf_foefqpsa"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_foefqpsa()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/obsoperators_mod/oop_calcgpsrojacobian">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obsoperators_mod/</span></span><span class="sig-name descname"><span class="pre">oop_calcgpsrojacobian</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">columntrlonanlinclev</span></em>, <em class="sig-param"><span class="pre">obsspacedata</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">initializelinearization_opt</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/obsoperators_mod/oop_calcgpsrojacobian" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Calculating the Jacobians of refractivity for oop_Hro/oop_HTro</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>columntrlonanlinclev</strong><em> [</em><em>struct_columndata </em><em>]</em></p></li>
+<li><p><strong>obsspacedata</strong><em> [</em><em>struct_obs </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Options</dt>
+<dd class="field-odd"><p><strong>initializelinearization_opt</strong><em> [</em><em>logical </em><em>]</em></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_getnumlev" title="f/columndata_mod/col_getnumlev"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_getnumlev()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_getheaderindex" title="f/obsspacedata_mod/obs_getheaderindex"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_getheaderindex()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_headelem_i" title="f/obsspacedata_mod/obs_headelem_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_headelem_i()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyelem_i" title="f/obsspacedata_mod/obs_bodyelem_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyelem_i()</span></code></a>, <a class="reference internal" href="gps_mod.html#f/gps_mod/gps_iprofile_from_index" title="f/gps_mod/gps_iprofile_from_index"><code class="xref f f-func docutils literal notranslate"><span class="pre">gps_iprofile_from_index()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_headelem_r" title="f/obsspacedata_mod/obs_headelem_r"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_headelem_r()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_getheight" title="f/columndata_mod/col_getheight"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_getheight()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_getelem" title="f/columndata_mod/col_getelem"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_getelem()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_getpressure" title="f/columndata_mod/col_getpressure"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_getpressure()</span></code></a>, <a class="reference internal" href="gps_mod.html#f/gps_mod/gps_struct1sw_v2" title="f/gps_mod/gps_struct1sw_v2"><code class="xref f f-func docutils literal notranslate"><span class="pre">gps_struct1sw_v2()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyelem_r" title="f/obsspacedata_mod/obs_bodyelem_r"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyelem_r()</span></code></a>, <a class="reference internal" href="gps_mod.html#f/gps_mod/gps_bndopv1" title="f/gps_mod/gps_bndopv1"><code class="xref f f-func docutils literal notranslate"><span class="pre">gps_bndopv1()</span></code></a>, <a class="reference internal" href="gps_mod.html#f/gps_mod/gps_refopv" title="f/gps_mod/gps_refopv"><code class="xref f f-func docutils literal notranslate"><span class="pre">gps_refopv()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/obsoperators_mod/oop_calcgpsgbjacobian">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obsoperators_mod/</span></span><span class="sig-name descname"><span class="pre">oop_calcgpsgbjacobian</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">columntrlonanlinclev</span></em>, <em class="sig-param"><span class="pre">obsspacedata</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">initializelinearization_opt</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/obsoperators_mod/oop_calcgpsgbjacobian" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Calculating the Jacobians of ZTD for oop_Hgp/oop_HTgp</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>columntrlonanlinclev</strong><em> [</em><em>struct_columndata </em><em>]</em></p></li>
+<li><p><strong>obsspacedata</strong><em> [</em><em>struct_obs </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Options</dt>
+<dd class="field-odd"><p><strong>initializelinearization_opt</strong><em> [</em><em>logical </em><em>]</em></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_getvco" title="f/columndata_mod/col_getvco"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_getvco()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_getnumlev" title="f/columndata_mod/col_getnumlev"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_getnumlev()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_getheaderindex" title="f/obsspacedata_mod/obs_getheaderindex"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_getheaderindex()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_headelem_i" title="f/obsspacedata_mod/obs_headelem_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_headelem_i()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyelem_i" title="f/obsspacedata_mod/obs_bodyelem_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyelem_i()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyelem_r" title="f/obsspacedata_mod/obs_bodyelem_r"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyelem_r()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_headelem_r" title="f/obsspacedata_mod/obs_headelem_r"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_headelem_r()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_getelem" title="f/columndata_mod/col_getelem"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_getelem()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_getpressure" title="f/columndata_mod/col_getpressure"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_getpressure()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_getheight" title="f/columndata_mod/col_getheight"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_getheight()</span></code></a>, <a class="reference internal" href="gps_mod.html#f/gps_mod/gps_structztd_v2" title="f/gps_mod/gps_structztd_v2"><code class="xref f f-func docutils literal notranslate"><span class="pre">gps_structztd_v2()</span></code></a>, <a class="reference internal" href="gps_mod.html#f/gps_mod/gps_ztdopv" title="f/gps_mod/gps_ztdopv"><code class="xref f f-func docutils literal notranslate"><span class="pre">gps_ztdopv()</span></code></a>, <a class="reference internal" href="gps_mod.html#f/gps_mod/gps_iztd_from_index" title="f/gps_mod/gps_iztd_from_index"><code class="xref f f-func docutils literal notranslate"><span class="pre">gps_iztd_from_index()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_elem_c" title="f/obsspacedata_mod/obs_elem_c"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_elem_c()</span></code></a>, <a class="reference internal" href="gps_mod.html#f/gps_mod/gps_pw" title="f/gps_mod/gps_pw"><code class="xref f f-func docutils literal notranslate"><span class="pre">gps_pw()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/obsoperators_mod/oop_icescaling">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obsoperators_mod/</span></span><span class="sig-name descname"><span class="pre">oop_icescaling</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">obsspacedata</span></em>, <em class="sig-param"><span class="pre">bodyindex</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/obsoperators_mod/oop_icescaling" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Calculate the scaling factor for
+ice related observations to convert from
+model space to observation space, i.e.
+H(iceConc) = scaling*iceConc + constant</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>obsspacedata</strong><em> [</em><em>struct_obs </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>bodyindex</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Return</dt>
+<dd class="field-odd"><p><strong>scaling</strong><em> [</em><em>real </em><em>]</em></p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="analysiserroroi_mod.html#f/analysiserroroi_mod/aer_analysiserror" title="f/analysiserroroi_mod/aer_analysiserror"><code class="xref f f-func docutils literal notranslate"><span class="pre">aer_analysiserror()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyelem_i" title="f/obsspacedata_mod/obs_bodyelem_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyelem_i()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_headelem_i" title="f/obsspacedata_mod/obs_headelem_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_headelem_i()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div></blockquote>
+</section>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="ozoneclim_mod.html" title="ozoneclim_mod"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="obsoperatorschem_mod.html" title="obsoperatorschem_mod"
+             >previous</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2018, ECCC.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.
+    </div>
+  </body>
+</html>

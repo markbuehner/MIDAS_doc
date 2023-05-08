@@ -1,0 +1,22 @@
+==========================================
+innovation_mod
+==========================================
+
+    :doc:`link to source code <innovation_mod_src>`
+
+
+    **Dependency Diagrams:**
+
+    .. figure:: /innovation_mod.svg
+        :height: 100px
+
+        Direct Dependency Diagram
+
+    .. figure:: /innovation_mod_rev.svg
+        :height: 100px
+
+        Reverse Dependency Diagram
+
+
+    .. f:automodule:: innovation_mod
+

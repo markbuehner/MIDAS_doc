@@ -1,0 +1,504 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>enkf_mod &mdash; MIDAS  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="MIDAS  documentation" href="../index.html" />
+    <link rel="next" title="enspostprocess_mod" href="enspostprocess_mod.html" />
+    <link rel="prev" title="calcstatslam_mod" href="calcstatslam_mod.html" /> 
+  </head>
+  <body>
+  <div>
+    <img src="../_static/MIDAS_header.png" alt="MIDAS" />
+  </div>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="enspostprocess_mod.html" title="enspostprocess_mod"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="calcstatslam_mod.html" title="calcstatslam_mod"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="calcstatslam_mod.html"
+                          title="previous chapter">calcstatslam_mod</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="enspostprocess_mod.html"
+                          title="next chapter">enspostprocess_mod</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/modules/enkf_mod.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <section id="enkf-mod">
+<h1>enkf_mod<a class="headerlink" href="#enkf-mod" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><p><a class="reference internal" href="enkf_mod_src.html"><span class="doc">link to source code</span></a></p>
+<p><strong>Dependency Diagrams:</strong></p>
+<figure class="align-default" id="id1">
+<a class="reference internal image-reference" href="enkf_mod.svg"><img alt="enkf_mod.svg" height="100px" src="enkf_mod.svg" /></a>
+<figcaption>
+<p><span class="caption-text">Direct Dependency Diagram</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id2">
+<a class="reference internal image-reference" href="enkf_mod_rev.svg"><img alt="enkf_mod_rev.svg" height="100px" src="enkf_mod_rev.svg" /></a>
+<figcaption>
+<p><span class="caption-text">Reverse Dependency Diagram</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<span class="target" id="f/enkf_mod"></span><p class="rubric">Description</p>
+<p>MODULE enkf_mod (prefix=’enkf’ category=’1. High-level functionality’)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Purpose</dt>
+<dd class="field-odd"><p>Various routines that are useful for implementing
+an EnKF in MIDAS, including the LETKF.</p>
+</dd>
+</dl>
+<p class="rubric">Quick access</p>
+<dl class="field-list simple">
+<dt class="field-odd">Types</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/enkf_mod/struct_enkfinterpinfo" title="f/enkf_mod/struct_enkfinterpinfo"><code class="xref f f-type docutils literal notranslate"><span class="pre">struct_enkfinterpinfo</span></code></a></p>
+</dd>
+<dt class="field-even">Routines</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/enkf_mod/enkf_computevertlocation" title="f/enkf_mod/enkf_computevertlocation"><code class="xref f f-func docutils literal notranslate"><span class="pre">enkf_computevertlocation()</span></code></a>, <a class="reference internal" href="#f/enkf_mod/enkf_getmodulatedstate" title="f/enkf_mod/enkf_getmodulatedstate"><code class="xref f f-func docutils literal notranslate"><span class="pre">enkf_getmodulatedstate()</span></code></a>, <a class="reference internal" href="#f/enkf_mod/enkf_interpweights" title="f/enkf_mod/enkf_interpweights"><code class="xref f f-func docutils literal notranslate"><span class="pre">enkf_interpweights()</span></code></a>, <a class="reference internal" href="#f/enkf_mod/enkf_latlonalreadyfound" title="f/enkf_mod/enkf_latlonalreadyfound"><code class="xref f f-func docutils literal notranslate"><span class="pre">enkf_latlonalreadyfound()</span></code></a>, <a class="reference internal" href="#f/enkf_mod/enkf_letkfanalyses" title="f/enkf_mod/enkf_letkfanalyses"><code class="xref f f-func docutils literal notranslate"><span class="pre">enkf_letkfanalyses()</span></code></a>, <a class="reference internal" href="#f/enkf_mod/enkf_letkfgetmpiglobaltags" title="f/enkf_mod/enkf_letkfgetmpiglobaltags"><code class="xref f f-func docutils literal notranslate"><span class="pre">enkf_letkfgetmpiglobaltags()</span></code></a>, <a class="reference internal" href="#f/enkf_mod/enkf_letkfsetupmpidistribution" title="f/enkf_mod/enkf_letkfsetupmpidistribution"><code class="xref f f-func docutils literal notranslate"><span class="pre">enkf_letkfsetupmpidistribution()</span></code></a>, <a class="reference internal" href="#f/enkf_mod/enkf_modifyamsubobserror" title="f/enkf_mod/enkf_modifyamsubobserror"><code class="xref f f-func docutils literal notranslate"><span class="pre">enkf_modifyamsubobserror()</span></code></a>, <a class="reference internal" href="#f/enkf_mod/enkf_rejecthighlatir" title="f/enkf_mod/enkf_rejecthighlatir"><code class="xref f f-func docutils literal notranslate"><span class="pre">enkf_rejecthighlatir()</span></code></a>, <a class="reference internal" href="#f/enkf_mod/enkf_setupinterpinfo" title="f/enkf_mod/enkf_setupinterpinfo"><code class="xref f f-func docutils literal notranslate"><span class="pre">enkf_setupinterpinfo()</span></code></a>, <a class="reference internal" href="#f/enkf_mod/enkf_setupmodulationfactor" title="f/enkf_mod/enkf_setupmodulationfactor"><code class="xref f f-func docutils literal notranslate"><span class="pre">enkf_setupmodulationfactor()</span></code></a>, <a class="reference internal" href="#f/enkf_mod/getmodulationfactor" title="f/enkf_mod/getmodulationfactor"><code class="xref f f-func docutils literal notranslate"><span class="pre">getmodulationfactor()</span></code></a></p>
+</dd>
+</dl>
+<p class="rubric">Needed modules</p>
+<ul class="simple">
+<li><p><code class="xref f f-mod docutils literal notranslate"><span class="pre">mpi</span></code> (<code class="xref f f-func docutils literal notranslate"><span class="pre">mpi_statuses_ignore()</span></code>)</p></li>
+<li><p><a class="reference internal" href="midasmpi_mod.html#f/midasmpi_mod" title="f/midasmpi_mod: MODULE midasMpi_mod (prefix='mmpi' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">midasmpi_mod</span></code></a>: MODULE midasMpi_mod (prefix=’mmpi’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod" title="f/utilities_mod: MODULE utilities_mod (prefix='utl' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">utilities_mod</span></code></a>: MODULE utilities_mod (prefix=’utl’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="mathphysconstants_mod.html#f/mathphysconstants_mod" title="f/mathphysconstants_mod: MODULE MathPhysConstants_mod (prefix='mpc' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">mathphysconstants_mod</span></code></a>: MODULE MathPhysConstants_mod (prefix=’mpc’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="timecoord_mod.html#f/timecoord_mod" title="f/timecoord_mod: MODULE timeCoord (prefix='tim' category='7. Low-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">timecoord_mod</span></code></a>: MODULE timeCoord (prefix=’tim’ category=’7. Low-level data objects’)</p></li>
+<li><p><a class="reference internal" href="verticalcoord_mod.html#f/verticalcoord_mod" title="f/verticalcoord_mod: MODULE verticalcoord (prefix='vco' category='7. Low-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">verticalcoord_mod</span></code></a>: MODULE verticalcoord (prefix=’vco’ category=’7. Low-level data objects’)</p></li>
+<li><p><a class="reference internal" href="horizontalcoord_mod.html#f/horizontalcoord_mod" title="f/horizontalcoord_mod: MODULE HorizontalCoord_mod (prefix='hco' category='7. Low-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">horizontalcoord_mod</span></code></a>: MODULE HorizontalCoord_mod (prefix=’hco’ category=’7. Low-level data objects’)</p></li>
+<li><p><a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod" title="f/ensemblestatevector_mod: MODULE ensembleStateVector_mod (prefix='ens' category='6. High-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">ensemblestatevector_mod</span></code></a>: MODULE ensembleStateVector_mod (prefix=’ens’ category=’6. High-level data objects’)</p></li>
+<li><p><a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod" title="f/gridstatevector_mod: MODULE gridStateVector_mod (prefix='gsv' category='6. High-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">gridstatevector_mod</span></code></a>: MODULE gridStateVector_mod (prefix=’gsv’ category=’6. High-level data objects’)</p></li>
+<li><p><a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod" title="f/obsspacedata_mod: MODULE obsSpaceData_mod (prefix='obs' category='6. High-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">obsspacedata_mod</span></code></a>: MODULE obsSpaceData_mod (prefix=’obs’ category=’6. High-level data objects’)</p></li>
+<li><p><a class="reference internal" href="tovs_nl_mod.html#f/tovs_nl_mod" title="f/tovs_nl_mod: MODULE tovs_nl (prefix='tvs' category='5. Observation operators')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">tovs_nl_mod</span></code></a>: MODULE tovs_nl (prefix=’tvs’ category=’5. Observation operators’)</p></li>
+<li><p><a class="reference internal" href="ensembleobservations_mod.html#f/ensembleobservations_mod" title="f/ensembleobservations_mod: MODULE ensembleObservations (prefix='eob' category='6. High-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">ensembleobservations_mod</span></code></a>: MODULE ensembleObservations (prefix=’eob’ category=’6. High-level data objects’)</p></li>
+<li><p><a class="reference internal" href="gridvariabletransforms_mod.html#f/gridvariabletransforms_mod" title="f/gridvariabletransforms_mod: MODULE gridVariableTransforms (prefix='gvt' category='4. Data Object transformations')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">gridvariabletransforms_mod</span></code></a>: MODULE gridVariableTransforms (prefix=’gvt’ category=’4. Data Object transformations’)</p></li>
+<li><p><a class="reference internal" href="localizationfunction_mod.html#f/localizationfunction_mod" title="f/localizationfunction_mod: MODULE localizationFunction_mod (prefix='lfn' category='2. B and R matrices')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">localizationfunction_mod</span></code></a>: MODULE localizationFunction_mod (prefix=’lfn’ category=’2. B and R matrices’)</p></li>
+<li><p><a class="reference internal" href="varnamelist_mod.html#f/varnamelist_mod" title="f/varnamelist_mod: MODULE varNameList (prefix='vnl' category='7. Low-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">varnamelist_mod</span></code></a>: MODULE varNameList (prefix=’vnl’ category=’7. Low-level data objects’)</p></li>
+<li><p><a class="reference internal" href="codeprecision_mod.html#f/codeprecision_mod" title="f/codeprecision_mod: MODULE codePrecision_mod (prefix='pre' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">codeprecision_mod</span></code></a>: MODULE codePrecision_mod (prefix=’pre’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="codtyp_mod.html#f/codtyp_mod" title="f/codtyp_mod: MODULE codtyp_mod (prefix='codtyp' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">codtyp_mod</span></code></a>: MODULE codtyp_mod (prefix=’codtyp’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="calcheightandpressure_mod.html#f/calcheightandpressure_mod" title="f/calcheightandpressure_mod: MODULE czp_calcHeightAndPressure (prefix='czp' category='4. Data Object transformations')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">calcheightandpressure_mod</span></code></a>: MODULE czp_calcHeightAndPressure (prefix=’czp’ category=’4. Data Object transformations’)</p></li>
+</ul>
+<p class="rubric">Types</p>
+<ul>
+<li><dl>
+<dt class="sig sig-object f" id="f/enkf_mod/struct_enkfinterpinfo">
+<em class="property"><span class="pre">type</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">enkf_mod/</span></span><span class="sig-name descname"><span class="pre">struct_enkfinterpinfo</span></span><a class="headerlink" href="#f/enkf_mod/struct_enkfinterpinfo" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type fields</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">interpweights</span> (*,*,*)<em> [</em><em>real </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">latindexes</span> (*,*,*)<em> [</em><em>integer </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">latlonstep</span><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">lonindexes</span> (*,*,*)<em> [</em><em>integer </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">mylatbeghalo</span><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">mylatendhalo</span><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">mylonbeghalo</span><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">mylonendhalo</span><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">numindexes</span> (*,*)<em> [</em><em>integer </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</li>
+</ul>
+<p class="rubric">Variables</p>
+<p class="rubric">Subroutines and functions</p>
+<dl>
+<dt class="sig sig-object f" id="f/enkf_mod/enkf_letkfanalyses">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">enkf_mod/</span></span><span class="sig-name descname"><span class="pre">enkf_letkfanalyses</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">algorithm</span></em>, <em class="sig-param"><span class="pre">numsubens</span></em>, <em class="sig-param"><span class="pre">randomshufflesubens</span></em>, <em class="sig-param"><span class="pre">ensembleanl</span></em>, <em class="sig-param"><span class="pre">ensembletrl</span></em>, <em class="sig-param"><span class="pre">ensobs_mpiglobal</span></em>, <em class="sig-param"><span class="pre">ensobsgain_mpiglobal</span></em>, <em class="sig-param"><span class="pre">statevectormeananl</span></em>, <em class="sig-param"><span class="pre">winterpinfo</span></em>, <em class="sig-param"><span class="pre">maxnumlocalobs</span></em>, <em class="sig-param"><span class="pre">hlocalize</span></em>, <em class="sig-param"><span class="pre">hlocalizepressure</span></em>, <em class="sig-param"><span class="pre">vlocalize</span></em>, <em class="sig-param"><span class="pre">mpidistribution</span></em>, <em class="sig-param"><span class="pre">numretainedeigen</span></em>, <em class="sig-param"><span class="pre">edaobsimpact</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/enkf_mod/enkf_letkfanalyses" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Local subroutine containing the code for computing
+the LETKF analyses for all ensemble members, ensemble
+mean.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>algorithm</strong><em> [</em><em>character </em><em>]</em></p></li>
+<li><p><strong>numsubens</strong><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><strong>randomshufflesubens</strong><em> [</em><em>logical </em><em>]</em></p></li>
+<li><p><strong>ensembleanl</strong><em> [</em><em>struct_ens </em><em>]</em></p></li>
+<li><p><strong>ensembletrl</strong><em> [</em><em>struct_ens </em><em>,</em><em>pointer</em><em>]</em></p></li>
+<li><p><strong>ensobs_mpiglobal</strong><em> [</em><em>struct_eob </em><em>,</em><em>target</em><em>]</em></p></li>
+<li><p><strong>ensobsgain_mpiglobal</strong><em> [</em><em>struct_eob </em><em>]</em></p></li>
+<li><p><strong>statevectormeananl</strong><em> [</em><em>struct_gsv </em><em>]</em></p></li>
+<li><p><strong>winterpinfo</strong><em> [</em><em>struct_enkfinterpinfo </em><em>]</em></p></li>
+<li><p><strong>maxnumlocalobs</strong><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><strong>hlocalize</strong> (*)<em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>hlocalizepressure</strong> (*)<em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>vlocalize</strong><em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>mpidistribution</strong><em> [</em><em>character </em><em>]</em></p></li>
+<li><p><strong>numretainedeigen</strong><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><strong>edaobsimpact</strong><em> [</em><em>logical </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../programs/midas_letkf.html#f/midas_letkf" title="f/midas_letkf"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_letkf</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_start" title="f/utilities_mod/utl_tmg_start"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_start()</span></code></a>, <a class="reference internal" href="#f/enkf_mod/enkf_letkfsetupmpidistribution" title="f/enkf_mod/enkf_letkfsetupmpidistribution"><code class="xref f f-func docutils literal notranslate"><span class="pre">enkf_letkfsetupmpidistribution()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_getnummembers" title="f/ensemblestatevector_mod/ens_getnummembers"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_getnummembers()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_getnumlev" title="f/ensemblestatevector_mod/ens_getnumlev"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_getnumlev()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_gethco" title="f/ensemblestatevector_mod/ens_gethco"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_gethco()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_getvco" title="f/ensemblestatevector_mod/ens_getvco"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_getvco()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_allocate" title="f/gridstatevector_mod/gsv_allocate"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_allocate()</span></code></a>, <a class="reference internal" href="timecoord_mod.html#f/timecoord_mod/tim_getdatestamp" title="f/timecoord_mod/tim_getdatestamp"><code class="xref f f-func docutils literal notranslate"><span class="pre">tim_getdatestamp()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_zero" title="f/gridstatevector_mod/gsv_zero"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_zero()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_computemean" title="f/ensemblestatevector_mod/ens_computemean"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_computemean()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_copyensmean" title="f/ensemblestatevector_mod/ens_copyensmean"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_copyensmean()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_randomorderint" title="f/utilities_mod/utl_randomorderint"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_randomorderint()</span></code></a>, <a class="reference internal" href="localizationfunction_mod.html#f/localizationfunction_mod/lfn_setup" title="f/localizationfunction_mod/lfn_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">lfn_setup()</span></code></a>, <a class="reference internal" href="#f/enkf_mod/enkf_computevertlocation" title="f/enkf_mod/enkf_computevertlocation"><code class="xref f f-func docutils literal notranslate"><span class="pre">enkf_computevertlocation()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_stop" title="f/utilities_mod/utl_tmg_stop"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_stop()</span></code></a>, <a class="reference internal" href="#f/enkf_mod/enkf_letkfgetmpiglobaltags" title="f/enkf_mod/enkf_letkfgetmpiglobaltags"><code class="xref f f-func docutils literal notranslate"><span class="pre">enkf_letkfgetmpiglobaltags()</span></code></a>, <a class="reference internal" href="ensembleobservations_mod.html#f/ensembleobservations_mod/eob_getlocalbodyindices" title="f/ensembleobservations_mod/eob_getlocalbodyindices"><code class="xref f f-func docutils literal notranslate"><span class="pre">eob_getlocalbodyindices()</span></code></a>, <a class="reference internal" href="localizationfunction_mod.html#f/localizationfunction_mod/lfn_response" title="f/localizationfunction_mod/lfn_response"><code class="xref f f-func docutils literal notranslate"><span class="pre">lfn_response()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_matinverse" title="f/utilities_mod/utl_matinverse"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_matinverse()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_eigendecomp" title="f/utilities_mod/utl_eigendecomp"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_eigendecomp()</span></code></a>, <a class="reference internal" href="#f/enkf_mod/enkf_interpweights" title="f/enkf_mod/enkf_interpweights"><code class="xref f f-func docutils literal notranslate"><span class="pre">enkf_interpweights()</span></code></a>, <a class="reference internal" href="varnamelist_mod.html#f/varnamelist_mod/vnl_varlevelfromvarname" title="f/varnamelist_mod/vnl_varlevelfromvarname"><code class="xref f f-func docutils literal notranslate"><span class="pre">vnl_varlevelfromvarname()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_getvarnamefromk" title="f/gridstatevector_mod/gsv_getvarnamefromk"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_getvarnamefromk()</span></code></a>, <a class="reference internal" href="varnamelist_mod.html#f/varnamelist_mod/vnl_varkindfromvarname" title="f/varnamelist_mod/vnl_varkindfromvarname"><code class="xref f f-func docutils literal notranslate"><span class="pre">vnl_varkindfromvarname()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_getlevfromk" title="f/gridstatevector_mod/gsv_getlevfromk"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_getlevfromk()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_getonelev_r4" title="f/ensemblestatevector_mod/ens_getonelev_r4"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_getonelev_r4()</span></code></a>, <a class="reference internal" href="#f/enkf_mod/getmodulationfactor" title="f/enkf_mod/getmodulationfactor"><code class="xref f f-func docutils literal notranslate"><span class="pre">getmodulationfactor()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_deallocate" title="f/gridstatevector_mod/gsv_deallocate"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_deallocate()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/enkf_mod/enkf_computevertlocation">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">enkf_mod/</span></span><span class="sig-name descname"><span class="pre">enkf_computevertlocation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">vertlocation_r4</span></em>, <em class="sig-param"><span class="pre">statevectormeantrl</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/enkf_mod/enkf_computevertlocation" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Compute extract global 3D vertical location field from supplied
+stateVector. Can be either logPressure or depth levels.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>vertlocation_r4</strong> (*,*,*)<em> [</em><em>real </em><em>,</em><em>inout,allocatable</em><em>]</em></p></li>
+<li><p><strong>statevectormeantrl</strong><em> [</em><em>struct_gsv </em><em>,</em><em>inout</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/enkf_mod/enkf_letkfanalyses" title="f/enkf_mod/enkf_letkfanalyses"><code class="xref f f-func docutils literal notranslate"><span class="pre">enkf_letkfanalyses()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_getnumlev" title="f/gridstatevector_mod/gsv_getnumlev"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_getnumlev()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_allocate" title="f/gridstatevector_mod/gsv_allocate"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_allocate()</span></code></a>, <a class="reference internal" href="timecoord_mod.html#f/timecoord_mod/tim_getdatestamp" title="f/timecoord_mod/tim_getdatestamp"><code class="xref f f-func docutils literal notranslate"><span class="pre">tim_getdatestamp()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_zero" title="f/gridstatevector_mod/gsv_zero"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_zero()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_copy" title="f/gridstatevector_mod/gsv_copy"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_copy()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_transposetilestostep" title="f/gridstatevector_mod/gsv_transposetilestostep"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_transposetilestostep()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_deallocate" title="f/gridstatevector_mod/gsv_deallocate"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_deallocate()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/enkf_mod/enkf_letkfsetupmpidistribution">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">enkf_mod/</span></span><span class="sig-name descname"><span class="pre">enkf_letkfsetupmpidistribution</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">mynumlatlonrecv</span></em>, <em class="sig-param"><span class="pre">mynumlatlonsend</span></em>, <em class="sig-param"><span class="pre">mylatindexesrecv</span></em>, <em class="sig-param"><span class="pre">mylonindexesrecv</span></em>, <em class="sig-param"><span class="pre">mylatindexessend</span></em>, <em class="sig-param"><span class="pre">mylonindexessend</span></em>, <em class="sig-param"><span class="pre">myprocindexesrecv</span></em>, <em class="sig-param"><span class="pre">myprocindexessend</span></em>, <em class="sig-param"><span class="pre">mynumprocindexessend</span></em>, <em class="sig-param"><span class="pre">mpidistribution</span></em>, <em class="sig-param"><span class="pre">winterpinfo</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/enkf_mod/enkf_letkfsetupmpidistribution" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Setup for distribution of grid points over mpi tasks.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>mynumlatlonrecv</strong><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><strong>mynumlatlonsend</strong><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><strong>mylatindexesrecv</strong> (*)<em> [</em><em>integer </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><strong>mylonindexesrecv</strong> (*)<em> [</em><em>integer </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><strong>mylatindexessend</strong> (*)<em> [</em><em>integer </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><strong>mylonindexessend</strong> (*)<em> [</em><em>integer </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><strong>myprocindexesrecv</strong> (*)<em> [</em><em>integer </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><strong>myprocindexessend</strong> (*,*)<em> [</em><em>integer </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><strong>mynumprocindexessend</strong> (*)<em> [</em><em>integer </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><strong>mpidistribution</strong><em> [</em><em>character </em><em>]</em></p></li>
+<li><p><strong>winterpinfo</strong><em> [</em><em>struct_enkfinterpinfo </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/enkf_mod/enkf_letkfanalyses" title="f/enkf_mod/enkf_letkfanalyses"><code class="xref f f-func docutils literal notranslate"><span class="pre">enkf_letkfanalyses()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/enkf_mod/enkf_latlonalreadyfound" title="f/enkf_mod/enkf_latlonalreadyfound"><code class="xref f f-func docutils literal notranslate"><span class="pre">enkf_latlonalreadyfound()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/enkf_mod/enkf_letkfgetmpiglobaltags">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">enkf_mod/</span></span><span class="sig-name descname"><span class="pre">enkf_letkfgetmpiglobaltags</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">latlontagmpiglobal</span></em>, <em class="sig-param"><span class="pre">mylatindexesrecv</span></em>, <em class="sig-param"><span class="pre">mylonindexesrecv</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/enkf_mod/enkf_letkfgetmpiglobaltags" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>latlontagmpiglobal</strong> (*,*)<em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><strong>mylatindexesrecv</strong> (*)<em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><strong>mylonindexesrecv</strong> (*)<em> [</em><em>integer </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/enkf_mod/enkf_letkfanalyses" title="f/enkf_mod/enkf_letkfanalyses"><code class="xref f f-func docutils literal notranslate"><span class="pre">enkf_letkfanalyses()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/enkf_mod/enkf_latlonalreadyfound">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">enkf_mod/</span></span><span class="sig-name descname"><span class="pre">enkf_latlonalreadyfound</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">alllatindexesrecv</span></em>, <em class="sig-param"><span class="pre">alllonindexesrecv</span></em>, <em class="sig-param"><span class="pre">latlonindex</span></em>, <em class="sig-param"><span class="pre">procindex</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/enkf_mod/enkf_latlonalreadyfound" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>alllatindexesrecv</strong> (*,*)<em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><strong>alllonindexesrecv</strong> (*,*)<em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><strong>latlonindex</strong><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><strong>procindex</strong><em> [</em><em>integer </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Return</dt>
+<dd class="field-even"><p><strong>found</strong><em> [</em><em>logical </em><em>]</em></p>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/enkf_mod/enkf_letkfsetupmpidistribution" title="f/enkf_mod/enkf_letkfsetupmpidistribution"><code class="xref f f-func docutils literal notranslate"><span class="pre">enkf_letkfsetupmpidistribution()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/enkf_mod/enkf_setupinterpinfo">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">enkf_mod/</span></span><span class="sig-name descname"><span class="pre">enkf_setupinterpinfo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">winterpinfo</span></em>, <em class="sig-param"><span class="pre">hco</span></em>, <em class="sig-param"><span class="pre">weightlatlonstep</span></em>, <em class="sig-param"><span class="pre">mylonbeg</span></em>, <em class="sig-param"><span class="pre">mylonend</span></em>, <em class="sig-param"><span class="pre">mylatbeg</span></em>, <em class="sig-param"><span class="pre">mylatend</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/enkf_mod/enkf_setupinterpinfo" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Setup the weights and lat/lon indices needed to bilinearly
+interpolate the LETKF weights from a coarse grid to the full
+resolution grid. The coarseness of the grid is specified by
+the weightLatLonStep argument.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>winterpinfo</strong><em> [</em><em>struct_enkfinterpinfo </em><em>]</em></p></li>
+<li><p><strong>hco</strong><em> [</em><em>struct_hco </em><em>]</em></p></li>
+<li><p><strong>weightlatlonstep</strong><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><strong>mylonbeg</strong><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><strong>mylonend</strong><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><strong>mylatbeg</strong><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><strong>mylatend</strong><em> [</em><em>integer </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../programs/midas_letkf.html#f/midas_letkf" title="f/midas_letkf"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_letkf</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/enkf_mod/enkf_interpweights">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">enkf_mod/</span></span><span class="sig-name descname"><span class="pre">enkf_interpweights</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">winterpinfo</span></em>, <em class="sig-param"><span class="pre">weights</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/enkf_mod/enkf_interpweights" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Perform the bilinear interpolation of the weights
+using the precalculated interpolation info.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>winterpinfo</strong><em> [</em><em>struct_enkfinterpinfo </em><em>]</em></p></li>
+<li><p><strong>weights</strong> (,,-(winterpinfo%mylonbeghalo)+1,-(winterpinfo%mylatbeghalo)+1)<em> [</em><em>real </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/enkf_mod/enkf_letkfanalyses" title="f/enkf_mod/enkf_letkfanalyses"><code class="xref f f-func docutils literal notranslate"><span class="pre">enkf_letkfanalyses()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/enkf_mod/enkf_modifyamsubobserror">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">enkf_mod/</span></span><span class="sig-name descname"><span class="pre">enkf_modifyamsubobserror</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">obsspacedata</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/enkf_mod/enkf_modifyamsubobserror" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><p><strong>obsspacedata</strong><em> [</em><em>struct_obs </em><em>,</em><em>target</em><em>]</em></p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="../programs/midas_letkf.html#f/midas_letkf" title="f/midas_letkf"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_letkf</span></code></a>, <a class="reference internal" href="../programs/midas_prepcma.html#f/midas_prepcma" title="f/midas_prepcma"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_prepcma</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_numheader" title="f/obsspacedata_mod/obs_numheader"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_numheader()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_headelem_r" title="f/obsspacedata_mod/obs_headelem_r"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_headelem_r()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_headelem_i" title="f/obsspacedata_mod/obs_headelem_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_headelem_i()</span></code></a>, <a class="reference internal" href="codtyp_mod.html#f/codtyp_mod/codtyp_get_codtyp" title="f/codtyp_mod/codtyp_get_codtyp"><code class="xref f f-func docutils literal notranslate"><span class="pre">codtyp_get_codtyp()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/enkf_mod/enkf_rejecthighlatir">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">enkf_mod/</span></span><span class="sig-name descname"><span class="pre">enkf_rejecthighlatir</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">obsspacedata</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/enkf_mod/enkf_rejecthighlatir" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><p><strong>obsspacedata</strong><em> [</em><em>struct_obs </em><em>,</em><em>target</em><em>]</em></p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="../programs/midas_letkf.html#f/midas_letkf" title="f/midas_letkf"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_letkf</span></code></a>, <a class="reference internal" href="../programs/midas_prepcma.html#f/midas_prepcma" title="f/midas_prepcma"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_prepcma</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_numheader" title="f/obsspacedata_mod/obs_numheader"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_numheader()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_headelem_r" title="f/obsspacedata_mod/obs_headelem_r"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_headelem_r()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_headelem_i" title="f/obsspacedata_mod/obs_headelem_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_headelem_i()</span></code></a>, <a class="reference internal" href="tovs_nl_mod.html#f/tovs_nl_mod/tvs_isidburphyperspectral" title="f/tovs_nl_mod/tvs_isidburphyperspectral"><code class="xref f f-func docutils literal notranslate"><span class="pre">tvs_isidburphyperspectral()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyset_i" title="f/obsspacedata_mod/obs_bodyset_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyset_i()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyelem_i" title="f/obsspacedata_mod/obs_bodyelem_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyelem_i()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/enkf_mod/enkf_getmodulatedstate">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">enkf_mod/</span></span><span class="sig-name descname"><span class="pre">enkf_getmodulatedstate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">statevector_in</span></em>, <em class="sig-param"><span class="pre">statevectormeantrl</span></em>, <em class="sig-param"><span class="pre">vlocalizelengthscale</span></em>, <em class="sig-param"><span class="pre">numretainedeigen</span></em>, <em class="sig-param"><span class="pre">nens</span></em>, <em class="sig-param"><span class="pre">eigenvectorcolumnindex</span></em>, <em class="sig-param"><span class="pre">statevector_out</span></em>, <em class="sig-param"><span class="pre">besilent</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/enkf_mod/enkf_getmodulatedstate" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Compute vertical localization matrix, and the corresponding
+eigenvectors/eigenvalues, to obtain modulated stateVector.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>statevector_in</strong><em> [</em><em>struct_gsv </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>statevectormeantrl</strong><em> [</em><em>struct_gsv </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>vlocalizelengthscale</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>numretainedeigen</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>nens</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>eigenvectorcolumnindex</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>statevector_out</strong><em> [</em><em>struct_gsv </em><em>,</em><em>inout</em><em>]</em></p></li>
+<li><p><strong>besilent</strong><em> [</em><em>logical </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../programs/midas_ensembleh.html#f/midas_ensembleh" title="f/midas_ensembleh"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_ensembleh</span></code></a>, <a class="reference internal" href="../programs/midas_letkf.html#f/midas_letkf" title="f/midas_letkf"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_letkf</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_start" title="f/utilities_mod/utl_tmg_start"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_start()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_copy" title="f/gridstatevector_mod/gsv_copy"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_copy()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_add" title="f/gridstatevector_mod/gsv_add"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_add()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_varexist" title="f/gridstatevector_mod/gsv_varexist"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_varexist()</span></code></a>, <a class="reference internal" href="#f/enkf_mod/getmodulationfactor" title="f/enkf_mod/getmodulationfactor"><code class="xref f f-func docutils literal notranslate"><span class="pre">getmodulationfactor()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_stop" title="f/utilities_mod/utl_tmg_stop"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_stop()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/enkf_mod/enkf_setupmodulationfactor">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">enkf_mod/</span></span><span class="sig-name descname"><span class="pre">enkf_setupmodulationfactor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">vco</span></em>, <em class="sig-param"><span class="pre">numretainedeigen</span></em>, <em class="sig-param"><span class="pre">nens</span></em>, <em class="sig-param"><span class="pre">vlocalizelengthscale</span></em>, <em class="sig-param"><span class="pre">besilent</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/enkf_mod/enkf_setupmodulationfactor" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>setup modulationFactorArray by calling getModulationFactor for first time.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>vco</strong><em> [</em><em>struct_vco </em><em>,</em><em>in,pointer</em><em>]</em></p></li>
+<li><p><strong>numretainedeigen</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>nens</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>vlocalizelengthscale</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>besilent</strong><em> [</em><em>logical </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../programs/midas_letkf.html#f/midas_letkf" title="f/midas_letkf"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_letkf</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/enkf_mod/getmodulationfactor" title="f/enkf_mod/getmodulationfactor"><code class="xref f f-func docutils literal notranslate"><span class="pre">getmodulationfactor()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/enkf_mod/getmodulationfactor">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">enkf_mod/</span></span><span class="sig-name descname"><span class="pre">getmodulationfactor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">vco</span></em>, <em class="sig-param"><span class="pre">eigenvectorlevelindex</span></em>, <em class="sig-param"><span class="pre">eigenvectorcolumnindex</span></em>, <em class="sig-param"><span class="pre">numretainedeigen</span></em>, <em class="sig-param"><span class="pre">nens</span></em>, <em class="sig-param"><span class="pre">vlocalizelengthscale</span></em>, <em class="sig-param"><span class="pre">modulationfactor_r4</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">besilent_opt</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/enkf_mod/getmodulationfactor" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>compute modulation factor needed to multiply ensemble
+perturbation to get the modulated perturbation:
+(Nens*nLambda/(Nens - 1))^1/2 * Lambda^1/2</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>vco</strong><em> [</em><em>struct_vco </em><em>,</em><em>in,pointer</em><em>]</em></p></li>
+<li><p><strong>eigenvectorlevelindex</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>eigenvectorcolumnindex</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>numretainedeigen</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>nens</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>vlocalizelengthscale</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>modulationfactor_r4</strong><em> [</em><em>real </em><em>,</em><em>out</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Options</dt>
+<dd class="field-odd"><p><strong>besilent_opt</strong><em> [</em><em>logical </em><em>,</em><em>in,</em><em>]</em></p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/enkf_mod/enkf_letkfanalyses" title="f/enkf_mod/enkf_letkfanalyses"><code class="xref f f-func docutils literal notranslate"><span class="pre">enkf_letkfanalyses()</span></code></a>, <a class="reference internal" href="#f/enkf_mod/enkf_getmodulatedstate" title="f/enkf_mod/enkf_getmodulatedstate"><code class="xref f f-func docutils literal notranslate"><span class="pre">enkf_getmodulatedstate()</span></code></a>, <a class="reference internal" href="#f/enkf_mod/enkf_setupmodulationfactor" title="f/enkf_mod/enkf_setupmodulationfactor"><code class="xref f f-func docutils literal notranslate"><span class="pre">enkf_setupmodulationfactor()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="localizationfunction_mod.html#f/localizationfunction_mod/lfn_setup" title="f/localizationfunction_mod/lfn_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">lfn_setup()</span></code></a>, <a class="reference internal" href="localizationfunction_mod.html#f/localizationfunction_mod/lfn_response" title="f/localizationfunction_mod/lfn_response"><code class="xref f f-func docutils literal notranslate"><span class="pre">lfn_response()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_eigendecomp" title="f/utilities_mod/utl_eigendecomp"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_eigendecomp()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div></blockquote>
+</section>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="enspostprocess_mod.html" title="enspostprocess_mod"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="calcstatslam_mod.html" title="calcstatslam_mod"
+             >previous</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2018, ECCC.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.
+    </div>
+  </body>
+</html>

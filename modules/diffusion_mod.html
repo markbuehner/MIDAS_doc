@@ -1,0 +1,433 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>diffusion_mod &mdash; MIDAS  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="MIDAS  documentation" href="../index.html" />
+    <link rel="next" title="globalspectraltransform_mod" href="globalspectraltransform_mod.html" />
+    <link rel="prev" title="columnvariabletransforms_mod" href="columnvariabletransforms_mod.html" /> 
+  </head>
+  <body>
+  <div>
+    <img src="../_static/MIDAS_header.png" alt="MIDAS" />
+  </div>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="globalspectraltransform_mod.html" title="globalspectraltransform_mod"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="columnvariabletransforms_mod.html" title="columnvariabletransforms_mod"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="columnvariabletransforms_mod.html"
+                          title="previous chapter">columnvariabletransforms_mod</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="globalspectraltransform_mod.html"
+                          title="next chapter">globalspectraltransform_mod</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/modules/diffusion_mod.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <section id="diffusion-mod">
+<h1>diffusion_mod<a class="headerlink" href="#diffusion-mod" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><p><a class="reference internal" href="diffusion_mod_src.html"><span class="doc">link to source code</span></a></p>
+<p><strong>Dependency Diagrams:</strong></p>
+<figure class="align-default" id="id1">
+<a class="reference internal image-reference" href="diffusion_mod.svg"><img alt="diffusion_mod.svg" height="100px" src="diffusion_mod.svg" /></a>
+<figcaption>
+<p><span class="caption-text">Direct Dependency Diagram</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id2">
+<a class="reference internal image-reference" href="diffusion_mod_rev.svg"><img alt="diffusion_mod_rev.svg" height="100px" src="diffusion_mod_rev.svg" /></a>
+<figcaption>
+<p><span class="caption-text">Reverse Dependency Diagram</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<span class="target" id="f/diffusion_mod"></span><p class="rubric">Description</p>
+<p>MODULE diffusion_mod (prefix=’diff’ category=’4. Data Object transformations’)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Purpose</dt>
+<dd class="field-odd"><p>Diffusion operator and storage of related diffusion configuration used to model
+background-error horizontal correlations. Both explicit and implicit
+formulations are included, with implicit being preferred when using large
+correlation length scales relative to the grid spacing. For implicit the
+MPI topology must have npex=1, i.e. 1xNPEYxNUMTHREADS. A 2D MPI topology
+can be used for the explicit formulation.</p>
+</dd>
+<dt class="field-even">Reference</dt>
+<dd class="field-even"><p>Weaver, A. T., and P. Courtier, 2001: Correlation modelling on
+the sphere using a generalized diffusion equation.
+Q. J. R. Meteorol. Soc., 127, 1815-1846.</p>
+</dd>
+<dt class="field-odd">Basic equations</dt>
+<dd class="field-odd"><p>Lcorr^2 = 2*k*dt*numt   (1)
+stab    = k*dt/dx^2     (2)</p>
+</dd>
+</dl>
+<p class="rubric">Quick access</p>
+<dl class="field-list simple">
+<dt class="field-odd">Types</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/diffusion_mod/struct_diff" title="f/diffusion_mod/struct_diff"><code class="xref f f-type docutils literal notranslate"><span class="pre">struct_diff</span></code></a></p>
+</dd>
+<dt class="field-even">Routines</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/diffusion_mod/diff_csqrt" title="f/diffusion_mod/diff_csqrt"><code class="xref f f-func docutils literal notranslate"><span class="pre">diff_csqrt()</span></code></a>, <a class="reference internal" href="#f/diffusion_mod/diff_csqrtadj" title="f/diffusion_mod/diff_csqrtadj"><code class="xref f f-func docutils literal notranslate"><span class="pre">diff_csqrtadj()</span></code></a>, <a class="reference internal" href="#f/diffusion_mod/diff_finalize" title="f/diffusion_mod/diff_finalize"><code class="xref f f-func docutils literal notranslate"><span class="pre">diff_finalize()</span></code></a>, <a class="reference internal" href="#f/diffusion_mod/diff_setup" title="f/diffusion_mod/diff_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">diff_setup()</span></code></a>, <a class="reference internal" href="#f/diffusion_mod/diffusion1x_implicit" title="f/diffusion_mod/diffusion1x_implicit"><code class="xref f f-func docutils literal notranslate"><span class="pre">diffusion1x_implicit()</span></code></a>, <a class="reference internal" href="#f/diffusion_mod/diffusion1y_implicit" title="f/diffusion_mod/diffusion1y_implicit"><code class="xref f f-func docutils literal notranslate"><span class="pre">diffusion1y_implicit()</span></code></a>, <a class="reference internal" href="#f/diffusion_mod/diffusion_explicit" title="f/diffusion_mod/diffusion_explicit"><code class="xref f f-func docutils literal notranslate"><span class="pre">diffusion_explicit()</span></code></a>, <a class="reference internal" href="#f/diffusion_mod/transposelattolonbands" title="f/diffusion_mod/transposelattolonbands"><code class="xref f f-func docutils literal notranslate"><span class="pre">transposelattolonbands()</span></code></a>, <a class="reference internal" href="#f/diffusion_mod/transposelontolatbands" title="f/diffusion_mod/transposelontolatbands"><code class="xref f f-func docutils literal notranslate"><span class="pre">transposelontolatbands()</span></code></a></p>
+</dd>
+</dl>
+<p class="rubric">Needed modules</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="midasmpi_mod.html#f/midasmpi_mod" title="f/midasmpi_mod: MODULE midasMpi_mod (prefix='mmpi' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">midasmpi_mod</span></code></a>: MODULE midasMpi_mod (prefix=’mmpi’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="horizontalcoord_mod.html#f/horizontalcoord_mod" title="f/horizontalcoord_mod: MODULE HorizontalCoord_mod (prefix='hco' category='7. Low-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">horizontalcoord_mod</span></code></a>: MODULE HorizontalCoord_mod (prefix=’hco’ category=’7. Low-level data objects’)</p></li>
+<li><p><a class="reference internal" href="verticalcoord_mod.html#f/verticalcoord_mod" title="f/verticalcoord_mod: MODULE verticalcoord (prefix='vco' category='7. Low-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">verticalcoord_mod</span></code></a>: MODULE verticalcoord (prefix=’vco’ category=’7. Low-level data objects’)</p></li>
+<li><p><a class="reference internal" href="oceanmask_mod.html#f/oceanmask_mod" title="f/oceanmask_mod: MODULE oceanMask_mod (prefix='ocm' category='7. Low-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">oceanmask_mod</span></code></a>: MODULE oceanMask_mod (prefix=’ocm’ category=’7. Low-level data objects’)</p></li>
+<li><p><a class="reference internal" href="earthconstants_mod.html#f/earthconstants_mod" title="f/earthconstants_mod: MODULE earthConstants_mod (prefix='ec' category='8. Low-level utilities and constants') Prefixes: ec_ (Earth constants), for miscellaneous values from diverse sources"><code class="xref f f-mod docutils literal notranslate"><span class="pre">earthconstants_mod</span></code></a>: MODULE earthConstants_mod (prefix=’ec’ category=’8. Low-level utilities and constants’) Prefixes: <a href="#id3"><span class="problematic" id="id4">ec_</span></a> (Earth constants), for miscellaneous values from diverse sources</p></li>
+<li><p><a class="reference internal" href="randomnumber_mod.html#f/randomnumber_mod" title="f/randomnumber_mod: MODULE randomNumber_mod (prefix='rng' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">randomnumber_mod</span></code></a>: MODULE randomNumber_mod (prefix=’rng’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod" title="f/utilities_mod: MODULE utilities_mod (prefix='utl' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">utilities_mod</span></code></a>: MODULE utilities_mod (prefix=’utl’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod" title="f/gridstatevector_mod: MODULE gridStateVector_mod (prefix='gsv' category='6. High-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">gridstatevector_mod</span></code></a>: MODULE gridStateVector_mod (prefix=’gsv’ category=’6. High-level data objects’)</p></li>
+<li><p><a class="reference internal" href="gridstatevectorfileio_mod.html#f/gridstatevectorfileio_mod" title="f/gridstatevectorfileio_mod: MODULE gridStateVectorFile_mod (prefix='gio' category='4. Data Object transformations')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">gridstatevectorfileio_mod</span></code></a>: MODULE gridStateVectorFile_mod (prefix=’gio’ category=’4. Data Object transformations’)</p></li>
+</ul>
+<p class="rubric">Types</p>
+<ul>
+<li><dl>
+<dt class="sig sig-object f" id="f/diffusion_mod/struct_diff">
+<em class="property"><span class="pre">type</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">diffusion_mod/</span></span><span class="sig-name descname"><span class="pre">struct_diff</span></span><a class="headerlink" href="#f/diffusion_mod/struct_diff" title="Permalink to this definition">¶</a></dt>
+<dd><p>number of grid points in x and y directions (includes perimeter of land points)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type fields</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">cosyhalf</span> (*)<em> [</em><em>real </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">cosyinv</span> (*)<em> [</em><em>real </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">cosyinvsq</span> (*)<em> [</em><em>real </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">diff1x_ap</span> (*,*)<em> [</em><em>real </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">diff1x_bp_inv</span> (*,*)<em> [</em><em>real </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">diff1x_c</span> (*,*)<em> [</em><em>real </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">diff1y_ap</span> (*,*)<em> [</em><em>real </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">diff1y_bp_inv</span> (*,*)<em> [</em><em>real </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">diff1y_c</span> (*,*)<em> [</em><em>real </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">dlat</span><em> [</em><em>real </em><em>]</em> :: grid spacing in radians</p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">dlon</span><em> [</em><em>real </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">dt</span><em> [</em><em>real </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">khalfx</span> (*,*)<em> [</em><em>real </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">khalfy</span> (*,*)<em> [</em><em>real </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">lambda</span> (*,*)<em> [</em><em>real </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">latindexignore</span><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">latperpe</span><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">latperpemax</span><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">lonperpe</span><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">lonperpe_transpose</span><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">lonperpemax</span><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">lonperpemax_transpose</span><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">mhalfx</span> (*,*)<em> [</em><em>real </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">mhalfy</span> (*,*)<em> [</em><em>real </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">mylatbeg</span><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">mylatend</span><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">mylonbeg</span><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">mylonbeg_transpose</span><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">mylonend</span><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">mylonend_transpose</span><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">ni</span><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">nj</span><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">numiterimp</span><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">numt</span><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">useimplicit</span><em> [</em><em>logical </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">winv</span> (*,*)<em> [</em><em>real </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">winvsqrt</span> (*,*)<em> [</em><em>real </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">wsqrt</span> (*,*)<em> [</em><em>real </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</li>
+</ul>
+<p class="rubric">Variables</p>
+<p class="rubric">Subroutines and functions</p>
+<dl>
+<dt class="sig sig-object f" id="f/diffusion_mod/diff_setup">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">diffusion_mod/</span></span><span class="sig-name descname"><span class="pre">diff_setup</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">variableindex</span></em>, <em class="sig-param"><span class="pre">bdiff_varnamelist</span></em>, <em class="sig-param"><span class="pre">hco</span></em>, <em class="sig-param"><span class="pre">vco</span></em>, <em class="sig-param"><span class="pre">corr_len</span></em>, <em class="sig-param"><span class="pre">stab</span></em>, <em class="sig-param"><span class="pre">numbersamples</span></em>, <em class="sig-param"><span class="pre">useimplicit</span></em>, <em class="sig-param"><span class="pre">latindexignore</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/diffusion_mod/diff_setup" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>set up diffusion operator</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>variableindex</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em> :: Variable index in bdiff_varNameList(:)</p></li>
+<li><p><strong>bdiff_varnamelist</strong> (*)<em> [</em><em>character </em><em>,</em><em>in</em><em>]</em> :: list of 2D analysis variables</p></li>
+<li><p><strong>hco</strong><em> [</em><em>struct_hco </em><em>,</em><em>inout,pointer</em><em>]</em> :: Horizontal grid structure</p></li>
+<li><p><strong>vco</strong><em> [</em><em>struct_vco </em><em>,</em><em>in,pointer</em><em>]</em> :: Vertical grid structure</p></li>
+<li><p><strong>corr_len</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: Horizontal correlation length scale (km);</p></li>
+<li><p><strong>stab</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: Stability criteria (definitely &lt; 0.5)</p></li>
+<li><p><strong>numbersamples</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em> :: Number of samples to estimate normalization factors by randomization.</p></li>
+<li><p><strong>useimplicit</strong><em> [</em><em>logical </em><em>,</em><em>in</em><em>]</em> :: Indicate to use the implicit formulation</p></li>
+<li><p><strong>latindexignore</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em> :: Number of grid points to ignore near poles</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Return</dt>
+<dd class="field-odd"><p><strong>diff_setup</strong><em> [</em><em>integer </em><em>]</em></p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="bmatrixdiff_mod.html#f/bmatrixdiff_mod/bdiff_setup" title="f/bmatrixdiff_mod/bdiff_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">bdiff_setup()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="midasmpi_mod.html#f/midasmpi_mod/mmpi_setup_latbands" title="f/midasmpi_mod/mmpi_setup_latbands"><code class="xref f f-func docutils literal notranslate"><span class="pre">mmpi_setup_latbands()</span></code></a>, <a class="reference internal" href="midasmpi_mod.html#f/midasmpi_mod/mmpi_setup_lonbands" title="f/midasmpi_mod/mmpi_setup_lonbands"><code class="xref f f-func docutils literal notranslate"><span class="pre">mmpi_setup_lonbands()</span></code></a>, <a class="reference internal" href="oceanmask_mod.html#f/oceanmask_mod/ocm_readmaskfromfile" title="f/oceanmask_mod/ocm_readmaskfromfile"><code class="xref f f-func docutils literal notranslate"><span class="pre">ocm_readmaskfromfile()</span></code></a>, <a class="reference internal" href="oceanmask_mod.html#f/oceanmask_mod/ocm_deallocate" title="f/oceanmask_mod/ocm_deallocate"><code class="xref f f-func docutils literal notranslate"><span class="pre">ocm_deallocate()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_allocate" title="f/gridstatevector_mod/gsv_allocate"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_allocate()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_zero" title="f/gridstatevector_mod/gsv_zero"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_zero()</span></code></a>, <a class="reference internal" href="gridstatevectorfileio_mod.html#f/gridstatevectorfileio_mod/gio_readfromfile" title="f/gridstatevectorfileio_mod/gio_readfromfile"><code class="xref f f-func docutils literal notranslate"><span class="pre">gio_readfromfile()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_deallocate" title="f/gridstatevector_mod/gsv_deallocate"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_deallocate()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_fstlir_r4" title="f/utilities_mod/utl_fstlir_r4"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_fstlir_r4()</span></code></a>, <a class="reference internal" href="randomnumber_mod.html#f/randomnumber_mod/rng_setup" title="f/randomnumber_mod/rng_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">rng_setup()</span></code></a>, <a class="reference internal" href="randomnumber_mod.html#f/randomnumber_mod/rng_gaussian" title="f/randomnumber_mod/rng_gaussian"><code class="xref f f-func docutils literal notranslate"><span class="pre">rng_gaussian()</span></code></a>, <a class="reference internal" href="#f/diffusion_mod/diffusion1x_implicit" title="f/diffusion_mod/diffusion1x_implicit"><code class="xref f f-func docutils literal notranslate"><span class="pre">diffusion1x_implicit()</span></code></a>, <a class="reference internal" href="#f/diffusion_mod/transposelattolonbands" title="f/diffusion_mod/transposelattolonbands"><code class="xref f f-func docutils literal notranslate"><span class="pre">transposelattolonbands()</span></code></a>, <a class="reference internal" href="#f/diffusion_mod/diffusion1y_implicit" title="f/diffusion_mod/diffusion1y_implicit"><code class="xref f f-func docutils literal notranslate"><span class="pre">diffusion1y_implicit()</span></code></a>, <a class="reference internal" href="#f/diffusion_mod/transposelontolatbands" title="f/diffusion_mod/transposelontolatbands"><code class="xref f f-func docutils literal notranslate"><span class="pre">transposelontolatbands()</span></code></a>, <a class="reference internal" href="#f/diffusion_mod/diffusion_explicit" title="f/diffusion_mod/diffusion_explicit"><code class="xref f f-func docutils literal notranslate"><span class="pre">diffusion_explicit()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/diffusion_mod/diff_finalize">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">diffusion_mod/</span></span><span class="sig-name descname"><span class="pre">diff_finalize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">diffid</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/diffusion_mod/diff_finalize" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>To finalize the diffusion operator module, and to free up memory.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>diffid</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/diffusion_mod/diffusion_explicit">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">diffusion_mod/</span></span><span class="sig-name descname"><span class="pre">diffusion_explicit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">diffid</span></em>, <em class="sig-param"><span class="pre">xin</span></em>, <em class="sig-param"><span class="pre">xout</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/diffusion_mod/diffusion_explicit" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>To compute Lsqrt*xin (diffusion over numt/2 timesteps), and to
+specify initial conditions</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>diffid</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>xin</strong> (*,*)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>xout</strong> (*,*)<em> [</em><em>real </em><em>,</em><em>out</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/diffusion_mod/diff_setup" title="f/diffusion_mod/diff_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">diff_setup()</span></code></a>, <a class="reference internal" href="#f/diffusion_mod/diff_csqrt" title="f/diffusion_mod/diff_csqrt"><code class="xref f f-func docutils literal notranslate"><span class="pre">diff_csqrt()</span></code></a>, <a class="reference internal" href="#f/diffusion_mod/diff_csqrtadj" title="f/diffusion_mod/diff_csqrtadj"><code class="xref f f-func docutils literal notranslate"><span class="pre">diff_csqrtadj()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/diffusion_mod/diff_csqrt">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">diffusion_mod/</span></span><span class="sig-name descname"><span class="pre">diff_csqrt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">diffid</span></em>, <em class="sig-param"><span class="pre">xin</span></em>, <em class="sig-param"><span class="pre">xout</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/diffusion_mod/diff_csqrt" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>diffid</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>xin</strong> (diff(diffid)%mylonend-(diff(diffid)%mylonbeg)+1,diff(diffid)%mylatend-(diff(diffid)%mylatbeg)+1)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>xout</strong> (diff(diffid)%mylonend-(diff(diffid)%mylonbeg)+1,diff(diffid)%mylatend-(diff(diffid)%mylatbeg)+1)<em> [</em><em>real </em><em>,</em><em>out</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="bmatrixdiff_mod.html#f/bmatrixdiff_mod/bdiff_bsqrt" title="f/bmatrixdiff_mod/bdiff_bsqrt"><code class="xref f f-func docutils literal notranslate"><span class="pre">bdiff_bsqrt()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/diffusion_mod/diffusion1x_implicit" title="f/diffusion_mod/diffusion1x_implicit"><code class="xref f f-func docutils literal notranslate"><span class="pre">diffusion1x_implicit()</span></code></a>, <a class="reference internal" href="#f/diffusion_mod/transposelattolonbands" title="f/diffusion_mod/transposelattolonbands"><code class="xref f f-func docutils literal notranslate"><span class="pre">transposelattolonbands()</span></code></a>, <a class="reference internal" href="#f/diffusion_mod/diffusion1y_implicit" title="f/diffusion_mod/diffusion1y_implicit"><code class="xref f f-func docutils literal notranslate"><span class="pre">diffusion1y_implicit()</span></code></a>, <a class="reference internal" href="#f/diffusion_mod/transposelontolatbands" title="f/diffusion_mod/transposelontolatbands"><code class="xref f f-func docutils literal notranslate"><span class="pre">transposelontolatbands()</span></code></a>, <a class="reference internal" href="#f/diffusion_mod/diffusion_explicit" title="f/diffusion_mod/diffusion_explicit"><code class="xref f f-func docutils literal notranslate"><span class="pre">diffusion_explicit()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/diffusion_mod/diff_csqrtadj">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">diffusion_mod/</span></span><span class="sig-name descname"><span class="pre">diff_csqrtadj</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">diffid</span></em>, <em class="sig-param"><span class="pre">xin</span></em>, <em class="sig-param"><span class="pre">xout</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/diffusion_mod/diff_csqrtadj" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>diffid</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>xin</strong> (diff(diffid)%mylonend-(diff(diffid)%mylonbeg)+1,diff(diffid)%mylatend-(diff(diffid)%mylatbeg)+1)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>xout</strong> (diff(diffid)%mylonend-(diff(diffid)%mylonbeg)+1,diff(diffid)%mylatend-(diff(diffid)%mylatbeg)+1)<em> [</em><em>real </em><em>,</em><em>out</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="bmatrixdiff_mod.html#f/bmatrixdiff_mod/bdiff_bsqrtad" title="f/bmatrixdiff_mod/bdiff_bsqrtad"><code class="xref f f-func docutils literal notranslate"><span class="pre">bdiff_bsqrtad()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/diffusion_mod/transposelattolonbands" title="f/diffusion_mod/transposelattolonbands"><code class="xref f f-func docutils literal notranslate"><span class="pre">transposelattolonbands()</span></code></a>, <a class="reference internal" href="#f/diffusion_mod/diffusion1y_implicit" title="f/diffusion_mod/diffusion1y_implicit"><code class="xref f f-func docutils literal notranslate"><span class="pre">diffusion1y_implicit()</span></code></a>, <a class="reference internal" href="#f/diffusion_mod/transposelontolatbands" title="f/diffusion_mod/transposelontolatbands"><code class="xref f f-func docutils literal notranslate"><span class="pre">transposelontolatbands()</span></code></a>, <a class="reference internal" href="#f/diffusion_mod/diffusion1x_implicit" title="f/diffusion_mod/diffusion1x_implicit"><code class="xref f f-func docutils literal notranslate"><span class="pre">diffusion1x_implicit()</span></code></a>, <a class="reference internal" href="#f/diffusion_mod/diffusion_explicit" title="f/diffusion_mod/diffusion_explicit"><code class="xref f f-func docutils literal notranslate"><span class="pre">diffusion_explicit()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/diffusion_mod/transposelattolonbands">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">diffusion_mod/</span></span><span class="sig-name descname"><span class="pre">transposelattolonbands</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">diffid</span></em>, <em class="sig-param"><span class="pre">xin</span></em>, <em class="sig-param"><span class="pre">xout</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/diffusion_mod/transposelattolonbands" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Perform an MPI transposition for a 2D array between latitude
+bands and longitude bands.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>diffid</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>xin</strong> (diff(diffid)%ni,diff(diffid)%mylatend-(diff(diffid)%mylatbeg)+1)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>xout</strong> (diff(diffid)%mylonend_transpose-(diff(diffid)%mylonbeg_transpose)+1,diff(diffid)%nj)<em> [</em><em>real </em><em>,</em><em>out</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/diffusion_mod/diff_setup" title="f/diffusion_mod/diff_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">diff_setup()</span></code></a>, <a class="reference internal" href="#f/diffusion_mod/diff_csqrt" title="f/diffusion_mod/diff_csqrt"><code class="xref f f-func docutils literal notranslate"><span class="pre">diff_csqrt()</span></code></a>, <a class="reference internal" href="#f/diffusion_mod/diff_csqrtadj" title="f/diffusion_mod/diff_csqrtadj"><code class="xref f f-func docutils literal notranslate"><span class="pre">diff_csqrtadj()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/diffusion_mod/transposelontolatbands">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">diffusion_mod/</span></span><span class="sig-name descname"><span class="pre">transposelontolatbands</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">diffid</span></em>, <em class="sig-param"><span class="pre">xin</span></em>, <em class="sig-param"><span class="pre">xout</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/diffusion_mod/transposelontolatbands" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Perform an MPI transposition for a 2D array between longitude
+bands and latitude bands.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>diffid</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>xin</strong> (diff(diffid)%mylonend_transpose-(diff(diffid)%mylonbeg_transpose)+1,diff(diffid)%nj)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>xout</strong> (diff(diffid)%ni,diff(diffid)%mylatend-(diff(diffid)%mylatbeg)+1)<em> [</em><em>real </em><em>,</em><em>out</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/diffusion_mod/diff_setup" title="f/diffusion_mod/diff_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">diff_setup()</span></code></a>, <a class="reference internal" href="#f/diffusion_mod/diff_csqrt" title="f/diffusion_mod/diff_csqrt"><code class="xref f f-func docutils literal notranslate"><span class="pre">diff_csqrt()</span></code></a>, <a class="reference internal" href="#f/diffusion_mod/diff_csqrtadj" title="f/diffusion_mod/diff_csqrtadj"><code class="xref f f-func docutils literal notranslate"><span class="pre">diff_csqrtadj()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/diffusion_mod/diffusion1x_implicit">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">diffusion_mod/</span></span><span class="sig-name descname"><span class="pre">diffusion1x_implicit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">diffid</span></em>, <em class="sig-param"><span class="pre">xin</span></em>, <em class="sig-param"><span class="pre">xout</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/diffusion_mod/diffusion1x_implicit" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>To compute Lsqrt*xin (diffusion over 1 timestep, loop over
+timesteps is external to the subroutine).</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>diffid</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>xin</strong> (diff(diffid)%ni,diff(diffid)%mylatend-(diff(diffid)%mylatbeg)+1)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>xout</strong> (diff(diffid)%ni,diff(diffid)%mylatend-(diff(diffid)%mylatbeg)+1)<em> [</em><em>real </em><em>,</em><em>out</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/diffusion_mod/diff_setup" title="f/diffusion_mod/diff_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">diff_setup()</span></code></a>, <a class="reference internal" href="#f/diffusion_mod/diff_csqrt" title="f/diffusion_mod/diff_csqrt"><code class="xref f f-func docutils literal notranslate"><span class="pre">diff_csqrt()</span></code></a>, <a class="reference internal" href="#f/diffusion_mod/diff_csqrtadj" title="f/diffusion_mod/diff_csqrtadj"><code class="xref f f-func docutils literal notranslate"><span class="pre">diff_csqrtadj()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/diffusion_mod/diffusion1y_implicit">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">diffusion_mod/</span></span><span class="sig-name descname"><span class="pre">diffusion1y_implicit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">diffid</span></em>, <em class="sig-param"><span class="pre">xin</span></em>, <em class="sig-param"><span class="pre">xout</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/diffusion_mod/diffusion1y_implicit" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>To compute Lsqrt*xin (diffusion over 1 timestep, loop over
+timesteps is external to the subroutine).</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>diffid</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>xin</strong> (diff(diffid)%mylonend_transpose-(diff(diffid)%mylonbeg_transpose)+1,diff(diffid)%nj)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>xout</strong> (diff(diffid)%mylonend_transpose-(diff(diffid)%mylonbeg_transpose)+1,diff(diffid)%nj)<em> [</em><em>real </em><em>,</em><em>out</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/diffusion_mod/diff_setup" title="f/diffusion_mod/diff_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">diff_setup()</span></code></a>, <a class="reference internal" href="#f/diffusion_mod/diff_csqrt" title="f/diffusion_mod/diff_csqrt"><code class="xref f f-func docutils literal notranslate"><span class="pre">diff_csqrt()</span></code></a>, <a class="reference internal" href="#f/diffusion_mod/diff_csqrtadj" title="f/diffusion_mod/diff_csqrtadj"><code class="xref f f-func docutils literal notranslate"><span class="pre">diff_csqrtadj()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div></blockquote>
+</section>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="globalspectraltransform_mod.html" title="globalspectraltransform_mod"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="columnvariabletransforms_mod.html" title="columnvariabletransforms_mod"
+             >previous</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2018, ECCC.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.
+    </div>
+  </body>
+</html>

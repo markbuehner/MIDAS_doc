@@ -1,0 +1,22 @@
+==========================================
+ramdisk_mod
+==========================================
+
+    :doc:`link to source code <ramdisk_mod_src>`
+
+
+    **Dependency Diagrams:**
+
+    .. figure:: /ramdisk_mod.svg
+        :height: 100px
+
+        Direct Dependency Diagram
+
+    .. figure:: /ramdisk_mod_rev.svg
+        :height: 100px
+
+        Reverse Dependency Diagram
+
+
+    .. f:automodule:: ramdisk_mod
+

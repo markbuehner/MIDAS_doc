@@ -1,0 +1,22 @@
+==========================================
+obsoperatorschem_mod
+==========================================
+
+    :doc:`link to source code <obsoperatorschem_mod_src>`
+
+
+    **Dependency Diagrams:**
+
+    .. figure:: /obsoperatorschem_mod.svg
+        :height: 100px
+
+        Direct Dependency Diagram
+
+    .. figure:: /obsoperatorschem_mod_rev.svg
+        :height: 100px
+
+        Reverse Dependency Diagram
+
+
+    .. f:automodule:: obsoperatorschem_mod
+

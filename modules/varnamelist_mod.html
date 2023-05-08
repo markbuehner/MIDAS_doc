@@ -1,0 +1,590 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>varnamelist_mod &mdash; MIDAS  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="MIDAS  documentation" href="../index.html" />
+    <link rel="next" title="verticalcoord_mod" href="verticalcoord_mod.html" />
+    <link rel="prev" title="timecoord_mod" href="timecoord_mod.html" /> 
+  </head>
+  <body>
+  <div>
+    <img src="../_static/MIDAS_header.png" alt="MIDAS" />
+  </div>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="verticalcoord_mod.html" title="verticalcoord_mod"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="timecoord_mod.html" title="timecoord_mod"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="timecoord_mod.html"
+                          title="previous chapter">timecoord_mod</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="verticalcoord_mod.html"
+                          title="next chapter">verticalcoord_mod</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/modules/varnamelist_mod.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <section id="varnamelist-mod">
+<h1>varnamelist_mod<a class="headerlink" href="#varnamelist-mod" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><p><a class="reference internal" href="varnamelist_mod_src.html"><span class="doc">link to source code</span></a></p>
+<p><strong>Dependency Diagrams:</strong></p>
+<figure class="align-default" id="id1">
+<a class="reference internal image-reference" href="varnamelist_mod.svg"><img alt="varnamelist_mod.svg" height="100px" src="varnamelist_mod.svg" /></a>
+<figcaption>
+<p><span class="caption-text">Direct Dependency Diagram</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id2">
+<a class="reference internal image-reference" href="varnamelist_mod_rev.svg"><img alt="varnamelist_mod_rev.svg" height="100px" src="varnamelist_mod_rev.svg" /></a>
+<figcaption>
+<p><span class="caption-text">Reverse Dependency Diagram</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<span class="target" id="f/varnamelist_mod"></span><p class="rubric">Description</p>
+<p>MODULE varNameList (prefix=’vnl’ category=’7. Low-level data objects’)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Purpose</dt>
+<dd class="field-odd"><p>Contains a list of all possible variable names that can be used
+as analysis variables along with additional information for each
+and procedures for accessing this information</p>
+</dd>
+</dl>
+<p class="rubric">Quick access</p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/varnamelist_mod/vnl_numvarmax" title="f/varnamelist_mod/vnl_numvarmax"><code class="xref f f-var docutils literal notranslate"><span class="pre">vnl_numvarmax</span></code></a>, <a class="reference internal" href="#f/varnamelist_mod/vnl_numvarmax2d" title="f/varnamelist_mod/vnl_numvarmax2d"><code class="xref f f-var docutils literal notranslate"><span class="pre">vnl_numvarmax2d</span></code></a>, <a class="reference internal" href="#f/varnamelist_mod/vnl_numvarmax3d" title="f/varnamelist_mod/vnl_numvarmax3d"><code class="xref f f-var docutils literal notranslate"><span class="pre">vnl_numvarmax3d</span></code></a>, <a class="reference internal" href="#f/varnamelist_mod/vnl_numvarmaxcloud" title="f/varnamelist_mod/vnl_numvarmaxcloud"><code class="xref f f-var docutils literal notranslate"><span class="pre">vnl_numvarmaxcloud</span></code></a>, <a class="reference internal" href="#f/varnamelist_mod/vnl_numvarmaxother" title="f/varnamelist_mod/vnl_numvarmaxother"><code class="xref f f-var docutils literal notranslate"><span class="pre">vnl_numvarmaxother</span></code></a>, <a class="reference internal" href="#f/varnamelist_mod/vnl_varnamelist" title="f/varnamelist_mod/vnl_varnamelist"><code class="xref f f-var docutils literal notranslate"><span class="pre">vnl_varnamelist</span></code></a>, <a class="reference internal" href="#f/varnamelist_mod/vnl_varnamelist2d" title="f/varnamelist_mod/vnl_varnamelist2d"><code class="xref f f-var docutils literal notranslate"><span class="pre">vnl_varnamelist2d</span></code></a>, <a class="reference internal" href="#f/varnamelist_mod/vnl_varnamelist3d" title="f/varnamelist_mod/vnl_varnamelist3d"><code class="xref f f-var docutils literal notranslate"><span class="pre">vnl_varnamelist3d</span></code></a>, <a class="reference internal" href="#f/varnamelist_mod/vnl_varnamelistcloud" title="f/varnamelist_mod/vnl_varnamelistcloud"><code class="xref f f-var docutils literal notranslate"><span class="pre">vnl_varnamelistcloud</span></code></a>, <a class="reference internal" href="#f/varnamelist_mod/vnl_varnamelistother" title="f/varnamelist_mod/vnl_varnamelistother"><code class="xref f f-var docutils literal notranslate"><span class="pre">vnl_varnamelistother</span></code></a></p>
+</dd>
+<dt class="field-even">Routines</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/varnamelist_mod/vnl_addtovarnames" title="f/varnamelist_mod/vnl_addtovarnames"><code class="xref f f-func docutils literal notranslate"><span class="pre">vnl_addtovarnames()</span></code></a>, <a class="reference internal" href="#f/varnamelist_mod/vnl_iscloudvar" title="f/varnamelist_mod/vnl_iscloudvar"><code class="xref f f-func docutils literal notranslate"><span class="pre">vnl_iscloudvar()</span></code></a>, <a class="reference internal" href="#f/varnamelist_mod/vnl_isphysicsvar" title="f/varnamelist_mod/vnl_isphysicsvar"><code class="xref f f-func docutils literal notranslate"><span class="pre">vnl_isphysicsvar()</span></code></a>, <a class="reference internal" href="#f/varnamelist_mod/vnl_varkindfromvarname" title="f/varnamelist_mod/vnl_varkindfromvarname"><code class="xref f f-func docutils literal notranslate"><span class="pre">vnl_varkindfromvarname()</span></code></a>, <a class="reference internal" href="#f/varnamelist_mod/vnl_varlevelfromvarname" title="f/varnamelist_mod/vnl_varlevelfromvarname"><code class="xref f f-func docutils literal notranslate"><span class="pre">vnl_varlevelfromvarname()</span></code></a>, <a class="reference internal" href="#f/varnamelist_mod/vnl_varlevelfromvarnum" title="f/varnamelist_mod/vnl_varlevelfromvarnum"><code class="xref f f-func docutils literal notranslate"><span class="pre">vnl_varlevelfromvarnum()</span></code></a>, <a class="reference internal" href="#f/varnamelist_mod/vnl_varlistindex" title="f/varnamelist_mod/vnl_varlistindex"><code class="xref f f-func docutils literal notranslate"><span class="pre">vnl_varlistindex()</span></code></a>, <a class="reference internal" href="#f/varnamelist_mod/vnl_varlistindex2d" title="f/varnamelist_mod/vnl_varlistindex2d"><code class="xref f f-func docutils literal notranslate"><span class="pre">vnl_varlistindex2d()</span></code></a>, <a class="reference internal" href="#f/varnamelist_mod/vnl_varlistindex3d" title="f/varnamelist_mod/vnl_varlistindex3d"><code class="xref f f-func docutils literal notranslate"><span class="pre">vnl_varlistindex3d()</span></code></a>, <a class="reference internal" href="#f/varnamelist_mod/vnl_varlistindexother" title="f/varnamelist_mod/vnl_varlistindexother"><code class="xref f f-func docutils literal notranslate"><span class="pre">vnl_varlistindexother()</span></code></a>, <a class="reference internal" href="#f/varnamelist_mod/vnl_varmassfromvarname" title="f/varnamelist_mod/vnl_varmassfromvarname"><code class="xref f f-func docutils literal notranslate"><span class="pre">vnl_varmassfromvarname()</span></code></a>, <a class="reference internal" href="#f/varnamelist_mod/vnl_varmassfromvarnum" title="f/varnamelist_mod/vnl_varmassfromvarnum"><code class="xref f f-func docutils literal notranslate"><span class="pre">vnl_varmassfromvarnum()</span></code></a>, <a class="reference internal" href="#f/varnamelist_mod/vnl_varnamefromvarnum" title="f/varnamelist_mod/vnl_varnamefromvarnum"><code class="xref f f-func docutils literal notranslate"><span class="pre">vnl_varnamefromvarnum()</span></code></a>, <a class="reference internal" href="#f/varnamelist_mod/vnl_varnameisvalid" title="f/varnamelist_mod/vnl_varnameisvalid"><code class="xref f f-func docutils literal notranslate"><span class="pre">vnl_varnameisvalid()</span></code></a>, <a class="reference internal" href="#f/varnamelist_mod/vnl_varnamesfromexistlist" title="f/varnamelist_mod/vnl_varnamesfromexistlist"><code class="xref f f-func docutils literal notranslate"><span class="pre">vnl_varnamesfromexistlist()</span></code></a>, <a class="reference internal" href="#f/varnamelist_mod/vnl_varnumfromvarname" title="f/varnamelist_mod/vnl_varnumfromvarname"><code class="xref f f-func docutils literal notranslate"><span class="pre">vnl_varnumfromvarname()</span></code></a></p>
+</dd>
+</dl>
+<p class="rubric">Needed modules</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="bufr_mod.html#f/bufr_mod" title="f/bufr_mod: MODULE bufr_mod (prefix='bufr' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">bufr_mod</span></code></a>: MODULE bufr_mod (prefix=’bufr’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="midasmpi_mod.html#f/midasmpi_mod" title="f/midasmpi_mod: MODULE midasMpi_mod (prefix='mmpi' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">midasmpi_mod</span></code></a>: MODULE midasMpi_mod (prefix=’mmpi’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod" title="f/utilities_mod: MODULE utilities_mod (prefix='utl' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">utilities_mod</span></code></a>: MODULE utilities_mod (prefix=’utl’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="mathphysconstants_mod.html#f/mathphysconstants_mod" title="f/mathphysconstants_mod: MODULE MathPhysConstants_mod (prefix='mpc' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">mathphysconstants_mod</span></code></a>: MODULE MathPhysConstants_mod (prefix=’mpc’ category=’8. Low-level utilities and constants’)</p></li>
+</ul>
+<p class="rubric">Variables</p>
+<ul>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/varnamelist_mod/vnl_numvarmax">
+<span class="sig-prename descclassname"><span class="pre">varnamelist_mod/</span></span><span class="sig-name descname"><span class="pre">vnl_numvarmax</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">parameter/public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/varnamelist_mod/vnl_numvarmax" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/varnamelist_mod/vnl_numvarmax2d">
+<span class="sig-prename descclassname"><span class="pre">varnamelist_mod/</span></span><span class="sig-name descname"><span class="pre">vnl_numvarmax2d</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">parameter/public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/varnamelist_mod/vnl_numvarmax2d" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/varnamelist_mod/vnl_numvarmax3d">
+<span class="sig-prename descclassname"><span class="pre">varnamelist_mod/</span></span><span class="sig-name descname"><span class="pre">vnl_numvarmax3d</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">parameter/public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/varnamelist_mod/vnl_numvarmax3d" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/varnamelist_mod/vnl_numvarmaxcloud">
+<span class="sig-prename descclassname"><span class="pre">varnamelist_mod/</span></span><span class="sig-name descname"><span class="pre">vnl_numvarmaxcloud</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">parameter/public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/varnamelist_mod/vnl_numvarmaxcloud" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/varnamelist_mod/vnl_numvarmaxother">
+<span class="sig-prename descclassname"><span class="pre">varnamelist_mod/</span></span><span class="sig-name descname"><span class="pre">vnl_numvarmaxother</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">parameter/public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/varnamelist_mod/vnl_numvarmaxother" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/varnamelist_mod/vnl_varnamelist">
+<span class="sig-prename descclassname"><span class="pre">varnamelist_mod/</span></span><span class="sig-name descname"><span class="pre">vnl_varnamelist</span></span> <span class="pre">(</span><span class="pre">95</span><span class="pre">)</span><em> <span class="pre">[</span></em><em><span class="pre">character</span></em><em><span class="pre">,</span></em><em><span class="pre">parameter/public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/varnamelist_mod/vnl_varnamelist" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/varnamelist_mod/vnl_varnamelist2d">
+<span class="sig-prename descclassname"><span class="pre">varnamelist_mod/</span></span><span class="sig-name descname"><span class="pre">vnl_varnamelist2d</span></span> <span class="pre">(</span><span class="pre">37</span><span class="pre">)</span><em> <span class="pre">[</span></em><em><span class="pre">character</span></em><em><span class="pre">,</span></em><em><span class="pre">parameter/public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/varnamelist_mod/vnl_varnamelist2d" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/varnamelist_mod/vnl_varnamelist3d">
+<span class="sig-prename descclassname"><span class="pre">varnamelist_mod/</span></span><span class="sig-name descname"><span class="pre">vnl_varnamelist3d</span></span> <span class="pre">(</span><span class="pre">52</span><span class="pre">)</span><em> <span class="pre">[</span></em><em><span class="pre">character</span></em><em><span class="pre">,</span></em><em><span class="pre">parameter/public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/varnamelist_mod/vnl_varnamelist3d" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/varnamelist_mod/vnl_varnamelistcloud">
+<span class="sig-prename descclassname"><span class="pre">varnamelist_mod/</span></span><span class="sig-name descname"><span class="pre">vnl_varnamelistcloud</span></span> <span class="pre">(</span><span class="pre">5</span><span class="pre">)</span><em> <span class="pre">[</span></em><em><span class="pre">character</span></em><em><span class="pre">,</span></em><em><span class="pre">parameter/public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/varnamelist_mod/vnl_varnamelistcloud" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/varnamelist_mod/vnl_varnamelistother">
+<span class="sig-prename descclassname"><span class="pre">varnamelist_mod/</span></span><span class="sig-name descname"><span class="pre">vnl_varnamelistother</span></span> <span class="pre">(</span><span class="pre">6</span><span class="pre">)</span><em> <span class="pre">[</span></em><em><span class="pre">character</span></em><em><span class="pre">,</span></em><em><span class="pre">parameter/public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/varnamelist_mod/vnl_varnamelistother" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+</ul>
+<p class="rubric">Subroutines and functions</p>
+<dl>
+<dt class="sig sig-object f" id="f/varnamelist_mod/vnl_varlistindex3d">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">varnamelist_mod/</span></span><span class="sig-name descname"><span class="pre">vnl_varlistindex3d</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">varname</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/varnamelist_mod/vnl_varlistindex3d" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>To get the 3d list index from the variable name</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>varname</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em></p>
+</dd>
+<dt class="field-odd">Return</dt>
+<dd class="field-odd"><p><strong>listindex</strong><em> [</em><em>integer </em><em>]</em></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/varnamelist_mod/vnl_varlistindex2d">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">varnamelist_mod/</span></span><span class="sig-name descname"><span class="pre">vnl_varlistindex2d</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">varname</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/varnamelist_mod/vnl_varlistindex2d" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>To get the 2d list index from the variable name</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>varname</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em></p>
+</dd>
+<dt class="field-odd">Return</dt>
+<dd class="field-odd"><p><strong>listindex</strong><em> [</em><em>integer </em><em>]</em></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/varnamelist_mod/vnl_varlistindexother">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">varnamelist_mod/</span></span><span class="sig-name descname"><span class="pre">vnl_varlistindexother</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">varname</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/varnamelist_mod/vnl_varlistindexother" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>To get the “Other” list index from the variable name</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>varname</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em></p>
+</dd>
+<dt class="field-odd">Return</dt>
+<dd class="field-odd"><p><strong>listindex</strong><em> [</em><em>integer </em><em>]</em></p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="verticalcoord_mod.html#f/verticalcoord_mod/vco_getnumlev" title="f/verticalcoord_mod/vco_getnumlev"><code class="xref f f-func docutils literal notranslate"><span class="pre">vco_getnumlev()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/varnamelist_mod/vnl_varlistindex">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">varnamelist_mod/</span></span><span class="sig-name descname"><span class="pre">vnl_varlistindex</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">varname</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/varnamelist_mod/vnl_varlistindex" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>To get the varlist index from the variable name</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>varname</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em></p>
+</dd>
+<dt class="field-odd">Return</dt>
+<dd class="field-odd"><p><strong>listindex</strong><em> [</em><em>integer </em><em>]</em></p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_allocate" title="f/columndata_mod/col_allocate"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_allocate()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_getoffsetfromvarno" title="f/columndata_mod/col_getoffsetfromvarno"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_getoffsetfromvarno()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_getpressure" title="f/columndata_mod/col_getpressure"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_getpressure()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_getheight" title="f/columndata_mod/col_getheight"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_getheight()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_getallcolumns" title="f/columndata_mod/col_getallcolumns"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_getallcolumns()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_getcolumn" title="f/columndata_mod/col_getcolumn"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_getcolumn()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_getelem" title="f/columndata_mod/col_getelem"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_getelem()</span></code></a>, <a class="reference internal" href="gridvariabletransforms_mod.html#f/gridvariabletransforms_mod/gvt_setupreffromtrialfiles" title="f/gridvariabletransforms_mod/gvt_setupreffromtrialfiles"><code class="xref f f-func docutils literal notranslate"><span class="pre">gvt_setupreffromtrialfiles()</span></code></a>, <a class="reference internal" href="gridvariabletransforms_mod.html#f/gridvariabletransforms_mod/logch_ens" title="f/gridvariabletransforms_mod/logch_ens"><code class="xref f f-func docutils literal notranslate"><span class="pre">logch_ens()</span></code></a>, <a class="reference internal" href="gridvariabletransforms_mod.html#f/gridvariabletransforms_mod/expch_tlm" title="f/gridvariabletransforms_mod/expch_tlm"><code class="xref f f-func docutils literal notranslate"><span class="pre">expch_tlm()</span></code></a>, <a class="reference internal" href="gridvariabletransforms_mod.html#f/gridvariabletransforms_mod/ch_bounds" title="f/gridvariabletransforms_mod/ch_bounds"><code class="xref f f-func docutils literal notranslate"><span class="pre">ch_bounds()</span></code></a>, <a class="reference internal" href="gridstatevectorfileio_mod.html#f/gridstatevectorfileio_mod/gio_readfile" title="f/gridstatevectorfileio_mod/gio_readfile"><code class="xref f f-func docutils literal notranslate"><span class="pre">gio_readfile()</span></code></a>, <a class="reference internal" href="gridstatevectorfileio_mod.html#f/gridstatevectorfileio_mod/gio_writetofile" title="f/gridstatevectorfileio_mod/gio_writetofile"><code class="xref f f-func docutils literal notranslate"><span class="pre">gio_writetofile()</span></code></a>, <a class="reference internal" href="gridstatevectorfileio_mod.html#f/gridstatevectorfileio_mod/gio_fileunitstostateunits" title="f/gridstatevectorfileio_mod/gio_fileunitstostateunits"><code class="xref f f-func docutils literal notranslate"><span class="pre">gio_fileunitstostateunits()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_getoffsetfromvarname" title="f/gridstatevector_mod/gsv_getoffsetfromvarname"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_getoffsetfromvarname()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_getnumlevfromvarname" title="f/gridstatevector_mod/gsv_getnumlevfromvarname"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_getnumlevfromvarname()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_allocate" title="f/gridstatevector_mod/gsv_allocate"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_allocate()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_modifyvarname" title="f/gridstatevector_mod/gsv_modifyvarname"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_modifyvarname()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_getfield_r48" title="f/gridstatevector_mod/gsv_getfield_r48"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_getfield_r48()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_getfield3d_r8" title="f/gridstatevector_mod/gsv_getfield3d_r8"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_getfield3d_r8()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_getfield3d_r4" title="f/gridstatevector_mod/gsv_getfield3d_r4"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_getfield3d_r4()</span></code></a>, <a class="reference internal" href="innovation_mod.html#f/innovation_mod/inn_setupcolumnsonanlinclev" title="f/innovation_mod/inn_setupcolumnsonanlinclev"><code class="xref f f-func docutils literal notranslate"><span class="pre">inn_setupcolumnsonanlinclev()</span></code></a>, <a class="reference internal" href="#f/varnamelist_mod/vnl_varlevelfromvarname" title="f/varnamelist_mod/vnl_varlevelfromvarname"><code class="xref f f-func docutils literal notranslate"><span class="pre">vnl_varlevelfromvarname()</span></code></a>, <a class="reference internal" href="#f/varnamelist_mod/vnl_varlevelfromvarnum" title="f/varnamelist_mod/vnl_varlevelfromvarnum"><code class="xref f f-func docutils literal notranslate"><span class="pre">vnl_varlevelfromvarnum()</span></code></a>, <a class="reference internal" href="#f/varnamelist_mod/vnl_varkindfromvarname" title="f/varnamelist_mod/vnl_varkindfromvarname"><code class="xref f f-func docutils literal notranslate"><span class="pre">vnl_varkindfromvarname()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/varnamelist_mod/vnl_varnameisvalid">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">varnamelist_mod/</span></span><span class="sig-name descname"><span class="pre">vnl_varnameisvalid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">varname</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/varnamelist_mod/vnl_varnameisvalid" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Check if the supplied variable name is known by MIDAS.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>varname</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em></p>
+</dd>
+<dt class="field-odd">Return</dt>
+<dd class="field-odd"><p><strong>isvalid</strong><em> [</em><em>logical </em><em>]</em></p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="verticalcoord_mod.html#f/verticalcoord_mod/vco_setupfromfile" title="f/verticalcoord_mod/vco_setupfromfile"><code class="xref f f-func docutils literal notranslate"><span class="pre">vco_setupfromfile()</span></code></a>, <a class="reference internal" href="verticalcoord_mod.html#f/verticalcoord_mod/vco_setupoceanfromfile" title="f/verticalcoord_mod/vco_setupoceanfromfile"><code class="xref f f-func docutils literal notranslate"><span class="pre">vco_setupoceanfromfile()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/varnamelist_mod/vnl_varnamefromvarnum">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">varnamelist_mod/</span></span><span class="sig-name descname"><span class="pre">vnl_varnamefromvarnum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">varnumber</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">varnumberchm_opt</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">modelname_opt</span></em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/varnamelist_mod/vnl_varnamefromvarnum" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>To get the variable name from the variable number</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>varnumber</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p>
+</dd>
+<dt class="field-odd">Options</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>varnumberchm_opt</strong><em> [</em><em>integer </em><em>,</em><em>in,</em><em>]</em></p></li>
+<li><p><strong>modelname_opt</strong><em> [</em><em>character </em><em>,</em><em>in,</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Return</dt>
+<dd class="field-even"><p><strong>varname</strong><em> [</em><em>character </em><em>]</em></p>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_getoffsetfromvarno" title="f/columndata_mod/col_getoffsetfromvarno"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_getoffsetfromvarno()</span></code></a>, <a class="reference internal" href="obserrors_mod.html#f/obserrors_mod/oer_sw" title="f/obserrors_mod/oer_sw"><code class="xref f f-func docutils literal notranslate"><span class="pre">oer_sw()</span></code></a>, <a class="reference internal" href="obsoperators_mod.html#f/obsoperators_mod/oop_ppp_nl" title="f/obsoperators_mod/oop_ppp_nl"><code class="xref f f-func docutils literal notranslate"><span class="pre">oop_ppp_nl()</span></code></a>, <a class="reference internal" href="obsoperators_mod.html#f/obsoperators_mod/oop_hydro_nl" title="f/obsoperators_mod/oop_hydro_nl"><code class="xref f f-func docutils literal notranslate"><span class="pre">oop_hydro_nl()</span></code></a>, <a class="reference internal" href="obsoperators_mod.html#f/obsoperators_mod/oop_ice_nl" title="f/obsoperators_mod/oop_ice_nl"><code class="xref f f-func docutils literal notranslate"><span class="pre">oop_ice_nl()</span></code></a>, <a class="reference internal" href="#f/varnamelist_mod/vnl_varlevelfromvarnum" title="f/varnamelist_mod/vnl_varlevelfromvarnum"><code class="xref f f-func docutils literal notranslate"><span class="pre">vnl_varlevelfromvarnum()</span></code></a>, <a class="reference internal" href="varqc_mod.html#f/varqc_mod/vqc_listrej" title="f/varqc_mod/vqc_listrej"><code class="xref f f-func docutils literal notranslate"><span class="pre">vqc_listrej()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/varnamelist_mod/vnl_varnumfromvarname">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">varnamelist_mod/</span></span><span class="sig-name descname"><span class="pre">vnl_varnumfromvarname</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">varname</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">varkind_opt</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/varnamelist_mod/vnl_varnumfromvarname" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Identifies varNumber from varName for use in assimilating
+obs in the CH family.
+Here, for weather variables, there is a 1-1 association between
+a variable name and an observation unit.
+So one must provide the name directly associated to a single
+BUFR code.
+As such, weather variable varNames may not necessarily be a
+member of the vnl_varNameList for this routine only.</p>
+<p>For constituents, the varNumber refers only to the field/
+variable and not units. As consequence, there is a unique
+pairing of varNumbers with the varNames from vnl_VarNameList.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>varname</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em></p>
+</dd>
+<dt class="field-odd">Options</dt>
+<dd class="field-odd"><p><strong>varkind_opt</strong><em> [</em><em>character </em><em>,</em><em>in,</em><em>]</em></p>
+</dd>
+<dt class="field-even">Return</dt>
+<dd class="field-even"><p><strong>varnumber</strong><em> [</em><em>integer </em><em>]</em></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/varnamelist_mod/vnl_varlevelfromvarname">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">varnamelist_mod/</span></span><span class="sig-name descname"><span class="pre">vnl_varlevelfromvarname</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">varname</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/varnamelist_mod/vnl_varlevelfromvarname" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>To get variable level list from variable name</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>varname</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em></p>
+</dd>
+<dt class="field-odd">Return</dt>
+<dd class="field-odd"><p><strong>varlevel</strong><em> [</em><em>character </em><em>]</em></p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="advection_mod.html#f/advection_mod/adv_ensemble_tl_r8" title="f/advection_mod/adv_ensemble_tl_r8"><code class="xref f f-func docutils literal notranslate"><span class="pre">adv_ensemble_tl_r8()</span></code></a>, <a class="reference internal" href="advection_mod.html#f/advection_mod/adv_ensemble_tl_r4" title="f/advection_mod/adv_ensemble_tl_r4"><code class="xref f f-func docutils literal notranslate"><span class="pre">adv_ensemble_tl_r4()</span></code></a>, <a class="reference internal" href="advection_mod.html#f/advection_mod/adv_ensemble_ad" title="f/advection_mod/adv_ensemble_ad"><code class="xref f f-func docutils literal notranslate"><span class="pre">adv_ensemble_ad()</span></code></a>, <a class="reference internal" href="advection_mod.html#f/advection_mod/adv_statevector_tl" title="f/advection_mod/adv_statevector_tl"><code class="xref f f-func docutils literal notranslate"><span class="pre">adv_statevector_tl()</span></code></a>, <a class="reference internal" href="advection_mod.html#f/advection_mod/adv_statevector_ad" title="f/advection_mod/adv_statevector_ad"><code class="xref f f-func docutils literal notranslate"><span class="pre">adv_statevector_ad()</span></code></a>, <a class="reference internal" href="analysiserroroi_mod.html#f/analysiserroroi_mod/aer_analysiserror" title="f/analysiserroroi_mod/aer_analysiserror"><code class="xref f f-func docutils literal notranslate"><span class="pre">aer_analysiserror()</span></code></a>, <a class="reference internal" href="analysiserroroi_mod.html#f/analysiserroroi_mod/aer_dayssincelastobs" title="f/analysiserroroi_mod/aer_dayssincelastobs"><code class="xref f f-func docutils literal notranslate"><span class="pre">aer_dayssincelastobs()</span></code></a>, <a class="reference internal" href="bcovarsetupchem_mod.html#f/bcovarsetupchem_mod/bcsc_rdspstd_newfmt" title="f/bcovarsetupchem_mod/bcsc_rdspstd_newfmt"><code class="xref f f-func docutils literal notranslate"><span class="pre">bcsc_rdspstd_newfmt()</span></code></a>, <a class="reference internal" href="bcovarsetupchem_mod.html#f/bcovarsetupchem_mod/bcsc_rdstd3d" title="f/bcovarsetupchem_mod/bcsc_rdstd3d"><code class="xref f f-func docutils literal notranslate"><span class="pre">bcsc_rdstd3d()</span></code></a>, <a class="reference internal" href="bmatrix1dvar_mod.html#f/bmatrix1dvar_mod/bmat1d_setupbens" title="f/bmatrix1dvar_mod/bmat1d_setupbens"><code class="xref f f-func docutils literal notranslate"><span class="pre">bmat1d_setupbens()</span></code></a>, <a class="reference internal" href="bmatrixensemble_mod.html#f/bmatrixensemble_mod/setupensemble" title="f/bmatrixensemble_mod/setupensemble"><code class="xref f f-func docutils literal notranslate"><span class="pre">setupensemble()</span></code></a>, <a class="reference internal" href="bmatrixensemble_mod.html#f/bmatrixensemble_mod/ben_getperturbation" title="f/bmatrixensemble_mod/ben_getperturbation"><code class="xref f f-func docutils literal notranslate"><span class="pre">ben_getperturbation()</span></code></a>, <a class="reference internal" href="bmatrixensemble_mod.html#f/bmatrixensemble_mod/ben_getensmean" title="f/bmatrixensemble_mod/ben_getensmean"><code class="xref f f-func docutils literal notranslate"><span class="pre">ben_getensmean()</span></code></a>, <a class="reference internal" href="bmatrixensemble_mod.html#f/bmatrixensemble_mod/addensmember" title="f/bmatrixensemble_mod/addensmember"><code class="xref f f-func docutils literal notranslate"><span class="pre">addensmember()</span></code></a>, <a class="reference internal" href="bmatrixensemble_mod.html#f/bmatrixensemble_mod/addensmemberad" title="f/bmatrixensemble_mod/addensmemberad"><code class="xref f f-func docutils literal notranslate"><span class="pre">addensmemberad()</span></code></a>, <a class="reference internal" href="bmatrixhi_mod.html#f/bmatrixhi_mod/bhi_rdspstd" title="f/bmatrixhi_mod/bhi_rdspstd"><code class="xref f f-func docutils literal notranslate"><span class="pre">bhi_rdspstd()</span></code></a>, <a class="reference internal" href="bmatrixhi_mod.html#f/bmatrixhi_mod/bhi_rdstd" title="f/bmatrixhi_mod/bhi_rdstd"><code class="xref f f-func docutils literal notranslate"><span class="pre">bhi_rdstd()</span></code></a>, <a class="reference internal" href="bmatrixhi_mod.html#f/bmatrixhi_mod/bhi_rdspstd_newfmt" title="f/bmatrixhi_mod/bhi_rdspstd_newfmt"><code class="xref f f-func docutils literal notranslate"><span class="pre">bhi_rdspstd_newfmt()</span></code></a>, <a class="reference internal" href="bmatrixhi_mod.html#f/bmatrixhi_mod/copytostatevector" title="f/bmatrixhi_mod/copytostatevector"><code class="xref f f-func docutils literal notranslate"><span class="pre">copytostatevector()</span></code></a>, <a class="reference internal" href="bmatrixhi_mod.html#f/bmatrixhi_mod/copyfromstatevector" title="f/bmatrixhi_mod/copyfromstatevector"><code class="xref f f-func docutils literal notranslate"><span class="pre">copyfromstatevector()</span></code></a>, <a class="reference internal" href="calcstatsglb_mod.html#f/calcstatsglb_mod/write3d" title="f/calcstatsglb_mod/write3d"><code class="xref f f-func docutils literal notranslate"><span class="pre">write3d()</span></code></a>, <a class="reference internal" href="calcstatsglb_mod.html#f/calcstatsglb_mod/writepowerspec" title="f/calcstatsglb_mod/writepowerspec"><code class="xref f f-func docutils literal notranslate"><span class="pre">writepowerspec()</span></code></a>, <a class="reference internal" href="calcstatslam_mod.html#f/calcstatslam_mod/csl_setup" title="f/calcstatslam_mod/csl_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">csl_setup()</span></code></a>, <a class="reference internal" href="calcstatslam_mod.html#f/calcstatslam_mod/scalestddev" title="f/calcstatslam_mod/scalestddev"><code class="xref f f-func docutils literal notranslate"><span class="pre">scalestddev()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_allocate" title="f/columndata_mod/col_allocate"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_allocate()</span></code></a>, <a class="reference internal" href="enkf_mod.html#f/enkf_mod/enkf_letkfanalyses" title="f/enkf_mod/enkf_letkfanalyses"><code class="xref f f-func docutils literal notranslate"><span class="pre">enkf_letkfanalyses()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_copymember" title="f/ensemblestatevector_mod/ens_copymember"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_copymember()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_insertmember" title="f/ensemblestatevector_mod/ens_insertmember"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_insertmember()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_recenter" title="f/ensemblestatevector_mod/ens_recenter"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_recenter()</span></code></a>, <a class="reference internal" href="enspostprocess_mod.html#f/enspostprocess_mod/epp_printrmsstats" title="f/enspostprocess_mod/epp_printrmsstats"><code class="xref f f-func docutils literal notranslate"><span class="pre">epp_printrmsstats()</span></code></a>, <a class="reference internal" href="gridvariabletransforms_mod.html#f/gridvariabletransforms_mod/lqtohu" title="f/gridvariabletransforms_mod/lqtohu"><code class="xref f f-func docutils literal notranslate"><span class="pre">lqtohu()</span></code></a>, <a class="reference internal" href="gridvariabletransforms_mod.html#f/gridvariabletransforms_mod/hutolq_gsv" title="f/gridvariabletransforms_mod/hutolq_gsv"><code class="xref f f-func docutils literal notranslate"><span class="pre">hutolq_gsv()</span></code></a>, <a class="reference internal" href="gridvariabletransforms_mod.html#f/gridvariabletransforms_mod/lqtohu_tlm" title="f/gridvariabletransforms_mod/lqtohu_tlm"><code class="xref f f-func docutils literal notranslate"><span class="pre">lqtohu_tlm()</span></code></a>, <a class="reference internal" href="gridvariabletransforms_mod.html#f/gridvariabletransforms_mod/hutolq_tlm" title="f/gridvariabletransforms_mod/hutolq_tlm"><code class="xref f f-func docutils literal notranslate"><span class="pre">hutolq_tlm()</span></code></a>, <a class="reference internal" href="gridvariabletransforms_mod.html#f/gridvariabletransforms_mod/lprtopr_gsv" title="f/gridvariabletransforms_mod/lprtopr_gsv"><code class="xref f f-func docutils literal notranslate"><span class="pre">lprtopr_gsv()</span></code></a>, <a class="reference internal" href="gridvariabletransforms_mod.html#f/gridvariabletransforms_mod/prtolpr_gsv" title="f/gridvariabletransforms_mod/prtolpr_gsv"><code class="xref f f-func docutils literal notranslate"><span class="pre">prtolpr_gsv()</span></code></a>, <a class="reference internal" href="gridvariabletransforms_mod.html#f/gridvariabletransforms_mod/lvistovis" title="f/gridvariabletransforms_mod/lvistovis"><code class="xref f f-func docutils literal notranslate"><span class="pre">lvistovis()</span></code></a>, <a class="reference internal" href="gridvariabletransforms_mod.html#f/gridvariabletransforms_mod/expch_tlm" title="f/gridvariabletransforms_mod/expch_tlm"><code class="xref f f-func docutils literal notranslate"><span class="pre">expch_tlm()</span></code></a>, <a class="reference internal" href="gridvariabletransforms_mod.html#f/gridvariabletransforms_mod/ch_bounds" title="f/gridvariabletransforms_mod/ch_bounds"><code class="xref f f-func docutils literal notranslate"><span class="pre">ch_bounds()</span></code></a>, <a class="reference internal" href="gridvariabletransforms_mod.html#f/gridvariabletransforms_mod/gvt_oceanicecontinous" title="f/gridvariabletransforms_mod/gvt_oceanicecontinous"><code class="xref f f-func docutils literal notranslate"><span class="pre">gvt_oceanicecontinous()</span></code></a>, <a class="reference internal" href="gridvariabletransforms_mod.html#f/gridvariabletransforms_mod/gvt_sstspread" title="f/gridvariabletransforms_mod/gvt_sstspread"><code class="xref f f-func docutils literal notranslate"><span class="pre">gvt_sstspread()</span></code></a>, <a class="reference internal" href="gridstatevectorfileio_mod.html#f/gridstatevectorfileio_mod/gio_readfile" title="f/gridstatevectorfileio_mod/gio_readfile"><code class="xref f f-func docutils literal notranslate"><span class="pre">gio_readfile()</span></code></a>, <a class="reference internal" href="gridstatevectorfileio_mod.html#f/gridstatevectorfileio_mod/gio_writetofile" title="f/gridstatevectorfileio_mod/gio_writetofile"><code class="xref f f-func docutils literal notranslate"><span class="pre">gio_writetofile()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_allocate" title="f/gridstatevector_mod/gsv_allocate"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_allocate()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_modifyvarname" title="f/gridstatevector_mod/gsv_modifyvarname"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_modifyvarname()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_scalevertical" title="f/gridstatevector_mod/gsv_scalevertical"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_scalevertical()</span></code></a>, <a class="reference internal" href="interpolation_mod.html#f/interpolation_mod/vinterp_gsv_r8" title="f/interpolation_mod/vinterp_gsv_r8"><code class="xref f f-func docutils literal notranslate"><span class="pre">vinterp_gsv_r8()</span></code></a>, <a class="reference internal" href="interpolation_mod.html#f/interpolation_mod/vinterp_gsv_r4" title="f/interpolation_mod/vinterp_gsv_r4"><code class="xref f f-func docutils literal notranslate"><span class="pre">vinterp_gsv_r4()</span></code></a>, <a class="reference internal" href="interpolation_mod.html#f/interpolation_mod/int_vinterp_col" title="f/interpolation_mod/int_vinterp_col"><code class="xref f f-func docutils literal notranslate"><span class="pre">int_vinterp_col()</span></code></a>, <a class="reference internal" href="lambmatrixhi_mod.html#f/lambmatrixhi_mod/statevectorinterface" title="f/lambmatrixhi_mod/statevectorinterface"><code class="xref f f-func docutils literal notranslate"><span class="pre">statevectorinterface()</span></code></a>, <a class="reference internal" href="menetrierdiag_mod.html#f/menetrierdiag_mod/bmd_setup" title="f/menetrierdiag_mod/bmd_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">bmd_setup()</span></code></a>, <a class="reference internal" href="menetrierdiag_mod.html#f/menetrierdiag_mod/calchorizlocalizationradii" title="f/menetrierdiag_mod/calchorizlocalizationradii"><code class="xref f f-func docutils literal notranslate"><span class="pre">calchorizlocalizationradii()</span></code></a>, <a class="reference internal" href="menetrierdiag_mod.html#f/menetrierdiag_mod/calcvertlocalizationradii" title="f/menetrierdiag_mod/calcvertlocalizationradii"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcvertlocalizationradii()</span></code></a>, <a class="reference internal" href="obsspacediag_mod.html#f/obsspacediag_mod/osd_calcinflation" title="f/obsspacediag_mod/osd_calcinflation"><code class="xref f f-func docutils literal notranslate"><span class="pre">osd_calcinflation()</span></code></a>, <a class="reference internal" href="statetocolumn_mod.html#f/statetocolumn_mod/s2c_setupinterpinfo" title="f/statetocolumn_mod/s2c_setupinterpinfo"><code class="xref f f-func docutils literal notranslate"><span class="pre">s2c_setupinterpinfo()</span></code></a>, <a class="reference internal" href="verticalcoord_mod.html#f/verticalcoord_mod/vco_setupoceanfromfile" title="f/verticalcoord_mod/vco_setupoceanfromfile"><code class="xref f f-func docutils literal notranslate"><span class="pre">vco_setupoceanfromfile()</span></code></a>, <a class="reference internal" href="../programs/midas_diagbmatrix.html#f/midas_diagbmatrix" title="f/midas_diagbmatrix"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_diagbmatrix</span></code></a>, <a class="reference internal" href="../programs/midas_extractbmatrixfor1dvar.html#f/midas_extractbmatrixfor1dvar" title="f/midas_extractbmatrixfor1dvar"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_extractbmatrixfor1dvar</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_isnamelistpresent" title="f/utilities_mod/utl_isnamelistpresent"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_isnamelistpresent()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="#f/varnamelist_mod/vnl_varlistindex" title="f/varnamelist_mod/vnl_varlistindex"><code class="xref f f-func docutils literal notranslate"><span class="pre">vnl_varlistindex()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/varnamelist_mod/vnl_varlevelfromvarnum">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">varnamelist_mod/</span></span><span class="sig-name descname"><span class="pre">vnl_varlevelfromvarnum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">varnumber</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">varnumberchm_opt</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">modelname_opt</span></em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/varnamelist_mod/vnl_varlevelfromvarnum" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>To get variable level list from the variable number</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>varnumber</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p>
+</dd>
+<dt class="field-odd">Options</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>varnumberchm_opt</strong><em> [</em><em>integer </em><em>,</em><em>in,</em><em>]</em></p></li>
+<li><p><strong>modelname_opt</strong><em> [</em><em>character </em><em>,</em><em>in,</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Return</dt>
+<dd class="field-even"><p><strong>varlevel</strong><em> [</em><em>character </em><em>]</em></p>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="obsspaceerrorstddev_mod.html#f/obsspaceerrorstddev_mod/setfgefam" title="f/obsspaceerrorstddev_mod/setfgefam"><code class="xref f f-func docutils literal notranslate"><span class="pre">setfgefam()</span></code></a>, <a class="reference internal" href="obsspaceerrorstddev_mod.html#f/obsspaceerrorstddev_mod/setfgefamz" title="f/obsspaceerrorstddev_mod/setfgefamz"><code class="xref f f-func docutils literal notranslate"><span class="pre">setfgefamz()</span></code></a>, <a class="reference internal" href="obsspaceerrorstddev_mod.html#f/obsspaceerrorstddev_mod/setfgett" title="f/obsspaceerrorstddev_mod/setfgett"><code class="xref f f-func docutils literal notranslate"><span class="pre">setfgett()</span></code></a>, <a class="reference internal" href="obsspaceerrorstddev_mod.html#f/obsspaceerrorstddev_mod/setfgesurf" title="f/obsspaceerrorstddev_mod/setfgesurf"><code class="xref f f-func docutils literal notranslate"><span class="pre">setfgesurf()</span></code></a>, <a class="reference internal" href="obsspaceerrorstddev_mod.html#f/obsspaceerrorstddev_mod/setfgegps" title="f/obsspaceerrorstddev_mod/setfgegps"><code class="xref f f-func docutils literal notranslate"><span class="pre">setfgegps()</span></code></a>, <a class="reference internal" href="obserrors_mod.html#f/obserrors_mod/oer_sw" title="f/obserrors_mod/oer_sw"><code class="xref f f-func docutils literal notranslate"><span class="pre">oer_sw()</span></code></a>, <a class="reference internal" href="obsfilter_mod.html#f/obsfilter_mod/filt_toposurface" title="f/obsfilter_mod/filt_toposurface"><code class="xref f f-func docutils literal notranslate"><span class="pre">filt_toposurface()</span></code></a>, <a class="reference internal" href="obsoperators_mod.html#f/obsoperators_mod/oop_vobslyrs" title="f/obsoperators_mod/oop_vobslyrs"><code class="xref f f-func docutils literal notranslate"><span class="pre">oop_vobslyrs()</span></code></a>, <a class="reference internal" href="obsoperators_mod.html#f/obsoperators_mod/oop_ppp_nl" title="f/obsoperators_mod/oop_ppp_nl"><code class="xref f f-func docutils literal notranslate"><span class="pre">oop_ppp_nl()</span></code></a>, <a class="reference internal" href="obsoperators_mod.html#f/obsoperators_mod/oop_zzz_nl" title="f/obsoperators_mod/oop_zzz_nl"><code class="xref f f-func docutils literal notranslate"><span class="pre">oop_zzz_nl()</span></code></a>, <a class="reference internal" href="obsoperators_mod.html#f/obsoperators_mod/oop_sfc_nl" title="f/obsoperators_mod/oop_sfc_nl"><code class="xref f f-func docutils literal notranslate"><span class="pre">oop_sfc_nl()</span></code></a>, <a class="reference internal" href="obsoperators_mod.html#f/obsoperators_mod/oop_had" title="f/obsoperators_mod/oop_had"><code class="xref f f-func docutils literal notranslate"><span class="pre">oop_had()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/varnamelist_mod/vnl_varnamefromvarnum" title="f/varnamelist_mod/vnl_varnamefromvarnum"><code class="xref f f-func docutils literal notranslate"><span class="pre">vnl_varnamefromvarnum()</span></code></a>, <a class="reference internal" href="#f/varnamelist_mod/vnl_varlistindex" title="f/varnamelist_mod/vnl_varlistindex"><code class="xref f f-func docutils literal notranslate"><span class="pre">vnl_varlistindex()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/varnamelist_mod/vnl_varkindfromvarname">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">varnamelist_mod/</span></span><span class="sig-name descname"><span class="pre">vnl_varkindfromvarname</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">varname</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/varnamelist_mod/vnl_varkindfromvarname" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>To get variable kind list from the variable number</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>varname</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em></p>
+</dd>
+<dt class="field-odd">Return</dt>
+<dd class="field-odd"><p><strong>varkind</strong><em> [</em><em>character </em><em>]</em></p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="bcovarsetupchem_mod.html#f/bcovarsetupchem_mod/bcsc_setupch" title="f/bcovarsetupchem_mod/bcsc_setupch"><code class="xref f f-func docutils literal notranslate"><span class="pre">bcsc_setupch()</span></code></a>, <a class="reference internal" href="bmatrixchem_mod.html#f/bmatrixchem_mod/bchm_bsqrt" title="f/bmatrixchem_mod/bchm_bsqrt"><code class="xref f f-func docutils literal notranslate"><span class="pre">bchm_bsqrt()</span></code></a>, <a class="reference internal" href="bmatrixchem_mod.html#f/bmatrixchem_mod/bchm_bsqrtad" title="f/bmatrixchem_mod/bchm_bsqrtad"><code class="xref f f-func docutils literal notranslate"><span class="pre">bchm_bsqrtad()</span></code></a>, <a class="reference internal" href="bmatrixensemble_mod.html#f/bmatrixensemble_mod/setupensemble" title="f/bmatrixensemble_mod/setupensemble"><code class="xref f f-func docutils literal notranslate"><span class="pre">setupensemble()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_setup" title="f/columndata_mod/col_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_setup()</span></code></a>, <a class="reference internal" href="enkf_mod.html#f/enkf_mod/enkf_letkfanalyses" title="f/enkf_mod/enkf_letkfanalyses"><code class="xref f f-func docutils literal notranslate"><span class="pre">enkf_letkfanalyses()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_recenter" title="f/ensemblestatevector_mod/ens_recenter"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_recenter()</span></code></a>, <a class="reference internal" href="gridvariabletransforms_mod.html#f/gridvariabletransforms_mod/gvt_setupreffromtrialfiles" title="f/gridvariabletransforms_mod/gvt_setupreffromtrialfiles"><code class="xref f f-func docutils literal notranslate"><span class="pre">gvt_setupreffromtrialfiles()</span></code></a>, <a class="reference internal" href="gridvariabletransforms_mod.html#f/gridvariabletransforms_mod/gvt_transform_gsv" title="f/gridvariabletransforms_mod/gvt_transform_gsv"><code class="xref f f-func docutils literal notranslate"><span class="pre">gvt_transform_gsv()</span></code></a>, <a class="reference internal" href="gridvariabletransforms_mod.html#f/gridvariabletransforms_mod/gvt_transform_ens" title="f/gridvariabletransforms_mod/gvt_transform_ens"><code class="xref f f-func docutils literal notranslate"><span class="pre">gvt_transform_ens()</span></code></a>, <a class="reference internal" href="gridvariabletransforms_mod.html#f/gridvariabletransforms_mod/ch_bounds" title="f/gridvariabletransforms_mod/ch_bounds"><code class="xref f f-func docutils literal notranslate"><span class="pre">ch_bounds()</span></code></a>, <a class="reference internal" href="gridstatevectorfileio_mod.html#f/gridstatevectorfileio_mod/gio_writetofile" title="f/gridstatevectorfileio_mod/gio_writetofile"><code class="xref f f-func docutils literal notranslate"><span class="pre">gio_writetofile()</span></code></a>, <a class="reference internal" href="gridstatevectorfileio_mod.html#f/gridstatevectorfileio_mod/gio_fileunitstostateunits" title="f/gridstatevectorfileio_mod/gio_fileunitstostateunits"><code class="xref f f-func docutils literal notranslate"><span class="pre">gio_fileunitstostateunits()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_setup" title="f/gridstatevector_mod/gsv_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_setup()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_varkindexist" title="f/gridstatevector_mod/gsv_varkindexist"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_varkindexist()</span></code></a>, <a class="reference internal" href="innovation_mod.html#f/innovation_mod/inn_setupcolumnsonanlinclev" title="f/innovation_mod/inn_setupcolumnsonanlinclev"><code class="xref f f-func docutils literal notranslate"><span class="pre">inn_setupcolumnsonanlinclev()</span></code></a>, <a class="reference internal" href="obsspacediag_mod.html#f/obsspacediag_mod/osd_calcinflation" title="f/obsspacediag_mod/osd_calcinflation"><code class="xref f f-func docutils literal notranslate"><span class="pre">osd_calcinflation()</span></code></a>, <a class="reference internal" href="verticalcoord_mod.html#f/verticalcoord_mod/vco_setupfromfile" title="f/verticalcoord_mod/vco_setupfromfile"><code class="xref f f-func docutils literal notranslate"><span class="pre">vco_setupfromfile()</span></code></a>, <a class="reference internal" href="verticalcoord_mod.html#f/verticalcoord_mod/vco_setupoceanfromfile" title="f/verticalcoord_mod/vco_setupoceanfromfile"><code class="xref f f-func docutils literal notranslate"><span class="pre">vco_setupoceanfromfile()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/varnamelist_mod/vnl_varlistindex" title="f/varnamelist_mod/vnl_varlistindex"><code class="xref f f-func docutils literal notranslate"><span class="pre">vnl_varlistindex()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/varnamelist_mod/vnl_varnamesfromexistlist">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">varnamelist_mod/</span></span><span class="sig-name descname"><span class="pre">vnl_varnamesfromexistlist</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">varnames</span></em>, <em class="sig-param"><span class="pre">varexistlist</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/varnamelist_mod/vnl_varnamesfromexistlist" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>To get variable names from the variable existList</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>varnames</strong> (*)<em> [</em><em>character </em><em>,</em><em>pointer</em><em>]</em></p></li>
+<li><p><strong>varexistlist</strong> (*)<em> [</em><em>logical </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="increment_mod.html#f/increment_mod/inc_interpolateandadd" title="f/increment_mod/inc_interpolateandadd"><code class="xref f f-func docutils literal notranslate"><span class="pre">inc_interpolateandadd()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/varnamelist_mod/vnl_varmassfromvarnum">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">varnamelist_mod/</span></span><span class="sig-name descname"><span class="pre">vnl_varmassfromvarnum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">varnumber</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/varnamelist_mod/vnl_varmassfromvarnum" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Identifies constituent molar mass from varNum for use in conversions for the CH family.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>varnumber</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p>
+</dd>
+<dt class="field-odd">Return</dt>
+<dd class="field-odd"><p><strong>varmass</strong><em> [</em><em>real </em><em>]</em></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/varnamelist_mod/vnl_varmassfromvarname">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">varnamelist_mod/</span></span><span class="sig-name descname"><span class="pre">vnl_varmassfromvarname</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">varname</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/varnamelist_mod/vnl_varmassfromvarname" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Identifies constituent molar mass from varName for use in conversions for the CH family.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>varname</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em></p>
+</dd>
+<dt class="field-odd">Return</dt>
+<dd class="field-odd"><p><strong>varmass</strong><em> [</em><em>real </em><em>]</em></p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="gridstatevectorfileio_mod.html#f/gridstatevectorfileio_mod/gio_writetofile" title="f/gridstatevectorfileio_mod/gio_writetofile"><code class="xref f f-func docutils literal notranslate"><span class="pre">gio_writetofile()</span></code></a>, <a class="reference internal" href="gridstatevectorfileio_mod.html#f/gridstatevectorfileio_mod/gio_fileunitstostateunits" title="f/gridstatevectorfileio_mod/gio_fileunitstostateunits"><code class="xref f f-func docutils literal notranslate"><span class="pre">gio_fileunitstostateunits()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/varnamelist_mod/vnl_isphysicsvar">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">varnamelist_mod/</span></span><span class="sig-name descname"><span class="pre">vnl_isphysicsvar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">varname</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/varnamelist_mod/vnl_isphysicsvar" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Signals if variable is expected to be on the “physics” grid.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>varname</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em></p>
+</dd>
+<dt class="field-odd">Return</dt>
+<dd class="field-odd"><p><strong>isphysicsvar</strong><em> [</em><em>logical </em><em>]</em></p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="gridstatevectorfileio_mod.html#f/gridstatevectorfileio_mod/gio_readfile" title="f/gridstatevectorfileio_mod/gio_readfile"><code class="xref f f-func docutils literal notranslate"><span class="pre">gio_readfile()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/varnamelist_mod/vnl_iscloudvar">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">varnamelist_mod/</span></span><span class="sig-name descname"><span class="pre">vnl_iscloudvar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">varname</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/varnamelist_mod/vnl_iscloudvar" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>determine if varName is cloud variable.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>varname</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em></p>
+</dd>
+<dt class="field-odd">Return</dt>
+<dd class="field-odd"><p><strong>iscloud</strong><em> [</em><em>logical </em><em>]</em></p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="humiditylimits_mod.html#f/humiditylimits_mod/qlim_rttovlimit_gsv" title="f/humiditylimits_mod/qlim_rttovlimit_gsv"><code class="xref f f-func docutils literal notranslate"><span class="pre">qlim_rttovlimit_gsv()</span></code></a>, <a class="reference internal" href="humiditylimits_mod.html#f/humiditylimits_mod/qlim_rttovlimit_ens" title="f/humiditylimits_mod/qlim_rttovlimit_ens"><code class="xref f f-func docutils literal notranslate"><span class="pre">qlim_rttovlimit_ens()</span></code></a>, <a class="reference internal" href="innovation_mod.html#f/innovation_mod/inn_setupcolumnsonanlinclev" title="f/innovation_mod/inn_setupcolumnsonanlinclev"><code class="xref f f-func docutils literal notranslate"><span class="pre">inn_setupcolumnsonanlinclev()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/varnamelist_mod/vnl_addtovarnames">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">varnamelist_mod/</span></span><span class="sig-name descname"><span class="pre">vnl_addtovarnames</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">varnamesin</span></em>, <em class="sig-param"><span class="pre">varnametoadd</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/varnamelist_mod/vnl_addtovarnames" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Add an additional varName to an existing list of varNames</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>varnamesin</strong> (*)<em> [</em><em>character </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>varnametoadd</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Return</dt>
+<dd class="field-odd"><p><strong>varnamesout</strong> (*)<em> [</em><em>character </em><em>,</em><em>pointer</em><em>]</em></p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="increment_mod.html#f/increment_mod/inc_interpolateandadd" title="f/increment_mod/inc_interpolateandadd"><code class="xref f f-func docutils literal notranslate"><span class="pre">inc_interpolateandadd()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div></blockquote>
+</section>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="verticalcoord_mod.html" title="verticalcoord_mod"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="timecoord_mod.html" title="timecoord_mod"
+             >previous</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2018, ECCC.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.
+    </div>
+  </body>
+</html>

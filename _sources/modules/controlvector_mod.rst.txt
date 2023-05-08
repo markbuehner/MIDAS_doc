@@ -1,0 +1,22 @@
+==========================================
+controlvector_mod
+==========================================
+
+    :doc:`link to source code <controlvector_mod_src>`
+
+
+    **Dependency Diagrams:**
+
+    .. figure:: /controlvector_mod.svg
+        :height: 100px
+
+        Direct Dependency Diagram
+
+    .. figure:: /controlvector_mod_rev.svg
+        :height: 100px
+
+        Reverse Dependency Diagram
+
+
+    .. f:automodule:: controlvector_mod
+

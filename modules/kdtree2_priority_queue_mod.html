@@ -1,0 +1,388 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>kdtree2_priority_queue_mod &mdash; MIDAS  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="MIDAS  documentation" href="../index.html" />
+    <link rel="next" title="mathphysconstants_mod" href="mathphysconstants_mod.html" />
+    <link rel="prev" title="kdtree2_precision_mod" href="kdtree2_precision_mod.html" /> 
+  </head>
+  <body>
+  <div>
+    <img src="../_static/MIDAS_header.png" alt="MIDAS" />
+  </div>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="mathphysconstants_mod.html" title="mathphysconstants_mod"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="kdtree2_precision_mod.html" title="kdtree2_precision_mod"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="kdtree2_precision_mod.html"
+                          title="previous chapter">kdtree2_precision_mod</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="mathphysconstants_mod.html"
+                          title="next chapter">mathphysconstants_mod</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/modules/kdtree2_priority_queue_mod.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <section id="kdtree2-priority-queue-mod">
+<h1>kdtree2_priority_queue_mod<a class="headerlink" href="#kdtree2-priority-queue-mod" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><p><a class="reference internal" href="kdtree2_priority_queue_mod_src.html"><span class="doc">link to source code</span></a></p>
+<p><strong>Dependency Diagrams:</strong></p>
+<figure class="align-default" id="id1">
+<a class="reference internal image-reference" href="kdtree2_priority_queue_mod.svg"><img alt="kdtree2_priority_queue_mod.svg" height="100px" src="kdtree2_priority_queue_mod.svg" /></a>
+<figcaption>
+<p><span class="caption-text">Direct Dependency Diagram</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id2">
+<a class="reference internal image-reference" href="kdtree2_priority_queue_mod_rev.svg"><img alt="kdtree2_priority_queue_mod_rev.svg" height="100px" src="kdtree2_priority_queue_mod_rev.svg" /></a>
+<figcaption>
+<p><span class="caption-text">Reverse Dependency Diagram</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<span class="target" id="f/kdtree2_priority_queue_mod"></span><p class="rubric">Quick access</p>
+<dl class="field-list simple">
+<dt class="field-odd">Types</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/kdtree2_priority_queue_mod/kdtree2_result" title="f/kdtree2_priority_queue_mod/kdtree2_result"><code class="xref f f-type docutils literal notranslate"><span class="pre">kdtree2_result</span></code></a>, <a class="reference internal" href="#f/kdtree2_priority_queue_mod/pq" title="f/kdtree2_priority_queue_mod/pq"><code class="xref f f-type docutils literal notranslate"><span class="pre">pq</span></code></a></p>
+</dd>
+<dt class="field-even">Routines</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/kdtree2_priority_queue_mod/heapify" title="f/kdtree2_priority_queue_mod/heapify"><code class="xref f f-func docutils literal notranslate"><span class="pre">heapify()</span></code></a>, <a class="reference internal" href="#f/kdtree2_priority_queue_mod/pq_adjust_heap" title="f/kdtree2_priority_queue_mod/pq_adjust_heap"><code class="xref f f-func docutils literal notranslate"><span class="pre">pq_adjust_heap()</span></code></a>, <a class="reference internal" href="#f/kdtree2_priority_queue_mod/pq_create" title="f/kdtree2_priority_queue_mod/pq_create"><code class="xref f f-func docutils literal notranslate"><span class="pre">pq_create()</span></code></a>, <a class="reference internal" href="#f/kdtree2_priority_queue_mod/pq_delete" title="f/kdtree2_priority_queue_mod/pq_delete"><code class="xref f f-func docutils literal notranslate"><span class="pre">pq_delete()</span></code></a>, <a class="reference internal" href="#f/kdtree2_priority_queue_mod/pq_extract_max" title="f/kdtree2_priority_queue_mod/pq_extract_max"><code class="xref f f-func docutils literal notranslate"><span class="pre">pq_extract_max()</span></code></a>, <a class="reference internal" href="#f/kdtree2_priority_queue_mod/pq_insert" title="f/kdtree2_priority_queue_mod/pq_insert"><code class="xref f f-func docutils literal notranslate"><span class="pre">pq_insert()</span></code></a>, <a class="reference internal" href="#f/kdtree2_priority_queue_mod/pq_max" title="f/kdtree2_priority_queue_mod/pq_max"><code class="xref f f-func docutils literal notranslate"><span class="pre">pq_max()</span></code></a>, <a class="reference internal" href="#f/kdtree2_priority_queue_mod/pq_maxpri" title="f/kdtree2_priority_queue_mod/pq_maxpri"><code class="xref f f-func docutils literal notranslate"><span class="pre">pq_maxpri()</span></code></a>, <a class="reference internal" href="#f/kdtree2_priority_queue_mod/pq_replace_max" title="f/kdtree2_priority_queue_mod/pq_replace_max"><code class="xref f f-func docutils literal notranslate"><span class="pre">pq_replace_max()</span></code></a></p>
+</dd>
+</dl>
+<p class="rubric">Needed modules</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod" title="f/utilities_mod: MODULE utilities_mod (prefix='utl' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">utilities_mod</span></code></a>: MODULE utilities_mod (prefix=’utl’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="kdtree2_precision_mod.html#f/kdtree2_precision_mod" title="f/kdtree2_precision_mod"><code class="xref f f-mod docutils literal notranslate"><span class="pre">kdtree2_precision_mod</span></code></a></p></li>
+</ul>
+<p class="rubric">Types</p>
+<ul>
+<li><dl>
+<dt class="sig sig-object f" id="f/kdtree2_priority_queue_mod/kdtree2_result">
+<em class="property"><span class="pre">type</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">kdtree2_priority_queue_mod/</span></span><span class="sig-name descname"><span class="pre">kdtree2_result</span></span><a class="headerlink" href="#f/kdtree2_priority_queue_mod/kdtree2_result" title="Permalink to this definition">¶</a></dt>
+<dd><p>a pair of distances, indexes</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type fields</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">dis</span><em> [</em><em>real </em><em>]</em> :: =0.0</p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">idx</span><em> [</em><em>integer </em><em>]</em> :: =-1   Initializers cause some bugs in compilers.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</li>
+<li><dl>
+<dt class="sig sig-object f" id="f/kdtree2_priority_queue_mod/pq">
+<em class="property"><span class="pre">type</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">kdtree2_priority_queue_mod/</span></span><span class="sig-name descname"><span class="pre">pq</span></span><a class="headerlink" href="#f/kdtree2_priority_queue_mod/pq" title="Permalink to this definition">¶</a></dt>
+<dd><p>The priority queue consists of elements
+priority(1:heap_size), with associated payload(:).</p>
+<p>There are heap_size active elements.
+Assumes the allocation is always sufficient.  Will NOT increase it
+to match.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type fields</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">elems</span> (*)<em> [</em><em>kdtree2_result </em><em>,</em><em>pointer</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">heap_size</span><em> [</em><em>integer </em><em>]</em></p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</li>
+</ul>
+<p class="rubric">Variables</p>
+<p class="rubric">Subroutines and functions</p>
+<dl>
+<dt class="sig sig-object f" id="f/kdtree2_priority_queue_mod/pq_create">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">kdtree2_priority_queue_mod/</span></span><span class="sig-name descname"><span class="pre">pq_create</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">results_in</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/kdtree2_priority_queue_mod/pq_create" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Create a priority queue from ALREADY allocated
+array pointers for storage.  NOTE! It will NOT
+add any alements to the heap, i.e. any existing
+data in the input arrays will NOT be used and may
+be overwritten.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>results_in</strong> (*)<em> [</em><em>kdtree2_result </em><em>,</em><em>target</em><em>]</em></p>
+</dd>
+<dt class="field-odd">Return</dt>
+<dd class="field-odd"><p><strong>res</strong><em> [</em><em>pq </em><em>]</em></p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="kdtree2_mod.html#f/kdtree2_mod/kdtree2_n_nearest" title="f/kdtree2_mod/kdtree2_n_nearest"><code class="xref f f-func docutils literal notranslate"><span class="pre">kdtree2_n_nearest()</span></code></a>, <a class="reference internal" href="kdtree2_mod.html#f/kdtree2_mod/kdtree2_n_nearest_around_point" title="f/kdtree2_mod/kdtree2_n_nearest_around_point"><code class="xref f f-func docutils literal notranslate"><span class="pre">kdtree2_n_nearest_around_point()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/kdtree2_priority_queue_mod/heapify">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">kdtree2_priority_queue_mod/</span></span><span class="sig-name descname"><span class="pre">heapify</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">a</span></em>, <em class="sig-param"><span class="pre">i_in</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/kdtree2_priority_queue_mod/heapify" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>take a heap rooted at ‘i’ and force it to be in the
+heap canonical form.   This is performance critical
+and has been tweaked a little to reflect this.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>a</strong><em> [</em><em>pq </em><em>,</em><em>pointer</em><em>]</em></p></li>
+<li><p><strong>i_in</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/kdtree2_priority_queue_mod/pq_extract_max" title="f/kdtree2_priority_queue_mod/pq_extract_max"><code class="xref f f-func docutils literal notranslate"><span class="pre">pq_extract_max()</span></code></a>, <a class="reference internal" href="#f/kdtree2_priority_queue_mod/pq_delete" title="f/kdtree2_priority_queue_mod/pq_delete"><code class="xref f f-func docutils literal notranslate"><span class="pre">pq_delete()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/kdtree2_priority_queue_mod/pq_max">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">kdtree2_priority_queue_mod/</span></span><span class="sig-name descname"><span class="pre">pq_max</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">a</span></em>, <em class="sig-param"><span class="pre">e</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/kdtree2_priority_queue_mod/pq_max" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>return the priority and its payload of the maximum priority element
+on the queue, which should be the first one, if it is
+in heapified form.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>a</strong><em> [</em><em>pq </em><em>,</em><em>pointer</em><em>]</em></p></li>
+<li><p><strong>e</strong><em> [</em><em>kdtree2_result </em><em>,</em><em>out</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/kdtree2_priority_queue_mod/pq_maxpri">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">kdtree2_priority_queue_mod/</span></span><span class="sig-name descname"><span class="pre">pq_maxpri</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">a</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/kdtree2_priority_queue_mod/pq_maxpri" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><p><strong>a</strong><em> [</em><em>pq </em><em>,</em><em>pointer</em><em>]</em></p>
+</dd>
+<dt class="field-even">Return</dt>
+<dd class="field-even"><p><strong>pq_maxpri</strong><em> [</em><em>real </em><em>]</em></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/kdtree2_priority_queue_mod/pq_extract_max">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">kdtree2_priority_queue_mod/</span></span><span class="sig-name descname"><span class="pre">pq_extract_max</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">a</span></em>, <em class="sig-param"><span class="pre">e</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/kdtree2_priority_queue_mod/pq_extract_max" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>return the priority and payload of maximum priority
+element, and remove it from the queue.
+(equivalent to ‘pop()’ on a stack)</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>a</strong><em> [</em><em>pq </em><em>,</em><em>pointer</em><em>]</em></p></li>
+<li><p><strong>e</strong><em> [</em><em>kdtree2_result </em><em>,</em><em>out</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/kdtree2_priority_queue_mod/pq_replace_max" title="f/kdtree2_priority_queue_mod/pq_replace_max"><code class="xref f f-func docutils literal notranslate"><span class="pre">pq_replace_max()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/kdtree2_priority_queue_mod/heapify" title="f/kdtree2_priority_queue_mod/heapify"><code class="xref f f-func docutils literal notranslate"><span class="pre">heapify()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/kdtree2_priority_queue_mod/pq_insert">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">kdtree2_priority_queue_mod/</span></span><span class="sig-name descname"><span class="pre">pq_insert</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">a</span></em>, <em class="sig-param"><span class="pre">dis</span></em>, <em class="sig-param"><span class="pre">idx</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/kdtree2_priority_queue_mod/pq_insert" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Insert a new element and return the new maximum priority,
+which may or may not be the same as the old maximum priority.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>a</strong><em> [</em><em>pq </em><em>,</em><em>pointer</em><em>]</em></p></li>
+<li><p><strong>dis</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>idx</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Return</dt>
+<dd class="field-odd"><p><strong>pq_insert</strong><em> [</em><em>real </em><em>]</em></p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/kdtree2_priority_queue_mod/pq_replace_max" title="f/kdtree2_priority_queue_mod/pq_replace_max"><code class="xref f f-func docutils literal notranslate"><span class="pre">pq_replace_max()</span></code></a>, <a class="reference internal" href="kdtree2_mod.html#f/kdtree2_mod/process_terminal_node" title="f/kdtree2_mod/process_terminal_node"><code class="xref f f-func docutils literal notranslate"><span class="pre">process_terminal_node()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/kdtree2_priority_queue_mod/pq_adjust_heap">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">kdtree2_priority_queue_mod/</span></span><span class="sig-name descname"><span class="pre">pq_adjust_heap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">a</span></em>, <em class="sig-param"><span class="pre">i</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/kdtree2_priority_queue_mod/pq_adjust_heap" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>a</strong><em> [</em><em>pq </em><em>,</em><em>pointer</em><em>]</em></p></li>
+<li><p><strong>i</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/kdtree2_priority_queue_mod/pq_replace_max">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">kdtree2_priority_queue_mod/</span></span><span class="sig-name descname"><span class="pre">pq_replace_max</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">a</span></em>, <em class="sig-param"><span class="pre">dis</span></em>, <em class="sig-param"><span class="pre">idx</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/kdtree2_priority_queue_mod/pq_replace_max" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Replace the extant maximum priority element
+in the PQ with (dis,idx).  Return
+the new maximum priority, which may be larger
+or smaller than the old one.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>a</strong><em> [</em><em>pq </em><em>,</em><em>pointer</em><em>]</em></p></li>
+<li><p><strong>dis</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>idx</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Return</dt>
+<dd class="field-odd"><p><strong>pq_replace_max</strong><em> [</em><em>real </em><em>]</em></p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="kdtree2_mod.html#f/kdtree2_mod/process_terminal_node" title="f/kdtree2_mod/process_terminal_node"><code class="xref f f-func docutils literal notranslate"><span class="pre">process_terminal_node()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/kdtree2_priority_queue_mod/pq_extract_max" title="f/kdtree2_priority_queue_mod/pq_extract_max"><code class="xref f f-func docutils literal notranslate"><span class="pre">pq_extract_max()</span></code></a>, <a class="reference internal" href="#f/kdtree2_priority_queue_mod/pq_insert" title="f/kdtree2_priority_queue_mod/pq_insert"><code class="xref f f-func docutils literal notranslate"><span class="pre">pq_insert()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/kdtree2_priority_queue_mod/pq_delete">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">kdtree2_priority_queue_mod/</span></span><span class="sig-name descname"><span class="pre">pq_delete</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">a</span></em>, <em class="sig-param"><span class="pre">i</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/kdtree2_priority_queue_mod/pq_delete" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>delete item with index ‘i’</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>a</strong><em> [</em><em>pq </em><em>,</em><em>pointer</em><em>]</em></p></li>
+<li><p><strong>i</strong><em> [</em><em>integer </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="#f/kdtree2_priority_queue_mod/heapify" title="f/kdtree2_priority_queue_mod/heapify"><code class="xref f f-func docutils literal notranslate"><span class="pre">heapify()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div></blockquote>
+</section>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="mathphysconstants_mod.html" title="mathphysconstants_mod"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="kdtree2_precision_mod.html" title="kdtree2_precision_mod"
+             >previous</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2018, ECCC.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.
+    </div>
+  </body>
+</html>

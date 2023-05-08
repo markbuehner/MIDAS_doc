@@ -1,0 +1,22 @@
+==========================================
+localization_mod
+==========================================
+
+    :doc:`link to source code <localization_mod_src>`
+
+
+    **Dependency Diagrams:**
+
+    .. figure:: /localization_mod.svg
+        :height: 100px
+
+        Direct Dependency Diagram
+
+    .. figure:: /localization_mod_rev.svg
+        :height: 100px
+
+        Reverse Dependency Diagram
+
+
+    .. f:automodule:: localization_mod
+

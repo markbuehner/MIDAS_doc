@@ -1,0 +1,17 @@
+==========================================
+midas_diaghbht
+==========================================
+
+    :doc:`link to source code <midas_diaghbht_src>`
+
+
+    **Dependency Diagrams:**
+
+    .. figure:: /midas_diaghbht.svg
+        :height: 100px
+
+        Direct Dependency Diagram
+
+
+    .. f:autoprogram:: midas_diaghbht
+

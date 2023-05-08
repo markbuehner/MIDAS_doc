@@ -1,0 +1,210 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>randomnumber_mod &mdash; MIDAS  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="MIDAS  documentation" href="../index.html" />
+    <link rel="next" title="spectralfilter_mod" href="spectralfilter_mod.html" />
+    <link rel="prev" title="ramdisk_mod" href="ramdisk_mod.html" /> 
+  </head>
+  <body>
+  <div>
+    <img src="../_static/MIDAS_header.png" alt="MIDAS" />
+  </div>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="spectralfilter_mod.html" title="spectralfilter_mod"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="ramdisk_mod.html" title="ramdisk_mod"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="ramdisk_mod.html"
+                          title="previous chapter">ramdisk_mod</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="spectralfilter_mod.html"
+                          title="next chapter">spectralfilter_mod</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/modules/randomnumber_mod.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <section id="randomnumber-mod">
+<h1>randomnumber_mod<a class="headerlink" href="#randomnumber-mod" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><p><a class="reference internal" href="randomnumber_mod_src.html"><span class="doc">link to source code</span></a></p>
+<p><strong>Dependency Diagrams:</strong></p>
+<blockquote>
+<div><p>No Direct Dependency</p>
+</div></blockquote>
+<figure class="align-default" id="id1">
+<a class="reference internal image-reference" href="randomnumber_mod_rev.svg"><img alt="randomnumber_mod_rev.svg" height="100px" src="randomnumber_mod_rev.svg" /></a>
+<figcaption>
+<p><span class="caption-text">Reverse Dependency Diagram</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<span class="target" id="f/randomnumber_mod"></span><p class="rubric">Description</p>
+<p>MODULE randomNumber_mod (prefix=’rng’ category=’8. Low-level utilities and constants’)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Purpose</dt>
+<dd class="field-odd"><p>A Gaussian random number generator (RNG) module</p>
+</dd>
+</dl>
+<p class="rubric">Quick access</p>
+<dl class="field-list simple">
+<dt class="field-odd">Routines</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/randomnumber_mod/rng_gaussian" title="f/randomnumber_mod/rng_gaussian"><code class="xref f f-func docutils literal notranslate"><span class="pre">rng_gaussian()</span></code></a>, <a class="reference internal" href="#f/randomnumber_mod/rng_setup" title="f/randomnumber_mod/rng_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">rng_setup()</span></code></a>, <a class="reference internal" href="#f/randomnumber_mod/rng_uniform" title="f/randomnumber_mod/rng_uniform"><code class="xref f f-func docutils literal notranslate"><span class="pre">rng_uniform()</span></code></a></p>
+</dd>
+</dl>
+<p class="rubric">Needed modules</p>
+<ul class="simple">
+<li><p><code class="xref f f-mod docutils literal notranslate"><span class="pre">iso_c_binding</span></code></p></li>
+</ul>
+<p class="rubric">Variables</p>
+<p class="rubric">Subroutines and functions</p>
+<dl>
+<dt class="sig sig-object f" id="f/randomnumber_mod/rng_setup">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">randomnumber_mod/</span></span><span class="sig-name descname"><span class="pre">rng_setup</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">seed</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/randomnumber_mod/rng_setup" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Initialize the random number generator with a supplied seed.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>seed</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="diffusion_mod.html#f/diffusion_mod/diff_setup" title="f/diffusion_mod/diff_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">diff_setup()</span></code></a>, <a class="reference internal" href="ensembleobservations_mod.html#f/ensembleobservations_mod/eob_calcrandpert" title="f/ensembleobservations_mod/eob_calcrandpert"><code class="xref f f-func docutils literal notranslate"><span class="pre">eob_calcrandpert()</span></code></a>, <a class="reference internal" href="enspostprocess_mod.html#f/enspostprocess_mod/epp_addrandompert" title="f/enspostprocess_mod/epp_addrandompert"><code class="xref f f-func docutils literal notranslate"><span class="pre">epp_addrandompert()</span></code></a>, <a class="reference internal" href="innovation_mod.html#f/innovation_mod/inn_perturbobs" title="f/innovation_mod/inn_perturbobs"><code class="xref f f-func docutils literal notranslate"><span class="pre">inn_perturbobs()</span></code></a>, <a class="reference internal" href="obsspacediag_mod.html#f/obsspacediag_mod/osd_calcinflation" title="f/obsspacediag_mod/osd_calcinflation"><code class="xref f f-func docutils literal notranslate"><span class="pre">osd_calcinflation()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_randomorderint" title="f/utilities_mod/utl_randomorderint"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_randomorderint()</span></code></a>, <a class="reference internal" href="../programs/midas_adjointtest.html#f/midas_adjointtest" title="f/midas_adjointtest"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_adjointtest</span></code></a>, <a class="reference internal" href="../programs/midas_diagbmatrix.html#f/midas_diagbmatrix" title="f/midas_diagbmatrix"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_diagbmatrix</span></code></a>, <a class="reference internal" href="../programs/midas_diaghbht.html#f/midas_diaghbht" title="f/midas_diaghbht"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_diaghbht</span></code></a>, <a class="reference internal" href="../programs/midas_randompert.html#f/midas_randompert" title="f/midas_randompert"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_randompert</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/randomnumber_mod/rng_gaussian">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">randomnumber_mod/</span></span><span class="sig-name descname"><span class="pre">rng_gaussian</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#f/randomnumber_mod/rng_gaussian" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Returns a normally distributed deviate
+with zero mean and unit variance</p>
+</dd>
+<dt class="field-even">Return</dt>
+<dd class="field-even"><p><strong>randomnumbergaussian</strong><em> [</em><em>real </em><em>]</em></p>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="diffusion_mod.html#f/diffusion_mod/diff_setup" title="f/diffusion_mod/diff_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">diff_setup()</span></code></a>, <a class="reference internal" href="ensembleobservations_mod.html#f/ensembleobservations_mod/eob_calcrandpert" title="f/ensembleobservations_mod/eob_calcrandpert"><code class="xref f f-func docutils literal notranslate"><span class="pre">eob_calcrandpert()</span></code></a>, <a class="reference internal" href="enspostprocess_mod.html#f/enspostprocess_mod/epp_addrandompert" title="f/enspostprocess_mod/epp_addrandompert"><code class="xref f f-func docutils literal notranslate"><span class="pre">epp_addrandompert()</span></code></a>, <a class="reference internal" href="innovation_mod.html#f/innovation_mod/inn_perturbobs" title="f/innovation_mod/inn_perturbobs"><code class="xref f f-func docutils literal notranslate"><span class="pre">inn_perturbobs()</span></code></a>, <a class="reference internal" href="obsspacediag_mod.html#f/obsspacediag_mod/osd_calcinflation" title="f/obsspacediag_mod/osd_calcinflation"><code class="xref f f-func docutils literal notranslate"><span class="pre">osd_calcinflation()</span></code></a>, <a class="reference internal" href="../programs/midas_adjointtest.html#f/midas_adjointtest" title="f/midas_adjointtest"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_adjointtest</span></code></a>, <a class="reference internal" href="../programs/midas_diagbmatrix.html#f/midas_diagbmatrix" title="f/midas_diagbmatrix"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_diagbmatrix</span></code></a>, <a class="reference internal" href="../programs/midas_diaghbht.html#f/midas_diaghbht" title="f/midas_diaghbht"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_diaghbht</span></code></a>, <a class="reference internal" href="../programs/midas_randompert.html#f/midas_randompert" title="f/midas_randompert"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_randompert</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/randomnumber_mod/rng_uniform">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">randomnumber_mod/</span></span><span class="sig-name descname"><span class="pre">rng_uniform</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#f/randomnumber_mod/rng_uniform" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Returns a random deviate between 0.0 and 1.0.</p>
+</dd>
+<dt class="field-even">Return</dt>
+<dd class="field-even"><p><strong>randomnumberuniform</strong><em> [</em><em>real </em><em>]</em></p>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_randomorderint" title="f/utilities_mod/utl_randomorderint"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_randomorderint()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div></blockquote>
+</section>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="spectralfilter_mod.html" title="spectralfilter_mod"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="ramdisk_mod.html" title="ramdisk_mod"
+             >previous</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2018, ECCC.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.
+    </div>
+  </body>
+</html>

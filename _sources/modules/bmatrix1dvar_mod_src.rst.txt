@@ -1,0 +1,8 @@
+==========================================
+bmatrix1dvar_mod source
+==========================================
+
+    .. literalinclude:: ../_src_files/bmatrix1DVar_mod.f90
+       :language: fortran
+       :linenos:
+

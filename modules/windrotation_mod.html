@@ -1,0 +1,454 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>windrotation_mod &mdash; MIDAS  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="MIDAS  documentation" href="../index.html" />
+    <link rel="next" title="costfunction_mod" href="costfunction_mod.html" />
+    <link rel="prev" title="var1d_mod" href="var1d_mod.html" /> 
+  </head>
+  <body>
+  <div>
+    <img src="../_static/MIDAS_header.png" alt="MIDAS" />
+  </div>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="costfunction_mod.html" title="costfunction_mod"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="var1d_mod.html" title="var1d_mod"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="var1d_mod.html"
+                          title="previous chapter">var1d_mod</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="costfunction_mod.html"
+                          title="next chapter">costfunction_mod</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/modules/windrotation_mod.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <section id="windrotation-mod">
+<h1>windrotation_mod<a class="headerlink" href="#windrotation-mod" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><p><a class="reference internal" href="windrotation_mod_src.html"><span class="doc">link to source code</span></a></p>
+<p><strong>Dependency Diagrams:</strong></p>
+<figure class="align-default" id="id1">
+<a class="reference internal image-reference" href="windrotation_mod.svg"><img alt="windrotation_mod.svg" height="100px" src="windrotation_mod.svg" /></a>
+<figcaption>
+<p><span class="caption-text">Direct Dependency Diagram</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id2">
+<a class="reference internal image-reference" href="windrotation_mod_rev.svg"><img alt="windrotation_mod_rev.svg" height="100px" src="windrotation_mod_rev.svg" /></a>
+<figcaption>
+<p><span class="caption-text">Reverse Dependency Diagram</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<span class="target" id="f/windrotation_mod"></span><p class="rubric">Description</p>
+<p>MODULE windRotation (prefix=’uvr’ category=’4. Data Object transformations’)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Purpose</dt>
+<dd class="field-odd"><p>To transform winds FROM the rotated spherical coordinate system
+TO the non-rotated spherical coordinate system.</p>
+</dd>
+</dl>
+<p class="rubric">Quick access</p>
+<dl class="field-list simple">
+<dt class="field-odd">Types</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/windrotation_mod/unknown_type" title="f/windrotation_mod/unknown_type"><code class="xref f f-type docutils literal notranslate"><span class="pre">unknown_type</span></code></a></p>
+</dd>
+<dt class="field-even">Variables</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/windrotation_mod/struct_uvr" title="f/windrotation_mod/struct_uvr"><code class="xref f f-var docutils literal notranslate"><span class="pre">struct_uvr</span></code></a></p>
+</dd>
+<dt class="field-odd">Routines</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/windrotation_mod/carall" title="f/windrotation_mod/carall"><code class="xref f f-func docutils literal notranslate"><span class="pre">carall()</span></code></a>, <a class="reference internal" href="#f/windrotation_mod/mxma8x" title="f/windrotation_mod/mxma8x"><code class="xref f f-func docutils literal notranslate"><span class="pre">mxma8x()</span></code></a>, <a class="reference internal" href="#f/windrotation_mod/mxv" title="f/windrotation_mod/mxv"><code class="xref f f-func docutils literal notranslate"><span class="pre">mxv()</span></code></a>, <a class="reference internal" href="#f/windrotation_mod/sugrdpar" title="f/windrotation_mod/sugrdpar"><code class="xref f f-func docutils literal notranslate"><span class="pre">sugrdpar()</span></code></a>, <a class="reference internal" href="#f/windrotation_mod/uvr_rotatelatlon" title="f/windrotation_mod/uvr_rotatelatlon"><code class="xref f f-func docutils literal notranslate"><span class="pre">uvr_rotatelatlon()</span></code></a>, <a class="reference internal" href="#f/windrotation_mod/uvr_rotatewind_ad" title="f/windrotation_mod/uvr_rotatewind_ad"><code class="xref f f-func docutils literal notranslate"><span class="pre">uvr_rotatewind_ad()</span></code></a>, <a class="reference internal" href="#f/windrotation_mod/uvr_rotatewind_nl" title="f/windrotation_mod/uvr_rotatewind_nl"><code class="xref f f-func docutils literal notranslate"><span class="pre">uvr_rotatewind_nl()</span></code></a>, <a class="reference internal" href="#f/windrotation_mod/uvr_rotatewind_tl" title="f/windrotation_mod/uvr_rotatewind_tl"><code class="xref f f-func docutils literal notranslate"><span class="pre">uvr_rotatewind_tl()</span></code></a>, <a class="reference internal" href="#f/windrotation_mod/uvr_setup" title="f/windrotation_mod/uvr_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">uvr_setup()</span></code></a>, <a class="reference internal" href="#f/windrotation_mod/vllacar" title="f/windrotation_mod/vllacar"><code class="xref f f-func docutils literal notranslate"><span class="pre">vllacar()</span></code></a></p>
+</dd>
+</dl>
+<p class="rubric">Needed modules</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="mathphysconstants_mod.html#f/mathphysconstants_mod" title="f/mathphysconstants_mod: MODULE MathPhysConstants_mod (prefix='mpc' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">mathphysconstants_mod</span></code></a>: MODULE MathPhysConstants_mod (prefix=’mpc’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="horizontalcoord_mod.html#f/horizontalcoord_mod" title="f/horizontalcoord_mod: MODULE HorizontalCoord_mod (prefix='hco' category='7. Low-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">horizontalcoord_mod</span></code></a>: MODULE HorizontalCoord_mod (prefix=’hco’ category=’7. Low-level data objects’)</p></li>
+<li><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod" title="f/utilities_mod: MODULE utilities_mod (prefix='utl' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">utilities_mod</span></code></a>: MODULE utilities_mod (prefix=’utl’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="midasmpi_mod.html#f/midasmpi_mod" title="f/midasmpi_mod: MODULE midasMpi_mod (prefix='mmpi' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">midasmpi_mod</span></code></a>: MODULE midasMpi_mod (prefix=’mmpi’ category=’8. Low-level utilities and constants’)</p></li>
+</ul>
+<p class="rubric">Types</p>
+<ul>
+<li><dl>
+<dt class="sig sig-object f" id="f/windrotation_mod/unknown_type">
+<em class="property"><span class="pre">type</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">windrotation_mod/</span></span><span class="sig-name descname"><span class="pre">unknown_type</span></span><a class="headerlink" href="#f/windrotation_mod/unknown_type" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type fields</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">grd_rot_8</span> (msize,msize,maxnumsubgrid)<em> [</em><em>real </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">grd_rotinv_8</span> (msize,msize,maxnumsubgrid)<em> [</em><em>real </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">initialized</span><em> [</em><em>logical </em><em>]</em></p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</li>
+</ul>
+<p class="rubric">Variables</p>
+<ul>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/windrotation_mod/struct_uvr">
+<span class="sig-prename descclassname"><span class="pre">windrotation_mod/</span></span><span class="sig-name descname"><span class="pre">struct_uvr</span></span><em> <span class="pre">[</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/windrotation_mod/struct_uvr" title="Permalink to this definition">¶</a></dt>
+<dd><p>Public derived type definition</p>
+</dd></dl>
+
+</li>
+</ul>
+<p class="rubric">Subroutines and functions</p>
+<dl>
+<dt class="sig sig-object f" id="f/windrotation_mod/uvr_setup">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">windrotation_mod/</span></span><span class="sig-name descname"><span class="pre">uvr_setup</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">uvr</span></em>, <em class="sig-param"><span class="pre">hco_in</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/windrotation_mod/uvr_setup" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Setup the information for wind rotation</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>uvr</strong><em> [</em><em>struct_uvr </em><em>,</em><em>pointer</em><em>]</em> :: ‘)</p></li>
+<li><p><strong>hco_in</strong><em> [</em><em>struct_hco </em><em>,</em><em>in</em><em>]</em> :: Horizontal grid object</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="statetocolumn_mod.html#f/statetocolumn_mod/s2c_setupinterpinfo" title="f/statetocolumn_mod/s2c_setupinterpinfo"><code class="xref f f-func docutils literal notranslate"><span class="pre">s2c_setupinterpinfo()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="#f/windrotation_mod/sugrdpar" title="f/windrotation_mod/sugrdpar"><code class="xref f f-func docutils literal notranslate"><span class="pre">sugrdpar()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/windrotation_mod/sugrdpar">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">windrotation_mod/</span></span><span class="sig-name descname"><span class="pre">sugrdpar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">uvr</span></em>, <em class="sig-param"><span class="pre">subgridindex</span></em>, <em class="sig-param"><span class="pre">grd_xlon1</span></em>, <em class="sig-param"><span class="pre">grd_xlat1</span></em>, <em class="sig-param"><span class="pre">grd_xlon2</span></em>, <em class="sig-param"><span class="pre">grd_xlat2</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/windrotation_mod/sugrdpar" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Compute the rotation matrix (r_8) that allows transformation
+from the non-rotated to the rotated spherical coordinate system.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>uvr</strong><em> [</em><em>struct_uvr </em><em>,</em><em>pointer</em><em>]</em> :: Wind rotation object</p></li>
+<li><p><strong>subgridindex</strong><em> [</em><em>integer </em><em>]</em> :: Horizontal subGrid index = 2</p></li>
+<li><p><strong>grd_xlon1</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: Horizontal grid xlon1_yan</p></li>
+<li><p><strong>grd_xlat1</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: Horizontal grid xlat1_yan</p></li>
+<li><p><strong>grd_xlon2</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: Horizontal grid xlon2_yan</p></li>
+<li><p><strong>grd_xlat2</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: Horizontal grid xlat2_yan</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/windrotation_mod/uvr_setup" title="f/windrotation_mod/uvr_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">uvr_setup()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/windrotation_mod/vllacar" title="f/windrotation_mod/vllacar"><code class="xref f f-func docutils literal notranslate"><span class="pre">vllacar()</span></code></a>, <a class="reference internal" href="#f/windrotation_mod/mxma8x" title="f/windrotation_mod/mxma8x"><code class="xref f f-func docutils literal notranslate"><span class="pre">mxma8x()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/windrotation_mod/vllacar">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">windrotation_mod/</span></span><span class="sig-name descname"><span class="pre">vllacar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">f_xyz_8</span></em>, <em class="sig-param"><span class="pre">f_lon</span></em>, <em class="sig-param"><span class="pre">f_lat</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/windrotation_mod/vllacar" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Compute parameters of rotated grid</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>f_xyz_8</strong> (msize)<em> [</em><em>real </em><em>,</em><em>out</em><em>]</em> :: output</p></li>
+<li><p><strong>f_lon</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: Input in degrees</p></li>
+<li><p><strong>f_lat</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: Input in degrees</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/windrotation_mod/sugrdpar" title="f/windrotation_mod/sugrdpar"><code class="xref f f-func docutils literal notranslate"><span class="pre">sugrdpar()</span></code></a>, <a class="reference internal" href="#f/windrotation_mod/uvr_rotatelatlon" title="f/windrotation_mod/uvr_rotatelatlon"><code class="xref f f-func docutils literal notranslate"><span class="pre">uvr_rotatelatlon()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/windrotation_mod/mxma8x">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">windrotation_mod/</span></span><span class="sig-name descname"><span class="pre">mxma8x</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">pmat3</span></em>, <em class="sig-param"><span class="pre">pmat1</span></em>, <em class="sig-param"><span class="pre">pmat2</span></em>, <em class="sig-param"><span class="pre">kdimi1</span></em>, <em class="sig-param"><span class="pre">kdimj1</span></em>, <em class="sig-param"><span class="pre">kdimj2</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/windrotation_mod/mxma8x" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Compute a product of two matrices.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>pmat3</strong> (kdimi1,kdimj2)<em> [</em><em>real </em><em>]</em> :: output</p></li>
+<li><p><strong>pmat1</strong> (kdimi1,kdimj1)<em> [</em><em>real </em><em>]</em> :: input matrix one</p></li>
+<li><p><strong>pmat2</strong> (kdimj1,kdimj2)<em> [</em><em>real </em><em>]</em> :: input matrix two</p></li>
+<li><p><strong>kdimi1</strong><em> [</em><em>integer </em><em>]</em> :: first  dimension of the first  matrix</p></li>
+<li><p><strong>kdimj1</strong><em> [</em><em>integer </em><em>]</em> :: second dimension of the first  matrix</p></li>
+<li><p><strong>kdimj2</strong><em> [</em><em>integer </em><em>]</em> :: second dimension of the second matrix</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/windrotation_mod/sugrdpar" title="f/windrotation_mod/sugrdpar"><code class="xref f f-func docutils literal notranslate"><span class="pre">sugrdpar()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/windrotation_mod/uvr_rotatewind_nl">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">windrotation_mod/</span></span><span class="sig-name descname"><span class="pre">uvr_rotatewind_nl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">uvr</span></em>, <em class="sig-param"><span class="pre">subgridindex</span></em>, <em class="sig-param"><span class="pre">uwind</span></em>, <em class="sig-param"><span class="pre">vwind</span></em>, <em class="sig-param"><span class="pre">lat</span></em>, <em class="sig-param"><span class="pre">lon</span></em>, <em class="sig-param"><span class="pre">latrot</span></em>, <em class="sig-param"><span class="pre">lonrot</span></em>, <em class="sig-param"><span class="pre">mode</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/windrotation_mod/uvr_rotatewind_nl" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Go from tangential wind components from one sphere to another
+(same origin!). Original ezsint version used for computing innovation.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>uvr</strong><em> [</em><em>struct_uvr </em><em>,</em><em>pointer</em><em>]</em> :: Wind rotation object</p></li>
+<li><p><strong>subgridindex</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em> :: Current subgrid index</p></li>
+<li><p><strong>uwind</strong><em> [</em><em>real </em><em>,</em><em>inout</em><em>]</em> :: interpUU</p></li>
+<li><p><strong>vwind</strong><em> [</em><em>real </em><em>,</em><em>inout</em><em>]</em> :: interpVV</p></li>
+<li><p><strong>lat</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: Latitude in radians</p></li>
+<li><p><strong>lon</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: Longitude in radians</p></li>
+<li><p><strong>latrot</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: Rotated latitude in radians</p></li>
+<li><p><strong>lonrot</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: Rotated longitude in radians</p></li>
+<li><p><strong>mode</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em> :: ToMetWind or ToRotWind</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="statetocolumn_mod.html#f/statetocolumn_mod/myezuvint_nl" title="f/statetocolumn_mod/myezuvint_nl"><code class="xref f f-func docutils literal notranslate"><span class="pre">myezuvint_nl()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/windrotation_mod/uvr_rotatewind_tl">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">windrotation_mod/</span></span><span class="sig-name descname"><span class="pre">uvr_rotatewind_tl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">uvr</span></em>, <em class="sig-param"><span class="pre">subgridindex</span></em>, <em class="sig-param"><span class="pre">uwind</span></em>, <em class="sig-param"><span class="pre">vwind</span></em>, <em class="sig-param"><span class="pre">lat_in</span></em>, <em class="sig-param"><span class="pre">lon_in</span></em>, <em class="sig-param"><span class="pre">latrot_in</span></em>, <em class="sig-param"><span class="pre">lonrot_in</span></em>, <em class="sig-param"><span class="pre">mode</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/windrotation_mod/uvr_rotatewind_tl" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Go from tangential wind components from one sphere to another
+(same origin!). Fast version used by Variational analysis.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>uvr</strong><em> [</em><em>struct_uvr </em><em>,</em><em>pointer</em><em>]</em> :: Wind rotation object</p></li>
+<li><p><strong>subgridindex</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em> :: IN</p></li>
+<li><p><strong>uwind</strong><em> [</em><em>real </em><em>,</em><em>inout</em><em>]</em> :: interpUU</p></li>
+<li><p><strong>vwind</strong><em> [</em><em>real </em><em>,</em><em>inout</em><em>]</em> :: interpVV</p></li>
+<li><p><strong>lat_in</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: Latitude in radians</p></li>
+<li><p><strong>lon_in</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: Longitude in radians</p></li>
+<li><p><strong>latrot_in</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: Rotated latitude in radians</p></li>
+<li><p><strong>lonrot_in</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: Rotated longitude in radians</p></li>
+<li><p><strong>mode</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em> :: ToMetWind or ToRotWind</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="statetocolumn_mod.html#f/statetocolumn_mod/myezuvint_tl" title="f/statetocolumn_mod/myezuvint_tl"><code class="xref f f-func docutils literal notranslate"><span class="pre">myezuvint_tl()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="#f/windrotation_mod/uvr_rotatelatlon" title="f/windrotation_mod/uvr_rotatelatlon"><code class="xref f f-func docutils literal notranslate"><span class="pre">uvr_rotatelatlon()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/windrotation_mod/uvr_rotatewind_ad">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">windrotation_mod/</span></span><span class="sig-name descname"><span class="pre">uvr_rotatewind_ad</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">uvr</span></em>, <em class="sig-param"><span class="pre">subgridindex</span></em>, <em class="sig-param"><span class="pre">uwind</span></em>, <em class="sig-param"><span class="pre">vwind</span></em>, <em class="sig-param"><span class="pre">lat_in</span></em>, <em class="sig-param"><span class="pre">lon_in</span></em>, <em class="sig-param"><span class="pre">latrot_in</span></em>, <em class="sig-param"><span class="pre">lonrot_in</span></em>, <em class="sig-param"><span class="pre">mode</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/windrotation_mod/uvr_rotatewind_ad" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Adjoint of : Go from tangential wind components from one sphere to another
+(same origin!). Fast version used by Variational analysis.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>uvr</strong><em> [</em><em>struct_uvr </em><em>,</em><em>pointer</em><em>]</em> :: Wind rotation object</p></li>
+<li><p><strong>subgridindex</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em> :: IN</p></li>
+<li><p><strong>uwind</strong><em> [</em><em>real </em><em>,</em><em>inout</em><em>]</em> :: interpUU</p></li>
+<li><p><strong>vwind</strong><em> [</em><em>real </em><em>,</em><em>inout</em><em>]</em> :: interpVV</p></li>
+<li><p><strong>lat_in</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: Latitude in radians</p></li>
+<li><p><strong>lon_in</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: Longitude in radians</p></li>
+<li><p><strong>latrot_in</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: Rotated latitude in radians</p></li>
+<li><p><strong>lonrot_in</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: Rotated longitude in radians</p></li>
+<li><p><strong>mode</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em> :: ToMetWind or ToRotWind</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="statetocolumn_mod.html#f/statetocolumn_mod/myezuvint_ad" title="f/statetocolumn_mod/myezuvint_ad"><code class="xref f f-func docutils literal notranslate"><span class="pre">myezuvint_ad()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="#f/windrotation_mod/uvr_rotatelatlon" title="f/windrotation_mod/uvr_rotatelatlon"><code class="xref f f-func docutils literal notranslate"><span class="pre">uvr_rotatelatlon()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/windrotation_mod/uvr_rotatelatlon">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">windrotation_mod/</span></span><span class="sig-name descname"><span class="pre">uvr_rotatelatlon</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">uvr</span></em>, <em class="sig-param"><span class="pre">subgridindex</span></em>, <em class="sig-param"><span class="pre">latout</span></em>, <em class="sig-param"><span class="pre">lonout</span></em>, <em class="sig-param"><span class="pre">latin</span></em>, <em class="sig-param"><span class="pre">lonin</span></em>, <em class="sig-param"><span class="pre">mode</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/windrotation_mod/uvr_rotatelatlon" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Go from (lat,lon) of one Cartesian frame to (lat,lon) of another
+Cartesian frame given the rotation matrix.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>uvr</strong><em> [</em><em>struct_uvr </em><em>,</em><em>pointer</em><em>]</em> :: Wind rotation object</p></li>
+<li><p><strong>subgridindex</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em> :: Current subgrid index</p></li>
+<li><p><strong>latout</strong><em> [</em><em>real </em><em>,</em><em>out</em><em>]</em> :: Output latitude in radians</p></li>
+<li><p><strong>lonout</strong><em> [</em><em>real </em><em>,</em><em>out</em><em>]</em> :: Output longitude in radians</p></li>
+<li><p><strong>latin</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: Input latitude in radians</p></li>
+<li><p><strong>lonin</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: Input longitude in radians</p></li>
+<li><p><strong>mode</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em> :: ToLatLonRot or ToLatLon</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="statetocolumn_mod.html#f/statetocolumn_mod/s2c_setupinterpinfo" title="f/statetocolumn_mod/s2c_setupinterpinfo"><code class="xref f f-func docutils literal notranslate"><span class="pre">s2c_setupinterpinfo()</span></code></a>, <a class="reference internal" href="#f/windrotation_mod/uvr_rotatewind_tl" title="f/windrotation_mod/uvr_rotatewind_tl"><code class="xref f f-func docutils literal notranslate"><span class="pre">uvr_rotatewind_tl()</span></code></a>, <a class="reference internal" href="#f/windrotation_mod/uvr_rotatewind_ad" title="f/windrotation_mod/uvr_rotatewind_ad"><code class="xref f f-func docutils literal notranslate"><span class="pre">uvr_rotatewind_ad()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="#f/windrotation_mod/vllacar" title="f/windrotation_mod/vllacar"><code class="xref f f-func docutils literal notranslate"><span class="pre">vllacar()</span></code></a>, <a class="reference internal" href="#f/windrotation_mod/mxv" title="f/windrotation_mod/mxv"><code class="xref f f-func docutils literal notranslate"><span class="pre">mxv()</span></code></a>, <a class="reference internal" href="#f/windrotation_mod/carall" title="f/windrotation_mod/carall"><code class="xref f f-func docutils literal notranslate"><span class="pre">carall()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/windrotation_mod/carall">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">windrotation_mod/</span></span><span class="sig-name descname"><span class="pre">carall</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">plon</span></em>, <em class="sig-param"><span class="pre">plat</span></em>, <em class="sig-param"><span class="pre">pcart</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/windrotation_mod/carall" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Returns (lat,lon) (degrees) of an input Cartesian position vector
+on the unit sphere.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>plon</strong><em> [</em><em>real </em><em>,</em><em>out</em><em>]</em> :: output longitude</p></li>
+<li><p><strong>plat</strong><em> [</em><em>real </em><em>,</em><em>out</em><em>]</em> :: output latitude</p></li>
+<li><p><strong>pcart</strong> (msize)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: input Cartesian vector</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/windrotation_mod/uvr_rotatelatlon" title="f/windrotation_mod/uvr_rotatelatlon"><code class="xref f f-func docutils literal notranslate"><span class="pre">uvr_rotatelatlon()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/windrotation_mod/mxv">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">windrotation_mod/</span></span><span class="sig-name descname"><span class="pre">mxv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">pvec2</span></em>, <em class="sig-param"><span class="pre">pmat</span></em>, <em class="sig-param"><span class="pre">pvec1</span></em>, <em class="sig-param"><span class="pre">kdimi</span></em>, <em class="sig-param"><span class="pre">kdimj</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/windrotation_mod/mxv" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Compute a product : matrix times vector.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>pvec2</strong> (kdimi)<em> [</em><em>real </em><em>]</em> :: output vector</p></li>
+<li><p><strong>pmat</strong> (kdimi,kdimj)<em> [</em><em>real </em><em>]</em> :: input matrix</p></li>
+<li><p><strong>pvec1</strong> (kdimj)<em> [</em><em>real </em><em>]</em> :: input vector</p></li>
+<li><p><strong>kdimi</strong><em> [</em><em>integer </em><em>]</em> :: first dimension</p></li>
+<li><p><strong>kdimj</strong><em> [</em><em>integer </em><em>]</em> :: second dimension</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/windrotation_mod/uvr_rotatelatlon" title="f/windrotation_mod/uvr_rotatelatlon"><code class="xref f f-func docutils literal notranslate"><span class="pre">uvr_rotatelatlon()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div></blockquote>
+</section>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="costfunction_mod.html" title="costfunction_mod"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="var1d_mod.html" title="var1d_mod"
+             >previous</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2018, ECCC.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.
+    </div>
+  </body>
+</html>

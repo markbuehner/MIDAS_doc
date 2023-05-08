@@ -1,0 +1,806 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>lamspectraltransform_mod &mdash; MIDAS  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="MIDAS  documentation" href="../index.html" />
+    <link rel="next" title="obstimeinterp_mod" href="obstimeinterp_mod.html" />
+    <link rel="prev" title="interpolation_mod" href="interpolation_mod.html" /> 
+  </head>
+  <body>
+  <div>
+    <img src="../_static/MIDAS_header.png" alt="MIDAS" />
+  </div>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="obstimeinterp_mod.html" title="obstimeinterp_mod"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="interpolation_mod.html" title="interpolation_mod"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="interpolation_mod.html"
+                          title="previous chapter">interpolation_mod</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="obstimeinterp_mod.html"
+                          title="next chapter">obstimeinterp_mod</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/modules/lamspectraltransform_mod.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <section id="lamspectraltransform-mod">
+<h1>lamspectraltransform_mod<a class="headerlink" href="#lamspectraltransform-mod" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><p><a class="reference internal" href="lamspectraltransform_mod_src.html"><span class="doc">link to source code</span></a></p>
+<p><strong>Dependency Diagrams:</strong></p>
+<figure class="align-default" id="id1">
+<a class="reference internal image-reference" href="lamspectraltransform_mod.svg"><img alt="lamspectraltransform_mod.svg" height="100px" src="lamspectraltransform_mod.svg" /></a>
+<figcaption>
+<p><span class="caption-text">Direct Dependency Diagram</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id2">
+<a class="reference internal image-reference" href="lamspectraltransform_mod_rev.svg"><img alt="lamspectraltransform_mod_rev.svg" height="100px" src="lamspectraltransform_mod_rev.svg" /></a>
+<figcaption>
+<p><span class="caption-text">Reverse Dependency Diagram</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<span class="target" id="f/lamspectraltransform_mod"></span><p class="rubric">Description</p>
+<p>MODULE lamSpectralTransform_mod (prefix=’lst’ category=’4. Data Object transformations’)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Purpose</dt>
+<dd class="field-odd"><p>Bi-Fourier spectral transform for limited-area applications.
+Depends on ffft8 and setfft8 routines in ARMNLIB.</p>
+</dd>
+</dl>
+<p class="rubric">Quick access</p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/lamspectraltransform_mod/struct_lst" title="f/lamspectraltransform_mod/struct_lst"><code class="xref f f-var docutils literal notranslate"><span class="pre">struct_lst</span></code></a></p>
+</dd>
+<dt class="field-even">Routines</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/lamspectraltransform_mod/lst_laplacian" title="f/lamspectraltransform_mod/lst_laplacian"><code class="xref f f-func docutils literal notranslate"><span class="pre">lst_laplacian()</span></code></a>, <a class="reference internal" href="#f/lamspectraltransform_mod/lst_reshapetrunc" title="f/lamspectraltransform_mod/lst_reshapetrunc"><code class="xref f f-func docutils literal notranslate"><span class="pre">lst_reshapetrunc()</span></code></a>, <a class="reference internal" href="#f/lamspectraltransform_mod/lst_reshapetrunc_kij" title="f/lamspectraltransform_mod/lst_reshapetrunc_kij"><code class="xref f f-func docutils literal notranslate"><span class="pre">lst_reshapetrunc_kij()</span></code></a>, <a class="reference internal" href="#f/lamspectraltransform_mod/lst_setup" title="f/lamspectraltransform_mod/lst_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">lst_setup()</span></code></a>, <a class="reference internal" href="#f/lamspectraltransform_mod/lst_totalwavenumber" title="f/lamspectraltransform_mod/lst_totalwavenumber"><code class="xref f f-func docutils literal notranslate"><span class="pre">lst_totalwavenumber()</span></code></a>, <a class="reference internal" href="#f/lamspectraltransform_mod/lst_transform1d" title="f/lamspectraltransform_mod/lst_transform1d"><code class="xref f f-func docutils literal notranslate"><span class="pre">lst_transform1d()</span></code></a>, <a class="reference internal" href="#f/lamspectraltransform_mod/lst_transform1d_kij" title="f/lamspectraltransform_mod/lst_transform1d_kij"><code class="xref f f-func docutils literal notranslate"><span class="pre">lst_transform1d_kij()</span></code></a>, <a class="reference internal" href="#f/lamspectraltransform_mod/lst_vartransform" title="f/lamspectraltransform_mod/lst_vartransform"><code class="xref f f-func docutils literal notranslate"><span class="pre">lst_vartransform()</span></code></a>, <a class="reference internal" href="#f/lamspectraltransform_mod/lst_vartransform_ijk" title="f/lamspectraltransform_mod/lst_vartransform_ijk"><code class="xref f f-func docutils literal notranslate"><span class="pre">lst_vartransform_ijk()</span></code></a>, <a class="reference internal" href="#f/lamspectraltransform_mod/lst_vartransform_kij" title="f/lamspectraltransform_mod/lst_vartransform_kij"><code class="xref f f-func docutils literal notranslate"><span class="pre">lst_vartransform_kij()</span></code></a>, <a class="reference internal" href="#f/lamspectraltransform_mod/ngfft" title="f/lamspectraltransform_mod/ngfft"><code class="xref f f-func docutils literal notranslate"><span class="pre">ngfft()</span></code></a>, <a class="reference internal" href="#f/lamspectraltransform_mod/transpose2d_lattom" title="f/lamspectraltransform_mod/transpose2d_lattom"><code class="xref f f-func docutils literal notranslate"><span class="pre">transpose2d_lattom()</span></code></a>, <a class="reference internal" href="#f/lamspectraltransform_mod/transpose2d_lattom_kij" title="f/lamspectraltransform_mod/transpose2d_lattom_kij"><code class="xref f f-func docutils literal notranslate"><span class="pre">transpose2d_lattom_kij()</span></code></a>, <a class="reference internal" href="#f/lamspectraltransform_mod/transpose2d_levtolon" title="f/lamspectraltransform_mod/transpose2d_levtolon"><code class="xref f f-func docutils literal notranslate"><span class="pre">transpose2d_levtolon()</span></code></a>, <a class="reference internal" href="#f/lamspectraltransform_mod/transpose2d_levtolon_kij" title="f/lamspectraltransform_mod/transpose2d_levtolon_kij"><code class="xref f f-func docutils literal notranslate"><span class="pre">transpose2d_levtolon_kij()</span></code></a>, <a class="reference internal" href="#f/lamspectraltransform_mod/transpose2d_levtolon_kij_mpitypes" title="f/lamspectraltransform_mod/transpose2d_levtolon_kij_mpitypes"><code class="xref f f-func docutils literal notranslate"><span class="pre">transpose2d_levtolon_kij_mpitypes()</span></code></a>, <a class="reference internal" href="#f/lamspectraltransform_mod/transpose2d_levton" title="f/lamspectraltransform_mod/transpose2d_levton"><code class="xref f f-func docutils literal notranslate"><span class="pre">transpose2d_levton()</span></code></a>, <a class="reference internal" href="#f/lamspectraltransform_mod/transpose2d_levton_kij" title="f/lamspectraltransform_mod/transpose2d_levton_kij"><code class="xref f f-func docutils literal notranslate"><span class="pre">transpose2d_levton_kij()</span></code></a>, <a class="reference internal" href="#f/lamspectraltransform_mod/transpose2d_lontolev" title="f/lamspectraltransform_mod/transpose2d_lontolev"><code class="xref f f-func docutils literal notranslate"><span class="pre">transpose2d_lontolev()</span></code></a>, <a class="reference internal" href="#f/lamspectraltransform_mod/transpose2d_lontolev_kij" title="f/lamspectraltransform_mod/transpose2d_lontolev_kij"><code class="xref f f-func docutils literal notranslate"><span class="pre">transpose2d_lontolev_kij()</span></code></a>, <a class="reference internal" href="#f/lamspectraltransform_mod/transpose2d_lontolev_kij_mpitypes" title="f/lamspectraltransform_mod/transpose2d_lontolev_kij_mpitypes"><code class="xref f f-func docutils literal notranslate"><span class="pre">transpose2d_lontolev_kij_mpitypes()</span></code></a>, <a class="reference internal" href="#f/lamspectraltransform_mod/transpose2d_mtolat" title="f/lamspectraltransform_mod/transpose2d_mtolat"><code class="xref f f-func docutils literal notranslate"><span class="pre">transpose2d_mtolat()</span></code></a>, <a class="reference internal" href="#f/lamspectraltransform_mod/transpose2d_mtolat_kij" title="f/lamspectraltransform_mod/transpose2d_mtolat_kij"><code class="xref f f-func docutils literal notranslate"><span class="pre">transpose2d_mtolat_kij()</span></code></a>, <a class="reference internal" href="#f/lamspectraltransform_mod/transpose2d_ntolev" title="f/lamspectraltransform_mod/transpose2d_ntolev"><code class="xref f f-func docutils literal notranslate"><span class="pre">transpose2d_ntolev()</span></code></a>, <a class="reference internal" href="#f/lamspectraltransform_mod/transpose2d_ntolev_kij" title="f/lamspectraltransform_mod/transpose2d_ntolev_kij"><code class="xref f f-func docutils literal notranslate"><span class="pre">transpose2d_ntolev_kij()</span></code></a></p>
+</dd>
+</dl>
+<p class="rubric">Needed modules</p>
+<ul class="simple">
+<li><p><code class="xref f f-mod docutils literal notranslate"><span class="pre">mpi</span></code></p></li>
+<li><p><a class="reference internal" href="midasmpi_mod.html#f/midasmpi_mod" title="f/midasmpi_mod: MODULE midasMpi_mod (prefix='mmpi' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">midasmpi_mod</span></code></a>: MODULE midasMpi_mod (prefix=’mmpi’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="mathphysconstants_mod.html#f/mathphysconstants_mod" title="f/mathphysconstants_mod: MODULE MathPhysConstants_mod (prefix='mpc' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">mathphysconstants_mod</span></code></a>: MODULE MathPhysConstants_mod (prefix=’mpc’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="earthconstants_mod.html#f/earthconstants_mod" title="f/earthconstants_mod: MODULE earthConstants_mod (prefix='ec' category='8. Low-level utilities and constants') Prefixes: ec_ (Earth constants), for miscellaneous values from diverse sources"><code class="xref f f-mod docutils literal notranslate"><span class="pre">earthconstants_mod</span></code></a>: MODULE earthConstants_mod (prefix=’ec’ category=’8. Low-level utilities and constants’) Prefixes: <a href="#id3"><span class="problematic" id="id4">ec_</span></a> (Earth constants), for miscellaneous values from diverse sources</p></li>
+<li><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod" title="f/utilities_mod: MODULE utilities_mod (prefix='utl' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">utilities_mod</span></code></a>: MODULE utilities_mod (prefix=’utl’ category=’8. Low-level utilities and constants’)</p></li>
+</ul>
+<p class="rubric">Types</p>
+<ul>
+<li><dl>
+<dt class="sig sig-object f" id="f/lamspectraltransform_mod/unknown_type">
+<em class="property"><span class="pre">type</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">lamspectraltransform_mod/</span></span><span class="sig-name descname"><span class="pre">unknown_type</span></span><a class="headerlink" href="#f/lamspectraltransform_mod/unknown_type" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type fields</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">alllatbeg</span> (*)<em> [</em><em>integer </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">alllatend</span> (*)<em> [</em><em>integer </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">alllatperpe</span> (*)<em> [</em><em>integer </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">alllevbeg</span> (*)<em> [</em><em>integer </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">alllevend</span> (*)<em> [</em><em>integer </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">alllonbeg</span> (*)<em> [</em><em>integer </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">alllonend</span> (*)<em> [</em><em>integer </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">alllonperpe</span> (*)<em> [</em><em>integer </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">allmbeg</span> (*)<em> [</em><em>integer </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">allmend</span> (*)<em> [</em><em>integer </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">allmskip</span> (*)<em> [</em><em>integer </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">allnbeg</span> (*)<em> [</em><em>integer </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">allnend</span> (*)<em> [</em><em>integer </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">allnskip</span> (*)<em> [</em><em>integer </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">allocated</span><em> [</em><em>logical </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">griddataorder</span><em> [</em><em>character </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">ilafromek</span> (*,*)<em> [</em><em>integer </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">ilaglobal</span> (*)<em> [</em><em>integer </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">ilapxy</span> (*)<em> [</em><em>real </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">k</span> (*)<em> [</em><em>integer </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">k_r8</span> (*)<em> [</em><em>real </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">kfrommnglb</span> (*,*)<em> [</em><em>integer </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">ktrunc</span><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">lapxy</span> (*)<em> [</em><em>real </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">latperpe</span><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">latperpemax</span><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">lonlatdivisible</span><em> [</em><em>logical </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">lonperpe</span><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">lonperpemax</span><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">m</span> (*)<em> [</em><em>integer </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">maxlevcount</span><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">maxmactivecount</span><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">maxnla</span><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">mmax</span><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">mpimode</span><em> [</em><em>character </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">mylatbeg</span><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">mylatend</span><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">mylevbeg</span><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">mylevcount</span><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">mylevend</span><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">mylonbeg</span><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">mylonend</span><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">mymactivecount</span><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">mymbeg</span><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">mymcount</span><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">mymend</span><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">mymindex</span> (*)<em> [</em><em>integer </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">mymskip</span><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">mynbeg</span><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">myncount</span><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">mynend</span><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">mynindex</span> (*)<em> [</em><em>integer </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">mynskip</span><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">n</span> (*)<em> [</em><em>integer </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">neperk</span> (*)<em> [</em><em>integer </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">neperkglobal</span> (*)<em> [</em><em>integer </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">ni</span><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">nip</span><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">nj</span><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">njp</span><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">nla</span><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">nla_index</span> (*,*)<em> [</em><em>integer </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">nlaglobal</span><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">nmax</span><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">normfactor</span> (*,*)<em> [</em><em>real </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">normfactorad</span> (*,*)<em> [</em><em>real </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">nphase</span><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">recvtype_levtolon</span><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">recvtype_lontolev</span><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">sendtype_levtolon</span><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">sendtype_lontolev</span><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">weight</span> (*)<em> [</em><em>real </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</li>
+</ul>
+<p class="rubric">Variables</p>
+<ul>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/lamspectraltransform_mod/struct_lst">
+<span class="sig-prename descclassname"><span class="pre">lamspectraltransform_mod/</span></span><span class="sig-name descname"><span class="pre">struct_lst</span></span><em> <span class="pre">[</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/lamspectraltransform_mod/struct_lst" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+</ul>
+<p class="rubric">Subroutines and functions</p>
+<dl>
+<dt class="sig sig-object f" id="f/lamspectraltransform_mod/lst_setup">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">lamspectraltransform_mod/</span></span><span class="sig-name descname"><span class="pre">lst_setup</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">lst</span></em>, <em class="sig-param"><span class="pre">ni_in</span></em>, <em class="sig-param"><span class="pre">nj_in</span></em>, <em class="sig-param"><span class="pre">dlon_in</span></em>, <em class="sig-param"><span class="pre">ktrunc_in</span></em>, <em class="sig-param"><span class="pre">mpimode</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">maxlevels_opt</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">griddataorder_opt</span></em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/lamspectraltransform_mod/lst_setup" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>lst</strong><em> [</em><em>struct_lst </em><em>]</em> :: OUT</p></li>
+<li><p><strong>ni_in</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>nj_in</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>dlon_in</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>ktrunc_in</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>mpimode</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Options</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>maxlevels_opt</strong><em> [</em><em>integer </em><em>,</em><em>in,</em><em>]</em></p></li>
+<li><p><strong>griddataorder_opt</strong><em> [</em><em>character </em><em>,</em><em>in,</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="bmatrixensemble_mod.html#f/bmatrixensemble_mod/ensemblescaledecomposition" title="f/bmatrixensemble_mod/ensemblescaledecomposition"><code class="xref f f-func docutils literal notranslate"><span class="pre">ensemblescaledecomposition()</span></code></a>, <a class="reference internal" href="calcstatslam_mod.html#f/calcstatslam_mod/horizcorrelfunction" title="f/calcstatslam_mod/horizcorrelfunction"><code class="xref f f-func docutils literal notranslate"><span class="pre">horizcorrelfunction()</span></code></a>, <a class="reference internal" href="calcstatslam_mod.html#f/calcstatslam_mod/calcspectralstats" title="f/calcstatslam_mod/calcspectralstats"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcspectralstats()</span></code></a>, <a class="reference internal" href="calcstatslam_mod.html#f/calcstatslam_mod/normalizepowerspectrum" title="f/calcstatslam_mod/normalizepowerspectrum"><code class="xref f f-func docutils literal notranslate"><span class="pre">normalizepowerspectrum()</span></code></a>, <a class="reference internal" href="calcstatslam_mod.html#f/calcstatslam_mod/applyhorizloc" title="f/calcstatslam_mod/applyhorizloc"><code class="xref f f-func docutils literal notranslate"><span class="pre">applyhorizloc()</span></code></a>, <a class="reference internal" href="gridvariabletransforms_mod.html#f/gridvariabletransforms_mod/vortdivtopsichi_gsv" title="f/gridvariabletransforms_mod/vortdivtopsichi_gsv"><code class="xref f f-func docutils literal notranslate"><span class="pre">vortdivtopsichi_gsv()</span></code></a>, <a class="reference internal" href="lambmatrixhi_mod.html#f/lambmatrixhi_mod/lbhi_setup" title="f/lambmatrixhi_mod/lbhi_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">lbhi_setup()</span></code></a>, <a class="reference internal" href="localizationspectral_mod.html#f/localizationspectral_mod/lsp_setup" title="f/localizationspectral_mod/lsp_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">lsp_setup()</span></code></a>, <a class="reference internal" href="localizationspectral_mod.html#f/localizationspectral_mod/setuplamspectralhloc" title="f/localizationspectral_mod/setuplamspectralhloc"><code class="xref f f-func docutils literal notranslate"><span class="pre">setuplamspectralhloc()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="#f/lamspectraltransform_mod/ngfft" title="f/lamspectraltransform_mod/ngfft"><code class="xref f f-func docutils literal notranslate"><span class="pre">ngfft()</span></code></a>, <a class="reference internal" href="midasmpi_mod.html#f/midasmpi_mod/mmpi_setup_lonbands" title="f/midasmpi_mod/mmpi_setup_lonbands"><code class="xref f f-func docutils literal notranslate"><span class="pre">mmpi_setup_lonbands()</span></code></a>, <a class="reference internal" href="midasmpi_mod.html#f/midasmpi_mod/mmpi_setup_latbands" title="f/midasmpi_mod/mmpi_setup_latbands"><code class="xref f f-func docutils literal notranslate"><span class="pre">mmpi_setup_latbands()</span></code></a>, <a class="reference internal" href="midasmpi_mod.html#f/midasmpi_mod/mmpi_setup_m" title="f/midasmpi_mod/mmpi_setup_m"><code class="xref f f-func docutils literal notranslate"><span class="pre">mmpi_setup_m()</span></code></a>, <a class="reference internal" href="midasmpi_mod.html#f/midasmpi_mod/mmpi_setup_n" title="f/midasmpi_mod/mmpi_setup_n"><code class="xref f f-func docutils literal notranslate"><span class="pre">mmpi_setup_n()</span></code></a>, <a class="reference internal" href="midasmpi_mod.html#f/midasmpi_mod/mmpi_setup_levels" title="f/midasmpi_mod/mmpi_setup_levels"><code class="xref f f-func docutils literal notranslate"><span class="pre">mmpi_setup_levels()</span></code></a>, <a class="reference internal" href="#f/lamspectraltransform_mod/lst_totalwavenumber" title="f/lamspectraltransform_mod/lst_totalwavenumber"><code class="xref f f-func docutils literal notranslate"><span class="pre">lst_totalwavenumber()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/lamspectraltransform_mod/lst_totalwavenumber">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">lamspectraltransform_mod/</span></span><span class="sig-name descname"><span class="pre">lst_totalwavenumber</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">m</span></em>, <em class="sig-param"><span class="pre">n</span></em>, <em class="sig-param"><span class="pre">mref</span></em>, <em class="sig-param"><span class="pre">nref</span></em>, <em class="sig-param"><span class="pre">kref</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/lamspectraltransform_mod/lst_totalwavenumber" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>m</strong><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><strong>n</strong><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><strong>mref</strong><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><strong>nref</strong><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><strong>kref</strong><em> [</em><em>integer </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Return</dt>
+<dd class="field-even"><p><strong>r</strong><em> [</em><em>real </em><em>]</em></p>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/lamspectraltransform_mod/lst_setup" title="f/lamspectraltransform_mod/lst_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">lst_setup()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/lamspectraltransform_mod/lst_vartransform">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">lamspectraltransform_mod/</span></span><span class="sig-name descname"><span class="pre">lst_vartransform</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">lst</span></em>, <em class="sig-param"><span class="pre">spectralstatevar</span></em>, <em class="sig-param"><span class="pre">gridstate</span></em>, <em class="sig-param"><span class="pre">transformdirection</span></em>, <em class="sig-param"><span class="pre">nk</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/lamspectraltransform_mod/lst_vartransform" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>lst</strong><em> [</em><em>struct_lst </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>spectralstatevar</strong> (*,*,*)<em> [</em><em>real </em><em>,</em><em>inout</em><em>]</em></p></li>
+<li><p><strong>gridstate</strong> (*,*,*)<em> [</em><em>real </em><em>,</em><em>inout</em><em>]</em></p></li>
+<li><p><strong>transformdirection</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>nk</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="bmatrixensemble_mod.html#f/bmatrixensemble_mod/ensemblescaledecomposition" title="f/bmatrixensemble_mod/ensemblescaledecomposition"><code class="xref f f-func docutils literal notranslate"><span class="pre">ensemblescaledecomposition()</span></code></a>, <a class="reference internal" href="calcstatslam_mod.html#f/calcstatslam_mod/horizcorrelfunction" title="f/calcstatslam_mod/horizcorrelfunction"><code class="xref f f-func docutils literal notranslate"><span class="pre">horizcorrelfunction()</span></code></a>, <a class="reference internal" href="calcstatslam_mod.html#f/calcstatslam_mod/calcspectralstats" title="f/calcstatslam_mod/calcspectralstats"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcspectralstats()</span></code></a>, <a class="reference internal" href="calcstatslam_mod.html#f/calcstatslam_mod/normalizepowerspectrum" title="f/calcstatslam_mod/normalizepowerspectrum"><code class="xref f f-func docutils literal notranslate"><span class="pre">normalizepowerspectrum()</span></code></a>, <a class="reference internal" href="calcstatslam_mod.html#f/calcstatslam_mod/applyhorizloc" title="f/calcstatslam_mod/applyhorizloc"><code class="xref f f-func docutils literal notranslate"><span class="pre">applyhorizloc()</span></code></a>, <a class="reference internal" href="lambmatrixhi_mod.html#f/lambmatrixhi_mod/lbhi_cv2gd" title="f/lambmatrixhi_mod/lbhi_cv2gd"><code class="xref f f-func docutils literal notranslate"><span class="pre">lbhi_cv2gd()</span></code></a>, <a class="reference internal" href="lambmatrixhi_mod.html#f/lambmatrixhi_mod/lbhi_cv2gdadj" title="f/lambmatrixhi_mod/lbhi_cv2gdadj"><code class="xref f f-func docutils literal notranslate"><span class="pre">lbhi_cv2gdadj()</span></code></a>, <a class="reference internal" href="#f/lamspectraltransform_mod/lst_laplacian" title="f/lamspectraltransform_mod/lst_laplacian"><code class="xref f f-func docutils literal notranslate"><span class="pre">lst_laplacian()</span></code></a>, <a class="reference internal" href="localizationspectral_mod.html#f/localizationspectral_mod/setuplamspectralhloc" title="f/localizationspectral_mod/setuplamspectralhloc"><code class="xref f f-func docutils literal notranslate"><span class="pre">setuplamspectralhloc()</span></code></a>, <a class="reference internal" href="localizationspectral_mod.html#f/localizationspectral_mod/lsp_lsqrt" title="f/localizationspectral_mod/lsp_lsqrt"><code class="xref f f-func docutils literal notranslate"><span class="pre">lsp_lsqrt()</span></code></a>, <a class="reference internal" href="localizationspectral_mod.html#f/localizationspectral_mod/lsp_lsqrtad" title="f/localizationspectral_mod/lsp_lsqrtad"><code class="xref f f-func docutils literal notranslate"><span class="pre">lsp_lsqrtad()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/lamspectraltransform_mod/lst_vartransform_ijk" title="f/lamspectraltransform_mod/lst_vartransform_ijk"><code class="xref f f-func docutils literal notranslate"><span class="pre">lst_vartransform_ijk()</span></code></a>, <a class="reference internal" href="#f/lamspectraltransform_mod/lst_vartransform_kij" title="f/lamspectraltransform_mod/lst_vartransform_kij"><code class="xref f f-func docutils literal notranslate"><span class="pre">lst_vartransform_kij()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/lamspectraltransform_mod/lst_vartransform_ijk">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">lamspectraltransform_mod/</span></span><span class="sig-name descname"><span class="pre">lst_vartransform_ijk</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">lst</span></em>, <em class="sig-param"><span class="pre">spectralstatevar</span></em>, <em class="sig-param"><span class="pre">gridstate</span></em>, <em class="sig-param"><span class="pre">transformdirection</span></em>, <em class="sig-param"><span class="pre">nk</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/lamspectraltransform_mod/lst_vartransform_ijk" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>lst</strong><em> [</em><em>struct_lst </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>spectralstatevar</strong> (*,*,*)<em> [</em><em>real </em><em>,</em><em>inout</em><em>]</em> :: OUT</p></li>
+<li><p><strong>gridstate</strong> (lst%mylonend-(lst%mylonbeg)+1,lst%mylatend-(lst%mylatbeg)+1,nk)<em> [</em><em>real </em><em>,</em><em>inout</em><em>]</em></p></li>
+<li><p><strong>transformdirection</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em> :: IN</p></li>
+<li><p><strong>nk</strong><em> [</em><em>integer </em><em>,</em><em>in,</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/lamspectraltransform_mod/lst_vartransform" title="f/lamspectraltransform_mod/lst_vartransform"><code class="xref f f-func docutils literal notranslate"><span class="pre">lst_vartransform()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/lamspectraltransform_mod/transpose2d_lontolev" title="f/lamspectraltransform_mod/transpose2d_lontolev"><code class="xref f f-func docutils literal notranslate"><span class="pre">transpose2d_lontolev()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="#f/lamspectraltransform_mod/lst_reshapetrunc" title="f/lamspectraltransform_mod/lst_reshapetrunc"><code class="xref f f-func docutils literal notranslate"><span class="pre">lst_reshapetrunc()</span></code></a>, <a class="reference internal" href="#f/lamspectraltransform_mod/transpose2d_ntolev" title="f/lamspectraltransform_mod/transpose2d_ntolev"><code class="xref f f-func docutils literal notranslate"><span class="pre">transpose2d_ntolev()</span></code></a>, <a class="reference internal" href="#f/lamspectraltransform_mod/lst_transform1d" title="f/lamspectraltransform_mod/lst_transform1d"><code class="xref f f-func docutils literal notranslate"><span class="pre">lst_transform1d()</span></code></a>, <a class="reference internal" href="#f/lamspectraltransform_mod/transpose2d_lattom" title="f/lamspectraltransform_mod/transpose2d_lattom"><code class="xref f f-func docutils literal notranslate"><span class="pre">transpose2d_lattom()</span></code></a>, <a class="reference internal" href="#f/lamspectraltransform_mod/transpose2d_mtolat" title="f/lamspectraltransform_mod/transpose2d_mtolat"><code class="xref f f-func docutils literal notranslate"><span class="pre">transpose2d_mtolat()</span></code></a>, <a class="reference internal" href="#f/lamspectraltransform_mod/transpose2d_levton" title="f/lamspectraltransform_mod/transpose2d_levton"><code class="xref f f-func docutils literal notranslate"><span class="pre">transpose2d_levton()</span></code></a>, <a class="reference internal" href="#f/lamspectraltransform_mod/transpose2d_levtolon" title="f/lamspectraltransform_mod/transpose2d_levtolon"><code class="xref f f-func docutils literal notranslate"><span class="pre">transpose2d_levtolon()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/lamspectraltransform_mod/lst_vartransform_kij">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">lamspectraltransform_mod/</span></span><span class="sig-name descname"><span class="pre">lst_vartransform_kij</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">lst</span></em>, <em class="sig-param"><span class="pre">spectralstatevar</span></em>, <em class="sig-param"><span class="pre">gridstate</span></em>, <em class="sig-param"><span class="pre">transformdirection</span></em>, <em class="sig-param"><span class="pre">nk</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/lamspectraltransform_mod/lst_vartransform_kij" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>lst</strong><em> [</em><em>struct_lst </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>spectralstatevar</strong> (*,*,*)<em> [</em><em>real </em><em>,</em><em>inout</em><em>]</em> :: OUT</p></li>
+<li><p><strong>gridstate</strong> (nk,lst%mylonend-(lst%mylonbeg)+1,lst%mylatend-(lst%mylatbeg)+1)<em> [</em><em>real </em><em>,</em><em>inout</em><em>]</em></p></li>
+<li><p><strong>transformdirection</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em> :: IN</p></li>
+<li><p><strong>nk</strong><em> [</em><em>integer </em><em>,</em><em>in,</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/lamspectraltransform_mod/lst_vartransform" title="f/lamspectraltransform_mod/lst_vartransform"><code class="xref f f-func docutils literal notranslate"><span class="pre">lst_vartransform()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/lamspectraltransform_mod/transpose2d_lontolev_kij_mpitypes" title="f/lamspectraltransform_mod/transpose2d_lontolev_kij_mpitypes"><code class="xref f f-func docutils literal notranslate"><span class="pre">transpose2d_lontolev_kij_mpitypes()</span></code></a>, <a class="reference internal" href="#f/lamspectraltransform_mod/transpose2d_lontolev_kij" title="f/lamspectraltransform_mod/transpose2d_lontolev_kij"><code class="xref f f-func docutils literal notranslate"><span class="pre">transpose2d_lontolev_kij()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="#f/lamspectraltransform_mod/lst_reshapetrunc_kij" title="f/lamspectraltransform_mod/lst_reshapetrunc_kij"><code class="xref f f-func docutils literal notranslate"><span class="pre">lst_reshapetrunc_kij()</span></code></a>, <a class="reference internal" href="#f/lamspectraltransform_mod/transpose2d_ntolev_kij" title="f/lamspectraltransform_mod/transpose2d_ntolev_kij"><code class="xref f f-func docutils literal notranslate"><span class="pre">transpose2d_ntolev_kij()</span></code></a>, <a class="reference internal" href="#f/lamspectraltransform_mod/lst_transform1d_kij" title="f/lamspectraltransform_mod/lst_transform1d_kij"><code class="xref f f-func docutils literal notranslate"><span class="pre">lst_transform1d_kij()</span></code></a>, <a class="reference internal" href="#f/lamspectraltransform_mod/transpose2d_lattom_kij" title="f/lamspectraltransform_mod/transpose2d_lattom_kij"><code class="xref f f-func docutils literal notranslate"><span class="pre">transpose2d_lattom_kij()</span></code></a>, <a class="reference internal" href="#f/lamspectraltransform_mod/transpose2d_mtolat_kij" title="f/lamspectraltransform_mod/transpose2d_mtolat_kij"><code class="xref f f-func docutils literal notranslate"><span class="pre">transpose2d_mtolat_kij()</span></code></a>, <a class="reference internal" href="#f/lamspectraltransform_mod/transpose2d_levton_kij" title="f/lamspectraltransform_mod/transpose2d_levton_kij"><code class="xref f f-func docutils literal notranslate"><span class="pre">transpose2d_levton_kij()</span></code></a>, <a class="reference internal" href="#f/lamspectraltransform_mod/transpose2d_levtolon_kij_mpitypes" title="f/lamspectraltransform_mod/transpose2d_levtolon_kij_mpitypes"><code class="xref f f-func docutils literal notranslate"><span class="pre">transpose2d_levtolon_kij_mpitypes()</span></code></a>, <a class="reference internal" href="#f/lamspectraltransform_mod/transpose2d_levtolon_kij" title="f/lamspectraltransform_mod/transpose2d_levtolon_kij"><code class="xref f f-func docutils literal notranslate"><span class="pre">transpose2d_levtolon_kij()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/lamspectraltransform_mod/lst_transform1d">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">lamspectraltransform_mod/</span></span><span class="sig-name descname"><span class="pre">lst_transform1d</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">field3d</span></em>, <em class="sig-param"><span class="pre">transformdirection</span></em>, <em class="sig-param"><span class="pre">transformaxe</span></em>, <em class="sig-param"><span class="pre">ni_l</span></em>, <em class="sig-param"><span class="pre">nj_l</span></em>, <em class="sig-param"><span class="pre">nip_l</span></em>, <em class="sig-param"><span class="pre">njp_l</span></em>, <em class="sig-param"><span class="pre">kstart</span></em>, <em class="sig-param"><span class="pre">kend</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/lamspectraltransform_mod/lst_transform1d" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>field3d</strong> (ni_l+nip_l,nj_l+njp_l,kend-kstart+1)<em> [</em><em>real </em><em>,</em><em>inout</em><em>]</em></p></li>
+<li><p><strong>transformdirection</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>transformaxe</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>ni_l</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>nj_l</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>nip_l</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>njp_l</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>kstart</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>kend</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/lamspectraltransform_mod/lst_vartransform_ijk" title="f/lamspectraltransform_mod/lst_vartransform_ijk"><code class="xref f f-func docutils literal notranslate"><span class="pre">lst_vartransform_ijk()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_start" title="f/utilities_mod/utl_tmg_start"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_start()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="#f/lamspectraltransform_mod/ngfft" title="f/lamspectraltransform_mod/ngfft"><code class="xref f f-func docutils literal notranslate"><span class="pre">ngfft()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_stop" title="f/utilities_mod/utl_tmg_stop"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_stop()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/lamspectraltransform_mod/lst_transform1d_kij">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">lamspectraltransform_mod/</span></span><span class="sig-name descname"><span class="pre">lst_transform1d_kij</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">field3d</span></em>, <em class="sig-param"><span class="pre">transformdirection</span></em>, <em class="sig-param"><span class="pre">transformaxe</span></em>, <em class="sig-param"><span class="pre">ni_l</span></em>, <em class="sig-param"><span class="pre">nj_l</span></em>, <em class="sig-param"><span class="pre">nip_l</span></em>, <em class="sig-param"><span class="pre">njp_l</span></em>, <em class="sig-param"><span class="pre">kstart</span></em>, <em class="sig-param"><span class="pre">kend</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/lamspectraltransform_mod/lst_transform1d_kij" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>field3d</strong> (kend-kstart+1,ni_l+nip_l,nj_l+njp_l)<em> [</em><em>real </em><em>,</em><em>inout</em><em>]</em></p></li>
+<li><p><strong>transformdirection</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>transformaxe</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>ni_l</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>nj_l</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>nip_l</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>njp_l</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>kstart</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>kend</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/lamspectraltransform_mod/lst_vartransform_kij" title="f/lamspectraltransform_mod/lst_vartransform_kij"><code class="xref f f-func docutils literal notranslate"><span class="pre">lst_vartransform_kij()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_start" title="f/utilities_mod/utl_tmg_start"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_start()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="#f/lamspectraltransform_mod/ngfft" title="f/lamspectraltransform_mod/ngfft"><code class="xref f f-func docutils literal notranslate"><span class="pre">ngfft()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_stop" title="f/utilities_mod/utl_tmg_stop"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_stop()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/lamspectraltransform_mod/transpose2d_lontolev">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">lamspectraltransform_mod/</span></span><span class="sig-name descname"><span class="pre">transpose2d_lontolev</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">gd_out</span></em>, <em class="sig-param"><span class="pre">gd_in</span></em>, <em class="sig-param"><span class="pre">nk</span></em>, <em class="sig-param"><span class="pre">lst</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/lamspectraltransform_mod/transpose2d_lontolev" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>gd_out</strong> (lst%ni,lst%mylatend-(lst%mylatbeg)+1,lst%mylevend-(lst%mylevbeg)+1)<em> [</em><em>real </em><em>,</em><em>out</em><em>]</em></p></li>
+<li><p><strong>gd_in</strong> (lst%mylonend-(lst%mylonbeg)+1,lst%mylatend-(lst%mylatbeg)+1,nk)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>nk</strong><em> [</em><em>integer </em><em>,</em><em>in,</em><em>]</em></p></li>
+<li><p><strong>lst</strong><em> [</em><em>struct_lst </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="globalspectraltransform_mod.html#f/globalspectraltransform_mod/gst_gdsp" title="f/globalspectraltransform_mod/gst_gdsp"><code class="xref f f-func docutils literal notranslate"><span class="pre">gst_gdsp()</span></code></a>, <a class="reference internal" href="globalspectraltransform_mod.html#f/globalspectraltransform_mod/gst_spgda" title="f/globalspectraltransform_mod/gst_spgda"><code class="xref f f-func docutils literal notranslate"><span class="pre">gst_spgda()</span></code></a>, <a class="reference internal" href="globalspectraltransform_mod.html#f/globalspectraltransform_mod/gst_reespe" title="f/globalspectraltransform_mod/gst_reespe"><code class="xref f f-func docutils literal notranslate"><span class="pre">gst_reespe()</span></code></a>, <a class="reference internal" href="#f/lamspectraltransform_mod/lst_vartransform_ijk" title="f/lamspectraltransform_mod/lst_vartransform_ijk"><code class="xref f f-func docutils literal notranslate"><span class="pre">lst_vartransform_ijk()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_start" title="f/utilities_mod/utl_tmg_start"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_start()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_stop" title="f/utilities_mod/utl_tmg_stop"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_stop()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/lamspectraltransform_mod/transpose2d_lontolev_kij_mpitypes">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">lamspectraltransform_mod/</span></span><span class="sig-name descname"><span class="pre">transpose2d_lontolev_kij_mpitypes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">gd_out</span></em>, <em class="sig-param"><span class="pre">gd_in</span></em>, <em class="sig-param"><span class="pre">nk</span></em>, <em class="sig-param"><span class="pre">lst</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/lamspectraltransform_mod/transpose2d_lontolev_kij_mpitypes" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>gd_out</strong> (lst%mylevend-(lst%mylevbeg)+1,lst%ni,lst%mylatend-(lst%mylatbeg)+1)<em> [</em><em>real </em><em>,</em><em>out</em><em>]</em></p></li>
+<li><p><strong>gd_in</strong> (nk,lst%mylonend-(lst%mylonbeg)+1,lst%mylatend-(lst%mylatbeg)+1)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>nk</strong><em> [</em><em>integer </em><em>,</em><em>in,</em><em>]</em></p></li>
+<li><p><strong>lst</strong><em> [</em><em>struct_lst </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/lamspectraltransform_mod/lst_vartransform_kij" title="f/lamspectraltransform_mod/lst_vartransform_kij"><code class="xref f f-func docutils literal notranslate"><span class="pre">lst_vartransform_kij()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_start" title="f/utilities_mod/utl_tmg_start"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_start()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_stop" title="f/utilities_mod/utl_tmg_stop"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_stop()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/lamspectraltransform_mod/transpose2d_lontolev_kij">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">lamspectraltransform_mod/</span></span><span class="sig-name descname"><span class="pre">transpose2d_lontolev_kij</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">gd_out</span></em>, <em class="sig-param"><span class="pre">gd_in</span></em>, <em class="sig-param"><span class="pre">nk</span></em>, <em class="sig-param"><span class="pre">lst</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/lamspectraltransform_mod/transpose2d_lontolev_kij" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>gd_out</strong> (lst%mylevend-(lst%mylevbeg)+1,lst%ni,lst%mylatend-(lst%mylatbeg)+1)<em> [</em><em>real </em><em>,</em><em>out</em><em>]</em></p></li>
+<li><p><strong>gd_in</strong> (nk,lst%mylonend-(lst%mylonbeg)+1,lst%mylatend-(lst%mylatbeg)+1)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>nk</strong><em> [</em><em>integer </em><em>,</em><em>in,</em><em>]</em></p></li>
+<li><p><strong>lst</strong><em> [</em><em>struct_lst </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="globalspectraltransform_mod.html#f/globalspectraltransform_mod/gst_reespe_kij" title="f/globalspectraltransform_mod/gst_reespe_kij"><code class="xref f f-func docutils literal notranslate"><span class="pre">gst_reespe_kij()</span></code></a>, <a class="reference internal" href="#f/lamspectraltransform_mod/lst_vartransform_kij" title="f/lamspectraltransform_mod/lst_vartransform_kij"><code class="xref f f-func docutils literal notranslate"><span class="pre">lst_vartransform_kij()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_start" title="f/utilities_mod/utl_tmg_start"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_start()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_stop" title="f/utilities_mod/utl_tmg_stop"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_stop()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/lamspectraltransform_mod/transpose2d_levtolon">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">lamspectraltransform_mod/</span></span><span class="sig-name descname"><span class="pre">transpose2d_levtolon</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">gd_out</span></em>, <em class="sig-param"><span class="pre">gd_in</span></em>, <em class="sig-param"><span class="pre">nk</span></em>, <em class="sig-param"><span class="pre">lst</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/lamspectraltransform_mod/transpose2d_levtolon" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>gd_out</strong> (lst%mylonend-(lst%mylonbeg)+1,lst%mylatend-(lst%mylatbeg)+1,nk)<em> [</em><em>real </em><em>,</em><em>out</em><em>]</em></p></li>
+<li><p><strong>gd_in</strong> (lst%ni,lst%mylatend-(lst%mylatbeg)+1,lst%mylevend-(lst%mylevbeg)+1)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>nk</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>lst</strong><em> [</em><em>struct_lst </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="globalspectraltransform_mod.html#f/globalspectraltransform_mod/gst_spgd" title="f/globalspectraltransform_mod/gst_spgd"><code class="xref f f-func docutils literal notranslate"><span class="pre">gst_spgd()</span></code></a>, <a class="reference internal" href="globalspectraltransform_mod.html#f/globalspectraltransform_mod/gst_speree" title="f/globalspectraltransform_mod/gst_speree"><code class="xref f f-func docutils literal notranslate"><span class="pre">gst_speree()</span></code></a>, <a class="reference internal" href="#f/lamspectraltransform_mod/lst_vartransform_ijk" title="f/lamspectraltransform_mod/lst_vartransform_ijk"><code class="xref f f-func docutils literal notranslate"><span class="pre">lst_vartransform_ijk()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_start" title="f/utilities_mod/utl_tmg_start"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_start()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_stop" title="f/utilities_mod/utl_tmg_stop"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_stop()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/lamspectraltransform_mod/transpose2d_levtolon_kij_mpitypes">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">lamspectraltransform_mod/</span></span><span class="sig-name descname"><span class="pre">transpose2d_levtolon_kij_mpitypes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">gd_out</span></em>, <em class="sig-param"><span class="pre">gd_in</span></em>, <em class="sig-param"><span class="pre">nk</span></em>, <em class="sig-param"><span class="pre">lst</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/lamspectraltransform_mod/transpose2d_levtolon_kij_mpitypes" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>gd_out</strong> (nk,lst%mylonend-(lst%mylonbeg)+1,lst%mylatend-(lst%mylatbeg)+1)<em> [</em><em>real </em><em>,</em><em>out</em><em>]</em></p></li>
+<li><p><strong>gd_in</strong> (lst%mylevend-(lst%mylevbeg)+1,lst%ni,lst%mylatend-(lst%mylatbeg)+1)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>nk</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>lst</strong><em> [</em><em>struct_lst </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/lamspectraltransform_mod/lst_vartransform_kij" title="f/lamspectraltransform_mod/lst_vartransform_kij"><code class="xref f f-func docutils literal notranslate"><span class="pre">lst_vartransform_kij()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_start" title="f/utilities_mod/utl_tmg_start"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_start()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_stop" title="f/utilities_mod/utl_tmg_stop"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_stop()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/lamspectraltransform_mod/transpose2d_levtolon_kij">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">lamspectraltransform_mod/</span></span><span class="sig-name descname"><span class="pre">transpose2d_levtolon_kij</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">gd_out</span></em>, <em class="sig-param"><span class="pre">gd_in</span></em>, <em class="sig-param"><span class="pre">nk</span></em>, <em class="sig-param"><span class="pre">lst</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/lamspectraltransform_mod/transpose2d_levtolon_kij" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>gd_out</strong> (nk,lst%mylonend-(lst%mylonbeg)+1,lst%mylatend-(lst%mylatbeg)+1)<em> [</em><em>real </em><em>,</em><em>out</em><em>]</em></p></li>
+<li><p><strong>gd_in</strong> (lst%mylevend-(lst%mylevbeg)+1,lst%ni,lst%mylatend-(lst%mylatbeg)+1)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>nk</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>lst</strong><em> [</em><em>struct_lst </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="globalspectraltransform_mod.html#f/globalspectraltransform_mod/gst_speree_kij" title="f/globalspectraltransform_mod/gst_speree_kij"><code class="xref f f-func docutils literal notranslate"><span class="pre">gst_speree_kij()</span></code></a>, <a class="reference internal" href="#f/lamspectraltransform_mod/lst_vartransform_kij" title="f/lamspectraltransform_mod/lst_vartransform_kij"><code class="xref f f-func docutils literal notranslate"><span class="pre">lst_vartransform_kij()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_start" title="f/utilities_mod/utl_tmg_start"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_start()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_stop" title="f/utilities_mod/utl_tmg_stop"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_stop()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/lamspectraltransform_mod/transpose2d_lattom">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">lamspectraltransform_mod/</span></span><span class="sig-name descname"><span class="pre">transpose2d_lattom</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">gd_out</span></em>, <em class="sig-param"><span class="pre">gd_in</span></em>, <em class="sig-param"><span class="pre">lst</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/lamspectraltransform_mod/transpose2d_lattom" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>gd_out</strong> (2*lst%mymcount,lst%nj+lst%njp,lst%mylevend-(lst%mylevbeg)+1)<em> [</em><em>real </em><em>,</em><em>out</em><em>]</em></p></li>
+<li><p><strong>gd_in</strong> (lst%ni+lst%nip,lst%latperpe,lst%mylevend-(lst%mylevbeg)+1)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>lst</strong><em> [</em><em>struct_lst </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="globalspectraltransform_mod.html#f/globalspectraltransform_mod/gst_gdsp" title="f/globalspectraltransform_mod/gst_gdsp"><code class="xref f f-func docutils literal notranslate"><span class="pre">gst_gdsp()</span></code></a>, <a class="reference internal" href="globalspectraltransform_mod.html#f/globalspectraltransform_mod/gst_spgda" title="f/globalspectraltransform_mod/gst_spgda"><code class="xref f f-func docutils literal notranslate"><span class="pre">gst_spgda()</span></code></a>, <a class="reference internal" href="globalspectraltransform_mod.html#f/globalspectraltransform_mod/gst_reespe" title="f/globalspectraltransform_mod/gst_reespe"><code class="xref f f-func docutils literal notranslate"><span class="pre">gst_reespe()</span></code></a>, <a class="reference internal" href="#f/lamspectraltransform_mod/lst_vartransform_ijk" title="f/lamspectraltransform_mod/lst_vartransform_ijk"><code class="xref f f-func docutils literal notranslate"><span class="pre">lst_vartransform_ijk()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_start" title="f/utilities_mod/utl_tmg_start"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_start()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_stop" title="f/utilities_mod/utl_tmg_stop"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_stop()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/lamspectraltransform_mod/transpose2d_lattom_kij">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">lamspectraltransform_mod/</span></span><span class="sig-name descname"><span class="pre">transpose2d_lattom_kij</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">gd_out</span></em>, <em class="sig-param"><span class="pre">gd_in</span></em>, <em class="sig-param"><span class="pre">lst</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/lamspectraltransform_mod/transpose2d_lattom_kij" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>gd_out</strong> (lst%mylevend-(lst%mylevbeg)+1,2*lst%mymcount,lst%nj+lst%njp)<em> [</em><em>real </em><em>,</em><em>out</em><em>]</em></p></li>
+<li><p><strong>gd_in</strong> (lst%mylevend-(lst%mylevbeg)+1,lst%ni+lst%nip,lst%latperpe)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>lst</strong><em> [</em><em>struct_lst </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="globalspectraltransform_mod.html#f/globalspectraltransform_mod/gst_reespe_kij" title="f/globalspectraltransform_mod/gst_reespe_kij"><code class="xref f f-func docutils literal notranslate"><span class="pre">gst_reespe_kij()</span></code></a>, <a class="reference internal" href="#f/lamspectraltransform_mod/lst_vartransform_kij" title="f/lamspectraltransform_mod/lst_vartransform_kij"><code class="xref f f-func docutils literal notranslate"><span class="pre">lst_vartransform_kij()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_start" title="f/utilities_mod/utl_tmg_start"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_start()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_stop" title="f/utilities_mod/utl_tmg_stop"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_stop()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/lamspectraltransform_mod/transpose2d_mtolat">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">lamspectraltransform_mod/</span></span><span class="sig-name descname"><span class="pre">transpose2d_mtolat</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">gd_out</span></em>, <em class="sig-param"><span class="pre">gd_in</span></em>, <em class="sig-param"><span class="pre">lst</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/lamspectraltransform_mod/transpose2d_mtolat" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>gd_out</strong> (lst%ni+lst%nip,lst%latperpe,lst%mylevend-(lst%mylevbeg)+1)<em> [</em><em>real </em><em>,</em><em>out</em><em>]</em></p></li>
+<li><p><strong>gd_in</strong> (2*lst%mymcount,lst%nj+lst%njp,lst%mylevend-(lst%mylevbeg)+1)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>lst</strong><em> [</em><em>struct_lst </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="globalspectraltransform_mod.html#f/globalspectraltransform_mod/gst_spgd" title="f/globalspectraltransform_mod/gst_spgd"><code class="xref f f-func docutils literal notranslate"><span class="pre">gst_spgd()</span></code></a>, <a class="reference internal" href="globalspectraltransform_mod.html#f/globalspectraltransform_mod/gst_speree" title="f/globalspectraltransform_mod/gst_speree"><code class="xref f f-func docutils literal notranslate"><span class="pre">gst_speree()</span></code></a>, <a class="reference internal" href="#f/lamspectraltransform_mod/lst_vartransform_ijk" title="f/lamspectraltransform_mod/lst_vartransform_ijk"><code class="xref f f-func docutils literal notranslate"><span class="pre">lst_vartransform_ijk()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_start" title="f/utilities_mod/utl_tmg_start"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_start()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_stop" title="f/utilities_mod/utl_tmg_stop"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_stop()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/lamspectraltransform_mod/transpose2d_mtolat_kij">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">lamspectraltransform_mod/</span></span><span class="sig-name descname"><span class="pre">transpose2d_mtolat_kij</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">gd_out</span></em>, <em class="sig-param"><span class="pre">gd_in</span></em>, <em class="sig-param"><span class="pre">lst</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/lamspectraltransform_mod/transpose2d_mtolat_kij" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>gd_out</strong> (lst%mylevend-(lst%mylevbeg)+1,lst%ni+lst%nip,lst%latperpe)<em> [</em><em>real </em><em>,</em><em>out</em><em>]</em></p></li>
+<li><p><strong>gd_in</strong> (lst%mylevend-(lst%mylevbeg)+1,2*lst%mymcount,lst%nj+lst%njp)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>lst</strong><em> [</em><em>struct_lst </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="globalspectraltransform_mod.html#f/globalspectraltransform_mod/gst_speree_kij" title="f/globalspectraltransform_mod/gst_speree_kij"><code class="xref f f-func docutils literal notranslate"><span class="pre">gst_speree_kij()</span></code></a>, <a class="reference internal" href="#f/lamspectraltransform_mod/lst_vartransform_kij" title="f/lamspectraltransform_mod/lst_vartransform_kij"><code class="xref f f-func docutils literal notranslate"><span class="pre">lst_vartransform_kij()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_start" title="f/utilities_mod/utl_tmg_start"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_start()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_stop" title="f/utilities_mod/utl_tmg_stop"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_stop()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/lamspectraltransform_mod/transpose2d_levton">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">lamspectraltransform_mod/</span></span><span class="sig-name descname"><span class="pre">transpose2d_levton</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">spectralstatevar</span></em>, <em class="sig-param"><span class="pre">gd_in</span></em>, <em class="sig-param"><span class="pre">nk</span></em>, <em class="sig-param"><span class="pre">lst</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/lamspectraltransform_mod/transpose2d_levton" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>spectralstatevar</strong> (lst%nla,lst%nphase,nk)<em> [</em><em>real </em><em>,</em><em>out</em><em>]</em></p></li>
+<li><p><strong>gd_in</strong> (2*lst%mymcount,lst%nj+lst%njp,lst%mylevend-(lst%mylevbeg)+1)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>nk</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>lst</strong><em> [</em><em>struct_lst </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="globalspectraltransform_mod.html#f/globalspectraltransform_mod/gst_gdsp" title="f/globalspectraltransform_mod/gst_gdsp"><code class="xref f f-func docutils literal notranslate"><span class="pre">gst_gdsp()</span></code></a>, <a class="reference internal" href="globalspectraltransform_mod.html#f/globalspectraltransform_mod/gst_spgda" title="f/globalspectraltransform_mod/gst_spgda"><code class="xref f f-func docutils literal notranslate"><span class="pre">gst_spgda()</span></code></a>, <a class="reference internal" href="globalspectraltransform_mod.html#f/globalspectraltransform_mod/gst_reespe" title="f/globalspectraltransform_mod/gst_reespe"><code class="xref f f-func docutils literal notranslate"><span class="pre">gst_reespe()</span></code></a>, <a class="reference internal" href="globalspectraltransform_mod.html#f/globalspectraltransform_mod/gst_reespe_kij" title="f/globalspectraltransform_mod/gst_reespe_kij"><code class="xref f f-func docutils literal notranslate"><span class="pre">gst_reespe_kij()</span></code></a>, <a class="reference internal" href="#f/lamspectraltransform_mod/lst_vartransform_ijk" title="f/lamspectraltransform_mod/lst_vartransform_ijk"><code class="xref f f-func docutils literal notranslate"><span class="pre">lst_vartransform_ijk()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_start" title="f/utilities_mod/utl_tmg_start"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_start()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_stop" title="f/utilities_mod/utl_tmg_stop"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_stop()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/lamspectraltransform_mod/transpose2d_levton_kij">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">lamspectraltransform_mod/</span></span><span class="sig-name descname"><span class="pre">transpose2d_levton_kij</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">spectralstatevar</span></em>, <em class="sig-param"><span class="pre">gd_in</span></em>, <em class="sig-param"><span class="pre">nk</span></em>, <em class="sig-param"><span class="pre">lst</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/lamspectraltransform_mod/transpose2d_levton_kij" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>spectralstatevar</strong> (lst%nla,lst%nphase,nk)<em> [</em><em>real </em><em>,</em><em>out</em><em>]</em></p></li>
+<li><p><strong>gd_in</strong> (lst%mylevend-(lst%mylevbeg)+1,2*lst%mymcount,lst%nj+lst%njp)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>nk</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>lst</strong><em> [</em><em>struct_lst </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/lamspectraltransform_mod/lst_vartransform_kij" title="f/lamspectraltransform_mod/lst_vartransform_kij"><code class="xref f f-func docutils literal notranslate"><span class="pre">lst_vartransform_kij()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_start" title="f/utilities_mod/utl_tmg_start"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_start()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_stop" title="f/utilities_mod/utl_tmg_stop"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_stop()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/lamspectraltransform_mod/transpose2d_ntolev">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">lamspectraltransform_mod/</span></span><span class="sig-name descname"><span class="pre">transpose2d_ntolev</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">gd_out</span></em>, <em class="sig-param"><span class="pre">spectralstatevar</span></em>, <em class="sig-param"><span class="pre">nk</span></em>, <em class="sig-param"><span class="pre">lst</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/lamspectraltransform_mod/transpose2d_ntolev" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>gd_out</strong> (2*lst%mymcount,lst%nj+lst%njp,lst%mylevend-(lst%mylevbeg)+1)<em> [</em><em>real </em><em>,</em><em>out</em><em>]</em></p></li>
+<li><p><strong>spectralstatevar</strong> (lst%nla,lst%nphase,nk)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>nk</strong><em> [</em><em>integer </em><em>,</em><em>in,</em><em>]</em></p></li>
+<li><p><strong>lst</strong><em> [</em><em>struct_lst </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="globalspectraltransform_mod.html#f/globalspectraltransform_mod/gst_spgd" title="f/globalspectraltransform_mod/gst_spgd"><code class="xref f f-func docutils literal notranslate"><span class="pre">gst_spgd()</span></code></a>, <a class="reference internal" href="globalspectraltransform_mod.html#f/globalspectraltransform_mod/gst_speree" title="f/globalspectraltransform_mod/gst_speree"><code class="xref f f-func docutils literal notranslate"><span class="pre">gst_speree()</span></code></a>, <a class="reference internal" href="globalspectraltransform_mod.html#f/globalspectraltransform_mod/gst_speree_kij" title="f/globalspectraltransform_mod/gst_speree_kij"><code class="xref f f-func docutils literal notranslate"><span class="pre">gst_speree_kij()</span></code></a>, <a class="reference internal" href="#f/lamspectraltransform_mod/lst_vartransform_ijk" title="f/lamspectraltransform_mod/lst_vartransform_ijk"><code class="xref f f-func docutils literal notranslate"><span class="pre">lst_vartransform_ijk()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_start" title="f/utilities_mod/utl_tmg_start"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_start()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_stop" title="f/utilities_mod/utl_tmg_stop"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_stop()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/lamspectraltransform_mod/transpose2d_ntolev_kij">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">lamspectraltransform_mod/</span></span><span class="sig-name descname"><span class="pre">transpose2d_ntolev_kij</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">gd_out</span></em>, <em class="sig-param"><span class="pre">spectralstatevar</span></em>, <em class="sig-param"><span class="pre">nk</span></em>, <em class="sig-param"><span class="pre">lst</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/lamspectraltransform_mod/transpose2d_ntolev_kij" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>gd_out</strong> (lst%mylevend-(lst%mylevbeg)+1,2*lst%mymcount,lst%nj+lst%njp)<em> [</em><em>real </em><em>,</em><em>out</em><em>]</em></p></li>
+<li><p><strong>spectralstatevar</strong> (lst%nla,lst%nphase,nk)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>nk</strong><em> [</em><em>integer </em><em>,</em><em>in,</em><em>]</em></p></li>
+<li><p><strong>lst</strong><em> [</em><em>struct_lst </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/lamspectraltransform_mod/lst_vartransform_kij" title="f/lamspectraltransform_mod/lst_vartransform_kij"><code class="xref f f-func docutils literal notranslate"><span class="pre">lst_vartransform_kij()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_start" title="f/utilities_mod/utl_tmg_start"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_start()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_stop" title="f/utilities_mod/utl_tmg_stop"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_stop()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/lamspectraltransform_mod/lst_reshapetrunc">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">lamspectraltransform_mod/</span></span><span class="sig-name descname"><span class="pre">lst_reshapetrunc</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">spectralstaterpn</span></em>, <em class="sig-param"><span class="pre">spectralstatevar</span></em>, <em class="sig-param"><span class="pre">direction</span></em>, <em class="sig-param"><span class="pre">kstart</span></em>, <em class="sig-param"><span class="pre">kend</span></em>, <em class="sig-param"><span class="pre">lst</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/lamspectraltransform_mod/lst_reshapetrunc" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>spectralstaterpn</strong> (2*lst%mymcount,2*lst%myncount,kend-kstart+1)<em> [</em><em>real </em><em>,</em><em>inout</em><em>]</em></p></li>
+<li><p><strong>spectralstatevar</strong> (lst%nla,lst%nphase,kend-kstart+1)<em> [</em><em>real </em><em>,</em><em>inout</em><em>]</em></p></li>
+<li><p><strong>direction</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em> :: ToVAR or ToRPN</p></li>
+<li><p><strong>kstart</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>kend</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>lst</strong><em> [</em><em>struct_lst </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/lamspectraltransform_mod/lst_vartransform_ijk" title="f/lamspectraltransform_mod/lst_vartransform_ijk"><code class="xref f f-func docutils literal notranslate"><span class="pre">lst_vartransform_ijk()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/lamspectraltransform_mod/lst_reshapetrunc_kij">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">lamspectraltransform_mod/</span></span><span class="sig-name descname"><span class="pre">lst_reshapetrunc_kij</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">spectralstaterpn</span></em>, <em class="sig-param"><span class="pre">spectralstatevar</span></em>, <em class="sig-param"><span class="pre">direction</span></em>, <em class="sig-param"><span class="pre">kstart</span></em>, <em class="sig-param"><span class="pre">kend</span></em>, <em class="sig-param"><span class="pre">lst</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/lamspectraltransform_mod/lst_reshapetrunc_kij" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>spectralstaterpn</strong> (kend-kstart+1,2*lst%mymcount,2*lst%myncount)<em> [</em><em>real </em><em>,</em><em>inout</em><em>]</em></p></li>
+<li><p><strong>spectralstatevar</strong> (lst%nla,lst%nphase,kend-kstart+1)<em> [</em><em>real </em><em>,</em><em>inout</em><em>]</em></p></li>
+<li><p><strong>direction</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em> :: ToVAR or ToRPN</p></li>
+<li><p><strong>kstart</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>kend</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>lst</strong><em> [</em><em>struct_lst </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/lamspectraltransform_mod/lst_vartransform_kij" title="f/lamspectraltransform_mod/lst_vartransform_kij"><code class="xref f f-func docutils literal notranslate"><span class="pre">lst_vartransform_kij()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/lamspectraltransform_mod/lst_laplacian">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">lamspectraltransform_mod/</span></span><span class="sig-name descname"><span class="pre">lst_laplacian</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">lst</span></em>, <em class="sig-param"><span class="pre">gridstate</span></em>, <em class="sig-param"><span class="pre">mode</span></em>, <em class="sig-param"><span class="pre">nk</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/lamspectraltransform_mod/lst_laplacian" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>lst</strong><em> [</em><em>struct_lst </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>gridstate</strong> (lst%mylonend-(lst%mylonbeg)+1,lst%mylatend-(lst%mylatbeg)+1,nk)<em> [</em><em>real </em><em>,</em><em>inout</em><em>]</em></p></li>
+<li><p><strong>mode</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>nk</strong><em> [</em><em>integer </em><em>,</em><em>in,</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="gridvariabletransforms_mod.html#f/gridvariabletransforms_mod/vortdivtopsichi_gsv" title="f/gridvariabletransforms_mod/vortdivtopsichi_gsv"><code class="xref f f-func docutils literal notranslate"><span class="pre">vortdivtopsichi_gsv()</span></code></a>, <a class="reference internal" href="lambmatrixhi_mod.html#f/lambmatrixhi_mod/lbhi_cv2gd" title="f/lambmatrixhi_mod/lbhi_cv2gd"><code class="xref f f-func docutils literal notranslate"><span class="pre">lbhi_cv2gd()</span></code></a>, <a class="reference internal" href="lambmatrixhi_mod.html#f/lambmatrixhi_mod/lbhi_cv2gdadj" title="f/lambmatrixhi_mod/lbhi_cv2gdadj"><code class="xref f f-func docutils literal notranslate"><span class="pre">lbhi_cv2gdadj()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="#f/lamspectraltransform_mod/lst_vartransform" title="f/lamspectraltransform_mod/lst_vartransform"><code class="xref f f-func docutils literal notranslate"><span class="pre">lst_vartransform()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/lamspectraltransform_mod/ngfft">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">lamspectraltransform_mod/</span></span><span class="sig-name descname"><span class="pre">ngfft</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">n</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/lamspectraltransform_mod/ngfft" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><p><strong>n</strong><em> [</em><em>integer </em><em>,</em><em>inout</em><em>]</em> :: le plus petit entier &gt;= n qui factorise</p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="globalspectraltransform_mod.html#f/globalspectraltransform_mod/fft3dvar" title="f/globalspectraltransform_mod/fft3dvar"><code class="xref f f-func docutils literal notranslate"><span class="pre">fft3dvar()</span></code></a>, <a class="reference internal" href="globalspectraltransform_mod.html#f/globalspectraltransform_mod/fft3dvar_kij" title="f/globalspectraltransform_mod/fft3dvar_kij"><code class="xref f f-func docutils literal notranslate"><span class="pre">fft3dvar_kij()</span></code></a>, <a class="reference internal" href="#f/lamspectraltransform_mod/lst_setup" title="f/lamspectraltransform_mod/lst_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">lst_setup()</span></code></a>, <a class="reference internal" href="#f/lamspectraltransform_mod/lst_transform1d" title="f/lamspectraltransform_mod/lst_transform1d"><code class="xref f f-func docutils literal notranslate"><span class="pre">lst_transform1d()</span></code></a>, <a class="reference internal" href="#f/lamspectraltransform_mod/lst_transform1d_kij" title="f/lamspectraltransform_mod/lst_transform1d_kij"><code class="xref f f-func docutils literal notranslate"><span class="pre">lst_transform1d_kij()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div></blockquote>
+</section>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="obstimeinterp_mod.html" title="obstimeinterp_mod"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="interpolation_mod.html" title="interpolation_mod"
+             >previous</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2018, ECCC.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.
+    </div>
+  </body>
+</html>

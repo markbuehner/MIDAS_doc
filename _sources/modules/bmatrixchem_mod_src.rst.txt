@@ -1,0 +1,8 @@
+==========================================
+bmatrixchem_mod source
+==========================================
+
+    .. literalinclude:: ../_src_files/bmatrixchem_mod.f90
+       :language: fortran
+       :linenos:
+

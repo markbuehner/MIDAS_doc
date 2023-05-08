@@ -1,0 +1,22 @@
+==========================================
+ensembleobservations_mod
+==========================================
+
+    :doc:`link to source code <ensembleobservations_mod_src>`
+
+
+    **Dependency Diagrams:**
+
+    .. figure:: /ensembleobservations_mod.svg
+        :height: 100px
+
+        Direct Dependency Diagram
+
+    .. figure:: /ensembleobservations_mod_rev.svg
+        :height: 100px
+
+        Reverse Dependency Diagram
+
+
+    .. f:automodule:: ensembleobservations_mod
+

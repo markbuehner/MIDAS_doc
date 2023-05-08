@@ -1,0 +1,17 @@
+==========================================
+midas_ssttrial
+==========================================
+
+    :doc:`link to source code <midas_ssttrial_src>`
+
+
+    **Dependency Diagrams:**
+
+    .. figure:: /midas_ssttrial.svg
+        :height: 100px
+
+        Direct Dependency Diagram
+
+
+    .. f:autoprogram:: midas_ssttrial
+

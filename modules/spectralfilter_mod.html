@@ -1,0 +1,178 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>spectralfilter_mod &mdash; MIDAS  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="MIDAS  documentation" href="../index.html" />
+    <link rel="next" title="utilities_mod" href="utilities_mod.html" />
+    <link rel="prev" title="randomnumber_mod" href="randomnumber_mod.html" /> 
+  </head>
+  <body>
+  <div>
+    <img src="../_static/MIDAS_header.png" alt="MIDAS" />
+  </div>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="utilities_mod.html" title="utilities_mod"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="randomnumber_mod.html" title="randomnumber_mod"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="randomnumber_mod.html"
+                          title="previous chapter">randomnumber_mod</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="utilities_mod.html"
+                          title="next chapter">utilities_mod</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/modules/spectralfilter_mod.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <section id="spectralfilter-mod">
+<h1>spectralfilter_mod<a class="headerlink" href="#spectralfilter-mod" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><p><a class="reference internal" href="spectralfilter_mod_src.html"><span class="doc">link to source code</span></a></p>
+<p><strong>Dependency Diagrams:</strong></p>
+<blockquote>
+<div><p>No Direct Dependency</p>
+</div></blockquote>
+<figure class="align-default" id="id1">
+<a class="reference internal image-reference" href="spectralfilter_mod_rev.svg"><img alt="spectralfilter_mod_rev.svg" height="100px" src="spectralfilter_mod_rev.svg" /></a>
+<figcaption>
+<p><span class="caption-text">Reverse Dependency Diagram</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<span class="target" id="f/spectralfilter_mod"></span><p class="rubric">Description</p>
+<p>MODULE spectralFilter_mod (prefix=’spf’ category=’8. Low-level utilities and constants’)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Purpose</dt>
+<dd class="field-odd"><p>For computing spectral filter functions</p>
+</dd>
+</dl>
+<p class="rubric">Quick access</p>
+<dl class="field-list simple">
+<dt class="field-odd">Routines</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/spectralfilter_mod/spf_filterresponsefunction" title="f/spectralfilter_mod/spf_filterresponsefunction"><code class="xref f f-func docutils literal notranslate"><span class="pre">spf_filterresponsefunction()</span></code></a></p>
+</dd>
+</dl>
+<p class="rubric">Variables</p>
+<p class="rubric">Subroutines and functions</p>
+<dl>
+<dt class="sig sig-object f" id="f/spectralfilter_mod/spf_filterresponsefunction">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">spectralfilter_mod/</span></span><span class="sig-name descname"><span class="pre">spf_filterresponsefunction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">totalwavenumber</span></em>, <em class="sig-param"><span class="pre">wavebandindex</span></em>, <em class="sig-param"><span class="pre">wavebandpeaks</span></em>, <em class="sig-param"><span class="pre">nwaveband</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/spectralfilter_mod/spf_filterresponsefunction" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>totalwavenumber</strong><em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>wavebandindex</strong><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><strong>wavebandpeaks</strong> (*)<em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><strong>nwaveband</strong><em> [</em><em>integer </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Return</dt>
+<dd class="field-even"><p><strong>responsefunction</strong><em> [</em><em>real </em><em>]</em></p>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="bmatrixensemble_mod.html#f/bmatrixensemble_mod/ensemblescaledecomposition" title="f/bmatrixensemble_mod/ensemblescaledecomposition"><code class="xref f f-func docutils literal notranslate"><span class="pre">ensemblescaledecomposition()</span></code></a>, <a class="reference internal" href="calcstatsglb_mod.html#f/calcstatsglb_mod/spectralfilter" title="f/calcstatsglb_mod/spectralfilter"><code class="xref f f-func docutils literal notranslate"><span class="pre">spectralfilter()</span></code></a>, <a class="reference internal" href="calcstatsglb_mod.html#f/calcstatsglb_mod/spectralfilter2" title="f/calcstatsglb_mod/spectralfilter2"><code class="xref f f-func docutils literal notranslate"><span class="pre">spectralfilter2()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div></blockquote>
+</section>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="utilities_mod.html" title="utilities_mod"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="randomnumber_mod.html" title="randomnumber_mod"
+             >previous</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2018, ECCC.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.
+    </div>
+  </body>
+</html>

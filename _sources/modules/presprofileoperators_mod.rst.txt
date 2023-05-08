@@ -1,0 +1,22 @@
+==========================================
+presprofileoperators_mod
+==========================================
+
+    :doc:`link to source code <presprofileoperators_mod_src>`
+
+
+    **Dependency Diagrams:**
+
+    .. figure:: /presprofileoperators_mod.svg
+        :height: 100px
+
+        Direct Dependency Diagram
+
+    .. figure:: /presprofileoperators_mod_rev.svg
+        :height: 100px
+
+        Reverse Dependency Diagram
+
+
+    .. f:automodule:: presprofileoperators_mod
+

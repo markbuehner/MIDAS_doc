@@ -1,0 +1,1649 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>gps_mod &mdash; MIDAS  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="MIDAS  documentation" href="../index.html" />
+    <link rel="next" title="obsfilter_mod" href="obsfilter_mod.html" />
+    <link rel="prev" title="costfunction_mod" href="costfunction_mod.html" /> 
+  </head>
+  <body>
+  <div>
+    <img src="../_static/MIDAS_header.png" alt="MIDAS" />
+  </div>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="obsfilter_mod.html" title="obsfilter_mod"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="costfunction_mod.html" title="costfunction_mod"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="costfunction_mod.html"
+                          title="previous chapter">costfunction_mod</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="obsfilter_mod.html"
+                          title="next chapter">obsfilter_mod</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/modules/gps_mod.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <section id="gps-mod">
+<h1>gps_mod<a class="headerlink" href="#gps-mod" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><p><a class="reference internal" href="gps_mod_src.html"><span class="doc">link to source code</span></a></p>
+<p><strong>Dependency Diagrams:</strong></p>
+<figure class="align-default" id="id1">
+<a class="reference internal image-reference" href="gps_mod.svg"><img alt="gps_mod.svg" height="100px" src="gps_mod.svg" /></a>
+<figcaption>
+<p><span class="caption-text">Direct Dependency Diagram</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id2">
+<a class="reference internal image-reference" href="gps_mod_rev.svg"><img alt="gps_mod_rev.svg" height="100px" src="gps_mod_rev.svg" /></a>
+<figcaption>
+<p><span class="caption-text">Reverse Dependency Diagram</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<span class="target" id="f/gps_mod"></span><p class="rubric">Description</p>
+<p>MODULE gps_mod (prefix=’gps’ category=’5. Observation operators’)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Purpose</dt>
+<dd class="field-odd"><p>Code related to GPS-RO and ground-based GPS observation operators.</p>
+</dd>
+<dt class="field-even">Note</dt>
+<dd class="field-even"><p>prefix not used for all public variables</p>
+</dd>
+</dl>
+<p class="rubric">Quick access</p>
+<dl class="field-list simple">
+<dt class="field-odd">Types</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/gps_mod/gps_diff" title="f/gps_mod/gps_diff"><code class="xref f f-type docutils literal notranslate"><span class="pre">gps_diff</span></code></a>, <a class="reference internal" href="#f/gps_mod/gps_profile" title="f/gps_mod/gps_profile"><code class="xref f f-type docutils literal notranslate"><span class="pre">gps_profile</span></code></a>, <a class="reference internal" href="#f/gps_mod/gps_profilezd" title="f/gps_mod/gps_profilezd"><code class="xref f f-type docutils literal notranslate"><span class="pre">gps_profilezd</span></code></a></p>
+</dd>
+<dt class="field-even">Variables</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/gps_mod/gps_bgckband" title="f/gps_mod/gps_bgckband"><code class="xref f f-var docutils literal notranslate"><span class="pre">gps_bgckband</span></code></a>, <a class="reference internal" href="#f/gps_mod/gps_gb_dzmax" title="f/gps_mod/gps_gb_dzmax"><code class="xref f f-var docutils literal notranslate"><span class="pre">gps_gb_dzmax</span></code></a>, <a class="reference internal" href="#f/gps_mod/gps_gb_dzmin" title="f/gps_mod/gps_gb_dzmin"><code class="xref f f-var docutils literal notranslate"><span class="pre">gps_gb_dzmin</span></code></a>, <a class="reference internal" href="#f/gps_mod/gps_gb_irefopt" title="f/gps_mod/gps_gb_irefopt"><code class="xref f f-var docutils literal notranslate"><span class="pre">gps_gb_irefopt</span></code></a>, <a class="reference internal" href="#f/gps_mod/gps_gb_iztdop" title="f/gps_mod/gps_gb_iztdop"><code class="xref f f-var docutils literal notranslate"><span class="pre">gps_gb_iztdop</span></code></a>, <a class="reference internal" href="#f/gps_mod/gps_gb_l1obs" title="f/gps_mod/gps_gb_l1obs"><code class="xref f f-var docutils literal notranslate"><span class="pre">gps_gb_l1obs</span></code></a>, <a class="reference internal" href="#f/gps_mod/gps_gb_lassmet" title="f/gps_mod/gps_gb_lassmet"><code class="xref f f-var docutils literal notranslate"><span class="pre">gps_gb_lassmet</span></code></a>, <a class="reference internal" href="#f/gps_mod/gps_gb_lbevis" title="f/gps_mod/gps_gb_lbevis"><code class="xref f f-var docutils literal notranslate"><span class="pre">gps_gb_lbevis</span></code></a>, <a class="reference internal" href="#f/gps_mod/gps_gb_llblmet" title="f/gps_mod/gps_gb_llblmet"><code class="xref f f-var docutils literal notranslate"><span class="pre">gps_gb_llblmet</span></code></a>, <a class="reference internal" href="#f/gps_mod/gps_gb_ltestop" title="f/gps_mod/gps_gb_ltestop"><code class="xref f f-var docutils literal notranslate"><span class="pre">gps_gb_ltestop</span></code></a>, <a class="reference internal" href="#f/gps_mod/gps_gb_maxdata" title="f/gps_mod/gps_gb_maxdata"><code class="xref f f-var docutils literal notranslate"><span class="pre">gps_gb_maxdata</span></code></a>, <a class="reference internal" href="#f/gps_mod/gps_gb_numztd" title="f/gps_mod/gps_gb_numztd"><code class="xref f f-var docutils literal notranslate"><span class="pre">gps_gb_numztd</span></code></a>, <a class="reference internal" href="#f/gps_mod/gps_gb_ysferrwgt" title="f/gps_mod/gps_gb_ysferrwgt"><code class="xref f f-var docutils literal notranslate"><span class="pre">gps_gb_ysferrwgt</span></code></a>, <a class="reference internal" href="#f/gps_mod/gps_gb_yzderrwgt" title="f/gps_mod/gps_gb_yzderrwgt"><code class="xref f f-var docutils literal notranslate"><span class="pre">gps_gb_yzderrwgt</span></code></a>, <a class="reference internal" href="#f/gps_mod/gps_gb_yztderr" title="f/gps_mod/gps_gb_yztderr"><code class="xref f f-var docutils literal notranslate"><span class="pre">gps_gb_yztderr</span></code></a>, <a class="reference internal" href="#f/gps_mod/gps_hsfmin" title="f/gps_mod/gps_hsfmin"><code class="xref f f-var docutils literal notranslate"><span class="pre">gps_hsfmin</span></code></a>, <a class="reference internal" href="#f/gps_mod/gps_htpmax" title="f/gps_mod/gps_htpmax"><code class="xref f f-var docutils literal notranslate"><span class="pre">gps_htpmax</span></code></a>, <a class="reference internal" href="#f/gps_mod/gps_htpmaxer" title="f/gps_mod/gps_htpmaxer"><code class="xref f f-var docutils literal notranslate"><span class="pre">gps_htpmaxer</span></code></a>, <a class="reference internal" href="#f/gps_mod/gps_level_ro" title="f/gps_mod/gps_level_ro"><code class="xref f f-var docutils literal notranslate"><span class="pre">gps_level_ro</span></code></a>, <a class="reference internal" href="#f/gps_mod/gps_level_ro_bnd" title="f/gps_mod/gps_level_ro_bnd"><code class="xref f f-var docutils literal notranslate"><span class="pre">gps_level_ro_bnd</span></code></a>, <a class="reference internal" href="#f/gps_mod/gps_level_ro_bndandref" title="f/gps_mod/gps_level_ro_bndandref"><code class="xref f f-var docutils literal notranslate"><span class="pre">gps_level_ro_bndandref</span></code></a>, <a class="reference internal" href="#f/gps_mod/gps_level_ro_ref" title="f/gps_mod/gps_level_ro_ref"><code class="xref f f-var docutils literal notranslate"><span class="pre">gps_level_ro_ref</span></code></a>, <a class="reference internal" href="#f/gps_mod/gps_ncvmx" title="f/gps_mod/gps_ncvmx"><code class="xref f f-var docutils literal notranslate"><span class="pre">gps_ncvmx</span></code></a>, <a class="reference internal" href="#f/gps_mod/gps_numroprofiles" title="f/gps_mod/gps_numroprofiles"><code class="xref f f-var docutils literal notranslate"><span class="pre">gps_numroprofiles</span></code></a>, <a class="reference internal" href="#f/gps_mod/gps_p_md" title="f/gps_mod/gps_p_md"><code class="xref f f-var docutils literal notranslate"><span class="pre">gps_p_md</span></code></a>, <a class="reference internal" href="#f/gps_mod/gps_p_mw" title="f/gps_mod/gps_p_mw"><code class="xref f f-var docutils literal notranslate"><span class="pre">gps_p_mw</span></code></a>, <a class="reference internal" href="#f/gps_mod/gps_p_wa" title="f/gps_mod/gps_p_wa"><code class="xref f f-var docutils literal notranslate"><span class="pre">gps_p_wa</span></code></a>, <a class="reference internal" href="#f/gps_mod/gps_p_wb" title="f/gps_mod/gps_p_wb"><code class="xref f f-var docutils literal notranslate"><span class="pre">gps_p_wb</span></code></a>, <a class="reference internal" href="#f/gps_mod/gps_ro_maxprfsize" title="f/gps_mod/gps_ro_maxprfsize"><code class="xref f f-var docutils literal notranslate"><span class="pre">gps_ro_maxprfsize</span></code></a>, <a class="reference internal" href="#f/gps_mod/gps_robnorm" title="f/gps_mod/gps_robnorm"><code class="xref f f-var docutils literal notranslate"><span class="pre">gps_robnorm</span></code></a>, <a class="reference internal" href="#f/gps_mod/gps_roerror" title="f/gps_mod/gps_roerror"><code class="xref f f-var docutils literal notranslate"><span class="pre">gps_roerror</span></code></a>, <a class="reference internal" href="#f/gps_mod/gps_ronsigma" title="f/gps_mod/gps_ronsigma"><code class="xref f f-var docutils literal notranslate"><span class="pre">gps_ronsigma</span></code></a>, <a class="reference internal" href="#f/gps_mod/gps_surfmin" title="f/gps_mod/gps_surfmin"><code class="xref f f-var docutils literal notranslate"><span class="pre">gps_surfmin</span></code></a>, <a class="reference internal" href="#f/gps_mod/gps_vro_indexprf" title="f/gps_mod/gps_vro_indexprf"><code class="xref f f-var docutils literal notranslate"><span class="pre">gps_vro_indexprf</span></code></a>, <a class="reference internal" href="#f/gps_mod/gps_wgps" title="f/gps_mod/gps_wgps"><code class="xref f f-var docutils literal notranslate"><span class="pre">gps_wgps</span></code></a>, <a class="reference internal" href="#f/gps_mod/gps_ztd_index" title="f/gps_mod/gps_ztd_index"><code class="xref f f-var docutils literal notranslate"><span class="pre">gps_ztd_index</span></code></a></p>
+</dd>
+<dt class="field-odd">Routines</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/gps_mod/gps_bndopv1" title="f/gps_mod/gps_bndopv1"><code class="xref f f-func docutils literal notranslate"><span class="pre">gps_bndopv1()</span></code></a>, <a class="reference internal" href="#f/gps_mod/gps_geopotential" title="f/gps_mod/gps_geopotential"><code class="xref f f-func docutils literal notranslate"><span class="pre">gps_geopotential()</span></code></a>, <a class="reference internal" href="#f/gps_mod/gps_gravityalt" title="f/gps_mod/gps_gravityalt"><code class="xref f f-func docutils literal notranslate"><span class="pre">gps_gravityalt()</span></code></a>, <a class="reference internal" href="#f/gps_mod/gps_gravitysrf" title="f/gps_mod/gps_gravitysrf"><code class="xref f f-func docutils literal notranslate"><span class="pre">gps_gravitysrf()</span></code></a>, <a class="reference internal" href="#f/gps_mod/gps_iprofile_from_index" title="f/gps_mod/gps_iprofile_from_index"><code class="xref f f-func docutils literal notranslate"><span class="pre">gps_iprofile_from_index()</span></code></a>, <a class="reference internal" href="#f/gps_mod/gps_iztd_from_index" title="f/gps_mod/gps_iztd_from_index"><code class="xref f f-func docutils literal notranslate"><span class="pre">gps_iztd_from_index()</span></code></a>, <a class="reference internal" href="#f/gps_mod/gps_pw" title="f/gps_mod/gps_pw"><code class="xref f f-func docutils literal notranslate"><span class="pre">gps_pw()</span></code></a>, <a class="reference internal" href="#f/gps_mod/gps_refopv" title="f/gps_mod/gps_refopv"><code class="xref f f-func docutils literal notranslate"><span class="pre">gps_refopv()</span></code></a>, <a class="reference internal" href="#f/gps_mod/gps_setupgb" title="f/gps_mod/gps_setupgb"><code class="xref f f-func docutils literal notranslate"><span class="pre">gps_setupgb()</span></code></a>, <a class="reference internal" href="#f/gps_mod/gps_setupro" title="f/gps_mod/gps_setupro"><code class="xref f f-func docutils literal notranslate"><span class="pre">gps_setupro()</span></code></a>, <a class="reference internal" href="#f/gps_mod/gps_struct1sw" title="f/gps_mod/gps_struct1sw"><code class="xref f f-func docutils literal notranslate"><span class="pre">gps_struct1sw()</span></code></a>, <a class="reference internal" href="#f/gps_mod/gps_struct1sw_v2" title="f/gps_mod/gps_struct1sw_v2"><code class="xref f f-func docutils literal notranslate"><span class="pre">gps_struct1sw_v2()</span></code></a>, <a class="reference internal" href="#f/gps_mod/gps_structztd" title="f/gps_mod/gps_structztd"><code class="xref f f-func docutils literal notranslate"><span class="pre">gps_structztd()</span></code></a>, <a class="reference internal" href="#f/gps_mod/gps_structztd_v2" title="f/gps_mod/gps_structztd_v2"><code class="xref f f-func docutils literal notranslate"><span class="pre">gps_structztd_v2()</span></code></a>, <a class="reference internal" href="#f/gps_mod/gps_ztdopv" title="f/gps_mod/gps_ztdopv"><code class="xref f f-func docutils literal notranslate"><span class="pre">gps_ztdopv()</span></code></a>, <a class="reference internal" href="#f/gps_mod/gpsbend" title="f/gps_mod/gpsbend"><code class="xref f f-func docutils literal notranslate"><span class="pre">gpsbend()</span></code></a>, <a class="reference internal" href="#f/gps_mod/gpsbend1" title="f/gps_mod/gpsbend1"><code class="xref f f-func docutils literal notranslate"><span class="pre">gpsbend1()</span></code></a>, <a class="reference internal" href="#f/gps_mod/gpsbendlayer" title="f/gps_mod/gpsbendlayer"><code class="xref f f-func docutils literal notranslate"><span class="pre">gpsbendlayer()</span></code></a>, <a class="reference internal" href="#f/gps_mod/gpsbendunit" title="f/gps_mod/gpsbendunit"><code class="xref f f-func docutils literal notranslate"><span class="pre">gpsbendunit()</span></code></a>, <a class="reference internal" href="#f/gps_mod/gpsbndopv" title="f/gps_mod/gpsbndopv"><code class="xref f f-func docutils literal notranslate"><span class="pre">gpsbndopv()</span></code></a>, <a class="reference internal" href="#f/gps_mod/gpsbvf" title="f/gps_mod/gpsbvf"><code class="xref f f-func docutils literal notranslate"><span class="pre">gpsbvf()</span></code></a>, <a class="reference internal" href="#f/gps_mod/gpsbvfopv" title="f/gps_mod/gpsbvfopv"><code class="xref f f-func docutils literal notranslate"><span class="pre">gpsbvfopv()</span></code></a>, <a class="reference internal" href="#f/gps_mod/gpscmp" title="f/gps_mod/gpscmp"><code class="xref f f-func docutils literal notranslate"><span class="pre">gpscmp()</span></code></a>, <a class="reference internal" href="#f/gps_mod/gpscompressibility" title="f/gps_mod/gpscompressibility"><code class="xref f f-func docutils literal notranslate"><span class="pre">gpscompressibility()</span></code></a>, <a class="reference internal" href="#f/gps_mod/gpsden" title="f/gps_mod/gpsden"><code class="xref f f-func docutils literal notranslate"><span class="pre">gpsden()</span></code></a>, <a class="reference internal" href="#f/gps_mod/gpsdiffacos" title="f/gps_mod/gpsdiffacos"><code class="xref f f-func docutils literal notranslate"><span class="pre">gpsdiffacos()</span></code></a>, <a class="reference internal" href="#f/gps_mod/gpsdiffasfd" title="f/gps_mod/gpsdiffasfd"><code class="xref f f-func docutils literal notranslate"><span class="pre">gpsdiffasfd()</span></code></a>, <a class="reference internal" href="#f/gps_mod/gpsdiffasff" title="f/gps_mod/gpsdiffasff"><code class="xref f f-func docutils literal notranslate"><span class="pre">gpsdiffasff()</span></code></a>, <a class="reference internal" href="#f/gps_mod/gpsdiffatan" title="f/gps_mod/gpsdiffatan"><code class="xref f f-func docutils literal notranslate"><span class="pre">gpsdiffatan()</span></code></a>, <a class="reference internal" href="#f/gps_mod/gpsdiffcos" title="f/gps_mod/gpsdiffcos"><code class="xref f f-func docutils literal notranslate"><span class="pre">gpsdiffcos()</span></code></a>, <a class="reference internal" href="#f/gps_mod/gpsdiffdvdf" title="f/gps_mod/gpsdiffdvdf"><code class="xref f f-func docutils literal notranslate"><span class="pre">gpsdiffdvdf()</span></code></a>, <a class="reference internal" href="#f/gps_mod/gpsdiffdvfd" title="f/gps_mod/gpsdiffdvfd"><code class="xref f f-func docutils literal notranslate"><span class="pre">gpsdiffdvfd()</span></code></a>, <a class="reference internal" href="#f/gps_mod/gpsdiffdvff" title="f/gps_mod/gpsdiffdvff"><code class="xref f f-func docutils literal notranslate"><span class="pre">gpsdiffdvff()</span></code></a>, <a class="reference internal" href="#f/gps_mod/gpsdiffdvfi" title="f/gps_mod/gpsdiffdvfi"><code class="xref f f-func docutils literal notranslate"><span class="pre">gpsdiffdvfi()</span></code></a>, <a class="reference internal" href="#f/gps_mod/gpsdiffdvif" title="f/gps_mod/gpsdiffdvif"><code class="xref f f-func docutils literal notranslate"><span class="pre">gpsdiffdvif()</span></code></a>, <a class="reference internal" href="#f/gps_mod/gpsdifferf" title="f/gps_mod/gpsdifferf"><code class="xref f f-func docutils literal notranslate"><span class="pre">gpsdifferf()</span></code></a>, <a class="reference internal" href="#f/gps_mod/gpsdiffexp" title="f/gps_mod/gpsdiffexp"><code class="xref f f-func docutils literal notranslate"><span class="pre">gpsdiffexp()</span></code></a>, <a class="reference internal" href="#f/gps_mod/gpsdifflog" title="f/gps_mod/gpsdifflog"><code class="xref f f-func docutils literal notranslate"><span class="pre">gpsdifflog()</span></code></a>, <a class="reference internal" href="#f/gps_mod/gpsdiffmldf" title="f/gps_mod/gpsdiffmldf"><code class="xref f f-func docutils literal notranslate"><span class="pre">gpsdiffmldf()</span></code></a>, <a class="reference internal" href="#f/gps_mod/gpsdiffmlfd" title="f/gps_mod/gpsdiffmlfd"><code class="xref f f-func docutils literal notranslate"><span class="pre">gpsdiffmlfd()</span></code></a>, <a class="reference internal" href="#f/gps_mod/gpsdiffmlff" title="f/gps_mod/gpsdiffmlff"><code class="xref f f-func docutils literal notranslate"><span class="pre">gpsdiffmlff()</span></code></a>, <a class="reference internal" href="#f/gps_mod/gpsdiffmlfi" title="f/gps_mod/gpsdiffmlfi"><code class="xref f f-func docutils literal notranslate"><span class="pre">gpsdiffmlfi()</span></code></a>, <a class="reference internal" href="#f/gps_mod/gpsdiffmlif" title="f/gps_mod/gpsdiffmlif"><code class="xref f f-func docutils literal notranslate"><span class="pre">gpsdiffmlif()</span></code></a>, <a class="reference internal" href="#f/gps_mod/gpsdiffpwdf" title="f/gps_mod/gpsdiffpwdf"><code class="xref f f-func docutils literal notranslate"><span class="pre">gpsdiffpwdf()</span></code></a>, <a class="reference internal" href="#f/gps_mod/gpsdiffpwfd" title="f/gps_mod/gpsdiffpwfd"><code class="xref f f-func docutils literal notranslate"><span class="pre">gpsdiffpwfd()</span></code></a>, <a class="reference internal" href="#f/gps_mod/gpsdiffpwff" title="f/gps_mod/gpsdiffpwff"><code class="xref f f-func docutils literal notranslate"><span class="pre">gpsdiffpwff()</span></code></a>, <a class="reference internal" href="#f/gps_mod/gpsdiffpwfi" title="f/gps_mod/gpsdiffpwfi"><code class="xref f f-func docutils literal notranslate"><span class="pre">gpsdiffpwfi()</span></code></a>, <a class="reference internal" href="#f/gps_mod/gpsdiffpwif" title="f/gps_mod/gpsdiffpwif"><code class="xref f f-func docutils literal notranslate"><span class="pre">gpsdiffpwif()</span></code></a>, <a class="reference internal" href="#f/gps_mod/gpsdiffsbdf" title="f/gps_mod/gpsdiffsbdf"><code class="xref f f-func docutils literal notranslate"><span class="pre">gpsdiffsbdf()</span></code></a>, <a class="reference internal" href="#f/gps_mod/gpsdiffsbfd" title="f/gps_mod/gpsdiffsbfd"><code class="xref f f-func docutils literal notranslate"><span class="pre">gpsdiffsbfd()</span></code></a>, <a class="reference internal" href="#f/gps_mod/gpsdiffsbff" title="f/gps_mod/gpsdiffsbff"><code class="xref f f-func docutils literal notranslate"><span class="pre">gpsdiffsbff()</span></code></a>, <a class="reference internal" href="#f/gps_mod/gpsdiffsbfi" title="f/gps_mod/gpsdiffsbfi"><code class="xref f f-func docutils literal notranslate"><span class="pre">gpsdiffsbfi()</span></code></a>, <a class="reference internal" href="#f/gps_mod/gpsdiffsbif" title="f/gps_mod/gpsdiffsbif"><code class="xref f f-func docutils literal notranslate"><span class="pre">gpsdiffsbif()</span></code></a>, <a class="reference internal" href="#f/gps_mod/gpsdiffsmdf" title="f/gps_mod/gpsdiffsmdf"><code class="xref f f-func docutils literal notranslate"><span class="pre">gpsdiffsmdf()</span></code></a>, <a class="reference internal" href="#f/gps_mod/gpsdiffsmfd" title="f/gps_mod/gpsdiffsmfd"><code class="xref f f-func docutils literal notranslate"><span class="pre">gpsdiffsmfd()</span></code></a>, <a class="reference internal" href="#f/gps_mod/gpsdiffsmff" title="f/gps_mod/gpsdiffsmff"><code class="xref f f-func docutils literal notranslate"><span class="pre">gpsdiffsmff()</span></code></a>, <a class="reference internal" href="#f/gps_mod/gpsdiffsmfi" title="f/gps_mod/gpsdiffsmfi"><code class="xref f f-func docutils literal notranslate"><span class="pre">gpsdiffsmfi()</span></code></a>, <a class="reference internal" href="#f/gps_mod/gpsdiffsmif" title="f/gps_mod/gpsdiffsmif"><code class="xref f f-func docutils literal notranslate"><span class="pre">gpsdiffsmif()</span></code></a>, <a class="reference internal" href="#f/gps_mod/gpsdiffsqr" title="f/gps_mod/gpsdiffsqr"><code class="xref f f-func docutils literal notranslate"><span class="pre">gpsdiffsqr()</span></code></a>, <a class="reference internal" href="#f/gps_mod/gpsdifftan" title="f/gps_mod/gpsdifftan"><code class="xref f f-func docutils literal notranslate"><span class="pre">gpsdifftan()</span></code></a>, <a class="reference internal" href="#f/gps_mod/gpshgtopv" title="f/gps_mod/gpshgtopv"><code class="xref f f-func docutils literal notranslate"><span class="pre">gpshgtopv()</span></code></a>, <a class="reference internal" href="#f/gps_mod/gpsradii" title="f/gps_mod/gpsradii"><code class="xref f f-func docutils literal notranslate"><span class="pre">gpsradii()</span></code></a>, <a class="reference internal" href="#f/gps_mod/gpsro_eotvos_dh" title="f/gps_mod/gpsro_eotvos_dh"><code class="xref f f-func docutils literal notranslate"><span class="pre">gpsro_eotvos_dh()</span></code></a>, <a class="reference internal" href="#f/gps_mod/gpstemopv" title="f/gps_mod/gpstemopv"><code class="xref f f-func docutils literal notranslate"><span class="pre">gpstemopv()</span></code></a>, <a class="reference internal" href="#f/gps_mod/gpswmropv" title="f/gps_mod/gpswmropv"><code class="xref f f-func docutils literal notranslate"><span class="pre">gpswmropv()</span></code></a></p>
+</dd>
+</dl>
+<p class="rubric">Needed modules</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="midasmpi_mod.html#f/midasmpi_mod" title="f/midasmpi_mod: MODULE midasMpi_mod (prefix='mmpi' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">midasmpi_mod</span></code></a>: MODULE midasMpi_mod (prefix=’mmpi’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod" title="f/utilities_mod: MODULE utilities_mod (prefix='utl' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">utilities_mod</span></code></a>: MODULE utilities_mod (prefix=’utl’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="mathphysconstants_mod.html#f/mathphysconstants_mod" title="f/mathphysconstants_mod: MODULE MathPhysConstants_mod (prefix='mpc' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">mathphysconstants_mod</span></code></a>: MODULE MathPhysConstants_mod (prefix=’mpc’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="earthconstants_mod.html#f/earthconstants_mod" title="f/earthconstants_mod: MODULE earthConstants_mod (prefix='ec' category='8. Low-level utilities and constants') Prefixes: ec_ (Earth constants), for miscellaneous values from diverse sources"><code class="xref f f-mod docutils literal notranslate"><span class="pre">earthconstants_mod</span></code></a>: MODULE earthConstants_mod (prefix=’ec’ category=’8. Low-level utilities and constants’) Prefixes: <a href="#id3"><span class="problematic" id="id4">ec_</span></a> (Earth constants), for miscellaneous values from diverse sources</p></li>
+</ul>
+<p class="rubric">Types</p>
+<ul>
+<li><dl>
+<dt class="sig sig-object f" id="f/gps_mod/gps_diff">
+<em class="property"><span class="pre">type</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">gps_mod/</span></span><span class="sig-name descname"><span class="pre">gps_diff</span></span><a class="headerlink" href="#f/gps_mod/gps_diff" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type fields</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">dvar</span> (<a class="reference internal" href="#f/gps_mod/gps_ncvmx" title="f/gps_mod/gps_ncvmx">gps_ncvmx</a>)<em> [</em><em>real </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">var</span><em> [</em><em>real </em><em>]</em></p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</li>
+<li><dl>
+<dt class="sig sig-object f" id="f/gps_mod/gps_profile">
+<em class="property"><span class="pre">type</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">gps_mod/</span></span><span class="sig-name descname"><span class="pre">gps_profile</span></span><a class="headerlink" href="#f/gps_mod/gps_profile" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type fields</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">ast</span> (ngpssize+ngpsxlow)<em> [</em><em>gps_diff </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">bbst</span><em> [</em><em>logical </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">bst</span> (ngpssize+ngpsxlow)<em> [</em><em>gps_diff </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">dst</span> (ngpssize)<em> [</em><em>gps_diff </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">geoid</span><em> [</em><em>real </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">gst</span> (ngpssize)<em> [</em><em>gps_diff </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">ngpslev</span><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">p0</span><em> [</em><em>gps_diff </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">pst</span> (ngpssize)<em> [</em><em>gps_diff </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">qst</span> (ngpssize)<em> [</em><em>gps_diff </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">rad</span><em> [</em><em>real </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">radm</span><em> [</em><em>real </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">radn</span><em> [</em><em>real </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">razm</span><em> [</em><em>real </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">rlat</span><em> [</em><em>real </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">rlon</span><em> [</em><em>real </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">rmt</span><em> [</em><em>real </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">rst</span> (ngpssize)<em> [</em><em>gps_diff </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">tst</span> (ngpssize)<em> [</em><em>gps_diff </em><em>]</em></p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</li>
+<li><dl>
+<dt class="sig sig-object f" id="f/gps_mod/gps_profilezd">
+<em class="property"><span class="pre">type</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">gps_mod/</span></span><span class="sig-name descname"><span class="pre">gps_profilezd</span></span><a class="headerlink" href="#f/gps_mod/gps_profilezd" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type fields</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">bpst</span><em> [</em><em>logical </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">gst</span> (ngpssize)<em> [</em><em>gps_diff </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">ngpslev</span><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">p0</span><em> [</em><em>gps_diff </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">pst</span> (ngpssize)<em> [</em><em>gps_diff </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">qst</span> (ngpssize)<em> [</em><em>gps_diff </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">rlat</span><em> [</em><em>real </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">rlon</span><em> [</em><em>real </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">rmt</span><em> [</em><em>real </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">rst</span> (ngpssize)<em> [</em><em>gps_diff </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">tst</span> (ngpssize)<em> [</em><em>gps_diff </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">ztd</span> (ngpssize)<em> [</em><em>gps_diff </em><em>]</em></p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</li>
+</ul>
+<p class="rubric">Variables</p>
+<ul>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/gps_mod/gps_bgckband">
+<span class="sig-prename descclassname"><span class="pre">gps_mod/</span></span><span class="sig-name descname"><span class="pre">gps_bgckband</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/gps_mod/gps_bgckband" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/gps_mod/gps_gb_dzmax">
+<span class="sig-prename descclassname"><span class="pre">gps_mod/</span></span><span class="sig-name descname"><span class="pre">gps_gb_dzmax</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/gps_mod/gps_gb_dzmax" title="Permalink to this definition">¶</a></dt>
+<dd><p>need to give it a default value here in case setup not called</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/gps_mod/gps_gb_dzmin">
+<span class="sig-prename descclassname"><span class="pre">gps_mod/</span></span><span class="sig-name descname"><span class="pre">gps_gb_dzmin</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/gps_mod/gps_gb_dzmin" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/gps_mod/gps_gb_irefopt">
+<span class="sig-prename descclassname"><span class="pre">gps_mod/</span></span><span class="sig-name descname"><span class="pre">gps_gb_irefopt</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/gps_mod/gps_gb_irefopt" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/gps_mod/gps_gb_iztdop">
+<span class="sig-prename descclassname"><span class="pre">gps_mod/</span></span><span class="sig-name descname"><span class="pre">gps_gb_iztdop</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/gps_mod/gps_gb_iztdop" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/gps_mod/gps_gb_l1obs">
+<span class="sig-prename descclassname"><span class="pre">gps_mod/</span></span><span class="sig-name descname"><span class="pre">gps_gb_l1obs</span></span><em> <span class="pre">[</span></em><em><span class="pre">logical</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/gps_mod/gps_gb_l1obs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/gps_mod/gps_gb_lassmet">
+<span class="sig-prename descclassname"><span class="pre">gps_mod/</span></span><span class="sig-name descname"><span class="pre">gps_gb_lassmet</span></span><em> <span class="pre">[</span></em><em><span class="pre">logical</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/gps_mod/gps_gb_lassmet" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/gps_mod/gps_gb_lbevis">
+<span class="sig-prename descclassname"><span class="pre">gps_mod/</span></span><span class="sig-name descname"><span class="pre">gps_gb_lbevis</span></span><em> <span class="pre">[</span></em><em><span class="pre">logical</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/gps_mod/gps_gb_lbevis" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/gps_mod/gps_gb_llblmet">
+<span class="sig-prename descclassname"><span class="pre">gps_mod/</span></span><span class="sig-name descname"><span class="pre">gps_gb_llblmet</span></span><em> <span class="pre">[</span></em><em><span class="pre">logical</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/gps_mod/gps_gb_llblmet" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/gps_mod/gps_gb_ltestop">
+<span class="sig-prename descclassname"><span class="pre">gps_mod/</span></span><span class="sig-name descname"><span class="pre">gps_gb_ltestop</span></span><em> <span class="pre">[</span></em><em><span class="pre">logical</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/gps_mod/gps_gb_ltestop" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/gps_mod/gps_gb_maxdata">
+<span class="sig-prename descclassname"><span class="pre">gps_mod/</span></span><span class="sig-name descname"><span class="pre">gps_gb_maxdata</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">parameter/public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/gps_mod/gps_gb_maxdata" title="Permalink to this definition">¶</a></dt>
+<dd><p>(max_gps_sites) * (max_num_obs in 6h)</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/gps_mod/gps_gb_numztd">
+<span class="sig-prename descclassname"><span class="pre">gps_mod/</span></span><span class="sig-name descname"><span class="pre">gps_gb_numztd</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/gps_mod/gps_gb_numztd" title="Permalink to this definition">¶</a></dt>
+<dd><p>number of ZTD data to be assimilated</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/gps_mod/gps_gb_ysferrwgt">
+<span class="sig-prename descclassname"><span class="pre">gps_mod/</span></span><span class="sig-name descname"><span class="pre">gps_gb_ysferrwgt</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/gps_mod/gps_gb_ysferrwgt" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/gps_mod/gps_gb_yzderrwgt">
+<span class="sig-prename descclassname"><span class="pre">gps_mod/</span></span><span class="sig-name descname"><span class="pre">gps_gb_yzderrwgt</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/gps_mod/gps_gb_yzderrwgt" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/gps_mod/gps_gb_yztderr">
+<span class="sig-prename descclassname"><span class="pre">gps_mod/</span></span><span class="sig-name descname"><span class="pre">gps_gb_yztderr</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/gps_mod/gps_gb_yztderr" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/gps_mod/gps_hsfmin">
+<span class="sig-prename descclassname"><span class="pre">gps_mod/</span></span><span class="sig-name descname"><span class="pre">gps_hsfmin</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/gps_mod/gps_hsfmin" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/gps_mod/gps_htpmax">
+<span class="sig-prename descclassname"><span class="pre">gps_mod/</span></span><span class="sig-name descname"><span class="pre">gps_htpmax</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/gps_mod/gps_htpmax" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/gps_mod/gps_htpmaxer">
+<span class="sig-prename descclassname"><span class="pre">gps_mod/</span></span><span class="sig-name descname"><span class="pre">gps_htpmaxer</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/gps_mod/gps_htpmaxer" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/gps_mod/gps_level_ro">
+<span class="sig-prename descclassname"><span class="pre">gps_mod/</span></span><span class="sig-name descname"><span class="pre">gps_level_ro</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/gps_mod/gps_level_ro" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/gps_mod/gps_level_ro_bnd">
+<span class="sig-prename descclassname"><span class="pre">gps_mod/</span></span><span class="sig-name descname"><span class="pre">gps_level_ro_bnd</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/gps_mod/gps_level_ro_bnd" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/gps_mod/gps_level_ro_bndandref">
+<span class="sig-prename descclassname"><span class="pre">gps_mod/</span></span><span class="sig-name descname"><span class="pre">gps_level_ro_bndandref</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/gps_mod/gps_level_ro_bndandref" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/gps_mod/gps_level_ro_ref">
+<span class="sig-prename descclassname"><span class="pre">gps_mod/</span></span><span class="sig-name descname"><span class="pre">gps_level_ro_ref</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/gps_mod/gps_level_ro_ref" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/gps_mod/gps_ncvmx">
+<span class="sig-prename descclassname"><span class="pre">gps_mod/</span></span><span class="sig-name descname"><span class="pre">gps_ncvmx</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">parameter/public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/gps_mod/gps_ncvmx" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/gps_mod/gps_numroprofiles">
+<span class="sig-prename descclassname"><span class="pre">gps_mod/</span></span><span class="sig-name descname"><span class="pre">gps_numroprofiles</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/gps_mod/gps_numroprofiles" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/gps_mod/gps_p_md">
+<span class="sig-prename descclassname"><span class="pre">gps_mod/</span></span><span class="sig-name descname"><span class="pre">gps_p_md</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">parameter/public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/gps_mod/gps_p_md" title="Permalink to this definition">¶</a></dt>
+<dd><p>From Aparicio(2011)</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/gps_mod/gps_p_mw">
+<span class="sig-prename descclassname"><span class="pre">gps_mod/</span></span><span class="sig-name descname"><span class="pre">gps_p_mw</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">parameter/public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/gps_mod/gps_p_mw" title="Permalink to this definition">¶</a></dt>
+<dd><p>From Aparicio(2011)</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/gps_mod/gps_p_wa">
+<span class="sig-prename descclassname"><span class="pre">gps_mod/</span></span><span class="sig-name descname"><span class="pre">gps_p_wa</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">parameter/public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/gps_mod/gps_p_wa" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/gps_mod/gps_p_wb">
+<span class="sig-prename descclassname"><span class="pre">gps_mod/</span></span><span class="sig-name descname"><span class="pre">gps_p_wb</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">parameter/public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/gps_mod/gps_p_wb" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/gps_mod/gps_ro_maxprfsize">
+<span class="sig-prename descclassname"><span class="pre">gps_mod/</span></span><span class="sig-name descname"><span class="pre">gps_ro_maxprfsize</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/gps_mod/gps_ro_maxprfsize" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/gps_mod/gps_robnorm">
+<span class="sig-prename descclassname"><span class="pre">gps_mod/</span></span><span class="sig-name descname"><span class="pre">gps_robnorm</span></span><em> <span class="pre">[</span></em><em><span class="pre">logical</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/gps_mod/gps_robnorm" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/gps_mod/gps_roerror">
+<span class="sig-prename descclassname"><span class="pre">gps_mod/</span></span><span class="sig-name descname"><span class="pre">gps_roerror</span></span><em> <span class="pre">[</span></em><em><span class="pre">character</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/gps_mod/gps_roerror" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/gps_mod/gps_ronsigma">
+<span class="sig-prename descclassname"><span class="pre">gps_mod/</span></span><span class="sig-name descname"><span class="pre">gps_ronsigma</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/gps_mod/gps_ronsigma" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/gps_mod/gps_surfmin">
+<span class="sig-prename descclassname"><span class="pre">gps_mod/</span></span><span class="sig-name descname"><span class="pre">gps_surfmin</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/gps_mod/gps_surfmin" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/gps_mod/gps_vro_indexprf">
+<span class="sig-prename descclassname"><span class="pre">gps_mod/</span></span><span class="sig-name descname"><span class="pre">gps_vro_indexprf</span></span> <span class="pre">(</span><span class="pre">*,*</span><span class="pre">)</span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">allocatable/public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/gps_mod/gps_vro_indexprf" title="Permalink to this definition">¶</a></dt>
+<dd><p>index for each profile</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/gps_mod/gps_wgps">
+<span class="sig-prename descclassname"><span class="pre">gps_mod/</span></span><span class="sig-name descname"><span class="pre">gps_wgps</span></span> <span class="pre">(</span><span class="pre">1024</span><span class="pre">,</span><span class="pre">4</span><span class="pre">)</span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/gps_mod/gps_wgps" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/gps_mod/gps_ztd_index">
+<span class="sig-prename descclassname"><span class="pre">gps_mod/</span></span><span class="sig-name descname"><span class="pre">gps_ztd_index</span></span> <span class="pre">(</span><span class="pre">*</span><span class="pre">)</span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">allocatable/public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/gps_mod/gps_ztd_index" title="Permalink to this definition">¶</a></dt>
+<dd><p>INDEX_HEADER in CMA (ObsSpace) for each ZTD observation</p>
+</dd></dl>
+
+</li>
+</ul>
+<p class="rubric">Subroutines and functions</p>
+<dl>
+<dt class="sig sig-object f" id="f/gps_mod/gps_gravitysrf">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">gps_mod/</span></span><span class="sig-name descname"><span class="pre">gps_gravitysrf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">slat</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/gps_mod/gps_gravitysrf" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Normal gravity on ellipsoidal surface</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>slat</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: sin(Latitude)</p>
+</dd>
+<dt class="field-odd">Return</dt>
+<dd class="field-odd"><p><strong>gps_gravitysrf</strong><em> [</em><em>real </em><em>]</em> :: Normal gravity (m/s2)</p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/gps_mod/gps_gravityalt" title="f/gps_mod/gps_gravityalt"><code class="xref f f-func docutils literal notranslate"><span class="pre">gps_gravityalt()</span></code></a>, <a class="reference internal" href="#f/gps_mod/gps_struct1sw" title="f/gps_mod/gps_struct1sw"><code class="xref f f-func docutils literal notranslate"><span class="pre">gps_struct1sw()</span></code></a>, <a class="reference internal" href="#f/gps_mod/gps_structztd" title="f/gps_mod/gps_structztd"><code class="xref f f-func docutils literal notranslate"><span class="pre">gps_structztd()</span></code></a>, <a class="reference internal" href="obsspaceerrorstddev_mod.html#f/obsspaceerrorstddev_mod/setfgedif" title="f/obsspaceerrorstddev_mod/setfgedif"><code class="xref f f-func docutils literal notranslate"><span class="pre">setfgedif()</span></code></a>, <a class="reference internal" href="obserrors_mod.html#f/obserrors_mod/oer_seterrgpsro" title="f/obserrors_mod/oer_seterrgpsro"><code class="xref f f-func docutils literal notranslate"><span class="pre">oer_seterrgpsro()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/gps_mod/gps_gravityalt">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">gps_mod/</span></span><span class="sig-name descname"><span class="pre">gps_gravityalt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">slat</span></em>, <em class="sig-param"><span class="pre">altitude</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/gps_mod/gps_gravityalt" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Normal gravity above the ellipsoidal surface</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>slat</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: sin(Latitude)</p></li>
+<li><p><strong>altitude</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: Altitude (m)</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Return</dt>
+<dd class="field-odd"><p><strong>gps_gravityalt</strong><em> [</em><em>real </em><em>]</em> :: Normal gravity (m/s2)</p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/gps_mod/gps_geopotential" title="f/gps_mod/gps_geopotential"><code class="xref f f-func docutils literal notranslate"><span class="pre">gps_geopotential()</span></code></a>, <a class="reference internal" href="#f/gps_mod/gps_struct1sw" title="f/gps_mod/gps_struct1sw"><code class="xref f f-func docutils literal notranslate"><span class="pre">gps_struct1sw()</span></code></a>, <a class="reference internal" href="#f/gps_mod/gps_structztd" title="f/gps_mod/gps_structztd"><code class="xref f f-func docutils literal notranslate"><span class="pre">gps_structztd()</span></code></a>, <a class="reference internal" href="#f/gps_mod/gps_structztd_v2" title="f/gps_mod/gps_structztd_v2"><code class="xref f f-func docutils literal notranslate"><span class="pre">gps_structztd_v2()</span></code></a>, <a class="reference internal" href="#f/gps_mod/gpsbvf" title="f/gps_mod/gpsbvf"><code class="xref f f-func docutils literal notranslate"><span class="pre">gpsbvf()</span></code></a>, <a class="reference internal" href="#f/gps_mod/gps_ztdopv" title="f/gps_mod/gps_ztdopv"><code class="xref f f-func docutils literal notranslate"><span class="pre">gps_ztdopv()</span></code></a>, <a class="reference internal" href="#f/gps_mod/gps_pw" title="f/gps_mod/gps_pw"><code class="xref f f-func docutils literal notranslate"><span class="pre">gps_pw()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/gps_mod/gps_gravitysrf" title="f/gps_mod/gps_gravitysrf"><code class="xref f f-func docutils literal notranslate"><span class="pre">gps_gravitysrf()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/gps_mod/gps_geopotential">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">gps_mod/</span></span><span class="sig-name descname"><span class="pre">gps_geopotential</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">latitude</span></em>, <em class="sig-param"><span class="pre">altitude</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/gps_mod/gps_geopotential" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Geopotential energy at a given point.
+Result is based on the WGS84 approximate expression for the
+gravity acceleration as a function of latitude and altitude,
+integrated with the trapezoidal rule.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>latitude</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: (rad)</p></li>
+<li><p><strong>altitude</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: <ol class="loweralpha simple" start="13">
+<li></li>
+</ol>
+</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Return</dt>
+<dd class="field-odd"><p><strong>gps_geopotential</strong><em> [</em><em>real </em><em>]</em> :: Geopotential (m2/s2)</p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/gps_mod/gps_gravityalt" title="f/gps_mod/gps_gravityalt"><code class="xref f f-func docutils literal notranslate"><span class="pre">gps_gravityalt()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/gps_mod/gpsradii">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">gps_mod/</span></span><span class="sig-name descname"><span class="pre">gpsradii</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">latitude</span></em>, <em class="sig-param"><span class="pre">radn</span></em>, <em class="sig-param"><span class="pre">radm</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/gps_mod/gpsradii" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>latitude</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>radn</strong><em> [</em><em>real </em><em>,</em><em>out</em><em>]</em></p></li>
+<li><p><strong>radm</strong><em> [</em><em>real </em><em>,</em><em>out</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/gps_mod/gps_struct1sw" title="f/gps_mod/gps_struct1sw"><code class="xref f f-func docutils literal notranslate"><span class="pre">gps_struct1sw()</span></code></a>, <a class="reference internal" href="#f/gps_mod/gps_struct1sw_v2" title="f/gps_mod/gps_struct1sw_v2"><code class="xref f f-func docutils literal notranslate"><span class="pre">gps_struct1sw_v2()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/gps_mod/gpsdiffasfd">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">gps_mod/</span></span><span class="sig-name descname"><span class="pre">gpsdiffasfd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">gd1</span></em>, <em class="sig-param"><span class="pre">d2</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/gps_mod/gpsdiffasfd" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>gd1</strong><em> [</em><em>gps_diff </em><em>,</em><em>out</em><em>]</em></p></li>
+<li><p><strong>d2</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/gps_mod/gpsdiffasff">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">gps_mod/</span></span><span class="sig-name descname"><span class="pre">gpsdiffasff</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">gd1</span></em>, <em class="sig-param"><span class="pre">gd2</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/gps_mod/gpsdiffasff" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>gd1</strong><em> [</em><em>gps_diff </em><em>,</em><em>out</em><em>]</em></p></li>
+<li><p><strong>gd2</strong><em> [</em><em>gps_diff </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/gps_mod/gpsdiffsmfd">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">gps_mod/</span></span><span class="sig-name descname"><span class="pre">gpsdiffsmfd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">gd1</span></em>, <em class="sig-param"><span class="pre">d2</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/gps_mod/gpsdiffsmfd" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>gd1</strong><em> [</em><em>gps_diff </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>d2</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Return</dt>
+<dd class="field-even"><p><strong>gpsdiffsmfd</strong><em> [</em><em>gps_diff </em><em>]</em></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/gps_mod/gpsdiffsmdf">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">gps_mod/</span></span><span class="sig-name descname"><span class="pre">gpsdiffsmdf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">d1</span></em>, <em class="sig-param"><span class="pre">gd2</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/gps_mod/gpsdiffsmdf" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>d1</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>gd2</strong><em> [</em><em>gps_diff </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Return</dt>
+<dd class="field-even"><p><strong>gpsdiffsmdf</strong><em> [</em><em>gps_diff </em><em>]</em></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/gps_mod/gpsdiffsmfi">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">gps_mod/</span></span><span class="sig-name descname"><span class="pre">gpsdiffsmfi</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">gd1</span></em>, <em class="sig-param"><span class="pre">i2</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/gps_mod/gpsdiffsmfi" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>gd1</strong><em> [</em><em>gps_diff </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>i2</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Return</dt>
+<dd class="field-even"><p><strong>gpsdiffsmfi</strong><em> [</em><em>gps_diff </em><em>]</em></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/gps_mod/gpsdiffsmif">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">gps_mod/</span></span><span class="sig-name descname"><span class="pre">gpsdiffsmif</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">i1</span></em>, <em class="sig-param"><span class="pre">gd2</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/gps_mod/gpsdiffsmif" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>i1</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>gd2</strong><em> [</em><em>gps_diff </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Return</dt>
+<dd class="field-even"><p><strong>gpsdiffsmif</strong><em> [</em><em>gps_diff </em><em>]</em></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/gps_mod/gpsdiffsmff">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">gps_mod/</span></span><span class="sig-name descname"><span class="pre">gpsdiffsmff</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">gd1</span></em>, <em class="sig-param"><span class="pre">gd2</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/gps_mod/gpsdiffsmff" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>gd1</strong><em> [</em><em>gps_diff </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>gd2</strong><em> [</em><em>gps_diff </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Return</dt>
+<dd class="field-even"><p><strong>gpsdiffsmff</strong><em> [</em><em>gps_diff </em><em>]</em></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/gps_mod/gpsdiffsbfd">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">gps_mod/</span></span><span class="sig-name descname"><span class="pre">gpsdiffsbfd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">gd1</span></em>, <em class="sig-param"><span class="pre">d2</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/gps_mod/gpsdiffsbfd" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>gd1</strong><em> [</em><em>gps_diff </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>d2</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Return</dt>
+<dd class="field-even"><p><strong>gpsdiffsbfd</strong><em> [</em><em>gps_diff </em><em>]</em></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/gps_mod/gpsdiffsbdf">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">gps_mod/</span></span><span class="sig-name descname"><span class="pre">gpsdiffsbdf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">d1</span></em>, <em class="sig-param"><span class="pre">gd2</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/gps_mod/gpsdiffsbdf" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>d1</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>gd2</strong><em> [</em><em>gps_diff </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Return</dt>
+<dd class="field-even"><p><strong>gpsdiffsbdf</strong><em> [</em><em>gps_diff </em><em>]</em></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/gps_mod/gpsdiffsbfi">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">gps_mod/</span></span><span class="sig-name descname"><span class="pre">gpsdiffsbfi</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">gd1</span></em>, <em class="sig-param"><span class="pre">i2</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/gps_mod/gpsdiffsbfi" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>gd1</strong><em> [</em><em>gps_diff </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>i2</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Return</dt>
+<dd class="field-even"><p><strong>gpsdiffsbfi</strong><em> [</em><em>gps_diff </em><em>]</em></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/gps_mod/gpsdiffsbif">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">gps_mod/</span></span><span class="sig-name descname"><span class="pre">gpsdiffsbif</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">i1</span></em>, <em class="sig-param"><span class="pre">gd2</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/gps_mod/gpsdiffsbif" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>i1</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>gd2</strong><em> [</em><em>gps_diff </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Return</dt>
+<dd class="field-even"><p><strong>gpsdiffsbif</strong><em> [</em><em>gps_diff </em><em>]</em></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/gps_mod/gpsdiffsbff">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">gps_mod/</span></span><span class="sig-name descname"><span class="pre">gpsdiffsbff</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">gd1</span></em>, <em class="sig-param"><span class="pre">gd2</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/gps_mod/gpsdiffsbff" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>gd1</strong><em> [</em><em>gps_diff </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>gd2</strong><em> [</em><em>gps_diff </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Return</dt>
+<dd class="field-even"><p><strong>gpsdiffsbff</strong><em> [</em><em>gps_diff </em><em>]</em></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/gps_mod/gpsdiffmlfd">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">gps_mod/</span></span><span class="sig-name descname"><span class="pre">gpsdiffmlfd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">gd1</span></em>, <em class="sig-param"><span class="pre">d2</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/gps_mod/gpsdiffmlfd" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>gd1</strong><em> [</em><em>gps_diff </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>d2</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Return</dt>
+<dd class="field-even"><p><strong>gpsdiffmlfd</strong><em> [</em><em>gps_diff </em><em>]</em></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/gps_mod/gpsdiffmldf">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">gps_mod/</span></span><span class="sig-name descname"><span class="pre">gpsdiffmldf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">d1</span></em>, <em class="sig-param"><span class="pre">gd2</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/gps_mod/gpsdiffmldf" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>d1</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>gd2</strong><em> [</em><em>gps_diff </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Return</dt>
+<dd class="field-even"><p><strong>gpsdiffmldf</strong><em> [</em><em>gps_diff </em><em>]</em></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/gps_mod/gpsdiffmlfi">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">gps_mod/</span></span><span class="sig-name descname"><span class="pre">gpsdiffmlfi</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">gd1</span></em>, <em class="sig-param"><span class="pre">i2</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/gps_mod/gpsdiffmlfi" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>gd1</strong><em> [</em><em>gps_diff </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>i2</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Return</dt>
+<dd class="field-even"><p><strong>gpsdiffmlfi</strong><em> [</em><em>gps_diff </em><em>]</em></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/gps_mod/gpsdiffmlif">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">gps_mod/</span></span><span class="sig-name descname"><span class="pre">gpsdiffmlif</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">i1</span></em>, <em class="sig-param"><span class="pre">gd2</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/gps_mod/gpsdiffmlif" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>i1</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>gd2</strong><em> [</em><em>gps_diff </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Return</dt>
+<dd class="field-even"><p><strong>gpsdiffmlif</strong><em> [</em><em>gps_diff </em><em>]</em></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/gps_mod/gpsdiffmlff">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">gps_mod/</span></span><span class="sig-name descname"><span class="pre">gpsdiffmlff</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">gd1</span></em>, <em class="sig-param"><span class="pre">gd2</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/gps_mod/gpsdiffmlff" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>gd1</strong><em> [</em><em>gps_diff </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>gd2</strong><em> [</em><em>gps_diff </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Return</dt>
+<dd class="field-even"><p><strong>gpsdiffmlff</strong><em> [</em><em>gps_diff </em><em>]</em></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/gps_mod/gpsdiffdvfd">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">gps_mod/</span></span><span class="sig-name descname"><span class="pre">gpsdiffdvfd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">gd1</span></em>, <em class="sig-param"><span class="pre">d2</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/gps_mod/gpsdiffdvfd" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>gd1</strong><em> [</em><em>gps_diff </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>d2</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Return</dt>
+<dd class="field-even"><p><strong>gpsdiffdvfd</strong><em> [</em><em>gps_diff </em><em>]</em></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/gps_mod/gpsdiffdvdf">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">gps_mod/</span></span><span class="sig-name descname"><span class="pre">gpsdiffdvdf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">d1</span></em>, <em class="sig-param"><span class="pre">gd2</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/gps_mod/gpsdiffdvdf" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>d1</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>gd2</strong><em> [</em><em>gps_diff </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Return</dt>
+<dd class="field-even"><p><strong>gpsdiffdvdf</strong><em> [</em><em>gps_diff </em><em>]</em></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/gps_mod/gpsdiffdvfi">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">gps_mod/</span></span><span class="sig-name descname"><span class="pre">gpsdiffdvfi</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">gd1</span></em>, <em class="sig-param"><span class="pre">i2</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/gps_mod/gpsdiffdvfi" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>gd1</strong><em> [</em><em>gps_diff </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>i2</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Return</dt>
+<dd class="field-even"><p><strong>gpsdiffdvfi</strong><em> [</em><em>gps_diff </em><em>]</em></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/gps_mod/gpsdiffdvif">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">gps_mod/</span></span><span class="sig-name descname"><span class="pre">gpsdiffdvif</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">i1</span></em>, <em class="sig-param"><span class="pre">gd2</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/gps_mod/gpsdiffdvif" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>i1</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>gd2</strong><em> [</em><em>gps_diff </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Return</dt>
+<dd class="field-even"><p><strong>gpsdiffdvif</strong><em> [</em><em>gps_diff </em><em>]</em></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/gps_mod/gpsdiffdvff">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">gps_mod/</span></span><span class="sig-name descname"><span class="pre">gpsdiffdvff</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">gd1</span></em>, <em class="sig-param"><span class="pre">gd2</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/gps_mod/gpsdiffdvff" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>gd1</strong><em> [</em><em>gps_diff </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>gd2</strong><em> [</em><em>gps_diff </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Return</dt>
+<dd class="field-even"><p><strong>gpsdiffdvff</strong><em> [</em><em>gps_diff </em><em>]</em></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/gps_mod/gpsdiffpwfd">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">gps_mod/</span></span><span class="sig-name descname"><span class="pre">gpsdiffpwfd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">gd1</span></em>, <em class="sig-param"><span class="pre">d2</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/gps_mod/gpsdiffpwfd" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>gd1</strong><em> [</em><em>gps_diff </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>d2</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Return</dt>
+<dd class="field-even"><p><strong>gpsdiffpwfd</strong><em> [</em><em>gps_diff </em><em>]</em></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/gps_mod/gpsdiffpwdf">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">gps_mod/</span></span><span class="sig-name descname"><span class="pre">gpsdiffpwdf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">d1</span></em>, <em class="sig-param"><span class="pre">gd2</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/gps_mod/gpsdiffpwdf" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>d1</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>gd2</strong><em> [</em><em>gps_diff </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Return</dt>
+<dd class="field-even"><p><strong>gpsdiffpwdf</strong><em> [</em><em>gps_diff </em><em>]</em></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/gps_mod/gpsdiffpwfi">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">gps_mod/</span></span><span class="sig-name descname"><span class="pre">gpsdiffpwfi</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">gd1</span></em>, <em class="sig-param"><span class="pre">i2</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/gps_mod/gpsdiffpwfi" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>gd1</strong><em> [</em><em>gps_diff </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>i2</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Return</dt>
+<dd class="field-even"><p><strong>gpsdiffpwfi</strong><em> [</em><em>gps_diff </em><em>]</em></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/gps_mod/gpsdiffpwif">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">gps_mod/</span></span><span class="sig-name descname"><span class="pre">gpsdiffpwif</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">i1</span></em>, <em class="sig-param"><span class="pre">gd2</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/gps_mod/gpsdiffpwif" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>i1</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>gd2</strong><em> [</em><em>gps_diff </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Return</dt>
+<dd class="field-even"><p><strong>gpsdiffpwif</strong><em> [</em><em>gps_diff </em><em>]</em></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/gps_mod/gpsdiffpwff">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">gps_mod/</span></span><span class="sig-name descname"><span class="pre">gpsdiffpwff</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">gd1</span></em>, <em class="sig-param"><span class="pre">gd2</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/gps_mod/gpsdiffpwff" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>gd1</strong><em> [</em><em>gps_diff </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>gd2</strong><em> [</em><em>gps_diff </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Return</dt>
+<dd class="field-even"><p><strong>gpsdiffpwff</strong><em> [</em><em>gps_diff </em><em>]</em></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/gps_mod/gpsdiffsqr">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">gps_mod/</span></span><span class="sig-name descname"><span class="pre">gpsdiffsqr</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">gd1</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/gps_mod/gpsdiffsqr" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><p><strong>gd1</strong><em> [</em><em>gps_diff </em><em>,</em><em>in</em><em>]</em></p>
+</dd>
+<dt class="field-even">Return</dt>
+<dd class="field-even"><p><strong>gpsdiffsqr</strong><em> [</em><em>gps_diff </em><em>]</em></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/gps_mod/gpsdiffexp">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">gps_mod/</span></span><span class="sig-name descname"><span class="pre">gpsdiffexp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">gd1</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/gps_mod/gpsdiffexp" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><p><strong>gd1</strong><em> [</em><em>gps_diff </em><em>,</em><em>in</em><em>]</em></p>
+</dd>
+<dt class="field-even">Return</dt>
+<dd class="field-even"><p><strong>gpsdiffexp</strong><em> [</em><em>gps_diff </em><em>]</em></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/gps_mod/gpsdifflog">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">gps_mod/</span></span><span class="sig-name descname"><span class="pre">gpsdifflog</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">gd1</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/gps_mod/gpsdifflog" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><p><strong>gd1</strong><em> [</em><em>gps_diff </em><em>,</em><em>in</em><em>]</em></p>
+</dd>
+<dt class="field-even">Return</dt>
+<dd class="field-even"><p><strong>gpsdifflog</strong><em> [</em><em>gps_diff </em><em>]</em></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/gps_mod/gpsdiffcos">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">gps_mod/</span></span><span class="sig-name descname"><span class="pre">gpsdiffcos</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">gd1</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/gps_mod/gpsdiffcos" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><p><strong>gd1</strong><em> [</em><em>gps_diff </em><em>,</em><em>in</em><em>]</em></p>
+</dd>
+<dt class="field-even">Return</dt>
+<dd class="field-even"><p><strong>gpsdiffcos</strong><em> [</em><em>gps_diff </em><em>]</em></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/gps_mod/gpsdifftan">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">gps_mod/</span></span><span class="sig-name descname"><span class="pre">gpsdifftan</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">gd1</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/gps_mod/gpsdifftan" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><p><strong>gd1</strong><em> [</em><em>gps_diff </em><em>,</em><em>in</em><em>]</em></p>
+</dd>
+<dt class="field-even">Return</dt>
+<dd class="field-even"><p><strong>gpsdifftan</strong><em> [</em><em>gps_diff </em><em>]</em></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/gps_mod/gpsdiffacos">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">gps_mod/</span></span><span class="sig-name descname"><span class="pre">gpsdiffacos</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">gd1</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/gps_mod/gpsdiffacos" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><p><strong>gd1</strong><em> [</em><em>gps_diff </em><em>,</em><em>in</em><em>]</em></p>
+</dd>
+<dt class="field-even">Return</dt>
+<dd class="field-even"><p><strong>gpsdiffacos</strong><em> [</em><em>gps_diff </em><em>]</em></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/gps_mod/gpsdiffatan">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">gps_mod/</span></span><span class="sig-name descname"><span class="pre">gpsdiffatan</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">gd1</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/gps_mod/gpsdiffatan" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><p><strong>gd1</strong><em> [</em><em>gps_diff </em><em>,</em><em>in</em><em>]</em></p>
+</dd>
+<dt class="field-even">Return</dt>
+<dd class="field-even"><p><strong>gpsdiffatan</strong><em> [</em><em>gps_diff </em><em>]</em></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/gps_mod/gpsdifferf">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">gps_mod/</span></span><span class="sig-name descname"><span class="pre">gpsdifferf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">gd1</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/gps_mod/gpsdifferf" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><p><strong>gd1</strong><em> [</em><em>gps_diff </em><em>,</em><em>in</em><em>]</em></p>
+</dd>
+<dt class="field-even">Return</dt>
+<dd class="field-even"><p><strong>gpsdifferf</strong><em> [</em><em>gps_diff </em><em>]</em></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/gps_mod/gps_struct1sw">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">gps_mod/</span></span><span class="sig-name descname"><span class="pre">gps_struct1sw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">ngpslev</span></em>, <em class="sig-param"><span class="pre">rlat</span></em>, <em class="sig-param"><span class="pre">rlon</span></em>, <em class="sig-param"><span class="pre">razm</span></em>, <em class="sig-param"><span class="pre">rmt</span></em>, <em class="sig-param"><span class="pre">rad</span></em>, <em class="sig-param"><span class="pre">geoid</span></em>, <em class="sig-param"><span class="pre">rp0</span></em>, <em class="sig-param"><span class="pre">rpp</span></em>, <em class="sig-param"><span class="pre">rdp</span></em>, <em class="sig-param"><span class="pre">rtt</span></em>, <em class="sig-param"><span class="pre">rhu</span></em>, <em class="sig-param"><span class="pre">ruu</span></em>, <em class="sig-param"><span class="pre">rvv</span></em>, <em class="sig-param"><span class="pre">prf</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">printheight</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/gps_mod/gps_struct1sw" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ngpslev</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>rlat</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>rlon</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>razm</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>rmt</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>rad</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>geoid</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>rp0</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>rpp</strong> (ngpssize)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>rdp</strong> (ngpssize)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>rtt</strong> (ngpssize)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>rhu</strong> (ngpssize)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>ruu</strong> (ngpssize)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>rvv</strong> (ngpssize)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>prf</strong><em> [</em><em>gps_profile </em><em>,</em><em>out</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Options</dt>
+<dd class="field-even"><p><strong>printheight</strong><em> [</em><em>logical </em><em>]</em></p>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="obsspaceerrorstddev_mod.html#f/obsspaceerrorstddev_mod/setfgedif" title="f/obsspaceerrorstddev_mod/setfgedif"><code class="xref f f-func docutils literal notranslate"><span class="pre">setfgedif()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/gps_mod/gpsradii" title="f/gps_mod/gpsradii"><code class="xref f f-func docutils literal notranslate"><span class="pre">gpsradii()</span></code></a>, <a class="reference internal" href="#f/gps_mod/gpscompressibility" title="f/gps_mod/gpscompressibility"><code class="xref f f-func docutils literal notranslate"><span class="pre">gpscompressibility()</span></code></a>, <a class="reference internal" href="#f/gps_mod/gps_gravitysrf" title="f/gps_mod/gps_gravitysrf"><code class="xref f f-func docutils literal notranslate"><span class="pre">gps_gravitysrf()</span></code></a>, <a class="reference internal" href="#f/gps_mod/gps_gravityalt" title="f/gps_mod/gps_gravityalt"><code class="xref f f-func docutils literal notranslate"><span class="pre">gps_gravityalt()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/gps_mod/gps_struct1sw_v2">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">gps_mod/</span></span><span class="sig-name descname"><span class="pre">gps_struct1sw_v2</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">ngpslev</span></em>, <em class="sig-param"><span class="pre">rlat</span></em>, <em class="sig-param"><span class="pre">rlon</span></em>, <em class="sig-param"><span class="pre">razm</span></em>, <em class="sig-param"><span class="pre">rmt</span></em>, <em class="sig-param"><span class="pre">rad</span></em>, <em class="sig-param"><span class="pre">geoid</span></em>, <em class="sig-param"><span class="pre">rp0</span></em>, <em class="sig-param"><span class="pre">rpp</span></em>, <em class="sig-param"><span class="pre">rtt</span></em>, <em class="sig-param"><span class="pre">rhu</span></em>, <em class="sig-param"><span class="pre">ruu</span></em>, <em class="sig-param"><span class="pre">rvv</span></em>, <em class="sig-param"><span class="pre">ralt</span></em>, <em class="sig-param"><span class="pre">prf</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/gps_mod/gps_struct1sw_v2" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ngpslev</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>rlat</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>rlon</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>razm</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>rmt</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>rad</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>geoid</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>rp0</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>rpp</strong> (ngpssize)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>rtt</strong> (ngpssize)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>rhu</strong> (ngpssize)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>ruu</strong> (ngpssize)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>rvv</strong> (ngpssize)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>ralt</strong> (ngpssize)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>prf</strong><em> [</em><em>gps_profile </em><em>,</em><em>out</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="obserrors_mod.html#f/obserrors_mod/oer_seterrgpsro" title="f/obserrors_mod/oer_seterrgpsro"><code class="xref f f-func docutils literal notranslate"><span class="pre">oer_seterrgpsro()</span></code></a>, <a class="reference internal" href="obsoperators_mod.html#f/obsoperators_mod/oop_gpsro_nl" title="f/obsoperators_mod/oop_gpsro_nl"><code class="xref f f-func docutils literal notranslate"><span class="pre">oop_gpsro_nl()</span></code></a>, <a class="reference internal" href="obsoperators_mod.html#f/obsoperators_mod/oop_calcgpsrojacobian" title="f/obsoperators_mod/oop_calcgpsrojacobian"><code class="xref f f-func docutils literal notranslate"><span class="pre">oop_calcgpsrojacobian()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/gps_mod/gpsradii" title="f/gps_mod/gpsradii"><code class="xref f f-func docutils literal notranslate"><span class="pre">gpsradii()</span></code></a>, <a class="reference internal" href="#f/gps_mod/gpsro_eotvos_dh" title="f/gps_mod/gpsro_eotvos_dh"><code class="xref f f-func docutils literal notranslate"><span class="pre">gpsro_eotvos_dh()</span></code></a>, <a class="reference internal" href="#f/gps_mod/gpscompressibility" title="f/gps_mod/gpscompressibility"><code class="xref f f-func docutils literal notranslate"><span class="pre">gpscompressibility()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/gps_mod/gpscompressibility">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">gps_mod/</span></span><span class="sig-name descname"><span class="pre">gpscompressibility</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">p</span></em>, <em class="sig-param"><span class="pre">t</span></em>, <em class="sig-param"><span class="pre">q</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/gps_mod/gpscompressibility" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p</strong><em> [</em><em>gps_diff </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>t</strong><em> [</em><em>gps_diff </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>q</strong><em> [</em><em>gps_diff </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Return</dt>
+<dd class="field-even"><p><strong>gpscompressibility</strong><em> [</em><em>gps_diff </em><em>]</em></p>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="calcheightandpressure_mod.html#f/calcheightandpressure_mod/calcheight_gsv_nl_vcode5xxx" title="f/calcheightandpressure_mod/calcheight_gsv_nl_vcode5xxx"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcheight_gsv_nl_vcode5xxx()</span></code></a>, <a class="reference internal" href="calcheightandpressure_mod.html#f/calcheightandpressure_mod/calcpressure_gsv_nl_vcode2100x" title="f/calcheightandpressure_mod/calcpressure_gsv_nl_vcode2100x"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcpressure_gsv_nl_vcode2100x()</span></code></a>, <a class="reference internal" href="calcheightandpressure_mod.html#f/calcheightandpressure_mod/calcpressure_col_nl_vcode2100x" title="f/calcheightandpressure_mod/calcpressure_col_nl_vcode2100x"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcpressure_col_nl_vcode2100x()</span></code></a>, <a class="reference internal" href="calcheightandpressure_mod.html#f/calcheightandpressure_mod/calcheightcoeff_gsv" title="f/calcheightandpressure_mod/calcheightcoeff_gsv"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcheightcoeff_gsv()</span></code></a>, <a class="reference internal" href="calcheightandpressure_mod.html#f/calcheightandpressure_mod/calcheightcoeff_col" title="f/calcheightandpressure_mod/calcheightcoeff_col"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcheightcoeff_col()</span></code></a>, <a class="reference internal" href="#f/gps_mod/gps_struct1sw" title="f/gps_mod/gps_struct1sw"><code class="xref f f-func docutils literal notranslate"><span class="pre">gps_struct1sw()</span></code></a>, <a class="reference internal" href="#f/gps_mod/gps_struct1sw_v2" title="f/gps_mod/gps_struct1sw_v2"><code class="xref f f-func docutils literal notranslate"><span class="pre">gps_struct1sw_v2()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/gps_mod/gpsro_eotvos_dh">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">gps_mod/</span></span><span class="sig-name descname"><span class="pre">gpsro_eotvos_dh</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">ngpslev</span></em>, <em class="sig-param"><span class="pre">rlat</span></em>, <em class="sig-param"><span class="pre">ralt</span></em>, <em class="sig-param"><span class="pre">ruu</span></em>, <em class="sig-param"><span class="pre">rvv</span></em>, <em class="sig-param"><span class="pre">ralt_e</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/gps_mod/gpsro_eotvos_dh" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ngpslev</strong><em> [</em><em>integer </em><em>,</em><em>in,</em><em>]</em></p></li>
+<li><p><strong>rlat</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>ralt</strong> (ngpslev)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>ruu</strong> (ngpslev)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>rvv</strong> (ngpslev)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>ralt_e</strong> (ngpslev)<em> [</em><em>real </em><em>,</em><em>out</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/gps_mod/gps_struct1sw_v2" title="f/gps_mod/gps_struct1sw_v2"><code class="xref f f-func docutils literal notranslate"><span class="pre">gps_struct1sw_v2()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/gps_mod/gps_structztd">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">gps_mod/</span></span><span class="sig-name descname"><span class="pre">gps_structztd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">ngpslev</span></em>, <em class="sig-param"><span class="pre">rlat</span></em>, <em class="sig-param"><span class="pre">rlon</span></em>, <em class="sig-param"><span class="pre">rmt</span></em>, <em class="sig-param"><span class="pre">rp0</span></em>, <em class="sig-param"><span class="pre">rpp</span></em>, <em class="sig-param"><span class="pre">rdp</span></em>, <em class="sig-param"><span class="pre">rtt</span></em>, <em class="sig-param"><span class="pre">rhu</span></em>, <em class="sig-param"><span class="pre">lbevis</span></em>, <em class="sig-param"><span class="pre">refopt</span></em>, <em class="sig-param"><span class="pre">prf</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/gps_mod/gps_structztd" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>This subroutine fills GPS profiles of type gps_profilezd (for ZTD
+operator)</p>
+</dd>
+<dt class="field-even">Arguments </dt>
+<dd class="field-even"><p></p></dd>
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>refopt</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em> :: <p>=1 –&gt; use conventional expression for refractivity N</p>
+<p>=2 –&gt; use new Aparicio &amp; Laroche refractivity N</p>
+</p></li>
+<li><p><strong>ngpslev</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em> :: number of profile levels</p></li>
+<li><p><strong>rlat</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: radians</p></li>
+<li><p><strong>rlon</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: radians</p></li>
+<li><p><strong>rmt</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: height (ASL) of model surface (m)</p></li>
+<li><p><strong>rp0</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: surface pressure (Pa)</p></li>
+<li><p><strong>rpp</strong> (ngpssize)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: pressure P at each level (Pa)</p></li>
+<li><p><strong>rdp</strong> (ngpssize)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: dP/dP0 at each level (Pa/Pa)</p></li>
+<li><p><strong>rtt</strong> (ngpssize)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: temperature T at each level (C)</p></li>
+<li><p><strong>rhu</strong> (ngpssize)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: q at each level</p></li>
+<li><p><strong>lbevis</strong><em> [</em><em>logical </em><em>,</em><em>in</em><em>]</em> :: determines which set of refractivity constants to use (Bevis or Rueger)</p></li>
+<li><p><strong>prf</strong><em> [</em><em>gps_profilezd </em><em>,</em><em>out</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/gps_mod/gps_gravitysrf" title="f/gps_mod/gps_gravitysrf"><code class="xref f f-func docutils literal notranslate"><span class="pre">gps_gravitysrf()</span></code></a>, <a class="reference internal" href="#f/gps_mod/gps_gravityalt" title="f/gps_mod/gps_gravityalt"><code class="xref f f-func docutils literal notranslate"><span class="pre">gps_gravityalt()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/gps_mod/gps_structztd_v2">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">gps_mod/</span></span><span class="sig-name descname"><span class="pre">gps_structztd_v2</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">ngpslev</span></em>, <em class="sig-param"><span class="pre">rlat</span></em>, <em class="sig-param"><span class="pre">rlon</span></em>, <em class="sig-param"><span class="pre">rmt</span></em>, <em class="sig-param"><span class="pre">rp0</span></em>, <em class="sig-param"><span class="pre">rpp</span></em>, <em class="sig-param"><span class="pre">rtt</span></em>, <em class="sig-param"><span class="pre">rhu</span></em>, <em class="sig-param"><span class="pre">ralt</span></em>, <em class="sig-param"><span class="pre">lbevis</span></em>, <em class="sig-param"><span class="pre">refopt</span></em>, <em class="sig-param"><span class="pre">prf</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/gps_mod/gps_structztd_v2" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>This subroutine fills GPS profiles of type gps_profilezd (for ZTD
+operator)</p>
+</dd>
+<dt class="field-even">Arguments </dt>
+<dd class="field-even"><p></p></dd>
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>refopt</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em> :: <p>1 –&gt; use conventional expression for refractivity N</p>
+<p>=2 –&gt; use new Aparicio &amp; Laroche refractivity N</p>
+</p></li>
+<li><p><strong>ngpslev</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em> :: number of profile levels</p></li>
+<li><p><strong>rlat</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: radians</p></li>
+<li><p><strong>rlon</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: radians</p></li>
+<li><p><strong>rmt</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: height (ASL) of model surface (m)</p></li>
+<li><p><strong>rp0</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: surface pressure (Pa)</p></li>
+<li><p><strong>rpp</strong> (ngpssize)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: pressure P at each level (Pa)</p></li>
+<li><p><strong>rtt</strong> (ngpssize)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: temperature T at each level (C)</p></li>
+<li><p><strong>rhu</strong> (ngpssize)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: q at each level</p></li>
+<li><p><strong>ralt</strong> (ngpssize)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: altitude at each level</p></li>
+<li><p><strong>lbevis</strong><em> [</em><em>logical </em><em>,</em><em>in</em><em>]</em> :: determines which set of refractivity constants to use (Bevis or Rueger)</p></li>
+<li><p><strong>prf</strong><em> [</em><em>gps_profilezd </em><em>,</em><em>out</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="obsspaceerrorstddev_mod.html#f/obsspaceerrorstddev_mod/setfgegps" title="f/obsspaceerrorstddev_mod/setfgegps"><code class="xref f f-func docutils literal notranslate"><span class="pre">setfgegps()</span></code></a>, <a class="reference internal" href="obsoperators_mod.html#f/obsoperators_mod/oop_gpsgb_nl" title="f/obsoperators_mod/oop_gpsgb_nl"><code class="xref f f-func docutils literal notranslate"><span class="pre">oop_gpsgb_nl()</span></code></a>, <a class="reference internal" href="obsoperators_mod.html#f/obsoperators_mod/oop_calcgpsgbjacobian" title="f/obsoperators_mod/oop_calcgpsgbjacobian"><code class="xref f f-func docutils literal notranslate"><span class="pre">oop_calcgpsgbjacobian()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/gps_mod/gps_gravityalt" title="f/gps_mod/gps_gravityalt"><code class="xref f f-func docutils literal notranslate"><span class="pre">gps_gravityalt()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/gps_mod/gpscmp">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">gps_mod/</span></span><span class="sig-name descname"><span class="pre">gpscmp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">prf</span></em>, <em class="sig-param"><span class="pre">cmp</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/gps_mod/gpscmp" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>prf</strong><em> [</em><em>gps_profile </em><em>]</em></p></li>
+<li><p><strong>cmp</strong> (*)<em> [</em><em>gps_diff </em><em>,</em><em>out</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/gps_mod/gpsden" title="f/gps_mod/gpsden"><code class="xref f f-func docutils literal notranslate"><span class="pre">gpsden()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/gps_mod/gpsden">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">gps_mod/</span></span><span class="sig-name descname"><span class="pre">gpsden</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">prf</span></em>, <em class="sig-param"><span class="pre">den</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/gps_mod/gpsden" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>prf</strong><em> [</em><em>gps_profile </em><em>]</em></p></li>
+<li><p><strong>den</strong> (*)<em> [</em><em>gps_diff </em><em>,</em><em>out</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/gps_mod/gpsbvf" title="f/gps_mod/gpsbvf"><code class="xref f f-func docutils literal notranslate"><span class="pre">gpsbvf()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/gps_mod/gpscmp" title="f/gps_mod/gpscmp"><code class="xref f f-func docutils literal notranslate"><span class="pre">gpscmp()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/gps_mod/gpsbvf">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">gps_mod/</span></span><span class="sig-name descname"><span class="pre">gpsbvf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">prf</span></em>, <em class="sig-param"><span class="pre">bvf</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/gps_mod/gpsbvf" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>prf</strong><em> [</em><em>gps_profile </em><em>]</em></p></li>
+<li><p><strong>bvf</strong> (ngpssize)<em> [</em><em>gps_diff </em><em>,</em><em>out</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/gps_mod/gpsbvfopv" title="f/gps_mod/gpsbvfopv"><code class="xref f f-func docutils literal notranslate"><span class="pre">gpsbvfopv()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/gps_mod/gpsden" title="f/gps_mod/gpsden"><code class="xref f f-func docutils literal notranslate"><span class="pre">gpsden()</span></code></a>, <a class="reference internal" href="#f/gps_mod/gps_gravityalt" title="f/gps_mod/gps_gravityalt"><code class="xref f f-func docutils literal notranslate"><span class="pre">gps_gravityalt()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/gps_mod/gps_refopv">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">gps_mod/</span></span><span class="sig-name descname"><span class="pre">gps_refopv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">hv</span></em>, <em class="sig-param"><span class="pre">nval</span></em>, <em class="sig-param"><span class="pre">prf</span></em>, <em class="sig-param"><span class="pre">refopv</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/gps_mod/gps_refopv" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>GPSRO Refractivity operator</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>hv</strong> (*)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: an array of height values</p></li>
+<li><p><strong>nval</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>prf</strong><em> [</em><em>gps_profile </em><em>,</em><em>in</em><em>]</em> :: local profile</p></li>
+<li><p><strong>refopv</strong> (*)<em> [</em><em>gps_diff </em><em>,</em><em>out</em><em>]</em> :: an array of refractivity values (with derivatives)</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="obsspaceerrorstddev_mod.html#f/obsspaceerrorstddev_mod/setfgedif" title="f/obsspaceerrorstddev_mod/setfgedif"><code class="xref f f-func docutils literal notranslate"><span class="pre">setfgedif()</span></code></a>, <a class="reference internal" href="obserrors_mod.html#f/obserrors_mod/oer_seterrgpsro" title="f/obserrors_mod/oer_seterrgpsro"><code class="xref f f-func docutils literal notranslate"><span class="pre">oer_seterrgpsro()</span></code></a>, <a class="reference internal" href="obsoperators_mod.html#f/obsoperators_mod/oop_gpsro_nl" title="f/obsoperators_mod/oop_gpsro_nl"><code class="xref f f-func docutils literal notranslate"><span class="pre">oop_gpsro_nl()</span></code></a>, <a class="reference internal" href="obsoperators_mod.html#f/obsoperators_mod/oop_calcgpsrojacobian" title="f/obsoperators_mod/oop_calcgpsrojacobian"><code class="xref f f-func docutils literal notranslate"><span class="pre">oop_calcgpsrojacobian()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/gps_mod/gpshgtopv">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">gps_mod/</span></span><span class="sig-name descname"><span class="pre">gpshgtopv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">pr</span></em>, <em class="sig-param"><span class="pre">prf</span></em>, <em class="sig-param"><span class="pre">hgtopv</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/gps_mod/gpshgtopv" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pr</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>prf</strong><em> [</em><em>gps_profile </em><em>]</em></p></li>
+<li><p><strong>hgtopv</strong><em> [</em><em>gps_diff </em><em>,</em><em>out</em><em>]</em></p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/gps_mod/gpstemopv">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">gps_mod/</span></span><span class="sig-name descname"><span class="pre">gpstemopv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">pr</span></em>, <em class="sig-param"><span class="pre">nval</span></em>, <em class="sig-param"><span class="pre">prf</span></em>, <em class="sig-param"><span class="pre">temopv</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/gps_mod/gpstemopv" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pr</strong> (*)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>nval</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>prf</strong><em> [</em><em>gps_profile </em><em>]</em></p></li>
+<li><p><strong>temopv</strong> (*)<em> [</em><em>gps_diff </em><em>,</em><em>out</em><em>]</em></p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/gps_mod/gpswmropv">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">gps_mod/</span></span><span class="sig-name descname"><span class="pre">gpswmropv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">pr</span></em>, <em class="sig-param"><span class="pre">prf</span></em>, <em class="sig-param"><span class="pre">wmropv</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/gps_mod/gpswmropv" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pr</strong> (*)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>prf</strong><em> [</em><em>gps_profile </em><em>]</em></p></li>
+<li><p><strong>wmropv</strong> (*)<em> [</em><em>gps_diff </em><em>,</em><em>out</em><em>]</em></p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/gps_mod/gpsbvfopv">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">gps_mod/</span></span><span class="sig-name descname"><span class="pre">gpsbvfopv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">hv</span></em>, <em class="sig-param"><span class="pre">nval</span></em>, <em class="sig-param"><span class="pre">prf</span></em>, <em class="sig-param"><span class="pre">bvfopv</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/gps_mod/gpsbvfopv" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>hv</strong> (*)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>nval</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>prf</strong><em> [</em><em>gps_profile </em><em>]</em></p></li>
+<li><p><strong>bvfopv</strong> (*)<em> [</em><em>gps_diff </em><em>,</em><em>out</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/gps_mod/gpsbvf" title="f/gps_mod/gpsbvf"><code class="xref f f-func docutils literal notranslate"><span class="pre">gpsbvf()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/gps_mod/gps_ztdopv">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">gps_mod/</span></span><span class="sig-name descname"><span class="pre">gps_ztdopv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">hv</span></em>, <em class="sig-param"><span class="pre">prf</span></em>, <em class="sig-param"><span class="pre">lbevis</span></em>, <em class="sig-param"><span class="pre">dzmin</span></em>, <em class="sig-param"><span class="pre">ztdopv</span></em>, <em class="sig-param"><span class="pre">rpobs</span></em>, <em class="sig-param"><span class="pre">mode</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/gps_mod/gps_ztdopv" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>GB-GPS ZTD operator</p>
+</dd>
+<dt class="field-even">Arguments </dt>
+<dd class="field-even"><p></p></dd>
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dzmin</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: Minimum DZ = Zobs-Zmod (m) for which DZ adjustment to ZTD will
+be made when Zobs &lt; Zmod.</p></li>
+<li><p><strong>mode</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em> :: <p>1 = normal mode: use stored ZTD profiles</p>
+<dl class="simple">
+<dt>2 = Vedel &amp; Huang ZTD formulation: ZTD = ZHD(Pobs) + ZWD</dt><dd><p>Pobs computed from P0 using CMC hydrostatic extrapolation.</p>
+</dd>
+</dl>
+</p></li>
+<li><p><strong>hv</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: height of ZTD observation Zobs (m)</p></li>
+<li><p><strong>prf</strong><em> [</em><em>gps_profilezd </em><em>,</em><em>in</em><em>]</em> :: local model profile (type gps_profilezd)</p></li>
+<li><p><strong>lbevis</strong><em> [</em><em>logical </em><em>,</em><em>in</em><em>]</em> :: true/false –&gt; use Bevis instead of Rueger k values</p></li>
+<li><p><strong>ztdopv</strong><em> [</em><em>gps_diff </em><em>,</em><em>out</em><em>]</em> :: ZTD (m) at height of observation (with derivatives)</p></li>
+<li><p><strong>rpobs</strong><em> [</em><em>real </em><em>,</em><em>out</em><em>]</em> :: Pressure (Pa) at height of observation</p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="obsspaceerrorstddev_mod.html#f/obsspaceerrorstddev_mod/setfgegps" title="f/obsspaceerrorstddev_mod/setfgegps"><code class="xref f f-func docutils literal notranslate"><span class="pre">setfgegps()</span></code></a>, <a class="reference internal" href="obsoperators_mod.html#f/obsoperators_mod/oop_gpsgb_nl" title="f/obsoperators_mod/oop_gpsgb_nl"><code class="xref f f-func docutils literal notranslate"><span class="pre">oop_gpsgb_nl()</span></code></a>, <a class="reference internal" href="obsoperators_mod.html#f/obsoperators_mod/oop_calcgpsgbjacobian" title="f/obsoperators_mod/oop_calcgpsgbjacobian"><code class="xref f f-func docutils literal notranslate"><span class="pre">oop_calcgpsgbjacobian()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/gps_mod/gps_gravityalt" title="f/gps_mod/gps_gravityalt"><code class="xref f f-func docutils literal notranslate"><span class="pre">gps_gravityalt()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/gps_mod/gps_pw">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">gps_mod/</span></span><span class="sig-name descname"><span class="pre">gps_pw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">prf</span></em>, <em class="sig-param"><span class="pre">pw</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/gps_mod/gps_pw" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>To compute lowest level PW (kg/m2) using layer mean Q and layer
+delta_p (Pa)</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>prf</strong><em> [</em><em>gps_profilezd </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>pw</strong><em> [</em><em>real </em><em>,</em><em>out</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="obsoperators_mod.html#f/obsoperators_mod/oop_gpsgb_nl" title="f/obsoperators_mod/oop_gpsgb_nl"><code class="xref f f-func docutils literal notranslate"><span class="pre">oop_gpsgb_nl()</span></code></a>, <a class="reference internal" href="obsoperators_mod.html#f/obsoperators_mod/oop_calcgpsgbjacobian" title="f/obsoperators_mod/oop_calcgpsgbjacobian"><code class="xref f f-func docutils literal notranslate"><span class="pre">oop_calcgpsgbjacobian()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/gps_mod/gps_gravityalt" title="f/gps_mod/gps_gravityalt"><code class="xref f f-func docutils literal notranslate"><span class="pre">gps_gravityalt()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/gps_mod/gpsbend">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">gps_mod/</span></span><span class="sig-name descname"><span class="pre">gpsbend</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">prf</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/gps_mod/gpsbend" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><p><strong>prf</strong><em> [</em><em>gps_profile </em><em>]</em></p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/gps_mod/gpsbndopv" title="f/gps_mod/gpsbndopv"><code class="xref f f-func docutils literal notranslate"><span class="pre">gpsbndopv()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/gps_mod/gpsbend1">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">gps_mod/</span></span><span class="sig-name descname"><span class="pre">gpsbend1</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">prf</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/gps_mod/gpsbend1" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><p><strong>prf</strong><em> [</em><em>gps_profile </em><em>]</em></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/gps_mod/gpsbendlayer" title="f/gps_mod/gpsbendlayer"><code class="xref f f-func docutils literal notranslate"><span class="pre">gpsbendlayer()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/gps_mod/gpsbendlayer">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">gps_mod/</span></span><span class="sig-name descname"><span class="pre">gpsbendlayer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">ra</span></em>, <em class="sig-param"><span class="pre">th</span></em>, <em class="sig-param"><span class="pre">nu0</span></em>, <em class="sig-param"><span class="pre">nexp</span></em>, <em class="sig-param"><span class="pre">angle0</span></em>, <em class="sig-param"><span class="pre">angle</span></em>, <em class="sig-param"><span class="pre">bend</span></em>, <em class="sig-param"><span class="pre">lok</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/gps_mod/gpsbendlayer" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments </dt>
+<dd class="field-odd"><p></p></dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>nu0</strong><em> [</em><em>gps_diff </em><em>,</em><em>in</em><em>]</em> :: nexp:  Refraction index coefs: n=1+nu0*exp(nexp*(r-ra));</p></li>
+<li><p><strong>nexp</strong><em> [</em><em>gps_diff </em><em>,</em><em>in</em><em>]</em> :: in in 1/m</p></li>
+<li><p><strong>ra</strong><em> [</em><em>gps_diff </em><em>,</em><em>in</em><em>]</em> :: Radius of inner shell (m)</p></li>
+<li><p><strong>th</strong><em> [</em><em>gps_diff </em><em>,</em><em>in</em><em>]</em> :: Shell thickness (m)</p></li>
+<li><p><strong>angle0</strong><em> [</em><em>gps_diff </em><em>,</em><em>in</em><em>]</em> :: Ray angle above horizon at ra</p></li>
+<li><p><strong>angle</strong><em> [</em><em>gps_diff </em><em>,</em><em>out</em><em>]</em> :: Ray angle above horizon at rb</p></li>
+<li><p><strong>bend</strong><em> [</em><em>gps_diff </em><em>,</em><em>out</em><em>]</em> :: Accumulated bending over the layer</p></li>
+<li><p><strong>lok</strong><em> [</em><em>logical </em><em>,</em><em>out</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/gps_mod/gpsbend1" title="f/gps_mod/gpsbend1"><code class="xref f f-func docutils literal notranslate"><span class="pre">gpsbend1()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/gps_mod/gpsbendunit" title="f/gps_mod/gpsbendunit"><code class="xref f f-func docutils literal notranslate"><span class="pre">gpsbendunit()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/gps_mod/gpsbendunit">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">gps_mod/</span></span><span class="sig-name descname"><span class="pre">gpsbendunit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">ra</span></em>, <em class="sig-param"><span class="pre">th</span></em>, <em class="sig-param"><span class="pre">nu0</span></em>, <em class="sig-param"><span class="pre">nexp</span></em>, <em class="sig-param"><span class="pre">angle0</span></em>, <em class="sig-param"><span class="pre">angle</span></em>, <em class="sig-param"><span class="pre">bend</span></em>, <em class="sig-param"><span class="pre">lok</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/gps_mod/gpsbendunit" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments </dt>
+<dd class="field-odd"><p></p></dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>nu0</strong><em> [</em><em>gps_diff </em><em>,</em><em>in</em><em>]</em> :: nexp:  Refraction index coefs: n=1+nu0*exp(nexp*(r-ra));</p></li>
+<li><p><strong>nexp</strong><em> [</em><em>gps_diff </em><em>,</em><em>in</em><em>]</em> :: in 1/m</p></li>
+<li><p><strong>ra</strong><em> [</em><em>gps_diff </em><em>,</em><em>in</em><em>]</em> :: Radius of inner shell (m)</p></li>
+<li><p><strong>th</strong><em> [</em><em>gps_diff </em><em>,</em><em>in</em><em>]</em> :: Shell thickness (m)</p></li>
+<li><p><strong>angle0</strong><em> [</em><em>gps_diff </em><em>,</em><em>in</em><em>]</em> :: Ray angle above horizon at ra</p></li>
+<li><p><strong>angle</strong><em> [</em><em>gps_diff </em><em>,</em><em>out</em><em>]</em> :: Ray angle above horizon at rb</p></li>
+<li><p><strong>bend</strong><em> [</em><em>gps_diff </em><em>,</em><em>inout</em><em>]</em> :: Accumulated bending over the layer</p></li>
+<li><p><strong>lok</strong><em> [</em><em>logical </em><em>,</em><em>out</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/gps_mod/gpsbendlayer" title="f/gps_mod/gpsbendlayer"><code class="xref f f-func docutils literal notranslate"><span class="pre">gpsbendlayer()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/gps_mod/gpsbndopv">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">gps_mod/</span></span><span class="sig-name descname"><span class="pre">gpsbndopv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">impv</span></em>, <em class="sig-param"><span class="pre">azmv</span></em>, <em class="sig-param"><span class="pre">nval</span></em>, <em class="sig-param"><span class="pre">prf</span></em>, <em class="sig-param"><span class="pre">bstv</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/gps_mod/gpsbndopv" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>impv</strong> (*)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>azmv</strong> (*)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>nval</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>prf</strong><em> [</em><em>gps_profile </em><em>]</em></p></li>
+<li><p><strong>bstv</strong> (*)<em> [</em><em>gps_diff </em><em>,</em><em>out</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/gps_mod/gpsbend" title="f/gps_mod/gpsbend"><code class="xref f f-func docutils literal notranslate"><span class="pre">gpsbend()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/gps_mod/gps_bndopv1">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">gps_mod/</span></span><span class="sig-name descname"><span class="pre">gps_bndopv1</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">impv</span></em>, <em class="sig-param"><span class="pre">azmv</span></em>, <em class="sig-param"><span class="pre">nval</span></em>, <em class="sig-param"><span class="pre">prf</span></em>, <em class="sig-param"><span class="pre">bstv</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/gps_mod/gps_bndopv1" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Computation of the observation operator for Bending</p>
+</dd>
+<dt class="field-even">Note </dt>
+<dd class="field-even"><p>The Operator is based  from Assimilation experiments withCHAMP GPS radio occultation measurements
+(S. B. HEALY and J.-N. THEPAUT, 2005)</p>
+</dd>
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>impv</strong> (*)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>azmv</strong> (*)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>nval</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>prf</strong><em> [</em><em>gps_profile </em><em>]</em></p></li>
+<li><p><strong>bstv</strong> (*)<em> [</em><em>gps_diff </em><em>,</em><em>out</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="obsspaceerrorstddev_mod.html#f/obsspaceerrorstddev_mod/setfgedif" title="f/obsspaceerrorstddev_mod/setfgedif"><code class="xref f f-func docutils literal notranslate"><span class="pre">setfgedif()</span></code></a>, <a class="reference internal" href="obserrors_mod.html#f/obserrors_mod/oer_seterrgpsro" title="f/obserrors_mod/oer_seterrgpsro"><code class="xref f f-func docutils literal notranslate"><span class="pre">oer_seterrgpsro()</span></code></a>, <a class="reference internal" href="obsoperators_mod.html#f/obsoperators_mod/oop_gpsro_nl" title="f/obsoperators_mod/oop_gpsro_nl"><code class="xref f f-func docutils literal notranslate"><span class="pre">oop_gpsro_nl()</span></code></a>, <a class="reference internal" href="obsoperators_mod.html#f/obsoperators_mod/oop_calcgpsrojacobian" title="f/obsoperators_mod/oop_calcgpsrojacobian"><code class="xref f f-func docutils literal notranslate"><span class="pre">oop_calcgpsrojacobian()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/gps_mod/gps_setupro">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">gps_mod/</span></span><span class="sig-name descname"><span class="pre">gps_setupro</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#f/gps_mod/gps_setupro" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="innovation_mod.html#f/innovation_mod/inn_setupobs" title="f/innovation_mod/inn_setupobs"><code class="xref f f-func docutils literal notranslate"><span class="pre">inn_setupobs()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/gps_mod/gps_iprofile_from_index">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">gps_mod/</span></span><span class="sig-name descname"><span class="pre">gps_iprofile_from_index</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">index_bn</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/gps_mod/gps_iprofile_from_index" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><p><strong>index_bn</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p>
+</dd>
+<dt class="field-even">Return</dt>
+<dd class="field-even"><p><strong>gps_iprofile_from_index</strong><em> [</em><em>integer </em><em>]</em></p>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="backgroundcheck_mod.html#f/backgroundcheck_mod/bgck_gpsro" title="f/backgroundcheck_mod/bgck_gpsro"><code class="xref f f-func docutils literal notranslate"><span class="pre">bgck_gpsro()</span></code></a>, <a class="reference internal" href="obsspaceerrorstddev_mod.html#f/obsspaceerrorstddev_mod/setfgedif" title="f/obsspaceerrorstddev_mod/setfgedif"><code class="xref f f-func docutils literal notranslate"><span class="pre">setfgedif()</span></code></a>, <a class="reference internal" href="obserrors_mod.html#f/obserrors_mod/oer_seterrgpsro" title="f/obserrors_mod/oer_seterrgpsro"><code class="xref f f-func docutils literal notranslate"><span class="pre">oer_seterrgpsro()</span></code></a>, <a class="reference internal" href="obsoperators_mod.html#f/obsoperators_mod/oop_gpsro_nl" title="f/obsoperators_mod/oop_gpsro_nl"><code class="xref f f-func docutils literal notranslate"><span class="pre">oop_gpsro_nl()</span></code></a>, <a class="reference internal" href="obsoperators_mod.html#f/obsoperators_mod/oop_calcgpsrojacobian" title="f/obsoperators_mod/oop_calcgpsrojacobian"><code class="xref f f-func docutils literal notranslate"><span class="pre">oop_calcgpsrojacobian()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/gps_mod/gps_setupgb">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">gps_mod/</span></span><span class="sig-name descname"><span class="pre">gps_setupgb</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#f/gps_mod/gps_setupgb" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Initialisation of ground-based GPS - to read and to initialize
+GB-GPS namelist parameters and print information on options
+selected.</p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="innovation_mod.html#f/innovation_mod/inn_setupobs" title="f/innovation_mod/inn_setupobs"><code class="xref f f-func docutils literal notranslate"><span class="pre">inn_setupobs()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/gps_mod/gps_iztd_from_index">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">gps_mod/</span></span><span class="sig-name descname"><span class="pre">gps_iztd_from_index</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">index_bn</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/gps_mod/gps_iztd_from_index" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><p><strong>index_bn</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p>
+</dd>
+<dt class="field-even">Return</dt>
+<dd class="field-even"><p><strong>gps_iztd_from_index</strong><em> [</em><em>integer </em><em>]</em></p>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="obsoperators_mod.html#f/obsoperators_mod/oop_calcgpsgbjacobian" title="f/obsoperators_mod/oop_calcgpsgbjacobian"><code class="xref f f-func docutils literal notranslate"><span class="pre">oop_calcgpsgbjacobian()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div></blockquote>
+</section>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="obsfilter_mod.html" title="obsfilter_mod"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="costfunction_mod.html" title="costfunction_mod"
+             >previous</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2018, ECCC.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.
+    </div>
+  </body>
+</html>

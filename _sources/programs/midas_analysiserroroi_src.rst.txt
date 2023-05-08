@@ -1,0 +1,8 @@
+==========================================
+midas_analysiserroroi source
+==========================================
+
+    .. literalinclude:: ../_src_files/analysisErrorOI.f90
+       :language: fortran
+       :linenos:
+

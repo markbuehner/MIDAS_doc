@@ -1,0 +1,22 @@
+==========================================
+burpfiles_mod
+==========================================
+
+    :doc:`link to source code <burpfiles_mod_src>`
+
+
+    **Dependency Diagrams:**
+
+    .. figure:: /burpfiles_mod.svg
+        :height: 100px
+
+        Direct Dependency Diagram
+
+    .. figure:: /burpfiles_mod_rev.svg
+        :height: 100px
+
+        Reverse Dependency Diagram
+
+
+    .. f:automodule:: burpfiles_mod
+

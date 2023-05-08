@@ -1,0 +1,377 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>oceanmask_mod &mdash; MIDAS  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="MIDAS  documentation" href="../index.html" />
+    <link rel="next" title="regions_mod" href="regions_mod.html" />
+    <link rel="prev" title="obsfamilylist_mod" href="obsfamilylist_mod.html" /> 
+  </head>
+  <body>
+  <div>
+    <img src="../_static/MIDAS_header.png" alt="MIDAS" />
+  </div>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="regions_mod.html" title="regions_mod"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="obsfamilylist_mod.html" title="obsfamilylist_mod"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="obsfamilylist_mod.html"
+                          title="previous chapter">obsfamilylist_mod</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="regions_mod.html"
+                          title="next chapter">regions_mod</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/modules/oceanmask_mod.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <section id="oceanmask-mod">
+<h1>oceanmask_mod<a class="headerlink" href="#oceanmask-mod" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><p><a class="reference internal" href="oceanmask_mod_src.html"><span class="doc">link to source code</span></a></p>
+<p><strong>Dependency Diagrams:</strong></p>
+<figure class="align-default" id="id1">
+<a class="reference internal image-reference" href="oceanmask_mod.svg"><img alt="oceanmask_mod.svg" height="100px" src="oceanmask_mod.svg" /></a>
+<figcaption>
+<p><span class="caption-text">Direct Dependency Diagram</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id2">
+<a class="reference internal image-reference" href="oceanmask_mod_rev.svg"><img alt="oceanmask_mod_rev.svg" height="100px" src="oceanmask_mod_rev.svg" /></a>
+<figcaption>
+<p><span class="caption-text">Reverse Dependency Diagram</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<span class="target" id="f/oceanmask_mod"></span><p class="rubric">Description</p>
+<p>MODULE oceanMask_mod (prefix=’ocm’ category=’7. Low-level data objects’)</p>
+<dl class="field-list">
+<dt class="field-odd">Purpose</dt>
+<dd class="field-odd"><p>The horizontal mask indicating land (=.false.) and water (=.true.) grid points.
+This mask is either:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>In the case of variables on ocean depth levels, it varies with vertical level.</p></li>
+<li><p>In other cases it is a single 2D field used for all variables.</p></li>
+</ul>
+</div></blockquote>
+</dd>
+</dl>
+<p class="rubric">Quick access</p>
+<dl class="field-list simple">
+<dt class="field-odd">Types</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/oceanmask_mod/struct_ocm" title="f/oceanmask_mod/struct_ocm"><code class="xref f f-type docutils literal notranslate"><span class="pre">struct_ocm</span></code></a></p>
+</dd>
+<dt class="field-even">Routines</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/oceanmask_mod/ocm_allocate" title="f/oceanmask_mod/ocm_allocate"><code class="xref f f-func docutils literal notranslate"><span class="pre">ocm_allocate()</span></code></a>, <a class="reference internal" href="#f/oceanmask_mod/ocm_communicatemask" title="f/oceanmask_mod/ocm_communicatemask"><code class="xref f f-func docutils literal notranslate"><span class="pre">ocm_communicatemask()</span></code></a>, <a class="reference internal" href="#f/oceanmask_mod/ocm_copyfromint" title="f/oceanmask_mod/ocm_copyfromint"><code class="xref f f-func docutils literal notranslate"><span class="pre">ocm_copyfromint()</span></code></a>, <a class="reference internal" href="#f/oceanmask_mod/ocm_copymask" title="f/oceanmask_mod/ocm_copymask"><code class="xref f f-func docutils literal notranslate"><span class="pre">ocm_copymask()</span></code></a>, <a class="reference internal" href="#f/oceanmask_mod/ocm_copytoint" title="f/oceanmask_mod/ocm_copytoint"><code class="xref f f-func docutils literal notranslate"><span class="pre">ocm_copytoint()</span></code></a>, <a class="reference internal" href="#f/oceanmask_mod/ocm_deallocate" title="f/oceanmask_mod/ocm_deallocate"><code class="xref f f-func docutils literal notranslate"><span class="pre">ocm_deallocate()</span></code></a>, <a class="reference internal" href="#f/oceanmask_mod/ocm_farfromland" title="f/oceanmask_mod/ocm_farfromland"><code class="xref f f-func docutils literal notranslate"><span class="pre">ocm_farfromland()</span></code></a>, <a class="reference internal" href="#f/oceanmask_mod/ocm_readmaskfromfile" title="f/oceanmask_mod/ocm_readmaskfromfile"><code class="xref f f-func docutils literal notranslate"><span class="pre">ocm_readmaskfromfile()</span></code></a></p>
+</dd>
+</dl>
+<p class="rubric">Needed modules</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="midasmpi_mod.html#f/midasmpi_mod" title="f/midasmpi_mod: MODULE midasMpi_mod (prefix='mmpi' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">midasmpi_mod</span></code></a>: MODULE midasMpi_mod (prefix=’mmpi’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="kdtree2_mod.html#f/kdtree2_mod" title="f/kdtree2_mod: MODULE kdtree2_mod (prefix='kdtree2' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">kdtree2_mod</span></code></a>: MODULE kdtree2_mod (prefix=’kdtree2’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="horizontalcoord_mod.html#f/horizontalcoord_mod" title="f/horizontalcoord_mod: MODULE HorizontalCoord_mod (prefix='hco' category='7. Low-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">horizontalcoord_mod</span></code></a>: MODULE HorizontalCoord_mod (prefix=’hco’ category=’7. Low-level data objects’)</p></li>
+<li><p><a class="reference internal" href="verticalcoord_mod.html#f/verticalcoord_mod" title="f/verticalcoord_mod: MODULE verticalcoord (prefix='vco' category='7. Low-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">verticalcoord_mod</span></code></a>: MODULE verticalcoord (prefix=’vco’ category=’7. Low-level data objects’)</p></li>
+<li><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod" title="f/utilities_mod: MODULE utilities_mod (prefix='utl' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">utilities_mod</span></code></a>: MODULE utilities_mod (prefix=’utl’ category=’8. Low-level utilities and constants’)</p></li>
+</ul>
+<p class="rubric">Types</p>
+<ul>
+<li><dl>
+<dt class="sig sig-object f" id="f/oceanmask_mod/struct_ocm">
+<em class="property"><span class="pre">type</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">oceanmask_mod/</span></span><span class="sig-name descname"><span class="pre">struct_ocm</span></span><a class="headerlink" href="#f/oceanmask_mod/struct_ocm" title="Permalink to this definition">¶</a></dt>
+<dd><p>This is the derived type of the ocean mask object</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type fields</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">hco</span><em> [</em><em>struct_hco </em><em>,</em><em>pointer</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">mask</span> (*,*,*)<em> [</em><em>logical </em><em>,</em><em>pointer</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">maskpresent</span><em> [</em><em>logical </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">nlev</span><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">null</span><em> [</em><em>logical </em><em>,</em><em>pointer</em><em>]</em></p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</li>
+</ul>
+<p class="rubric">Variables</p>
+<p class="rubric">Subroutines and functions</p>
+<dl>
+<dt class="sig sig-object f" id="f/oceanmask_mod/ocm_readmaskfromfile">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">oceanmask_mod/</span></span><span class="sig-name descname"><span class="pre">ocm_readmaskfromfile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">oceanmask</span></em>, <em class="sig-param"><span class="pre">hco</span></em>, <em class="sig-param"><span class="pre">vco</span></em>, <em class="sig-param"><span class="pre">filename</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/oceanmask_mod/ocm_readmaskfromfile" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Check if any mask fields exist for surface or ocean depth levels.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>oceanmask</strong><em> [</em><em>struct_ocm </em><em>,</em><em>inout</em><em>]</em></p></li>
+<li><p><strong>hco</strong><em> [</em><em>struct_hco </em><em>,</em><em>inout,pointer</em><em>]</em></p></li>
+<li><p><strong>vco</strong><em> [</em><em>struct_vco </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>filename</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="diffusion_mod.html#f/diffusion_mod/diff_setup" title="f/diffusion_mod/diff_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">diff_setup()</span></code></a>, <a class="reference internal" href="gridstatevectorfileio_mod.html#f/gridstatevectorfileio_mod/gio_readmaskfromfile" title="f/gridstatevectorfileio_mod/gio_readmaskfromfile"><code class="xref f f-func docutils literal notranslate"><span class="pre">gio_readmaskfromfile()</span></code></a>, <a class="reference internal" href="oceanobservations_mod.html#f/oceanobservations_mod/oobs_pseudosst" title="f/oceanobservations_mod/oobs_pseudosst"><code class="xref f f-func docutils literal notranslate"><span class="pre">oobs_pseudosst()</span></code></a>, <a class="reference internal" href="sstbias_mod.html#f/sstbias_mod/sstb_computebias" title="f/sstbias_mod/sstb_computebias"><code class="xref f f-func docutils literal notranslate"><span class="pre">sstb_computebias()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_varnamepresentinfile" title="f/utilities_mod/utl_varnamepresentinfile"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_varnamepresentinfile()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="#f/oceanmask_mod/ocm_allocate" title="f/oceanmask_mod/ocm_allocate"><code class="xref f f-func docutils literal notranslate"><span class="pre">ocm_allocate()</span></code></a>, <a class="reference internal" href="#f/oceanmask_mod/ocm_copyfromint" title="f/oceanmask_mod/ocm_copyfromint"><code class="xref f f-func docutils literal notranslate"><span class="pre">ocm_copyfromint()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/oceanmask_mod/ocm_farfromland">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">oceanmask_mod/</span></span><span class="sig-name descname"><span class="pre">ocm_farfromland</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">oceanmask</span></em>, <em class="sig-param"><span class="pre">levindex</span></em>, <em class="sig-param"><span class="pre">lon</span></em>, <em class="sig-param"><span class="pre">lat</span></em>, <em class="sig-param"><span class="pre">distancetoland</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/oceanmask_mod/ocm_farfromland" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Determine if the supplied lat/lat location is far from the
+nearest land based on the supplied ‘distanceToLand’.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>oceanmask</strong><em> [</em><em>struct_ocm </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>levindex</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>lon</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>lat</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>distancetoland</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Return</dt>
+<dd class="field-odd"><p><strong>farfromland</strong><em> [</em><em>logical </em><em>]</em></p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="ensembleobservations_mod.html#f/ensembleobservations_mod/eob_removeobsnearland" title="f/ensembleobservations_mod/eob_removeobsnearland"><code class="xref f f-func docutils literal notranslate"><span class="pre">eob_removeobsnearland()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="kdtree2_mod.html#f/kdtree2_mod/kdtree2_3dposition" title="f/kdtree2_mod/kdtree2_3dposition"><code class="xref f f-func docutils literal notranslate"><span class="pre">kdtree2_3dposition()</span></code></a>, <a class="reference internal" href="kdtree2_mod.html#f/kdtree2_mod/kdtree2_create" title="f/kdtree2_mod/kdtree2_create"><code class="xref f f-func docutils literal notranslate"><span class="pre">kdtree2_create()</span></code></a>, <a class="reference internal" href="kdtree2_mod.html#f/kdtree2_mod/kdtree2_r_nearest" title="f/kdtree2_mod/kdtree2_r_nearest"><code class="xref f f-func docutils literal notranslate"><span class="pre">kdtree2_r_nearest()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/oceanmask_mod/ocm_copymask">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">oceanmask_mod/</span></span><span class="sig-name descname"><span class="pre">ocm_copymask</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">oceanmask_in</span></em>, <em class="sig-param"><span class="pre">oceanmask_out</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">besilent_opt</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/oceanmask_mod/ocm_copymask" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Copy the mask data from one instance of oceanMask to
+another. If the destination instance is not already
+allocated, then this will also be done.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>oceanmask_in</strong><em> [</em><em>struct_ocm </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>oceanmask_out</strong><em> [</em><em>struct_ocm </em><em>,</em><em>inout</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Options</dt>
+<dd class="field-odd"><p><strong>besilent_opt</strong><em> [</em><em>logical </em><em>,</em><em>in,</em><em>]</em></p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_getmask" title="f/ensemblestatevector_mod/ens_getmask"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_getmask()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_copymask" title="f/gridstatevector_mod/gsv_copymask"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_copymask()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/oceanmask_mod/ocm_allocate" title="f/oceanmask_mod/ocm_allocate"><code class="xref f f-func docutils literal notranslate"><span class="pre">ocm_allocate()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/oceanmask_mod/ocm_communicatemask">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">oceanmask_mod/</span></span><span class="sig-name descname"><span class="pre">ocm_communicatemask</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">oceanmask</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/oceanmask_mod/ocm_communicatemask" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Copy mask fields from task 0 to all others</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>oceanmask</strong><em> [</em><em>struct_ocm </em><em>,</em><em>inout</em><em>]</em></p>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_readensemble" title="f/ensemblestatevector_mod/ens_readensemble"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_readensemble()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_transposesteptovarslevs" title="f/gridstatevector_mod/gsv_transposesteptovarslevs"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_transposesteptovarslevs()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_transposesteptotiles" title="f/gridstatevector_mod/gsv_transposesteptotiles"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_transposesteptotiles()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="horizontalcoord_mod.html#f/horizontalcoord_mod/hco_mpibcast" title="f/horizontalcoord_mod/hco_mpibcast"><code class="xref f f-func docutils literal notranslate"><span class="pre">hco_mpibcast()</span></code></a>, <a class="reference internal" href="horizontalcoord_mod.html#f/horizontalcoord_mod/hco_deallocate" title="f/horizontalcoord_mod/hco_deallocate"><code class="xref f f-func docutils literal notranslate"><span class="pre">hco_deallocate()</span></code></a>, <a class="reference internal" href="#f/oceanmask_mod/ocm_allocate" title="f/oceanmask_mod/ocm_allocate"><code class="xref f f-func docutils literal notranslate"><span class="pre">ocm_allocate()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/oceanmask_mod/ocm_allocate">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">oceanmask_mod/</span></span><span class="sig-name descname"><span class="pre">ocm_allocate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">oceanmask</span></em>, <em class="sig-param"><span class="pre">hco</span></em>, <em class="sig-param"><span class="pre">nlev</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/oceanmask_mod/ocm_allocate" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Allocate the object, if it isn’t already.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>oceanmask</strong><em> [</em><em>struct_ocm </em><em>,</em><em>inout</em><em>]</em></p></li>
+<li><p><strong>hco</strong><em> [</em><em>struct_hco </em><em>,</em><em>inout,pointer</em><em>]</em></p></li>
+<li><p><strong>nlev</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/oceanmask_mod/ocm_readmaskfromfile" title="f/oceanmask_mod/ocm_readmaskfromfile"><code class="xref f f-func docutils literal notranslate"><span class="pre">ocm_readmaskfromfile()</span></code></a>, <a class="reference internal" href="#f/oceanmask_mod/ocm_copymask" title="f/oceanmask_mod/ocm_copymask"><code class="xref f f-func docutils literal notranslate"><span class="pre">ocm_copymask()</span></code></a>, <a class="reference internal" href="#f/oceanmask_mod/ocm_communicatemask" title="f/oceanmask_mod/ocm_communicatemask"><code class="xref f f-func docutils literal notranslate"><span class="pre">ocm_communicatemask()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/oceanmask_mod/ocm_deallocate">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">oceanmask_mod/</span></span><span class="sig-name descname"><span class="pre">ocm_deallocate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">oceanmask</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/oceanmask_mod/ocm_deallocate" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Deallocate object.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>oceanmask</strong><em> [</em><em>struct_ocm </em><em>,</em><em>inout</em><em>]</em></p>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="diffusion_mod.html#f/diffusion_mod/diff_setup" title="f/diffusion_mod/diff_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">diff_setup()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_deallocate" title="f/gridstatevector_mod/gsv_deallocate"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_deallocate()</span></code></a>, <a class="reference internal" href="oceanobservations_mod.html#f/oceanobservations_mod/oobs_pseudosst" title="f/oceanobservations_mod/oobs_pseudosst"><code class="xref f f-func docutils literal notranslate"><span class="pre">oobs_pseudosst()</span></code></a>, <a class="reference internal" href="sstbias_mod.html#f/sstbias_mod/sstb_computebias" title="f/sstbias_mod/sstb_computebias"><code class="xref f f-func docutils literal notranslate"><span class="pre">sstb_computebias()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/oceanmask_mod/ocm_copytoint">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">oceanmask_mod/</span></span><span class="sig-name descname"><span class="pre">ocm_copytoint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">oceanmask</span></em>, <em class="sig-param"><span class="pre">intarray</span></em>, <em class="sig-param"><span class="pre">masklev</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/oceanmask_mod/ocm_copytoint" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Convert the selected level of the logical oceanMask
+object into integer values where true is 1 and false is 0.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>oceanmask</strong><em> [</em><em>struct_ocm </em><em>,</em><em>inout</em><em>]</em></p></li>
+<li><p><strong>intarray</strong> (*,*)<em> [</em><em>integer </em><em>,</em><em>out</em><em>]</em></p></li>
+<li><p><strong>masklev</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="gridstatevectorfileio_mod.html#f/gridstatevectorfileio_mod/gio_writetofile" title="f/gridstatevectorfileio_mod/gio_writetofile"><code class="xref f f-func docutils literal notranslate"><span class="pre">gio_writetofile()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/oceanmask_mod/ocm_copyfromint">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">oceanmask_mod/</span></span><span class="sig-name descname"><span class="pre">ocm_copyfromint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">oceanmask</span></em>, <em class="sig-param"><span class="pre">intarray</span></em>, <em class="sig-param"><span class="pre">masklev</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/oceanmask_mod/ocm_copyfromint" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Convert a 2D integer array into logical values
+where true is 1 and false is 0 and copy into
+the selected level of the oceanMask object.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>oceanmask</strong><em> [</em><em>struct_ocm </em><em>,</em><em>inout</em><em>]</em></p></li>
+<li><p><strong>intarray</strong> (*,*)<em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>masklev</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/oceanmask_mod/ocm_readmaskfromfile" title="f/oceanmask_mod/ocm_readmaskfromfile"><code class="xref f f-func docutils literal notranslate"><span class="pre">ocm_readmaskfromfile()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div></blockquote>
+</section>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="regions_mod.html" title="regions_mod"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="obsfamilylist_mod.html" title="obsfamilylist_mod"
+             >previous</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2018, ECCC.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.
+    </div>
+  </body>
+</html>

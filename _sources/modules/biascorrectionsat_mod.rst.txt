@@ -1,0 +1,22 @@
+==========================================
+biascorrectionsat_mod
+==========================================
+
+    :doc:`link to source code <biascorrectionsat_mod_src>`
+
+
+    **Dependency Diagrams:**
+
+    .. figure:: /biascorrectionsat_mod.svg
+        :height: 100px
+
+        Direct Dependency Diagram
+
+    .. figure:: /biascorrectionsat_mod_rev.svg
+        :height: 100px
+
+        Reverse Dependency Diagram
+
+
+    .. f:automodule:: biascorrectionsat_mod
+

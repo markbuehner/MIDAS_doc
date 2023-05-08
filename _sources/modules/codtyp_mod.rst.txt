@@ -1,0 +1,22 @@
+==========================================
+codtyp_mod
+==========================================
+
+    :doc:`link to source code <codtyp_mod_src>`
+
+
+    **Dependency Diagrams:**
+
+    .. figure:: /codtyp_mod.svg
+        :height: 100px
+
+        Direct Dependency Diagram
+
+    .. figure:: /codtyp_mod_rev.svg
+        :height: 100px
+
+        Reverse Dependency Diagram
+
+
+    .. f:automodule:: codtyp_mod
+

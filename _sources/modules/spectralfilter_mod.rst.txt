@@ -1,0 +1,19 @@
+==========================================
+spectralfilter_mod
+==========================================
+
+    :doc:`link to source code <spectralfilter_mod_src>`
+
+
+    **Dependency Diagrams:**
+
+      No Direct Dependency
+
+    .. figure:: /spectralfilter_mod_rev.svg
+        :height: 100px
+
+        Reverse Dependency Diagram
+
+
+    .. f:automodule:: spectralfilter_mod
+

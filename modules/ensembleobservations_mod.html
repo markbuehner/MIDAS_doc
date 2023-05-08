@@ -1,0 +1,884 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>ensembleobservations_mod &mdash; MIDAS  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="MIDAS  documentation" href="../index.html" />
+    <link rel="next" title="ensemblestatevector_mod" href="ensemblestatevector_mod.html" />
+    <link rel="prev" title="controlvector_mod" href="controlvector_mod.html" /> 
+  </head>
+  <body>
+  <div>
+    <img src="../_static/MIDAS_header.png" alt="MIDAS" />
+  </div>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="ensemblestatevector_mod.html" title="ensemblestatevector_mod"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="controlvector_mod.html" title="controlvector_mod"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="controlvector_mod.html"
+                          title="previous chapter">controlvector_mod</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="ensemblestatevector_mod.html"
+                          title="next chapter">ensemblestatevector_mod</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/modules/ensembleobservations_mod.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <section id="ensembleobservations-mod">
+<h1>ensembleobservations_mod<a class="headerlink" href="#ensembleobservations-mod" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><p><a class="reference internal" href="ensembleobservations_mod_src.html"><span class="doc">link to source code</span></a></p>
+<p><strong>Dependency Diagrams:</strong></p>
+<figure class="align-default" id="id1">
+<a class="reference internal image-reference" href="ensembleobservations_mod.svg"><img alt="ensembleobservations_mod.svg" height="100px" src="ensembleobservations_mod.svg" /></a>
+<figcaption>
+<p><span class="caption-text">Direct Dependency Diagram</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id2">
+<a class="reference internal image-reference" href="ensembleobservations_mod_rev.svg"><img alt="ensembleobservations_mod_rev.svg" height="100px" src="ensembleobservations_mod_rev.svg" /></a>
+<figcaption>
+<p><span class="caption-text">Reverse Dependency Diagram</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<span class="target" id="f/ensembleobservations_mod"></span><p class="rubric">Description</p>
+<p>MODULE ensembleObservations (prefix=’eob’ category=’6. High-level data objects’)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Purpose</dt>
+<dd class="field-odd"><p>Store and manipulate ensemble of quanitites in observation space.
+This module uses the kdtree2 module for efficiently finding the
+nearest observations within the local volume.</p>
+</dd>
+</dl>
+<p class="rubric">Quick access</p>
+<dl class="field-list simple">
+<dt class="field-odd">Types</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/ensembleobservations_mod/struct_eob" title="f/ensembleobservations_mod/struct_eob"><code class="xref f f-type docutils literal notranslate"><span class="pre">struct_eob</span></code></a></p>
+</dd>
+<dt class="field-even">Routines</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/ensembleobservations_mod/eob_allgather" title="f/ensembleobservations_mod/eob_allgather"><code class="xref f f-func docutils literal notranslate"><span class="pre">eob_allgather()</span></code></a>, <a class="reference internal" href="#f/ensembleobservations_mod/eob_allocate" title="f/ensembleobservations_mod/eob_allocate"><code class="xref f f-func docutils literal notranslate"><span class="pre">eob_allocate()</span></code></a>, <a class="reference internal" href="#f/ensembleobservations_mod/eob_backgroundcheck" title="f/ensembleobservations_mod/eob_backgroundcheck"><code class="xref f f-func docutils literal notranslate"><span class="pre">eob_backgroundcheck()</span></code></a>, <a class="reference internal" href="#f/ensembleobservations_mod/eob_calcandremovemeanyb" title="f/ensembleobservations_mod/eob_calcandremovemeanyb"><code class="xref f f-func docutils literal notranslate"><span class="pre">eob_calcandremovemeanyb()</span></code></a>, <a class="reference internal" href="#f/ensembleobservations_mod/eob_calcrandpert" title="f/ensembleobservations_mod/eob_calcrandpert"><code class="xref f f-func docutils literal notranslate"><span class="pre">eob_calcrandpert()</span></code></a>, <a class="reference internal" href="#f/ensembleobservations_mod/eob_clean" title="f/ensembleobservations_mod/eob_clean"><code class="xref f f-func docutils literal notranslate"><span class="pre">eob_clean()</span></code></a>, <a class="reference internal" href="#f/ensembleobservations_mod/eob_copy" title="f/ensembleobservations_mod/eob_copy"><code class="xref f f-func docutils literal notranslate"><span class="pre">eob_copy()</span></code></a>, <a class="reference internal" href="#f/ensembleobservations_mod/eob_deallocate" title="f/ensembleobservations_mod/eob_deallocate"><code class="xref f f-func docutils literal notranslate"><span class="pre">eob_deallocate()</span></code></a>, <a class="reference internal" href="#f/ensembleobservations_mod/eob_getlocalbodyindices" title="f/ensembleobservations_mod/eob_getlocalbodyindices"><code class="xref f f-func docutils literal notranslate"><span class="pre">eob_getlocalbodyindices()</span></code></a>, <a class="reference internal" href="#f/ensembleobservations_mod/eob_hubernorm" title="f/ensembleobservations_mod/eob_hubernorm"><code class="xref f f-func docutils literal notranslate"><span class="pre">eob_hubernorm()</span></code></a>, <a class="reference internal" href="#f/ensembleobservations_mod/eob_readfromfiles" title="f/ensembleobservations_mod/eob_readfromfiles"><code class="xref f f-func docutils literal notranslate"><span class="pre">eob_readfromfiles()</span></code></a>, <a class="reference internal" href="#f/ensembleobservations_mod/eob_rejectradnearsfc" title="f/ensembleobservations_mod/eob_rejectradnearsfc"><code class="xref f f-func docutils literal notranslate"><span class="pre">eob_rejectradnearsfc()</span></code></a>, <a class="reference internal" href="#f/ensembleobservations_mod/eob_removeobsnearland" title="f/ensembleobservations_mod/eob_removeobsnearland"><code class="xref f f-func docutils literal notranslate"><span class="pre">eob_removeobsnearland()</span></code></a>, <a class="reference internal" href="#f/ensembleobservations_mod/eob_setassflag" title="f/ensembleobservations_mod/eob_setassflag"><code class="xref f f-func docutils literal notranslate"><span class="pre">eob_setassflag()</span></code></a>, <a class="reference internal" href="#f/ensembleobservations_mod/eob_setdeteryb" title="f/ensembleobservations_mod/eob_setdeteryb"><code class="xref f f-func docutils literal notranslate"><span class="pre">eob_setdeteryb()</span></code></a>, <a class="reference internal" href="#f/ensembleobservations_mod/eob_sethpht" title="f/ensembleobservations_mod/eob_sethpht"><code class="xref f f-func docutils literal notranslate"><span class="pre">eob_sethpht()</span></code></a>, <a class="reference internal" href="#f/ensembleobservations_mod/eob_setlatlonobs" title="f/ensembleobservations_mod/eob_setlatlonobs"><code class="xref f f-func docutils literal notranslate"><span class="pre">eob_setlatlonobs()</span></code></a>, <a class="reference internal" href="#f/ensembleobservations_mod/eob_setmeanomp" title="f/ensembleobservations_mod/eob_setmeanomp"><code class="xref f f-func docutils literal notranslate"><span class="pre">eob_setmeanomp()</span></code></a>, <a class="reference internal" href="#f/ensembleobservations_mod/eob_setobserrinv" title="f/ensembleobservations_mod/eob_setobserrinv"><code class="xref f f-func docutils literal notranslate"><span class="pre">eob_setobserrinv()</span></code></a>, <a class="reference internal" href="#f/ensembleobservations_mod/eob_setsigisigo" title="f/ensembleobservations_mod/eob_setsigisigo"><code class="xref f f-func docutils literal notranslate"><span class="pre">eob_setsigisigo()</span></code></a>, <a class="reference internal" href="#f/ensembleobservations_mod/eob_setsimobserrinv" title="f/ensembleobservations_mod/eob_setsimobserrinv"><code class="xref f f-func docutils literal notranslate"><span class="pre">eob_setsimobserrinv()</span></code></a>, <a class="reference internal" href="#f/ensembleobservations_mod/eob_setsimulatedobs" title="f/ensembleobservations_mod/eob_setsimulatedobs"><code class="xref f f-func docutils literal notranslate"><span class="pre">eob_setsimulatedobs()</span></code></a>, <a class="reference internal" href="#f/ensembleobservations_mod/eob_settypevertcoord" title="f/ensembleobservations_mod/eob_settypevertcoord"><code class="xref f f-func docutils literal notranslate"><span class="pre">eob_settypevertcoord()</span></code></a>, <a class="reference internal" href="#f/ensembleobservations_mod/eob_setvertlocation" title="f/ensembleobservations_mod/eob_setvertlocation"><code class="xref f f-func docutils literal notranslate"><span class="pre">eob_setvertlocation()</span></code></a>, <a class="reference internal" href="#f/ensembleobservations_mod/eob_setya" title="f/ensembleobservations_mod/eob_setya"><code class="xref f f-func docutils literal notranslate"><span class="pre">eob_setya()</span></code></a>, <a class="reference internal" href="#f/ensembleobservations_mod/eob_setyb" title="f/ensembleobservations_mod/eob_setyb"><code class="xref f f-func docutils literal notranslate"><span class="pre">eob_setyb()</span></code></a>, <a class="reference internal" href="#f/ensembleobservations_mod/eob_writetofiles" title="f/ensembleobservations_mod/eob_writetofiles"><code class="xref f f-func docutils literal notranslate"><span class="pre">eob_writetofiles()</span></code></a>, <a class="reference internal" href="#f/ensembleobservations_mod/eob_zero" title="f/ensembleobservations_mod/eob_zero"><code class="xref f f-func docutils literal notranslate"><span class="pre">eob_zero()</span></code></a>, <a class="reference internal" href="#f/ensembleobservations_mod/get_peak" title="f/ensembleobservations_mod/get_peak"><code class="xref f f-func docutils literal notranslate"><span class="pre">get_peak()</span></code></a>, <a class="reference internal" href="#f/ensembleobservations_mod/getmemberindexinfullensset" title="f/ensembleobservations_mod/getmemberindexinfullensset"><code class="xref f f-func docutils literal notranslate"><span class="pre">getmemberindexinfullensset()</span></code></a>, <a class="reference internal" href="#f/ensembleobservations_mod/max_transmission" title="f/ensembleobservations_mod/max_transmission"><code class="xref f f-func docutils literal notranslate"><span class="pre">max_transmission()</span></code></a></p>
+</dd>
+</dl>
+<p class="rubric">Needed modules</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="kdtree2_mod.html#f/kdtree2_mod" title="f/kdtree2_mod: MODULE kdtree2_mod (prefix='kdtree2' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">kdtree2_mod</span></code></a>: MODULE kdtree2_mod (prefix=’kdtree2’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="columndata_mod.html#f/columndata_mod" title="f/columndata_mod: MODULE columnData_mod (prefix='col' category='6. High-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">columndata_mod</span></code></a>: MODULE columnData_mod (prefix=’col’ category=’6. High-level data objects’)</p></li>
+<li><p><a class="reference internal" href="tovs_nl_mod.html#f/tovs_nl_mod" title="f/tovs_nl_mod: MODULE tovs_nl (prefix='tvs' category='5. Observation operators')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">tovs_nl_mod</span></code></a>: MODULE tovs_nl (prefix=’tvs’ category=’5. Observation operators’)</p></li>
+<li><p><code class="xref f f-mod docutils literal notranslate"><span class="pre">rttov_types</span></code> (<code class="xref f f-func docutils literal notranslate"><span class="pre">rttov_transmission()</span></code>, <code class="xref f f-func docutils literal notranslate"><span class="pre">rttov_profile()</span></code>)</p></li>
+<li><p><code class="xref f f-mod docutils literal notranslate"><span class="pre">parkind1</span></code> (<code class="xref f f-func docutils literal notranslate"><span class="pre">jpim()</span></code>, <code class="xref f f-func docutils literal notranslate"><span class="pre">jprb()</span></code>)</p></li>
+<li><p><a class="reference internal" href="midasmpi_mod.html#f/midasmpi_mod" title="f/midasmpi_mod: MODULE midasMpi_mod (prefix='mmpi' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">midasmpi_mod</span></code></a>: MODULE midasMpi_mod (prefix=’mmpi’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="oceanmask_mod.html#f/oceanmask_mod" title="f/oceanmask_mod: MODULE oceanMask_mod (prefix='ocm' category='7. Low-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">oceanmask_mod</span></code></a>: MODULE oceanMask_mod (prefix=’ocm’ category=’7. Low-level data objects’)</p></li>
+<li><p><a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod" title="f/obsspacedata_mod: MODULE obsSpaceData_mod (prefix='obs' category='6. High-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">obsspacedata_mod</span></code></a>: MODULE obsSpaceData_mod (prefix=’obs’ category=’6. High-level data objects’)</p></li>
+<li><p><a class="reference internal" href="randomnumber_mod.html#f/randomnumber_mod" title="f/randomnumber_mod: MODULE randomNumber_mod (prefix='rng' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">randomnumber_mod</span></code></a>: MODULE randomNumber_mod (prefix=’rng’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="mathphysconstants_mod.html#f/mathphysconstants_mod" title="f/mathphysconstants_mod: MODULE MathPhysConstants_mod (prefix='mpc' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">mathphysconstants_mod</span></code></a>: MODULE MathPhysConstants_mod (prefix=’mpc’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod" title="f/utilities_mod: MODULE utilities_mod (prefix='utl' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">utilities_mod</span></code></a>: MODULE utilities_mod (prefix=’utl’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="earthconstants_mod.html#f/earthconstants_mod" title="f/earthconstants_mod: MODULE earthConstants_mod (prefix='ec' category='8. Low-level utilities and constants') Prefixes: ec_ (Earth constants), for miscellaneous values from diverse sources"><code class="xref f f-mod docutils literal notranslate"><span class="pre">earthconstants_mod</span></code></a>: MODULE earthConstants_mod (prefix=’ec’ category=’8. Low-level utilities and constants’) Prefixes: <a href="#id3"><span class="problematic" id="id4">ec_</span></a> (Earth constants), for miscellaneous values from diverse sources</p></li>
+<li><p><a class="reference internal" href="bufr_mod.html#f/bufr_mod" title="f/bufr_mod: MODULE bufr_mod (prefix='bufr' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">bufr_mod</span></code></a>: MODULE bufr_mod (prefix=’bufr’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="codeprecision_mod.html#f/codeprecision_mod" title="f/codeprecision_mod: MODULE codePrecision_mod (prefix='pre' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">codeprecision_mod</span></code></a>: MODULE codePrecision_mod (prefix=’pre’ category=’8. Low-level utilities and constants’)</p></li>
+</ul>
+<p class="rubric">Types</p>
+<ul>
+<li><dl>
+<dt class="sig sig-object f" id="f/ensembleobservations_mod/struct_eob">
+<em class="property"><span class="pre">type</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">ensembleobservations_mod/</span></span><span class="sig-name descname"><span class="pre">struct_eob</span></span><a class="headerlink" href="#f/ensembleobservations_mod/struct_eob" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type fields</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">allocated</span><em> [</em><em>logical </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">assflag</span> (*)<em> [</em><em>integer </em><em>,</em><em>allocatable</em><em>]</em> :: assimilation flag</p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">deteryb</span> (*)<em> [</em><em>real </em><em>,</em><em>allocatable</em><em>]</em> :: deterministic background state in obs space</p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">filememberindex1</span><em> [</em><em>integer </em><em>]</em> :: first member number in ensemble set</p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">lat</span> (*)<em> [</em><em>real </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">lon</span> (*)<em> [</em><em>real </em><em>,</em><em>allocatable</em><em>]</em> :: lat/lon of observation</p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">meanremoved</span><em> [</em><em>logical </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">meanyb</span> (*)<em> [</em><em>real </em><em>,</em><em>allocatable</em><em>]</em> :: ensemble mean background state in obs space</p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">nummembers</span><em> [</em><em>integer </em><em>]</em> :: number of ensemble members</p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">numobs</span><em> [</em><em>integer </em><em>]</em> :: number of observations</p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">obserrinv</span> (*)<em> [</em><em>real </em><em>,</em><em>allocatable</em><em>]</em> :: inverse of obs error variances</p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">obserrinv_eda</span> (*)<em> [</em><em>real </em><em>,</em><em>allocatable</em><em>]</em> :: like obsErrInv, but for use in EDA-based obs simulation experiments</p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">obsspacedata</span><em> [</em><em>struct_obs </em><em>,</em><em>pointer</em><em>]</em> :: pointer to obsSpaceData object</p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">obsvalue</span> (*)<em> [</em><em>real </em><em>,</em><em>allocatable</em><em>]</em> :: the observed value</p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">randpert_r4</span> (*,*)<em> [</em><em>real </em><em>,</em><em>allocatable</em><em>]</em> :: unbiased random perturbations with covariance equal to R</p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">typevertcoord</span><em> [</em><em>character </em><em>]</em> :: ‘logPressure’ or ‘depth’</p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">vertlocation</span> (*)<em> [</em><em>real </em><em>,</em><em>allocatable</em><em>]</em> :: in ln(pres) or meters, used for localization</p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">ya_r4</span> (*,*)<em> [</em><em>real </em><em>,</em><em>allocatable</em><em>]</em> :: analysis ensemble perturbation in obs space</p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">yb_r4</span> (*,*)<em> [</em><em>real </em><em>,</em><em>allocatable</em><em>]</em> :: background ensemble perturbation in obs space</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</li>
+</ul>
+<p class="rubric">Variables</p>
+<p class="rubric">Subroutines and functions</p>
+<dl>
+<dt class="sig sig-object f" id="f/ensembleobservations_mod/eob_allocate">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">ensembleobservations_mod/</span></span><span class="sig-name descname"><span class="pre">eob_allocate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">ensobs</span></em>, <em class="sig-param"><span class="pre">nummembers</span></em>, <em class="sig-param"><span class="pre">numobs</span></em>, <em class="sig-param"><span class="pre">obsspacedata</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">filememberindex1_opt</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">edaobsimpact_opt</span></em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/ensembleobservations_mod/eob_allocate" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Allocate an ensObs object</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>ensobs</strong><em> [</em><em>struct_eob </em><em>,</em><em>inout</em><em>]</em></p></li>
+<li><p><strong>nummembers</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>numobs</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>obsspacedata</strong><em> [</em><em>struct_obs </em><em>,</em><em>in,target</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Options</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>filememberindex1_opt</strong><em> [</em><em>integer </em><em>,</em><em>in,</em><em>]</em></p></li>
+<li><p><strong>edaobsimpact_opt</strong><em> [</em><em>logical </em><em>,</em><em>in,</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/ensembleobservations_mod/eob_clean" title="f/ensembleobservations_mod/eob_clean"><code class="xref f f-func docutils literal notranslate"><span class="pre">eob_clean()</span></code></a>, <a class="reference internal" href="#f/ensembleobservations_mod/eob_allgather" title="f/ensembleobservations_mod/eob_allgather"><code class="xref f f-func docutils literal notranslate"><span class="pre">eob_allgather()</span></code></a>, <a class="reference internal" href="ominusf_mod.html#f/ominusf_mod/omf_ominusfens" title="f/ominusf_mod/omf_ominusfens"><code class="xref f f-func docutils literal notranslate"><span class="pre">omf_ominusfens()</span></code></a>, <a class="reference internal" href="../programs/midas_ensembleh.html#f/midas_ensembleh" title="f/midas_ensembleh"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_ensembleh</span></code></a>, <a class="reference internal" href="../programs/midas_letkf.html#f/midas_letkf" title="f/midas_letkf"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_letkf</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/ensembleobservations_mod/eob_deallocate" title="f/ensembleobservations_mod/eob_deallocate"><code class="xref f f-func docutils literal notranslate"><span class="pre">eob_deallocate()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/ensembleobservations_mod/eob_deallocate">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">ensembleobservations_mod/</span></span><span class="sig-name descname"><span class="pre">eob_deallocate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">ensobs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/ensembleobservations_mod/eob_deallocate" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><p><strong>ensobs</strong><em> [</em><em>struct_eob </em><em>,</em><em>inout</em><em>]</em></p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/ensembleobservations_mod/eob_allocate" title="f/ensembleobservations_mod/eob_allocate"><code class="xref f f-func docutils literal notranslate"><span class="pre">eob_allocate()</span></code></a>, <a class="reference internal" href="#f/ensembleobservations_mod/eob_allgather" title="f/ensembleobservations_mod/eob_allgather"><code class="xref f f-func docutils literal notranslate"><span class="pre">eob_allgather()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/ensembleobservations_mod/eob_zero">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">ensembleobservations_mod/</span></span><span class="sig-name descname"><span class="pre">eob_zero</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">ensobs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/ensembleobservations_mod/eob_zero" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Initialize an ensObs object to zero</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>ensobs</strong><em> [</em><em>struct_eob </em><em>,</em><em>inout</em><em>]</em></p>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="ominusf_mod.html#f/ominusf_mod/omf_ominusfens" title="f/ominusf_mod/omf_ominusfens"><code class="xref f f-func docutils literal notranslate"><span class="pre">omf_ominusfens()</span></code></a>, <a class="reference internal" href="../programs/midas_ensembleh.html#f/midas_ensembleh" title="f/midas_ensembleh"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_ensembleh</span></code></a>, <a class="reference internal" href="../programs/midas_letkf.html#f/midas_letkf" title="f/midas_letkf"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_letkf</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/ensembleobservations_mod/eob_settypevertcoord">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">ensembleobservations_mod/</span></span><span class="sig-name descname"><span class="pre">eob_settypevertcoord</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">ensobs</span></em>, <em class="sig-param"><span class="pre">typevertcoord</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/ensembleobservations_mod/eob_settypevertcoord" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Set the type of vertical coordinate (‘logPressure’ or ‘depth’).</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>ensobs</strong><em> [</em><em>struct_eob </em><em>,</em><em>inout</em><em>]</em></p></li>
+<li><p><strong>typevertcoord</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../programs/midas_letkf.html#f/midas_letkf" title="f/midas_letkf"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_letkf</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/ensembleobservations_mod/eob_clean">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">ensembleobservations_mod/</span></span><span class="sig-name descname"><span class="pre">eob_clean</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">ensobs</span></em>, <em class="sig-param"><span class="pre">ensobsclean</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/ensembleobservations_mod/eob_clean" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Remove all obs from the ensObs object that are not
+flagged for assimilation. Put the cleaned result in the
+locally created output object.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>ensobs</strong><em> [</em><em>struct_eob </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>ensobsclean</strong><em> [</em><em>struct_eob </em><em>,</em><em>out</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/ensembleobservations_mod/eob_allgather" title="f/ensembleobservations_mod/eob_allgather"><code class="xref f f-func docutils literal notranslate"><span class="pre">eob_allgather()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/ensembleobservations_mod/eob_setassflag" title="f/ensembleobservations_mod/eob_setassflag"><code class="xref f f-func docutils literal notranslate"><span class="pre">eob_setassflag()</span></code></a>, <a class="reference internal" href="#f/ensembleobservations_mod/eob_allocate" title="f/ensembleobservations_mod/eob_allocate"><code class="xref f f-func docutils literal notranslate"><span class="pre">eob_allocate()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/ensembleobservations_mod/eob_copy">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">ensembleobservations_mod/</span></span><span class="sig-name descname"><span class="pre">eob_copy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">ensobsin</span></em>, <em class="sig-param"><span class="pre">ensobsout</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/ensembleobservations_mod/eob_copy" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ensobsin</strong><em> [</em><em>struct_eob </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>ensobsout</strong><em> [</em><em>struct_eob </em><em>,</em><em>inout</em><em>]</em></p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/ensembleobservations_mod/eob_allgather">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">ensembleobservations_mod/</span></span><span class="sig-name descname"><span class="pre">eob_allgather</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">ensobs</span></em>, <em class="sig-param"><span class="pre">ensobs_mpiglobal</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/ensembleobservations_mod/eob_allgather" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Collect obs information distributed over all mpi tasks and
+make it available on all mpi tasks. The output ensObs object
+will be allocated within this subroutine.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>ensobs</strong><em> [</em><em>struct_eob </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>ensobs_mpiglobal</strong><em> [</em><em>struct_eob </em><em>,</em><em>out</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../programs/midas_letkf.html#f/midas_letkf" title="f/midas_letkf"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_letkf</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_start" title="f/utilities_mod/utl_tmg_start"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_start()</span></code></a>, <a class="reference internal" href="#f/ensembleobservations_mod/eob_setassflag" title="f/ensembleobservations_mod/eob_setassflag"><code class="xref f f-func docutils literal notranslate"><span class="pre">eob_setassflag()</span></code></a>, <a class="reference internal" href="#f/ensembleobservations_mod/eob_clean" title="f/ensembleobservations_mod/eob_clean"><code class="xref f f-func docutils literal notranslate"><span class="pre">eob_clean()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="#f/ensembleobservations_mod/eob_allocate" title="f/ensembleobservations_mod/eob_allocate"><code class="xref f f-func docutils literal notranslate"><span class="pre">eob_allocate()</span></code></a>, <a class="reference internal" href="#f/ensembleobservations_mod/eob_deallocate" title="f/ensembleobservations_mod/eob_deallocate"><code class="xref f f-func docutils literal notranslate"><span class="pre">eob_deallocate()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_stop" title="f/utilities_mod/utl_tmg_stop"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_stop()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/ensembleobservations_mod/eob_writetofiles">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">ensembleobservations_mod/</span></span><span class="sig-name descname"><span class="pre">eob_writetofiles</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">ensobs</span></em>, <em class="sig-param"><span class="pre">outputfilenameprefix</span></em>, <em class="sig-param"><span class="pre">writeobsinfo</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">numgroupstodividemembers_opt</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">maxnummemberspergroup_opt</span></em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/ensembleobservations_mod/eob_writetofiles" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Write the contents of an ensObs mpi local object to files</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>ensobs</strong><em> [</em><em>struct_eob </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>outputfilenameprefix</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>writeobsinfo</strong><em> [</em><em>logical </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Options</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>numgroupstodividemembers_opt</strong><em> [</em><em>integer </em><em>,</em><em>in,</em><em>]</em></p></li>
+<li><p><strong>maxnummemberspergroup_opt</strong><em> [</em><em>integer </em><em>,</em><em>in,</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="../programs/midas_ensembleh.html#f/midas_ensembleh" title="f/midas_ensembleh"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_ensembleh</span></code></a>, <a class="reference internal" href="../programs/midas_letkf.html#f/midas_letkf" title="f/midas_letkf"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_letkf</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_extractobsintbodycolumn" title="f/obsspacedata_mod/obs_extractobsintbodycolumn"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_extractobsintbodycolumn()</span></code></a>, <a class="reference internal" href="#f/ensembleobservations_mod/getmemberindexinfullensset" title="f/ensembleobservations_mod/getmemberindexinfullensset"><code class="xref f f-func docutils literal notranslate"><span class="pre">getmemberindexinfullensset()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/ensembleobservations_mod/eob_readfromfiles">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">ensembleobservations_mod/</span></span><span class="sig-name descname"><span class="pre">eob_readfromfiles</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">ensobs</span></em>, <em class="sig-param"><span class="pre">nummemberstoread</span></em>, <em class="sig-param"><span class="pre">inputfilenameprefix</span></em>, <em class="sig-param"><span class="pre">readobsinfo</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/ensembleobservations_mod/eob_readfromfiles" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Read mpi local ensObs%Yb object from file. Several files in separate subdirectories
+can be read. Some examples of path+filename are:
+ensObs_0001/eob_HX_0001_0001
+ensObs_0002/eob_HX_0001_0001</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>ensobs</strong><em> [</em><em>struct_eob </em><em>,</em><em>inout</em><em>]</em></p></li>
+<li><p><strong>nummemberstoread</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>inputfilenameprefix</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>readobsinfo</strong><em> [</em><em>logical </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../programs/midas_letkf.html#f/midas_letkf" title="f/midas_letkf"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_letkf</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_extractobsintbodycolumn" title="f/obsspacedata_mod/obs_extractobsintbodycolumn"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_extractobsintbodycolumn()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyset_i" title="f/obsspacedata_mod/obs_bodyset_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyset_i()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/ensembleobservations_mod/eob_getlocalbodyindices">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">ensembleobservations_mod/</span></span><span class="sig-name descname"><span class="pre">eob_getlocalbodyindices</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">ensobs</span></em>, <em class="sig-param"><span class="pre">localbodyindices</span></em>, <em class="sig-param"><span class="pre">distances</span></em>, <em class="sig-param"><span class="pre">lat</span></em>, <em class="sig-param"><span class="pre">lon</span></em>, <em class="sig-param"><span class="pre">vertlocation</span></em>, <em class="sig-param"><span class="pre">hlocalize</span></em>, <em class="sig-param"><span class="pre">vlocalize</span></em>, <em class="sig-param"><span class="pre">numlocalobsfound</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/ensembleobservations_mod/eob_getlocalbodyindices" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Return a list of values of bodyIndex for all observations within
+the local volume around the specified lat/lon used for assimilation
+(as defined by h/vLocalize). The kdtree2 module is used to efficiently
+perform this task. The kdtree itself is constructed on the first call.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>ensobs</strong><em> [</em><em>struct_eob </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>localbodyindices</strong> (*)<em> [</em><em>integer </em><em>,</em><em>out</em><em>]</em></p></li>
+<li><p><strong>distances</strong> (*)<em> [</em><em>real </em><em>,</em><em>out</em><em>]</em></p></li>
+<li><p><strong>lat</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>lon</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>vertlocation</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>hlocalize</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>vlocalize</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>numlocalobsfound</strong><em> [</em><em>integer </em><em>,</em><em>out</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Return</dt>
+<dd class="field-odd"><p><strong>numlocalobs</strong><em> [</em><em>integer </em><em>]</em> :: function output</p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="enkf_mod.html#f/enkf_mod/enkf_letkfanalyses" title="f/enkf_mod/enkf_letkfanalyses"><code class="xref f f-func docutils literal notranslate"><span class="pre">enkf_letkfanalyses()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="kdtree2_mod.html#f/kdtree2_mod/kdtree2_create" title="f/kdtree2_mod/kdtree2_create"><code class="xref f f-func docutils literal notranslate"><span class="pre">kdtree2_create()</span></code></a>, <a class="reference internal" href="kdtree2_mod.html#f/kdtree2_mod/kdtree2_r_nearest" title="f/kdtree2_mod/kdtree2_r_nearest"><code class="xref f f-func docutils literal notranslate"><span class="pre">kdtree2_r_nearest()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/ensembleobservations_mod/eob_setlatlonobs">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">ensembleobservations_mod/</span></span><span class="sig-name descname"><span class="pre">eob_setlatlonobs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">ensobs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/ensembleobservations_mod/eob_setlatlonobs" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><p><strong>ensobs</strong><em> [</em><em>struct_eob </em><em>,</em><em>inout</em><em>]</em></p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="ominusf_mod.html#f/ominusf_mod/omf_ominusfens" title="f/ominusf_mod/omf_ominusfens"><code class="xref f f-func docutils literal notranslate"><span class="pre">omf_ominusfens()</span></code></a>, <a class="reference internal" href="../programs/midas_ensembleh.html#f/midas_ensembleh" title="f/midas_ensembleh"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_ensembleh</span></code></a>, <a class="reference internal" href="../programs/midas_letkf.html#f/midas_letkf" title="f/midas_letkf"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_letkf</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_extractobsrealheadercolumn" title="f/obsspacedata_mod/obs_extractobsrealheadercolumn"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_extractobsrealheadercolumn()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_extractobsrealbodycolumn" title="f/obsspacedata_mod/obs_extractobsrealbodycolumn"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_extractobsrealbodycolumn()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/ensembleobservations_mod/eob_setobserrinv">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">ensembleobservations_mod/</span></span><span class="sig-name descname"><span class="pre">eob_setobserrinv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">ensobs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/ensembleobservations_mod/eob_setobserrinv" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><p><strong>ensobs</strong><em> [</em><em>struct_eob </em><em>,</em><em>inout</em><em>]</em></p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="../programs/midas_letkf.html#f/midas_letkf" title="f/midas_letkf"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_letkf</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_extractobsrealbodycolumn" title="f/obsspacedata_mod/obs_extractobsrealbodycolumn"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_extractobsrealbodycolumn()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/ensembleobservations_mod/eob_setsimobserrinv">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">ensembleobservations_mod/</span></span><span class="sig-name descname"><span class="pre">eob_setsimobserrinv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">ensobs</span></em>, <em class="sig-param"><span class="pre">edaobsfamily</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/ensembleobservations_mod/eob_setsimobserrinv" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Computes the inverse of the observation error variance for observation
+simulation experiments. For the observation family being simulated,
+the observation error is inflated by setting the inverse to 0.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>ensobs</strong><em> [</em><em>struct_eob </em><em>,</em><em>inout</em><em>]</em></p></li>
+<li><p><strong>edaobsfamily</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../programs/midas_letkf.html#f/midas_letkf" title="f/midas_letkf"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_letkf</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_extractobsrealbodycolumn" title="f/obsspacedata_mod/obs_extractobsrealbodycolumn"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_extractobsrealbodycolumn()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyelem_i" title="f/obsspacedata_mod/obs_bodyelem_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyelem_i()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_getfamily" title="f/obsspacedata_mod/obs_getfamily"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_getfamily()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/ensembleobservations_mod/eob_setvertlocation">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">ensembleobservations_mod/</span></span><span class="sig-name descname"><span class="pre">eob_setvertlocation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">ensobs</span></em>, <em class="sig-param"><span class="pre">columnmeantrl</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/ensembleobservations_mod/eob_setvertlocation" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Set the vertical location value for each observation that
+will be used when doing vertical localization. For
+radiance observations, the level of the maximum value
+of the derivative of transmission is used. This value
+is also written in obsSpaceData in the OBS_ZHA column.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>ensobs</strong><em> [</em><em>struct_eob </em><em>,</em><em>inout</em><em>]</em></p></li>
+<li><p><strong>columnmeantrl</strong><em> [</em><em>struct_columndata </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../programs/midas_letkf.html#f/midas_letkf" title="f/midas_letkf"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_letkf</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/ensembleobservations_mod/eob_setassflag" title="f/ensembleobservations_mod/eob_setassflag"><code class="xref f f-func docutils literal notranslate"><span class="pre">eob_setassflag()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_extractobsrealbodycolumn" title="f/obsspacedata_mod/obs_extractobsrealbodycolumn"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_extractobsrealbodycolumn()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_extractobsintbodycolumn" title="f/obsspacedata_mod/obs_extractobsintbodycolumn"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_extractobsintbodycolumn()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_extractobsintheadercolumn" title="f/obsspacedata_mod/obs_extractobsintheadercolumn"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_extractobsintheadercolumn()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_getallcolumns" title="f/columndata_mod/col_getallcolumns"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_getallcolumns()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_getnumlev" title="f/columndata_mod/col_getnumlev"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_getnumlev()</span></code></a>, <a class="reference internal" href="tovs_nl_mod.html#f/tovs_nl_mod/tvs_getprofile" title="f/tovs_nl_mod/tvs_getprofile"><code class="xref f f-func docutils literal notranslate"><span class="pre">tvs_getprofile()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyelem_i" title="f/obsspacedata_mod/obs_bodyelem_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyelem_i()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="bufr_mod.html#f/bufr_mod/bufr_isoceanobs" title="f/bufr_mod/bufr_isoceanobs"><code class="xref f f-func docutils literal notranslate"><span class="pre">bufr_isoceanobs()</span></code></a>, <a class="reference internal" href="tovs_nl_mod.html#f/tovs_nl_mod/tvs_isidburptovs" title="f/tovs_nl_mod/tvs_isidburptovs"><code class="xref f f-func docutils literal notranslate"><span class="pre">tvs_isidburptovs()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_findarrayindex" title="f/utilities_mod/utl_findarrayindex"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_findarrayindex()</span></code></a>, <a class="reference internal" href="#f/ensembleobservations_mod/max_transmission" title="f/ensembleobservations_mod/max_transmission"><code class="xref f f-func docutils literal notranslate"><span class="pre">max_transmission()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/ensembleobservations_mod/eob_setassflag">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">ensembleobservations_mod/</span></span><span class="sig-name descname"><span class="pre">eob_setassflag</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">ensobs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/ensembleobservations_mod/eob_setassflag" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><p><strong>ensobs</strong><em> [</em><em>struct_eob </em><em>]</em></p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/ensembleobservations_mod/eob_clean" title="f/ensembleobservations_mod/eob_clean"><code class="xref f f-func docutils literal notranslate"><span class="pre">eob_clean()</span></code></a>, <a class="reference internal" href="#f/ensembleobservations_mod/eob_allgather" title="f/ensembleobservations_mod/eob_allgather"><code class="xref f f-func docutils literal notranslate"><span class="pre">eob_allgather()</span></code></a>, <a class="reference internal" href="#f/ensembleobservations_mod/eob_setvertlocation" title="f/ensembleobservations_mod/eob_setvertlocation"><code class="xref f f-func docutils literal notranslate"><span class="pre">eob_setvertlocation()</span></code></a>, <a class="reference internal" href="../programs/midas_letkf.html#f/midas_letkf" title="f/midas_letkf"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_letkf</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_extractobsintbodycolumn" title="f/obsspacedata_mod/obs_extractobsintbodycolumn"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_extractobsintbodycolumn()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/ensembleobservations_mod/eob_setyb">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">ensembleobservations_mod/</span></span><span class="sig-name descname"><span class="pre">eob_setyb</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">ensobs</span></em>, <em class="sig-param"><span class="pre">memberindex</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/ensembleobservations_mod/eob_setyb" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ensobs</strong><em> [</em><em>struct_eob </em><em>,</em><em>inout</em><em>]</em></p></li>
+<li><p><strong>memberindex</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="ominusf_mod.html#f/ominusf_mod/omf_ominusfens" title="f/ominusf_mod/omf_ominusfens"><code class="xref f f-func docutils literal notranslate"><span class="pre">omf_ominusfens()</span></code></a>, <a class="reference internal" href="../programs/midas_ensembleh.html#f/midas_ensembleh" title="f/midas_ensembleh"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_ensembleh</span></code></a>, <a class="reference internal" href="../programs/midas_letkf.html#f/midas_letkf" title="f/midas_letkf"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_letkf</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_extractobsrealbodycolumn_r4" title="f/obsspacedata_mod/obs_extractobsrealbodycolumn_r4"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_extractobsrealbodycolumn_r4()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/ensembleobservations_mod/eob_setya">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">ensembleobservations_mod/</span></span><span class="sig-name descname"><span class="pre">eob_setya</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">ensobs</span></em>, <em class="sig-param"><span class="pre">memberindex</span></em>, <em class="sig-param"><span class="pre">obscolumnname</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/ensembleobservations_mod/eob_setya" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ensobs</strong><em> [</em><em>struct_eob </em><em>,</em><em>inout</em><em>]</em></p></li>
+<li><p><strong>memberindex</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>obscolumnname</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="../programs/midas_letkf.html#f/midas_letkf" title="f/midas_letkf"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_letkf</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_extractobsrealbodycolumn_r4" title="f/obsspacedata_mod/obs_extractobsrealbodycolumn_r4"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_extractobsrealbodycolumn_r4()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/ensembleobservations_mod/eob_setsimulatedobs">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">ensembleobservations_mod/</span></span><span class="sig-name descname"><span class="pre">eob_setsimulatedobs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">ensobs</span></em>, <em class="sig-param"><span class="pre">edaobsfamily</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/ensembleobservations_mod/eob_setsimulatedobs" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Set the observed value for the observation family
+provided to the background ensemble mean in observation space.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>ensobs</strong><em> [</em><em>struct_eob </em><em>,</em><em>inout</em><em>]</em></p></li>
+<li><p><strong>edaobsfamily</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../programs/midas_letkf.html#f/midas_letkf" title="f/midas_letkf"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_letkf</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyelem_i" title="f/obsspacedata_mod/obs_bodyelem_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyelem_i()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_getfamily" title="f/obsspacedata_mod/obs_getfamily"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_getfamily()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/ensembleobservations_mod/eob_setdeteryb">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">ensembleobservations_mod/</span></span><span class="sig-name descname"><span class="pre">eob_setdeteryb</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">ensobs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/ensembleobservations_mod/eob_setdeteryb" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><p><strong>ensobs</strong><em> [</em><em>struct_eob </em><em>,</em><em>inout</em><em>]</em></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_extractobsrealbodycolumn" title="f/obsspacedata_mod/obs_extractobsrealbodycolumn"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_extractobsrealbodycolumn()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/ensembleobservations_mod/eob_calcandremovemeanyb">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">ensembleobservations_mod/</span></span><span class="sig-name descname"><span class="pre">eob_calcandremovemeanyb</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">ensobs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/ensembleobservations_mod/eob_calcandremovemeanyb" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><p><strong>ensobs</strong><em> [</em><em>struct_eob </em><em>,</em><em>inout</em><em>]</em></p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="../programs/midas_letkf.html#f/midas_letkf" title="f/midas_letkf"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_letkf</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/ensembleobservations_mod/eob_calcrandpert">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">ensembleobservations_mod/</span></span><span class="sig-name descname"><span class="pre">eob_calcrandpert</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">ensobs</span></em>, <em class="sig-param"><span class="pre">randomseed</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/ensembleobservations_mod/eob_calcrandpert" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ensobs</strong><em> [</em><em>struct_eob </em><em>,</em><em>inout</em><em>]</em></p></li>
+<li><p><strong>randomseed</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="../programs/midas_letkf.html#f/midas_letkf" title="f/midas_letkf"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_letkf</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="randomnumber_mod.html#f/randomnumber_mod/rng_setup" title="f/randomnumber_mod/rng_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">rng_setup()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyelem_r" title="f/obsspacedata_mod/obs_bodyelem_r"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyelem_r()</span></code></a>, <a class="reference internal" href="randomnumber_mod.html#f/randomnumber_mod/rng_gaussian" title="f/randomnumber_mod/rng_gaussian"><code class="xref f f-func docutils literal notranslate"><span class="pre">rng_gaussian()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/ensembleobservations_mod/eob_setmeanomp">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">ensembleobservations_mod/</span></span><span class="sig-name descname"><span class="pre">eob_setmeanomp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">ensobs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/ensembleobservations_mod/eob_setmeanomp" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><p><strong>ensobs</strong><em> [</em><em>struct_eob </em><em>,</em><em>inout</em><em>]</em></p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="../programs/midas_letkf.html#f/midas_letkf" title="f/midas_letkf"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_letkf</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyelem_i" title="f/obsspacedata_mod/obs_bodyelem_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyelem_i()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/ensembleobservations_mod/eob_sethpht">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">ensembleobservations_mod/</span></span><span class="sig-name descname"><span class="pre">eob_sethpht</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">ensobs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/ensembleobservations_mod/eob_sethpht" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><p><strong>ensobs</strong><em> [</em><em>struct_eob </em><em>,</em><em>inout</em><em>]</em></p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="../programs/midas_letkf.html#f/midas_letkf" title="f/midas_letkf"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_letkf</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyelem_i" title="f/obsspacedata_mod/obs_bodyelem_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyelem_i()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/ensembleobservations_mod/eob_backgroundcheck">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">ensembleobservations_mod/</span></span><span class="sig-name descname"><span class="pre">eob_backgroundcheck</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">ensobs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/ensembleobservations_mod/eob_backgroundcheck" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Apply additional background using the ensemble spread.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>ensobs</strong><em> [</em><em>struct_eob </em><em>,</em><em>inout</em><em>]</em></p>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../programs/midas_letkf.html#f/midas_letkf" title="f/midas_letkf"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_letkf</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_numheader" title="f/obsspacedata_mod/obs_numheader"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_numheader()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_headelem_i" title="f/obsspacedata_mod/obs_headelem_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_headelem_i()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyelem_i" title="f/obsspacedata_mod/obs_bodyelem_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyelem_i()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyelem_r" title="f/obsspacedata_mod/obs_bodyelem_r"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyelem_r()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyset_i" title="f/obsspacedata_mod/obs_bodyset_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyset_i()</span></code></a>, <a class="reference internal" href="bufr_mod.html#f/bufr_mod/bufr_iswindcomponent" title="f/bufr_mod/bufr_iswindcomponent"><code class="xref f f-func docutils literal notranslate"><span class="pre">bufr_iswindcomponent()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/ensembleobservations_mod/eob_removeobsnearland">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">ensembleobservations_mod/</span></span><span class="sig-name descname"><span class="pre">eob_removeobsnearland</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">ensobs</span></em>, <em class="sig-param"><span class="pre">oceanmask</span></em>, <em class="sig-param"><span class="pre">mindistancetoland</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/ensembleobservations_mod/eob_removeobsnearland" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Reject observations that are close to land as determined by
+the argument “minDistanceToLand”. In the case of a depth-
+varying land mask, the first level (should be the surface) is
+used.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>ensobs</strong><em> [</em><em>struct_eob </em><em>,</em><em>inout</em><em>]</em></p></li>
+<li><p><strong>oceanmask</strong><em> [</em><em>struct_ocm </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>mindistancetoland</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../programs/midas_letkf.html#f/midas_letkf" title="f/midas_letkf"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_letkf</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_numheader" title="f/obsspacedata_mod/obs_numheader"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_numheader()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_headelem_i" title="f/obsspacedata_mod/obs_headelem_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_headelem_i()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_headelem_r" title="f/obsspacedata_mod/obs_headelem_r"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_headelem_r()</span></code></a>, <a class="reference internal" href="oceanmask_mod.html#f/oceanmask_mod/ocm_farfromland" title="f/oceanmask_mod/ocm_farfromland"><code class="xref f f-func docutils literal notranslate"><span class="pre">ocm_farfromland()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyelem_i" title="f/obsspacedata_mod/obs_bodyelem_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyelem_i()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyset_i" title="f/obsspacedata_mod/obs_bodyset_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyset_i()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/ensembleobservations_mod/eob_setsigisigo">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">ensembleobservations_mod/</span></span><span class="sig-name descname"><span class="pre">eob_setsigisigo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">ensobs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/ensembleobservations_mod/eob_setsigisigo" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Apply huber norm quality control procedure. This modifies
+the OBS_OER value, but before that its value is copied into
+OBS_SIGO and also OBS_SIGI computed</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>ensobs</strong><em> [</em><em>struct_eob </em><em>,</em><em>inout</em><em>]</em></p>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../programs/midas_letkf.html#f/midas_letkf" title="f/midas_letkf"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_letkf</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_numbody" title="f/obsspacedata_mod/obs_numbody"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_numbody()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyelem_r" title="f/obsspacedata_mod/obs_bodyelem_r"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyelem_r()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyelem_i" title="f/obsspacedata_mod/obs_bodyelem_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyelem_i()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/ensembleobservations_mod/eob_hubernorm">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">ensembleobservations_mod/</span></span><span class="sig-name descname"><span class="pre">eob_hubernorm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">ensobs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/ensembleobservations_mod/eob_hubernorm" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Apply huber norm quality control procedure. This modifies
+the OBS_OER value.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>ensobs</strong><em> [</em><em>struct_eob </em><em>,</em><em>inout</em><em>]</em></p>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../programs/midas_letkf.html#f/midas_letkf" title="f/midas_letkf"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_letkf</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_numheader" title="f/obsspacedata_mod/obs_numheader"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_numheader()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_headelem_i" title="f/obsspacedata_mod/obs_headelem_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_headelem_i()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyelem_r" title="f/obsspacedata_mod/obs_bodyelem_r"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyelem_r()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyelem_i" title="f/obsspacedata_mod/obs_bodyelem_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyelem_i()</span></code></a>, <a class="reference internal" href="bufr_mod.html#f/bufr_mod/bufr_iswindcomponent" title="f/bufr_mod/bufr_iswindcomponent"><code class="xref f f-func docutils literal notranslate"><span class="pre">bufr_iswindcomponent()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/ensembleobservations_mod/eob_rejectradnearsfc">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">ensembleobservations_mod/</span></span><span class="sig-name descname"><span class="pre">eob_rejectradnearsfc</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">ensobs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/ensembleobservations_mod/eob_rejectradnearsfc" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Reject all radiance observations with peak sensitivity
+too close to the surface.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>ensobs</strong><em> [</em><em>struct_eob </em><em>,</em><em>inout</em><em>]</em></p>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../programs/midas_letkf.html#f/midas_letkf" title="f/midas_letkf"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_letkf</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_numbody" title="f/obsspacedata_mod/obs_numbody"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_numbody()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyelem_i" title="f/obsspacedata_mod/obs_bodyelem_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyelem_i()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyset_i" title="f/obsspacedata_mod/obs_bodyset_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyset_i()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/ensembleobservations_mod/getmemberindexinfullensset">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">ensembleobservations_mod/</span></span><span class="sig-name descname"><span class="pre">getmemberindexinfullensset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">ensobs</span></em>, <em class="sig-param"><span class="pre">memberindexarray</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">numgroupstodividemembers_opt</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">maxnummemberspergroup_opt</span></em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/ensembleobservations_mod/getmemberindexinfullensset" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>get memberIndex array corresponding to the full ensemble set. This
+is useful when ensObs is a subset of full ensemble members.
+If first member in ensObs is member 6, to get the full ensemble set equivalent of ensObs members:
+a) When members are not grouped (numGroupsToDivideMembers=1), all members are offset by</p>
+<blockquote>
+<div><p>memberIndexOffset (e.g. 6, 7, …, 6+ensObs%numMermbers)</p>
+</div></blockquote>
+<ol class="loweralpha simple" start="2">
+<li><p>When members are grouped (numGroupsToDivideMembers/=1), members within each group
+are offset by memberIndexOffset but there is increment of maxNumMembersPerGroup_opt
+to jump to the next group (e.g. if maxNumMembersPerGroup_opt=10, for first group 6, 7, 8, 9,
+for second group 6+10, 7+10, 8+10, 9+10, and so on)</p></li>
+</ol>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>ensobs</strong><em> [</em><em>struct_eob </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>memberindexarray</strong> (*)<em> [</em><em>integer </em><em>,</em><em>inout</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Options</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>numgroupstodividemembers_opt</strong><em> [</em><em>integer </em><em>,</em><em>in,</em><em>]</em></p></li>
+<li><p><strong>maxnummemberspergroup_opt</strong><em> [</em><em>integer </em><em>,</em><em>in,</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/ensembleobservations_mod/eob_writetofiles" title="f/ensembleobservations_mod/eob_writetofiles"><code class="xref f f-func docutils literal notranslate"><span class="pre">eob_writetofiles()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/ensembleobservations_mod/max_transmission">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">ensembleobservations_mod/</span></span><span class="sig-name descname"><span class="pre">max_transmission</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">transmission</span></em>, <em class="sig-param"><span class="pre">numlevels</span></em>, <em class="sig-param"><span class="pre">transindex</span></em>, <em class="sig-param"><span class="pre">rttovpres</span></em>, <em class="sig-param"><span class="pre">maxlnp</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/ensembleobservations_mod/max_transmission" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Determine the height in log pressure where we find the maximum
+value of the first derivative of transmission with respect to
+log pressure</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>transmission</strong><em> [</em><em>rttov_transmission </em><em>,</em><em>in</em><em>]</em> :: transmission (rttov type)</p></li>
+<li><p><strong>numlevels</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em> :: number of RTTOV levels</p></li>
+<li><p><strong>transindex</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em> :: index of transmission%tau_levels</p></li>
+<li><p><strong>rttovpres</strong> (*)<em> [</em><em>real </em><em>,</em><em>in,pointer</em><em>]</em> :: pressure of RTTOV levels</p></li>
+<li><p><strong>maxlnp</strong><em> [</em><em>real </em><em>,</em><em>out</em><em>]</em> :: log pressure of maximum</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/ensembleobservations_mod/eob_setvertlocation" title="f/ensembleobservations_mod/eob_setvertlocation"><code class="xref f f-func docutils literal notranslate"><span class="pre">eob_setvertlocation()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/ensembleobservations_mod/get_peak" title="f/ensembleobservations_mod/get_peak"><code class="xref f f-func docutils literal notranslate"><span class="pre">get_peak()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/ensembleobservations_mod/get_peak">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">ensembleobservations_mod/</span></span><span class="sig-name descname"><span class="pre">get_peak</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">maxindex</span></em>, <em class="sig-param"><span class="pre">nlev</span></em>, <em class="sig-param"><span class="pre">lnp</span></em>, <em class="sig-param"><span class="pre">deriv</span></em>, <em class="sig-param"><span class="pre">maxlnp</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/ensembleobservations_mod/get_peak" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Do quadratic interpolation to find pressure of peak transmission.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>maxindex</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>nlev</strong><em> [</em><em>integer </em><em>,</em><em>in,</em><em>]</em></p></li>
+<li><p><strong>lnp</strong> (nlev)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>deriv</strong> (nlev + 1)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>maxlnp</strong><em> [</em><em>real </em><em>,</em><em>inout</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/ensembleobservations_mod/max_transmission" title="f/ensembleobservations_mod/max_transmission"><code class="xref f f-func docutils literal notranslate"><span class="pre">max_transmission()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div></blockquote>
+</section>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="ensemblestatevector_mod.html" title="ensemblestatevector_mod"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="controlvector_mod.html" title="controlvector_mod"
+             >previous</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2018, ECCC.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.
+    </div>
+  </body>
+</html>

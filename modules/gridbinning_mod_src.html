@@ -1,0 +1,568 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>gridbinning_mod source &mdash; MIDAS  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="MIDAS  documentation" href="../index.html" /> 
+  </head>
+  <body>
+  <div>
+    <img src="../_static/MIDAS_header.png" alt="MIDAS" />
+  </div>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/modules/gridbinning_mod_src.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <section id="gridbinning-mod-source">
+<h1>gridbinning_mod source<a class="headerlink" href="#gridbinning-mod-source" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="linenos">  1</span><span class="c">!--------------------------------------- LICENCE BEGIN -----------------------------------</span>
+<span class="linenos">  2</span><span class="c">!Environment Canada - Atmospheric Science and Technology License/Disclaimer,</span>
+<span class="linenos">  3</span><span class="c">!                     version 3; Last Modified: May 7, 2008.</span>
+<span class="linenos">  4</span><span class="c">!This is free but copyrighted software; you can use/redistribute/modify it under the terms</span>
+<span class="linenos">  5</span><span class="c">!of the Environment Canada - Atmospheric Science and Technology License/Disclaimer</span>
+<span class="linenos">  6</span><span class="c">!version 3 or (at your option) any later version that should be found at:</span>
+<span class="linenos">  7</span><span class="c">!http://collaboration.cmc.ec.gc.ca/science/rpn.comm/license.html</span>
+<span class="linenos">  8</span><span class="c">!</span>
+<span class="linenos">  9</span><span class="c">!This software is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;</span>
+<span class="linenos"> 10</span><span class="c">!without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.</span>
+<span class="linenos"> 11</span><span class="c">!See the above mentioned License/Disclaimer for more details.</span>
+<span class="linenos"> 12</span><span class="c">!You should have received a copy of the License/Disclaimer along with this software;</span>
+<span class="linenos"> 13</span><span class="c">!if not, you can write to: EC-RPN COMM Group, 2121 TransCanada, suite 500, Dorval (Quebec),</span>
+<span class="linenos"> 14</span><span class="c">!CANADA, H9P 1J3; or send e-mail to service.rpn@ec.gc.ca</span>
+<span class="linenos"> 15</span><span class="c">!-------------------------------------- LICENCE END --------------------------------------</span>
+<span class="linenos"> 16</span>
+<span class="linenos"> 17</span><span class="k">module </span><span class="n">gridBinning_mod</span><span class="w"></span>
+<span class="linenos"> 18</span><span class="w">  </span><span class="c">! MODULE gridBinning_mod (prefix=&#39;gbi&#39; category=&#39;4. Data Object transformations&#39;)</span>
+<span class="linenos"> 19</span><span class="w">  </span><span class="c">!</span>
+<span class="linenos"> 20</span><span class="w">  </span><span class="c">!:Purpose: To compute categorical mean and standard deviation for gridded data</span>
+<span class="linenos"> 21</span><span class="w">  </span><span class="c">!           contained in a gridStateVector or in an ensemble of</span>
+<span class="linenos"> 22</span><span class="w">  </span><span class="c">!           gridStateVectors (e.g. the respective mean over land and sea)</span>
+<span class="linenos"> 23</span><span class="w">  </span><span class="c">!</span>
+<span class="linenos"> 24</span><span class="w">  </span><span class="k">use </span><span class="n">midasMpi_mod</span><span class="w"></span>
+<span class="linenos"> 25</span><span class="w">  </span><span class="k">use </span><span class="n">ensembleStateVector_mod</span><span class="w"></span>
+<span class="linenos"> 26</span><span class="w">  </span><span class="k">use </span><span class="n">gridStateVector_mod</span><span class="w"></span>
+<span class="linenos"> 27</span><span class="w">  </span><span class="k">use </span><span class="n">gridStateVectorFileIO_mod</span><span class="w"></span>
+<span class="linenos"> 28</span><span class="w">  </span><span class="k">use </span><span class="n">utilities_mod</span><span class="w"></span>
+<span class="linenos"> 29</span><span class="w">  </span><span class="k">use </span><span class="n">horizontalCoord_mod</span><span class="w"></span>
+<span class="linenos"> 30</span><span class="w">  </span><span class="k">use </span><span class="n">timeCoord_mod</span><span class="w"></span>
+<span class="linenos"> 31</span><span class="w">  </span><span class="k">implicit none</span>
+<span class="linenos"> 32</span><span class="k">  save</span>
+<span class="linenos"> 33</span><span class="k">  private</span><span class="w"></span>
+<span class="linenos"> 34</span>
+<span class="linenos"> 35</span><span class="w">  </span><span class="c">! public procedures</span>
+<span class="linenos"> 36</span><span class="w">  </span><span class="k">public</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">struct_gbi</span><span class="w"></span>
+<span class="linenos"> 37</span><span class="w">  </span><span class="k">public</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">gbi_setup</span><span class="p">,</span><span class="w"> </span><span class="n">gbi_deallocate</span><span class="w"></span>
+<span class="linenos"> 38</span><span class="w">  </span><span class="k">public</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">gbi_stdDev</span><span class="p">,</span><span class="w"> </span><span class="n">gbi_mean</span><span class="w"></span>
+<span class="linenos"> 39</span>
+<span class="linenos"> 40</span><span class="w">  </span><span class="k">type</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">struct_gbi</span><span class="w"></span>
+<span class="linenos"> 41</span><span class="w">    </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="mi">24</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">binningStrategy</span><span class="w"></span>
+<span class="linenos"> 42</span><span class="w">    </span><span class="k">type</span><span class="p">(</span><span class="n">struct_gsv</span><span class="p">)</span><span class="w">  </span><span class="kd">::</span><span class="w"> </span><span class="n">statevector_bin2d</span><span class="w"></span>
+<span class="linenos"> 43</span><span class="w">    </span><span class="kt">integer</span><span class="w">           </span><span class="kd">::</span><span class="w"> </span><span class="n">numBins2d</span><span class="w"></span>
+<span class="linenos"> 44</span><span class="w">  </span><span class="k">end type </span><span class="n">struct_gbi</span><span class="w"></span>
+<span class="linenos"> 45</span>
+<span class="linenos"> 46</span><span class="w">  </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">external</span><span class="w">  </span><span class="kd">::</span><span class="w"> </span><span class="n">get_max_rss</span><span class="w"></span>
+<span class="linenos"> 47</span>
+<span class="linenos"> 48</span><span class="w">  </span><span class="c">! Control parameter for the level of listing output</span>
+<span class="linenos"> 49</span><span class="w">  </span><span class="kt">logical</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">verbose</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">true</span><span class="p">.</span><span class="w"></span>
+<span class="linenos"> 50</span>
+<span class="linenos"> 51</span><span class="w">  </span><span class="c">! module interfaces</span>
+<span class="linenos"> 52</span><span class="w">  </span><span class="k">interface </span><span class="n">gbi_stdDev</span><span class="w"></span>
+<span class="linenos"> 53</span><span class="w">    </span><span class="k">module procedure </span><span class="n">gbi_stdDev_ens</span><span class="w"></span>
+<span class="linenos"> 54</span><span class="w">  </span><span class="k">end interface </span><span class="n">gbi_stdDev</span><span class="w"></span>
+<span class="linenos"> 55</span>
+<span class="linenos"> 56</span><span class="w">  </span><span class="k">interface </span><span class="n">gbi_mean</span><span class="w"></span>
+<span class="linenos"> 57</span><span class="w">    </span><span class="k">module procedure </span><span class="n">gbi_mean_gsv</span><span class="w"></span>
+<span class="linenos"> 58</span><span class="w">  </span><span class="k">end interface </span><span class="n">gbi_mean</span><span class="w"></span>
+<span class="linenos"> 59</span>
+<span class="linenos"> 60</span><span class="k">contains</span><span class="w"></span>
+<span class="linenos"> 61</span>
+<span class="linenos"> 62</span><span class="w">  </span><span class="c">!--------------------------------------------------------------------------</span>
+<span class="linenos"> 63</span><span class="w">  </span><span class="c">! gbi_setup</span>
+<span class="linenos"> 64</span><span class="w">  </span><span class="c">!--------------------------------------------------------------------------</span>
+<span class="linenos"> 65</span><span class="w">  </span><span class="k">subroutine </span><span class="n">gbi_setup</span><span class="p">(</span><span class="n">gbi</span><span class="p">,</span><span class="w"> </span><span class="n">binningStrategy</span><span class="p">,</span><span class="w"> </span><span class="n">statevector_template</span><span class="p">,</span><span class="w"> </span><span class="n">hco_coregrid</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span><span class="w"></span>
+<span class="linenos"> 66</span><span class="w">                       </span><span class="n">mpi_distribution_opt</span><span class="p">,</span><span class="w"> </span><span class="n">writeBinsToFile_opt</span><span class="p">)</span><span class="w"></span>
+<span class="linenos"> 67</span><span class="w">    </span><span class="k">implicit none</span>
+<span class="linenos"> 68</span>
+<span class="linenos"> 69</span><span class="k">    type</span><span class="p">(</span><span class="n">struct_gbi</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">gbi</span><span class="w"></span>
+<span class="linenos"> 70</span><span class="w">    </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=*</span><span class="p">),</span><span class="w">  </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">binningStrategy</span><span class="w"></span>
+<span class="linenos"> 71</span><span class="w">    </span><span class="k">type</span><span class="p">(</span><span class="n">struct_gsv</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">statevector_template</span><span class="w"></span>
+<span class="linenos"> 72</span><span class="w">    </span><span class="k">type</span><span class="p">(</span><span class="n">struct_hco</span><span class="p">),</span><span class="w"> </span><span class="k">pointer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">hco_coregrid</span><span class="w"></span>
+<span class="linenos"> 73</span><span class="w">    </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=*</span><span class="p">),</span><span class="w"> </span><span class="k">optional</span><span class="p">,</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">mpi_distribution_opt</span><span class="w"></span>
+<span class="linenos"> 74</span><span class="w">    </span><span class="kt">logical</span><span class="p">,</span><span class="w"> </span><span class="k">optional</span><span class="p">,</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">writeBinsToFile_opt</span><span class="w"></span>
+<span class="linenos"> 75</span>
+<span class="linenos"> 76</span><span class="w">    </span><span class="k">type</span><span class="p">(</span><span class="n">struct_gsv</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">statevector_landSeaTopo</span><span class="w"></span>
+<span class="linenos"> 77</span>
+<span class="linenos"> 78</span><span class="w">    </span><span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">myLonBeg</span><span class="p">,</span><span class="w"> </span><span class="n">myLonEnd</span><span class="w"></span>
+<span class="linenos"> 79</span><span class="w">    </span><span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">myLatBeg</span><span class="p">,</span><span class="w"> </span><span class="n">myLatEnd</span><span class="w"></span>
+<span class="linenos"> 80</span><span class="w">    </span><span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">latIndex</span><span class="p">,</span><span class="w"> </span><span class="n">lonIndex</span><span class="w"></span>
+<span class="linenos"> 81</span>
+<span class="linenos"> 82</span><span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">binCategory</span><span class="w"></span>
+<span class="linenos"> 83</span>
+<span class="linenos"> 84</span><span class="w">    </span><span class="kt">logical</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">allocHeightSfc</span><span class="w"></span>
+<span class="linenos"> 85</span><span class="w">    </span><span class="kt">logical</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">writeBinsToFile</span><span class="w"></span>
+<span class="linenos"> 86</span><span class="w">    </span><span class="kt">logical</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">skip</span><span class="w"></span>
+<span class="linenos"> 87</span><span class="w">    </span><span class="kt">logical</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">mpi_local</span><span class="w"></span>
+<span class="linenos"> 88</span>
+<span class="linenos"> 89</span><span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="mi">4</span><span class="p">),</span><span class="w"> </span><span class="k">pointer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">bin2d</span><span class="p">(:,:,:)</span><span class="w"></span>
+<span class="linenos"> 90</span><span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="mi">4</span><span class="p">),</span><span class="w"> </span><span class="k">pointer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">data2d</span><span class="p">(:,:,:)</span><span class="w"></span>
+<span class="linenos"> 91</span>
+<span class="linenos"> 92</span><span class="w">    </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="mi">24</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">mpi_distribution</span><span class="w"></span>
+<span class="linenos"> 93</span>
+<span class="linenos"> 94</span><span class="w">    </span><span class="c">!</span>
+<span class="linenos"> 95</span><span class="w">    </span><span class="c">!- 1.  Allocate a 2D statevector that will contains the bin category for each </span>
+<span class="linenos"> 96</span><span class="w">    </span><span class="c">!      grid point</span>
+<span class="linenos"> 97</span><span class="w">    </span><span class="c">!</span>
+<span class="linenos"> 98</span><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(.</span><span class="nb">not</span><span class="p">.</span><span class="w"> </span><span class="n">gsv_isAllocated</span><span class="p">(</span><span class="n">statevector_template</span><span class="p">))</span><span class="w"> </span><span class="k">then</span>
+<span class="linenos"> 99</span><span class="k">      call </span><span class="n">utl_abort</span><span class="p">(</span><span class="s1">&#39;gbi_setup: the input template statevector was not allocated&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">100</span><span class="w">    </span><span class="k">end if</span>
+<span class="linenos">101</span>
+<span class="linenos">102</span><span class="k">    </span><span class="n">mpi_local</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">statevector_template</span><span class="p">%</span><span class="n">mpi_local</span><span class="w"></span>
+<span class="linenos">103</span><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nb">present</span><span class="p">(</span><span class="n">mpi_distribution_opt</span><span class="p">))</span><span class="w"> </span><span class="k">then</span>
+<span class="linenos">104</span><span class="k">      </span><span class="n">mpi_distribution</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mpi_distribution_opt</span><span class="w"></span>
+<span class="linenos">105</span><span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">mpi_distribution</span><span class="w"> </span><span class="o">==</span><span class="w">  </span><span class="s1">&#39;None&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="linenos">106</span><span class="k">        </span><span class="n">mpi_local</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">false</span><span class="p">.</span><span class="w"></span>
+<span class="linenos">107</span><span class="w">      </span><span class="k">end if</span>
+<span class="linenos">108</span><span class="k">    else</span>
+<span class="linenos">109</span><span class="k">      </span><span class="n">mpi_distribution</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Tiles&#39;</span><span class="w"></span>
+<span class="linenos">110</span><span class="w">    </span><span class="k">end if</span>
+<span class="linenos">111</span>
+<span class="linenos">112</span><span class="k">    if</span><span class="w"> </span><span class="p">(</span><span class="nb">trim</span><span class="p">(</span><span class="n">binningStrategy</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s1">&#39;landSeaTopo&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="linenos">113</span><span class="k">      </span><span class="n">allocHeightSfc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">true</span><span class="p">.</span><span class="w"></span>
+<span class="linenos">114</span><span class="w">    </span><span class="k">else</span>
+<span class="linenos">115</span><span class="k">      </span><span class="n">allocHeightSfc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">false</span><span class="p">.</span><span class="w"></span>
+<span class="linenos">116</span><span class="w">    </span><span class="k">end if</span>
+<span class="linenos">117</span>
+<span class="linenos">118</span><span class="k">    call </span><span class="n">gsv_allocate</span><span class="p">(</span><span class="n">gbi</span><span class="p">%</span><span class="n">statevector_bin2d</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">statevector_template</span><span class="p">%</span><span class="n">hco</span><span class="p">,</span><span class="w">    </span><span class="p">&amp;</span><span class="w"></span>
+<span class="linenos">119</span><span class="w">                      </span><span class="n">statevector_template</span><span class="p">%</span><span class="n">vco</span><span class="p">,</span><span class="w"> </span><span class="n">varNames_opt</span><span class="o">=</span><span class="p">(</span><span class="o">/</span><span class="s1">&#39;BIN&#39;</span><span class="o">/</span><span class="p">),</span><span class="w">      </span><span class="p">&amp;</span><span class="w"></span>
+<span class="linenos">120</span><span class="w">                      </span><span class="n">mpi_distribution_opt</span><span class="o">=</span><span class="n">mpi_distribution</span><span class="p">,</span><span class="w"> </span><span class="n">dataKind_opt</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span><span class="w"></span>
+<span class="linenos">121</span><span class="w">                      </span><span class="n">dateStamp_opt</span><span class="o">=</span><span class="n">statevector_template</span><span class="p">%</span><span class="n">dateStamp3d</span><span class="p">,</span><span class="w">        </span><span class="p">&amp;</span><span class="w"></span>
+<span class="linenos">122</span><span class="w">                      </span><span class="n">mpi_local_opt</span><span class="o">=</span><span class="n">mpi_local</span><span class="p">,</span><span class="w"> </span><span class="n">allocHeightSfc_opt</span><span class="o">=</span><span class="n">allocHeightSfc</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">123</span>
+<span class="linenos">124</span><span class="w">    </span><span class="c">!</span>
+<span class="linenos">125</span><span class="w">    </span><span class="c">!- 2.  Set the bins</span>
+<span class="linenos">126</span><span class="w">    </span><span class="c">!</span>
+<span class="linenos">127</span><span class="w">    </span><span class="k">call </span><span class="n">gsv_getField</span><span class="p">(</span><span class="n">gbi</span><span class="p">%</span><span class="n">statevector_bin2d</span><span class="p">,</span><span class="n">bin2d</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">128</span>
+<span class="linenos">129</span><span class="w">    </span><span class="n">myLonBeg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">gbi</span><span class="p">%</span><span class="n">statevector_bin2d</span><span class="p">%</span><span class="n">myLonBeg</span><span class="w"></span>
+<span class="linenos">130</span><span class="w">    </span><span class="n">myLonEnd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">gbi</span><span class="p">%</span><span class="n">statevector_bin2d</span><span class="p">%</span><span class="n">myLonEnd</span><span class="w"></span>
+<span class="linenos">131</span><span class="w">    </span><span class="n">myLatBeg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">gbi</span><span class="p">%</span><span class="n">statevector_bin2d</span><span class="p">%</span><span class="n">myLatBeg</span><span class="w"></span>
+<span class="linenos">132</span><span class="w">    </span><span class="n">myLatEnd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">gbi</span><span class="p">%</span><span class="n">statevector_bin2d</span><span class="p">%</span><span class="n">myLatEnd</span><span class="w"></span>
+<span class="linenos">133</span>
+<span class="linenos">134</span><span class="w">    </span><span class="k">select case</span><span class="p">(</span><span class="nb">trim</span><span class="p">(</span><span class="n">binningStrategy</span><span class="p">))</span><span class="w"></span>
+<span class="linenos">135</span><span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;GridPoint&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">136</span><span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">mmpi_myid</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="linenos">137</span><span class="k">        write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;gbi_setup : BIN_TYPE = No horizontal averaging &#39;</span><span class="w"></span>
+<span class="linenos">138</span><span class="w">        </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;            &gt; One bin per horizontal grid point&#39;</span><span class="w"></span>
+<span class="linenos">139</span><span class="w">      </span><span class="k">end if</span>
+<span class="linenos">140</span>
+<span class="linenos">141</span><span class="k">      </span><span class="n">gbi</span><span class="p">%</span><span class="n">numBins2d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">statevector_template</span><span class="p">%</span><span class="n">hco</span><span class="p">%</span><span class="n">ni</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">statevector_template</span><span class="p">%</span><span class="n">hco</span><span class="p">%</span><span class="n">nj</span><span class="w"></span>
+<span class="linenos">142</span><span class="w">      </span><span class="n">binCategory</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
+<span class="linenos">143</span><span class="w">      </span><span class="k">do </span><span class="n">latIndex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">statevector_template</span><span class="p">%</span><span class="n">hco</span><span class="p">%</span><span class="n">nj</span><span class="w"></span>
+<span class="linenos">144</span><span class="w">        </span><span class="k">do </span><span class="n">lonIndex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">statevector_template</span><span class="p">%</span><span class="n">hco</span><span class="p">%</span><span class="n">ni</span><span class="w"></span>
+<span class="linenos">145</span><span class="w">          </span><span class="n">binCategory</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">binCategory</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="linenos">146</span><span class="w">          </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">lonIndex</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">myLonBeg</span><span class="w"> </span><span class="p">.</span><span class="nb">and</span><span class="p">.</span><span class="w"> </span><span class="n">lonIndex</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">myLatEnd</span><span class="w"> </span><span class="p">.</span><span class="nb">and</span><span class="p">.</span><span class="w"> </span><span class="p">&amp;</span><span class="w"></span>
+<span class="linenos">147</span><span class="w">              </span><span class="n">latIndex</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">myLatBeg</span><span class="w"> </span><span class="p">.</span><span class="nb">and</span><span class="p">.</span><span class="w"> </span><span class="n">latIndex</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">myLatEnd</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="linenos">148</span><span class="k">            </span><span class="n">bin2d</span><span class="p">(</span><span class="n">lonIndex</span><span class="p">,</span><span class="n">latIndex</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">real</span><span class="p">(</span><span class="n">binCategory</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">149</span><span class="w">          </span><span class="k">end if</span>
+<span class="linenos">150</span><span class="k">        end do</span>
+<span class="linenos">151</span><span class="k">      end do</span>
+<span class="linenos">152</span>
+<span class="linenos">153</span><span class="k">    case</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;YrowBand&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">154</span><span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">mmpi_myid</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="linenos">155</span><span class="k">        write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">156</span><span class="w">        </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;gbi_setup : BIN_TYPE = One bin per Y row&#39;</span><span class="w"></span>
+<span class="linenos">157</span><span class="w">      </span><span class="k">end if</span>
+<span class="linenos">158</span>
+<span class="linenos">159</span><span class="k">      </span><span class="n">gbi</span><span class="p">%</span><span class="n">numBins2d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">statevector_template</span><span class="p">%</span><span class="n">hco</span><span class="p">%</span><span class="n">nj</span><span class="w"></span>
+<span class="linenos">160</span><span class="w">      </span><span class="n">binCategory</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
+<span class="linenos">161</span><span class="w">      </span><span class="k">do </span><span class="n">latIndex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">statevector_template</span><span class="p">%</span><span class="n">hco</span><span class="p">%</span><span class="n">nj</span><span class="w"></span>
+<span class="linenos">162</span><span class="w">        </span><span class="n">binCategory</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">binCategory</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="linenos">163</span><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">latIndex</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">myLatBeg</span><span class="w"> </span><span class="p">.</span><span class="nb">and</span><span class="p">.</span><span class="w"> </span><span class="n">latIndex</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">myLatEnd</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="linenos">164</span><span class="k">          </span><span class="n">bin2d</span><span class="p">(:,</span><span class="n">latIndex</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">real</span><span class="p">(</span><span class="n">binCategory</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">165</span><span class="w">        </span><span class="k">end if</span>
+<span class="linenos">166</span><span class="k">      end do</span>
+<span class="linenos">167</span>
+<span class="linenos">168</span><span class="k">    case</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;HorizontalMean&#39;</span><span class="p">,</span><span class="s1">&#39;FullDomain&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">169</span><span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">mmpi_myid</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="linenos">170</span><span class="k">        write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">171</span><span class="w">        </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;gbi_setup : BIN_TYPE = Average over all horizontal points&#39;</span><span class="w"></span>
+<span class="linenos">172</span><span class="w">      </span><span class="k">end if</span>
+<span class="linenos">173</span>
+<span class="linenos">174</span><span class="k">      </span><span class="n">gbi</span><span class="p">%</span><span class="n">numBins2d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="linenos">175</span><span class="w">      </span><span class="n">binCategory</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="linenos">176</span><span class="w">      </span><span class="n">bin2d</span><span class="p">(:,:,</span><span class="mi">1</span><span class="p">)</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="kt">real</span><span class="p">(</span><span class="n">binCategory</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">177</span>
+<span class="linenos">178</span><span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;landSeaTopo&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">179</span><span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">mmpi_myid</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="linenos">180</span><span class="k">        write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">181</span><span class="w">        </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;gbi_setup : BIN_TYPE = land/sea binning + storage of the topography field&#39;</span><span class="w"></span>
+<span class="linenos">182</span><span class="w">      </span><span class="k">end if</span>
+<span class="linenos">183</span>
+<span class="linenos">184</span><span class="k">      call </span><span class="n">gsv_allocate</span><span class="p">(</span><span class="n">statevector_landSeaTopo</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">statevector_template</span><span class="p">%</span><span class="n">hco</span><span class="p">,</span><span class="w">     </span><span class="p">&amp;</span><span class="w"></span>
+<span class="linenos">185</span><span class="w">                        </span><span class="n">statevector_template</span><span class="p">%</span><span class="n">vco</span><span class="p">,</span><span class="w"> </span><span class="n">varNames_opt</span><span class="o">=</span><span class="p">(</span><span class="o">/</span><span class="s1">&#39;MG&#39;</span><span class="o">/</span><span class="p">),</span><span class="w">          </span><span class="p">&amp;</span><span class="w"></span>
+<span class="linenos">186</span><span class="w">                        </span><span class="n">mpi_distribution_opt</span><span class="o">=</span><span class="n">mpi_distribution</span><span class="p">,</span><span class="w"> </span><span class="n">dataKind_opt</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span><span class="w">    </span><span class="p">&amp;</span><span class="w"></span>
+<span class="linenos">187</span><span class="w">                        </span><span class="n">dateStamp_opt</span><span class="o">=</span><span class="n">statevector_template</span><span class="p">%</span><span class="n">dateStamp3d</span><span class="p">,</span><span class="w">           </span><span class="p">&amp;</span><span class="w"></span>
+<span class="linenos">188</span><span class="w">                        </span><span class="n">mpi_local_opt</span><span class="o">=</span><span class="n">mpi_local</span><span class="p">,</span><span class="w"> </span><span class="n">hInterpolateDegree_opt</span><span class="o">=</span><span class="s1">&#39;LINEAR&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span><span class="w"></span>
+<span class="linenos">189</span><span class="w">                        </span><span class="n">allocHeightSfc_opt</span><span class="o">=</span><span class="p">.</span><span class="n">true</span><span class="p">.</span><span class="w"> </span><span class="p">)</span><span class="w"></span>
+<span class="linenos">190</span>
+<span class="linenos">191</span><span class="w">      </span><span class="k">call </span><span class="n">gio_readFromFile</span><span class="p">(</span><span class="n">statevector_landSeaTopo</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;./dataForGridBinning.fst&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39; &#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39; &#39;</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span><span class="w"></span>
+<span class="linenos">192</span><span class="w">                            </span><span class="n">readHeightSfc_opt</span><span class="o">=</span><span class="p">.</span><span class="n">true</span><span class="p">.)</span><span class="w"></span>
+<span class="linenos">193</span>
+<span class="linenos">194</span><span class="w">      </span><span class="k">call </span><span class="n">gsv_getField</span><span class="p">(</span><span class="n">statevector_landSeaTopo</span><span class="p">,</span><span class="n">data2d</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">195</span>
+<span class="linenos">196</span><span class="w">      </span><span class="n">gbi</span><span class="p">%</span><span class="n">numBins2d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="c">! (land or sea)</span>
+<span class="linenos">197</span><span class="w">      </span><span class="k">do </span><span class="n">latIndex</span><span class="o">=</span><span class="w"> </span><span class="n">myLatBeg</span><span class="p">,</span><span class="w"> </span><span class="n">myLatEnd</span><span class="w"></span>
+<span class="linenos">198</span><span class="w">        </span><span class="k">do </span><span class="n">lonIndex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">myLonBeg</span><span class="p">,</span><span class="w"> </span><span class="n">myLonEnd</span><span class="w"></span>
+<span class="linenos">199</span>
+<span class="linenos">200</span><span class="w">          </span><span class="n">skip</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">false</span><span class="p">.</span><span class="w"></span>
+<span class="linenos">201</span><span class="w">          </span><span class="k">if</span><span class="w"> </span><span class="p">(.</span><span class="nb">not</span><span class="p">.</span><span class="w"> </span><span class="n">statevector_template</span><span class="p">%</span><span class="n">hco</span><span class="p">%</span><span class="n">global</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="linenos">202</span><span class="k">            if</span><span class="w"> </span><span class="p">(</span><span class="n">lonIndex</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">hco_coregrid</span><span class="p">%</span><span class="n">ni</span><span class="w"> </span><span class="p">.</span><span class="nb">or</span><span class="p">.</span><span class="w"> </span><span class="n">latIndex</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">hco_coregrid</span><span class="p">%</span><span class="n">nj</span><span class="p">)</span><span class="w"> </span><span class="k">then</span><span class="w"></span>
+<span class="linenos">203</span><span class="w">              </span><span class="c">! We are in the extension zone</span>
+<span class="linenos">204</span><span class="w">              </span><span class="n">skip</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">true</span><span class="p">.</span><span class="w"></span>
+<span class="linenos">205</span><span class="w">            </span><span class="k">end if</span>
+<span class="linenos">206</span><span class="k">          end if</span>
+<span class="linenos">207</span>
+<span class="linenos">208</span><span class="k">          if</span><span class="w"> </span><span class="p">(</span><span class="n">skip</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="linenos">209</span><span class="k">            </span><span class="n">bin2d</span><span class="p">(</span><span class="n">lonIndex</span><span class="p">,</span><span class="n">latIndex</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mf">1.0</span><span class="w"></span>
+<span class="linenos">210</span><span class="w">          </span><span class="k">else</span>
+<span class="linenos">211</span><span class="k">            if</span><span class="w"> </span><span class="p">(</span><span class="n">data2D</span><span class="p">(</span><span class="n">lonIndex</span><span class="p">,</span><span class="n">latIndex</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mf">0.05</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="linenos">212</span><span class="k">              </span><span class="n">bin2d</span><span class="p">(</span><span class="n">lonIndex</span><span class="p">,</span><span class="n">latIndex</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.0</span><span class="w"> </span><span class="c">! land point</span>
+<span class="linenos">213</span><span class="w">            </span><span class="k">else</span>
+<span class="linenos">214</span><span class="k">              </span><span class="n">bin2d</span><span class="p">(</span><span class="n">lonIndex</span><span class="p">,</span><span class="n">latIndex</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">2.0</span><span class="w"> </span><span class="c">! sea  point</span>
+<span class="linenos">215</span><span class="w">            </span><span class="k">end if</span>
+<span class="linenos">216</span><span class="k">          end if</span>
+<span class="linenos">217</span>
+<span class="linenos">218</span><span class="k">        end do</span>
+<span class="linenos">219</span><span class="k">      end do</span><span class="w"></span>
+<span class="linenos">220</span>
+<span class="linenos">221</span><span class="w">      </span><span class="c">! Store the topography in gbi%statevector_bin2d</span>
+<span class="linenos">222</span><span class="w">      </span><span class="k">call </span><span class="n">gsv_copyHeightSfc</span><span class="p">(</span><span class="n">statevector_landSeaTopo</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span><span class="w"> </span><span class="c">! IN</span>
+<span class="linenos">223</span><span class="w">                         </span><span class="n">gbi</span><span class="p">%</span><span class="n">statevector_bin2d</span><span class="w"> </span><span class="p">)</span><span class="w">    </span><span class="c">! OUT</span>
+<span class="linenos">224</span>
+<span class="linenos">225</span><span class="w">      </span><span class="k">call </span><span class="n">gsv_deallocate</span><span class="p">(</span><span class="n">statevector_landSeaTopo</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">226</span>
+<span class="linenos">227</span><span class="w">    </span><span class="k">case </span><span class="n">default</span><span class="w"></span>
+<span class="linenos">228</span><span class="w">      </span><span class="k">call </span><span class="n">utl_abort</span><span class="p">(</span><span class="s1">&#39;gbi_setup : Invalid Binning Strategy : &#39;</span><span class="o">//</span><span class="nb">trim</span><span class="p">(</span><span class="n">BinningStrategy</span><span class="p">))</span><span class="w"></span>
+<span class="linenos">229</span><span class="w">    </span><span class="k">end select</span><span class="w"></span>
+<span class="linenos">230</span>
+<span class="linenos">231</span><span class="w">    </span><span class="c">!</span>
+<span class="linenos">232</span><span class="w">    </span><span class="c">!- 3.  Write the bins to a file (if desired)</span>
+<span class="linenos">233</span><span class="w">    </span><span class="c">!</span>
+<span class="linenos">234</span><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="nb">present</span><span class="p">(</span><span class="n">writeBinsToFile_opt</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="linenos">235</span><span class="k">      </span><span class="n">writeBinsToFile</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">writeBinsToFile_opt</span><span class="w"></span>
+<span class="linenos">236</span><span class="w">    </span><span class="k">else</span>
+<span class="linenos">237</span><span class="k">      </span><span class="n">writeBinsToFile</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">false</span><span class="p">.</span><span class="w"></span>
+<span class="linenos">238</span><span class="w">    </span><span class="k">end if</span>
+<span class="linenos">239</span><span class="k">    </span>
+<span class="linenos">240</span><span class="k">    if</span><span class="w"> </span><span class="p">(</span><span class="n">writeBinsToFile</span><span class="w"> </span><span class="p">.</span><span class="nb">and</span><span class="p">.</span><span class="w"> </span><span class="p">(</span><span class="n">mpi_local</span><span class="w"> </span><span class="p">.</span><span class="nb">or</span><span class="p">.</span><span class="w"> </span><span class="n">mmpi_myid</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="linenos">241</span><span class="k">      call </span><span class="n">gio_writeToFile</span><span class="p">(</span><span class="n">gbi</span><span class="p">%</span><span class="n">statevector_bin2d</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;./gridBinning.fst&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span><span class="w"> </span><span class="c">! IN</span>
+<span class="linenos">242</span><span class="w">                           </span><span class="s1">&#39;BINNING&#39;</span><span class="p">)</span><span class="w">                                    </span><span class="c">! IN</span>
+<span class="linenos">243</span><span class="w">    </span><span class="k">end if</span>
+<span class="linenos">244</span>
+<span class="linenos">245</span><span class="k">  end subroutine </span><span class="n">gbi_setup</span><span class="w"></span>
+<span class="linenos">246</span><span class="w">  </span>
+<span class="linenos">247</span><span class="w">  </span><span class="c">!--------------------------------------------------------------------------</span>
+<span class="linenos">248</span><span class="w">  </span><span class="c">! gbi_deallocate</span>
+<span class="linenos">249</span><span class="w">  </span><span class="c">!--------------------------------------------------------------------------</span>
+<span class="linenos">250</span><span class="w">  </span><span class="k">subroutine </span><span class="n">gbi_deallocate</span><span class="p">(</span><span class="n">gbi</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">251</span><span class="w">    </span><span class="k">implicit none</span>
+<span class="linenos">252</span>
+<span class="linenos">253</span><span class="k">    type</span><span class="p">(</span><span class="n">struct_gbi</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">gbi</span><span class="w"></span>
+<span class="linenos">254</span>
+<span class="linenos">255</span><span class="w">    </span><span class="k">call </span><span class="n">gsv_deallocate</span><span class="p">(</span><span class="n">gbi</span><span class="p">%</span><span class="n">statevector_bin2d</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">256</span>
+<span class="linenos">257</span><span class="w">  </span><span class="k">end subroutine </span><span class="n">gbi_deallocate</span><span class="w"></span>
+<span class="linenos">258</span>
+<span class="linenos">259</span><span class="w">  </span><span class="c">!--------------------------------------------------------------------------</span>
+<span class="linenos">260</span><span class="w">  </span><span class="c">! gbi_mean_gsv</span>
+<span class="linenos">261</span><span class="w">  </span><span class="c">!--------------------------------------------------------------------------</span>
+<span class="linenos">262</span><span class="w">  </span><span class="k">subroutine </span><span class="n">gbi_mean_gsv</span><span class="p">(</span><span class="n">gbi</span><span class="p">,</span><span class="w"> </span><span class="n">statevector_in</span><span class="p">,</span><span class="w"> </span><span class="n">statevector_out</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">263</span><span class="w">    </span><span class="k">implicit none</span>
+<span class="linenos">264</span>
+<span class="linenos">265</span><span class="k">    type</span><span class="p">(</span><span class="n">struct_gbi</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">gbi</span><span class="w"></span>
+<span class="linenos">266</span><span class="w">    </span><span class="k">type</span><span class="p">(</span><span class="n">struct_gsv</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">statevector_in</span><span class="w"></span>
+<span class="linenos">267</span><span class="w">    </span><span class="k">type</span><span class="p">(</span><span class="n">struct_gsv</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">statevector_out</span><span class="w"></span>
+<span class="linenos">268</span>
+<span class="linenos">269</span><span class="w">    </span><span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">myBinCount</span><span class="p">(</span><span class="n">gbi</span><span class="p">%</span><span class="n">numBins2d</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">270</span><span class="w">    </span><span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w">   </span><span class="n">binCount</span><span class="p">(</span><span class="n">gbi</span><span class="p">%</span><span class="n">numBins2d</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">271</span><span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">myBinSum</span><span class="w">  </span><span class="p">(</span><span class="n">gbi</span><span class="p">%</span><span class="n">numBins2d</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">272</span><span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w">   </span><span class="n">binMean</span><span class="w"> </span><span class="p">(</span><span class="n">gbi</span><span class="p">%</span><span class="n">numBins2d</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">273</span>
+<span class="linenos">274</span><span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span><span class="w"> </span><span class="k">pointer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">field4d</span><span class="p">(:,:,:,:)</span><span class="w"></span>
+<span class="linenos">275</span><span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span><span class="w"> </span><span class="k">pointer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">mean4d</span><span class="w"> </span><span class="p">(:,:,:,:)</span><span class="w"></span>
+<span class="linenos">276</span>
+<span class="linenos">277</span><span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="mi">4</span><span class="p">),</span><span class="w"> </span><span class="k">pointer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">bin2d</span><span class="p">(:,:,:)</span><span class="w"></span>
+<span class="linenos">278</span>
+<span class="linenos">279</span><span class="w">    </span><span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">myLonBeg</span><span class="p">,</span><span class="w"> </span><span class="n">myLonEnd</span><span class="w"></span>
+<span class="linenos">280</span><span class="w">    </span><span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">myLatBeg</span><span class="p">,</span><span class="w"> </span><span class="n">myLatEnd</span><span class="w"></span>
+<span class="linenos">281</span><span class="w">    </span><span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">latIndex</span><span class="p">,</span><span class="w"> </span><span class="n">lonIndex</span><span class="p">,</span><span class="w"> </span><span class="n">varLevIndex</span><span class="p">,</span><span class="w"> </span><span class="n">stepIndex</span><span class="p">,</span><span class="w"> </span><span class="n">binIndex</span><span class="w"></span>
+<span class="linenos">282</span><span class="w">    </span><span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">nVarLev</span><span class="p">,</span><span class="w"> </span><span class="n">nStep</span><span class="p">,</span><span class="w"> </span><span class="n">ier</span><span class="w"></span>
+<span class="linenos">283</span>
+<span class="linenos">284</span><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">mmpi_myid</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">.</span><span class="nb">and</span><span class="p">.</span><span class="w"> </span><span class="n">verbose</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="linenos">285</span><span class="k">      write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">286</span><span class="w">      </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;gbi_mean_gsv: Starting...&#39;</span><span class="w"></span>
+<span class="linenos">287</span><span class="w">    </span><span class="k">end if</span>
+<span class="linenos">288</span>
+<span class="linenos">289</span><span class="k">    </span><span class="n">nVarLev</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="n">statevector_in</span><span class="p">%</span><span class="n">nk</span><span class="w"></span>
+<span class="linenos">290</span><span class="w">    </span><span class="n">nStep</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="n">statevector_in</span><span class="p">%</span><span class="n">numStep</span><span class="w"></span>
+<span class="linenos">291</span><span class="w">    </span><span class="n">myLonBeg</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="n">statevector_in</span><span class="p">%</span><span class="n">myLonBeg</span><span class="w"></span>
+<span class="linenos">292</span><span class="w">    </span><span class="n">myLonEnd</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="n">statevector_in</span><span class="p">%</span><span class="n">myLonEnd</span><span class="w"></span>
+<span class="linenos">293</span><span class="w">    </span><span class="n">myLatBeg</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="n">statevector_in</span><span class="p">%</span><span class="n">myLatBeg</span><span class="w"></span>
+<span class="linenos">294</span><span class="w">    </span><span class="n">myLatEnd</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="n">statevector_in</span><span class="p">%</span><span class="n">myLatEnd</span><span class="w"></span>
+<span class="linenos">295</span>
+<span class="linenos">296</span><span class="w">    </span><span class="k">call </span><span class="n">gsv_getField</span><span class="p">(</span><span class="n">statevector_in</span><span class="p">,</span><span class="n">field4d</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">297</span><span class="w">    </span><span class="k">call </span><span class="n">gsv_getField</span><span class="p">(</span><span class="n">statevector_out</span><span class="p">,</span><span class="n">mean4d</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">298</span>
+<span class="linenos">299</span><span class="w">    </span><span class="k">call </span><span class="n">gsv_getField</span><span class="p">(</span><span class="n">gbi</span><span class="p">%</span><span class="n">statevector_bin2d</span><span class="p">,</span><span class="n">bin2d</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">300</span>
+<span class="linenos">301</span><span class="w">    </span><span class="k">do </span><span class="n">stepIndex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">nStep</span><span class="w"></span>
+<span class="linenos">302</span><span class="w">      </span><span class="k">do </span><span class="n">varLevIndex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">nVarLev</span><span class="w"></span>
+<span class="linenos">303</span>
+<span class="linenos">304</span><span class="w">        </span><span class="c">!- Sum the values per bin</span>
+<span class="linenos">305</span><span class="w">        </span><span class="n">myBinCount</span><span class="p">(:)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
+<span class="linenos">306</span><span class="w">        </span><span class="n">myBinSum</span><span class="w">  </span><span class="p">(:)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.d0</span><span class="w"></span>
+<span class="linenos">307</span><span class="w">        </span><span class="k">do </span><span class="n">latIndex</span><span class="o">=</span><span class="w"> </span><span class="n">myLatBeg</span><span class="p">,</span><span class="w"> </span><span class="n">myLatEnd</span><span class="w"></span>
+<span class="linenos">308</span><span class="w">          </span><span class="k">do </span><span class="n">lonIndex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">myLonBeg</span><span class="p">,</span><span class="w"> </span><span class="n">myLonEnd</span><span class="w"></span>
+<span class="linenos">309</span><span class="w">            </span><span class="n">binIndex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">int</span><span class="p">(</span><span class="n">bin2d</span><span class="p">(</span><span class="n">lonIndex</span><span class="p">,</span><span class="n">latIndex</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span><span class="w"></span>
+<span class="linenos">310</span><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">binIndex</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="linenos">311</span><span class="k">              </span><span class="n">myBinCount</span><span class="p">(</span><span class="n">binIndex</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">myBinCount</span><span class="p">(</span><span class="n">binIndex</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="linenos">312</span><span class="w">              </span><span class="n">myBinSum</span><span class="p">(</span><span class="n">binIndex</span><span class="p">)</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="n">myBinSum</span><span class="p">(</span><span class="n">binIndex</span><span class="p">)</span><span class="w">   </span><span class="o">+</span><span class="w"> </span><span class="n">field4d</span><span class="p">(</span><span class="n">lonIndex</span><span class="p">,</span><span class="n">latIndex</span><span class="p">,</span><span class="n">varLevIndex</span><span class="p">,</span><span class="n">stepIndex</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">313</span><span class="w">            </span><span class="k">end if</span>
+<span class="linenos">314</span><span class="k">          end do</span>
+<span class="linenos">315</span><span class="k">        end do</span><span class="w"></span>
+<span class="linenos">316</span>
+<span class="linenos">317</span><span class="w">        </span><span class="c">!- Compute the mean per bin</span>
+<span class="linenos">318</span><span class="w">        </span><span class="k">call </span><span class="n">rpn_comm_allreduce</span><span class="p">(</span><span class="n">myBinCount</span><span class="p">,</span><span class="n">binCount</span><span class="p">,</span><span class="n">gbi</span><span class="p">%</span><span class="n">numBins2d</span><span class="p">,</span><span class="s2">&quot;MPI_INTEGER&quot;</span><span class="w">         </span><span class="p">,</span><span class="s2">&quot;MPI_SUM&quot;</span><span class="p">,</span><span class="s2">&quot;GRID&quot;</span><span class="p">,</span><span class="n">ier</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">319</span><span class="w">        </span><span class="k">do </span><span class="n">binIndex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">gbi</span><span class="p">%</span><span class="n">numBins2d</span><span class="w"></span>
+<span class="linenos">320</span><span class="w">          </span><span class="n">binMean</span><span class="p">(</span><span class="n">binIndex</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">myBinSum</span><span class="p">(</span><span class="n">binIndex</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">321</span><span class="w">          </span><span class="k">call </span><span class="n">mmpi_allreduce_sumreal8scalar</span><span class="p">(</span><span class="n">binMean</span><span class="p">(</span><span class="n">binIndex</span><span class="p">),</span><span class="s2">&quot;GRID&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">322</span><span class="w">        </span><span class="k">end do</span>
+<span class="linenos">323</span>
+<span class="linenos">324</span><span class="k">        do </span><span class="n">binIndex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">gbi</span><span class="p">%</span><span class="n">numBins2d</span><span class="w"></span>
+<span class="linenos">325</span><span class="w">          </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">binCount</span><span class="p">(</span><span class="n">binIndex</span><span class="p">)</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="linenos">326</span><span class="k">            </span><span class="n">binMean</span><span class="p">(</span><span class="n">binIndex</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">binMean</span><span class="p">(</span><span class="n">binIndex</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="kt">real</span><span class="p">(</span><span class="n">binCount</span><span class="p">(</span><span class="n">binIndex</span><span class="p">),</span><span class="mi">8</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">327</span><span class="w">          </span><span class="k">else</span>
+<span class="linenos">328</span><span class="k">            </span><span class="n">binMean</span><span class="p">(</span><span class="n">binIndex</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.d0</span><span class="w"></span>
+<span class="linenos">329</span><span class="w">          </span><span class="k">end if</span>
+<span class="linenos">330</span><span class="k">        end do</span><span class="w"></span>
+<span class="linenos">331</span>
+<span class="linenos">332</span><span class="w">        </span><span class="c">!- Distribute the bin mean values at each grid point</span>
+<span class="linenos">333</span><span class="w">        </span><span class="k">do </span><span class="n">latIndex</span><span class="o">=</span><span class="w"> </span><span class="n">myLatBeg</span><span class="p">,</span><span class="w"> </span><span class="n">myLatEnd</span><span class="w"></span>
+<span class="linenos">334</span><span class="w">          </span><span class="k">do </span><span class="n">lonIndex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">myLonBeg</span><span class="p">,</span><span class="w"> </span><span class="n">myLonEnd</span><span class="w"></span>
+<span class="linenos">335</span><span class="w">            </span><span class="n">binIndex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">int</span><span class="p">(</span><span class="n">bin2d</span><span class="p">(</span><span class="n">lonIndex</span><span class="p">,</span><span class="n">latIndex</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span><span class="w"></span>
+<span class="linenos">336</span><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">binIndex</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="linenos">337</span><span class="k">              </span><span class="n">mean4d</span><span class="p">(</span><span class="n">lonIndex</span><span class="p">,</span><span class="n">latIndex</span><span class="p">,</span><span class="n">varLevIndex</span><span class="p">,</span><span class="n">stepIndex</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">binMean</span><span class="p">(</span><span class="n">binIndex</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">338</span><span class="w">            </span><span class="k">else</span>
+<span class="linenos">339</span><span class="k">              </span><span class="n">mean4d</span><span class="p">(</span><span class="n">lonIndex</span><span class="p">,</span><span class="n">latIndex</span><span class="p">,</span><span class="n">varLevIndex</span><span class="p">,</span><span class="n">stepIndex</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.d0</span><span class="w"></span>
+<span class="linenos">340</span><span class="w">            </span><span class="k">end if</span>
+<span class="linenos">341</span><span class="k">          end do</span>
+<span class="linenos">342</span><span class="k">        end do</span>
+<span class="linenos">343</span>
+<span class="linenos">344</span><span class="k">      end do</span>
+<span class="linenos">345</span><span class="k">    end do</span>
+<span class="linenos">346</span>
+<span class="linenos">347</span><span class="k">    if</span><span class="w"> </span><span class="p">(</span><span class="n">mmpi_myid</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">.</span><span class="nb">and</span><span class="p">.</span><span class="w"> </span><span class="n">verbose</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="linenos">348</span><span class="k">      write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">349</span><span class="w">      </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;gbi_mean_gsv: Done!&#39;</span><span class="w"></span>
+<span class="linenos">350</span><span class="w">    </span><span class="k">end if</span>
+<span class="linenos">351</span>
+<span class="linenos">352</span><span class="k">  end subroutine </span><span class="n">gbi_mean_gsv</span><span class="w"></span>
+<span class="linenos">353</span>
+<span class="linenos">354</span><span class="w">  </span><span class="c">!--------------------------------------------------------------------------</span>
+<span class="linenos">355</span><span class="w">  </span><span class="c">! gbi_stdDev_ens</span>
+<span class="linenos">356</span><span class="w">  </span><span class="c">!--------------------------------------------------------------------------</span>
+<span class="linenos">357</span><span class="w">  </span><span class="k">subroutine </span><span class="n">gbi_stdDev_ens</span><span class="p">(</span><span class="n">gbi</span><span class="p">,</span><span class="w"> </span><span class="n">ens</span><span class="p">,</span><span class="w"> </span><span class="n">statevector</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">358</span><span class="w">    </span><span class="k">implicit none</span>
+<span class="linenos">359</span>
+<span class="linenos">360</span><span class="k">    type</span><span class="p">(</span><span class="n">struct_gbi</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">gbi</span><span class="w"></span>
+<span class="linenos">361</span><span class="w">    </span><span class="k">type</span><span class="p">(</span><span class="n">struct_ens</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">ens</span><span class="w"></span>
+<span class="linenos">362</span><span class="w">    </span><span class="k">type</span><span class="p">(</span><span class="n">struct_gsv</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">statevector</span><span class="w"></span>
+<span class="linenos">363</span>
+<span class="linenos">364</span><span class="w">    </span><span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">myBinCount</span><span class="p">(</span><span class="n">gbi</span><span class="p">%</span><span class="n">numBins2d</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">365</span><span class="w">    </span><span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">binCount</span><span class="w">  </span><span class="p">(</span><span class="n">gbi</span><span class="p">%</span><span class="n">numBins2d</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">366</span><span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">myBinSum</span><span class="w">  </span><span class="p">(</span><span class="n">gbi</span><span class="p">%</span><span class="n">numBins2d</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">367</span><span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">binStdDev</span><span class="w"> </span><span class="p">(</span><span class="n">gbi</span><span class="p">%</span><span class="n">numBins2d</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">368</span>
+<span class="linenos">369</span><span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="mi">4</span><span class="p">),</span><span class="w"> </span><span class="k">pointer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">ptr4d_r4</span><span class="w"> </span><span class="p">(:,:,:,:)</span><span class="w"></span>
+<span class="linenos">370</span><span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span><span class="w"> </span><span class="k">pointer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">stdDev_r8</span><span class="p">(:,:,:,:)</span><span class="w"></span>
+<span class="linenos">371</span>
+<span class="linenos">372</span><span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="mi">4</span><span class="p">),</span><span class="w"> </span><span class="k">pointer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">bin2d</span><span class="p">(:,:,:)</span><span class="w"></span>
+<span class="linenos">373</span>
+<span class="linenos">374</span><span class="w">    </span><span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">myLonBeg</span><span class="p">,</span><span class="w"> </span><span class="n">myLonEnd</span><span class="w"></span>
+<span class="linenos">375</span><span class="w">    </span><span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">myLatBeg</span><span class="p">,</span><span class="w"> </span><span class="n">myLatEnd</span><span class="w"></span>
+<span class="linenos">376</span><span class="w">    </span><span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">latIndex</span><span class="p">,</span><span class="w"> </span><span class="n">lonIndex</span><span class="p">,</span><span class="w"> </span><span class="n">varLevIndex</span><span class="p">,</span><span class="w"> </span><span class="n">stepIndex</span><span class="p">,</span><span class="w"> </span><span class="n">binIndex</span><span class="p">,</span><span class="w"> </span><span class="n">memberIndex</span><span class="w"></span>
+<span class="linenos">377</span><span class="w">    </span><span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">nVarLev</span><span class="p">,</span><span class="w"> </span><span class="n">nStep</span><span class="p">,</span><span class="w"> </span><span class="n">nEns</span><span class="p">,</span><span class="w"> </span><span class="n">ier</span><span class="w"></span>
+<span class="linenos">378</span>
+<span class="linenos">379</span><span class="w">    </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="mi">4</span><span class="p">),</span><span class="w"> </span><span class="k">pointer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">varNamesList</span><span class="p">(:)</span><span class="w"></span>
+<span class="linenos">380</span>
+<span class="linenos">381</span><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">mmpi_myid</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">.</span><span class="nb">and</span><span class="p">.</span><span class="w"> </span><span class="n">verbose</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="linenos">382</span><span class="k">      write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">383</span><span class="w">      </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;gbi_stdDev_ens: Starting...&#39;</span><span class="w"></span>
+<span class="linenos">384</span><span class="w">    </span><span class="k">end if</span>
+<span class="linenos">385</span>
+<span class="linenos">386</span><span class="k">    if</span><span class="w"> </span><span class="p">(.</span><span class="nb">not</span><span class="p">.</span><span class="w"> </span><span class="n">gsv_isAllocated</span><span class="p">(</span><span class="n">statevector</span><span class="p">))</span><span class="w"> </span><span class="k">then</span>
+<span class="linenos">387</span><span class="k">      nullify</span><span class="p">(</span><span class="n">varNamesList</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">388</span><span class="w">      </span><span class="k">call </span><span class="n">ens_varNamesList</span><span class="p">(</span><span class="n">varNamesList</span><span class="p">,</span><span class="n">ens</span><span class="p">)</span><span class="w"> </span>
+<span class="linenos">389</span><span class="w">      </span><span class="k">call </span><span class="n">gsv_allocate</span><span class="p">(</span><span class="n">statevector</span><span class="p">,</span><span class="w"> </span><span class="n">ens_getNumStep</span><span class="p">(</span><span class="n">ens</span><span class="p">),</span><span class="w">               </span><span class="p">&amp;</span><span class="w"></span>
+<span class="linenos">390</span><span class="w">           </span><span class="n">ens_getHco</span><span class="p">(</span><span class="n">ens</span><span class="p">),</span><span class="w"> </span><span class="n">ens_getVco</span><span class="p">(</span><span class="n">ens</span><span class="p">),</span><span class="w"> </span><span class="n">varNames_opt</span><span class="o">=</span><span class="n">varNamesList</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span><span class="w"></span>
+<span class="linenos">391</span><span class="w">           </span><span class="n">datestamp_opt</span><span class="o">=</span><span class="n">tim_getDatestamp</span><span class="p">(),</span><span class="w"> </span><span class="n">mpi_local_opt</span><span class="o">=</span><span class="p">.</span><span class="n">true</span><span class="p">.,</span><span class="w">      </span><span class="p">&amp;</span><span class="w"></span>
+<span class="linenos">392</span><span class="w">           </span><span class="n">dataKind_opt</span><span class="o">=</span><span class="mi">8</span><span class="w"> </span><span class="p">)</span><span class="w"></span>
+<span class="linenos">393</span><span class="w">    </span><span class="k">end if</span>
+<span class="linenos">394</span>
+<span class="linenos">395</span><span class="k">    call </span><span class="n">ens_getLatLonBounds</span><span class="p">(</span><span class="n">ens</span><span class="p">,</span><span class="w"> </span><span class="n">myLonBeg</span><span class="p">,</span><span class="w"> </span><span class="n">myLonEnd</span><span class="p">,</span><span class="w"> </span><span class="n">myLatBeg</span><span class="p">,</span><span class="w"> </span><span class="n">myLatEnd</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">396</span>
+<span class="linenos">397</span><span class="w">    </span><span class="n">nVarLev</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ens_getNumK</span><span class="p">(</span><span class="n">ens</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">398</span><span class="w">    </span><span class="n">nStep</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="n">ens_getNumStep</span><span class="p">(</span><span class="n">ens</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">399</span><span class="w">    </span><span class="n">nEns</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="n">ens_getNumMembers</span><span class="p">(</span><span class="n">ens</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">400</span>
+<span class="linenos">401</span><span class="w">    </span><span class="k">call </span><span class="n">gsv_getField</span><span class="p">(</span><span class="n">statevector</span><span class="p">,</span><span class="n">stdDev_r8</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">402</span><span class="w">    </span><span class="k">call </span><span class="n">gsv_getField</span><span class="p">(</span><span class="n">gbi</span><span class="p">%</span><span class="n">statevector_bin2d</span><span class="p">,</span><span class="n">bin2d</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">403</span>
+<span class="linenos">404</span><span class="w">    </span><span class="k">do </span><span class="n">varLevIndex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">nVarLev</span><span class="w"></span>
+<span class="linenos">405</span>
+<span class="linenos">406</span><span class="w">      </span><span class="n">ptr4d_r4</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">ens_getOneLev_r4</span><span class="p">(</span><span class="n">ens</span><span class="p">,</span><span class="n">varLevIndex</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">407</span>
+<span class="linenos">408</span><span class="w">      </span><span class="k">do </span><span class="n">stepIndex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">nStep</span><span class="w"></span>
+<span class="linenos">409</span>
+<span class="linenos">410</span><span class="w">        </span><span class="c">!- Sum the square values per bin</span>
+<span class="linenos">411</span><span class="w">        </span><span class="n">myBinCount</span><span class="p">(:)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
+<span class="linenos">412</span><span class="w">        </span><span class="n">myBinSum</span><span class="w">  </span><span class="p">(:)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.d0</span><span class="w"></span>
+<span class="linenos">413</span><span class="w">        </span><span class="k">do </span><span class="n">latIndex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">myLatBeg</span><span class="p">,</span><span class="w"> </span><span class="n">myLatEnd</span><span class="w"></span>
+<span class="linenos">414</span><span class="w">          </span><span class="k">do </span><span class="n">lonIndex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">myLonBeg</span><span class="p">,</span><span class="w"> </span><span class="n">myLonEnd</span><span class="w"></span>
+<span class="linenos">415</span><span class="w">            </span><span class="n">binIndex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">int</span><span class="p">(</span><span class="n">bin2d</span><span class="p">(</span><span class="n">lonIndex</span><span class="p">,</span><span class="n">latIndex</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span><span class="w"></span>
+<span class="linenos">416</span><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">binIndex</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="linenos">417</span><span class="k">              do </span><span class="n">memberIndex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">nEns</span><span class="w"></span>
+<span class="linenos">418</span><span class="w">                </span><span class="n">myBinCount</span><span class="p">(</span><span class="n">binIndex</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">myBinCount</span><span class="p">(</span><span class="n">binIndex</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="linenos">419</span><span class="w">                </span><span class="n">myBinSum</span><span class="p">(</span><span class="n">binIndex</span><span class="p">)</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="n">myBinSum</span><span class="p">(</span><span class="n">binIndex</span><span class="p">)</span><span class="w">   </span><span class="o">+</span><span class="w"> </span><span class="kt">real</span><span class="p">(</span><span class="n">ptr4d_r4</span><span class="p">(</span><span class="n">memberIndex</span><span class="p">,</span><span class="n">stepIndex</span><span class="p">,</span><span class="n">lonIndex</span><span class="p">,</span><span class="n">latIndex</span><span class="p">),</span><span class="mi">8</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="w"></span>
+<span class="linenos">420</span><span class="w">              </span><span class="k">end do</span>
+<span class="linenos">421</span><span class="k">            end if</span>
+<span class="linenos">422</span><span class="k">          end do</span>
+<span class="linenos">423</span><span class="k">        end do</span><span class="w"></span>
+<span class="linenos">424</span>
+<span class="linenos">425</span><span class="w">        </span><span class="c">!- Compute the stdDev per bin</span>
+<span class="linenos">426</span><span class="w">        </span><span class="k">call </span><span class="n">rpn_comm_allreduce</span><span class="p">(</span><span class="n">myBinCount</span><span class="p">,</span><span class="n">binCount</span><span class="w"> </span><span class="p">,</span><span class="n">gbi</span><span class="p">%</span><span class="n">numBins2d</span><span class="p">,</span><span class="s2">&quot;MPI_INTEGER&quot;</span><span class="w">         </span><span class="p">,</span><span class="s2">&quot;MPI_SUM&quot;</span><span class="p">,</span><span class="s2">&quot;GRID&quot;</span><span class="p">,</span><span class="n">ier</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">427</span><span class="w">        </span><span class="k">call </span><span class="n">rpn_comm_allreduce</span><span class="p">(</span><span class="n">myBinSum</span><span class="w">  </span><span class="p">,</span><span class="n">binStdDev</span><span class="p">,</span><span class="n">gbi</span><span class="p">%</span><span class="n">numBins2d</span><span class="p">,</span><span class="s2">&quot;MPI_DOUBLE_PRECISION&quot;</span><span class="p">,</span><span class="s2">&quot;MPI_SUM&quot;</span><span class="p">,</span><span class="s2">&quot;GRID&quot;</span><span class="p">,</span><span class="n">ier</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">428</span>
+<span class="linenos">429</span><span class="w">        </span><span class="k">do </span><span class="n">binIndex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">gbi</span><span class="p">%</span><span class="n">numBins2d</span><span class="w"></span>
+<span class="linenos">430</span><span class="w">          </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">binCount</span><span class="p">(</span><span class="n">binIndex</span><span class="p">)</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="linenos">431</span><span class="k">            </span><span class="n">binStdDev</span><span class="p">(</span><span class="n">binIndex</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">sqrt</span><span class="p">(</span><span class="n">binStdDev</span><span class="p">(</span><span class="n">binIndex</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="kt">real</span><span class="p">(</span><span class="n">binCount</span><span class="p">(</span><span class="n">binIndex</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span><span class="w"></span>
+<span class="linenos">432</span><span class="w">          </span><span class="k">else</span>
+<span class="linenos">433</span><span class="k">            </span><span class="n">binStdDev</span><span class="p">(</span><span class="n">binIndex</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.d0</span><span class="w"></span>
+<span class="linenos">434</span><span class="w">          </span><span class="k">end if</span>
+<span class="linenos">435</span><span class="k">        end do</span><span class="w"></span>
+<span class="linenos">436</span>
+<span class="linenos">437</span><span class="w">        </span><span class="c">!- Distribute the bin stdDev values at each grid point</span>
+<span class="linenos">438</span><span class="w">        </span><span class="k">do </span><span class="n">latIndex</span><span class="o">=</span><span class="w"> </span><span class="n">myLatBeg</span><span class="p">,</span><span class="w"> </span><span class="n">myLatEnd</span><span class="w"></span>
+<span class="linenos">439</span><span class="w">          </span><span class="k">do </span><span class="n">lonIndex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">myLonBeg</span><span class="p">,</span><span class="w"> </span><span class="n">myLonEnd</span><span class="w"></span>
+<span class="linenos">440</span><span class="w">            </span><span class="n">binIndex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">int</span><span class="p">(</span><span class="n">bin2d</span><span class="p">(</span><span class="n">lonIndex</span><span class="p">,</span><span class="n">latIndex</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span><span class="w"></span>
+<span class="linenos">441</span><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">binIndex</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="linenos">442</span><span class="k">              </span><span class="n">stdDev_r8</span><span class="p">(</span><span class="n">lonIndex</span><span class="p">,</span><span class="n">latIndex</span><span class="p">,</span><span class="n">varLevIndex</span><span class="p">,</span><span class="n">stepIndex</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">binStdDev</span><span class="p">(</span><span class="n">binIndex</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">443</span><span class="w">            </span><span class="k">else</span>
+<span class="linenos">444</span><span class="k">              </span><span class="n">stdDev_r8</span><span class="p">(</span><span class="n">lonIndex</span><span class="p">,</span><span class="n">latIndex</span><span class="p">,</span><span class="n">varLevIndex</span><span class="p">,</span><span class="n">stepIndex</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.d0</span><span class="w"></span>
+<span class="linenos">445</span><span class="w">            </span><span class="k">end if</span>
+<span class="linenos">446</span><span class="k">          end do</span>
+<span class="linenos">447</span><span class="k">        end do</span>
+<span class="linenos">448</span>
+<span class="linenos">449</span><span class="k">      end do</span>
+<span class="linenos">450</span><span class="k">    end do</span>
+<span class="linenos">451</span>
+<span class="linenos">452</span><span class="k">    if</span><span class="w"> </span><span class="p">(</span><span class="n">mmpi_myid</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">.</span><span class="nb">and</span><span class="p">.</span><span class="w"> </span><span class="n">verbose</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="linenos">453</span><span class="k">      write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">454</span><span class="w">      </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;gbi_stdDev_ens: Done!&#39;</span><span class="w"></span>
+<span class="linenos">455</span><span class="w">    </span><span class="k">end if</span>
+<span class="linenos">456</span><span class="k">    </span>
+<span class="linenos">457</span><span class="k">  end subroutine </span><span class="n">gbi_stdDev_ens</span><span class="w"></span>
+<span class="linenos">458</span>
+<span class="linenos">459</span><span class="k">end module </span><span class="n">gridBinning_mod</span><span class="w"></span>
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2018, ECCC.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,17 @@
+==========================================
+midas_ominusf
+==========================================
+
+    :doc:`link to source code <midas_ominusf_src>`
+
+
+    **Dependency Diagrams:**
+
+    .. figure:: /midas_ominusf.svg
+        :height: 100px
+
+        Direct Dependency Diagram
+
+
+    .. f:autoprogram:: midas_ominusf
+

@@ -1,0 +1,823 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>obsoperatorschem_mod &mdash; MIDAS  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="MIDAS  documentation" href="../index.html" />
+    <link rel="next" title="obsoperators_mod" href="obsoperators_mod.html" />
+    <link rel="prev" title="obsfilter_mod" href="obsfilter_mod.html" /> 
+  </head>
+  <body>
+  <div>
+    <img src="../_static/MIDAS_header.png" alt="MIDAS" />
+  </div>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="obsoperators_mod.html" title="obsoperators_mod"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="obsfilter_mod.html" title="obsfilter_mod"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="obsfilter_mod.html"
+                          title="previous chapter">obsfilter_mod</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="obsoperators_mod.html"
+                          title="next chapter">obsoperators_mod</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/modules/obsoperatorschem_mod.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <section id="obsoperatorschem-mod">
+<h1>obsoperatorschem_mod<a class="headerlink" href="#obsoperatorschem-mod" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><p><a class="reference internal" href="obsoperatorschem_mod_src.html"><span class="doc">link to source code</span></a></p>
+<p><strong>Dependency Diagrams:</strong></p>
+<figure class="align-default" id="id1">
+<a class="reference internal image-reference" href="obsoperatorschem_mod.svg"><img alt="obsoperatorschem_mod.svg" height="100px" src="obsoperatorschem_mod.svg" /></a>
+<figcaption>
+<p><span class="caption-text">Direct Dependency Diagram</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id2">
+<a class="reference internal image-reference" href="obsoperatorschem_mod_rev.svg"><img alt="obsoperatorschem_mod_rev.svg" height="100px" src="obsoperatorschem_mod_rev.svg" /></a>
+<figcaption>
+<p><span class="caption-text">Reverse Dependency Diagram</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<span class="target" id="f/obsoperatorschem_mod"></span><p class="rubric">Description</p>
+<p>MODULE obsOperatorsChem_mod (prefix=’oopc’ category=’5. Observation operators’)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Purpose</dt>
+<dd class="field-odd"><p>Observation operators for CH obs family, including nonlinear, tangent-linear
+and adjoint versions, and related setup and input routines.</p>
+</dd>
+</dl>
+<p class="rubric">Quick access</p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/obsoperatorschem_mod/oopc_addefftempobsfile" title="f/obsoperatorschem_mod/oopc_addefftempobsfile"><code class="xref f f-var docutils literal notranslate"><span class="pre">oopc_addefftempobsfile</span></code></a>, <a class="reference internal" href="#f/obsoperatorschem_mod/oopc_chobsoperators" title="f/obsoperatorschem_mod/oopc_chobsoperators"><code class="xref f f-var docutils literal notranslate"><span class="pre">oopc_chobsoperators</span></code></a></p>
+</dd>
+<dt class="field-even">Routines</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/obsoperatorschem_mod/oopc_checktype" title="f/obsoperatorschem_mod/oopc_checktype"><code class="xref f f-func docutils literal notranslate"><span class="pre">oopc_checktype()</span></code></a>, <a class="reference internal" href="#f/obsoperatorschem_mod/oopc_deallocavgkern" title="f/obsoperatorschem_mod/oopc_deallocavgkern"><code class="xref f f-func docutils literal notranslate"><span class="pre">oopc_deallocavgkern()</span></code></a>, <a class="reference internal" href="#f/obsoperatorschem_mod/oopc_deallocinfo" title="f/obsoperatorschem_mod/oopc_deallocinfo"><code class="xref f f-func docutils literal notranslate"><span class="pre">oopc_deallocinfo()</span></code></a>, <a class="reference internal" href="#f/obsoperatorschem_mod/oopc_dealloclevels" title="f/obsoperatorschem_mod/oopc_dealloclevels"><code class="xref f f-func docutils literal notranslate"><span class="pre">oopc_dealloclevels()</span></code></a>, <a class="reference internal" href="#f/obsoperatorschem_mod/oopc_diagnonly" title="f/obsoperatorschem_mod/oopc_diagnonly"><code class="xref f f-func docutils literal notranslate"><span class="pre">oopc_diagnonly()</span></code></a>, <a class="reference internal" href="#f/obsoperatorschem_mod/oopc_findavgkern" title="f/obsoperatorschem_mod/oopc_findavgkern"><code class="xref f f-func docutils literal notranslate"><span class="pre">oopc_findavgkern()</span></code></a>, <a class="reference internal" href="#f/obsoperatorschem_mod/oopc_getavgkern" title="f/obsoperatorschem_mod/oopc_getavgkern"><code class="xref f f-func docutils literal notranslate"><span class="pre">oopc_getavgkern()</span></code></a>, <a class="reference internal" href="#f/obsoperatorschem_mod/oopc_getlevels" title="f/obsoperatorschem_mod/oopc_getlevels"><code class="xref f f-func docutils literal notranslate"><span class="pre">oopc_getlevels()</span></code></a>, <a class="reference internal" href="#f/obsoperatorschem_mod/oopc_gettype" title="f/obsoperatorschem_mod/oopc_gettype"><code class="xref f f-func docutils literal notranslate"><span class="pre">oopc_gettype()</span></code></a>, <a class="reference internal" href="#f/obsoperatorschem_mod/oopc_readavgkern" title="f/obsoperatorschem_mod/oopc_readavgkern"><code class="xref f f-func docutils literal notranslate"><span class="pre">oopc_readavgkern()</span></code></a>, <a class="reference internal" href="#f/obsoperatorschem_mod/oopc_readavgkernauxfile" title="f/obsoperatorschem_mod/oopc_readavgkernauxfile"><code class="xref f f-func docutils literal notranslate"><span class="pre">oopc_readavgkernauxfile()</span></code></a>, <a class="reference internal" href="#f/obsoperatorschem_mod/oopc_readlevels" title="f/obsoperatorschem_mod/oopc_readlevels"><code class="xref f f-func docutils literal notranslate"><span class="pre">oopc_readlevels()</span></code></a>, <a class="reference internal" href="#f/obsoperatorschem_mod/oopc_readnamchem" title="f/obsoperatorschem_mod/oopc_readnamchem"><code class="xref f f-func docutils literal notranslate"><span class="pre">oopc_readnamchem()</span></code></a>, <a class="reference internal" href="#f/obsoperatorschem_mod/oopc_setupch" title="f/obsoperatorschem_mod/oopc_setupch"><code class="xref f f-func docutils literal notranslate"><span class="pre">oopc_setupch()</span></code></a></p>
+</dd>
+</dl>
+<p class="rubric">Needed modules</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="earthconstants_mod.html#f/earthconstants_mod" title="f/earthconstants_mod: MODULE earthConstants_mod (prefix='ec' category='8. Low-level utilities and constants') Prefixes: ec_ (Earth constants), for miscellaneous values from diverse sources"><code class="xref f f-mod docutils literal notranslate"><span class="pre">earthconstants_mod</span></code></a>: MODULE earthConstants_mod (prefix=’ec’ category=’8. Low-level utilities and constants’) Prefixes: <a href="#id3"><span class="problematic" id="id4">ec_</span></a> (Earth constants), for miscellaneous values from diverse sources</p></li>
+<li><p><a class="reference internal" href="mathphysconstants_mod.html#f/mathphysconstants_mod" title="f/mathphysconstants_mod: MODULE MathPhysConstants_mod (prefix='mpc' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">mathphysconstants_mod</span></code></a>: MODULE MathPhysConstants_mod (prefix=’mpc’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod" title="f/obsspacedata_mod: MODULE obsSpaceData_mod (prefix='obs' category='6. High-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">obsspacedata_mod</span></code></a>: MODULE obsSpaceData_mod (prefix=’obs’ category=’6. High-level data objects’)</p></li>
+<li><p><a class="reference internal" href="columndata_mod.html#f/columndata_mod" title="f/columndata_mod: MODULE columnData_mod (prefix='col' category='6. High-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">columndata_mod</span></code></a>: MODULE columnData_mod (prefix=’col’ category=’6. High-level data objects’)</p></li>
+<li><p><a class="reference internal" href="bufr_mod.html#f/bufr_mod" title="f/bufr_mod: MODULE bufr_mod (prefix='bufr' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">bufr_mod</span></code></a>: MODULE bufr_mod (prefix=’bufr’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="physicsfunctions_mod.html#f/physicsfunctions_mod" title="f/physicsfunctions_mod: MODULE physicsFunctions_mod (prefix='phf' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">physicsfunctions_mod</span></code></a>: MODULE physicsFunctions_mod (prefix=’phf’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="midasmpi_mod.html#f/midasmpi_mod" title="f/midasmpi_mod: MODULE midasMpi_mod (prefix='mmpi' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">midasmpi_mod</span></code></a>: MODULE midasMpi_mod (prefix=’mmpi’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod" title="f/utilities_mod: MODULE utilities_mod (prefix='utl' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">utilities_mod</span></code></a>: MODULE utilities_mod (prefix=’utl’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="varnamelist_mod.html#f/varnamelist_mod" title="f/varnamelist_mod: MODULE varNameList (prefix='vnl' category='7. Low-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">varnamelist_mod</span></code></a>: MODULE varNameList (prefix=’vnl’ category=’7. Low-level data objects’)</p></li>
+<li><p><a class="reference internal" href="obssubspacedata_mod.html#f/obssubspacedata_mod" title="f/obssubspacedata_mod: MODULE obsSubSpaceData_mod (prefix='oss' category='6. High-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">obssubspacedata_mod</span></code></a>: MODULE obsSubSpaceData_mod (prefix=’oss’ category=’6. High-level data objects’)</p></li>
+<li><p><a class="reference internal" href="obsfiles_mod.html#f/obsfiles_mod" title="f/obsfiles_mod: MODULE obsFiles_mod (prefix='obsf' category='3. Observation input/output')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">obsfiles_mod</span></code></a>: MODULE obsFiles_mod (prefix=’obsf’ category=’3. Observation input/output’)</p></li>
+<li><p><a class="reference internal" href="codtyp_mod.html#f/codtyp_mod" title="f/codtyp_mod: MODULE codtyp_mod (prefix='codtyp' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">codtyp_mod</span></code></a>: MODULE codtyp_mod (prefix=’codtyp’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="ozoneclim_mod.html#f/ozoneclim_mod" title="f/ozoneclim_mod: MODULE ozoneClim_mod (prefix='ozo' category='5. Observation operators')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">ozoneclim_mod</span></code></a>: MODULE ozoneClim_mod (prefix=’ozo’ category=’5. Observation operators’)</p></li>
+<li><p><a class="reference internal" href="presprofileoperators_mod.html#f/presprofileoperators_mod" title="f/presprofileoperators_mod: MODULE presProfileOperators_mod (prefix='ppo' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">presprofileoperators_mod</span></code></a>: MODULE presProfileOperators_mod (prefix=’ppo’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="timecoord_mod.html#f/timecoord_mod" title="f/timecoord_mod: MODULE timeCoord (prefix='tim' category='7. Low-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">timecoord_mod</span></code></a>: MODULE timeCoord (prefix=’tim’ category=’7. Low-level data objects’)</p></li>
+<li><p><a class="reference internal" href="bcovarsetupchem_mod.html#f/bcovarsetupchem_mod" title="f/bcovarsetupchem_mod: MODULE BCovarSetupChem_mod (prefix='bcsc' category='6. High-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">bcovarsetupchem_mod</span></code></a>: MODULE BCovarSetupChem_mod (prefix=’bcsc’ category=’6. High-level data objects’)</p></li>
+</ul>
+<p class="rubric">Types</p>
+<ul>
+<li><dl>
+<dt class="sig sig-object f" id="f/obsoperatorschem_mod/unknown_type">
+<em class="property"><span class="pre">type</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obsoperatorschem_mod/</span></span><span class="sig-name descname"><span class="pre">unknown_type</span></span><a class="headerlink" href="#f/obsoperatorschem_mod/unknown_type" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type fields</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">applygenoper</span><em> [</em><em>logical </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">columnbound</span><em> [</em><em>real </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">constituentid</span><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">date</span><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">height</span> (*)<em> [</em><em>real </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">hhmm</span><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">hu</span> (*)<em> [</em><em>real </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">iavgkern</span><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">ixtr</span> (*)<em> [</em><em>integer </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">lat</span><em> [</em><em>real </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">layeridentified</span><em> [</em><em>logical </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">lon</span><em> [</em><em>real </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">modlevindexbot</span> (*)<em> [</em><em>integer </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">modlevindextop</span> (*)<em> [</em><em>integer </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">nmodlev</span><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">nobslev</span><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">obs_index</span><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">obslev</span> (*)<em> [</em><em>real </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">obsspacetrial</span> (*)<em> [</em><em>real </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">operatorcategory</span><em> [</em><em>character </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">pp</span> (*)<em> [</em><em>real </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">stnid</span><em> [</em><em>character </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">success</span> (*)<em> [</em><em>logical </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">trial</span> (*)<em> [</em><em>real </em><em>,</em><em>pointer</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">tt</span> (*)<em> [</em><em>real </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">varname</span><em> [</em><em>character </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">varno</span><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">vco</span><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">vlayerbottom</span> (*)<em> [</em><em>real </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">vlayertop</span> (*)<em> [</em><em>real </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">zh</span> (*,*)<em> [</em><em>real </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">zhp</span> (*,*)<em> [</em><em>real </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</li>
+<li><dl>
+<dt class="sig sig-object f">
+<em class="property"><span class="pre">type</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obsoperatorschem_mod/</span></span><span class="sig-name descname"><span class="pre">unknown_type</span></span></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type fields</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">applygenoper</span><em> [</em><em>logical </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">iavgkern</span><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">ixtr</span> (*)<em> [</em><em>integer </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">modlevindexbot</span> (*)<em> [</em><em>integer </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">modlevindextop</span> (*)<em> [</em><em>integer </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">nobslev</span><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">success</span> (*)<em> [</em><em>logical </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">trial</span> (*)<em> [</em><em>real </em><em>,</em><em>pointer</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">vlayerbottom</span> (*)<em> [</em><em>real </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">vlayertop</span> (*)<em> [</em><em>real </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">zh</span> (*,*)<em> [</em><em>real </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">zhp</span> (*,*)<em> [</em><em>real </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</li>
+<li><dl>
+<dt class="sig sig-object f">
+<em class="property"><span class="pre">type</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obsoperatorschem_mod/</span></span><span class="sig-name descname"><span class="pre">unknown_type</span></span></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type fields</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">element</span> (*)<em> [</em><em>integer </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">ibegin</span> (*)<em> [</em><em>integer </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">lat</span> (*)<em> [</em><em>real </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">n_col</span> (*)<em> [</em><em>integer </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">n_lat</span> (*)<em> [</em><em>integer </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">n_lvl</span> (*)<em> [</em><em>integer </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">n_stnid</span><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">obssubspace</span> (*)<em> [</em><em>struct_oss_obsdata </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">profelement</span> (*)<em> [</em><em>integer </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">rak</span> (*)<em> [</em><em>real </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">source</span> (*)<em> [</em><em>integer </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">stnids</span> (*)<em> [</em><em>character </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">type_bn</span> (*)<em> [</em><em>character </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">vco</span> (*)<em> [</em><em>integer </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">vlayerbottom</span> (*)<em> [</em><em>real </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">vlayertop</span> (*)<em> [</em><em>real </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</li>
+<li><dl>
+<dt class="sig sig-object f">
+<em class="property"><span class="pre">type</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obsoperatorschem_mod/</span></span><span class="sig-name descname"><span class="pre">unknown_type</span></span></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type fields</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">field</span> (*,*,*)<em> [</em><em>real </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">ivkind</span><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">lat</span> (*)<em> [</em><em>real </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">lon</span> (*)<em> [</em><em>real </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">nlat</span><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">nlev</span><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">nlon</span><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">vlev</span> (*)<em> [</em><em>real </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</li>
+</ul>
+<p class="rubric">Variables</p>
+<ul>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obsoperatorschem_mod/oopc_addefftempobsfile">
+<span class="sig-prename descclassname"><span class="pre">obsoperatorschem_mod/</span></span><span class="sig-name descname"><span class="pre">oopc_addefftempobsfile</span></span><em> <span class="pre">[</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obsoperatorschem_mod/oopc_addefftempobsfile" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obsoperatorschem_mod/oopc_chobsoperators">
+<span class="sig-prename descclassname"><span class="pre">obsoperatorschem_mod/</span></span><span class="sig-name descname"><span class="pre">oopc_chobsoperators</span></span><em> <span class="pre">[</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obsoperatorschem_mod/oopc_chobsoperators" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+</ul>
+<p class="rubric">Subroutines and functions</p>
+<dl>
+<dt class="sig sig-object f" id="f/obsoperatorschem_mod/oopc_setupch">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obsoperatorschem_mod/</span></span><span class="sig-name descname"><span class="pre">oopc_setupch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">kmode</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/obsoperatorschem_mod/oopc_setupch" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>To set up additional information required by constituent obs and
+not provided in obsSpaceData.  Also to assign observation layer
+top and bottom levels (and averaging kernel matrices).
+See ‘oopc_CHobsoperators’.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>kmode</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em> :: Mode of observation operator</p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/obsoperatorschem_mod/oopc_readnamchem" title="f/obsoperatorschem_mod/oopc_readnamchem"><code class="xref f f-func docutils literal notranslate"><span class="pre">oopc_readnamchem()</span></code></a>, <a class="reference internal" href="#f/obsoperatorschem_mod/oopc_readlevels" title="f/obsoperatorschem_mod/oopc_readlevels"><code class="xref f f-func docutils literal notranslate"><span class="pre">oopc_readlevels()</span></code></a>, <a class="reference internal" href="#f/obsoperatorschem_mod/oopc_readavgkern" title="f/obsoperatorschem_mod/oopc_readavgkern"><code class="xref f f-func docutils literal notranslate"><span class="pre">oopc_readavgkern()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="obssubspacedata_mod.html#f/obssubspacedata_mod/oss_obsdata_alloc" title="f/obssubspacedata_mod/oss_obsdata_alloc"><code class="xref f f-func docutils literal notranslate"><span class="pre">oss_obsdata_alloc()</span></code></a>, <a class="reference internal" href="bcovarsetupchem_mod.html#f/bcovarsetupchem_mod/bcsc_getcovarch" title="f/bcovarsetupchem_mod/bcsc_getcovarch"><code class="xref f f-func docutils literal notranslate"><span class="pre">bcsc_getcovarch()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/obsoperatorschem_mod/oopc_readnamchem">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obsoperatorschem_mod/</span></span><span class="sig-name descname"><span class="pre">oopc_readnamchem</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#f/obsoperatorschem_mod/oopc_readnamchem" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Read and store miscellaneous flags and constants.</p>
+</dd>
+<dt class="field-even">Comment </dt>
+<dd class="field-even"><dl class="simple">
+<dt>assim_* arrays could instead be made available to all families</dt><dd><p>by moving them to a different input namelist (and changing its
+dimensions settings).</p>
+</dd>
+</dl>
+<dl class="field-list">
+<dt class="field-odd">genOperConstraintType</dt>
+<dd class="field-odd"><p>Reference profile type for weighted integration
+or layer averaging (generalized observation)
+operator.
+Relevant for operatorSubType(2,i)=’genOper’.
+================================================
+‘Trial’  use trial field xb for mass weighted</p>
+<blockquote>
+<div><p>increment distribution</p>
+</div></blockquote>
+<dl>
+<dt>‘Diff’   use a combination of the difference of</dt><dd><blockquote>
+<div><p>an external reference xc and the trial
+field xb, i.e. mass weighted increment
+distribution as a(xc-xb) + b*xc where a
+and b depend on the size of
+sum[(xc-xb)/sig(xb)]^2 over the profile</p>
+</div></blockquote>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">genOperHCorrlenExpnt</dt>
+<dd class="field-even"><p>Used with operatorSubType(2,i) =’genOper’
+Exponent for partially mitigating the effect of
+the influence of neighbouring column amonunt obs
+from background error correlations.
+Emperically obtained exponent value.
+Not optimal for all possible local horizontal data densities.</p>
+</dd>
+<dt class="field-odd">genOperOmAStatsFactor</dt>
+<dd class="field-odd"><p>OmA RMS (or std dev) conservation factor for
+operatorSubType(2,i) =’genOper’.</p>
+</dd>
+<dt class="field-even">assim_fam</dt>
+<dd class="field-even"><p>List of families to which filt_diagnOnly is to
+apply.</p>
+</dd>
+<dt class="field-odd">assim_exclude_flag</dt>
+<dd class="field-odd"><p>Array specifying bits for identifying
+diagnostic-only observations for observations
+that would otherwise be assimilated according to
+the other assim_* arrays</p>
+</dd>
+<dt class="field-even">assim_exclude_nflag</dt>
+<dd class="field-even"><p>Number of bit flags to specify in
+assim_exclude_flag array</p>
+</dd>
+<dt class="field-odd">assim_all</dt>
+<dd class="field-odd"><p>Logical indicating if all assimilatable obs of
+the specified family will be assimilated
+(default is .true.)
+When assim_all is .false., account for the setttings
+of assim_num, assim_varno, assim_stnid, assim_nlev.</p>
+</dd>
+<dt class="field-even">assim_num</dt>
+<dd class="field-even"><p>Relevant when assim_all = ,false.
+Number combinations (stnid, bufr element,
+multi/uni-level) identified for assimilation.
+All others will not be assimilated. OmP and OmA
+diagnostics and output will still be produced
+for non-assimilated datasets.</p>
+<blockquote>
+<div><table class="docutils align-default">
+<colgroup>
+<col style="width: 7%" />
+<col style="width: 93%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>0</p></td>
+<td><p>none are to be assimilated when assim_all
+is .false. (default)</p></td>
+</tr>
+<tr class="row-even"><td><p>&gt;0</p></td>
+<td><p>sets of (stnid, bufr varno,
+multi/uni-levels) to be assimilated</p></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+</dd>
+<dt class="field-odd">assim_varno</dt>
+<dd class="field-odd"><p>Bufr elements of obs sets for assimilation. A
+value of 0 implies that all are to be used.</p>
+</dd>
+<dt class="field-even">assim_stnid</dt>
+<dd class="field-even"><p>Stnids of obs sets for assimilation. ‘*’ denote
+wild cards</p>
+</dd>
+<dt class="field-odd">assim_nlev</dt>
+<dd class="field-odd"><table class="docutils align-default">
+<colgroup>
+<col style="width: 11%" />
+<col style="width: 89%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>0</p></td>
+<td><p>multi-level and uni-level</p></td>
+</tr>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>uni_level</p></td>
+</tr>
+<tr class="row-odd"><td><p>&gt;1</p></td>
+<td><p>multi-level</p></td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt class="field-even">tropo_mode</dt>
+<dd class="field-even"><p>Integer indicating if special treatment is to be
+given to the troposphere when assimilating total
+column measurements. Values indicate</p>
+<blockquote>
+<div><table class="docutils align-default">
+<colgroup>
+<col style="width: 7%" />
+<col style="width: 93%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>0</p></td>
+<td><p>No special treatment given (default)</p></td>
+</tr>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>Values of the adjoint model above
+obsoper%columnBound set to zero. If
+specified, generalized innovation
+operator only applied below
+obsoper%columnBound in the tangent
+linear model.</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>Values of tangent linear model and
+adjoint model above obsoper%columnBound
+set to zero.</p></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p>Array index refers to BUFR code element of Table
+08046 (iconstituentId) identifying the
+constituent. Relevant for total column
+measurements only.</p>
+</dd>
+<dt class="field-odd">tropo_bound</dt>
+<dd class="field-odd"><p>Integer indicating which column top value to use
+if tropo_mode is non-zero.</p>
+<blockquote>
+<div><table class="docutils align-default">
+<colgroup>
+<col style="width: 7%" />
+<col style="width: 93%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>0</p></td>
+<td><p>Use fixed value of tropo_column_top</p></td>
+</tr>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>Use model determination of tropopause</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>Use model determination of PBL</p></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p>Options 1 and 2 will default to the value set
+in tropo_column_top if the model derived column
+top could not be determined. Relevant for total
+column measurements only.</p>
+</dd>
+<dt class="field-even">tropo_column_top</dt>
+<dd class="field-even"><p>Default value to use for the column boundary
+(in Pa). Array index refers to BUFR code element
+of Table 08046 (iconstituentId) identifying
+the constituent. Relevant for total column
+measurements only.</p>
+</dd>
+<dt class="field-odd">obsdata_maxsize</dt>
+<dd class="field-odd"><p>Max allowed size of work arrays (in terms of
+number of obs) associated to ordered observation
+indices</p>
+</dd>
+<dt class="field-even">modelName</dt>
+<dd class="field-even"><p>Identifier of forecast model
+Default: ‘GEM-MACH’
+Set to ‘GEM’ for varNames of ‘O3L’, ‘CH4L’, and ‘N2OL’</p>
+</dd>
+</dl>
+<dl>
+<dt>:operatorSubType(2,i):Operator sub-type name.</dt><dd><p>Index (2,i) for sub-type to apply for stnid in element (1,i)
+See related “<a class="reference external" href="mailto:obsoper&#37;&#52;&#48;operatorCategory">obsoper<span>&#64;</span>operatorCategory</a>” automatically assigned
+based on obs BUFR element and obsinfo_chm content.</p>
+<p>Operator        Sub-type name    Description
+Category
+=============  =====================================================================
+‘Interp’        ‘default’        Piecewise linear interpolation (default)</p>
+<blockquote>
+<div><p>‘wgtAvg’         Piecewise weighted averaging  interpolator</p>
+</div></blockquote>
+<p>‘Surface’       ‘default’        No special treatment (default)
+‘Integ’         ‘default’        Simple/basic vertical integration (default)</p>
+<blockquote>
+<div><p>‘genOper’        Weighted vertical integration - see ‘genOper*’ parameters</p>
+</div></blockquote>
+<dl class="simple">
+<dt>‘LayerAvg’      ‘default’        Simple layer averaging (default)</dt><dd><p>‘genOper’        Weighted vertical layer averaging - see ‘genOper*’ parameters</p>
+</dd>
+</dl>
+<p>Notes:</p>
+<ul class="simple">
+<li><p>‘genOper’ requires NAMBCHM namelist parameter settings
+getPhysSpaceStats=.true. and
+getPhysSpaceHCorrel=.true.</p></li>
+<li><p>Application of averaging kernels is directed only
+by the content of the obsinfo_chm file ‘SECTION III’</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">storeOperators</dt>
+<dd class="field-odd"><p>Logical indicating if linear operators are stored for re-use in TL and AD calc.
+If so, the linear operators will not be re-calculated at different iterations.
+Not used when tropo_mode&gt;=1</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/obsoperatorschem_mod/oopc_setupch" title="f/obsoperatorschem_mod/oopc_setupch"><code class="xref f f-func docutils literal notranslate"><span class="pre">oopc_setupch()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/obsoperatorschem_mod/oopc_readlevels">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obsoperatorschem_mod/</span></span><span class="sig-name descname"><span class="pre">oopc_readlevels</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#f/obsoperatorschem_mod/oopc_readlevels" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>To read and to store reference levels (where needed) or top- and
+bottom-layer boundaries for CH sub-families.</p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/obsoperatorschem_mod/oopc_setupch" title="f/obsoperatorschem_mod/oopc_setupch"><code class="xref f f-func docutils literal notranslate"><span class="pre">oopc_setupch()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/obsoperatorschem_mod/oopc_getlevels">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obsoperatorschem_mod/</span></span><span class="sig-name descname"><span class="pre">oopc_getlevels</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#f/obsoperatorschem_mod/oopc_getlevels" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>To return reference model levels or layer boundaries for an observation.
+Combination of STNID, element variable number and number of vertical
+levels to determine association to the observations. Default values
+for top and bottom layers for total column measurements are to be
+provided.</p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_stnid_equal" title="f/utilities_mod/utl_stnid_equal"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_stnid_equal()</span></code></a>, <a class="reference internal" href="bufr_mod.html#f/bufr_mod/bufr_isintegral" title="f/bufr_mod/bufr_isintegral"><code class="xref f f-func docutils literal notranslate"><span class="pre">bufr_isintegral()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/obsoperatorschem_mod/oopc_dealloclevels">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obsoperatorschem_mod/</span></span><span class="sig-name descname"><span class="pre">oopc_dealloclevels</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#f/obsoperatorschem_mod/oopc_dealloclevels" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>To deallocate temporary storage space used for layer info</p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/obsoperatorschem_mod/oopc_deallocinfo" title="f/obsoperatorschem_mod/oopc_deallocinfo"><code class="xref f f-func docutils literal notranslate"><span class="pre">oopc_deallocinfo()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/obsoperatorschem_mod/oopc_readavgkern">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obsoperatorschem_mod/</span></span><span class="sig-name descname"><span class="pre">oopc_readavgkern</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#f/obsoperatorschem_mod/oopc_readavgkern" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>To read averaging kernels from auxiliary file or observation file</p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/obsoperatorschem_mod/oopc_setupch" title="f/obsoperatorschem_mod/oopc_setupch"><code class="xref f f-func docutils literal notranslate"><span class="pre">oopc_setupch()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/obsoperatorschem_mod/oopc_readavgkernauxfile" title="f/obsoperatorschem_mod/oopc_readavgkernauxfile"><code class="xref f f-func docutils literal notranslate"><span class="pre">oopc_readavgkernauxfile()</span></code></a>, <a class="reference internal" href="obsfiles_mod.html#f/obsfiles_mod/obsf_obssub_read" title="f/obsfiles_mod/obsf_obssub_read"><code class="xref f f-func docutils literal notranslate"><span class="pre">obsf_obssub_read()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/obsoperatorschem_mod/oopc_readavgkernauxfile">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obsoperatorschem_mod/</span></span><span class="sig-name descname"><span class="pre">oopc_readavgkernauxfile</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#f/obsoperatorschem_mod/oopc_readavgkernauxfile" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>To read and to store averaging kernel matricesfor CH sub-families</p>
+</dd>
+<dt class="field-even">Comments </dt>
+<dd class="field-even"><ul class="simple">
+<li><p>Currently implemented for only one latitude band</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/obsoperatorschem_mod/oopc_readavgkern" title="f/obsoperatorschem_mod/oopc_readavgkern"><code class="xref f f-func docutils literal notranslate"><span class="pre">oopc_readavgkern()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/obsoperatorschem_mod/oopc_deallocavgkern">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obsoperatorschem_mod/</span></span><span class="sig-name descname"><span class="pre">oopc_deallocavgkern</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#f/obsoperatorschem_mod/oopc_deallocavgkern" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>To deallocate temporary storage space used for averaging kernels</p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="obssubspacedata_mod.html#f/obssubspacedata_mod/oss_obsdata_dealloc" title="f/obssubspacedata_mod/oss_obsdata_dealloc"><code class="xref f f-func docutils literal notranslate"><span class="pre">oss_obsdata_dealloc()</span></code></a>, <a class="reference internal" href="#f/obsoperatorschem_mod/oopc_deallocinfo" title="f/obsoperatorschem_mod/oopc_deallocinfo"><code class="xref f f-func docutils literal notranslate"><span class="pre">oopc_deallocinfo()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/obsoperatorschem_mod/oopc_findavgkern">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obsoperatorschem_mod/</span></span><span class="sig-name descname"><span class="pre">oopc_findavgkern</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">cstnid</span></em>, <em class="sig-param"><span class="pre">varno</span></em>, <em class="sig-param"><span class="pre">nlev</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/obsoperatorschem_mod/oopc_findavgkern" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>To find the averaging kernel for an observation if one is
+specified. Returns 0 if either not found or not specified.
+Combination of STNID, BUFR element and number of vertical levels
+to determine association to the observations.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>cstnid</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em> :: station id</p></li>
+<li><p><strong>varno</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em> :: BUFR descriptor element</p></li>
+<li><p><strong>nlev</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em> :: number of levels in the observation</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Return</dt>
+<dd class="field-odd"><p><strong>istnid</strong><em> [</em><em>integer </em><em>]</em> :: Index of averaging kernel in oopc_avgkern if found. Zero indicates  averaging kernel not found.</p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_stnid_equal" title="f/utilities_mod/utl_stnid_equal"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_stnid_equal()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/obsoperatorschem_mod/oopc_getavgkern">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obsoperatorschem_mod/</span></span><span class="sig-name descname"><span class="pre">oopc_getavgkern</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">istnid</span></em>, <em class="sig-param"><span class="pre">nlev</span></em>, <em class="sig-param"><span class="pre">ncol</span></em>, <em class="sig-param"><span class="pre">code</span></em>, <em class="sig-param"><span class="pre">avg_kern</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/obsoperatorschem_mod/oopc_getavgkern" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>To return averaging kernel for an observation.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>istnid</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em> :: index of averaging kernel in oopc_avgkern</p></li>
+<li><p><strong>nlev</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em> :: number of observation levels</p></li>
+<li><p><strong>ncol</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em> :: number of columns for avg kernel info (without the a priori contribution)</p></li>
+<li><p><strong>code</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em> :: measurement identifier</p></li>
+<li><p><strong>avg_kern</strong> (nlev,ncol + 2)<em> [</em><em>real </em><em>,</em><em>out</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="obssubspacedata_mod.html#f/obssubspacedata_mod/oss_obsdata_get_array2d" title="f/obssubspacedata_mod/oss_obsdata_get_array2d"><code class="xref f f-func docutils literal notranslate"><span class="pre">oss_obsdata_get_array2d()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/obsoperatorschem_mod/oopc_deallocinfo">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obsoperatorschem_mod/</span></span><span class="sig-name descname"><span class="pre">oopc_deallocinfo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">info</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/obsoperatorschem_mod/oopc_deallocinfo" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>To deallocate struct_oopc_info instance</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>info</strong><em> [</em><em>struct_oopc_info </em><em>,</em><em>inout</em><em>]</em></p>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/obsoperatorschem_mod/oopc_dealloclevels" title="f/obsoperatorschem_mod/oopc_dealloclevels"><code class="xref f f-func docutils literal notranslate"><span class="pre">oopc_dealloclevels()</span></code></a>, <a class="reference internal" href="#f/obsoperatorschem_mod/oopc_deallocavgkern" title="f/obsoperatorschem_mod/oopc_deallocavgkern"><code class="xref f f-func docutils literal notranslate"><span class="pre">oopc_deallocavgkern()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/obsoperatorschem_mod/oopc_diagnonly">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obsoperatorschem_mod/</span></span><span class="sig-name descname"><span class="pre">oopc_diagnonly</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">cfamname</span></em>, <em class="sig-param"><span class="pre">cstnid</span></em>, <em class="sig-param"><span class="pre">varno</span></em>, <em class="sig-param"><span class="pre">nobslev</span></em>, <em class="sig-param"><span class="pre">flag</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/obsoperatorschem_mod/oopc_diagnonly" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>To identify whether or not the obs set identified by the
+combination of (cstnid,varno,nobslev) will be assimilated or
+else used for independent verifications after
+assimilation/minimization</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>cfamname</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em> :: Family name</p></li>
+<li><p><strong>cstnid</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em> :: Input station id</p></li>
+<li><p><strong>varno</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em> :: Obs BUFR number</p></li>
+<li><p><strong>nobslev</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em> :: Number of levels</p></li>
+<li><p><strong>flag</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em> :: observation integer flag</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Return</dt>
+<dd class="field-odd"><p><strong>oopc_diagnonly</strong><em> [</em><em>logical </em><em>]</em></p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="obsspacediag_mod.html#f/obsspacediag_mod/osd_obsdiagnostics" title="f/obsspacediag_mod/osd_obsdiagnostics"><code class="xref f f-func docutils literal notranslate"><span class="pre">osd_obsdiagnostics()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_stnid_equal" title="f/utilities_mod/utl_stnid_equal"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_stnid_equal()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/obsoperatorschem_mod/oopc_checktype">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obsoperatorschem_mod/</span></span><span class="sig-name descname"><span class="pre">oopc_checktype</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">stnidset</span></em>, <em class="sig-param"><span class="pre">typeset</span></em>, <em class="sig-param"><span class="pre">stnid</span></em>, <em class="sig-param"><span class="pre">type_bn</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/obsoperatorschem_mod/oopc_checktype" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>To determine if specified combination of (stnid,type) found
+in (StnidSet,TypeSet).</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>stnidset</strong> (*)<em> [</em><em>character </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>typeset</strong> (*)<em> [</em><em>character </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>stnid</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>type_bn</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Return</dt>
+<dd class="field-odd"><p><strong>sametype</strong><em> [</em><em>logical </em><em>]</em></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_stnid_equal" title="f/utilities_mod/utl_stnid_equal"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_stnid_equal()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/obsoperatorschem_mod/oopc_gettype">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obsoperatorschem_mod/</span></span><span class="sig-name descname"><span class="pre">oopc_gettype</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">stnidset</span></em>, <em class="sig-param"><span class="pre">typeset</span></em>, <em class="sig-param"><span class="pre">stnid</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/obsoperatorschem_mod/oopc_gettype" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>To determine “type” for specified “stnid” found in “(StnidSet,Typesef)”.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>stnidset</strong> (*)<em> [</em><em>character </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>typeset</strong> (*)<em> [</em><em>character </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>stnid</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Return</dt>
+<dd class="field-odd"><p><strong>type</strong></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_stnid_equal" title="f/utilities_mod/utl_stnid_equal"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_stnid_equal()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div></blockquote>
+</section>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="obsoperators_mod.html" title="obsoperators_mod"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="obsfilter_mod.html" title="obsfilter_mod"
+             >previous</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2018, ECCC.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,8 @@
+==========================================
+midas_calcstats source
+==========================================
+
+    .. literalinclude:: ../_src_files/calcStats.f90
+       :language: fortran
+       :linenos:
+

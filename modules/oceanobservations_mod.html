@@ -1,0 +1,238 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>oceanobservations_mod &mdash; MIDAS  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="MIDAS  documentation" href="../index.html" />
+    <link rel="next" title="ominusf_mod" href="ominusf_mod.html" />
+    <link rel="prev" title="oceanbackground_mod" href="oceanbackground_mod.html" /> 
+  </head>
+  <body>
+  <div>
+    <img src="../_static/MIDAS_header.png" alt="MIDAS" />
+  </div>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="ominusf_mod.html" title="ominusf_mod"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="oceanbackground_mod.html" title="oceanbackground_mod"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="oceanbackground_mod.html"
+                          title="previous chapter">oceanbackground_mod</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="ominusf_mod.html"
+                          title="next chapter">ominusf_mod</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/modules/oceanobservations_mod.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <section id="oceanobservations-mod">
+<h1>oceanobservations_mod<a class="headerlink" href="#oceanobservations-mod" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><p><a class="reference internal" href="oceanobservations_mod_src.html"><span class="doc">link to source code</span></a></p>
+<p><strong>Dependency Diagrams:</strong></p>
+<figure class="align-default" id="id1">
+<a class="reference internal image-reference" href="oceanobservations_mod.svg"><img alt="oceanobservations_mod.svg" height="100px" src="oceanobservations_mod.svg" /></a>
+<figcaption>
+<p><span class="caption-text">Direct Dependency Diagram</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id2">
+<a class="reference internal image-reference" href="oceanobservations_mod_rev.svg"><img alt="oceanobservations_mod_rev.svg" height="100px" src="oceanobservations_mod_rev.svg" /></a>
+<figcaption>
+<p><span class="caption-text">Reverse Dependency Diagram</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<span class="target" id="f/oceanobservations_mod"></span><p class="rubric">Description</p>
+<p>MODULE oceanObservations_mod (prefix=’oobs’ category=’1. High-level functionality’)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Purpose</dt>
+<dd class="field-odd"><p>storage for ocean observations related subroutines</p>
+</dd>
+</dl>
+<p class="rubric">Quick access</p>
+<dl class="field-list simple">
+<dt class="field-odd">Routines</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/oceanobservations_mod/oobs_computeobsdata" title="f/oceanobservations_mod/oobs_computeobsdata"><code class="xref f f-func docutils literal notranslate"><span class="pre">oobs_computeobsdata()</span></code></a>, <a class="reference internal" href="#f/oceanobservations_mod/oobs_pseudosst" title="f/oceanobservations_mod/oobs_pseudosst"><code class="xref f f-func docutils literal notranslate"><span class="pre">oobs_pseudosst()</span></code></a></p>
+</dd>
+</dl>
+<p class="rubric">Needed modules</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="midasmpi_mod.html#f/midasmpi_mod" title="f/midasmpi_mod: MODULE midasMpi_mod (prefix='mmpi' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">midasmpi_mod</span></code></a>: MODULE midasMpi_mod (prefix=’mmpi’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod" title="f/utilities_mod: MODULE utilities_mod (prefix='utl' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">utilities_mod</span></code></a>: MODULE utilities_mod (prefix=’utl’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod" title="f/obsspacedata_mod: MODULE obsSpaceData_mod (prefix='obs' category='6. High-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">obsspacedata_mod</span></code></a>: MODULE obsSpaceData_mod (prefix=’obs’ category=’6. High-level data objects’)</p></li>
+<li><p><a class="reference internal" href="codtyp_mod.html#f/codtyp_mod" title="f/codtyp_mod: MODULE codtyp_mod (prefix='codtyp' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">codtyp_mod</span></code></a>: MODULE codtyp_mod (prefix=’codtyp’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod" title="f/gridstatevector_mod: MODULE gridStateVector_mod (prefix='gsv' category='6. High-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">gridstatevector_mod</span></code></a>: MODULE gridStateVector_mod (prefix=’gsv’ category=’6. High-level data objects’)</p></li>
+<li><p><a class="reference internal" href="gridstatevectorfileio_mod.html#f/gridstatevectorfileio_mod" title="f/gridstatevectorfileio_mod: MODULE gridStateVectorFile_mod (prefix='gio' category='4. Data Object transformations')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">gridstatevectorfileio_mod</span></code></a>: MODULE gridStateVectorFile_mod (prefix=’gio’ category=’4. Data Object transformations’)</p></li>
+<li><p><a class="reference internal" href="horizontalcoord_mod.html#f/horizontalcoord_mod" title="f/horizontalcoord_mod: MODULE HorizontalCoord_mod (prefix='hco' category='7. Low-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">horizontalcoord_mod</span></code></a>: MODULE HorizontalCoord_mod (prefix=’hco’ category=’7. Low-level data objects’)</p></li>
+<li><p><a class="reference internal" href="verticalcoord_mod.html#f/verticalcoord_mod" title="f/verticalcoord_mod: MODULE verticalcoord (prefix='vco' category='7. Low-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">verticalcoord_mod</span></code></a>: MODULE verticalcoord (prefix=’vco’ category=’7. Low-level data objects’)</p></li>
+<li><p><a class="reference internal" href="oceanmask_mod.html#f/oceanmask_mod" title="f/oceanmask_mod: MODULE oceanMask_mod (prefix='ocm' category='7. Low-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">oceanmask_mod</span></code></a>: MODULE oceanMask_mod (prefix=’ocm’ category=’7. Low-level data objects’)</p></li>
+<li><p><a class="reference internal" href="timecoord_mod.html#f/timecoord_mod" title="f/timecoord_mod: MODULE timeCoord (prefix='tim' category='7. Low-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">timecoord_mod</span></code></a>: MODULE timeCoord (prefix=’tim’ category=’7. Low-level data objects’)</p></li>
+<li><p><a class="reference internal" href="codeprecision_mod.html#f/codeprecision_mod" title="f/codeprecision_mod: MODULE codePrecision_mod (prefix='pre' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">codeprecision_mod</span></code></a>: MODULE codePrecision_mod (prefix=’pre’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="sqliteread_mod.html#f/sqliteread_mod" title="f/sqliteread_mod: MODULE sqliteRead (prefix='sqlr' category='3. Observation input/output')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">sqliteread_mod</span></code></a>: MODULE sqliteRead (prefix=’sqlr’ category=’3. Observation input/output’)</p></li>
+<li><p><a class="reference internal" href="bufr_mod.html#f/bufr_mod" title="f/bufr_mod: MODULE bufr_mod (prefix='bufr' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">bufr_mod</span></code></a>: MODULE bufr_mod (prefix=’bufr’ category=’8. Low-level utilities and constants’)</p></li>
+</ul>
+<p class="rubric">Variables</p>
+<p class="rubric">Subroutines and functions</p>
+<dl>
+<dt class="sig sig-object f" id="f/oceanobservations_mod/oobs_pseudosst">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">oceanobservations_mod/</span></span><span class="sig-name descname"><span class="pre">oobs_pseudosst</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">hco</span></em>, <em class="sig-param"><span class="pre">vco</span></em>, <em class="sig-param"><span class="pre">icefractionthreshold</span></em>, <em class="sig-param"><span class="pre">outputsst</span></em>, <em class="sig-param"><span class="pre">outputfreshwaterst</span></em>, <em class="sig-param"><span class="pre">icethinning</span></em>, <em class="sig-param"><span class="pre">outputfilename</span></em>, <em class="sig-param"><span class="pre">seawaterthreshold</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/oceanobservations_mod/oobs_pseudosst" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>to generate pseudo SST data</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>hco</strong><em> [</em><em>struct_hco </em><em>,</em><em>inout,pointer</em><em>]</em> :: horizontal grid structure</p></li>
+<li><p><strong>vco</strong><em> [</em><em>struct_vco </em><em>,</em><em>in,pointer</em><em>]</em> :: vertical grid structure</p></li>
+<li><p><strong>icefractionthreshold</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: consider no ice condition below this threshold</p></li>
+<li><p><strong>outputsst</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: output SST value for pseudo observations</p></li>
+<li><p><strong>outputfreshwaterst</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: output fresh water surface temperature for pseudo observations</p></li>
+<li><p><strong>icethinning</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em> :: generate pseudo obs in every ‘iceThinning’ points</p></li>
+<li><p><strong>outputfilename</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>seawaterthreshold</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: to distinguish inland water from sea water</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../programs/midas_pseudosstobs.html#f/midas_pseudosstobs" title="f/midas_pseudosstobs"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_pseudosstobs</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="midasmpi_mod.html#f/midasmpi_mod/mmpi_setup_lonbands" title="f/midasmpi_mod/mmpi_setup_lonbands"><code class="xref f f-func docutils literal notranslate"><span class="pre">mmpi_setup_lonbands()</span></code></a>, <a class="reference internal" href="midasmpi_mod.html#f/midasmpi_mod/mmpi_setup_latbands" title="f/midasmpi_mod/mmpi_setup_latbands"><code class="xref f f-func docutils literal notranslate"><span class="pre">mmpi_setup_latbands()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_allocate" title="f/gridstatevector_mod/gsv_allocate"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_allocate()</span></code></a>, <a class="reference internal" href="gridstatevectorfileio_mod.html#f/gridstatevectorfileio_mod/gio_readfromfile" title="f/gridstatevectorfileio_mod/gio_readfromfile"><code class="xref f f-func docutils literal notranslate"><span class="pre">gio_readfromfile()</span></code></a>, <a class="reference internal" href="oceanmask_mod.html#f/oceanmask_mod/ocm_readmaskfromfile" title="f/oceanmask_mod/ocm_readmaskfromfile"><code class="xref f f-func docutils literal notranslate"><span class="pre">ocm_readmaskfromfile()</span></code></a>, <a class="reference internal" href="oceanmask_mod.html#f/oceanmask_mod/ocm_deallocate" title="f/oceanmask_mod/ocm_deallocate"><code class="xref f f-func docutils literal notranslate"><span class="pre">ocm_deallocate()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_deallocate" title="f/gridstatevector_mod/gsv_deallocate"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_deallocate()</span></code></a>, <a class="reference internal" href="timecoord_mod.html#f/timecoord_mod/tim_getdatestampfromfile" title="f/timecoord_mod/tim_getdatestampfromfile"><code class="xref f f-func docutils literal notranslate"><span class="pre">tim_getdatestampfromfile()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_randomorderint" title="f/utilities_mod/utl_randomorderint"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_randomorderint()</span></code></a>, <a class="reference internal" href="#f/oceanobservations_mod/oobs_computeobsdata" title="f/oceanobservations_mod/oobs_computeobsdata"><code class="xref f f-func docutils literal notranslate"><span class="pre">oobs_computeobsdata()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_initialize" title="f/obsspacedata_mod/obs_initialize"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_initialize()</span></code></a>, <a class="reference internal" href="sqliteread_mod.html#f/sqliteread_mod/sqlr_writeemptypseudosstobsfile" title="f/sqliteread_mod/sqlr_writeemptypseudosstobsfile"><code class="xref f f-func docutils literal notranslate"><span class="pre">sqlr_writeemptypseudosstobsfile()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/oceanobservations_mod/oobs_computeobsdata">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">oceanobservations_mod/</span></span><span class="sig-name descname"><span class="pre">oobs_computeobsdata</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">obsdata</span></em>, <em class="sig-param"><span class="pre">icedomainindexes</span></em>, <em class="sig-param"><span class="pre">icelons</span></em>, <em class="sig-param"><span class="pre">icelats</span></em>, <em class="sig-param"><span class="pre">icethinning</span></em>, <em class="sig-param"><span class="pre">outputsst</span></em>, <em class="sig-param"><span class="pre">outputfreshwaterst</span></em>, <em class="sig-param"><span class="pre">outputfilename</span></em>, <em class="sig-param"><span class="pre">dateprint</span></em>, <em class="sig-param"><span class="pre">timeprint</span></em>, <em class="sig-param"><span class="pre">seawaterfraction</span></em>, <em class="sig-param"><span class="pre">seawaterthreshold</span></em>, <em class="sig-param"><span class="pre">inlandwaterpoints</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/oceanobservations_mod/oobs_computeobsdata" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>pseudo SST data are put into obsSpaceData
+and written into an SQLite file</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>obsdata</strong><em> [</em><em>struct_obs </em><em>,</em><em>inout</em><em>]</em> :: obsSpaceData</p></li>
+<li><p><strong>icedomainindexes</strong> (*)<em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em> :: array of the ice-covered point indexes</p></li>
+<li><p><strong>icelons</strong> (*)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: longitudes of sea ice</p></li>
+<li><p><strong>icelats</strong> (*)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: latitudes of sea ice</p></li>
+<li><p><strong>icethinning</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em> :: generate pseudo obs in every ‘iceThinning’ points</p></li>
+<li><p><strong>outputsst</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: output SST value for pseudo observations</p></li>
+<li><p><strong>outputfreshwaterst</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: output fresh water surface temperature for pseudo obs</p></li>
+<li><p><strong>outputfilename</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>dateprint</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>timeprint</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>seawaterfraction</strong> (*)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: sea water fraction data: 0: fresh water; 1: sea water</p></li>
+<li><p><strong>seawaterthreshold</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: to distinguish inland water from sea water</p></li>
+<li><p><strong>inlandwaterpoints</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em> :: number of inland water points</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/oceanobservations_mod/oobs_pseudosst" title="f/oceanobservations_mod/oobs_pseudosst"><code class="xref f f-func docutils literal notranslate"><span class="pre">oobs_pseudosst()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_initialize" title="f/obsspacedata_mod/obs_initialize"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_initialize()</span></code></a>, <a class="reference internal" href="codtyp_mod.html#f/codtyp_mod/codtyp_get_codtyp" title="f/codtyp_mod/codtyp_get_codtyp"><code class="xref f f-func docutils literal notranslate"><span class="pre">codtyp_get_codtyp()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_setfamily" title="f/obsspacedata_mod/obs_setfamily"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_setfamily()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_headset_i" title="f/obsspacedata_mod/obs_headset_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_headset_i()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyset_i" title="f/obsspacedata_mod/obs_bodyset_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyset_i()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_set_c" title="f/obsspacedata_mod/obs_set_c"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_set_c()</span></code></a>, <a class="reference internal" href="sqliteread_mod.html#f/sqliteread_mod/sqlr_writepseudosstobs" title="f/sqliteread_mod/sqlr_writepseudosstobs"><code class="xref f f-func docutils literal notranslate"><span class="pre">sqlr_writepseudosstobs()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_finalize" title="f/obsspacedata_mod/obs_finalize"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_finalize()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div></blockquote>
+</section>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="ominusf_mod.html" title="ominusf_mod"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="oceanbackground_mod.html" title="oceanbackground_mod"
+             >previous</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2018, ECCC.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.
+    </div>
+  </body>
+</html>

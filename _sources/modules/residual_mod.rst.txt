@@ -1,0 +1,22 @@
+==========================================
+residual_mod
+==========================================
+
+    :doc:`link to source code <residual_mod_src>`
+
+
+    **Dependency Diagrams:**
+
+    .. figure:: /residual_mod.svg
+        :height: 100px
+
+        Direct Dependency Diagram
+
+    .. figure:: /residual_mod_rev.svg
+        :height: 100px
+
+        Reverse Dependency Diagram
+
+
+    .. f:automodule:: residual_mod
+

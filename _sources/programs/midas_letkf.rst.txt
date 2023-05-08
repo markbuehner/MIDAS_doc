@@ -1,0 +1,17 @@
+==========================================
+midas_letkf
+==========================================
+
+    :doc:`link to source code <midas_letkf_src>`
+
+
+    **Dependency Diagrams:**
+
+    .. figure:: /midas_letkf.svg
+        :height: 100px
+
+        Direct Dependency Diagram
+
+
+    .. f:autoprogram:: midas_letkf
+

@@ -1,0 +1,22 @@
+==========================================
+physicsfunctions_mod
+==========================================
+
+    :doc:`link to source code <physicsfunctions_mod_src>`
+
+
+    **Dependency Diagrams:**
+
+    .. figure:: /physicsfunctions_mod.svg
+        :height: 100px
+
+        Direct Dependency Diagram
+
+    .. figure:: /physicsfunctions_mod_rev.svg
+        :height: 100px
+
+        Reverse Dependency Diagram
+
+
+    .. f:automodule:: physicsfunctions_mod
+

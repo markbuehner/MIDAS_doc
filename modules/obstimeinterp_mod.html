@@ -1,0 +1,368 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>obstimeinterp_mod &mdash; MIDAS  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="MIDAS  documentation" href="../index.html" />
+    <link rel="next" title="obsvariabletransforms_mod" href="obsvariabletransforms_mod.html" />
+    <link rel="prev" title="lamspectraltransform_mod" href="lamspectraltransform_mod.html" /> 
+  </head>
+  <body>
+  <div>
+    <img src="../_static/MIDAS_header.png" alt="MIDAS" />
+  </div>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="obsvariabletransforms_mod.html" title="obsvariabletransforms_mod"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="lamspectraltransform_mod.html" title="lamspectraltransform_mod"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="lamspectraltransform_mod.html"
+                          title="previous chapter">lamspectraltransform_mod</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="obsvariabletransforms_mod.html"
+                          title="next chapter">obsvariabletransforms_mod</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/modules/obstimeinterp_mod.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <section id="obstimeinterp-mod">
+<h1>obstimeinterp_mod<a class="headerlink" href="#obstimeinterp-mod" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><p><a class="reference internal" href="obstimeinterp_mod_src.html"><span class="doc">link to source code</span></a></p>
+<p><strong>Dependency Diagrams:</strong></p>
+<figure class="align-default" id="id1">
+<a class="reference internal image-reference" href="obstimeinterp_mod.svg"><img alt="obstimeinterp_mod.svg" height="100px" src="obstimeinterp_mod.svg" /></a>
+<figcaption>
+<p><span class="caption-text">Direct Dependency Diagram</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id2">
+<a class="reference internal image-reference" href="obstimeinterp_mod_rev.svg"><img alt="obstimeinterp_mod_rev.svg" height="100px" src="obstimeinterp_mod_rev.svg" /></a>
+<figcaption>
+<p><span class="caption-text">Reverse Dependency Diagram</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<span class="target" id="f/obstimeinterp_mod"></span><p class="rubric">Description</p>
+<p>MODULE obsTimeInterp_mod (prefix=’oti’ category=’4. Data Object transformations’)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Purpose</dt>
+<dd class="field-odd"><p>To store public variables and procedures related to the time
+coordinate.</p>
+</dd>
+</dl>
+<p class="rubric">Quick access</p>
+<dl class="field-list simple">
+<dt class="field-odd">Types</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/obstimeinterp_mod/struct_oti" title="f/obstimeinterp_mod/struct_oti"><code class="xref f f-type docutils literal notranslate"><span class="pre">struct_oti</span></code></a></p>
+</dd>
+<dt class="field-even">Routines</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/obstimeinterp_mod/oti_deallocate" title="f/obstimeinterp_mod/oti_deallocate"><code class="xref f f-func docutils literal notranslate"><span class="pre">oti_deallocate()</span></code></a>, <a class="reference internal" href="#f/obstimeinterp_mod/oti_flagobsoutsidewindow" title="f/obstimeinterp_mod/oti_flagobsoutsidewindow"><code class="xref f f-func docutils literal notranslate"><span class="pre">oti_flagobsoutsidewindow()</span></code></a>, <a class="reference internal" href="#f/obstimeinterp_mod/oti_gettimeinterpweight" title="f/obstimeinterp_mod/oti_gettimeinterpweight"><code class="xref f f-func docutils literal notranslate"><span class="pre">oti_gettimeinterpweight()</span></code></a>, <a class="reference internal" href="#f/obstimeinterp_mod/oti_gettimeinterpweightmpiglobal" title="f/obstimeinterp_mod/oti_gettimeinterpweightmpiglobal"><code class="xref f f-func docutils literal notranslate"><span class="pre">oti_gettimeinterpweightmpiglobal()</span></code></a>, <a class="reference internal" href="#f/obstimeinterp_mod/oti_settimeinterpweight" title="f/obstimeinterp_mod/oti_settimeinterpweight"><code class="xref f f-func docutils literal notranslate"><span class="pre">oti_settimeinterpweight()</span></code></a>, <a class="reference internal" href="#f/obstimeinterp_mod/oti_setup" title="f/obstimeinterp_mod/oti_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">oti_setup()</span></code></a>, <a class="reference internal" href="#f/obstimeinterp_mod/oti_setupmpiglobal" title="f/obstimeinterp_mod/oti_setupmpiglobal"><code class="xref f f-func docutils literal notranslate"><span class="pre">oti_setupmpiglobal()</span></code></a>, <a class="reference internal" href="#f/obstimeinterp_mod/oti_timebinning" title="f/obstimeinterp_mod/oti_timebinning"><code class="xref f f-func docutils literal notranslate"><span class="pre">oti_timebinning()</span></code></a>, <a class="reference internal" href="#f/obstimeinterp_mod/oti_timeinterpweightallzero" title="f/obstimeinterp_mod/oti_timeinterpweightallzero"><code class="xref f f-func docutils literal notranslate"><span class="pre">oti_timeinterpweightallzero()</span></code></a></p>
+</dd>
+</dl>
+<p class="rubric">Needed modules</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="midasmpi_mod.html#f/midasmpi_mod" title="f/midasmpi_mod: MODULE midasMpi_mod (prefix='mmpi' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">midasmpi_mod</span></code></a>: MODULE midasMpi_mod (prefix=’mmpi’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod" title="f/utilities_mod: MODULE utilities_mod (prefix='utl' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">utilities_mod</span></code></a>: MODULE utilities_mod (prefix=’utl’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="timecoord_mod.html#f/timecoord_mod" title="f/timecoord_mod: MODULE timeCoord (prefix='tim' category='7. Low-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">timecoord_mod</span></code></a>: MODULE timeCoord (prefix=’tim’ category=’7. Low-level data objects’)</p></li>
+<li><p><a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod" title="f/obsspacedata_mod: MODULE obsSpaceData_mod (prefix='obs' category='6. High-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">obsspacedata_mod</span></code></a>: MODULE obsSpaceData_mod (prefix=’obs’ category=’6. High-level data objects’)</p></li>
+<li><p><a class="reference internal" href="obsfamilylist_mod.html#f/obsfamilylist_mod" title="f/obsfamilylist_mod: MODULE varNameList (prefix='ofl' category='7. Low-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">obsfamilylist_mod</span></code></a>: MODULE varNameList (prefix=’ofl’ category=’7. Low-level data objects’)</p></li>
+</ul>
+<p class="rubric">Types</p>
+<ul>
+<li><dl>
+<dt class="sig sig-object f" id="f/obstimeinterp_mod/struct_oti">
+<em class="property"><span class="pre">type</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obstimeinterp_mod/</span></span><span class="sig-name descname"><span class="pre">struct_oti</span></span><a class="headerlink" href="#f/obstimeinterp_mod/struct_oti" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type fields</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">null</span><em> [</em><em>real </em><em>,</em><em>pointer</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">timeinterpweight</span> (*,*)<em> [</em><em>real </em><em>,</em><em>pointer</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">timeinterpweightmpiglobal</span> (*,*,*)<em> [</em><em>real </em><em>,</em><em>pointer</em><em>]</em></p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</li>
+</ul>
+<p class="rubric">Variables</p>
+<p class="rubric">Subroutines and functions</p>
+<dl>
+<dt class="sig sig-object f" id="f/obstimeinterp_mod/oti_timebinning">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obstimeinterp_mod/</span></span><span class="sig-name descname"><span class="pre">oti_timebinning</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">obsspacedata</span></em>, <em class="sig-param"><span class="pre">nstepobs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/obstimeinterp_mod/oti_timebinning" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>obsspacedata</strong><em> [</em><em>struct_obs </em><em>]</em></p></li>
+<li><p><strong>nstepobs</strong><em> [</em><em>integer </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="innovation_mod.html#f/innovation_mod/inn_computeinnovation" title="f/innovation_mod/inn_computeinnovation"><code class="xref f f-func docutils literal notranslate"><span class="pre">inn_computeinnovation()</span></code></a>, <a class="reference internal" href="minimization_mod.html#f/minimization_mod/min_minimize" title="f/minimization_mod/min_minimize"><code class="xref f f-func docutils literal notranslate"><span class="pre">min_minimize()</span></code></a>, <a class="reference internal" href="obsspaceerrorstddev_mod.html#f/obsspaceerrorstddev_mod/ose_compute_hbht_ensemble" title="f/obsspaceerrorstddev_mod/ose_compute_hbht_ensemble"><code class="xref f f-func docutils literal notranslate"><span class="pre">ose_compute_hbht_ensemble()</span></code></a>, <a class="reference internal" href="../programs/midas_diaghbht.html#f/midas_diaghbht" title="f/midas_diaghbht"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_diaghbht</span></code></a>, <a class="reference internal" href="../programs/midas_letkf.html#f/midas_letkf" title="f/midas_letkf"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_letkf</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="timecoord_mod.html#f/timecoord_mod/tim_initialized" title="f/timecoord_mod/tim_initialized"><code class="xref f f-func docutils literal notranslate"><span class="pre">tim_initialized()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_numheader" title="f/obsspacedata_mod/obs_numheader"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_numheader()</span></code></a>, <a class="reference internal" href="timecoord_mod.html#f/timecoord_mod/tim_getstepobsindex" title="f/timecoord_mod/tim_getstepobsindex"><code class="xref f f-func docutils literal notranslate"><span class="pre">tim_getstepobsindex()</span></code></a>, <a class="reference internal" href="timecoord_mod.html#f/timecoord_mod/tim_getdatestamp" title="f/timecoord_mod/tim_getdatestamp"><code class="xref f f-func docutils literal notranslate"><span class="pre">tim_getdatestamp()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_headelem_i" title="f/obsspacedata_mod/obs_headelem_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_headelem_i()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_getfamily" title="f/obsspacedata_mod/obs_getfamily"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_getfamily()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyelem_i" title="f/obsspacedata_mod/obs_bodyelem_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyelem_i()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/obstimeinterp_mod/oti_setup">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obstimeinterp_mod/</span></span><span class="sig-name descname"><span class="pre">oti_setup</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">oti</span></em>, <em class="sig-param"><span class="pre">obsspacedata</span></em>, <em class="sig-param"><span class="pre">numstep</span></em>, <em class="sig-param"><span class="pre">headerindexbeg</span></em>, <em class="sig-param"><span class="pre">headerindexend</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">interptype_opt</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">flagobsoutside_opt</span></em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/obstimeinterp_mod/oti_setup" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>oti</strong><em> [</em><em>struct_oti </em><em>,</em><em>pointer</em><em>]</em></p></li>
+<li><p><strong>obsspacedata</strong><em> [</em><em>struct_obs </em><em>]</em></p></li>
+<li><p><strong>numstep</strong><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><strong>headerindexbeg</strong><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><strong>headerindexend</strong><em> [</em><em>integer </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Options</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>interptype_opt</strong><em> [</em><em>character </em><em>]</em></p></li>
+<li><p><strong>flagobsoutside_opt</strong><em> [</em><em>logical </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="statetocolumn_mod.html#f/statetocolumn_mod/s2c_setupinterpinfo" title="f/statetocolumn_mod/s2c_setupinterpinfo"><code class="xref f f-func docutils literal notranslate"><span class="pre">s2c_setupinterpinfo()</span></code></a>, <a class="reference internal" href="../programs/midas_prepcma.html#f/midas_prepcma" title="f/midas_prepcma"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_prepcma</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="timecoord_mod.html#f/timecoord_mod/tim_initialized" title="f/timecoord_mod/tim_initialized"><code class="xref f f-func docutils literal notranslate"><span class="pre">tim_initialized()</span></code></a>, <a class="reference internal" href="timecoord_mod.html#f/timecoord_mod/tim_getstepobsindex" title="f/timecoord_mod/tim_getstepobsindex"><code class="xref f f-func docutils literal notranslate"><span class="pre">tim_getstepobsindex()</span></code></a>, <a class="reference internal" href="timecoord_mod.html#f/timecoord_mod/tim_getdatestamp" title="f/timecoord_mod/tim_getdatestamp"><code class="xref f f-func docutils literal notranslate"><span class="pre">tim_getdatestamp()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_headelem_i" title="f/obsspacedata_mod/obs_headelem_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_headelem_i()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_elem_c" title="f/obsspacedata_mod/obs_elem_c"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_elem_c()</span></code></a>, <a class="reference internal" href="#f/obstimeinterp_mod/oti_settimeinterpweight" title="f/obstimeinterp_mod/oti_settimeinterpweight"><code class="xref f f-func docutils literal notranslate"><span class="pre">oti_settimeinterpweight()</span></code></a>, <a class="reference internal" href="#f/obstimeinterp_mod/oti_flagobsoutsidewindow" title="f/obstimeinterp_mod/oti_flagobsoutsidewindow"><code class="xref f f-func docutils literal notranslate"><span class="pre">oti_flagobsoutsidewindow()</span></code></a>, <a class="reference internal" href="#f/obstimeinterp_mod/oti_setupmpiglobal" title="f/obstimeinterp_mod/oti_setupmpiglobal"><code class="xref f f-func docutils literal notranslate"><span class="pre">oti_setupmpiglobal()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/obstimeinterp_mod/oti_deallocate">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obstimeinterp_mod/</span></span><span class="sig-name descname"><span class="pre">oti_deallocate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">oti</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/obstimeinterp_mod/oti_deallocate" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><p><strong>oti</strong><em> [</em><em>struct_oti </em><em>,</em><em>pointer</em><em>]</em></p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="statetocolumn_mod.html#f/statetocolumn_mod/s2c_deallocinterpinfo" title="f/statetocolumn_mod/s2c_deallocinterpinfo"><code class="xref f f-func docutils literal notranslate"><span class="pre">s2c_deallocinterpinfo()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/obstimeinterp_mod/oti_setupmpiglobal">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obstimeinterp_mod/</span></span><span class="sig-name descname"><span class="pre">oti_setupmpiglobal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">oti</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/obstimeinterp_mod/oti_setupmpiglobal" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><p><strong>oti</strong><em> [</em><em>struct_oti </em><em>,</em><em>pointer</em><em>]</em></p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/obstimeinterp_mod/oti_setup" title="f/obstimeinterp_mod/oti_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">oti_setup()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/obstimeinterp_mod/oti_settimeinterpweight">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obstimeinterp_mod/</span></span><span class="sig-name descname"><span class="pre">oti_settimeinterpweight</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">oti</span></em>, <em class="sig-param"><span class="pre">weight_in</span></em>, <em class="sig-param"><span class="pre">headerindex</span></em>, <em class="sig-param"><span class="pre">stepobs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/obstimeinterp_mod/oti_settimeinterpweight" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>oti</strong><em> [</em><em>struct_oti </em><em>,</em><em>pointer</em><em>]</em></p></li>
+<li><p><strong>weight_in</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>headerindex</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>stepobs</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/obstimeinterp_mod/oti_setup" title="f/obstimeinterp_mod/oti_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">oti_setup()</span></code></a>, <a class="reference internal" href="#f/obstimeinterp_mod/oti_flagobsoutsidewindow" title="f/obstimeinterp_mod/oti_flagobsoutsidewindow"><code class="xref f f-func docutils literal notranslate"><span class="pre">oti_flagobsoutsidewindow()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/obstimeinterp_mod/oti_gettimeinterpweight">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obstimeinterp_mod/</span></span><span class="sig-name descname"><span class="pre">oti_gettimeinterpweight</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">oti</span></em>, <em class="sig-param"><span class="pre">headerindex</span></em>, <em class="sig-param"><span class="pre">stepobs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/obstimeinterp_mod/oti_gettimeinterpweight" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>oti</strong><em> [</em><em>struct_oti </em><em>,</em><em>pointer</em><em>]</em></p></li>
+<li><p><strong>headerindex</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>stepobs</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Return</dt>
+<dd class="field-even"><p><strong>weight_out</strong><em> [</em><em>real </em><em>]</em></p>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="statetocolumn_mod.html#f/statetocolumn_mod/s2c_setupinterpinfo" title="f/statetocolumn_mod/s2c_setupinterpinfo"><code class="xref f f-func docutils literal notranslate"><span class="pre">s2c_setupinterpinfo()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/obstimeinterp_mod/oti_gettimeinterpweightmpiglobal">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obstimeinterp_mod/</span></span><span class="sig-name descname"><span class="pre">oti_gettimeinterpweightmpiglobal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">oti</span></em>, <em class="sig-param"><span class="pre">headerindex</span></em>, <em class="sig-param"><span class="pre">stepobs</span></em>, <em class="sig-param"><span class="pre">procindex</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/obstimeinterp_mod/oti_gettimeinterpweightmpiglobal" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>oti</strong><em> [</em><em>struct_oti </em><em>,</em><em>pointer</em><em>]</em></p></li>
+<li><p><strong>headerindex</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>stepobs</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>procindex</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Return</dt>
+<dd class="field-even"><p><strong>weight_out</strong><em> [</em><em>real </em><em>]</em></p>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="statetocolumn_mod.html#f/statetocolumn_mod/s2c_tl" title="f/statetocolumn_mod/s2c_tl"><code class="xref f f-func docutils literal notranslate"><span class="pre">s2c_tl()</span></code></a>, <a class="reference internal" href="statetocolumn_mod.html#f/statetocolumn_mod/s2c_ad" title="f/statetocolumn_mod/s2c_ad"><code class="xref f f-func docutils literal notranslate"><span class="pre">s2c_ad()</span></code></a>, <a class="reference internal" href="statetocolumn_mod.html#f/statetocolumn_mod/s2c_nl" title="f/statetocolumn_mod/s2c_nl"><code class="xref f f-func docutils literal notranslate"><span class="pre">s2c_nl()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/obstimeinterp_mod/oti_timeinterpweightallzero">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obstimeinterp_mod/</span></span><span class="sig-name descname"><span class="pre">oti_timeinterpweightallzero</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">oti</span></em>, <em class="sig-param"><span class="pre">headerindex</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/obstimeinterp_mod/oti_timeinterpweightallzero" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>oti</strong><em> [</em><em>struct_oti </em><em>,</em><em>pointer</em><em>]</em></p></li>
+<li><p><strong>headerindex</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Return</dt>
+<dd class="field-even"><p><strong>allzero</strong><em> [</em><em>logical </em><em>]</em></p>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/obstimeinterp_mod/oti_flagobsoutsidewindow" title="f/obstimeinterp_mod/oti_flagobsoutsidewindow"><code class="xref f f-func docutils literal notranslate"><span class="pre">oti_flagobsoutsidewindow()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/obstimeinterp_mod/oti_flagobsoutsidewindow">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obstimeinterp_mod/</span></span><span class="sig-name descname"><span class="pre">oti_flagobsoutsidewindow</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">oti</span></em>, <em class="sig-param"><span class="pre">obsspacedata</span></em>, <em class="sig-param"><span class="pre">headerindexbeg</span></em>, <em class="sig-param"><span class="pre">headerindexend</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/obstimeinterp_mod/oti_flagobsoutsidewindow" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>oti</strong><em> [</em><em>struct_oti </em><em>,</em><em>pointer</em><em>]</em></p></li>
+<li><p><strong>obsspacedata</strong><em> [</em><em>struct_obs </em><em>]</em></p></li>
+<li><p><strong>headerindexbeg</strong><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><strong>headerindexend</strong><em> [</em><em>integer </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/obstimeinterp_mod/oti_setup" title="f/obstimeinterp_mod/oti_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">oti_setup()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="#f/obstimeinterp_mod/oti_timeinterpweightallzero" title="f/obstimeinterp_mod/oti_timeinterpweightallzero"><code class="xref f f-func docutils literal notranslate"><span class="pre">oti_timeinterpweightallzero()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_headelem_i" title="f/obsspacedata_mod/obs_headelem_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_headelem_i()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyset_i" title="f/obsspacedata_mod/obs_bodyset_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyset_i()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_headset_i" title="f/obsspacedata_mod/obs_headset_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_headset_i()</span></code></a>, <a class="reference internal" href="#f/obstimeinterp_mod/oti_settimeinterpweight" title="f/obstimeinterp_mod/oti_settimeinterpweight"><code class="xref f f-func docutils literal notranslate"><span class="pre">oti_settimeinterpweight()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div></blockquote>
+</section>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="obsvariabletransforms_mod.html" title="obsvariabletransforms_mod"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="lamspectraltransform_mod.html" title="lamspectraltransform_mod"
+             >previous</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2018, ECCC.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.
+    </div>
+  </body>
+</html>

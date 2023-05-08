@@ -1,0 +1,22 @@
+==========================================
+globalspectraltransform_mod
+==========================================
+
+    :doc:`link to source code <globalspectraltransform_mod_src>`
+
+
+    **Dependency Diagrams:**
+
+    .. figure:: /globalspectraltransform_mod.svg
+        :height: 100px
+
+        Direct Dependency Diagram
+
+    .. figure:: /globalspectraltransform_mod_rev.svg
+        :height: 100px
+
+        Reverse Dependency Diagram
+
+
+    .. f:automodule:: globalspectraltransform_mod
+

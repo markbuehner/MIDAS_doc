@@ -1,0 +1,560 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>obsfiles_mod &mdash; MIDAS  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="MIDAS  documentation" href="../index.html" />
+    <link rel="next" title="obsutil_mod" href="obsutil_mod.html" />
+    <link rel="prev" title="obsdiagfiles_mod" href="obsdiagfiles_mod.html" /> 
+  </head>
+  <body>
+  <div>
+    <img src="../_static/MIDAS_header.png" alt="MIDAS" />
+  </div>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="obsutil_mod.html" title="obsutil_mod"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="obsdiagfiles_mod.html" title="obsdiagfiles_mod"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="obsdiagfiles_mod.html"
+                          title="previous chapter">obsdiagfiles_mod</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="obsutil_mod.html"
+                          title="next chapter">obsutil_mod</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/modules/obsfiles_mod.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <section id="obsfiles-mod">
+<h1>obsfiles_mod<a class="headerlink" href="#obsfiles-mod" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><p><a class="reference internal" href="obsfiles_mod_src.html"><span class="doc">link to source code</span></a></p>
+<p><strong>Dependency Diagrams:</strong></p>
+<figure class="align-default" id="id1">
+<a class="reference internal image-reference" href="obsfiles_mod.svg"><img alt="obsfiles_mod.svg" height="100px" src="obsfiles_mod.svg" /></a>
+<figcaption>
+<p><span class="caption-text">Direct Dependency Diagram</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id2">
+<a class="reference internal image-reference" href="obsfiles_mod_rev.svg"><img alt="obsfiles_mod_rev.svg" height="100px" src="obsfiles_mod_rev.svg" /></a>
+<figcaption>
+<p><span class="caption-text">Reverse Dependency Diagram</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<span class="target" id="f/obsfiles_mod"></span><p class="rubric">Description</p>
+<p>MODULE obsFiles_mod (prefix=’obsf’ category=’3. Observation input/output’)</p>
+<dl class="field-list">
+<dt class="field-odd">Purpose</dt>
+<dd class="field-odd"><p>High-level module to handle reading/writing of observations that
+can be stored in one of several different formats. Currently, the
+only supported formats are:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>BURP</p></li>
+<li><p>SQLITE (burp2rdb format)</p></li>
+<li><p>SQLITE (obsDB format)</p></li>
+</ol>
+</div></blockquote>
+</dd>
+</dl>
+<p class="rubric">Quick access</p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/obsfiles_mod/obsf_cfilnam" title="f/obsfiles_mod/obsf_cfilnam"><code class="xref f f-var docutils literal notranslate"><span class="pre">obsf_cfilnam</span></code></a>, <a class="reference internal" href="#f/obsfiles_mod/obsf_nfiles" title="f/obsfiles_mod/obsf_nfiles"><code class="xref f f-var docutils literal notranslate"><span class="pre">obsf_nfiles</span></code></a></p>
+</dd>
+<dt class="field-even">Routines</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/obsfiles_mod/obsf_addcloudparametersandemissivity" title="f/obsfiles_mod/obsf_addcloudparametersandemissivity"><code class="xref f f-func docutils literal notranslate"><span class="pre">obsf_addcloudparametersandemissivity()</span></code></a>, <a class="reference internal" href="#f/obsfiles_mod/obsf_cleanobsfiles" title="f/obsfiles_mod/obsf_cleanobsfiles"><code class="xref f f-func docutils literal notranslate"><span class="pre">obsf_cleanobsfiles()</span></code></a>, <a class="reference internal" href="#f/obsfiles_mod/obsf_copyobsdirectory" title="f/obsfiles_mod/obsf_copyobsdirectory"><code class="xref f f-func docutils literal notranslate"><span class="pre">obsf_copyobsdirectory()</span></code></a>, <a class="reference internal" href="#f/obsfiles_mod/obsf_determinefiletype" title="f/obsfiles_mod/obsf_determinefiletype"><code class="xref f f-func docutils literal notranslate"><span class="pre">obsf_determinefiletype()</span></code></a>, <a class="reference internal" href="#f/obsfiles_mod/obsf_determinesplitfiletype" title="f/obsfiles_mod/obsf_determinesplitfiletype"><code class="xref f f-func docutils literal notranslate"><span class="pre">obsf_determinesplitfiletype()</span></code></a>, <a class="reference internal" href="#f/obsfiles_mod/obsf_filessplit" title="f/obsfiles_mod/obsf_filessplit"><code class="xref f f-func docutils literal notranslate"><span class="pre">obsf_filessplit()</span></code></a>, <a class="reference internal" href="#f/obsfiles_mod/obsf_getfilename" title="f/obsfiles_mod/obsf_getfilename"><code class="xref f f-func docutils literal notranslate"><span class="pre">obsf_getfilename()</span></code></a>, <a class="reference internal" href="#f/obsfiles_mod/obsf_obssub_read" title="f/obsfiles_mod/obsf_obssub_read"><code class="xref f f-func docutils literal notranslate"><span class="pre">obsf_obssub_read()</span></code></a>, <a class="reference internal" href="#f/obsfiles_mod/obsf_obssub_update" title="f/obsfiles_mod/obsf_obssub_update"><code class="xref f f-func docutils literal notranslate"><span class="pre">obsf_obssub_update()</span></code></a>, <a class="reference internal" href="#f/obsfiles_mod/obsf_readfiles" title="f/obsfiles_mod/obsf_readfiles"><code class="xref f f-func docutils literal notranslate"><span class="pre">obsf_readfiles()</span></code></a>, <a class="reference internal" href="#f/obsfiles_mod/obsf_setup" title="f/obsfiles_mod/obsf_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">obsf_setup()</span></code></a>, <a class="reference internal" href="#f/obsfiles_mod/obsf_setupfilenames" title="f/obsfiles_mod/obsf_setupfilenames"><code class="xref f f-func docutils literal notranslate"><span class="pre">obsf_setupfilenames()</span></code></a>, <a class="reference internal" href="#f/obsfiles_mod/obsf_updatemissingobsflags" title="f/obsfiles_mod/obsf_updatemissingobsflags"><code class="xref f f-func docutils literal notranslate"><span class="pre">obsf_updatemissingobsflags()</span></code></a>, <a class="reference internal" href="#f/obsfiles_mod/obsf_writeascidump" title="f/obsfiles_mod/obsf_writeascidump"><code class="xref f f-func docutils literal notranslate"><span class="pre">obsf_writeascidump()</span></code></a>, <a class="reference internal" href="#f/obsfiles_mod/obsf_writefiles" title="f/obsfiles_mod/obsf_writefiles"><code class="xref f f-func docutils literal notranslate"><span class="pre">obsf_writefiles()</span></code></a>, <a class="reference internal" href="#f/obsfiles_mod/obsf_writehx" title="f/obsfiles_mod/obsf_writehx"><code class="xref f f-func docutils literal notranslate"><span class="pre">obsf_writehx()</span></code></a></p>
+</dd>
+</dl>
+<p class="rubric">Needed modules</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="midasmpi_mod.html#f/midasmpi_mod" title="f/midasmpi_mod: MODULE midasMpi_mod (prefix='mmpi' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">midasmpi_mod</span></code></a>: MODULE midasMpi_mod (prefix=’mmpi’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="ramdisk_mod.html#f/ramdisk_mod" title="f/ramdisk_mod: MODULE ramDisk_mod (prefix='ram' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">ramdisk_mod</span></code></a>: MODULE ramDisk_mod (prefix=’ram’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod" title="f/utilities_mod: MODULE utilities_mod (prefix='utl' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">utilities_mod</span></code></a>: MODULE utilities_mod (prefix=’utl’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod" title="f/obsspacedata_mod: MODULE obsSpaceData_mod (prefix='obs' category='6. High-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">obsspacedata_mod</span></code></a>: MODULE obsSpaceData_mod (prefix=’obs’ category=’6. High-level data objects’)</p></li>
+<li><p><a class="reference internal" href="burpfiles_mod.html#f/burpfiles_mod" title="f/burpfiles_mod: MODULE burpFiles_mod (prefix='brpf' category='3. Observation input/output')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">burpfiles_mod</span></code></a>: MODULE burpFiles_mod (prefix=’brpf’ category=’3. Observation input/output’)</p></li>
+<li><p><a class="reference internal" href="sqlitefiles_mod.html#f/sqlitefiles_mod" title="f/sqlitefiles_mod: MODULE sqliteFiles (prefix='sqlf' category='3. Observation input/output')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">sqlitefiles_mod</span></code></a>: MODULE sqliteFiles (prefix=’sqlf’ category=’3. Observation input/output’)</p></li>
+<li><p><a class="reference internal" href="sqliteutilities_mod.html#f/sqliteutilities_mod" title="f/sqliteutilities_mod: MODULE sqliteUtilities (prefix='sqlu' category='3. Observation input/output')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">sqliteutilities_mod</span></code></a>: MODULE sqliteUtilities (prefix=’sqlu’ category=’3. Observation input/output’)</p></li>
+<li><p><a class="reference internal" href="obsdbfiles_mod.html#f/obsdbfiles_mod" title="f/obsdbfiles_mod: MODULE obsdbFiles (prefix='odbf' category='3. Observation input/output')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">obsdbfiles_mod</span></code></a>: MODULE obsdbFiles (prefix=’odbf’ category=’3. Observation input/output’)</p></li>
+<li><p><a class="reference internal" href="obsdiagfiles_mod.html#f/obsdiagfiles_mod" title="f/obsdiagfiles_mod: MODULE sqliteRead (prefix='diaf' category='3. Observation input/output')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">obsdiagfiles_mod</span></code></a>: MODULE sqliteRead (prefix=’diaf’ category=’3. Observation input/output’)</p></li>
+<li><p><a class="reference internal" href="bufr_mod.html#f/bufr_mod" title="f/bufr_mod: MODULE bufr_mod (prefix='bufr' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">bufr_mod</span></code></a>: MODULE bufr_mod (prefix=’bufr’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="obssubspacedata_mod.html#f/obssubspacedata_mod" title="f/obssubspacedata_mod: MODULE obsSubSpaceData_mod (prefix='oss' category='6. High-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">obssubspacedata_mod</span></code></a>: MODULE obsSubSpaceData_mod (prefix=’oss’ category=’6. High-level data objects’)</p></li>
+<li><p><a class="reference internal" href="obsutil_mod.html#f/obsutil_mod" title="f/obsutil_mod: MODULE obsUtil_mod (prefix='obsu' category='3. Observation input/output')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">obsutil_mod</span></code></a>: MODULE obsUtil_mod (prefix=’obsu’ category=’3. Observation input/output’)</p></li>
+<li><p><a class="reference internal" href="obsvariabletransforms_mod.html#f/obsvariabletransforms_mod" title="f/obsvariabletransforms_mod: MODULE obsVariableTransforms_mod (prefix='ovt' category='4. Data Object transformations')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">obsvariabletransforms_mod</span></code></a>: MODULE obsVariableTransforms_mod (prefix=’ovt’ category=’4. Data Object transformations’)</p></li>
+<li><p><a class="reference internal" href="burpread_mod.html#f/burpread_mod" title="f/burpread_mod: MODULE burpread_mod (prefix='brpr' category='3. Observation input/output')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">burpread_mod</span></code></a>: MODULE burpread_mod (prefix=’brpr’ category=’3. Observation input/output’)</p></li>
+<li><p><a class="reference internal" href="biascorrectionconv_mod.html#f/biascorrectionconv_mod" title="f/biascorrectionconv_mod: MODULE biasCorrectionConv_mod (prefix=&quot;bcc&quot; category='1. High-level functionality')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">biascorrectionconv_mod</span></code></a>: MODULE biasCorrectionConv_mod (prefix=”bcc” category=’1. High-level functionality’)</p></li>
+<li><p><a class="reference internal" href="clib_interfaces_mod.html#f/clib_interfaces_mod" title="f/clib_interfaces_mod: MODULE clib_interfaces_mod (prefix='' category='9. Global interfaces')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">clib_interfaces_mod</span></code></a>: MODULE clib_interfaces_mod (prefix=’’ category=’9. Global interfaces’)</p></li>
+<li><p><a class="reference internal" href="tovs_nl_mod.html#f/tovs_nl_mod" title="f/tovs_nl_mod: MODULE tovs_nl (prefix='tvs' category='5. Observation operators')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">tovs_nl_mod</span></code></a>: MODULE tovs_nl (prefix=’tvs’ category=’5. Observation operators’)</p></li>
+<li><p><a class="reference internal" href="ensembleobservations_mod.html#f/ensembleobservations_mod" title="f/ensembleobservations_mod: MODULE ensembleObservations (prefix='eob' category='6. High-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">ensembleobservations_mod</span></code></a>: MODULE ensembleObservations (prefix=’eob’ category=’6. High-level data objects’)</p></li>
+</ul>
+<p class="rubric">Variables</p>
+<ul>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obsfiles_mod/obsf_cfilnam">
+<span class="sig-prename descclassname"><span class="pre">obsfiles_mod/</span></span><span class="sig-name descname"><span class="pre">obsf_cfilnam</span></span> <span class="pre">(</span><span class="pre">150</span><span class="pre">)</span><em> <span class="pre">[</span></em><em><span class="pre">character</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obsfiles_mod/obsf_cfilnam" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obsfiles_mod/obsf_nfiles">
+<span class="sig-prename descclassname"><span class="pre">obsfiles_mod/</span></span><span class="sig-name descname"><span class="pre">obsf_nfiles</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obsfiles_mod/obsf_nfiles" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+</ul>
+<p class="rubric">Subroutines and functions</p>
+<dl>
+<dt class="sig sig-object f" id="f/obsfiles_mod/obsf_setup">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obsfiles_mod/</span></span><span class="sig-name descname"><span class="pre">obsf_setup</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">datestamp_out</span></em>, <em class="sig-param"><span class="pre">obsfilemode_in</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/obsfiles_mod/obsf_setup" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>datestamp_out</strong><em> [</em><em>integer </em><em>,</em><em>out</em><em>]</em></p></li>
+<li><p><strong>obsfilemode_in</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="ominusf_mod.html#f/ominusf_mod/omf_ominusf" title="f/ominusf_mod/omf_ominusf"><code class="xref f f-func docutils literal notranslate"><span class="pre">omf_ominusf()</span></code></a>, <a class="reference internal" href="ominusf_mod.html#f/ominusf_mod/omf_ominusfens" title="f/ominusf_mod/omf_ominusfens"><code class="xref f f-func docutils literal notranslate"><span class="pre">omf_ominusfens()</span></code></a>, <a class="reference internal" href="../programs/midas_sstbias.html#f/midas_sstbias" title="f/midas_sstbias"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_sstbias</span></code></a>, <a class="reference internal" href="../programs/midas_analysiserroroi.html#f/midas_analysiserroroi" title="f/midas_analysiserroroi"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_analysiserroroi</span></code></a>, <a class="reference internal" href="../programs/midas_diaghbht.html#f/midas_diaghbht" title="f/midas_diaghbht"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_diaghbht</span></code></a>, <a class="reference internal" href="../programs/midas_ensembleh.html#f/midas_ensembleh" title="f/midas_ensembleh"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_ensembleh</span></code></a>, <a class="reference internal" href="../programs/midas_gencoeff.html#f/midas_gencoeff" title="f/midas_gencoeff"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_gencoeff</span></code></a>, <a class="reference internal" href="../programs/midas_letkf.html#f/midas_letkf" title="f/midas_letkf"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_letkf</span></code></a>, <a class="reference internal" href="../programs/midas_obsimpact.html#f/midas_obsimpact" title="f/midas_obsimpact"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_obsimpact</span></code></a>, <a class="reference internal" href="../programs/midas_obsselection.html#f/midas_obsselection" title="f/midas_obsselection"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_obsselection</span></code></a>, <a class="reference internal" href="../programs/midas_prepcma.html#f/midas_prepcma" title="f/midas_prepcma"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_prepcma</span></code></a>, <a class="reference internal" href="../programs/midas_thinning.html#f/midas_thinning" title="f/midas_thinning"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_thinning</span></code></a>, <a class="reference internal" href="../programs/midas_var.html#f/midas_var" title="f/midas_var"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_var</span></code></a>, <a class="reference internal" href="../programs/midas_var1d.html#f/midas_var1d" title="f/midas_var1d"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_var1d</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/obsfiles_mod/obsf_setupfilenames" title="f/obsfiles_mod/obsf_setupfilenames"><code class="xref f f-func docutils literal notranslate"><span class="pre">obsf_setupfilenames()</span></code></a>, <a class="reference internal" href="#f/obsfiles_mod/obsf_determinefiletype" title="f/obsfiles_mod/obsf_determinefiletype"><code class="xref f f-func docutils literal notranslate"><span class="pre">obsf_determinefiletype()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="burpfiles_mod.html#f/burpfiles_mod/brpf_getdatestamp" title="f/burpfiles_mod/brpf_getdatestamp"><code class="xref f f-func docutils literal notranslate"><span class="pre">brpf_getdatestamp()</span></code></a>, <a class="reference internal" href="obsdbfiles_mod.html#f/obsdbfiles_mod/odbf_getdatestamp" title="f/obsdbfiles_mod/odbf_getdatestamp"><code class="xref f f-func docutils literal notranslate"><span class="pre">odbf_getdatestamp()</span></code></a>, <a class="reference internal" href="sqlitefiles_mod.html#f/sqlitefiles_mod/sqlf_getdatestamp" title="f/sqlitefiles_mod/sqlf_getdatestamp"><code class="xref f f-func docutils literal notranslate"><span class="pre">sqlf_getdatestamp()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/obsfiles_mod/obsf_filessplit">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obsfiles_mod/</span></span><span class="sig-name descname"><span class="pre">obsf_filessplit</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#f/obsfiles_mod/obsf_filessplit" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return</dt>
+<dd class="field-odd"><p><strong>obsfilessplit_out</strong><em> [</em><em>logical </em><em>]</em></p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="innovation_mod.html#f/innovation_mod/inn_setupobs" title="f/innovation_mod/inn_setupobs"><code class="xref f f-func docutils literal notranslate"><span class="pre">inn_setupobs()</span></code></a>, <a class="reference internal" href="#f/obsfiles_mod/obsf_obssub_read" title="f/obsfiles_mod/obsf_obssub_read"><code class="xref f f-func docutils literal notranslate"><span class="pre">obsf_obssub_read()</span></code></a>, <a class="reference internal" href="#f/obsfiles_mod/obsf_obssub_update" title="f/obsfiles_mod/obsf_obssub_update"><code class="xref f f-func docutils literal notranslate"><span class="pre">obsf_obssub_update()</span></code></a>, <a class="reference internal" href="#f/obsfiles_mod/obsf_addcloudparametersandemissivity" title="f/obsfiles_mod/obsf_addcloudparametersandemissivity"><code class="xref f f-func docutils literal notranslate"><span class="pre">obsf_addcloudparametersandemissivity()</span></code></a>, <a class="reference internal" href="#f/obsfiles_mod/obsf_updatemissingobsflags" title="f/obsfiles_mod/obsf_updatemissingobsflags"><code class="xref f f-func docutils literal notranslate"><span class="pre">obsf_updatemissingobsflags()</span></code></a>, <a class="reference internal" href="#f/obsfiles_mod/obsf_copyobsdirectory" title="f/obsfiles_mod/obsf_copyobsdirectory"><code class="xref f f-func docutils literal notranslate"><span class="pre">obsf_copyobsdirectory()</span></code></a>, <a class="reference internal" href="../programs/midas_analysiserroroi.html#f/midas_analysiserroroi" title="f/midas_analysiserroroi"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_analysiserroroi</span></code></a>, <a class="reference internal" href="../programs/midas_diaghbht.html#f/midas_diaghbht" title="f/midas_diaghbht"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_diaghbht</span></code></a>, <a class="reference internal" href="../programs/midas_obsimpact.html#f/midas_obsimpact" title="f/midas_obsimpact"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_obsimpact</span></code></a>, <a class="reference internal" href="../programs/midas_prepcma.html#f/midas_prepcma" title="f/midas_prepcma"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_prepcma</span></code></a>, <a class="reference internal" href="../programs/midas_var.html#f/midas_var" title="f/midas_var"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_var</span></code></a>, <a class="reference internal" href="../programs/midas_var1d.html#f/midas_var1d" title="f/midas_var1d"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_var1d</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/obsfiles_mod/obsf_readfiles">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obsfiles_mod/</span></span><span class="sig-name descname"><span class="pre">obsf_readfiles</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">obsspacedata</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/obsfiles_mod/obsf_readfiles" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><p><strong>obsspacedata</strong><em> [</em><em>struct_obs </em><em>]</em></p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="innovation_mod.html#f/innovation_mod/inn_setupobs" title="f/innovation_mod/inn_setupobs"><code class="xref f f-func docutils literal notranslate"><span class="pre">inn_setupobs()</span></code></a>, <a class="reference internal" href="../programs/midas_prepcma.html#f/midas_prepcma" title="f/midas_prepcma"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_prepcma</span></code></a>, <a class="reference internal" href="../programs/midas_thinning.html#f/midas_thinning" title="f/midas_thinning"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_thinning</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="#f/obsfiles_mod/obsf_determinefiletype" title="f/obsfiles_mod/obsf_determinefiletype"><code class="xref f f-func docutils literal notranslate"><span class="pre">obsf_determinefiletype()</span></code></a>, <a class="reference internal" href="#f/obsfiles_mod/obsf_determinesplitfiletype" title="f/obsfiles_mod/obsf_determinesplitfiletype"><code class="xref f f-func docutils literal notranslate"><span class="pre">obsf_determinesplitfiletype()</span></code></a>, <a class="reference internal" href="burpread_mod.html#f/burpread_mod/brpr_addelementstoburp" title="f/burpread_mod/brpr_addelementstoburp"><code class="xref f f-func docutils literal notranslate"><span class="pre">brpr_addelementstoburp()</span></code></a>, <a class="reference internal" href="biascorrectionconv_mod.html#f/biascorrectionconv_mod/bcc_biasactive" title="f/biascorrectionconv_mod/bcc_biasactive"><code class="xref f f-func docutils literal notranslate"><span class="pre">bcc_biasactive()</span></code></a>, <a class="reference internal" href="burpfiles_mod.html#f/burpfiles_mod/brpf_readfile" title="f/burpfiles_mod/brpf_readfile"><code class="xref f f-func docutils literal notranslate"><span class="pre">brpf_readfile()</span></code></a>, <a class="reference internal" href="sqlitefiles_mod.html#f/sqlitefiles_mod/sqlf_readfile" title="f/sqlitefiles_mod/sqlf_readfile"><code class="xref f f-func docutils literal notranslate"><span class="pre">sqlf_readfile()</span></code></a>, <a class="reference internal" href="obsdbfiles_mod.html#f/obsdbfiles_mod/odbf_readfile" title="f/obsdbfiles_mod/odbf_readfile"><code class="xref f f-func docutils literal notranslate"><span class="pre">odbf_readfile()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_isnamelistpresent" title="f/utilities_mod/utl_isnamelistpresent"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_isnamelistpresent()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_sethind" title="f/obsspacedata_mod/obs_sethind"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_sethind()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/obsfiles_mod/obsf_writefiles">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obsfiles_mod/</span></span><span class="sig-name descname"><span class="pre">obsf_writefiles</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">obsspacedata</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">hxens_mpiglobal_opt</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">ascidumpobs_opt</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">writediagfiles_opt</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">ensobs_opt</span></em><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/obsfiles_mod/obsf_writefiles" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><p><strong>obsspacedata</strong><em> [</em><em>struct_obs </em><em>]</em></p>
+</dd>
+<dt class="field-even">Options</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>hxens_mpiglobal_opt</strong> (*,*)<em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>ascidumpobs_opt</strong><em> [</em><em>logical </em><em>]</em></p></li>
+<li><p><strong>writediagfiles_opt</strong><em> [</em><em>logical </em><em>]</em></p></li>
+<li><p><strong>ensobs_opt</strong><em> [</em><em>struct_eob </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../programs/midas_analysiserroroi.html#f/midas_analysiserroroi" title="f/midas_analysiserroroi"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_analysiserroroi</span></code></a>, <a class="reference internal" href="../programs/midas_diaghbht.html#f/midas_diaghbht" title="f/midas_diaghbht"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_diaghbht</span></code></a>, <a class="reference internal" href="../programs/midas_letkf.html#f/midas_letkf" title="f/midas_letkf"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_letkf</span></code></a>, <a class="reference internal" href="../programs/midas_ominusf.html#f/midas_ominusf" title="f/midas_ominusf"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_ominusf</span></code></a>, <a class="reference internal" href="../programs/midas_obsimpact.html#f/midas_obsimpact" title="f/midas_obsimpact"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_obsimpact</span></code></a>, <a class="reference internal" href="../programs/midas_obsselection.html#f/midas_obsselection" title="f/midas_obsselection"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_obsselection</span></code></a>, <a class="reference internal" href="../programs/midas_prepcma.html#f/midas_prepcma" title="f/midas_prepcma"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_prepcma</span></code></a>, <a class="reference internal" href="../programs/midas_thinning.html#f/midas_thinning" title="f/midas_thinning"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_thinning</span></code></a>, <a class="reference internal" href="../programs/midas_var.html#f/midas_var" title="f/midas_var"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_var</span></code></a>, <a class="reference internal" href="../programs/midas_var1d.html#f/midas_var1d" title="f/midas_var1d"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_var1d</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_start" title="f/utilities_mod/utl_tmg_start"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_start()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="#f/obsfiles_mod/obsf_determinefiletype" title="f/obsfiles_mod/obsf_determinefiletype"><code class="xref f f-func docutils literal notranslate"><span class="pre">obsf_determinefiletype()</span></code></a>, <a class="reference internal" href="obsvariabletransforms_mod.html#f/obsvariabletransforms_mod/ovt_transformresiduals" title="f/obsvariabletransforms_mod/ovt_transformresiduals"><code class="xref f f-func docutils literal notranslate"><span class="pre">ovt_transformresiduals()</span></code></a>, <a class="reference internal" href="obsutil_mod.html#f/obsutil_mod/obsu_setassflg" title="f/obsutil_mod/obsu_setassflg"><code class="xref f f-func docutils literal notranslate"><span class="pre">obsu_setassflg()</span></code></a>, <a class="reference internal" href="obsutil_mod.html#f/obsutil_mod/obsu_updatesourcevariablesflag" title="f/obsutil_mod/obsu_updatesourcevariablesflag"><code class="xref f f-func docutils literal notranslate"><span class="pre">obsu_updatesourcevariablesflag()</span></code></a>, <a class="reference internal" href="#f/obsfiles_mod/obsf_determinesplitfiletype" title="f/obsfiles_mod/obsf_determinesplitfiletype"><code class="xref f f-func docutils literal notranslate"><span class="pre">obsf_determinesplitfiletype()</span></code></a>, <a class="reference internal" href="burpfiles_mod.html#f/burpfiles_mod/brpf_updatefile" title="f/burpfiles_mod/brpf_updatefile"><code class="xref f f-func docutils literal notranslate"><span class="pre">brpf_updatefile()</span></code></a>, <a class="reference internal" href="obsdbfiles_mod.html#f/obsdbfiles_mod/odbf_updatefile" title="f/obsdbfiles_mod/odbf_updatefile"><code class="xref f f-func docutils literal notranslate"><span class="pre">odbf_updatefile()</span></code></a>, <a class="reference internal" href="sqlitefiles_mod.html#f/sqlitefiles_mod/sqlf_updatefile" title="f/sqlitefiles_mod/sqlf_updatefile"><code class="xref f f-func docutils literal notranslate"><span class="pre">sqlf_updatefile()</span></code></a>, <a class="reference internal" href="#f/obsfiles_mod/obsf_writehx" title="f/obsfiles_mod/obsf_writehx"><code class="xref f f-func docutils literal notranslate"><span class="pre">obsf_writehx()</span></code></a>, <a class="reference internal" href="#f/obsfiles_mod/obsf_getfilename" title="f/obsfiles_mod/obsf_getfilename"><code class="xref f f-func docutils literal notranslate"><span class="pre">obsf_getfilename()</span></code></a>, <a class="reference internal" href="obsdiagfiles_mod.html#f/obsdiagfiles_mod/diaf_writeallsqldiagfiles" title="f/obsdiagfiles_mod/diaf_writeallsqldiagfiles"><code class="xref f f-func docutils literal notranslate"><span class="pre">diaf_writeallsqldiagfiles()</span></code></a>, <a class="reference internal" href="#f/obsfiles_mod/obsf_writeascidump" title="f/obsfiles_mod/obsf_writeascidump"><code class="xref f f-func docutils literal notranslate"><span class="pre">obsf_writeascidump()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_stop" title="f/utilities_mod/utl_tmg_stop"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_stop()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/obsfiles_mod/obsf_cleanobsfiles">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obsfiles_mod/</span></span><span class="sig-name descname"><span class="pre">obsf_cleanobsfiles</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#f/obsfiles_mod/obsf_cleanobsfiles" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../programs/midas_obsselection.html#f/midas_obsselection" title="f/midas_obsselection"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_obsselection</span></code></a>, <a class="reference internal" href="../programs/midas_prepcma.html#f/midas_prepcma" title="f/midas_prepcma"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_prepcma</span></code></a>, <a class="reference internal" href="../programs/midas_thinning.html#f/midas_thinning" title="f/midas_thinning"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_thinning</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="#f/obsfiles_mod/obsf_determinefiletype" title="f/obsfiles_mod/obsf_determinefiletype"><code class="xref f f-func docutils literal notranslate"><span class="pre">obsf_determinefiletype()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_start" title="f/utilities_mod/utl_tmg_start"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_start()</span></code></a>, <a class="reference internal" href="#f/obsfiles_mod/obsf_determinesplitfiletype" title="f/obsfiles_mod/obsf_determinesplitfiletype"><code class="xref f f-func docutils literal notranslate"><span class="pre">obsf_determinesplitfiletype()</span></code></a>, <a class="reference internal" href="burpread_mod.html#f/burpread_mod/brpr_burpclean" title="f/burpread_mod/brpr_burpclean"><code class="xref f f-func docutils literal notranslate"><span class="pre">brpr_burpclean()</span></code></a>, <a class="reference internal" href="obsdbfiles_mod.html#f/obsdbfiles_mod/obdf_clean" title="f/obsdbfiles_mod/obdf_clean"><code class="xref f f-func docutils literal notranslate"><span class="pre">obdf_clean()</span></code></a>, <a class="reference internal" href="sqlitefiles_mod.html#f/sqlitefiles_mod/sqlf_cleanfile" title="f/sqlitefiles_mod/sqlf_cleanfile"><code class="xref f f-func docutils literal notranslate"><span class="pre">sqlf_cleanfile()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_stop" title="f/utilities_mod/utl_tmg_stop"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_stop()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/obsfiles_mod/obsf_writehx">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obsfiles_mod/</span></span><span class="sig-name descname"><span class="pre">obsf_writehx</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">obsspacedata</span></em>, <em class="sig-param"><span class="pre">hxens_mpiglobal</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/obsfiles_mod/obsf_writehx" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>obsspacedata</strong><em> [</em><em>struct_obs </em><em>]</em></p></li>
+<li><p><strong>hxens_mpiglobal</strong> (*,*)<em> [</em><em>real </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/obsfiles_mod/obsf_writefiles" title="f/obsfiles_mod/obsf_writefiles"><code class="xref f f-func docutils literal notranslate"><span class="pre">obsf_writefiles()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_numheader" title="f/obsspacedata_mod/obs_numheader"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_numheader()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_write_hx" title="f/obsspacedata_mod/obs_write_hx"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_write_hx()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/obsfiles_mod/obsf_writeascidump">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obsfiles_mod/</span></span><span class="sig-name descname"><span class="pre">obsf_writeascidump</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">obsspacedata</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/obsfiles_mod/obsf_writeascidump" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><p><strong>obsspacedata</strong><em> [</em><em>struct_obs </em><em>]</em></p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/obsfiles_mod/obsf_writefiles" title="f/obsfiles_mod/obsf_writefiles"><code class="xref f f-func docutils literal notranslate"><span class="pre">obsf_writefiles()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_mpilocal" title="f/obsspacedata_mod/obs_mpilocal"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_mpilocal()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_print" title="f/obsspacedata_mod/obs_print"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_print()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/obsfiles_mod/obsf_setupfilenames">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obsfiles_mod/</span></span><span class="sig-name descname"><span class="pre">obsf_setupfilenames</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#f/obsfiles_mod/obsf_setupfilenames" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/obsfiles_mod/obsf_setup" title="f/obsfiles_mod/obsf_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">obsf_setup()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="ramdisk_mod.html#f/ramdisk_mod/ram_fullworkingpath" title="f/ramdisk_mod/ram_fullworkingpath"><code class="xref f f-func docutils literal notranslate"><span class="pre">ram_fullworkingpath()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/obsfiles_mod/obsf_determinefiletype">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obsfiles_mod/</span></span><span class="sig-name descname"><span class="pre">obsf_determinefiletype</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">obsfiletype</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/obsfiles_mod/obsf_determinefiletype" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><p><strong>obsfiletype</strong><em> [</em><em>character </em><em>]</em></p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/obsfiles_mod/obsf_setup" title="f/obsfiles_mod/obsf_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">obsf_setup()</span></code></a>, <a class="reference internal" href="#f/obsfiles_mod/obsf_readfiles" title="f/obsfiles_mod/obsf_readfiles"><code class="xref f f-func docutils literal notranslate"><span class="pre">obsf_readfiles()</span></code></a>, <a class="reference internal" href="#f/obsfiles_mod/obsf_writefiles" title="f/obsfiles_mod/obsf_writefiles"><code class="xref f f-func docutils literal notranslate"><span class="pre">obsf_writefiles()</span></code></a>, <a class="reference internal" href="#f/obsfiles_mod/obsf_cleanobsfiles" title="f/obsfiles_mod/obsf_cleanobsfiles"><code class="xref f f-func docutils literal notranslate"><span class="pre">obsf_cleanobsfiles()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="#f/obsfiles_mod/obsf_determinesplitfiletype" title="f/obsfiles_mod/obsf_determinesplitfiletype"><code class="xref f f-func docutils literal notranslate"><span class="pre">obsf_determinesplitfiletype()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/obsfiles_mod/obsf_determinesplitfiletype">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obsfiles_mod/</span></span><span class="sig-name descname"><span class="pre">obsf_determinesplitfiletype</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">obsfiletype</span></em>, <em class="sig-param"><span class="pre">filename</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/obsfiles_mod/obsf_determinesplitfiletype" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>obsfiletype</strong><em> [</em><em>character </em><em>,</em><em>out</em><em>]</em></p></li>
+<li><p><strong>filename</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/obsfiles_mod/obsf_readfiles" title="f/obsfiles_mod/obsf_readfiles"><code class="xref f f-func docutils literal notranslate"><span class="pre">obsf_readfiles()</span></code></a>, <a class="reference internal" href="#f/obsfiles_mod/obsf_writefiles" title="f/obsfiles_mod/obsf_writefiles"><code class="xref f f-func docutils literal notranslate"><span class="pre">obsf_writefiles()</span></code></a>, <a class="reference internal" href="#f/obsfiles_mod/obsf_cleanobsfiles" title="f/obsfiles_mod/obsf_cleanobsfiles"><code class="xref f f-func docutils literal notranslate"><span class="pre">obsf_cleanobsfiles()</span></code></a>, <a class="reference internal" href="#f/obsfiles_mod/obsf_determinefiletype" title="f/obsfiles_mod/obsf_determinefiletype"><code class="xref f f-func docutils literal notranslate"><span class="pre">obsf_determinefiletype()</span></code></a>, <a class="reference internal" href="#f/obsfiles_mod/obsf_obssub_read" title="f/obsfiles_mod/obsf_obssub_read"><code class="xref f f-func docutils literal notranslate"><span class="pre">obsf_obssub_read()</span></code></a>, <a class="reference internal" href="#f/obsfiles_mod/obsf_obssub_update" title="f/obsfiles_mod/obsf_obssub_update"><code class="xref f f-func docutils literal notranslate"><span class="pre">obsf_obssub_update()</span></code></a>, <a class="reference internal" href="#f/obsfiles_mod/obsf_addcloudparametersandemissivity" title="f/obsfiles_mod/obsf_addcloudparametersandemissivity"><code class="xref f f-func docutils literal notranslate"><span class="pre">obsf_addcloudparametersandemissivity()</span></code></a>, <a class="reference internal" href="#f/obsfiles_mod/obsf_updatemissingobsflags" title="f/obsfiles_mod/obsf_updatemissingobsflags"><code class="xref f f-func docutils literal notranslate"><span class="pre">obsf_updatemissingobsflags()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="sqliteutilities_mod.html#f/sqliteutilities_mod/sqlu_sqltableexists" title="f/sqliteutilities_mod/sqlu_sqltableexists"><code class="xref f f-func docutils literal notranslate"><span class="pre">sqlu_sqltableexists()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/obsfiles_mod/obsf_getfilename">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obsfiles_mod/</span></span><span class="sig-name descname"><span class="pre">obsf_getfilename</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">obsfam</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">filefound_opt</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/obsfiles_mod/obsf_getfilename" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Returns the observations file name assigned to the calling processor.
+If the input family has more than one file, the first file found will
+be returned.</p>
+</dd>
+<dt class="field-even">Arguments </dt>
+<dd class="field-even"><p></p></dd>
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><p><strong>obsfam</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em> :: observation family name
+:found_opt: logical indicating if a file could be found for the family (optional)</p>
+</dd>
+<dt class="field-even">Options</dt>
+<dd class="field-even"><p><strong>filefound_opt</strong><em> [</em><em>logical </em><em>,</em><em>out,</em><em>]</em></p>
+</dd>
+<dt class="field-odd">Return</dt>
+<dd class="field-odd"><p><strong>filename</strong><em> [</em><em>character </em><em>]</em> :: file name of associated observations file</p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="obserrors_mod.html#f/obserrors_mod/readoerfromobsfileforsw" title="f/obserrors_mod/readoerfromobsfileforsw"><code class="xref f f-func docutils literal notranslate"><span class="pre">readoerfromobsfileforsw()</span></code></a>, <a class="reference internal" href="#f/obsfiles_mod/obsf_writefiles" title="f/obsfiles_mod/obsf_writefiles"><code class="xref f f-func docutils literal notranslate"><span class="pre">obsf_writefiles()</span></code></a>, <a class="reference internal" href="#f/obsfiles_mod/obsf_obssub_read" title="f/obsfiles_mod/obsf_obssub_read"><code class="xref f f-func docutils literal notranslate"><span class="pre">obsf_obssub_read()</span></code></a>, <a class="reference internal" href="#f/obsfiles_mod/obsf_obssub_update" title="f/obsfiles_mod/obsf_obssub_update"><code class="xref f f-func docutils literal notranslate"><span class="pre">obsf_obssub_update()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/obsfiles_mod/obsf_obssub_read">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obsfiles_mod/</span></span><span class="sig-name descname"><span class="pre">obsf_obssub_read</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">obsfam</span></em>, <em class="sig-param"><span class="pre">stnid</span></em>, <em class="sig-param"><span class="pre">varno</span></em>, <em class="sig-param"><span class="pre">nlev</span></em>, <em class="sig-param"><span class="pre">ndim</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">numcolumns_opt</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">bkstp_opt</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">block_opt</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">match_nlev_opt</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">codtyp_opt</span></em><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/obsfiles_mod/obsf_obssub_read" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Retrieves information for observations from observation files and returns the data
+in a struct_oss_obsdata object. Data will be retrieved for all nodes that have valid
+filenames for the specied observational family and combined into one struct_oss_obsdata
+if the observational files are split.</p>
+</dd>
+<dt class="field-even">Arguments </dt>
+<dd class="field-even"><p></p></dd>
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>obsfam</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em> :: observation family name</p></li>
+<li><p><strong>stnid</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em> :: station ID of observation</p></li>
+<li><p><strong>varno</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em> :: BUFR code (if &lt;=0, to search through all codes to obtain first
+between 10000 and 16000)</p></li>
+<li><p><strong>nlev</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em> :: number of levels in the observation</p></li>
+<li><p><strong>ndim</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em> :: <dl class="simple">
+<dt>number of dimensions for the retrieved data in</dt><dd><p>each report (e.g. ndim=1 for std, ndim=2 for
+averaging kernel matrices)</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">numColumns_opt</dt>
+<dd class="field-odd"><p>Number of columns (if different from nlev and for ndim=2)</p>
+</dd>
+</dl>
+</p></li>
+</ul>
+</dd>
+<dt class="field-even">Options</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>bkstp_opt</strong><em> [</em><em>integer </em><em>,</em><em>in,</em><em>]</em> :: bkstp number of requested block if BURP file type (optional)</p></li>
+<li><p><strong>block_opt</strong><em> [</em><em>character </em><em>,</em><em>in,</em><em>]</em> :: block type of requested block if BURP file type (optional)
+Valid values are ‘DATA’, ‘INFO’, ‘3-D’, and ‘MRQR’, indicated
+by the two rightmost bits of bknat.</p></li>
+<li><p><strong>match_nlev_opt</strong><em> [</em><em>logical </em><em>,</em><em>in,</em><em>]</em> :: determines if the report matching criteria includes checking
+if the report number of levels is the same as the input
+argument nlev (optional)</p></li>
+<li><p><strong>codtyp_opt</strong> (*)<em> [</em><em>integer </em><em>,</em><em>in,</em><em>]</em> :: optional CODTYP list for search (optional)</p></li>
+<li><p><strong>numcolumns_opt</strong><em> [</em><em>integer </em><em>,</em><em>in,</em><em>]</em> :: Number of columns (if different from nlev and for ndim=2)</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Return</dt>
+<dd class="field-odd"><p><strong>obsdata</strong><em> [</em><em>struct_oss_obsdata </em><em>]</em> :: struct_oss_obsdata object</p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="obsoperatorschem_mod.html#f/obsoperatorschem_mod/oopc_readavgkern" title="f/obsoperatorschem_mod/oopc_readavgkern"><code class="xref f f-func docutils literal notranslate"><span class="pre">oopc_readavgkern()</span></code></a>, <a class="reference internal" href="obserrors_mod.html#f/obserrors_mod/chm_read_obs_err_stddev" title="f/obserrors_mod/chm_read_obs_err_stddev"><code class="xref f f-func docutils literal notranslate"><span class="pre">chm_read_obs_err_stddev()</span></code></a>, <a class="reference internal" href="obsspacediag_mod.html#f/obsspacediag_mod/osd_readsqrthpht" title="f/obsspacediag_mod/osd_readsqrthpht"><code class="xref f f-func docutils literal notranslate"><span class="pre">osd_readsqrthpht()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/obsfiles_mod/obsf_getfilename" title="f/obsfiles_mod/obsf_getfilename"><code class="xref f f-func docutils literal notranslate"><span class="pre">obsf_getfilename()</span></code></a>, <a class="reference internal" href="#f/obsfiles_mod/obsf_determinesplitfiletype" title="f/obsfiles_mod/obsf_determinesplitfiletype"><code class="xref f f-func docutils literal notranslate"><span class="pre">obsf_determinesplitfiletype()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="burpfiles_mod.html#f/burpfiles_mod/brpf_obssub_read" title="f/burpfiles_mod/brpf_obssub_read"><code class="xref f f-func docutils literal notranslate"><span class="pre">brpf_obssub_read()</span></code></a>, <a class="reference internal" href="#f/obsfiles_mod/obsf_filessplit" title="f/obsfiles_mod/obsf_filessplit"><code class="xref f f-func docutils literal notranslate"><span class="pre">obsf_filessplit()</span></code></a>, <a class="reference internal" href="obssubspacedata_mod.html#f/obssubspacedata_mod/oss_obsdata_alloc" title="f/obssubspacedata_mod/oss_obsdata_alloc"><code class="xref f f-func docutils literal notranslate"><span class="pre">oss_obsdata_alloc()</span></code></a>, <a class="reference internal" href="obssubspacedata_mod.html#f/obssubspacedata_mod/oss_obsdata_mpiallgather" title="f/obssubspacedata_mod/oss_obsdata_mpiallgather"><code class="xref f f-func docutils literal notranslate"><span class="pre">oss_obsdata_mpiallgather()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/obsfiles_mod/obsf_obssub_update">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obsfiles_mod/</span></span><span class="sig-name descname"><span class="pre">obsf_obssub_update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">obsdata</span></em>, <em class="sig-param"><span class="pre">obsfam</span></em>, <em class="sig-param"><span class="pre">varno</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">bkstp_opt</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">block_opt</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">multi_opt</span></em><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/obsfiles_mod/obsf_obssub_update" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Add or modify data in observational files from data stored
+in a struct_oss_obsdata object.</p>
+</dd>
+<dt class="field-even">Arguments </dt>
+<dd class="field-even"><p></p></dd>
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>obsdata</strong><em> [</em><em>struct_oss_obsdata </em><em>,</em><em>inout</em><em>]</em> :: Input struct_oss_obsdata object for varno.</p></li>
+<li><p><strong>obsfam</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em> :: observation family name</p></li>
+<li><p><strong>varno</strong> (*)<em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em> :: BUFR descriptors. Number of elements must be
+max(1,obsdata%dim2)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Options</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>bkstp_opt</strong><em> [</em><em>integer </em><em>,</em><em>in,</em><em>]</em> :: bkstp number of requested block if BURP file type (optional)</p></li>
+<li><p><strong>block_opt</strong><em> [</em><em>character </em><em>,</em><em>in,</em><em>]</em> :: block type of requested block if BURP file type (optional)
+Valid values are ‘DATA’, ‘INFO’, ‘3-D’, and ‘MRQR’, indicated
+by the two rightmost bits of bknat.</p></li>
+<li><p><strong>multi_opt</strong><em> [</em><em>character </em><em>,</em><em>in,</em><em>]</em> :: Indicates if intended report are for ‘UNI’ or ‘MULTI’ level data (optional)</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Return</dt>
+<dd class="field-odd"><p><strong>nrep_modified</strong><em> [</em><em>integer </em><em>]</em> :: Number of modified reports</p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/obsfiles_mod/obsf_getfilename" title="f/obsfiles_mod/obsf_getfilename"><code class="xref f f-func docutils literal notranslate"><span class="pre">obsf_getfilename()</span></code></a>, <a class="reference internal" href="#f/obsfiles_mod/obsf_filessplit" title="f/obsfiles_mod/obsf_filessplit"><code class="xref f f-func docutils literal notranslate"><span class="pre">obsf_filessplit()</span></code></a>, <a class="reference internal" href="#f/obsfiles_mod/obsf_determinesplitfiletype" title="f/obsfiles_mod/obsf_determinesplitfiletype"><code class="xref f f-func docutils literal notranslate"><span class="pre">obsf_determinesplitfiletype()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="burpfiles_mod.html#f/burpfiles_mod/brpf_obssub_update" title="f/burpfiles_mod/brpf_obssub_update"><code class="xref f f-func docutils literal notranslate"><span class="pre">brpf_obssub_update()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/obsfiles_mod/obsf_addcloudparametersandemissivity">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obsfiles_mod/</span></span><span class="sig-name descname"><span class="pre">obsf_addcloudparametersandemissivity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">obsspacedata</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/obsfiles_mod/obsf_addcloudparametersandemissivity" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Loop on observation files to add cloud parameters and emissivity</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>obsspacedata</strong><em> [</em><em>struct_obs </em><em>,</em><em>inout</em><em>]</em></p>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../programs/midas_obsselection.html#f/midas_obsselection" title="f/midas_obsselection"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_obsselection</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/obsfiles_mod/obsf_filessplit" title="f/obsfiles_mod/obsf_filessplit"><code class="xref f f-func docutils literal notranslate"><span class="pre">obsf_filessplit()</span></code></a>, <a class="reference internal" href="#f/obsfiles_mod/obsf_determinesplitfiletype" title="f/obsfiles_mod/obsf_determinesplitfiletype"><code class="xref f f-func docutils literal notranslate"><span class="pre">obsf_determinesplitfiletype()</span></code></a>, <a class="reference internal" href="sqlitefiles_mod.html#f/sqlitefiles_mod/sqlf_addcloudparametersandemissivity" title="f/sqlitefiles_mod/sqlf_addcloudparametersandemissivity"><code class="xref f f-func docutils literal notranslate"><span class="pre">sqlf_addcloudparametersandemissivity()</span></code></a>, <a class="reference internal" href="burpread_mod.html#f/burpread_mod/brpr_addcloudparametersandemissivity" title="f/burpread_mod/brpr_addcloudparametersandemissivity"><code class="xref f f-func docutils literal notranslate"><span class="pre">brpr_addcloudparametersandemissivity()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/obsfiles_mod/obsf_updatemissingobsflags">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obsfiles_mod/</span></span><span class="sig-name descname"><span class="pre">obsf_updatemissingobsflags</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">obsspacedata</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/obsfiles_mod/obsf_updatemissingobsflags" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Loop on observation files to set missing observation flags to 2048
+For now, this is done for only ATMS and AMSUA</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>obsspacedata</strong><em> [</em><em>struct_obs </em><em>]</em></p>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../programs/midas_obsselection.html#f/midas_obsselection" title="f/midas_obsselection"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_obsselection</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_getheaderindex" title="f/obsspacedata_mod/obs_getheaderindex"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_getheaderindex()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_headelem_i" title="f/obsspacedata_mod/obs_headelem_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_headelem_i()</span></code></a>, <a class="reference internal" href="tovs_nl_mod.html#f/tovs_nl_mod/tvs_isidburpinst" title="f/tovs_nl_mod/tvs_isidburpinst"><code class="xref f f-func docutils literal notranslate"><span class="pre">tvs_isidburpinst()</span></code></a>, <a class="reference internal" href="#f/obsfiles_mod/obsf_filessplit" title="f/obsfiles_mod/obsf_filessplit"><code class="xref f f-func docutils literal notranslate"><span class="pre">obsf_filessplit()</span></code></a>, <a class="reference internal" href="#f/obsfiles_mod/obsf_determinesplitfiletype" title="f/obsfiles_mod/obsf_determinesplitfiletype"><code class="xref f f-func docutils literal notranslate"><span class="pre">obsf_determinesplitfiletype()</span></code></a>, <a class="reference internal" href="burpread_mod.html#f/burpread_mod/brpr_updatemissingobsflags" title="f/burpread_mod/brpr_updatemissingobsflags"><code class="xref f f-func docutils literal notranslate"><span class="pre">brpr_updatemissingobsflags()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/obsfiles_mod/obsf_copyobsdirectory">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obsfiles_mod/</span></span><span class="sig-name descname"><span class="pre">obsf_copyobsdirectory</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">directoryinout</span></em>, <em class="sig-param"><span class="pre">direction</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/obsfiles_mod/obsf_copyobsdirectory" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Loop on observation files and copy each to and from
+the specified directory</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>directoryinout</strong><em> [</em><em>character </em><em>]</em></p></li>
+<li><p><strong>direction</strong><em> [</em><em>character </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../programs/midas_obsselection.html#f/midas_obsselection" title="f/midas_obsselection"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_obsselection</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/obsfiles_mod/obsf_filessplit" title="f/obsfiles_mod/obsf_filessplit"><code class="xref f f-func docutils literal notranslate"><span class="pre">obsf_filessplit()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_copyfile" title="f/utilities_mod/utl_copyfile"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_copyfile()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div></blockquote>
+</section>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="obsutil_mod.html" title="obsutil_mod"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="obsdiagfiles_mod.html" title="obsdiagfiles_mod"
+             >previous</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2018, ECCC.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.
+    </div>
+  </body>
+</html>

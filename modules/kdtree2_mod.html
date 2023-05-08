@@ -1,0 +1,811 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>kdtree2_mod &mdash; MIDAS  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="MIDAS  documentation" href="../index.html" />
+    <link rel="next" title="kdtree2_precision_mod" href="kdtree2_precision_mod.html" />
+    <link rel="prev" title="getgridposition_mod" href="getgridposition_mod.html" /> 
+  </head>
+  <body>
+  <div>
+    <img src="../_static/MIDAS_header.png" alt="MIDAS" />
+  </div>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="kdtree2_precision_mod.html" title="kdtree2_precision_mod"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="getgridposition_mod.html" title="getgridposition_mod"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="getgridposition_mod.html"
+                          title="previous chapter">getgridposition_mod</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="kdtree2_precision_mod.html"
+                          title="next chapter">kdtree2_precision_mod</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/modules/kdtree2_mod.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <section id="kdtree2-mod">
+<h1>kdtree2_mod<a class="headerlink" href="#kdtree2-mod" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><p><a class="reference internal" href="kdtree2_mod_src.html"><span class="doc">link to source code</span></a></p>
+<p><strong>Dependency Diagrams:</strong></p>
+<figure class="align-default" id="id1">
+<a class="reference internal image-reference" href="kdtree2_mod.svg"><img alt="kdtree2_mod.svg" height="100px" src="kdtree2_mod.svg" /></a>
+<figcaption>
+<p><span class="caption-text">Direct Dependency Diagram</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id2">
+<a class="reference internal image-reference" href="kdtree2_mod_rev.svg"><img alt="kdtree2_mod_rev.svg" height="100px" src="kdtree2_mod_rev.svg" /></a>
+<figcaption>
+<p><span class="caption-text">Reverse Dependency Diagram</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<span class="target" id="f/kdtree2_mod"></span><p class="rubric">Description</p>
+<p>MODULE kdtree2_mod (prefix=’kdtree2’ category=’8. Low-level utilities and constants’)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Purpose</dt>
+<dd class="field-odd"><p>An implementation of the kdtree algorithm for efficiently finding nearby
+locations (first used in LETKF to find all obs near an analysis grid point).
+Written by Matt Kennel.</p>
+</dd>
+</dl>
+<p class="rubric">Quick access</p>
+<dl class="field-list simple">
+<dt class="field-odd">Types</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/kdtree2_mod/interval" title="f/kdtree2_mod/interval"><code class="xref f f-type docutils literal notranslate"><span class="pre">interval</span></code></a></p>
+</dd>
+<dt class="field-even">Variables</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/kdtree2_mod/kdkind" title="f/kdtree2_mod/kdkind"><code class="xref f f-var docutils literal notranslate"><span class="pre">kdkind</span></code></a>, <a class="reference internal" href="#f/kdtree2_mod/kdtree2" title="f/kdtree2_mod/kdtree2"><code class="xref f f-var docutils literal notranslate"><span class="pre">kdtree2</span></code></a>, <a class="reference internal" href="#f/kdtree2_mod/tree_node" title="f/kdtree2_mod/tree_node"><code class="xref f f-var docutils literal notranslate"><span class="pre">tree_node</span></code></a></p>
+</dd>
+<dt class="field-odd">Routines</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/kdtree2_mod/box_in_search_range" title="f/kdtree2_mod/box_in_search_range"><code class="xref f f-func docutils literal notranslate"><span class="pre">box_in_search_range()</span></code></a>, <a class="reference internal" href="#f/kdtree2_mod/build_tree" title="f/kdtree2_mod/build_tree"><code class="xref f f-func docutils literal notranslate"><span class="pre">build_tree()</span></code></a>, <a class="reference internal" href="#f/kdtree2_mod/build_tree_for_range" title="f/kdtree2_mod/build_tree_for_range"><code class="xref f f-func docutils literal notranslate"><span class="pre">build_tree_for_range()</span></code></a>, <a class="reference internal" href="#f/kdtree2_mod/dis2_from_bnd" title="f/kdtree2_mod/dis2_from_bnd"><code class="xref f f-func docutils literal notranslate"><span class="pre">dis2_from_bnd()</span></code></a>, <a class="reference internal" href="#f/kdtree2_mod/heapsort" title="f/kdtree2_mod/heapsort"><code class="xref f f-func docutils literal notranslate"><span class="pre">heapsort()</span></code></a>, <a class="reference internal" href="#f/kdtree2_mod/heapsort_struct" title="f/kdtree2_mod/heapsort_struct"><code class="xref f f-func docutils literal notranslate"><span class="pre">heapsort_struct()</span></code></a>, <a class="reference internal" href="#f/kdtree2_mod/kdtree2_3dposition" title="f/kdtree2_mod/kdtree2_3dposition"><code class="xref f f-func docutils literal notranslate"><span class="pre">kdtree2_3dposition()</span></code></a>, <a class="reference internal" href="#f/kdtree2_mod/kdtree2_create" title="f/kdtree2_mod/kdtree2_create"><code class="xref f f-func docutils literal notranslate"><span class="pre">kdtree2_create()</span></code></a>, <a class="reference internal" href="#f/kdtree2_mod/kdtree2_destroy" title="f/kdtree2_mod/kdtree2_destroy"><code class="xref f f-func docutils literal notranslate"><span class="pre">kdtree2_destroy()</span></code></a>, <a class="reference internal" href="#f/kdtree2_mod/kdtree2_n_nearest" title="f/kdtree2_mod/kdtree2_n_nearest"><code class="xref f f-func docutils literal notranslate"><span class="pre">kdtree2_n_nearest()</span></code></a>, <a class="reference internal" href="#f/kdtree2_mod/kdtree2_n_nearest_around_point" title="f/kdtree2_mod/kdtree2_n_nearest_around_point"><code class="xref f f-func docutils literal notranslate"><span class="pre">kdtree2_n_nearest_around_point()</span></code></a>, <a class="reference internal" href="#f/kdtree2_mod/kdtree2_n_nearest_brute_force" title="f/kdtree2_mod/kdtree2_n_nearest_brute_force"><code class="xref f f-func docutils literal notranslate"><span class="pre">kdtree2_n_nearest_brute_force()</span></code></a>, <a class="reference internal" href="#f/kdtree2_mod/kdtree2_r_count" title="f/kdtree2_mod/kdtree2_r_count"><code class="xref f f-func docutils literal notranslate"><span class="pre">kdtree2_r_count()</span></code></a>, <a class="reference internal" href="#f/kdtree2_mod/kdtree2_r_count_around_point" title="f/kdtree2_mod/kdtree2_r_count_around_point"><code class="xref f f-func docutils literal notranslate"><span class="pre">kdtree2_r_count_around_point()</span></code></a>, <a class="reference internal" href="#f/kdtree2_mod/kdtree2_r_nearest" title="f/kdtree2_mod/kdtree2_r_nearest"><code class="xref f f-func docutils literal notranslate"><span class="pre">kdtree2_r_nearest()</span></code></a>, <a class="reference internal" href="#f/kdtree2_mod/kdtree2_r_nearest_around_point" title="f/kdtree2_mod/kdtree2_r_nearest_around_point"><code class="xref f f-func docutils literal notranslate"><span class="pre">kdtree2_r_nearest_around_point()</span></code></a>, <a class="reference internal" href="#f/kdtree2_mod/kdtree2_r_nearest_brute_force" title="f/kdtree2_mod/kdtree2_r_nearest_brute_force"><code class="xref f f-func docutils literal notranslate"><span class="pre">kdtree2_r_nearest_brute_force()</span></code></a>, <a class="reference internal" href="#f/kdtree2_mod/kdtree2_sort_results" title="f/kdtree2_mod/kdtree2_sort_results"><code class="xref f f-func docutils literal notranslate"><span class="pre">kdtree2_sort_results()</span></code></a>, <a class="reference internal" href="#f/kdtree2_mod/process_terminal_node" title="f/kdtree2_mod/process_terminal_node"><code class="xref f f-func docutils literal notranslate"><span class="pre">process_terminal_node()</span></code></a>, <a class="reference internal" href="#f/kdtree2_mod/process_terminal_node_fixedball" title="f/kdtree2_mod/process_terminal_node_fixedball"><code class="xref f f-func docutils literal notranslate"><span class="pre">process_terminal_node_fixedball()</span></code></a>, <a class="reference internal" href="#f/kdtree2_mod/search" title="f/kdtree2_mod/search"><code class="xref f f-func docutils literal notranslate"><span class="pre">search()</span></code></a>, <a class="reference internal" href="#f/kdtree2_mod/select_on_coordinate" title="f/kdtree2_mod/select_on_coordinate"><code class="xref f f-func docutils literal notranslate"><span class="pre">select_on_coordinate()</span></code></a>, <a class="reference internal" href="#f/kdtree2_mod/select_on_coordinate_value" title="f/kdtree2_mod/select_on_coordinate_value"><code class="xref f f-func docutils literal notranslate"><span class="pre">select_on_coordinate_value()</span></code></a>, <a class="reference internal" href="#f/kdtree2_mod/spread_in_coordinate" title="f/kdtree2_mod/spread_in_coordinate"><code class="xref f f-func docutils literal notranslate"><span class="pre">spread_in_coordinate()</span></code></a>, <a class="reference internal" href="#f/kdtree2_mod/square_distance" title="f/kdtree2_mod/square_distance"><code class="xref f f-func docutils literal notranslate"><span class="pre">square_distance()</span></code></a>, <a class="reference internal" href="#f/kdtree2_mod/validate_query_storage" title="f/kdtree2_mod/validate_query_storage"><code class="xref f f-func docutils literal notranslate"><span class="pre">validate_query_storage()</span></code></a></p>
+</dd>
+</dl>
+<p class="rubric">Needed modules</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod" title="f/utilities_mod: MODULE utilities_mod (prefix='utl' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">utilities_mod</span></code></a>: MODULE utilities_mod (prefix=’utl’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="kdtree2_precision_mod.html#f/kdtree2_precision_mod" title="f/kdtree2_precision_mod"><code class="xref f f-mod docutils literal notranslate"><span class="pre">kdtree2_precision_mod</span></code></a></p></li>
+<li><p><a class="reference internal" href="kdtree2_priority_queue_mod.html#f/kdtree2_priority_queue_mod" title="f/kdtree2_priority_queue_mod"><code class="xref f f-mod docutils literal notranslate"><span class="pre">kdtree2_priority_queue_mod</span></code></a></p></li>
+<li><p><a class="reference internal" href="earthconstants_mod.html#f/earthconstants_mod" title="f/earthconstants_mod: MODULE earthConstants_mod (prefix='ec' category='8. Low-level utilities and constants') Prefixes: ec_ (Earth constants), for miscellaneous values from diverse sources"><code class="xref f f-mod docutils literal notranslate"><span class="pre">earthconstants_mod</span></code></a>: MODULE earthConstants_mod (prefix=’ec’ category=’8. Low-level utilities and constants’) Prefixes: <a href="#id3"><span class="problematic" id="id4">ec_</span></a> (Earth constants), for miscellaneous values from diverse sources</p></li>
+</ul>
+<p class="rubric">Types</p>
+<ul>
+<li><dl>
+<dt class="sig sig-object f" id="f/kdtree2_mod/interval">
+<em class="property"><span class="pre">type</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">kdtree2_mod/</span></span><span class="sig-name descname"><span class="pre">interval</span></span><a class="headerlink" href="#f/kdtree2_mod/interval" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type fields</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">lower</span><em> [</em><em>real </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">upper</span><em> [</em><em>real </em><em>]</em></p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</li>
+<li><dl>
+<dt class="sig sig-object f" id="f/kdtree2_mod/unknown_type">
+<em class="property"><span class="pre">type</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">kdtree2_mod/</span></span><span class="sig-name descname"><span class="pre">unknown_type</span></span><a class="headerlink" href="#f/kdtree2_mod/unknown_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl>
+<dt class="sig sig-object f">
+<em class="property"><span class="pre">type</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">kdtree2_mod/</span></span><span class="sig-name descname"><span class="pre">unknown_type</span></span></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type fields</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">dimen</span><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">ind</span> (*)<em> [</em><em>integer </em><em>,</em><em>pointer</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">n</span><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">null</span><em> [</em><em>real </em><em>,</em><em>pointer</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">rearrange</span><em> [</em><em>logical </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">rearranged_data</span> (*,*)<em> [</em><em>real </em><em>,</em><em>pointer</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">root</span><em> [</em><em>tree_node </em><em>,</em><em>pointer</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">sort</span><em> [</em><em>logical </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">the_data</span> (*,*)<em> [</em><em>real </em><em>,</em><em>pointer</em><em>]</em></p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</li>
+<li><dl>
+<dt class="sig sig-object f">
+<em class="property"><span class="pre">type</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">kdtree2_mod/</span></span><span class="sig-name descname"><span class="pre">unknown_type</span></span></dt>
+<dd></dd></dl>
+
+</li>
+</ul>
+<p class="rubric">Variables</p>
+<ul>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/kdtree2_mod/kdkind">
+<span class="sig-prename descclassname"><span class="pre">kdtree2_mod/</span></span><span class="sig-name descname"><span class="pre">kdkind</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/kdtree2_mod/kdkind" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/kdtree2_mod/kdtree2">
+<span class="sig-prename descclassname"><span class="pre">kdtree2_mod/</span></span><span class="sig-name descname"><span class="pre">kdtree2</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/kdtree2_mod/kdtree2" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/kdtree2_mod/tree_node">
+<span class="sig-prename descclassname"><span class="pre">kdtree2_mod/</span></span><span class="sig-name descname"><span class="pre">tree_node</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/kdtree2_mod/tree_node" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+</ul>
+<p class="rubric">Subroutines and functions</p>
+<dl>
+<dt class="sig sig-object f" id="f/kdtree2_mod/kdtree2_create">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">kdtree2_mod/</span></span><span class="sig-name descname"><span class="pre">kdtree2_create</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">input_data</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">dim</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">sort</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">rearrange</span></em><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/kdtree2_mod/kdtree2_create" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Create the actual tree structure, given an input array of data.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>input_data</strong> (*,*)<em> [</em><em>real </em><em>,</em><em>target</em><em>]</em></p>
+</dd>
+<dt class="field-odd">Options</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dim</strong><em> [</em><em>integer </em><em>,</em><em>in,</em><em>]</em></p></li>
+<li><p><strong>sort</strong><em> [</em><em>logical </em><em>,</em><em>in,</em><em>]</em></p></li>
+<li><p><strong>rearrange</strong><em> [</em><em>logical </em><em>,</em><em>in,</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Return</dt>
+<dd class="field-even"><p><strong>mr</strong><em> [</em><em>kdtree2 </em><em>,</em><em>pointer</em><em>]</em></p>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="analysiserroroi_mod.html#f/analysiserroroi_mod/aer_analysiserror" title="f/analysiserroroi_mod/aer_analysiserror"><code class="xref f f-func docutils literal notranslate"><span class="pre">aer_analysiserror()</span></code></a>, <a class="reference internal" href="burpread_mod.html#f/burpread_mod/brpr_updateburp" title="f/burpread_mod/brpr_updateburp"><code class="xref f f-func docutils literal notranslate"><span class="pre">brpr_updateburp()</span></code></a>, <a class="reference internal" href="ensembleobservations_mod.html#f/ensembleobservations_mod/eob_getlocalbodyindices" title="f/ensembleobservations_mod/eob_getlocalbodyindices"><code class="xref f f-func docutils literal notranslate"><span class="pre">eob_getlocalbodyindices()</span></code></a>, <a class="reference internal" href="getgridposition_mod.html#f/getgridposition_mod/gpos_xyfll_unstructgrid" title="f/getgridposition_mod/gpos_xyfll_unstructgrid"><code class="xref f f-func docutils literal notranslate"><span class="pre">gpos_xyfll_unstructgrid()</span></code></a>, <a class="reference internal" href="interpolation_mod.html#f/interpolation_mod/int_sintcloudtogrid_gsv" title="f/interpolation_mod/int_sintcloudtogrid_gsv"><code class="xref f f-func docutils literal notranslate"><span class="pre">int_sintcloudtogrid_gsv()</span></code></a>, <a class="reference internal" href="oceanmask_mod.html#f/oceanmask_mod/ocm_farfromland" title="f/oceanmask_mod/ocm_farfromland"><code class="xref f f-func docutils literal notranslate"><span class="pre">ocm_farfromland()</span></code></a>, <a class="reference internal" href="sstbias_mod.html#f/sstbias_mod/sstb_getgriddedobs" title="f/sstbias_mod/sstb_getgriddedobs"><code class="xref f f-func docutils literal notranslate"><span class="pre">sstb_getgriddedobs()</span></code></a>, <a class="reference internal" href="sstbias_mod.html#f/sstbias_mod/sstb_getgriddedbias" title="f/sstbias_mod/sstb_getgriddedbias"><code class="xref f f-func docutils literal notranslate"><span class="pre">sstb_getgriddedbias()</span></code></a>, <a class="reference internal" href="statetocolumn_mod.html#f/statetocolumn_mod/s2c_setupinterpinfo" title="f/statetocolumn_mod/s2c_setupinterpinfo"><code class="xref f f-func docutils literal notranslate"><span class="pre">s2c_setupinterpinfo()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="#f/kdtree2_mod/build_tree" title="f/kdtree2_mod/build_tree"><code class="xref f f-func docutils literal notranslate"><span class="pre">build_tree()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/kdtree2_mod/build_tree">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">kdtree2_mod/</span></span><span class="sig-name descname"><span class="pre">build_tree</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">tp</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/kdtree2_mod/build_tree" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><p><strong>tp</strong><em> [</em><em>kdtree2 </em><em>,</em><em>pointer</em><em>]</em></p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/kdtree2_mod/kdtree2_create" title="f/kdtree2_mod/kdtree2_create"><code class="xref f f-func docutils literal notranslate"><span class="pre">kdtree2_create()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/kdtree2_mod/build_tree_for_range" title="f/kdtree2_mod/build_tree_for_range"><code class="xref f f-func docutils literal notranslate"><span class="pre">build_tree_for_range()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/kdtree2_mod/build_tree_for_range">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">kdtree2_mod/</span></span><span class="sig-name descname"><span class="pre">build_tree_for_range</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">tp</span></em>, <em class="sig-param"><span class="pre">l</span></em>, <em class="sig-param"><span class="pre">u</span></em>, <em class="sig-param"><span class="pre">parent</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/kdtree2_mod/build_tree_for_range" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tp</strong><em> [</em><em>kdtree2 </em><em>,</em><em>pointer</em><em>]</em></p></li>
+<li><p><strong>l</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>u</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>parent</strong><em> [</em><em>tree_node </em><em>,</em><em>pointer</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Return</dt>
+<dd class="field-even"><p><strong>res</strong><em> [</em><em>tree_node </em><em>,</em><em>pointer</em><em>]</em></p>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/kdtree2_mod/build_tree" title="f/kdtree2_mod/build_tree"><code class="xref f f-func docutils literal notranslate"><span class="pre">build_tree()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/kdtree2_mod/select_on_coordinate_value">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">kdtree2_mod/</span></span><span class="sig-name descname"><span class="pre">select_on_coordinate_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">v</span></em>, <em class="sig-param"><span class="pre">ind</span></em>, <em class="sig-param"><span class="pre">c</span></em>, <em class="sig-param"><span class="pre">alpha</span></em>, <em class="sig-param"><span class="pre">li</span></em>, <em class="sig-param"><span class="pre">ui</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/kdtree2_mod/select_on_coordinate_value" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Move elts of ind around between l and u, so that all points
+&lt;= than alpha (in c cooordinate) are first, and then
+all points &gt; alpha are second.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>v</strong> (,)<em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>ind</strong> ()<em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><strong>c</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>alpha</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>li</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>ui</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Return</dt>
+<dd class="field-odd"><p><strong>res</strong><em> [</em><em>real </em><em>]</em></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/kdtree2_mod/select_on_coordinate">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">kdtree2_mod/</span></span><span class="sig-name descname"><span class="pre">select_on_coordinate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">v</span></em>, <em class="sig-param"><span class="pre">ind</span></em>, <em class="sig-param"><span class="pre">c</span></em>, <em class="sig-param"><span class="pre">k</span></em>, <em class="sig-param"><span class="pre">li</span></em>, <em class="sig-param"><span class="pre">ui</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/kdtree2_mod/select_on_coordinate" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Move elts of ind around between l and u, so that the kth
+element is &gt;= those below, &lt;= those above, in the coordinate c.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>v</strong> (*,*)<em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>ind</strong> (*)<em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><strong>c</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>k</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>li</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>ui</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/kdtree2_mod/spread_in_coordinate">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">kdtree2_mod/</span></span><span class="sig-name descname"><span class="pre">spread_in_coordinate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">tp</span></em>, <em class="sig-param"><span class="pre">c</span></em>, <em class="sig-param"><span class="pre">l</span></em>, <em class="sig-param"><span class="pre">u</span></em>, <em class="sig-param"><span class="pre">interv</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/kdtree2_mod/spread_in_coordinate" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>the spread in coordinate ‘c’, between l and u.
+Return lower bound in ‘smin’, and upper in ‘smax’,</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>tp</strong><em> [</em><em>kdtree2 </em><em>,</em><em>pointer</em><em>]</em></p></li>
+<li><p><strong>c</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>l</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>u</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>interv</strong><em> [</em><em>interval </em><em>,</em><em>out</em><em>]</em></p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/kdtree2_mod/kdtree2_destroy">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">kdtree2_mod/</span></span><span class="sig-name descname"><span class="pre">kdtree2_destroy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">tp</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/kdtree2_mod/kdtree2_destroy" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Deallocates all memory for the tree, except input data matrix</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>tp</strong><em> [</em><em>kdtree2 </em><em>,</em><em>pointer</em><em>]</em></p>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="burpread_mod.html#f/burpread_mod/brpr_updateburp" title="f/burpread_mod/brpr_updateburp"><code class="xref f f-func docutils literal notranslate"><span class="pre">brpr_updateburp()</span></code></a>, <a class="reference internal" href="interpolation_mod.html#f/interpolation_mod/int_sintcloudtogrid_gsv" title="f/interpolation_mod/int_sintcloudtogrid_gsv"><code class="xref f f-func docutils literal notranslate"><span class="pre">int_sintcloudtogrid_gsv()</span></code></a>, <a class="reference internal" href="statetocolumn_mod.html#f/statetocolumn_mod/s2c_setupinterpinfo" title="f/statetocolumn_mod/s2c_setupinterpinfo"><code class="xref f f-func docutils literal notranslate"><span class="pre">s2c_setupinterpinfo()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/kdtree2_mod/kdtree2_n_nearest">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">kdtree2_mod/</span></span><span class="sig-name descname"><span class="pre">kdtree2_n_nearest</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">tp</span></em>, <em class="sig-param"><span class="pre">qv</span></em>, <em class="sig-param"><span class="pre">nn</span></em>, <em class="sig-param"><span class="pre">results</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/kdtree2_mod/kdtree2_n_nearest" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Find the ‘nn’ vectors in the tree nearest to ‘qv’ in euclidean norm
+returning their indexes and distances in ‘indexes’ and ‘distances’
+arrays already allocated passed to this subroutine.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>tp</strong><em> [</em><em>kdtree2 </em><em>,</em><em>pointer</em><em>]</em></p></li>
+<li><p><strong>qv</strong> (*)<em> [</em><em>real </em><em>,</em><em>in,target</em><em>]</em></p></li>
+<li><p><strong>nn</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>results</strong> (*)<em> [</em><em>kdtree2_result </em><em>,</em><em>target</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/kdtree2_mod/validate_query_storage" title="f/kdtree2_mod/validate_query_storage"><code class="xref f f-func docutils literal notranslate"><span class="pre">validate_query_storage()</span></code></a>, <a class="reference internal" href="kdtree2_priority_queue_mod.html#f/kdtree2_priority_queue_mod/pq_create" title="f/kdtree2_priority_queue_mod/pq_create"><code class="xref f f-func docutils literal notranslate"><span class="pre">pq_create()</span></code></a>, <a class="reference internal" href="#f/kdtree2_mod/search" title="f/kdtree2_mod/search"><code class="xref f f-func docutils literal notranslate"><span class="pre">search()</span></code></a>, <a class="reference internal" href="#f/kdtree2_mod/kdtree2_sort_results" title="f/kdtree2_mod/kdtree2_sort_results"><code class="xref f f-func docutils literal notranslate"><span class="pre">kdtree2_sort_results()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/kdtree2_mod/kdtree2_n_nearest_around_point">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">kdtree2_mod/</span></span><span class="sig-name descname"><span class="pre">kdtree2_n_nearest_around_point</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">tp</span></em>, <em class="sig-param"><span class="pre">idxin</span></em>, <em class="sig-param"><span class="pre">correltime</span></em>, <em class="sig-param"><span class="pre">nn</span></em>, <em class="sig-param"><span class="pre">results</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/kdtree2_mod/kdtree2_n_nearest_around_point" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Find the ‘nn’ vectors in the tree nearest to point ‘idxin’,
+with correlation window ‘correltime’, returing results in</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>results</strong> (*)<em> [</em><em>kdtree2_result </em><em>,</em><em>target</em><em>]</em> :: which must be pre-allocated upon entry.</p></li>
+<li><p><strong>tp</strong><em> [</em><em>kdtree2 </em><em>,</em><em>pointer</em><em>]</em></p></li>
+<li><p><strong>idxin</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>correltime</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>nn</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/kdtree2_mod/validate_query_storage" title="f/kdtree2_mod/validate_query_storage"><code class="xref f f-func docutils literal notranslate"><span class="pre">validate_query_storage()</span></code></a>, <a class="reference internal" href="kdtree2_priority_queue_mod.html#f/kdtree2_priority_queue_mod/pq_create" title="f/kdtree2_priority_queue_mod/pq_create"><code class="xref f f-func docutils literal notranslate"><span class="pre">pq_create()</span></code></a>, <a class="reference internal" href="#f/kdtree2_mod/search" title="f/kdtree2_mod/search"><code class="xref f f-func docutils literal notranslate"><span class="pre">search()</span></code></a>, <a class="reference internal" href="#f/kdtree2_mod/kdtree2_sort_results" title="f/kdtree2_mod/kdtree2_sort_results"><code class="xref f f-func docutils literal notranslate"><span class="pre">kdtree2_sort_results()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/kdtree2_mod/kdtree2_r_nearest">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">kdtree2_mod/</span></span><span class="sig-name descname"><span class="pre">kdtree2_r_nearest</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">tp</span></em>, <em class="sig-param"><span class="pre">qv</span></em>, <em class="sig-param"><span class="pre">r2</span></em>, <em class="sig-param"><span class="pre">nfound</span></em>, <em class="sig-param"><span class="pre">nalloc</span></em>, <em class="sig-param"><span class="pre">results</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/kdtree2_mod/kdtree2_r_nearest" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>find the nearest neighbors to point ‘idxin’, within SQUARED
+Euclidean distance ‘r2’.   Upon ENTRY, nalloc must be the
+size of memory allocated for results(1:nalloc).  Upon
+EXIT, nfound is the number actually found within the ball.</p>
+<p>Note that if nfound .gt. nalloc then more neighbors were found
+than there were storage to store.  The resulting list is NOT
+the smallest ball inside norm r^2</p>
+<p>Results are NOT sorted unless tree was created with sort option.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>tp</strong><em> [</em><em>kdtree2 </em><em>,</em><em>pointer</em><em>]</em></p></li>
+<li><p><strong>qv</strong> (*)<em> [</em><em>real </em><em>,</em><em>in,target</em><em>]</em></p></li>
+<li><p><strong>r2</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>nfound</strong><em> [</em><em>integer </em><em>,</em><em>out</em><em>]</em></p></li>
+<li><p><strong>nalloc</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>results</strong> (*)<em> [</em><em>kdtree2_result </em><em>,</em><em>target</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="analysiserroroi_mod.html#f/analysiserroroi_mod/findobs" title="f/analysiserroroi_mod/findobs"><code class="xref f f-func docutils literal notranslate"><span class="pre">findobs()</span></code></a>, <a class="reference internal" href="burpread_mod.html#f/burpread_mod/brpr_updateburp" title="f/burpread_mod/brpr_updateburp"><code class="xref f f-func docutils literal notranslate"><span class="pre">brpr_updateburp()</span></code></a>, <a class="reference internal" href="ensembleobservations_mod.html#f/ensembleobservations_mod/eob_getlocalbodyindices" title="f/ensembleobservations_mod/eob_getlocalbodyindices"><code class="xref f f-func docutils literal notranslate"><span class="pre">eob_getlocalbodyindices()</span></code></a>, <a class="reference internal" href="getgridposition_mod.html#f/getgridposition_mod/gpos_xyfll_unstructgrid" title="f/getgridposition_mod/gpos_xyfll_unstructgrid"><code class="xref f f-func docutils literal notranslate"><span class="pre">gpos_xyfll_unstructgrid()</span></code></a>, <a class="reference internal" href="interpolation_mod.html#f/interpolation_mod/int_sintcloudtogrid_gsv" title="f/interpolation_mod/int_sintcloudtogrid_gsv"><code class="xref f f-func docutils literal notranslate"><span class="pre">int_sintcloudtogrid_gsv()</span></code></a>, <a class="reference internal" href="oceanmask_mod.html#f/oceanmask_mod/ocm_farfromland" title="f/oceanmask_mod/ocm_farfromland"><code class="xref f f-func docutils literal notranslate"><span class="pre">ocm_farfromland()</span></code></a>, <a class="reference internal" href="sstbias_mod.html#f/sstbias_mod/sstb_getgriddedobs" title="f/sstbias_mod/sstb_getgriddedobs"><code class="xref f f-func docutils literal notranslate"><span class="pre">sstb_getgriddedobs()</span></code></a>, <a class="reference internal" href="sstbias_mod.html#f/sstbias_mod/sstb_getgriddedbias" title="f/sstbias_mod/sstb_getgriddedbias"><code class="xref f f-func docutils literal notranslate"><span class="pre">sstb_getgriddedbias()</span></code></a>, <a class="reference internal" href="statetocolumn_mod.html#f/statetocolumn_mod/s2c_setupfootprintinterp" title="f/statetocolumn_mod/s2c_setupfootprintinterp"><code class="xref f f-func docutils literal notranslate"><span class="pre">s2c_setupfootprintinterp()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/kdtree2_mod/validate_query_storage" title="f/kdtree2_mod/validate_query_storage"><code class="xref f f-func docutils literal notranslate"><span class="pre">validate_query_storage()</span></code></a>, <a class="reference internal" href="#f/kdtree2_mod/search" title="f/kdtree2_mod/search"><code class="xref f f-func docutils literal notranslate"><span class="pre">search()</span></code></a>, <a class="reference internal" href="#f/kdtree2_mod/kdtree2_sort_results" title="f/kdtree2_mod/kdtree2_sort_results"><code class="xref f f-func docutils literal notranslate"><span class="pre">kdtree2_sort_results()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/kdtree2_mod/kdtree2_r_nearest_around_point">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">kdtree2_mod/</span></span><span class="sig-name descname"><span class="pre">kdtree2_r_nearest_around_point</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">tp</span></em>, <em class="sig-param"><span class="pre">idxin</span></em>, <em class="sig-param"><span class="pre">correltime</span></em>, <em class="sig-param"><span class="pre">r2</span></em>, <em class="sig-param"><span class="pre">nfound</span></em>, <em class="sig-param"><span class="pre">nalloc</span></em>, <em class="sig-param"><span class="pre">results</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/kdtree2_mod/kdtree2_r_nearest_around_point" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Like kdtree2_r_nearest, but around a point ‘idxin’ already existing
+in the data set.</p>
+<p>Results are NOT sorted unless tree was created with sort option.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>tp</strong><em> [</em><em>kdtree2 </em><em>,</em><em>pointer</em><em>]</em></p></li>
+<li><p><strong>idxin</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>correltime</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>r2</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>nfound</strong><em> [</em><em>integer </em><em>,</em><em>out</em><em>]</em></p></li>
+<li><p><strong>nalloc</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>results</strong> (*)<em> [</em><em>kdtree2_result </em><em>,</em><em>target</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/kdtree2_mod/validate_query_storage" title="f/kdtree2_mod/validate_query_storage"><code class="xref f f-func docutils literal notranslate"><span class="pre">validate_query_storage()</span></code></a>, <a class="reference internal" href="#f/kdtree2_mod/search" title="f/kdtree2_mod/search"><code class="xref f f-func docutils literal notranslate"><span class="pre">search()</span></code></a>, <a class="reference internal" href="#f/kdtree2_mod/kdtree2_sort_results" title="f/kdtree2_mod/kdtree2_sort_results"><code class="xref f f-func docutils literal notranslate"><span class="pre">kdtree2_sort_results()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/kdtree2_mod/kdtree2_r_count">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">kdtree2_mod/</span></span><span class="sig-name descname"><span class="pre">kdtree2_r_count</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">tp</span></em>, <em class="sig-param"><span class="pre">qv</span></em>, <em class="sig-param"><span class="pre">r2</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/kdtree2_mod/kdtree2_r_count" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Count the number of neighbors within square distance ‘r2’.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>tp</strong><em> [</em><em>kdtree2 </em><em>,</em><em>pointer</em><em>]</em></p></li>
+<li><p><strong>qv</strong> (*)<em> [</em><em>real </em><em>,</em><em>in,target</em><em>]</em></p></li>
+<li><p><strong>r2</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Return</dt>
+<dd class="field-odd"><p><strong>nfound</strong><em> [</em><em>integer </em><em>]</em></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/kdtree2_mod/search" title="f/kdtree2_mod/search"><code class="xref f f-func docutils literal notranslate"><span class="pre">search()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/kdtree2_mod/kdtree2_r_count_around_point">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">kdtree2_mod/</span></span><span class="sig-name descname"><span class="pre">kdtree2_r_count_around_point</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">tp</span></em>, <em class="sig-param"><span class="pre">idxin</span></em>, <em class="sig-param"><span class="pre">correltime</span></em>, <em class="sig-param"><span class="pre">r2</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/kdtree2_mod/kdtree2_r_count_around_point" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Count the number of neighbors within square distance ‘r2’ around
+point ‘idxin’ with decorrelation time ‘correltime’.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>tp</strong><em> [</em><em>kdtree2 </em><em>,</em><em>pointer</em><em>]</em></p></li>
+<li><p><strong>idxin</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>correltime</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>r2</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Return</dt>
+<dd class="field-odd"><p><strong>nfound</strong><em> [</em><em>integer </em><em>]</em></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/kdtree2_mod/search" title="f/kdtree2_mod/search"><code class="xref f f-func docutils literal notranslate"><span class="pre">search()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/kdtree2_mod/validate_query_storage">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">kdtree2_mod/</span></span><span class="sig-name descname"><span class="pre">validate_query_storage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">n</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/kdtree2_mod/validate_query_storage" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>make sure we have enough storage for n</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>n</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/kdtree2_mod/kdtree2_n_nearest" title="f/kdtree2_mod/kdtree2_n_nearest"><code class="xref f f-func docutils literal notranslate"><span class="pre">kdtree2_n_nearest()</span></code></a>, <a class="reference internal" href="#f/kdtree2_mod/kdtree2_n_nearest_around_point" title="f/kdtree2_mod/kdtree2_n_nearest_around_point"><code class="xref f f-func docutils literal notranslate"><span class="pre">kdtree2_n_nearest_around_point()</span></code></a>, <a class="reference internal" href="#f/kdtree2_mod/kdtree2_r_nearest" title="f/kdtree2_mod/kdtree2_r_nearest"><code class="xref f f-func docutils literal notranslate"><span class="pre">kdtree2_r_nearest()</span></code></a>, <a class="reference internal" href="#f/kdtree2_mod/kdtree2_r_nearest_around_point" title="f/kdtree2_mod/kdtree2_r_nearest_around_point"><code class="xref f f-func docutils literal notranslate"><span class="pre">kdtree2_r_nearest_around_point()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/kdtree2_mod/square_distance">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">kdtree2_mod/</span></span><span class="sig-name descname"><span class="pre">square_distance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">d</span></em>, <em class="sig-param"><span class="pre">iv</span></em>, <em class="sig-param"><span class="pre">qv</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/kdtree2_mod/square_distance" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>distance between iv[1:n] and qv[1:n]</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>d</strong><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><strong>iv</strong> (*)<em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>qv</strong> (*)<em> [</em><em>real </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Return</dt>
+<dd class="field-odd"><p><strong>res</strong><em> [</em><em>real </em><em>]</em></p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/kdtree2_mod/kdtree2_n_nearest_brute_force" title="f/kdtree2_mod/kdtree2_n_nearest_brute_force"><code class="xref f f-func docutils literal notranslate"><span class="pre">kdtree2_n_nearest_brute_force()</span></code></a>, <a class="reference internal" href="#f/kdtree2_mod/kdtree2_r_nearest_brute_force" title="f/kdtree2_mod/kdtree2_r_nearest_brute_force"><code class="xref f f-func docutils literal notranslate"><span class="pre">kdtree2_r_nearest_brute_force()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/kdtree2_mod/search">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">kdtree2_mod/</span></span><span class="sig-name descname"><span class="pre">search</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">node</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/kdtree2_mod/search" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><p><strong>node</strong><em> [</em><em>tree_node </em><em>,</em><em>pointer</em><em>]</em></p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/kdtree2_mod/kdtree2_n_nearest" title="f/kdtree2_mod/kdtree2_n_nearest"><code class="xref f f-func docutils literal notranslate"><span class="pre">kdtree2_n_nearest()</span></code></a>, <a class="reference internal" href="#f/kdtree2_mod/kdtree2_n_nearest_around_point" title="f/kdtree2_mod/kdtree2_n_nearest_around_point"><code class="xref f f-func docutils literal notranslate"><span class="pre">kdtree2_n_nearest_around_point()</span></code></a>, <a class="reference internal" href="#f/kdtree2_mod/kdtree2_r_nearest" title="f/kdtree2_mod/kdtree2_r_nearest"><code class="xref f f-func docutils literal notranslate"><span class="pre">kdtree2_r_nearest()</span></code></a>, <a class="reference internal" href="#f/kdtree2_mod/kdtree2_r_nearest_around_point" title="f/kdtree2_mod/kdtree2_r_nearest_around_point"><code class="xref f f-func docutils literal notranslate"><span class="pre">kdtree2_r_nearest_around_point()</span></code></a>, <a class="reference internal" href="#f/kdtree2_mod/kdtree2_r_count" title="f/kdtree2_mod/kdtree2_r_count"><code class="xref f f-func docutils literal notranslate"><span class="pre">kdtree2_r_count()</span></code></a>, <a class="reference internal" href="#f/kdtree2_mod/kdtree2_r_count_around_point" title="f/kdtree2_mod/kdtree2_r_count_around_point"><code class="xref f f-func docutils literal notranslate"><span class="pre">kdtree2_r_count_around_point()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/kdtree2_mod/dis2_from_bnd">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">kdtree2_mod/</span></span><span class="sig-name descname"><span class="pre">dis2_from_bnd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">x</span></em>, <em class="sig-param"><span class="pre">amin</span></em>, <em class="sig-param"><span class="pre">amax</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/kdtree2_mod/dis2_from_bnd" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>amin</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>amax</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Return</dt>
+<dd class="field-even"><p><strong>res</strong><em> [</em><em>real </em><em>]</em></p>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/kdtree2_mod/box_in_search_range" title="f/kdtree2_mod/box_in_search_range"><code class="xref f f-func docutils literal notranslate"><span class="pre">box_in_search_range()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/kdtree2_mod/box_in_search_range">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">kdtree2_mod/</span></span><span class="sig-name descname"><span class="pre">box_in_search_range</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">node</span></em>, <em class="sig-param"><span class="pre">sr</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/kdtree2_mod/box_in_search_range" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Return the distance from ‘qv’ to the CLOSEST corner of node’s
+bounding box for all coordinates outside the box. Coordinates
+inside the box contribute nothing to the distance.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>node</strong><em> [</em><em>tree_node </em><em>,</em><em>pointer</em><em>]</em></p></li>
+<li><p><strong>sr</strong> (*)<em> [</em><em>tree_search_record </em><em>,</em><em>pointer</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Return</dt>
+<dd class="field-odd"><p><strong>res</strong><em> [</em><em>real </em><em>]</em></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/kdtree2_mod/dis2_from_bnd" title="f/kdtree2_mod/dis2_from_bnd"><code class="xref f f-func docutils literal notranslate"><span class="pre">dis2_from_bnd()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/kdtree2_mod/process_terminal_node">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">kdtree2_mod/</span></span><span class="sig-name descname"><span class="pre">process_terminal_node</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">node</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/kdtree2_mod/process_terminal_node" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Look for actual near neighbors in ‘node’, and update
+the search results on the sr(:) data structure.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>node</strong><em> [</em><em>tree_node </em><em>,</em><em>pointer</em><em>]</em></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="kdtree2_priority_queue_mod.html#f/kdtree2_priority_queue_mod/pq_insert" title="f/kdtree2_priority_queue_mod/pq_insert"><code class="xref f f-func docutils literal notranslate"><span class="pre">pq_insert()</span></code></a>, <a class="reference internal" href="kdtree2_priority_queue_mod.html#f/kdtree2_priority_queue_mod/pq_replace_max" title="f/kdtree2_priority_queue_mod/pq_replace_max"><code class="xref f f-func docutils literal notranslate"><span class="pre">pq_replace_max()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/kdtree2_mod/process_terminal_node_fixedball">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">kdtree2_mod/</span></span><span class="sig-name descname"><span class="pre">process_terminal_node_fixedball</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">node</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/kdtree2_mod/process_terminal_node_fixedball" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Look for actual near neighbors in ‘node’, and update
+the search results on the sr(:) data structure, i.e.
+save all within a fixed ball.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>node</strong><em> [</em><em>tree_node </em><em>,</em><em>pointer</em><em>]</em></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/kdtree2_mod/kdtree2_n_nearest_brute_force">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">kdtree2_mod/</span></span><span class="sig-name descname"><span class="pre">kdtree2_n_nearest_brute_force</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">tp</span></em>, <em class="sig-param"><span class="pre">qv</span></em>, <em class="sig-param"><span class="pre">nn</span></em>, <em class="sig-param"><span class="pre">results</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/kdtree2_mod/kdtree2_n_nearest_brute_force" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>find the ‘n’ nearest neighbors to ‘qv’ by exhaustive search.
+only use this subroutine for testing, as it is SLOW!  The
+whole point of a k-d tree is to avoid doing what this subroutine
+does.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>tp</strong><em> [</em><em>kdtree2 </em><em>,</em><em>pointer</em><em>]</em></p></li>
+<li><p><strong>qv</strong> (*)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>nn</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>results</strong> (*)<em> [</em><em>kdtree2_result </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/kdtree2_mod/square_distance" title="f/kdtree2_mod/square_distance"><code class="xref f f-func docutils literal notranslate"><span class="pre">square_distance()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/kdtree2_mod/kdtree2_r_nearest_brute_force">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">kdtree2_mod/</span></span><span class="sig-name descname"><span class="pre">kdtree2_r_nearest_brute_force</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">tp</span></em>, <em class="sig-param"><span class="pre">qv</span></em>, <em class="sig-param"><span class="pre">r2</span></em>, <em class="sig-param"><span class="pre">nfound</span></em>, <em class="sig-param"><span class="pre">results</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/kdtree2_mod/kdtree2_r_nearest_brute_force" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>find the nearest neighbors to ‘qv’ with distance**2 &lt;= r2 by exhaustive search.
+only use this subroutine for testing, as it is SLOW!  The
+whole point of a k-d tree is to avoid doing what this subroutine
+does.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>tp</strong><em> [</em><em>kdtree2 </em><em>,</em><em>pointer</em><em>]</em></p></li>
+<li><p><strong>qv</strong> (*)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>r2</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>nfound</strong><em> [</em><em>integer </em><em>,</em><em>out</em><em>]</em></p></li>
+<li><p><strong>results</strong> (*)<em> [</em><em>kdtree2_result </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/kdtree2_mod/square_distance" title="f/kdtree2_mod/square_distance"><code class="xref f f-func docutils literal notranslate"><span class="pre">square_distance()</span></code></a>, <a class="reference internal" href="#f/kdtree2_mod/kdtree2_sort_results" title="f/kdtree2_mod/kdtree2_sort_results"><code class="xref f f-func docutils literal notranslate"><span class="pre">kdtree2_sort_results()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/kdtree2_mod/kdtree2_sort_results">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">kdtree2_mod/</span></span><span class="sig-name descname"><span class="pre">kdtree2_sort_results</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">nfound</span></em>, <em class="sig-param"><span class="pre">results</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/kdtree2_mod/kdtree2_sort_results" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Use after search to sort results(1:nfound) in order of increasing
+distance.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>nfound</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>results</strong> (*)<em> [</em><em>kdtree2_result </em><em>,</em><em>target</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/kdtree2_mod/kdtree2_n_nearest" title="f/kdtree2_mod/kdtree2_n_nearest"><code class="xref f f-func docutils literal notranslate"><span class="pre">kdtree2_n_nearest()</span></code></a>, <a class="reference internal" href="#f/kdtree2_mod/kdtree2_n_nearest_around_point" title="f/kdtree2_mod/kdtree2_n_nearest_around_point"><code class="xref f f-func docutils literal notranslate"><span class="pre">kdtree2_n_nearest_around_point()</span></code></a>, <a class="reference internal" href="#f/kdtree2_mod/kdtree2_r_nearest" title="f/kdtree2_mod/kdtree2_r_nearest"><code class="xref f f-func docutils literal notranslate"><span class="pre">kdtree2_r_nearest()</span></code></a>, <a class="reference internal" href="#f/kdtree2_mod/kdtree2_r_nearest_around_point" title="f/kdtree2_mod/kdtree2_r_nearest_around_point"><code class="xref f f-func docutils literal notranslate"><span class="pre">kdtree2_r_nearest_around_point()</span></code></a>, <a class="reference internal" href="#f/kdtree2_mod/kdtree2_r_nearest_brute_force" title="f/kdtree2_mod/kdtree2_r_nearest_brute_force"><code class="xref f f-func docutils literal notranslate"><span class="pre">kdtree2_r_nearest_brute_force()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/kdtree2_mod/heapsort_struct" title="f/kdtree2_mod/heapsort_struct"><code class="xref f f-func docutils literal notranslate"><span class="pre">heapsort_struct()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/kdtree2_mod/heapsort">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">kdtree2_mod/</span></span><span class="sig-name descname"><span class="pre">heapsort</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">a</span></em>, <em class="sig-param"><span class="pre">ind</span></em>, <em class="sig-param"><span class="pre">n</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/kdtree2_mod/heapsort" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Sort a(1:n) in ascending order, permuting ind(1:n) similarly.</p>
+<p>If ind(k) = k upon input, then it will give a sort index upon output.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>a</strong> (*)<em> [</em><em>real </em><em>,</em><em>inout</em><em>]</em></p></li>
+<li><p><strong>ind</strong> (*)<em> [</em><em>integer </em><em>,</em><em>inout</em><em>]</em></p></li>
+<li><p><strong>n</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/kdtree2_mod/heapsort_struct">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">kdtree2_mod/</span></span><span class="sig-name descname"><span class="pre">heapsort_struct</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">a</span></em>, <em class="sig-param"><span class="pre">n</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/kdtree2_mod/heapsort_struct" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Sort a(1:n) in ascending order</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>a</strong> (*)<em> [</em><em>kdtree2_result </em><em>,</em><em>inout</em><em>]</em></p></li>
+<li><p><strong>n</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/kdtree2_mod/kdtree2_sort_results" title="f/kdtree2_mod/kdtree2_sort_results"><code class="xref f f-func docutils literal notranslate"><span class="pre">kdtree2_sort_results()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/kdtree2_mod/kdtree2_3dposition">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">kdtree2_mod/</span></span><span class="sig-name descname"><span class="pre">kdtree2_3dposition</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">lon_rad</span></em>, <em class="sig-param"><span class="pre">lat_rad</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/kdtree2_mod/kdtree2_3dposition" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Calculate the 3 dimensional coordinates of a point
+on the sphere of Earth radius given
+the longitude-latitude position on the surface of the sphere
+in radian.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>lon_rad</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>lat_rad</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Return</dt>
+<dd class="field-odd"><p><strong>positionarray</strong> (3)<em> [</em><em>real </em><em>]</em> :: returned values of function</p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="analysiserroroi_mod.html#f/analysiserroroi_mod/aer_analysiserror" title="f/analysiserroroi_mod/aer_analysiserror"><code class="xref f f-func docutils literal notranslate"><span class="pre">aer_analysiserror()</span></code></a>, <a class="reference internal" href="analysiserroroi_mod.html#f/analysiserroroi_mod/findobs" title="f/analysiserroroi_mod/findobs"><code class="xref f f-func docutils literal notranslate"><span class="pre">findobs()</span></code></a>, <a class="reference internal" href="getgridposition_mod.html#f/getgridposition_mod/gpos_xyfll_unstructgrid" title="f/getgridposition_mod/gpos_xyfll_unstructgrid"><code class="xref f f-func docutils literal notranslate"><span class="pre">gpos_xyfll_unstructgrid()</span></code></a>, <a class="reference internal" href="interpolation_mod.html#f/interpolation_mod/int_sintcloudtogrid_gsv" title="f/interpolation_mod/int_sintcloudtogrid_gsv"><code class="xref f f-func docutils literal notranslate"><span class="pre">int_sintcloudtogrid_gsv()</span></code></a>, <a class="reference internal" href="oceanmask_mod.html#f/oceanmask_mod/ocm_farfromland" title="f/oceanmask_mod/ocm_farfromland"><code class="xref f f-func docutils literal notranslate"><span class="pre">ocm_farfromland()</span></code></a>, <a class="reference internal" href="sstbias_mod.html#f/sstbias_mod/sstb_getgriddedobs" title="f/sstbias_mod/sstb_getgriddedobs"><code class="xref f f-func docutils literal notranslate"><span class="pre">sstb_getgriddedobs()</span></code></a>, <a class="reference internal" href="sstbias_mod.html#f/sstbias_mod/sstb_getgriddedbias" title="f/sstbias_mod/sstb_getgriddedbias"><code class="xref f f-func docutils literal notranslate"><span class="pre">sstb_getgriddedbias()</span></code></a>, <a class="reference internal" href="statetocolumn_mod.html#f/statetocolumn_mod/s2c_setupinterpinfo" title="f/statetocolumn_mod/s2c_setupinterpinfo"><code class="xref f f-func docutils literal notranslate"><span class="pre">s2c_setupinterpinfo()</span></code></a>, <a class="reference internal" href="statetocolumn_mod.html#f/statetocolumn_mod/s2c_setupfootprintinterp" title="f/statetocolumn_mod/s2c_setupfootprintinterp"><code class="xref f f-func docutils literal notranslate"><span class="pre">s2c_setupfootprintinterp()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div></blockquote>
+</section>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="kdtree2_precision_mod.html" title="kdtree2_precision_mod"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="getgridposition_mod.html" title="getgridposition_mod"
+             >previous</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2018, ECCC.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.
+    </div>
+  </body>
+</html>

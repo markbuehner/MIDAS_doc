@@ -1,0 +1,373 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>localization_mod &mdash; MIDAS  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="MIDAS  documentation" href="../index.html" />
+    <link rel="next" title="localizationspectral_mod" href="localizationspectral_mod.html" />
+    <link rel="prev" title="localizationfunction_mod" href="localizationfunction_mod.html" /> 
+  </head>
+  <body>
+  <div>
+    <img src="../_static/MIDAS_header.png" alt="MIDAS" />
+  </div>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="localizationspectral_mod.html" title="localizationspectral_mod"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="localizationfunction_mod.html" title="localizationfunction_mod"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="localizationfunction_mod.html"
+                          title="previous chapter">localizationfunction_mod</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="localizationspectral_mod.html"
+                          title="next chapter">localizationspectral_mod</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/modules/localization_mod.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <section id="localization-mod">
+<h1>localization_mod<a class="headerlink" href="#localization-mod" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><p><a class="reference internal" href="localization_mod_src.html"><span class="doc">link to source code</span></a></p>
+<p><strong>Dependency Diagrams:</strong></p>
+<figure class="align-default" id="id1">
+<a class="reference internal image-reference" href="localization_mod.svg"><img alt="localization_mod.svg" height="100px" src="localization_mod.svg" /></a>
+<figcaption>
+<p><span class="caption-text">Direct Dependency Diagram</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id2">
+<a class="reference internal image-reference" href="localization_mod_rev.svg"><img alt="localization_mod_rev.svg" height="100px" src="localization_mod_rev.svg" /></a>
+<figcaption>
+<p><span class="caption-text">Reverse Dependency Diagram</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<span class="target" id="f/localization_mod"></span><p class="rubric">Description</p>
+<p>MODULE localization_mod (prefix=’loc’ category=’2. B and R matrices’)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Purpose</dt>
+<dd class="field-odd"><p>Master module for the computation of localized 3D gridpoint
+amplitude fields for each ensemble member from a given (1D)
+control vector</p>
+</dd>
+</dl>
+<p class="rubric">Quick access</p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/localization_mod/struct_loc" title="f/localization_mod/struct_loc"><code class="xref f f-var docutils literal notranslate"><span class="pre">struct_loc</span></code></a></p>
+</dd>
+<dt class="field-even">Routines</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/localization_mod/loc_expandtompiglobal" title="f/localization_mod/loc_expandtompiglobal"><code class="xref f f-func docutils literal notranslate"><span class="pre">loc_expandtompiglobal()</span></code></a>, <a class="reference internal" href="#f/localization_mod/loc_expandtompiglobal_r4" title="f/localization_mod/loc_expandtompiglobal_r4"><code class="xref f f-func docutils literal notranslate"><span class="pre">loc_expandtompiglobal_r4()</span></code></a>, <a class="reference internal" href="#f/localization_mod/loc_finalize" title="f/localization_mod/loc_finalize"><code class="xref f f-func docutils literal notranslate"><span class="pre">loc_finalize()</span></code></a>, <a class="reference internal" href="#f/localization_mod/loc_lsqrt" title="f/localization_mod/loc_lsqrt"><code class="xref f f-func docutils literal notranslate"><span class="pre">loc_lsqrt()</span></code></a>, <a class="reference internal" href="#f/localization_mod/loc_lsqrtad" title="f/localization_mod/loc_lsqrtad"><code class="xref f f-func docutils literal notranslate"><span class="pre">loc_lsqrtad()</span></code></a>, <a class="reference internal" href="#f/localization_mod/loc_reducetompilocal" title="f/localization_mod/loc_reducetompilocal"><code class="xref f f-func docutils literal notranslate"><span class="pre">loc_reducetompilocal()</span></code></a>, <a class="reference internal" href="#f/localization_mod/loc_reducetompilocal_r4" title="f/localization_mod/loc_reducetompilocal_r4"><code class="xref f f-func docutils literal notranslate"><span class="pre">loc_reducetompilocal_r4()</span></code></a>, <a class="reference internal" href="#f/localization_mod/loc_setup" title="f/localization_mod/loc_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">loc_setup()</span></code></a></p>
+</dd>
+</dl>
+<p class="rubric">Needed modules</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="midasmpi_mod.html#f/midasmpi_mod" title="f/midasmpi_mod: MODULE midasMpi_mod (prefix='mmpi' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">midasmpi_mod</span></code></a>: MODULE midasMpi_mod (prefix=’mmpi’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod" title="f/utilities_mod: MODULE utilities_mod (prefix='utl' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">utilities_mod</span></code></a>: MODULE utilities_mod (prefix=’utl’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="localizationspectral_mod.html#f/localizationspectral_mod" title="f/localizationspectral_mod: MODULE localizationSpectral_mod (prefix='lsp' category='2. B and R matrices')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">localizationspectral_mod</span></code></a>: MODULE localizationSpectral_mod (prefix=’lsp’ category=’2. B and R matrices’)</p></li>
+<li><p><a class="reference internal" href="horizontalcoord_mod.html#f/horizontalcoord_mod" title="f/horizontalcoord_mod: MODULE HorizontalCoord_mod (prefix='hco' category='7. Low-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">horizontalcoord_mod</span></code></a>: MODULE HorizontalCoord_mod (prefix=’hco’ category=’7. Low-level data objects’)</p></li>
+<li><p><a class="reference internal" href="verticalcoord_mod.html#f/verticalcoord_mod" title="f/verticalcoord_mod: MODULE verticalcoord (prefix='vco' category='7. Low-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">verticalcoord_mod</span></code></a>: MODULE verticalcoord (prefix=’vco’ category=’7. Low-level data objects’)</p></li>
+<li><p><a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod" title="f/ensemblestatevector_mod: MODULE ensembleStateVector_mod (prefix='ens' category='6. High-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">ensemblestatevector_mod</span></code></a>: MODULE ensembleStateVector_mod (prefix=’ens’ category=’6. High-level data objects’)</p></li>
+</ul>
+<p class="rubric">Types</p>
+<ul>
+<li><dl>
+<dt class="sig sig-object f" id="f/localization_mod/unknown_type">
+<em class="property"><span class="pre">type</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">localization_mod/</span></span><span class="sig-name descname"><span class="pre">unknown_type</span></span><a class="headerlink" href="#f/localization_mod/unknown_type" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type fields</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">cvdim</span><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">hco</span><em> [</em><em>struct_hco </em><em>,</em><em>pointer</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">initialized</span><em> [</em><em>logical </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">loctype</span><em> [</em><em>character </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">lsp</span><em> [</em><em>struct_lsp </em><em>,</em><em>pointer</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">nens</span><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">nensoverdimension</span><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">null</span><em> [</em><em>struct_lsp </em><em>,</em><em>pointer</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">vco</span><em> [</em><em>struct_vco </em><em>,</em><em>pointer</em><em>]</em></p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</li>
+</ul>
+<p class="rubric">Variables</p>
+<ul>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/localization_mod/struct_loc">
+<span class="sig-prename descclassname"><span class="pre">localization_mod/</span></span><span class="sig-name descname"><span class="pre">struct_loc</span></span><em> <span class="pre">[</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/localization_mod/struct_loc" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+</ul>
+<p class="rubric">Subroutines and functions</p>
+<dl>
+<dt class="sig sig-object f" id="f/localization_mod/loc_setup">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">localization_mod/</span></span><span class="sig-name descname"><span class="pre">loc_setup</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">loc</span></em>, <em class="sig-param"><span class="pre">cvdim_out</span></em>, <em class="sig-param"><span class="pre">hco_loc</span></em>, <em class="sig-param"><span class="pre">vco_loc</span></em>, <em class="sig-param"><span class="pre">nens</span></em>, <em class="sig-param"><span class="pre">vertlocation</span></em>, <em class="sig-param"><span class="pre">ntrunc</span></em>, <em class="sig-param"><span class="pre">loctype</span></em>, <em class="sig-param"><span class="pre">locmode</span></em>, <em class="sig-param"><span class="pre">horizlengthscale1</span></em>, <em class="sig-param"><span class="pre">horizlengthscale2</span></em>, <em class="sig-param"><span class="pre">vertlengthscale</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/localization_mod/loc_setup" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>loc</strong><em> [</em><em>struct_loc </em><em>]</em></p></li>
+<li><p><strong>cvdim_out</strong><em> [</em><em>integer </em><em>,</em><em>out</em><em>]</em></p></li>
+<li><p><strong>hco_loc</strong><em> [</em><em>struct_hco </em><em>,</em><em>in,pointer</em><em>]</em></p></li>
+<li><p><strong>vco_loc</strong><em> [</em><em>struct_vco </em><em>,</em><em>in,pointer</em><em>]</em></p></li>
+<li><p><strong>nens</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>vertlocation</strong> (*)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>ntrunc</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>loctype</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>locmode</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>horizlengthscale1</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>horizlengthscale2</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>vertlengthscale</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: IN</p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="bmatrixensemble_mod.html#f/bmatrixensemble_mod/ben_setuponeinstance" title="f/bmatrixensemble_mod/ben_setuponeinstance"><code class="xref f f-func docutils literal notranslate"><span class="pre">ben_setuponeinstance()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="localizationspectral_mod.html#f/localizationspectral_mod/lsp_setup" title="f/localizationspectral_mod/lsp_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">lsp_setup()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/localization_mod/loc_lsqrt">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">localization_mod/</span></span><span class="sig-name descname"><span class="pre">loc_lsqrt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">loc</span></em>, <em class="sig-param"><span class="pre">controlvector</span></em>, <em class="sig-param"><span class="pre">ensamplitude</span></em>, <em class="sig-param"><span class="pre">stepindex</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/localization_mod/loc_lsqrt" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>loc</strong><em> [</em><em>struct_loc </em><em>]</em></p></li>
+<li><p><strong>controlvector</strong> (*)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>ensamplitude</strong><em> [</em><em>struct_ens </em><em>]</em> :: OUT</p></li>
+<li><p><strong>stepindex</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="bmatrixensemble_mod.html#f/bmatrixensemble_mod/ben_bsqrt" title="f/bmatrixensemble_mod/ben_bsqrt"><code class="xref f f-func docutils literal notranslate"><span class="pre">ben_bsqrt()</span></code></a>, <a class="reference internal" href="../programs/midas_adjointtest.html#f/midas_adjointtest" title="f/midas_adjointtest"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_adjointtest</span></code></a>, <a class="reference internal" href="../programs/midas_diagbmatrix.html#f/midas_diagbmatrix" title="f/midas_diagbmatrix"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_diagbmatrix</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="localizationspectral_mod.html#f/localizationspectral_mod/lsp_lsqrt" title="f/localizationspectral_mod/lsp_lsqrt"><code class="xref f f-func docutils literal notranslate"><span class="pre">lsp_lsqrt()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/localization_mod/loc_lsqrtad">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">localization_mod/</span></span><span class="sig-name descname"><span class="pre">loc_lsqrtad</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">loc</span></em>, <em class="sig-param"><span class="pre">ensamplitude</span></em>, <em class="sig-param"><span class="pre">controlvector</span></em>, <em class="sig-param"><span class="pre">stepindex</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/localization_mod/loc_lsqrtad" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>loc</strong><em> [</em><em>struct_loc </em><em>]</em></p></li>
+<li><p><strong>ensamplitude</strong><em> [</em><em>struct_ens </em><em>]</em> :: INOUT</p></li>
+<li><p><strong>controlvector</strong> (*)<em> [</em><em>real </em><em>,</em><em>out</em><em>]</em></p></li>
+<li><p><strong>stepindex</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="bmatrixensemble_mod.html#f/bmatrixensemble_mod/ben_bsqrtad" title="f/bmatrixensemble_mod/ben_bsqrtad"><code class="xref f f-func docutils literal notranslate"><span class="pre">ben_bsqrtad()</span></code></a>, <a class="reference internal" href="../programs/midas_adjointtest.html#f/midas_adjointtest" title="f/midas_adjointtest"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_adjointtest</span></code></a>, <a class="reference internal" href="../programs/midas_diagbmatrix.html#f/midas_diagbmatrix" title="f/midas_diagbmatrix"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_diagbmatrix</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="localizationspectral_mod.html#f/localizationspectral_mod/lsp_lsqrtad" title="f/localizationspectral_mod/lsp_lsqrtad"><code class="xref f f-func docutils literal notranslate"><span class="pre">lsp_lsqrtad()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/localization_mod/loc_finalize">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">localization_mod/</span></span><span class="sig-name descname"><span class="pre">loc_finalize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">loc</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/localization_mod/loc_finalize" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><p><strong>loc</strong><em> [</em><em>struct_loc </em><em>]</em></p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="bmatrixensemble_mod.html#f/bmatrixensemble_mod/ben_finalize" title="f/bmatrixensemble_mod/ben_finalize"><code class="xref f f-func docutils literal notranslate"><span class="pre">ben_finalize()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="localizationspectral_mod.html#f/localizationspectral_mod/lsp_finalize" title="f/localizationspectral_mod/lsp_finalize"><code class="xref f f-func docutils literal notranslate"><span class="pre">lsp_finalize()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/localization_mod/loc_reducetompilocal">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">localization_mod/</span></span><span class="sig-name descname"><span class="pre">loc_reducetompilocal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">loc</span></em>, <em class="sig-param"><span class="pre">cv_mpilocal</span></em>, <em class="sig-param"><span class="pre">cv_mpiglobal</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/localization_mod/loc_reducetompilocal" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>loc</strong><em> [</em><em>struct_loc </em><em>]</em></p></li>
+<li><p><strong>cv_mpilocal</strong> (*)<em> [</em><em>real </em><em>,</em><em>out</em><em>]</em> :: OUT</p></li>
+<li><p><strong>cv_mpiglobal</strong> (*)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="bmatrixensemble_mod.html#f/bmatrixensemble_mod/ben_reducetompilocal" title="f/bmatrixensemble_mod/ben_reducetompilocal"><code class="xref f f-func docutils literal notranslate"><span class="pre">ben_reducetompilocal()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="localizationspectral_mod.html#f/localizationspectral_mod/lsp_reducetompilocal" title="f/localizationspectral_mod/lsp_reducetompilocal"><code class="xref f f-func docutils literal notranslate"><span class="pre">lsp_reducetompilocal()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/localization_mod/loc_reducetompilocal_r4">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">localization_mod/</span></span><span class="sig-name descname"><span class="pre">loc_reducetompilocal_r4</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">loc</span></em>, <em class="sig-param"><span class="pre">cv_mpilocal</span></em>, <em class="sig-param"><span class="pre">cv_mpiglobal</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/localization_mod/loc_reducetompilocal_r4" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>loc</strong><em> [</em><em>struct_loc </em><em>]</em></p></li>
+<li><p><strong>cv_mpilocal</strong> (*)<em> [</em><em>real </em><em>,</em><em>out</em><em>]</em> :: OUT</p></li>
+<li><p><strong>cv_mpiglobal</strong> (*)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="bmatrixensemble_mod.html#f/bmatrixensemble_mod/ben_reducetompilocal_r4" title="f/bmatrixensemble_mod/ben_reducetompilocal_r4"><code class="xref f f-func docutils literal notranslate"><span class="pre">ben_reducetompilocal_r4()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="localizationspectral_mod.html#f/localizationspectral_mod/lsp_reducetompilocal_r4" title="f/localizationspectral_mod/lsp_reducetompilocal_r4"><code class="xref f f-func docutils literal notranslate"><span class="pre">lsp_reducetompilocal_r4()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/localization_mod/loc_expandtompiglobal">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">localization_mod/</span></span><span class="sig-name descname"><span class="pre">loc_expandtompiglobal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">loc</span></em>, <em class="sig-param"><span class="pre">cv_mpilocal</span></em>, <em class="sig-param"><span class="pre">cv_mpiglobal</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/localization_mod/loc_expandtompiglobal" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>loc</strong><em> [</em><em>struct_loc </em><em>]</em></p></li>
+<li><p><strong>cv_mpilocal</strong> (*)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>cv_mpiglobal</strong> (*)<em> [</em><em>real </em><em>,</em><em>out</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="bmatrixensemble_mod.html#f/bmatrixensemble_mod/ben_expandtompiglobal" title="f/bmatrixensemble_mod/ben_expandtompiglobal"><code class="xref f f-func docutils literal notranslate"><span class="pre">ben_expandtompiglobal()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="localizationspectral_mod.html#f/localizationspectral_mod/lsp_expandtompiglobal" title="f/localizationspectral_mod/lsp_expandtompiglobal"><code class="xref f f-func docutils literal notranslate"><span class="pre">lsp_expandtompiglobal()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/localization_mod/loc_expandtompiglobal_r4">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">localization_mod/</span></span><span class="sig-name descname"><span class="pre">loc_expandtompiglobal_r4</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">loc</span></em>, <em class="sig-param"><span class="pre">cv_mpilocal</span></em>, <em class="sig-param"><span class="pre">cv_mpiglobal</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/localization_mod/loc_expandtompiglobal_r4" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>loc</strong><em> [</em><em>struct_loc </em><em>]</em></p></li>
+<li><p><strong>cv_mpilocal</strong> (*)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>cv_mpiglobal</strong> (*)<em> [</em><em>real </em><em>,</em><em>out</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="bmatrixensemble_mod.html#f/bmatrixensemble_mod/ben_expandtompiglobal_r4" title="f/bmatrixensemble_mod/ben_expandtompiglobal_r4"><code class="xref f f-func docutils literal notranslate"><span class="pre">ben_expandtompiglobal_r4()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="localizationspectral_mod.html#f/localizationspectral_mod/lsp_expandtompiglobal_r4" title="f/localizationspectral_mod/lsp_expandtompiglobal_r4"><code class="xref f f-func docutils literal notranslate"><span class="pre">lsp_expandtompiglobal_r4()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div></blockquote>
+</section>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="localizationspectral_mod.html" title="localizationspectral_mod"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="localizationfunction_mod.html" title="localizationfunction_mod"
+             >previous</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2018, ECCC.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.
+    </div>
+  </body>
+</html>

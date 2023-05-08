@@ -1,0 +1,8 @@
+==========================================
+midas_diagbmatrix source
+==========================================
+
+    .. literalinclude:: ../_src_files/diagBmatrix.f90
+       :language: fortran
+       :linenos:
+

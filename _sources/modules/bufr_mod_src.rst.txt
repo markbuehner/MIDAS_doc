@@ -1,0 +1,8 @@
+==========================================
+bufr_mod source
+==========================================
+
+    .. literalinclude:: ../_src_files/bufr_mod.f90
+       :language: fortran
+       :linenos:
+

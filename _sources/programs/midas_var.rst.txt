@@ -1,0 +1,17 @@
+==========================================
+midas_var
+==========================================
+
+    :doc:`link to source code <midas_var_src>`
+
+
+    **Dependency Diagrams:**
+
+    .. figure:: /midas_var.svg
+        :height: 100px
+
+        Direct Dependency Diagram
+
+
+    .. f:autoprogram:: midas_var
+

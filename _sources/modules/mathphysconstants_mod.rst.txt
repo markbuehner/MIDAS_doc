@@ -1,0 +1,19 @@
+==========================================
+mathphysconstants_mod
+==========================================
+
+    :doc:`link to source code <mathphysconstants_mod_src>`
+
+
+    **Dependency Diagrams:**
+
+      No Direct Dependency
+
+    .. figure:: /mathphysconstants_mod_rev.svg
+        :height: 100px
+
+        Reverse Dependency Diagram
+
+
+    .. f:automodule:: mathphysconstants_mod
+

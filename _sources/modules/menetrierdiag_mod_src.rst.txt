@@ -1,0 +1,8 @@
+==========================================
+menetrierdiag_mod source
+==========================================
+
+    .. literalinclude:: ../_src_files/menetrierdiag_mod.f90
+       :language: fortran
+       :linenos:
+

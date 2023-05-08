@@ -1,0 +1,22 @@
+==========================================
+obsdiagfiles_mod
+==========================================
+
+    :doc:`link to source code <obsdiagfiles_mod_src>`
+
+
+    **Dependency Diagrams:**
+
+    .. figure:: /obsdiagfiles_mod.svg
+        :height: 100px
+
+        Direct Dependency Diagram
+
+    .. figure:: /obsdiagfiles_mod_rev.svg
+        :height: 100px
+
+        Reverse Dependency Diagram
+
+
+    .. f:automodule:: obsdiagfiles_mod
+

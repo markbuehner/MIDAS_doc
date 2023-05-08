@@ -1,0 +1,8 @@
+==========================================
+bmatrix_mod source
+==========================================
+
+    .. literalinclude:: ../_src_files/bmatrix_mod.f90
+       :language: fortran
+       :linenos:
+

@@ -1,0 +1,183 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>MPI in MIDAS &mdash; MIDAS  documentation</title>
+    
+    <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="top" title="MIDAS  documentation" href="index.html" /> 
+  </head>
+  <body>
+  <div>
+    <img src="_static/MIDAS_header.png" alt="MIDAS" />
+  </div>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li><a href="index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/mpi_in_midas.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <section id="mpi-in-midas">
+<h1>MPI in MIDAS<a class="headerlink" href="#mpi-in-midas" title="Permalink to this headline">¶</a></h1>
+<p>MIDAS uses Message Passing Interface (MPI) to allow programs to be parallelized
+over a potentially large number of processors on the supercomputers. When
+submitted for execution, a MIDAS program will run many times independently in
+parallel on separate groups of processors consisting of one or more threads
+each. For example, if the <cite>var</cite> program is submitted in a maestro task using the
+following topology:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cpu</span><span class="o">=</span><span class="s2">&quot;10x54x4&quot;</span>
+</pre></div>
+</div>
+<p>then the program will run 540 (i.e. 10x54) times in parallel, each using 4
+threads. These 540 executions are each referred to as an “MPI task”. We use the
+<code class="docutils literal notranslate"><span class="pre">rpn_comm</span></code> library (part of <code class="docutils literal notranslate"><span class="pre">rmnlib</span></code>) as a wrapper around the standard MPI
+library routines. The <code class="docutils literal notranslate"><span class="pre">rpn_comm</span></code> library allows the decomposition of the MPI
+tasks in two dimensions. In the above example, the 540 MPI tasks are decomposed
+into 10 MPI tasks in the “x” direction and 54 MPI tasks in the “y”
+direction. This is used in various contexts in MIDAS, including to distribute
+the data of the data object associated with the <code class="docutils literal notranslate"><span class="pre">gridStateVector_mod</span></code> module
+in the two horizontal dimensions. This is known as the “Tiles” MPI distribution
+and is the most common way gridded data (including both single states and
+ensembles of states) is represented within MIDAS programs.</p>
+<a class="reference internal image-reference" href="_images/mpi_2D_decomposition.png"><img alt="_images/mpi_2D_decomposition.png" src="_images/mpi_2D_decomposition.png" style="width: 700px;" /></a>
+<p><strong>Figure 1:</strong> Example of 2D domain decomposition of a global data object
+associated with the <code class="docutils literal notranslate"><span class="pre">gridStateVector_mod</span></code> module with an MPI topology of
+<code class="docutils literal notranslate"><span class="pre">8x4x1</span></code>. MPI task (7,1) is shown with its local grid values that cover a
+sub-region over the South Pacific.</p>
+<p>However, when performing various horizontal transformations on the data
+(e.g. horizontal interpolation from one grid to another) it is more practical to
+have access to all of the data for a particular vertical level and variable on a
+single MPI task. In this case the same data can instead be distributed over the
+MPI tasks using the so-called “VarsLevs” distribution. Instead of a subset of
+horizontal grid points on each MPI task, the contatenation of the vertical
+levels with the different variables is decomposed over all MPI tasks
+(i.e. combining the tasks in the “x” and “y” directions).</p>
+<a class="reference internal image-reference" href="_images/mpi_varslevs_decomposition.png"><img alt="_images/mpi_varslevs_decomposition.png" src="_images/mpi_varslevs_decomposition.png" style="width: 700px;" /></a>
+<p><strong>Figure 2:</strong> Example of the “VarsLevs” MPI decomposition that distributes
+complete 2D horizontal fields over the MPI tasks. In this case there are a total
+of 6 MPI tasks, such as from an MPI topology of <code class="docutils literal notranslate"><span class="pre">3x2x1</span></code>.</p>
+<p>In addition to the “Tiles” and “VarsLevs” MPI distributions, MIDAS can also
+store the entire gridded data on a single MPI task. This global distribution is
+used when writing and reading to/from files on disk. In some situations,
+individual time steps can be distributed over multiple MPI tasks to allow each
+of the global 3D data to be written or read to/from the disk in parallel.</p>
+<p>It is often necessary to be able to transform data that exists in one type of
+MPI distribution into another MPI distribution. For example, to perform
+horizontal and vertical interpolation with data that is originally in the
+“Tiles” MPI distribution is performed by:</p>
+<ol class="arabic simple">
+<li><p>Transpose the original data from “Tiles” to “VarsLevs” MPI distribution.</p></li>
+<li><p>Perform horizontal interpolation on all MPI tasks in parallel for a subset of
+vertical levels/variables on each.</p></li>
+<li><p>Transpose the result from “VarsLevs” back to “Tiles” MPI distribution.</p></li>
+<li><p>Perform vertical interpolation on all MPI tasks in parallel for a subset of
+horizontal grid points on each.</p></li>
+</ol>
+<p>Therefore subroutines are included in MIDAS that perform various transpositions
+between different pairs of MPI distributions. For the data associated with the
+<code class="docutils literal notranslate"><span class="pre">gridStateVector_mod</span></code> module, these subroutines are located in the same module.</p>
+<p>Observation-related information stored in the object associated with the
+<code class="docutils literal notranslate"><span class="pre">obsSpaceData_mod</span></code> module is also distributed across all MPI tasks. In this
+case, the data are distributed in an arbitrary way, not associated with
+geographical location or any other feature of the observations. The only goal is
+to distribute each type of observation as evenly as possible over the MPI tasks
+to equalize the computational effort needed to run the observation operators
+(i.e. load balancing). This distribution is maintained throughout the execution
+of most MIDAS programs, including the reading and writing of the observations
+from/to the files. The observation operators require as input a state vector
+interpolated to the horizontal locations and times of the observations in the
+form of the object associated with the <code class="docutils literal notranslate"><span class="pre">columnData_mod</span></code> module which is also
+distributed over the MPI tasks in the same way as the observations. When this
+column object is computed from gridded data by the <code class="docutils literal notranslate"><span class="pre">stateToColumn_mod</span></code> module,
+MPI communication is required to take the gridded input data on the “Tiles” MPI
+distribution and produce the column object on the same MPI distribution as the
+observations. The column object includes all vertical levels and variables.</p>
+<a class="reference internal image-reference" href="_images/mpi_tilesToColumn.png"><img alt="_images/mpi_tilesToColumn.png" src="_images/mpi_tilesToColumn.png" style="width: 700px;" /></a>
+<p><strong>Figure 3:</strong> Example of 16 observations distributed arbitrarily over 4 MPI
+tasks (indicated by the different colours) and the corresponding column
+representation of data (e.g. background state values after horizontal and
+temporal interpolation) used as input for the observation operators.</p>
+</section>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li><a href="index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2018, ECCC.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,17 @@
+==========================================
+midas_obsimpact
+==========================================
+
+    :doc:`link to source code <midas_obsimpact_src>`
+
+
+    **Dependency Diagrams:**
+
+    .. figure:: /midas_obsimpact.svg
+        :height: 100px
+
+        Direct Dependency Diagram
+
+
+    .. f:autoprogram:: midas_obsimpact
+

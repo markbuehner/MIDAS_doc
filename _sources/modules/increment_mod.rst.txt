@@ -1,0 +1,22 @@
+==========================================
+increment_mod
+==========================================
+
+    :doc:`link to source code <increment_mod_src>`
+
+
+    **Dependency Diagrams:**
+
+    .. figure:: /increment_mod.svg
+        :height: 100px
+
+        Direct Dependency Diagram
+
+    .. figure:: /increment_mod_rev.svg
+        :height: 100px
+
+        Reverse Dependency Diagram
+
+
+    .. f:automodule:: increment_mod
+

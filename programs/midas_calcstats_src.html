@@ -1,0 +1,327 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>midas_calcstats source &mdash; MIDAS  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="MIDAS  documentation" href="../index.html" /> 
+  </head>
+  <body>
+  <div>
+    <img src="../_static/MIDAS_header.png" alt="MIDAS" />
+  </div>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/programs/midas_calcstats_src.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <section id="midas-calcstats-source">
+<h1>midas_calcstats source<a class="headerlink" href="#midas-calcstats-source" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="linenos">  1</span><span class="c">!--------------------------------------- LICENCE BEGIN -----------------------------------</span>
+<span class="linenos">  2</span><span class="c">!Environment Canada - Atmospheric Science and Technology License/Disclaimer,</span>
+<span class="linenos">  3</span><span class="c">!                     version 3; Last Modified: May 7, 2008.</span>
+<span class="linenos">  4</span><span class="c">!This is free but copyrighted software; you can use/redistribute/modify it under the terms</span>
+<span class="linenos">  5</span><span class="c">!of the Environment Canada - Atmospheric Science and Technology License/Disclaimer</span>
+<span class="linenos">  6</span><span class="c">!version 3 or (at your option) any later version that should be found at:</span>
+<span class="linenos">  7</span><span class="c">!http://collaboration.cmc.ec.gc.ca/science/rpn.comm/license.html</span>
+<span class="linenos">  8</span><span class="c">!</span>
+<span class="linenos">  9</span><span class="c">!This software is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;</span>
+<span class="linenos"> 10</span><span class="c">!without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.</span>
+<span class="linenos"> 11</span><span class="c">!See the above mentioned License/Disclaimer for more details.</span>
+<span class="linenos"> 12</span><span class="c">!You should have received a copy of the License/Disclaimer along with this software;</span>
+<span class="linenos"> 13</span><span class="c">!if not, you can write to: EC-RPN COMM Group, 2121 TransCanada, suite 500, Dorval (Quebec),</span>
+<span class="linenos"> 14</span><span class="c">!CANADA, H9P 1J3; or send e-mail to service.rpn@ec.gc.ca</span>
+<span class="linenos"> 15</span><span class="c">!-------------------------------------- LICENCE END --------------------------------------</span>
+<span class="linenos"> 16</span>
+<span class="linenos"> 17</span><span class="k">program </span><span class="n">midas_calcstats</span><span class="w"></span>
+<span class="linenos"> 18</span><span class="w">  </span><span class="c">!</span>
+<span class="linenos"> 19</span><span class="w">  </span><span class="c">!:Purpose: Swiss-knife type program originally used only for computing background-error covariances</span>
+<span class="linenos"> 20</span><span class="w">  </span><span class="c">!          (**B**) based on homogeneous and isotropic (HI) correlations that was extended with time</span>
+<span class="linenos"> 21</span><span class="w">  </span><span class="c">!          to compute various statistics and diagnostics from an ensemble of background-error estimates</span>
+<span class="linenos"> 22</span><span class="w">  </span><span class="c">!</span>
+<span class="linenos"> 23</span><span class="w">  </span><span class="c">!          ---</span>
+<span class="linenos"> 24</span><span class="w">  </span><span class="c">!</span>
+<span class="linenos"> 25</span><span class="w">  </span><span class="c">!:Algorithm: The ``calcStats`` program performs various types of statistics and diagnostics based on</span>
+<span class="linenos"> 26</span><span class="w">  </span><span class="c">!            two modes defined through namelist options.</span>
+<span class="linenos"> 27</span><span class="w">  </span><span class="c">!</span>
+<span class="linenos"> 28</span><span class="w">  </span><span class="c">!              - **BHI**: Compute HI **B**. The approach for  limited-area applications is based on a bi-Fourier</span>
+<span class="linenos"> 29</span><span class="w">  </span><span class="c">!                         spectral representation and the CVT described in &lt;https://doi.org/10.1175/2010WAF2222401.1&gt;.</span>
+<span class="linenos"> 30</span><span class="w">  </span><span class="c">!                         For global applications, two formulations based on sperical-harmonics spectral representation</span>
+<span class="linenos"> 31</span><span class="w">  </span><span class="c">!                         are available and controlled controlled by ``NAMCOMPUTEBHI``: 1) the legacy CVT formulation</span>
+<span class="linenos"> 32</span><span class="w">  </span><span class="c">!                         described in &lt;https://doi.org/10.1175/MWR-D-11-00097.1&gt; and refereces therein,</span>
+<span class="linenos"> 33</span><span class="w">  </span><span class="c">!                         and 2) an experimental-only formulation that mimics the CVT model used in the limited-area mode.</span>
+<span class="linenos"> 34</span><span class="w">  </span><span class="c">!              - **TOOLBOX**: The swiss-knife component of this program controlled by ``NAMTOOLBOX`` from the</span>
+<span class="linenos"> 35</span><span class="w">  </span><span class="c">!                global and LAM calcstats-related modules. Compute various statistics and diagnostics from</span>
+<span class="linenos"> 36</span><span class="w">  </span><span class="c">!                an ensemble of background-error estimates in model-variable and/or control-variable space,</span>
+<span class="linenos"> 37</span><span class="w">  </span><span class="c">!                such as:</span>
+<span class="linenos"> 38</span><span class="w">  </span><span class="c">!                - HI vertical correlations</span>
+<span class="linenos"> 39</span><span class="w">  </span><span class="c">!                - HI horizontal correlation functions</span>
+<span class="linenos"> 40</span><span class="w">  </span><span class="c">!                - Variances</span>
+<span class="linenos"> 41</span><span class="w">  </span><span class="c">!                - Local correlations</span>
+<span class="linenos"> 42</span><span class="w">  </span><span class="c">!                - Optimal covariance localization radii</span>
+<span class="linenos"> 43</span><span class="w">  </span><span class="c">!                - Power spectra</span>
+<span class="linenos"> 44</span><span class="w">  </span><span class="c">!                Note that the above options are not all available in both global and limited-area</span>
+<span class="linenos"> 45</span><span class="w">  </span><span class="c">!                applications.</span>
+<span class="linenos"> 46</span><span class="w">  </span><span class="c">!            ---</span>
+<span class="linenos"> 47</span><span class="w">  </span><span class="c">!</span>
+<span class="linenos"> 48</span><span class="w">  </span><span class="c">!============================================= ==============================================================</span>
+<span class="linenos"> 49</span><span class="w">  </span><span class="c">! Input and Output Files                        Description of file</span>
+<span class="linenos"> 50</span><span class="w">  </span><span class="c">!============================================= ==============================================================</span>
+<span class="linenos"> 51</span><span class="w">  </span><span class="c">! ``flnml``                                     In - Main namelist file with parameters user may modify</span>
+<span class="linenos"> 52</span><span class="w">  </span><span class="c">! ``ensemble/$YYYYMMDDHH_$HHH_$NNNN``           In - Background-error estimates</span>
+<span class="linenos"> 53</span><span class="w">  </span><span class="c">! ``various``                                   Out - Too many to be listed here</span>
+<span class="linenos"> 54</span><span class="w">  </span><span class="c">!============================================= ==============================================================</span>
+<span class="linenos"> 55</span><span class="w">  </span><span class="c">!</span>
+<span class="linenos"> 56</span><span class="w">  </span><span class="c">!            --</span>
+<span class="linenos"> 57</span><span class="w">  </span><span class="c">!</span>
+<span class="linenos"> 58</span><span class="w">  </span><span class="c">!:Synopsis: Below is a summary of the ``calcStats`` program calling sequence:</span>
+<span class="linenos"> 59</span><span class="w">  </span><span class="c">!</span>
+<span class="linenos"> 60</span><span class="w">  </span><span class="c">!             - **Initial setups:**</span>
+<span class="linenos"> 61</span><span class="w">  </span><span class="c">!</span>
+<span class="linenos"> 62</span><span class="w">  </span><span class="c">!               - Read the NAMCONF and NAMENS namelist</span>
+<span class="linenos"> 63</span><span class="w">  </span><span class="c">!</span>
+<span class="linenos"> 64</span><span class="w">  </span><span class="c">!               - Setup horizontal and vertical grid objects using the first ensemble member</span>
+<span class="linenos"> 65</span><span class="w">  </span><span class="c">!</span>
+<span class="linenos"> 66</span><span class="w">  </span><span class="c">!               - Various modules are setup: ``gridStateVector_mod``, ``timeCoord_mod`` and ``bmatrix_mod``</span>
+<span class="linenos"> 67</span><span class="w">  </span><span class="c">!</span>
+<span class="linenos"> 68</span><span class="w">  </span><span class="c">!             - **Statistics and Diagnostics:**</span>
+<span class="linenos"> 69</span><span class="w">  </span><span class="c">!</span>
+<span class="linenos"> 70</span><span class="w">  </span><span class="c">!               - Intialize the module for global or limited-area applications</span>
+<span class="linenos"> 71</span><span class="w">  </span><span class="c">!</span>
+<span class="linenos"> 72</span><span class="w">  </span><span class="c">!               - Select the appropriate master routine based on the chosen mode</span>
+<span class="linenos"> 73</span><span class="w">  </span><span class="c">!</span>
+<span class="linenos"> 74</span><span class="w">  </span><span class="c">!               - The I/O and number crunching is performed within the global and limited-area modules</span>
+<span class="linenos"> 75</span><span class="w">  </span><span class="c">!</span>
+<span class="linenos"> 76</span><span class="w">  </span><span class="c">!</span>
+<span class="linenos"> 77</span><span class="w">  </span><span class="c">!======================== ============ ==============================================================</span>
+<span class="linenos"> 78</span><span class="w">  </span><span class="c">! Module                   Namelist     Description of what is controlled</span>
+<span class="linenos"> 79</span><span class="w">  </span><span class="c">!======================== ============ ==============================================================</span>
+<span class="linenos"> 80</span><span class="w">  </span><span class="c">! ``timeCoord_mod``        ``NAMTIME``  date of validity of the ensemble of background-error estimates</span>
+<span class="linenos"> 81</span><span class="w">  </span><span class="c">!                                       the background state and increment</span>
+<span class="linenos"> 82</span><span class="w">  </span><span class="c">! ``calcstatslglb_mod``    ``mode-dependent``  Too many to be listed here</span>
+<span class="linenos"> 83</span><span class="w">  </span><span class="c">! ``calcstatslam_mod``     ``mode-dependent``  Too many to be listed here</span>
+<span class="linenos"> 84</span><span class="w">  </span><span class="c">!======================== ============ ==============================================================</span>
+<span class="linenos"> 85</span><span class="w">  </span><span class="c">!</span>
+<span class="linenos"> 86</span><span class="w"> </span>
+<span class="linenos"> 87</span><span class="w">  </span><span class="k">use </span><span class="n">version_mod</span><span class="w"></span>
+<span class="linenos"> 88</span><span class="w">  </span><span class="k">use </span><span class="n">midasMpi_mod</span><span class="w"></span>
+<span class="linenos"> 89</span><span class="w">  </span><span class="k">use </span><span class="n">fileNames_mod</span><span class="w"></span>
+<span class="linenos"> 90</span><span class="w">  </span><span class="k">use </span><span class="n">HorizontalCoord_mod</span><span class="w"></span>
+<span class="linenos"> 91</span><span class="w">  </span><span class="k">use </span><span class="n">VerticalCoord_mod</span><span class="w"></span>
+<span class="linenos"> 92</span><span class="w">  </span><span class="k">use </span><span class="n">calcstatsglb_mod</span><span class="w"></span>
+<span class="linenos"> 93</span><span class="w">  </span><span class="k">use </span><span class="n">calcstatslam_mod</span><span class="w"></span>
+<span class="linenos"> 94</span><span class="w">  </span><span class="k">use </span><span class="n">utilities_mod</span><span class="w"></span>
+<span class="linenos"> 95</span><span class="w">  </span><span class="k">use </span><span class="n">ramDisk_mod</span><span class="w"></span>
+<span class="linenos"> 96</span><span class="w">  </span><span class="k">use </span><span class="n">gridStateVector_mod</span><span class="w"></span>
+<span class="linenos"> 97</span><span class="w">  </span><span class="k">use </span><span class="n">timeCoord_mod</span><span class="w"></span>
+<span class="linenos"> 98</span><span class="w">  </span><span class="k">implicit none</span>
+<span class="linenos"> 99</span>
+<span class="linenos">100</span><span class="k">  type</span><span class="p">(</span><span class="n">struct_vco</span><span class="p">),</span><span class="w"> </span><span class="k">pointer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">vco_ens</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="nb">null</span><span class="p">()</span><span class="w"></span>
+<span class="linenos">101</span><span class="w">  </span><span class="k">type</span><span class="p">(</span><span class="n">struct_hco</span><span class="p">),</span><span class="w"> </span><span class="k">pointer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">hco_ens</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="nb">null</span><span class="p">()</span><span class="w"></span>
+<span class="linenos">102</span>
+<span class="linenos">103</span><span class="w">  </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="mi">256</span><span class="p">),</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">enspathname</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;ensemble&#39;</span><span class="w"></span>
+<span class="linenos">104</span>
+<span class="linenos">105</span><span class="w">  </span><span class="kt">integer</span><span class="w">           </span><span class="kd">::</span><span class="w"> </span><span class="n">fstopc</span><span class="w"></span>
+<span class="linenos">106</span><span class="w">  </span><span class="kt">integer</span><span class="w">           </span><span class="kd">::</span><span class="w"> </span><span class="n">nulnam</span><span class="p">,</span><span class="w"> </span><span class="n">ierr</span><span class="p">,</span><span class="w"> </span><span class="n">fnom</span><span class="p">,</span><span class="w"> </span><span class="n">fclos</span><span class="w"></span>
+<span class="linenos">107</span><span class="w">  </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="mi">256</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">ensFileName</span><span class="w"></span>
+<span class="linenos">108</span><span class="w">  </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="mi">4</span><span class="p">),</span><span class="w"> </span><span class="k">pointer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">anlVar</span><span class="p">(:)</span><span class="w"></span>
+<span class="linenos">109</span>
+<span class="linenos">110</span><span class="w">  </span><span class="c">! namelist variables</span>
+<span class="linenos">111</span><span class="w">  </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="mi">60</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">mode</span><span class="w">   </span><span class="c">! can be &#39;BHI&#39;, &#39;TOOLBOX&#39;, &#39;STDDEV or &#39;POWERSPEC&#39;</span>
+<span class="linenos">112</span><span class="w">  </span><span class="kt">integer</span><span class="w">           </span><span class="kd">::</span><span class="w"> </span><span class="n">nens</span><span class="w">   </span><span class="c">! Ensemble size</span>
+<span class="linenos">113</span><span class="w">  </span><span class="kt">integer</span><span class="w">           </span><span class="kd">::</span><span class="w"> </span><span class="n">ip2</span><span class="w">    </span><span class="c">! Ensemble lead time (hour) selected within the file</span>
+<span class="linenos">114</span>
+<span class="linenos">115</span><span class="w">  </span><span class="k">NAMELIST</span><span class="w"> </span><span class="o">/</span><span class="n">NAMCONF</span><span class="o">/</span><span class="n">mode</span><span class="w"></span>
+<span class="linenos">116</span><span class="w">  </span><span class="k">NAMELIST</span><span class="w"> </span><span class="o">/</span><span class="n">NAMENS</span><span class="o">/</span><span class="n">nens</span><span class="p">,</span><span class="n">ip2</span><span class="w"></span>
+<span class="linenos">117</span>
+<span class="linenos">118</span><span class="w">  </span><span class="k">call </span><span class="n">ver_printNameAndVersion</span><span class="p">(</span><span class="s1">&#39;calcStats&#39;</span><span class="p">,</span><span class="s1">&#39;Compute the homogeneous-isotropic stats&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">119</span>
+<span class="linenos">120</span><span class="w">  </span><span class="c">!</span>
+<span class="linenos">121</span><span class="w">  </span><span class="c">!- 1.  Initilization</span>
+<span class="linenos">122</span><span class="w">  </span><span class="c">!</span>
+<span class="linenos">123</span><span class="w">  </span><span class="n">ierr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fstopc</span><span class="p">(</span><span class="s1">&#39;MSGLVL&#39;</span><span class="p">,</span><span class="s1">&#39;ERRORS&#39;</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">124</span>
+<span class="linenos">125</span><span class="w">  </span><span class="c">!- 1.1 MPI and TMG</span>
+<span class="linenos">126</span><span class="w">  </span><span class="k">call </span><span class="n">mmpi_initialize</span><span class="w"></span>
+<span class="linenos">127</span><span class="w">  </span><span class="k">call </span><span class="n">tmg_init</span><span class="p">(</span><span class="n">mmpi_myid</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;TMG_INFO&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">128</span>
+<span class="linenos">129</span><span class="w">  </span><span class="k">call </span><span class="n">utl_tmg_start</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;Main&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">130</span>
+<span class="linenos">131</span><span class="w">  </span><span class="c">! Setup the ramdisk directory (if supplied)</span>
+<span class="linenos">132</span><span class="w">  </span><span class="k">call </span><span class="n">ram_setup</span><span class="w"></span>
+<span class="linenos">133</span>
+<span class="linenos">134</span><span class="w">  </span><span class="c">! Setup time</span>
+<span class="linenos">135</span><span class="w">  </span><span class="k">call </span><span class="n">tim_setup</span><span class="w"></span>
+<span class="linenos">136</span>
+<span class="linenos">137</span><span class="w">  </span><span class="c">!- 1.2 Read NAMENS namelist</span>
+<span class="linenos">138</span><span class="w">  </span><span class="n">nens</span><span class="w">              </span><span class="o">=</span><span class="w"> </span><span class="mi">96</span><span class="w">                </span><span class="c">! default value</span>
+<span class="linenos">139</span><span class="w">  </span><span class="n">ip2</span><span class="w">               </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="w">                </span><span class="c">! default value</span>
+<span class="linenos">140</span>
+<span class="linenos">141</span><span class="w">  </span><span class="n">nulnam</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
+<span class="linenos">142</span><span class="w">  </span><span class="n">ierr</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="n">fnom</span><span class="p">(</span><span class="n">nulnam</span><span class="p">,</span><span class="s1">&#39;./flnml&#39;</span><span class="p">,</span><span class="s1">&#39;FTN+SEQ+R/O&#39;</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">143</span><span class="w">  </span><span class="k">read</span><span class="w"> </span><span class="p">(</span><span class="n">nulnam</span><span class="p">,</span><span class="n">nml</span><span class="o">=</span><span class="n">namens</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">144</span><span class="w">  </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="w">     </span><span class="p">,</span><span class="n">nml</span><span class="o">=</span><span class="n">namens</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">145</span><span class="w">  </span><span class="n">ierr</span><span class="o">=</span><span class="n">fclos</span><span class="p">(</span><span class="n">nulnam</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">146</span>
+<span class="linenos">147</span><span class="w">  </span><span class="c">!- 2.3 Initialize variables of the model states</span>
+<span class="linenos">148</span><span class="w">  </span><span class="k">call </span><span class="n">gsv_setup</span><span class="w"></span>
+<span class="linenos">149</span>
+<span class="linenos">150</span><span class="w">  </span><span class="k">call </span><span class="n">fln_ensfileName</span><span class="p">(</span><span class="n">ensFileName</span><span class="p">,</span><span class="w"> </span><span class="n">ensPathName</span><span class="p">,</span><span class="w"> </span><span class="n">memberIndex_opt</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">151</span>
+<span class="linenos">152</span><span class="w">  </span><span class="c">!- 1.3 Initialize the horizontal grid</span>
+<span class="linenos">153</span><span class="w">  </span><span class="k">nullify</span><span class="p">(</span><span class="n">anlVar</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">154</span><span class="w">  </span><span class="k">call </span><span class="n">gsv_varNamesList</span><span class="p">(</span><span class="n">anlVar</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">155</span><span class="w">  </span><span class="k">call </span><span class="n">hco_SetupFromFile</span><span class="p">(</span><span class="n">hco_ens</span><span class="p">,</span><span class="w"> </span><span class="n">ensFileName</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39; &#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Ensemble&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">varName_opt</span><span class="o">=</span><span class="n">anlVar</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span><span class="w"> </span><span class="c">! IN</span>
+<span class="linenos">156</span>
+<span class="linenos">157</span><span class="w">  </span><span class="c">!- 1.4 Initialize the vertical grid</span>
+<span class="linenos">158</span><span class="w">  </span><span class="k">call </span><span class="n">vco_SetupFromFile</span><span class="p">(</span><span class="w"> </span><span class="n">vco_ens</span><span class="p">,</span><span class="w">        </span><span class="p">&amp;</span><span class="w"> </span><span class="c">! OUT</span>
+<span class="linenos">159</span><span class="w">                          </span><span class="n">ensFileName</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39; &#39;</span><span class="p">)</span><span class="w"> </span><span class="c">! IN</span>
+<span class="linenos">160</span>
+<span class="linenos">161</span><span class="w">  </span><span class="c">!- 1.5 Read NAMCONF namelist to find the mode</span>
+<span class="linenos">162</span><span class="w">  </span><span class="n">mode</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;BHI&#39;</span><span class="w">  </span><span class="c">! default value</span>
+<span class="linenos">163</span>
+<span class="linenos">164</span><span class="w">  </span><span class="n">nulnam</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
+<span class="linenos">165</span><span class="w">  </span><span class="n">ierr</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="n">fnom</span><span class="p">(</span><span class="n">nulnam</span><span class="p">,</span><span class="s1">&#39;./flnml&#39;</span><span class="p">,</span><span class="s1">&#39;FTN+SEQ+R/O&#39;</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">166</span><span class="w">  </span><span class="k">read</span><span class="w"> </span><span class="p">(</span><span class="n">nulnam</span><span class="p">,</span><span class="n">nml</span><span class="o">=</span><span class="n">namconf</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">167</span><span class="w">  </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="w">     </span><span class="p">,</span><span class="n">nml</span><span class="o">=</span><span class="n">namconf</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">168</span><span class="w">  </span><span class="n">ierr</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="n">fclos</span><span class="p">(</span><span class="n">nulnam</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">169</span>
+<span class="linenos">170</span><span class="w">  </span><span class="c">!</span>
+<span class="linenos">171</span><span class="w">  </span><span class="c">!- 2. Select and launch the appropriate mode</span>
+<span class="linenos">172</span><span class="w">  </span><span class="c">!</span>
+<span class="linenos">173</span>
+<span class="linenos">174</span><span class="w">  </span><span class="c">!- 2.1 Module initialization</span>
+<span class="linenos">175</span><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">hco_ens</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">global</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="linenos">176</span><span class="k">     call </span><span class="n">csg_setup</span><span class="p">(</span><span class="w"> </span><span class="n">nens</span><span class="p">,</span><span class="w"> </span><span class="n">hco_ens</span><span class="p">,</span><span class="w"> </span><span class="n">vco_ens</span><span class="p">)</span><span class="w"> </span><span class="c">! IN</span>
+<span class="linenos">177</span><span class="w">  </span><span class="k">else</span>
+<span class="linenos">178</span><span class="k">     call </span><span class="n">csl_setup</span><span class="p">(</span><span class="w"> </span><span class="n">nens</span><span class="p">,</span><span class="w"> </span><span class="n">hco_ens</span><span class="p">,</span><span class="w"> </span><span class="n">vco_ens</span><span class="p">,</span><span class="w"> </span><span class="n">ip2</span><span class="p">)</span><span class="w"> </span><span class="c">! IN</span>
+<span class="linenos">179</span><span class="w">  </span><span class="k">end if</span><span class="w"></span>
+<span class="linenos">180</span>
+<span class="linenos">181</span><span class="w">  </span><span class="c">!- 2.2 Mode selection</span>
+<span class="linenos">182</span><span class="w">  </span><span class="k">select case</span><span class="p">(</span><span class="nb">trim</span><span class="p">(</span><span class="n">mode</span><span class="p">))</span><span class="w"></span>
+<span class="linenos">183</span><span class="w">  </span><span class="k">case</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;BHI&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">184</span><span class="w">     </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">hco_ens</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">global</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="linenos">185</span><span class="k">        call </span><span class="n">csg_computeBhi</span><span class="w"></span>
+<span class="linenos">186</span><span class="w">     </span><span class="k">else</span>
+<span class="linenos">187</span><span class="k">        call </span><span class="n">csl_computeBhi</span><span class="w"></span>
+<span class="linenos">188</span><span class="w">     </span><span class="k">end if</span>
+<span class="linenos">189</span><span class="k">  case</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;TOOLBOX&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">190</span><span class="w">     </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">hco_ens</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">global</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="linenos">191</span><span class="k">        call </span><span class="n">csg_toolbox</span><span class="w"></span>
+<span class="linenos">192</span><span class="w">     </span><span class="k">else</span>
+<span class="linenos">193</span><span class="k">        call </span><span class="n">csl_toolbox</span><span class="w"></span>
+<span class="linenos">194</span><span class="w">     </span><span class="k">end if</span>
+<span class="linenos">195</span><span class="k">  case </span><span class="n">default</span><span class="w"></span>
+<span class="linenos">196</span><span class="w">     </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">197</span><span class="w">     </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;Unknown value of MODE in global mode: &#39;</span><span class="p">,</span><span class="n">mode</span><span class="w"></span>
+<span class="linenos">198</span><span class="w">     </span><span class="k">call </span><span class="n">utl_abort</span><span class="p">(</span><span class="s1">&#39;midas-calcstats&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">199</span><span class="w">  </span><span class="k">end select</span><span class="w"></span>
+<span class="linenos">200</span>
+<span class="linenos">201</span><span class="w">  </span><span class="c">!</span>
+<span class="linenos">202</span><span class="w">  </span><span class="c">!- 3.  Ending...</span>
+<span class="linenos">203</span><span class="w">  </span><span class="c">!</span>
+<span class="linenos">204</span>
+<span class="linenos">205</span><span class="w">  </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">206</span><span class="w">  </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;---------------------&#39;</span><span class="w"></span>
+<span class="linenos">207</span><span class="w">  </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;&gt; ENDING CALCBMATRIX &#39;</span><span class="w"></span>
+<span class="linenos">208</span><span class="w">  </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;---------------------&#39;</span><span class="w"></span>
+<span class="linenos">209</span>
+<span class="linenos">210</span><span class="w">  </span><span class="c">!</span>
+<span class="linenos">211</span><span class="w">  </span><span class="c">!- 4.  MPI, tmg finalize</span>
+<span class="linenos">212</span><span class="w">  </span><span class="c">!  </span>
+<span class="linenos">213</span><span class="w">  </span><span class="k">call </span><span class="n">utl_tmg_stop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">214</span>
+<span class="linenos">215</span><span class="w">  </span><span class="k">call </span><span class="n">tmg_terminate</span><span class="p">(</span><span class="n">mmpi_myid</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;TMG_INFO&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">216</span><span class="w">  </span><span class="k">call </span><span class="n">rpn_comm_finalize</span><span class="p">(</span><span class="n">ierr</span><span class="p">)</span><span class="w"> </span>
+<span class="linenos">217</span>
+<span class="linenos">218</span><span class="k">end program </span><span class="n">midas_calcstats</span><span class="w"></span>
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2018, ECCC.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,22 @@
+==========================================
+var1d_mod
+==========================================
+
+    :doc:`link to source code <var1d_mod_src>`
+
+
+    **Dependency Diagrams:**
+
+    .. figure:: /var1d_mod.svg
+        :height: 100px
+
+        Direct Dependency Diagram
+
+    .. figure:: /var1d_mod_rev.svg
+        :height: 100px
+
+        Reverse Dependency Diagram
+
+
+    .. f:automodule:: var1d_mod
+

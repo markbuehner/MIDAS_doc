@@ -1,0 +1,8 @@
+==========================================
+midas_diaghbht source
+==========================================
+
+    .. literalinclude:: ../_src_files/diagHBHt.f90
+       :language: fortran
+       :linenos:
+

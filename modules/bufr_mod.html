@@ -1,0 +1,858 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>bufr_mod &mdash; MIDAS  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="MIDAS  documentation" href="../index.html" />
+    <link rel="next" title="codeprecision_mod" href="codeprecision_mod.html" />
+    <link rel="prev" title="verticalcoord_mod" href="verticalcoord_mod.html" /> 
+  </head>
+  <body>
+  <div>
+    <img src="../_static/MIDAS_header.png" alt="MIDAS" />
+  </div>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="codeprecision_mod.html" title="codeprecision_mod"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="verticalcoord_mod.html" title="verticalcoord_mod"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="verticalcoord_mod.html"
+                          title="previous chapter">verticalcoord_mod</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="codeprecision_mod.html"
+                          title="next chapter">codeprecision_mod</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/modules/bufr_mod.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <section id="bufr-mod">
+<h1>bufr_mod<a class="headerlink" href="#bufr-mod" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><p><a class="reference internal" href="bufr_mod_src.html"><span class="doc">link to source code</span></a></p>
+<p><strong>Dependency Diagrams:</strong></p>
+<blockquote>
+<div><p>No Direct Dependency</p>
+</div></blockquote>
+<figure class="align-default" id="id1">
+<a class="reference internal image-reference" href="bufr_mod_rev.svg"><img alt="bufr_mod_rev.svg" height="100px" src="bufr_mod_rev.svg" /></a>
+<figcaption>
+<p><span class="caption-text">Reverse Dependency Diagram</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<span class="target" id="f/bufr_mod"></span><p class="rubric">Description</p>
+<p>MODULE bufr_mod (prefix=’bufr’ category=’8. Low-level utilities and constants’)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Purpose</dt>
+<dd class="field-odd"><p>This module is a holder for information that is needed from <em>the
+Binary Universal Form for the Representation of meteorological
+data</em> (BUFR), maintained by the World Meteorological Organization</p>
+</dd>
+</dl>
+<p class="rubric">Quick access</p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/bufr_mod/bufr_avgkern" title="f/bufr_mod/bufr_avgkern"><code class="xref f f-var docutils literal notranslate"><span class="pre">bufr_avgkern</span></code></a>, <a class="reference internal" href="#f/bufr_mod/bufr_cloudinseg" title="f/bufr_mod/bufr_cloudinseg"><code class="xref f f-var docutils literal notranslate"><span class="pre">bufr_cloudinseg</span></code></a>, <a class="reference internal" href="#f/bufr_mod/bufr_correl" title="f/bufr_mod/bufr_correl"><code class="xref f f-var docutils literal notranslate"><span class="pre">bufr_correl</span></code></a>, <a class="reference internal" href="#f/bufr_mod/bufr_dewpoint2m" title="f/bufr_mod/bufr_dewpoint2m"><code class="xref f f-var docutils literal notranslate"><span class="pre">bufr_dewpoint2m</span></code></a>, <a class="reference internal" href="#f/bufr_mod/bufr_gust" title="f/bufr_mod/bufr_gust"><code class="xref f f-var docutils literal notranslate"><span class="pre">bufr_gust</span></code></a>, <a class="reference internal" href="#f/bufr_mod/bufr_icec" title="f/bufr_mod/bufr_icec"><code class="xref f f-var docutils literal notranslate"><span class="pre">bufr_icec</span></code></a>, <a class="reference internal" href="#f/bufr_mod/bufr_icep" title="f/bufr_mod/bufr_icep"><code class="xref f f-var docutils literal notranslate"><span class="pre">bufr_icep</span></code></a>, <a class="reference internal" href="#f/bufr_mod/bufr_ices" title="f/bufr_mod/bufr_ices"><code class="xref f f-var docutils literal notranslate"><span class="pre">bufr_ices</span></code></a>, <a class="reference internal" href="#f/bufr_mod/bufr_icev" title="f/bufr_mod/bufr_icev"><code class="xref f f-var docutils literal notranslate"><span class="pre">bufr_icev</span></code></a>, <a class="reference internal" href="#f/bufr_mod/bufr_logradarprecip" title="f/bufr_mod/bufr_logradarprecip"><code class="xref f f-var docutils literal notranslate"><span class="pre">bufr_logradarprecip</span></code></a>, <a class="reference internal" href="#f/bufr_mod/bufr_logvis" title="f/bufr_mod/bufr_logvis"><code class="xref f f-var docutils literal notranslate"><span class="pre">bufr_logvis</span></code></a>, <a class="reference internal" href="#f/bufr_mod/bufr_nbt1" title="f/bufr_mod/bufr_nbt1"><code class="xref f f-var docutils literal notranslate"><span class="pre">bufr_nbt1</span></code></a>, <a class="reference internal" href="#f/bufr_mod/bufr_nbt2" title="f/bufr_mod/bufr_nbt2"><code class="xref f f-var docutils literal notranslate"><span class="pre">bufr_nbt2</span></code></a>, <a class="reference internal" href="#f/bufr_mod/bufr_nbt3" title="f/bufr_mod/bufr_nbt3"><code class="xref f f-var docutils literal notranslate"><span class="pre">bufr_nbt3</span></code></a>, <a class="reference internal" href="#f/bufr_mod/bufr_neal" title="f/bufr_mod/bufr_neal"><code class="xref f f-var docutils literal notranslate"><span class="pre">bufr_neal</span></code></a>, <a class="reference internal" href="#f/bufr_mod/bufr_neaz" title="f/bufr_mod/bufr_neaz"><code class="xref f f-var docutils literal notranslate"><span class="pre">bufr_neaz</span></code></a>, <a class="reference internal" href="#f/bufr_mod/bufr_nebd" title="f/bufr_mod/bufr_nebd"><code class="xref f f-var docutils literal notranslate"><span class="pre">bufr_nebd</span></code></a>, <a class="reference internal" href="#f/bufr_mod/bufr_nech_ch4" title="f/bufr_mod/bufr_nech_ch4"><code class="xref f f-var docutils literal notranslate"><span class="pre">bufr_nech_ch4</span></code></a>, <a class="reference internal" href="#f/bufr_mod/bufr_nech_co" title="f/bufr_mod/bufr_nech_co"><code class="xref f f-var docutils literal notranslate"><span class="pre">bufr_nech_co</span></code></a>, <a class="reference internal" href="#f/bufr_mod/bufr_nech_co2" title="f/bufr_mod/bufr_nech_co2"><code class="xref f f-var docutils literal notranslate"><span class="pre">bufr_nech_co2</span></code></a>, <a class="reference internal" href="#f/bufr_mod/bufr_nech_h2o" title="f/bufr_mod/bufr_nech_h2o"><code class="xref f f-var docutils literal notranslate"><span class="pre">bufr_nech_h2o</span></code></a>, <a class="reference internal" href="#f/bufr_mod/bufr_nech_hcho" title="f/bufr_mod/bufr_nech_hcho"><code class="xref f f-var docutils literal notranslate"><span class="pre">bufr_nech_hcho</span></code></a>, <a class="reference internal" href="#f/bufr_mod/bufr_nech_n2o" title="f/bufr_mod/bufr_nech_n2o"><code class="xref f f-var docutils literal notranslate"><span class="pre">bufr_nech_n2o</span></code></a>, <a class="reference internal" href="#f/bufr_mod/bufr_nech_nh3" title="f/bufr_mod/bufr_nech_nh3"><code class="xref f f-var docutils literal notranslate"><span class="pre">bufr_nech_nh3</span></code></a>, <a class="reference internal" href="#f/bufr_mod/bufr_nech_no" title="f/bufr_mod/bufr_nech_no"><code class="xref f f-var docutils literal notranslate"><span class="pre">bufr_nech_no</span></code></a>, <a class="reference internal" href="#f/bufr_mod/bufr_nech_no2" title="f/bufr_mod/bufr_nech_no2"><code class="xref f f-var docutils literal notranslate"><span class="pre">bufr_nech_no2</span></code></a>, <a class="reference internal" href="#f/bufr_mod/bufr_nech_o3" title="f/bufr_mod/bufr_nech_o3"><code class="xref f f-var docutils literal notranslate"><span class="pre">bufr_nech_o3</span></code></a>, <a class="reference internal" href="#f/bufr_mod/bufr_nech_pm10" title="f/bufr_mod/bufr_nech_pm10"><code class="xref f f-var docutils literal notranslate"><span class="pre">bufr_nech_pm10</span></code></a>, <a class="reference internal" href="#f/bufr_mod/bufr_nech_pm25" title="f/bufr_mod/bufr_nech_pm25"><code class="xref f f-var docutils literal notranslate"><span class="pre">bufr_nech_pm25</span></code></a>, <a class="reference internal" href="#f/bufr_mod/bufr_nech_so2" title="f/bufr_mod/bufr_nech_so2"><code class="xref f f-var docutils literal notranslate"><span class="pre">bufr_nech_so2</span></code></a>, <a class="reference internal" href="#f/bufr_mod/bufr_nedd" title="f/bufr_mod/bufr_nedd"><code class="xref f f-var docutils literal notranslate"><span class="pre">bufr_nedd</span></code></a>, <a class="reference internal" href="#f/bufr_mod/bufr_neds" title="f/bufr_mod/bufr_neds"><code class="xref f f-var docutils literal notranslate"><span class="pre">bufr_neds</span></code></a>, <a class="reference internal" href="#f/bufr_mod/bufr_nedw" title="f/bufr_mod/bufr_nedw"><code class="xref f f-var docutils literal notranslate"><span class="pre">bufr_nedw</span></code></a>, <a class="reference internal" href="#f/bufr_mod/bufr_nedwdp" title="f/bufr_mod/bufr_nedwdp"><code class="xref f f-var docutils literal notranslate"><span class="pre">bufr_nedwdp</span></code></a>, <a class="reference internal" href="#f/bufr_mod/bufr_nedwdt" title="f/bufr_mod/bufr_nedwdt"><code class="xref f f-var docutils literal notranslate"><span class="pre">bufr_nedwdt</span></code></a>, <a class="reference internal" href="#f/bufr_mod/bufr_nedz" title="f/bufr_mod/bufr_nedz"><code class="xref f f-var docutils literal notranslate"><span class="pre">bufr_nedz</span></code></a>, <a class="reference internal" href="#f/bufr_mod/bufr_nees" title="f/bufr_mod/bufr_nees"><code class="xref f f-var docutils literal notranslate"><span class="pre">bufr_nees</span></code></a>, <a class="reference internal" href="#f/bufr_mod/bufr_nefe" title="f/bufr_mod/bufr_nefe"><code class="xref f f-var docutils literal notranslate"><span class="pre">bufr_nefe</span></code></a>, <a class="reference internal" href="#f/bufr_mod/bufr_neff" title="f/bufr_mod/bufr_neff"><code class="xref f f-var docutils literal notranslate"><span class="pre">bufr_neff</span></code></a>, <a class="reference internal" href="#f/bufr_mod/bufr_nefs" title="f/bufr_mod/bufr_nefs"><code class="xref f f-var docutils literal notranslate"><span class="pre">bufr_nefs</span></code></a>, <a class="reference internal" href="#f/bufr_mod/bufr_negz" title="f/bufr_mod/bufr_negz"><code class="xref f f-var docutils literal notranslate"><span class="pre">bufr_negz</span></code></a>, <a class="reference internal" href="#f/bufr_mod/bufr_nehs" title="f/bufr_mod/bufr_nehs"><code class="xref f f-var docutils literal notranslate"><span class="pre">bufr_nehs</span></code></a>, <a class="reference internal" href="#f/bufr_mod/bufr_nehu" title="f/bufr_mod/bufr_nehu"><code class="xref f f-var docutils literal notranslate"><span class="pre">bufr_nehu</span></code></a>, <a class="reference internal" href="#f/bufr_mod/bufr_nepn" title="f/bufr_mod/bufr_nepn"><code class="xref f f-var docutils literal notranslate"><span class="pre">bufr_nepn</span></code></a>, <a class="reference internal" href="#f/bufr_mod/bufr_nepp" title="f/bufr_mod/bufr_nepp"><code class="xref f f-var docutils literal notranslate"><span class="pre">bufr_nepp</span></code></a>, <a class="reference internal" href="#f/bufr_mod/bufr_neps" title="f/bufr_mod/bufr_neps"><code class="xref f f-var docutils literal notranslate"><span class="pre">bufr_neps</span></code></a>, <a class="reference internal" href="#f/bufr_mod/bufr_nerf" title="f/bufr_mod/bufr_nerf"><code class="xref f f-var docutils literal notranslate"><span class="pre">bufr_nerf</span></code></a>, <a class="reference internal" href="#f/bufr_mod/bufr_ness" title="f/bufr_mod/bufr_ness"><code class="xref f f-var docutils literal notranslate"><span class="pre">bufr_ness</span></code></a>, <a class="reference internal" href="#f/bufr_mod/bufr_nets" title="f/bufr_mod/bufr_nets"><code class="xref f f-var docutils literal notranslate"><span class="pre">bufr_nets</span></code></a>, <a class="reference internal" href="#f/bufr_mod/bufr_nett" title="f/bufr_mod/bufr_nett"><code class="xref f f-var docutils literal notranslate"><span class="pre">bufr_nett</span></code></a>, <a class="reference internal" href="#f/bufr_mod/bufr_neus" title="f/bufr_mod/bufr_neus"><code class="xref f f-var docutils literal notranslate"><span class="pre">bufr_neus</span></code></a>, <a class="reference internal" href="#f/bufr_mod/bufr_neuu" title="f/bufr_mod/bufr_neuu"><code class="xref f f-var docutils literal notranslate"><span class="pre">bufr_neuu</span></code></a>, <a class="reference internal" href="#f/bufr_mod/bufr_nevs" title="f/bufr_mod/bufr_nevs"><code class="xref f f-var docutils literal notranslate"><span class="pre">bufr_nevs</span></code></a>, <a class="reference internal" href="#f/bufr_mod/bufr_nevv" title="f/bufr_mod/bufr_nevv"><code class="xref f f-var docutils literal notranslate"><span class="pre">bufr_nevv</span></code></a>, <a class="reference internal" href="#f/bufr_mod/bufr_nezd" title="f/bufr_mod/bufr_nezd"><code class="xref f f-var docutils literal notranslate"><span class="pre">bufr_nezd</span></code></a>, <a class="reference internal" href="#f/bufr_mod/bufr_nezw" title="f/bufr_mod/bufr_nezw"><code class="xref f f-var docutils literal notranslate"><span class="pre">bufr_nezw</span></code></a>, <a class="reference internal" href="#f/bufr_mod/bufr_radarprecip" title="f/bufr_mod/bufr_radarprecip"><code class="xref f f-var docutils literal notranslate"><span class="pre">bufr_radarprecip</span></code></a>, <a class="reference internal" href="#f/bufr_mod/bufr_radvel" title="f/bufr_mod/bufr_radvel"><code class="xref f f-var docutils literal notranslate"><span class="pre">bufr_radvel</span></code></a>, <a class="reference internal" href="#f/bufr_mod/bufr_riverflow" title="f/bufr_mod/bufr_riverflow"><code class="xref f f-var docutils literal notranslate"><span class="pre">bufr_riverflow</span></code></a>, <a class="reference internal" href="#f/bufr_mod/bufr_scale_exponent" title="f/bufr_mod/bufr_scale_exponent"><code class="xref f f-var docutils literal notranslate"><span class="pre">bufr_scale_exponent</span></code></a>, <a class="reference internal" href="#f/bufr_mod/bufr_soz" title="f/bufr_mod/bufr_soz"><code class="xref f f-var docutils literal notranslate"><span class="pre">bufr_soz</span></code></a>, <a class="reference internal" href="#f/bufr_mod/bufr_sst" title="f/bufr_mod/bufr_sst"><code class="xref f f-var docutils literal notranslate"><span class="pre">bufr_sst</span></code></a>, <a class="reference internal" href="#f/bufr_mod/bufr_suwindspeed" title="f/bufr_mod/bufr_suwindspeed"><code class="xref f f-var docutils literal notranslate"><span class="pre">bufr_suwindspeed</span></code></a>, <a class="reference internal" href="#f/bufr_mod/bufr_unit_airdensity" title="f/bufr_mod/bufr_unit_airdensity"><code class="xref f f-var docutils literal notranslate"><span class="pre">bufr_unit_airdensity</span></code></a>, <a class="reference internal" href="#f/bufr_mod/bufr_unit_density" title="f/bufr_mod/bufr_unit_density"><code class="xref f f-var docutils literal notranslate"><span class="pre">bufr_unit_density</span></code></a>, <a class="reference internal" href="#f/bufr_mod/bufr_unit_density2" title="f/bufr_mod/bufr_unit_density2"><code class="xref f f-var docutils literal notranslate"><span class="pre">bufr_unit_density2</span></code></a>, <a class="reference internal" href="#f/bufr_mod/bufr_unit_du" title="f/bufr_mod/bufr_unit_du"><code class="xref f f-var docutils literal notranslate"><span class="pre">bufr_unit_du</span></code></a>, <a class="reference internal" href="#f/bufr_mod/bufr_unit_du2" title="f/bufr_mod/bufr_unit_du2"><code class="xref f f-var docutils literal notranslate"><span class="pre">bufr_unit_du2</span></code></a>, <a class="reference internal" href="#f/bufr_mod/bufr_unit_du3" title="f/bufr_mod/bufr_unit_du3"><code class="xref f f-var docutils literal notranslate"><span class="pre">bufr_unit_du3</span></code></a>, <a class="reference internal" href="#f/bufr_mod/bufr_unit_du4" title="f/bufr_mod/bufr_unit_du4"><code class="xref f f-var docutils literal notranslate"><span class="pre">bufr_unit_du4</span></code></a>, <a class="reference internal" href="#f/bufr_mod/bufr_unit_extinctcoef" title="f/bufr_mod/bufr_unit_extinctcoef"><code class="xref f f-var docutils literal notranslate"><span class="pre">bufr_unit_extinctcoef</span></code></a>, <a class="reference internal" href="#f/bufr_mod/bufr_unit_integdens" title="f/bufr_mod/bufr_unit_integdens"><code class="xref f f-var docutils literal notranslate"><span class="pre">bufr_unit_integdens</span></code></a>, <a class="reference internal" href="#f/bufr_mod/bufr_unit_integdens2" title="f/bufr_mod/bufr_unit_integdens2"><code class="xref f f-var docutils literal notranslate"><span class="pre">bufr_unit_integdens2</span></code></a>, <a class="reference internal" href="#f/bufr_mod/bufr_unit_integdens3" title="f/bufr_mod/bufr_unit_integdens3"><code class="xref f f-var docutils literal notranslate"><span class="pre">bufr_unit_integdens3</span></code></a>, <a class="reference internal" href="#f/bufr_mod/bufr_unit_integmolardens" title="f/bufr_mod/bufr_unit_integmolardens"><code class="xref f f-var docutils literal notranslate"><span class="pre">bufr_unit_integmolardens</span></code></a>, <a class="reference internal" href="#f/bufr_mod/bufr_unit_integnd" title="f/bufr_mod/bufr_unit_integnd"><code class="xref f f-var docutils literal notranslate"><span class="pre">bufr_unit_integnd</span></code></a>, <a class="reference internal" href="#f/bufr_mod/bufr_unit_integnd2" title="f/bufr_mod/bufr_unit_integnd2"><code class="xref f f-var docutils literal notranslate"><span class="pre">bufr_unit_integnd2</span></code></a>, <a class="reference internal" href="#f/bufr_mod/bufr_unit_mmr" title="f/bufr_mod/bufr_unit_mmr"><code class="xref f f-var docutils literal notranslate"><span class="pre">bufr_unit_mmr</span></code></a>, <a class="reference internal" href="#f/bufr_mod/bufr_unit_mmr2" title="f/bufr_mod/bufr_unit_mmr2"><code class="xref f f-var docutils literal notranslate"><span class="pre">bufr_unit_mmr2</span></code></a>, <a class="reference internal" href="#f/bufr_mod/bufr_unit_molardensity" title="f/bufr_mod/bufr_unit_molardensity"><code class="xref f f-var docutils literal notranslate"><span class="pre">bufr_unit_molardensity</span></code></a>, <a class="reference internal" href="#f/bufr_mod/bufr_unit_molepermole" title="f/bufr_mod/bufr_unit_molepermole"><code class="xref f f-var docutils literal notranslate"><span class="pre">bufr_unit_molepermole</span></code></a>, <a class="reference internal" href="#f/bufr_mod/bufr_unit_molepermole2" title="f/bufr_mod/bufr_unit_molepermole2"><code class="xref f f-var docutils literal notranslate"><span class="pre">bufr_unit_molepermole2</span></code></a>, <a class="reference internal" href="#f/bufr_mod/bufr_unit_mr_nvaerosol" title="f/bufr_mod/bufr_unit_mr_nvaerosol"><code class="xref f f-var docutils literal notranslate"><span class="pre">bufr_unit_mr_nvaerosol</span></code></a>, <a class="reference internal" href="#f/bufr_mod/bufr_unit_numberdensity" title="f/bufr_mod/bufr_unit_numberdensity"><code class="xref f f-var docutils literal notranslate"><span class="pre">bufr_unit_numberdensity</span></code></a>, <a class="reference internal" href="#f/bufr_mod/bufr_unit_optdepth" title="f/bufr_mod/bufr_unit_optdepth"><code class="xref f f-var docutils literal notranslate"><span class="pre">bufr_unit_optdepth</span></code></a>, <a class="reference internal" href="#f/bufr_mod/bufr_unit_optdepth2" title="f/bufr_mod/bufr_unit_optdepth2"><code class="xref f f-var docutils literal notranslate"><span class="pre">bufr_unit_optdepth2</span></code></a>, <a class="reference internal" href="#f/bufr_mod/bufr_unit_optdepth3" title="f/bufr_mod/bufr_unit_optdepth3"><code class="xref f f-var docutils literal notranslate"><span class="pre">bufr_unit_optdepth3</span></code></a>, <a class="reference internal" href="#f/bufr_mod/bufr_unit_partpress" title="f/bufr_mod/bufr_unit_partpress"><code class="xref f f-var docutils literal notranslate"><span class="pre">bufr_unit_partpress</span></code></a>, <a class="reference internal" href="#f/bufr_mod/bufr_unit_partpress2" title="f/bufr_mod/bufr_unit_partpress2"><code class="xref f f-var docutils literal notranslate"><span class="pre">bufr_unit_partpress2</span></code></a>, <a class="reference internal" href="#f/bufr_mod/bufr_unit_photodissoc" title="f/bufr_mod/bufr_unit_photodissoc"><code class="xref f f-var docutils literal notranslate"><span class="pre">bufr_unit_photodissoc</span></code></a>, <a class="reference internal" href="#f/bufr_mod/bufr_unit_pmdensity" title="f/bufr_mod/bufr_unit_pmdensity"><code class="xref f f-var docutils literal notranslate"><span class="pre">bufr_unit_pmdensity</span></code></a>, <a class="reference internal" href="#f/bufr_mod/bufr_unit_vmr" title="f/bufr_mod/bufr_unit_vmr"><code class="xref f f-var docutils literal notranslate"><span class="pre">bufr_unit_vmr</span></code></a>, <a class="reference internal" href="#f/bufr_mod/bufr_unit_vmr2" title="f/bufr_mod/bufr_unit_vmr2"><code class="xref f f-var docutils literal notranslate"><span class="pre">bufr_unit_vmr2</span></code></a>, <a class="reference internal" href="#f/bufr_mod/bufr_vis" title="f/bufr_mod/bufr_vis"><code class="xref f f-var docutils literal notranslate"><span class="pre">bufr_vis</span></code></a>, <a class="reference internal" href="#f/bufr_mod/bufr_ztdscore" title="f/bufr_mod/bufr_ztdscore"><code class="xref f f-var docutils literal notranslate"><span class="pre">bufr_ztdscore</span></code></a></p>
+</dd>
+<dt class="field-even">Routines</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/bufr_mod/bufr_isatmosconstituent" title="f/bufr_mod/bufr_isatmosconstituent"><code class="xref f f-func docutils literal notranslate"><span class="pre">bufr_isatmosconstituent()</span></code></a>, <a class="reference internal" href="#f/bufr_mod/bufr_isintegral" title="f/bufr_mod/bufr_isintegral"><code class="xref f f-func docutils literal notranslate"><span class="pre">bufr_isintegral()</span></code></a>, <a class="reference internal" href="#f/bufr_mod/bufr_isoceanobs" title="f/bufr_mod/bufr_isoceanobs"><code class="xref f f-func docutils literal notranslate"><span class="pre">bufr_isoceanobs()</span></code></a>, <a class="reference internal" href="#f/bufr_mod/bufr_iswindcomponent" title="f/bufr_mod/bufr_iswindcomponent"><code class="xref f f-func docutils literal notranslate"><span class="pre">bufr_iswindcomponent()</span></code></a></p>
+</dd>
+</dl>
+<p class="rubric">Variables</p>
+<ul>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/bufr_mod/bufr_avgkern">
+<span class="sig-prename descclassname"><span class="pre">bufr_mod/</span></span><span class="sig-name descname"><span class="pre">bufr_avgkern</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/bufr_mod/bufr_avgkern" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/bufr_mod/bufr_cloudinseg">
+<span class="sig-prename descclassname"><span class="pre">bufr_mod/</span></span><span class="sig-name descname"><span class="pre">bufr_cloudinseg</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/bufr_mod/bufr_cloudinseg" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/bufr_mod/bufr_correl">
+<span class="sig-prename descclassname"><span class="pre">bufr_mod/</span></span><span class="sig-name descname"><span class="pre">bufr_correl</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/bufr_mod/bufr_correl" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/bufr_mod/bufr_dewpoint2m">
+<span class="sig-prename descclassname"><span class="pre">bufr_mod/</span></span><span class="sig-name descname"><span class="pre">bufr_dewpoint2m</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/bufr_mod/bufr_dewpoint2m" title="Permalink to this definition">¶</a></dt>
+<dd><p>Dewpoint temperature at 2m</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/bufr_mod/bufr_gust">
+<span class="sig-prename descclassname"><span class="pre">bufr_mod/</span></span><span class="sig-name descname"><span class="pre">bufr_gust</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/bufr_mod/bufr_gust" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/bufr_mod/bufr_icec">
+<span class="sig-prename descclassname"><span class="pre">bufr_mod/</span></span><span class="sig-name descname"><span class="pre">bufr_icec</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/bufr_mod/bufr_icec" title="Permalink to this definition">¶</a></dt>
+<dd><p>concentration (%) from ice charts</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/bufr_mod/bufr_icep">
+<span class="sig-prename descclassname"><span class="pre">bufr_mod/</span></span><span class="sig-name descname"><span class="pre">bufr_icep</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/bufr_mod/bufr_icep" title="Permalink to this definition">¶</a></dt>
+<dd><p>concentration (%) from passive microwave retrievals</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/bufr_mod/bufr_ices">
+<span class="sig-prename descclassname"><span class="pre">bufr_mod/</span></span><span class="sig-name descname"><span class="pre">bufr_ices</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/bufr_mod/bufr_ices" title="Permalink to this definition">¶</a></dt>
+<dd><p>backscatter anisotropy from scatterometer</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/bufr_mod/bufr_icev">
+<span class="sig-prename descclassname"><span class="pre">bufr_mod/</span></span><span class="sig-name descname"><span class="pre">bufr_icev</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/bufr_mod/bufr_icev" title="Permalink to this definition">¶</a></dt>
+<dd><p>presence of ice retrieval from Vis/IR</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/bufr_mod/bufr_logradarprecip">
+<span class="sig-prename descclassname"><span class="pre">bufr_mod/</span></span><span class="sig-name descname"><span class="pre">bufr_logradarprecip</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/bufr_mod/bufr_logradarprecip" title="Permalink to this definition">¶</a></dt>
+<dd><p>radar precipitation</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/bufr_mod/bufr_logvis">
+<span class="sig-prename descclassname"><span class="pre">bufr_mod/</span></span><span class="sig-name descname"><span class="pre">bufr_logvis</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/bufr_mod/bufr_logvis" title="Permalink to this definition">¶</a></dt>
+<dd><p>log(horizontal visibility)</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/bufr_mod/bufr_nbt1">
+<span class="sig-prename descclassname"><span class="pre">bufr_mod/</span></span><span class="sig-name descname"><span class="pre">bufr_nbt1</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/bufr_mod/bufr_nbt1" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/bufr_mod/bufr_nbt2">
+<span class="sig-prename descclassname"><span class="pre">bufr_mod/</span></span><span class="sig-name descname"><span class="pre">bufr_nbt2</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/bufr_mod/bufr_nbt2" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/bufr_mod/bufr_nbt3">
+<span class="sig-prename descclassname"><span class="pre">bufr_mod/</span></span><span class="sig-name descname"><span class="pre">bufr_nbt3</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/bufr_mod/bufr_nbt3" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/bufr_mod/bufr_neal">
+<span class="sig-prename descclassname"><span class="pre">bufr_mod/</span></span><span class="sig-name descname"><span class="pre">bufr_neal</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/bufr_mod/bufr_neal" title="Permalink to this definition">¶</a></dt>
+<dd><p>aladin HLOS wind</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/bufr_mod/bufr_neaz">
+<span class="sig-prename descclassname"><span class="pre">bufr_mod/</span></span><span class="sig-name descname"><span class="pre">bufr_neaz</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/bufr_mod/bufr_neaz" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/bufr_mod/bufr_nebd">
+<span class="sig-prename descclassname"><span class="pre">bufr_mod/</span></span><span class="sig-name descname"><span class="pre">bufr_nebd</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/bufr_mod/bufr_nebd" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/bufr_mod/bufr_nech_ch4">
+<span class="sig-prename descclassname"><span class="pre">bufr_mod/</span></span><span class="sig-name descname"><span class="pre">bufr_nech_ch4</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/bufr_mod/bufr_nech_ch4" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/bufr_mod/bufr_nech_co">
+<span class="sig-prename descclassname"><span class="pre">bufr_mod/</span></span><span class="sig-name descname"><span class="pre">bufr_nech_co</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/bufr_mod/bufr_nech_co" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/bufr_mod/bufr_nech_co2">
+<span class="sig-prename descclassname"><span class="pre">bufr_mod/</span></span><span class="sig-name descname"><span class="pre">bufr_nech_co2</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/bufr_mod/bufr_nech_co2" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/bufr_mod/bufr_nech_h2o">
+<span class="sig-prename descclassname"><span class="pre">bufr_mod/</span></span><span class="sig-name descname"><span class="pre">bufr_nech_h2o</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/bufr_mod/bufr_nech_h2o" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/bufr_mod/bufr_nech_hcho">
+<span class="sig-prename descclassname"><span class="pre">bufr_mod/</span></span><span class="sig-name descname"><span class="pre">bufr_nech_hcho</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/bufr_mod/bufr_nech_hcho" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/bufr_mod/bufr_nech_n2o">
+<span class="sig-prename descclassname"><span class="pre">bufr_mod/</span></span><span class="sig-name descname"><span class="pre">bufr_nech_n2o</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/bufr_mod/bufr_nech_n2o" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/bufr_mod/bufr_nech_nh3">
+<span class="sig-prename descclassname"><span class="pre">bufr_mod/</span></span><span class="sig-name descname"><span class="pre">bufr_nech_nh3</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/bufr_mod/bufr_nech_nh3" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/bufr_mod/bufr_nech_no">
+<span class="sig-prename descclassname"><span class="pre">bufr_mod/</span></span><span class="sig-name descname"><span class="pre">bufr_nech_no</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/bufr_mod/bufr_nech_no" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/bufr_mod/bufr_nech_no2">
+<span class="sig-prename descclassname"><span class="pre">bufr_mod/</span></span><span class="sig-name descname"><span class="pre">bufr_nech_no2</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/bufr_mod/bufr_nech_no2" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/bufr_mod/bufr_nech_o3">
+<span class="sig-prename descclassname"><span class="pre">bufr_mod/</span></span><span class="sig-name descname"><span class="pre">bufr_nech_o3</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/bufr_mod/bufr_nech_o3" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/bufr_mod/bufr_nech_pm10">
+<span class="sig-prename descclassname"><span class="pre">bufr_mod/</span></span><span class="sig-name descname"><span class="pre">bufr_nech_pm10</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/bufr_mod/bufr_nech_pm10" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/bufr_mod/bufr_nech_pm25">
+<span class="sig-prename descclassname"><span class="pre">bufr_mod/</span></span><span class="sig-name descname"><span class="pre">bufr_nech_pm25</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/bufr_mod/bufr_nech_pm25" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/bufr_mod/bufr_nech_so2">
+<span class="sig-prename descclassname"><span class="pre">bufr_mod/</span></span><span class="sig-name descname"><span class="pre">bufr_nech_so2</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/bufr_mod/bufr_nech_so2" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/bufr_mod/bufr_nedd">
+<span class="sig-prename descclassname"><span class="pre">bufr_mod/</span></span><span class="sig-name descname"><span class="pre">bufr_nedd</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/bufr_mod/bufr_nedd" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/bufr_mod/bufr_neds">
+<span class="sig-prename descclassname"><span class="pre">bufr_mod/</span></span><span class="sig-name descname"><span class="pre">bufr_neds</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/bufr_mod/bufr_neds" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/bufr_mod/bufr_nedw">
+<span class="sig-prename descclassname"><span class="pre">bufr_mod/</span></span><span class="sig-name descname"><span class="pre">bufr_nedw</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/bufr_mod/bufr_nedw" title="Permalink to this definition">¶</a></dt>
+<dd><p>Doppler wind</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/bufr_mod/bufr_nedwdp">
+<span class="sig-prename descclassname"><span class="pre">bufr_mod/</span></span><span class="sig-name descname"><span class="pre">bufr_nedwdp</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/bufr_mod/bufr_nedwdp" title="Permalink to this definition">¶</a></dt>
+<dd><p>derivative of HLOS wrt P</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/bufr_mod/bufr_nedwdt">
+<span class="sig-prename descclassname"><span class="pre">bufr_mod/</span></span><span class="sig-name descname"><span class="pre">bufr_nedwdt</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/bufr_mod/bufr_nedwdt" title="Permalink to this definition">¶</a></dt>
+<dd><p>derivative of HLOS wrt T</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/bufr_mod/bufr_nedz">
+<span class="sig-prename descclassname"><span class="pre">bufr_mod/</span></span><span class="sig-name descname"><span class="pre">bufr_nedz</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/bufr_mod/bufr_nedz" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/bufr_mod/bufr_nees">
+<span class="sig-prename descclassname"><span class="pre">bufr_mod/</span></span><span class="sig-name descname"><span class="pre">bufr_nees</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/bufr_mod/bufr_nees" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/bufr_mod/bufr_nefe">
+<span class="sig-prename descclassname"><span class="pre">bufr_mod/</span></span><span class="sig-name descname"><span class="pre">bufr_nefe</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/bufr_mod/bufr_nefe" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/bufr_mod/bufr_neff">
+<span class="sig-prename descclassname"><span class="pre">bufr_mod/</span></span><span class="sig-name descname"><span class="pre">bufr_neff</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/bufr_mod/bufr_neff" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/bufr_mod/bufr_nefs">
+<span class="sig-prename descclassname"><span class="pre">bufr_mod/</span></span><span class="sig-name descname"><span class="pre">bufr_nefs</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/bufr_mod/bufr_nefs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/bufr_mod/bufr_negz">
+<span class="sig-prename descclassname"><span class="pre">bufr_mod/</span></span><span class="sig-name descname"><span class="pre">bufr_negz</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/bufr_mod/bufr_negz" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/bufr_mod/bufr_nehs">
+<span class="sig-prename descclassname"><span class="pre">bufr_mod/</span></span><span class="sig-name descname"><span class="pre">bufr_nehs</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/bufr_mod/bufr_nehs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/bufr_mod/bufr_nehu">
+<span class="sig-prename descclassname"><span class="pre">bufr_mod/</span></span><span class="sig-name descname"><span class="pre">bufr_nehu</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/bufr_mod/bufr_nehu" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/bufr_mod/bufr_nepn">
+<span class="sig-prename descclassname"><span class="pre">bufr_mod/</span></span><span class="sig-name descname"><span class="pre">bufr_nepn</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/bufr_mod/bufr_nepn" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/bufr_mod/bufr_nepp">
+<span class="sig-prename descclassname"><span class="pre">bufr_mod/</span></span><span class="sig-name descname"><span class="pre">bufr_nepp</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/bufr_mod/bufr_nepp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/bufr_mod/bufr_neps">
+<span class="sig-prename descclassname"><span class="pre">bufr_mod/</span></span><span class="sig-name descname"><span class="pre">bufr_neps</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/bufr_mod/bufr_neps" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/bufr_mod/bufr_nerf">
+<span class="sig-prename descclassname"><span class="pre">bufr_mod/</span></span><span class="sig-name descname"><span class="pre">bufr_nerf</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/bufr_mod/bufr_nerf" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/bufr_mod/bufr_ness">
+<span class="sig-prename descclassname"><span class="pre">bufr_mod/</span></span><span class="sig-name descname"><span class="pre">bufr_ness</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/bufr_mod/bufr_ness" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/bufr_mod/bufr_nets">
+<span class="sig-prename descclassname"><span class="pre">bufr_mod/</span></span><span class="sig-name descname"><span class="pre">bufr_nets</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/bufr_mod/bufr_nets" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/bufr_mod/bufr_nett">
+<span class="sig-prename descclassname"><span class="pre">bufr_mod/</span></span><span class="sig-name descname"><span class="pre">bufr_nett</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/bufr_mod/bufr_nett" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/bufr_mod/bufr_neus">
+<span class="sig-prename descclassname"><span class="pre">bufr_mod/</span></span><span class="sig-name descname"><span class="pre">bufr_neus</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/bufr_mod/bufr_neus" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/bufr_mod/bufr_neuu">
+<span class="sig-prename descclassname"><span class="pre">bufr_mod/</span></span><span class="sig-name descname"><span class="pre">bufr_neuu</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/bufr_mod/bufr_neuu" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/bufr_mod/bufr_nevs">
+<span class="sig-prename descclassname"><span class="pre">bufr_mod/</span></span><span class="sig-name descname"><span class="pre">bufr_nevs</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/bufr_mod/bufr_nevs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/bufr_mod/bufr_nevv">
+<span class="sig-prename descclassname"><span class="pre">bufr_mod/</span></span><span class="sig-name descname"><span class="pre">bufr_nevv</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/bufr_mod/bufr_nevv" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/bufr_mod/bufr_nezd">
+<span class="sig-prename descclassname"><span class="pre">bufr_mod/</span></span><span class="sig-name descname"><span class="pre">bufr_nezd</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/bufr_mod/bufr_nezd" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/bufr_mod/bufr_nezw">
+<span class="sig-prename descclassname"><span class="pre">bufr_mod/</span></span><span class="sig-name descname"><span class="pre">bufr_nezw</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/bufr_mod/bufr_nezw" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/bufr_mod/bufr_radarprecip">
+<span class="sig-prename descclassname"><span class="pre">bufr_mod/</span></span><span class="sig-name descname"><span class="pre">bufr_radarprecip</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/bufr_mod/bufr_radarprecip" title="Permalink to this definition">¶</a></dt>
+<dd><p>radar precipitation</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/bufr_mod/bufr_radvel">
+<span class="sig-prename descclassname"><span class="pre">bufr_mod/</span></span><span class="sig-name descname"><span class="pre">bufr_radvel</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/bufr_mod/bufr_radvel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Doppler velocity (Radial Wind)</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/bufr_mod/bufr_riverflow">
+<span class="sig-prename descclassname"><span class="pre">bufr_mod/</span></span><span class="sig-name descname"><span class="pre">bufr_riverflow</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/bufr_mod/bufr_riverflow" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/bufr_mod/bufr_scale_exponent">
+<span class="sig-prename descclassname"><span class="pre">bufr_mod/</span></span><span class="sig-name descname"><span class="pre">bufr_scale_exponent</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/bufr_mod/bufr_scale_exponent" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/bufr_mod/bufr_soz">
+<span class="sig-prename descclassname"><span class="pre">bufr_mod/</span></span><span class="sig-name descname"><span class="pre">bufr_soz</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/bufr_mod/bufr_soz" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/bufr_mod/bufr_sst">
+<span class="sig-prename descclassname"><span class="pre">bufr_mod/</span></span><span class="sig-name descname"><span class="pre">bufr_sst</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/bufr_mod/bufr_sst" title="Permalink to this definition">¶</a></dt>
+<dd><p>sea/water temperature</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/bufr_mod/bufr_suwindspeed">
+<span class="sig-prename descclassname"><span class="pre">bufr_mod/</span></span><span class="sig-name descname"><span class="pre">bufr_suwindspeed</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/bufr_mod/bufr_suwindspeed" title="Permalink to this definition">¶</a></dt>
+<dd><p>source and units of wind speed IW, code 1855, code table</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/bufr_mod/bufr_unit_airdensity">
+<span class="sig-prename descclassname"><span class="pre">bufr_mod/</span></span><span class="sig-name descname"><span class="pre">bufr_unit_airdensity</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/bufr_mod/bufr_unit_airdensity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Air density (kg/m^3)</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/bufr_mod/bufr_unit_density">
+<span class="sig-prename descclassname"><span class="pre">bufr_mod/</span></span><span class="sig-name descname"><span class="pre">bufr_unit_density</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/bufr_mod/bufr_unit_density" title="Permalink to this definition">¶</a></dt>
+<dd><p>Concentration in kg/m^3</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/bufr_mod/bufr_unit_density2">
+<span class="sig-prename descclassname"><span class="pre">bufr_mod/</span></span><span class="sig-name descname"><span class="pre">bufr_unit_density2</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/bufr_mod/bufr_unit_density2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Concentration = Density (kg/m^3)</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/bufr_mod/bufr_unit_du">
+<span class="sig-prename descclassname"><span class="pre">bufr_mod/</span></span><span class="sig-name descname"><span class="pre">bufr_unit_du</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/bufr_mod/bufr_unit_du" title="Permalink to this definition">¶</a></dt>
+<dd><p>Integrate number density in Dobson units DU</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/bufr_mod/bufr_unit_du2">
+<span class="sig-prename descclassname"><span class="pre">bufr_mod/</span></span><span class="sig-name descname"><span class="pre">bufr_unit_du2</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/bufr_mod/bufr_unit_du2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Total ozone in DU (same as above) - applicable for all</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/bufr_mod/bufr_unit_du3">
+<span class="sig-prename descclassname"><span class="pre">bufr_mod/</span></span><span class="sig-name descname"><span class="pre">bufr_unit_du3</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/bufr_mod/bufr_unit_du3" title="Permalink to this definition">¶</a></dt>
+<dd><p>Partial column for ozone in DU (same as above) - applicable for all</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/bufr_mod/bufr_unit_du4">
+<span class="sig-prename descclassname"><span class="pre">bufr_mod/</span></span><span class="sig-name descname"><span class="pre">bufr_unit_du4</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/bufr_mod/bufr_unit_du4" title="Permalink to this definition">¶</a></dt>
+<dd><p>Partial column for SO2 in DU (same as above) - applicable for all</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/bufr_mod/bufr_unit_extinctcoef">
+<span class="sig-prename descclassname"><span class="pre">bufr_mod/</span></span><span class="sig-name descname"><span class="pre">bufr_unit_extinctcoef</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/bufr_mod/bufr_unit_extinctcoef" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extinction coefficient (1/m)</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/bufr_mod/bufr_unit_integdens">
+<span class="sig-prename descclassname"><span class="pre">bufr_mod/</span></span><span class="sig-name descname"><span class="pre">bufr_unit_integdens</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/bufr_mod/bufr_unit_integdens" title="Permalink to this definition">¶</a></dt>
+<dd><p>Integrated density (kg/m^2)</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/bufr_mod/bufr_unit_integdens2">
+<span class="sig-prename descclassname"><span class="pre">bufr_mod/</span></span><span class="sig-name descname"><span class="pre">bufr_unit_integdens2</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/bufr_mod/bufr_unit_integdens2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Integrated density for ozone (kg/m^2; same as above) - applicable to all</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/bufr_mod/bufr_unit_integdens3">
+<span class="sig-prename descclassname"><span class="pre">bufr_mod/</span></span><span class="sig-name descname"><span class="pre">bufr_unit_integdens3</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/bufr_mod/bufr_unit_integdens3" title="Permalink to this definition">¶</a></dt>
+<dd><p>Integrated density (kg/m^2)</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/bufr_mod/bufr_unit_integmolardens">
+<span class="sig-prename descclassname"><span class="pre">bufr_mod/</span></span><span class="sig-name descname"><span class="pre">bufr_unit_integmolardens</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/bufr_mod/bufr_unit_integmolardens" title="Permalink to this definition">¶</a></dt>
+<dd><p>Integrated molar density (mole/m^2)</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/bufr_mod/bufr_unit_integnd">
+<span class="sig-prename descclassname"><span class="pre">bufr_mod/</span></span><span class="sig-name descname"><span class="pre">bufr_unit_integnd</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/bufr_mod/bufr_unit_integnd" title="Permalink to this definition">¶</a></dt>
+<dd><p>Integrated number density (1/m^2)</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/bufr_mod/bufr_unit_integnd2">
+<span class="sig-prename descclassname"><span class="pre">bufr_mod/</span></span><span class="sig-name descname"><span class="pre">bufr_unit_integnd2</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/bufr_mod/bufr_unit_integnd2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Electron density per m^2 (1/m^2)</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/bufr_mod/bufr_unit_mmr">
+<span class="sig-prename descclassname"><span class="pre">bufr_mod/</span></span><span class="sig-name descname"><span class="pre">bufr_unit_mmr</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/bufr_mod/bufr_unit_mmr" title="Permalink to this definition">¶</a></dt>
+<dd><p>Mass mixing ratio (kg/kg)</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/bufr_mod/bufr_unit_mmr2">
+<span class="sig-prename descclassname"><span class="pre">bufr_mod/</span></span><span class="sig-name descname"><span class="pre">bufr_unit_mmr2</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/bufr_mod/bufr_unit_mmr2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Humidity mass mixing ratio (kg/kg) - same as above</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/bufr_mod/bufr_unit_molardensity">
+<span class="sig-prename descclassname"><span class="pre">bufr_mod/</span></span><span class="sig-name descname"><span class="pre">bufr_unit_molardensity</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/bufr_mod/bufr_unit_molardensity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Molar density (mole/m^3)</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/bufr_mod/bufr_unit_molepermole">
+<span class="sig-prename descclassname"><span class="pre">bufr_mod/</span></span><span class="sig-name descname"><span class="pre">bufr_unit_molepermole</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/bufr_mod/bufr_unit_molepermole" title="Permalink to this definition">¶</a></dt>
+<dd><p>Pollutant concentration (mole/mole)</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/bufr_mod/bufr_unit_molepermole2">
+<span class="sig-prename descclassname"><span class="pre">bufr_mod/</span></span><span class="sig-name descname"><span class="pre">bufr_unit_molepermole2</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/bufr_mod/bufr_unit_molepermole2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Mixing ratio (mole/mole)</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/bufr_mod/bufr_unit_mr_nvaerosol">
+<span class="sig-prename descclassname"><span class="pre">bufr_mod/</span></span><span class="sig-name descname"><span class="pre">bufr_unit_mr_nvaerosol</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/bufr_mod/bufr_unit_mr_nvaerosol" title="Permalink to this definition">¶</a></dt>
+<dd><p>Non-volatile aerosol mixing ratio (unitless)</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/bufr_mod/bufr_unit_numberdensity">
+<span class="sig-prename descclassname"><span class="pre">bufr_mod/</span></span><span class="sig-name descname"><span class="pre">bufr_unit_numberdensity</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/bufr_mod/bufr_unit_numberdensity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number density (1/m^3)</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/bufr_mod/bufr_unit_optdepth">
+<span class="sig-prename descclassname"><span class="pre">bufr_mod/</span></span><span class="sig-name descname"><span class="pre">bufr_unit_optdepth</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/bufr_mod/bufr_unit_optdepth" title="Permalink to this definition">¶</a></dt>
+<dd><p>Optical depth (unitless)</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/bufr_mod/bufr_unit_optdepth2">
+<span class="sig-prename descclassname"><span class="pre">bufr_mod/</span></span><span class="sig-name descname"><span class="pre">bufr_unit_optdepth2</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/bufr_mod/bufr_unit_optdepth2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Optical depth (unitless)</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/bufr_mod/bufr_unit_optdepth3">
+<span class="sig-prename descclassname"><span class="pre">bufr_mod/</span></span><span class="sig-name descname"><span class="pre">bufr_unit_optdepth3</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/bufr_mod/bufr_unit_optdepth3" title="Permalink to this definition">¶</a></dt>
+<dd><p>Aerosol Optical depth (unitless)</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/bufr_mod/bufr_unit_partpress">
+<span class="sig-prename descclassname"><span class="pre">bufr_mod/</span></span><span class="sig-name descname"><span class="pre">bufr_unit_partpress</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/bufr_mod/bufr_unit_partpress" title="Permalink to this definition">¶</a></dt>
+<dd><p>Partial pressure in Pa (not just for ozone)</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/bufr_mod/bufr_unit_partpress2">
+<span class="sig-prename descclassname"><span class="pre">bufr_mod/</span></span><span class="sig-name descname"><span class="pre">bufr_unit_partpress2</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/bufr_mod/bufr_unit_partpress2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Partial pressure in Pa (same as above)</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/bufr_mod/bufr_unit_photodissoc">
+<span class="sig-prename descclassname"><span class="pre">bufr_mod/</span></span><span class="sig-name descname"><span class="pre">bufr_unit_photodissoc</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/bufr_mod/bufr_unit_photodissoc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Photodissociate rate (1/sec)</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/bufr_mod/bufr_unit_pmdensity">
+<span class="sig-prename descclassname"><span class="pre">bufr_mod/</span></span><span class="sig-name descname"><span class="pre">bufr_unit_pmdensity</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/bufr_mod/bufr_unit_pmdensity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Density of PM2.5 (kg/m^3)</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/bufr_mod/bufr_unit_vmr">
+<span class="sig-prename descclassname"><span class="pre">bufr_mod/</span></span><span class="sig-name descname"><span class="pre">bufr_unit_vmr</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/bufr_mod/bufr_unit_vmr" title="Permalink to this definition">¶</a></dt>
+<dd><p>Volume mixing ratio (vmr)</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/bufr_mod/bufr_unit_vmr2">
+<span class="sig-prename descclassname"><span class="pre">bufr_mod/</span></span><span class="sig-name descname"><span class="pre">bufr_unit_vmr2</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/bufr_mod/bufr_unit_vmr2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Volume mixing ratio</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/bufr_mod/bufr_vis">
+<span class="sig-prename descclassname"><span class="pre">bufr_mod/</span></span><span class="sig-name descname"><span class="pre">bufr_vis</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/bufr_mod/bufr_vis" title="Permalink to this definition">¶</a></dt>
+<dd><p>horizontal visibility</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/bufr_mod/bufr_ztdscore">
+<span class="sig-prename descclassname"><span class="pre">bufr_mod/</span></span><span class="sig-name descname"><span class="pre">bufr_ztdscore</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/bufr_mod/bufr_ztdscore" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+</ul>
+<p class="rubric">Subroutines and functions</p>
+<dl>
+<dt class="sig sig-object f" id="f/bufr_mod/bufr_isatmosconstituent">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">bufr_mod/</span></span><span class="sig-name descname"><span class="pre">bufr_isatmosconstituent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">varnumber</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/bufr_mod/bufr_isatmosconstituent" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>To determine whether ‘varNumber’ refers to constituent data from
+the CH family with recognized data units.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>varnumber</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em> :: BUFR element number</p>
+</dd>
+<dt class="field-odd">Return</dt>
+<dd class="field-odd"><p><strong>var_chm</strong><em> [</em><em>logical </em><em>]</em></p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="obsoperators_mod.html#f/obsoperators_mod/oop_vobslyrs" title="f/obsoperators_mod/oop_vobslyrs"><code class="xref f f-func docutils literal notranslate"><span class="pre">oop_vobslyrs()</span></code></a>, <a class="reference internal" href="varqc_mod.html#f/varqc_mod/vqc_setup" title="f/varqc_mod/vqc_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">vqc_setup()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/bufr_mod/bufr_isintegral">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">bufr_mod/</span></span><span class="sig-name descname"><span class="pre">bufr_isintegral</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">varnumber</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/bufr_mod/bufr_isintegral" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>To identify whether obs is a vertically integrated constituent
+measurement.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>varnumber</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em> :: BUFR element number</p>
+</dd>
+<dt class="field-odd">Return</dt>
+<dd class="field-odd"><p><strong>bufr_isintegral</strong><em> [</em><em>logical </em><em>]</em></p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="obsoperatorschem_mod.html#f/obsoperatorschem_mod/oopc_getlevels" title="f/obsoperatorschem_mod/oopc_getlevels"><code class="xref f f-func docutils literal notranslate"><span class="pre">oopc_getlevels()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/bufr_mod/bufr_iswindcomponent">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">bufr_mod/</span></span><span class="sig-name descname"><span class="pre">bufr_iswindcomponent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">varnumber</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/bufr_mod/bufr_iswindcomponent" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>True if the variable is a wind component</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>varnumber</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em> :: BUFR element number</p>
+</dd>
+<dt class="field-odd">Return</dt>
+<dd class="field-odd"><p><strong>bufr_iswindcomponent</strong><em> [</em><em>logical </em><em>]</em></p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="ensembleobservations_mod.html#f/ensembleobservations_mod/eob_backgroundcheck" title="f/ensembleobservations_mod/eob_backgroundcheck"><code class="xref f f-func docutils literal notranslate"><span class="pre">eob_backgroundcheck()</span></code></a>, <a class="reference internal" href="ensembleobservations_mod.html#f/ensembleobservations_mod/eob_hubernorm" title="f/ensembleobservations_mod/eob_hubernorm"><code class="xref f f-func docutils literal notranslate"><span class="pre">eob_hubernorm()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/bufr_mod/bufr_isoceanobs">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">bufr_mod/</span></span><span class="sig-name descname"><span class="pre">bufr_isoceanobs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">varnumber</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/bufr_mod/bufr_isoceanobs" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>True if the variable is an ocean observation</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>varnumber</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em> :: BUFR element number</p>
+</dd>
+<dt class="field-odd">Return</dt>
+<dd class="field-odd"><p><strong>bufr_isoceanobs</strong><em> [</em><em>logical </em><em>]</em></p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="ensembleobservations_mod.html#f/ensembleobservations_mod/eob_setvertlocation" title="f/ensembleobservations_mod/eob_setvertlocation"><code class="xref f f-func docutils literal notranslate"><span class="pre">eob_setvertlocation()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div></blockquote>
+</section>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="codeprecision_mod.html" title="codeprecision_mod"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="verticalcoord_mod.html" title="verticalcoord_mod"
+             >previous</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2018, ECCC.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.
+    </div>
+  </body>
+</html>

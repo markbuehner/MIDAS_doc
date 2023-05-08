@@ -1,0 +1,453 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>earthconstants_mod &mdash; MIDAS  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="MIDAS  documentation" href="../index.html" />
+    <link rel="next" title="getgridposition_mod" href="getgridposition_mod.html" />
+    <link rel="prev" title="codtyp_mod" href="codtyp_mod.html" /> 
+  </head>
+  <body>
+  <div>
+    <img src="../_static/MIDAS_header.png" alt="MIDAS" />
+  </div>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="getgridposition_mod.html" title="getgridposition_mod"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="codtyp_mod.html" title="codtyp_mod"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="codtyp_mod.html"
+                          title="previous chapter">codtyp_mod</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="getgridposition_mod.html"
+                          title="next chapter">getgridposition_mod</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/modules/earthconstants_mod.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <section id="earthconstants-mod">
+<h1>earthconstants_mod<a class="headerlink" href="#earthconstants-mod" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><p><a class="reference internal" href="earthconstants_mod_src.html"><span class="doc">link to source code</span></a></p>
+<p><strong>Dependency Diagrams:</strong></p>
+<figure class="align-default" id="id1">
+<a class="reference internal image-reference" href="earthconstants_mod.svg"><img alt="earthconstants_mod.svg" height="100px" src="earthconstants_mod.svg" /></a>
+<figcaption>
+<p><span class="caption-text">Direct Dependency Diagram</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id2">
+<a class="reference internal image-reference" href="earthconstants_mod_rev.svg"><img alt="earthconstants_mod_rev.svg" height="100px" src="earthconstants_mod_rev.svg" /></a>
+<figcaption>
+<p><span class="caption-text">Reverse Dependency Diagram</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<span class="target" id="f/earthconstants_mod"></span><p class="rubric">Description</p>
+<p>MODULE earthConstants_mod (prefix=’ec’ category=’8. Low-level utilities and constants’)
+Prefixes:</p>
+<blockquote>
+<div><p><a href="#id3"><span class="problematic" id="id4">ec_</span></a> (Earth constants), for miscellaneous values from diverse sources</p>
+</div></blockquote>
+<dl class="simple">
+<dt>or</dt><dd><p><a href="#id5"><span class="problematic" id="id6">ec_wgs_</span></a> (World Geodetic Syatem) when they are explicitly from WGS84 specification.</p>
+</dd>
+</dl>
+<p class="rubric">Quick access</p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/earthconstants_mod/ec_jyear" title="f/earthconstants_mod/ec_jyear"><code class="xref f f-var docutils literal notranslate"><span class="pre">ec_jyear</span></code></a>, <a class="reference internal" href="#f/earthconstants_mod/ec_omega" title="f/earthconstants_mod/ec_omega"><code class="xref f f-var docutils literal notranslate"><span class="pre">ec_omega</span></code></a>, <a class="reference internal" href="#f/earthconstants_mod/ec_r1sa" title="f/earthconstants_mod/ec_r1sa"><code class="xref f f-var docutils literal notranslate"><span class="pre">ec_r1sa</span></code></a>, <a class="reference internal" href="#f/earthconstants_mod/ec_ra" title="f/earthconstants_mod/ec_ra"><code class="xref f f-var docutils literal notranslate"><span class="pre">ec_ra</span></code></a>, <a class="reference internal" href="#f/earthconstants_mod/ec_rayt" title="f/earthconstants_mod/ec_rayt"><code class="xref f f-var docutils literal notranslate"><span class="pre">ec_rayt</span></code></a>, <a class="reference internal" href="#f/earthconstants_mod/ec_rday" title="f/earthconstants_mod/ec_rday"><code class="xref f f-var docutils literal notranslate"><span class="pre">ec_rday</span></code></a>, <a class="reference internal" href="#f/earthconstants_mod/ec_rg" title="f/earthconstants_mod/ec_rg"><code class="xref f f-var docutils literal notranslate"><span class="pre">ec_rg</span></code></a>, <a class="reference internal" href="#f/earthconstants_mod/ec_romega" title="f/earthconstants_mod/ec_romega"><code class="xref f f-var docutils literal notranslate"><span class="pre">ec_romega</span></code></a>, <a class="reference internal" href="#f/earthconstants_mod/ec_sidday" title="f/earthconstants_mod/ec_sidday"><code class="xref f f-var docutils literal notranslate"><span class="pre">ec_sidday</span></code></a>, <a class="reference internal" href="#f/earthconstants_mod/ec_sidyear" title="f/earthconstants_mod/ec_sidyear"><code class="xref f f-var docutils literal notranslate"><span class="pre">ec_sidyear</span></code></a>, <a class="reference internal" href="#f/earthconstants_mod/ec_wgs_1f" title="f/earthconstants_mod/ec_wgs_1f"><code class="xref f f-var docutils literal notranslate"><span class="pre">ec_wgs_1f</span></code></a>, <a class="reference internal" href="#f/earthconstants_mod/ec_wgs_a" title="f/earthconstants_mod/ec_wgs_a"><code class="xref f f-var docutils literal notranslate"><span class="pre">ec_wgs_a</span></code></a>, <a class="reference internal" href="#f/earthconstants_mod/ec_wgs_b" title="f/earthconstants_mod/ec_wgs_b"><code class="xref f f-var docutils literal notranslate"><span class="pre">ec_wgs_b</span></code></a>, <a class="reference internal" href="#f/earthconstants_mod/ec_wgs_ba" title="f/earthconstants_mod/ec_wgs_ba"><code class="xref f f-var docutils literal notranslate"><span class="pre">ec_wgs_ba</span></code></a>, <a class="reference internal" href="#f/earthconstants_mod/ec_wgs_c" title="f/earthconstants_mod/ec_wgs_c"><code class="xref f f-var docutils literal notranslate"><span class="pre">ec_wgs_c</span></code></a>, <a class="reference internal" href="#f/earthconstants_mod/ec_wgs_c20" title="f/earthconstants_mod/ec_wgs_c20"><code class="xref f f-var docutils literal notranslate"><span class="pre">ec_wgs_c20</span></code></a>, <a class="reference internal" href="#f/earthconstants_mod/ec_wgs_e" title="f/earthconstants_mod/ec_wgs_e"><code class="xref f f-var docutils literal notranslate"><span class="pre">ec_wgs_e</span></code></a>, <a class="reference internal" href="#f/earthconstants_mod/ec_wgs_e2" title="f/earthconstants_mod/ec_wgs_e2"><code class="xref f f-var docutils literal notranslate"><span class="pre">ec_wgs_e2</span></code></a>, <a class="reference internal" href="#f/earthconstants_mod/ec_wgs_efocal" title="f/earthconstants_mod/ec_wgs_efocal"><code class="xref f f-var docutils literal notranslate"><span class="pre">ec_wgs_efocal</span></code></a>, <a class="reference internal" href="#f/earthconstants_mod/ec_wgs_elinear" title="f/earthconstants_mod/ec_wgs_elinear"><code class="xref f f-var docutils literal notranslate"><span class="pre">ec_wgs_elinear</span></code></a>, <a class="reference internal" href="#f/earthconstants_mod/ec_wgs_eprime" title="f/earthconstants_mod/ec_wgs_eprime"><code class="xref f f-var docutils literal notranslate"><span class="pre">ec_wgs_eprime</span></code></a>, <a class="reference internal" href="#f/earthconstants_mod/ec_wgs_eprime2" title="f/earthconstants_mod/ec_wgs_eprime2"><code class="xref f f-var docutils literal notranslate"><span class="pre">ec_wgs_eprime2</span></code></a>, <a class="reference internal" href="#f/earthconstants_mod/ec_wgs_f" title="f/earthconstants_mod/ec_wgs_f"><code class="xref f f-var docutils literal notranslate"><span class="pre">ec_wgs_f</span></code></a>, <a class="reference internal" href="#f/earthconstants_mod/ec_wgs_g" title="f/earthconstants_mod/ec_wgs_g"><code class="xref f f-var docutils literal notranslate"><span class="pre">ec_wgs_g</span></code></a>, <a class="reference internal" href="#f/earthconstants_mod/ec_wgs_gammae" title="f/earthconstants_mod/ec_wgs_gammae"><code class="xref f f-var docutils literal notranslate"><span class="pre">ec_wgs_gammae</span></code></a>, <a class="reference internal" href="#f/earthconstants_mod/ec_wgs_gammam" title="f/earthconstants_mod/ec_wgs_gammam"><code class="xref f f-var docutils literal notranslate"><span class="pre">ec_wgs_gammam</span></code></a>, <a class="reference internal" href="#f/earthconstants_mod/ec_wgs_gammap" title="f/earthconstants_mod/ec_wgs_gammap"><code class="xref f f-var docutils literal notranslate"><span class="pre">ec_wgs_gammap</span></code></a>, <a class="reference internal" href="#f/earthconstants_mod/ec_wgs_gm" title="f/earthconstants_mod/ec_wgs_gm"><code class="xref f f-var docutils literal notranslate"><span class="pre">ec_wgs_gm</span></code></a>, <a class="reference internal" href="#f/earthconstants_mod/ec_wgs_gm_kep" title="f/earthconstants_mod/ec_wgs_gm_kep"><code class="xref f f-var docutils literal notranslate"><span class="pre">ec_wgs_gm_kep</span></code></a>, <a class="reference internal" href="#f/earthconstants_mod/ec_wgs_gma" title="f/earthconstants_mod/ec_wgs_gma"><code class="xref f f-var docutils literal notranslate"><span class="pre">ec_wgs_gma</span></code></a>, <a class="reference internal" href="#f/earthconstants_mod/ec_wgs_gmprime" title="f/earthconstants_mod/ec_wgs_gmprime"><code class="xref f f-var docutils literal notranslate"><span class="pre">ec_wgs_gmprime</span></code></a>, <a class="reference internal" href="#f/earthconstants_mod/ec_wgs_h" title="f/earthconstants_mod/ec_wgs_h"><code class="xref f f-var docutils literal notranslate"><span class="pre">ec_wgs_h</span></code></a>, <a class="reference internal" href="#f/earthconstants_mod/ec_wgs_m" title="f/earthconstants_mod/ec_wgs_m"><code class="xref f f-var docutils literal notranslate"><span class="pre">ec_wgs_m</span></code></a>, <a class="reference internal" href="#f/earthconstants_mod/ec_wgs_mass" title="f/earthconstants_mod/ec_wgs_mass"><code class="xref f f-var docutils literal notranslate"><span class="pre">ec_wgs_mass</span></code></a>, <a class="reference internal" href="#f/earthconstants_mod/ec_wgs_omega" title="f/earthconstants_mod/ec_wgs_omega"><code class="xref f f-var docutils literal notranslate"><span class="pre">ec_wgs_omega</span></code></a>, <a class="reference internal" href="#f/earthconstants_mod/ec_wgs_omegaprime" title="f/earthconstants_mod/ec_wgs_omegaprime"><code class="xref f f-var docutils literal notranslate"><span class="pre">ec_wgs_omegaprime</span></code></a>, <a class="reference internal" href="#f/earthconstants_mod/ec_wgs_omegastar0" title="f/earthconstants_mod/ec_wgs_omegastar0"><code class="xref f f-var docutils literal notranslate"><span class="pre">ec_wgs_omegastar0</span></code></a>, <a class="reference internal" href="#f/earthconstants_mod/ec_wgs_omegastar1" title="f/earthconstants_mod/ec_wgs_omegastar1"><code class="xref f f-var docutils literal notranslate"><span class="pre">ec_wgs_omegastar1</span></code></a>, <a class="reference internal" href="#f/earthconstants_mod/ec_wgs_pmi_a" title="f/earthconstants_mod/ec_wgs_pmi_a"><code class="xref f f-var docutils literal notranslate"><span class="pre">ec_wgs_pmi_a</span></code></a>, <a class="reference internal" href="#f/earthconstants_mod/ec_wgs_pmi_b" title="f/earthconstants_mod/ec_wgs_pmi_b"><code class="xref f f-var docutils literal notranslate"><span class="pre">ec_wgs_pmi_b</span></code></a>, <a class="reference internal" href="#f/earthconstants_mod/ec_wgs_pmi_c" title="f/earthconstants_mod/ec_wgs_pmi_c"><code class="xref f f-var docutils literal notranslate"><span class="pre">ec_wgs_pmi_c</span></code></a>, <a class="reference internal" href="#f/earthconstants_mod/ec_wgs_r1" title="f/earthconstants_mod/ec_wgs_r1"><code class="xref f f-var docutils literal notranslate"><span class="pre">ec_wgs_r1</span></code></a>, <a class="reference internal" href="#f/earthconstants_mod/ec_wgs_r2" title="f/earthconstants_mod/ec_wgs_r2"><code class="xref f f-var docutils literal notranslate"><span class="pre">ec_wgs_r2</span></code></a>, <a class="reference internal" href="#f/earthconstants_mod/ec_wgs_r3" title="f/earthconstants_mod/ec_wgs_r3"><code class="xref f f-var docutils literal notranslate"><span class="pre">ec_wgs_r3</span></code></a>, <a class="reference internal" href="#f/earthconstants_mod/ec_wgs_tngk" title="f/earthconstants_mod/ec_wgs_tngk"><code class="xref f f-var docutils literal notranslate"><span class="pre">ec_wgs_tngk</span></code></a>, <a class="reference internal" href="#f/earthconstants_mod/ec_wgs_u0" title="f/earthconstants_mod/ec_wgs_u0"><code class="xref f f-var docutils literal notranslate"><span class="pre">ec_wgs_u0</span></code></a></p>
+</dd>
+</dl>
+<p class="rubric">Needed modules</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="mathphysconstants_mod.html#f/mathphysconstants_mod" title="f/mathphysconstants_mod: MODULE MathPhysConstants_mod (prefix='mpc' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">mathphysconstants_mod</span></code></a>: MODULE MathPhysConstants_mod (prefix=’mpc’ category=’8. Low-level utilities and constants’)</p></li>
+</ul>
+<p class="rubric">Variables</p>
+<ul>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/earthconstants_mod/ec_jyear">
+<span class="sig-prename descclassname"><span class="pre">earthconstants_mod/</span></span><span class="sig-name descname"><span class="pre">ec_jyear</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/earthconstants_mod/ec_jyear" title="Permalink to this definition">¶</a></dt>
+<dd><p>Standard (Julian) year</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/earthconstants_mod/ec_omega">
+<span class="sig-prename descclassname"><span class="pre">earthconstants_mod/</span></span><span class="sig-name descname"><span class="pre">ec_omega</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/earthconstants_mod/ec_omega" title="Permalink to this definition">¶</a></dt>
+<dd><p>Approximation, see for instance ec_wgs_Omega below.</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/earthconstants_mod/ec_r1sa">
+<span class="sig-prename descclassname"><span class="pre">earthconstants_mod/</span></span><span class="sig-name descname"><span class="pre">ec_r1sa</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/earthconstants_mod/ec_r1sa" title="Permalink to this definition">¶</a></dt>
+<dd><p>1.56955588945241177170D-07          ! Modified to explicitly 1/ec_ra</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/earthconstants_mod/ec_ra">
+<span class="sig-prename descclassname"><span class="pre">earthconstants_mod/</span></span><span class="sig-name descname"><span class="pre">ec_ra</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/earthconstants_mod/ec_ra" title="Permalink to this definition">¶</a></dt>
+<dd><p>ECMWF topographical mean radius (Authalic radius, eg ec_wgs_R2,+average topography)</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/earthconstants_mod/ec_rayt">
+<span class="sig-prename descclassname"><span class="pre">earthconstants_mod/</span></span><span class="sig-name descname"><span class="pre">ec_rayt</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/earthconstants_mod/ec_rayt" title="Permalink to this definition">¶</a></dt>
+<dd><p>Another topographical mean (NOAA)</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/earthconstants_mod/ec_rday">
+<span class="sig-prename descclassname"><span class="pre">earthconstants_mod/</span></span><span class="sig-name descname"><span class="pre">ec_rday</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/earthconstants_mod/ec_rday" title="Permalink to this definition">¶</a></dt>
+<dd><p>Standard day</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/earthconstants_mod/ec_rg">
+<span class="sig-prename descclassname"><span class="pre">earthconstants_mod/</span></span><span class="sig-name descname"><span class="pre">ec_rg</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/earthconstants_mod/ec_rg" title="Permalink to this definition">¶</a></dt>
+<dd><p>…616 ? This is Lambert IGF at 45 lat (g45). The WMO standard for conversions is …665.</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/earthconstants_mod/ec_romega">
+<span class="sig-prename descclassname"><span class="pre">earthconstants_mod/</span></span><span class="sig-name descname"><span class="pre">ec_romega</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/earthconstants_mod/ec_romega" title="Permalink to this definition">¶</a></dt>
+<dd><p>Angular rotation (approx., again)</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/earthconstants_mod/ec_sidday">
+<span class="sig-prename descclassname"><span class="pre">earthconstants_mod/</span></span><span class="sig-name descname"><span class="pre">ec_sidday</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/earthconstants_mod/ec_sidday" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/earthconstants_mod/ec_sidyear">
+<span class="sig-prename descclassname"><span class="pre">earthconstants_mod/</span></span><span class="sig-name descname"><span class="pre">ec_sidyear</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/earthconstants_mod/ec_sidyear" title="Permalink to this definition">¶</a></dt>
+<dd><p>Not really sidereal year, seems rather anomalistic year (odd).</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/earthconstants_mod/ec_wgs_1f">
+<span class="sig-prename descclassname"><span class="pre">earthconstants_mod/</span></span><span class="sig-name descname"><span class="pre">ec_wgs_1f</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/earthconstants_mod/ec_wgs_1f" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/earthconstants_mod/ec_wgs_a">
+<span class="sig-prename descclassname"><span class="pre">earthconstants_mod/</span></span><span class="sig-name descname"><span class="pre">ec_wgs_a</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/earthconstants_mod/ec_wgs_a" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/earthconstants_mod/ec_wgs_b">
+<span class="sig-prename descclassname"><span class="pre">earthconstants_mod/</span></span><span class="sig-name descname"><span class="pre">ec_wgs_b</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/earthconstants_mod/ec_wgs_b" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/earthconstants_mod/ec_wgs_ba">
+<span class="sig-prename descclassname"><span class="pre">earthconstants_mod/</span></span><span class="sig-name descname"><span class="pre">ec_wgs_ba</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/earthconstants_mod/ec_wgs_ba" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/earthconstants_mod/ec_wgs_c">
+<span class="sig-prename descclassname"><span class="pre">earthconstants_mod/</span></span><span class="sig-name descname"><span class="pre">ec_wgs_c</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/earthconstants_mod/ec_wgs_c" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/earthconstants_mod/ec_wgs_c20">
+<span class="sig-prename descclassname"><span class="pre">earthconstants_mod/</span></span><span class="sig-name descname"><span class="pre">ec_wgs_c20</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/earthconstants_mod/ec_wgs_c20" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/earthconstants_mod/ec_wgs_e">
+<span class="sig-prename descclassname"><span class="pre">earthconstants_mod/</span></span><span class="sig-name descname"><span class="pre">ec_wgs_e</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/earthconstants_mod/ec_wgs_e" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/earthconstants_mod/ec_wgs_e2">
+<span class="sig-prename descclassname"><span class="pre">earthconstants_mod/</span></span><span class="sig-name descname"><span class="pre">ec_wgs_e2</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/earthconstants_mod/ec_wgs_e2" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/earthconstants_mod/ec_wgs_efocal">
+<span class="sig-prename descclassname"><span class="pre">earthconstants_mod/</span></span><span class="sig-name descname"><span class="pre">ec_wgs_efocal</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/earthconstants_mod/ec_wgs_efocal" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/earthconstants_mod/ec_wgs_elinear">
+<span class="sig-prename descclassname"><span class="pre">earthconstants_mod/</span></span><span class="sig-name descname"><span class="pre">ec_wgs_elinear</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/earthconstants_mod/ec_wgs_elinear" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/earthconstants_mod/ec_wgs_eprime">
+<span class="sig-prename descclassname"><span class="pre">earthconstants_mod/</span></span><span class="sig-name descname"><span class="pre">ec_wgs_eprime</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/earthconstants_mod/ec_wgs_eprime" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/earthconstants_mod/ec_wgs_eprime2">
+<span class="sig-prename descclassname"><span class="pre">earthconstants_mod/</span></span><span class="sig-name descname"><span class="pre">ec_wgs_eprime2</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/earthconstants_mod/ec_wgs_eprime2" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/earthconstants_mod/ec_wgs_f">
+<span class="sig-prename descclassname"><span class="pre">earthconstants_mod/</span></span><span class="sig-name descname"><span class="pre">ec_wgs_f</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/earthconstants_mod/ec_wgs_f" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/earthconstants_mod/ec_wgs_g">
+<span class="sig-prename descclassname"><span class="pre">earthconstants_mod/</span></span><span class="sig-name descname"><span class="pre">ec_wgs_g</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/earthconstants_mod/ec_wgs_g" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/earthconstants_mod/ec_wgs_gammae">
+<span class="sig-prename descclassname"><span class="pre">earthconstants_mod/</span></span><span class="sig-name descname"><span class="pre">ec_wgs_gammae</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/earthconstants_mod/ec_wgs_gammae" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/earthconstants_mod/ec_wgs_gammam">
+<span class="sig-prename descclassname"><span class="pre">earthconstants_mod/</span></span><span class="sig-name descname"><span class="pre">ec_wgs_gammam</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/earthconstants_mod/ec_wgs_gammam" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/earthconstants_mod/ec_wgs_gammap">
+<span class="sig-prename descclassname"><span class="pre">earthconstants_mod/</span></span><span class="sig-name descname"><span class="pre">ec_wgs_gammap</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/earthconstants_mod/ec_wgs_gammap" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/earthconstants_mod/ec_wgs_gm">
+<span class="sig-prename descclassname"><span class="pre">earthconstants_mod/</span></span><span class="sig-name descname"><span class="pre">ec_wgs_gm</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/earthconstants_mod/ec_wgs_gm" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/earthconstants_mod/ec_wgs_gm_kep">
+<span class="sig-prename descclassname"><span class="pre">earthconstants_mod/</span></span><span class="sig-name descname"><span class="pre">ec_wgs_gm_kep</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/earthconstants_mod/ec_wgs_gm_kep" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/earthconstants_mod/ec_wgs_gma">
+<span class="sig-prename descclassname"><span class="pre">earthconstants_mod/</span></span><span class="sig-name descname"><span class="pre">ec_wgs_gma</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/earthconstants_mod/ec_wgs_gma" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/earthconstants_mod/ec_wgs_gmprime">
+<span class="sig-prename descclassname"><span class="pre">earthconstants_mod/</span></span><span class="sig-name descname"><span class="pre">ec_wgs_gmprime</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/earthconstants_mod/ec_wgs_gmprime" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/earthconstants_mod/ec_wgs_h">
+<span class="sig-prename descclassname"><span class="pre">earthconstants_mod/</span></span><span class="sig-name descname"><span class="pre">ec_wgs_h</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/earthconstants_mod/ec_wgs_h" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/earthconstants_mod/ec_wgs_m">
+<span class="sig-prename descclassname"><span class="pre">earthconstants_mod/</span></span><span class="sig-name descname"><span class="pre">ec_wgs_m</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/earthconstants_mod/ec_wgs_m" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/earthconstants_mod/ec_wgs_mass">
+<span class="sig-prename descclassname"><span class="pre">earthconstants_mod/</span></span><span class="sig-name descname"><span class="pre">ec_wgs_mass</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/earthconstants_mod/ec_wgs_mass" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/earthconstants_mod/ec_wgs_omega">
+<span class="sig-prename descclassname"><span class="pre">earthconstants_mod/</span></span><span class="sig-name descname"><span class="pre">ec_wgs_omega</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/earthconstants_mod/ec_wgs_omega" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/earthconstants_mod/ec_wgs_omegaprime">
+<span class="sig-prename descclassname"><span class="pre">earthconstants_mod/</span></span><span class="sig-name descname"><span class="pre">ec_wgs_omegaprime</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/earthconstants_mod/ec_wgs_omegaprime" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/earthconstants_mod/ec_wgs_omegastar0">
+<span class="sig-prename descclassname"><span class="pre">earthconstants_mod/</span></span><span class="sig-name descname"><span class="pre">ec_wgs_omegastar0</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/earthconstants_mod/ec_wgs_omegastar0" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/earthconstants_mod/ec_wgs_omegastar1">
+<span class="sig-prename descclassname"><span class="pre">earthconstants_mod/</span></span><span class="sig-name descname"><span class="pre">ec_wgs_omegastar1</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/earthconstants_mod/ec_wgs_omegastar1" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/earthconstants_mod/ec_wgs_pmi_a">
+<span class="sig-prename descclassname"><span class="pre">earthconstants_mod/</span></span><span class="sig-name descname"><span class="pre">ec_wgs_pmi_a</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/earthconstants_mod/ec_wgs_pmi_a" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/earthconstants_mod/ec_wgs_pmi_b">
+<span class="sig-prename descclassname"><span class="pre">earthconstants_mod/</span></span><span class="sig-name descname"><span class="pre">ec_wgs_pmi_b</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/earthconstants_mod/ec_wgs_pmi_b" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/earthconstants_mod/ec_wgs_pmi_c">
+<span class="sig-prename descclassname"><span class="pre">earthconstants_mod/</span></span><span class="sig-name descname"><span class="pre">ec_wgs_pmi_c</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/earthconstants_mod/ec_wgs_pmi_c" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/earthconstants_mod/ec_wgs_r1">
+<span class="sig-prename descclassname"><span class="pre">earthconstants_mod/</span></span><span class="sig-name descname"><span class="pre">ec_wgs_r1</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/earthconstants_mod/ec_wgs_r1" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/earthconstants_mod/ec_wgs_r2">
+<span class="sig-prename descclassname"><span class="pre">earthconstants_mod/</span></span><span class="sig-name descname"><span class="pre">ec_wgs_r2</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/earthconstants_mod/ec_wgs_r2" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/earthconstants_mod/ec_wgs_r3">
+<span class="sig-prename descclassname"><span class="pre">earthconstants_mod/</span></span><span class="sig-name descname"><span class="pre">ec_wgs_r3</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/earthconstants_mod/ec_wgs_r3" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/earthconstants_mod/ec_wgs_tngk">
+<span class="sig-prename descclassname"><span class="pre">earthconstants_mod/</span></span><span class="sig-name descname"><span class="pre">ec_wgs_tngk</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/earthconstants_mod/ec_wgs_tngk" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/earthconstants_mod/ec_wgs_u0">
+<span class="sig-prename descclassname"><span class="pre">earthconstants_mod/</span></span><span class="sig-name descname"><span class="pre">ec_wgs_u0</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/earthconstants_mod/ec_wgs_u0" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+</ul>
+</div></blockquote>
+</section>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="getgridposition_mod.html" title="getgridposition_mod"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="codtyp_mod.html" title="codtyp_mod"
+             >previous</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2018, ECCC.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.
+    </div>
+  </body>
+</html>

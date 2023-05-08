@@ -1,0 +1,1097 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>mathphysconstants_mod &mdash; MIDAS  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="MIDAS  documentation" href="../index.html" />
+    <link rel="next" title="message_mod" href="message_mod.html" />
+    <link rel="prev" title="kdtree2_priority_queue_mod" href="kdtree2_priority_queue_mod.html" /> 
+  </head>
+  <body>
+  <div>
+    <img src="../_static/MIDAS_header.png" alt="MIDAS" />
+  </div>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="message_mod.html" title="message_mod"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="kdtree2_priority_queue_mod.html" title="kdtree2_priority_queue_mod"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="kdtree2_priority_queue_mod.html"
+                          title="previous chapter">kdtree2_priority_queue_mod</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="message_mod.html"
+                          title="next chapter">message_mod</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/modules/mathphysconstants_mod.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <section id="mathphysconstants-mod">
+<h1>mathphysconstants_mod<a class="headerlink" href="#mathphysconstants-mod" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><p><a class="reference internal" href="mathphysconstants_mod_src.html"><span class="doc">link to source code</span></a></p>
+<p><strong>Dependency Diagrams:</strong></p>
+<blockquote>
+<div><p>No Direct Dependency</p>
+</div></blockquote>
+<figure class="align-default" id="id1">
+<a class="reference internal image-reference" href="mathphysconstants_mod_rev.svg"><img alt="mathphysconstants_mod_rev.svg" height="100px" src="mathphysconstants_mod_rev.svg" /></a>
+<figcaption>
+<p><span class="caption-text">Reverse Dependency Diagram</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<span class="target" id="f/mathphysconstants_mod"></span><p class="rubric">Description</p>
+<p>MODULE MathPhysConstants_mod (prefix=’mpc’ category=’8. Low-level utilities and constants’)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Purpose</dt>
+<dd class="field-odd"><p>To supply mathematical and physical constants in a universal,
+reliable fashion.</p>
+</dd>
+</dl>
+<p class="rubric">Quick access</p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/mathphysconstants_mod/mpc_ai_r4" title="f/mathphysconstants_mod/mpc_ai_r4"><code class="xref f f-var docutils literal notranslate"><span class="pre">mpc_ai_r4</span></code></a>, <a class="reference internal" href="#f/mathphysconstants_mod/mpc_ai_r8" title="f/mathphysconstants_mod/mpc_ai_r8"><code class="xref f f-var docutils literal notranslate"><span class="pre">mpc_ai_r8</span></code></a>, <a class="reference internal" href="#f/mathphysconstants_mod/mpc_astronomical_unit_r4" title="f/mathphysconstants_mod/mpc_astronomical_unit_r4"><code class="xref f f-var docutils literal notranslate"><span class="pre">mpc_astronomical_unit_r4</span></code></a>, <a class="reference internal" href="#f/mathphysconstants_mod/mpc_astronomical_unit_r8" title="f/mathphysconstants_mod/mpc_astronomical_unit_r8"><code class="xref f f-var docutils literal notranslate"><span class="pre">mpc_astronomical_unit_r8</span></code></a>, <a class="reference internal" href="#f/mathphysconstants_mod/mpc_avogadro_r4" title="f/mathphysconstants_mod/mpc_avogadro_r4"><code class="xref f f-var docutils literal notranslate"><span class="pre">mpc_avogadro_r4</span></code></a>, <a class="reference internal" href="#f/mathphysconstants_mod/mpc_avogadro_r8" title="f/mathphysconstants_mod/mpc_avogadro_r8"><code class="xref f f-var docutils literal notranslate"><span class="pre">mpc_avogadro_r8</span></code></a>, <a class="reference internal" href="#f/mathphysconstants_mod/mpc_aw_r4" title="f/mathphysconstants_mod/mpc_aw_r4"><code class="xref f f-var docutils literal notranslate"><span class="pre">mpc_aw_r4</span></code></a>, <a class="reference internal" href="#f/mathphysconstants_mod/mpc_aw_r8" title="f/mathphysconstants_mod/mpc_aw_r8"><code class="xref f f-var docutils literal notranslate"><span class="pre">mpc_aw_r8</span></code></a>, <a class="reference internal" href="#f/mathphysconstants_mod/mpc_bi_r4" title="f/mathphysconstants_mod/mpc_bi_r4"><code class="xref f f-var docutils literal notranslate"><span class="pre">mpc_bi_r4</span></code></a>, <a class="reference internal" href="#f/mathphysconstants_mod/mpc_bi_r8" title="f/mathphysconstants_mod/mpc_bi_r8"><code class="xref f f-var docutils literal notranslate"><span class="pre">mpc_bi_r8</span></code></a>, <a class="reference internal" href="#f/mathphysconstants_mod/mpc_boltzmann_r4" title="f/mathphysconstants_mod/mpc_boltzmann_r4"><code class="xref f f-var docutils literal notranslate"><span class="pre">mpc_boltzmann_r4</span></code></a>, <a class="reference internal" href="#f/mathphysconstants_mod/mpc_boltzmann_r8" title="f/mathphysconstants_mod/mpc_boltzmann_r8"><code class="xref f f-var docutils literal notranslate"><span class="pre">mpc_boltzmann_r8</span></code></a>, <a class="reference internal" href="#f/mathphysconstants_mod/mpc_bw_r4" title="f/mathphysconstants_mod/mpc_bw_r4"><code class="xref f f-var docutils literal notranslate"><span class="pre">mpc_bw_r4</span></code></a>, <a class="reference internal" href="#f/mathphysconstants_mod/mpc_bw_r8" title="f/mathphysconstants_mod/mpc_bw_r8"><code class="xref f f-var docutils literal notranslate"><span class="pre">mpc_bw_r8</span></code></a>, <a class="reference internal" href="#f/mathphysconstants_mod/mpc_cp_dry_air_r4" title="f/mathphysconstants_mod/mpc_cp_dry_air_r4"><code class="xref f f-var docutils literal notranslate"><span class="pre">mpc_cp_dry_air_r4</span></code></a>, <a class="reference internal" href="#f/mathphysconstants_mod/mpc_cp_dry_air_r8" title="f/mathphysconstants_mod/mpc_cp_dry_air_r8"><code class="xref f f-var docutils literal notranslate"><span class="pre">mpc_cp_dry_air_r8</span></code></a>, <a class="reference internal" href="#f/mathphysconstants_mod/mpc_cp_ice_r4" title="f/mathphysconstants_mod/mpc_cp_ice_r4"><code class="xref f f-var docutils literal notranslate"><span class="pre">mpc_cp_ice_r4</span></code></a>, <a class="reference internal" href="#f/mathphysconstants_mod/mpc_cp_ice_r8" title="f/mathphysconstants_mod/mpc_cp_ice_r8"><code class="xref f f-var docutils literal notranslate"><span class="pre">mpc_cp_ice_r8</span></code></a>, <a class="reference internal" href="#f/mathphysconstants_mod/mpc_cp_vapour_r4" title="f/mathphysconstants_mod/mpc_cp_vapour_r4"><code class="xref f f-var docutils literal notranslate"><span class="pre">mpc_cp_vapour_r4</span></code></a>, <a class="reference internal" href="#f/mathphysconstants_mod/mpc_cp_vapour_r8" title="f/mathphysconstants_mod/mpc_cp_vapour_r8"><code class="xref f f-var docutils literal notranslate"><span class="pre">mpc_cp_vapour_r8</span></code></a>, <a class="reference internal" href="#f/mathphysconstants_mod/mpc_critical_richardson_r4" title="f/mathphysconstants_mod/mpc_critical_richardson_r4"><code class="xref f f-var docutils literal notranslate"><span class="pre">mpc_critical_richardson_r4</span></code></a>, <a class="reference internal" href="#f/mathphysconstants_mod/mpc_critical_richardson_r8" title="f/mathphysconstants_mod/mpc_critical_richardson_r8"><code class="xref f f-var docutils literal notranslate"><span class="pre">mpc_critical_richardson_r8</span></code></a>, <a class="reference internal" href="#f/mathphysconstants_mod/mpc_cv_dry_air_r4" title="f/mathphysconstants_mod/mpc_cv_dry_air_r4"><code class="xref f f-var docutils literal notranslate"><span class="pre">mpc_cv_dry_air_r4</span></code></a>, <a class="reference internal" href="#f/mathphysconstants_mod/mpc_cv_dry_air_r8" title="f/mathphysconstants_mod/mpc_cv_dry_air_r8"><code class="xref f f-var docutils literal notranslate"><span class="pre">mpc_cv_dry_air_r8</span></code></a>, <a class="reference internal" href="#f/mathphysconstants_mod/mpc_cv_vapour_r4" title="f/mathphysconstants_mod/mpc_cv_vapour_r4"><code class="xref f f-var docutils literal notranslate"><span class="pre">mpc_cv_vapour_r4</span></code></a>, <a class="reference internal" href="#f/mathphysconstants_mod/mpc_cv_vapour_r8" title="f/mathphysconstants_mod/mpc_cv_vapour_r8"><code class="xref f f-var docutils literal notranslate"><span class="pre">mpc_cv_vapour_r8</span></code></a>, <a class="reference internal" href="#f/mathphysconstants_mod/mpc_degrees_per_radian_r4" title="f/mathphysconstants_mod/mpc_degrees_per_radian_r4"><code class="xref f f-var docutils literal notranslate"><span class="pre">mpc_degrees_per_radian_r4</span></code></a>, <a class="reference internal" href="#f/mathphysconstants_mod/mpc_degrees_per_radian_r8" title="f/mathphysconstants_mod/mpc_degrees_per_radian_r8"><code class="xref f f-var docutils literal notranslate"><span class="pre">mpc_degrees_per_radian_r8</span></code></a>, <a class="reference internal" href="#f/mathphysconstants_mod/mpc_delta_r4" title="f/mathphysconstants_mod/mpc_delta_r4"><code class="xref f f-var docutils literal notranslate"><span class="pre">mpc_delta_r4</span></code></a>, <a class="reference internal" href="#f/mathphysconstants_mod/mpc_delta_r8" title="f/mathphysconstants_mod/mpc_delta_r8"><code class="xref f f-var docutils literal notranslate"><span class="pre">mpc_delta_r8</span></code></a>, <a class="reference internal" href="#f/mathphysconstants_mod/mpc_density_water_r4" title="f/mathphysconstants_mod/mpc_density_water_r4"><code class="xref f f-var docutils literal notranslate"><span class="pre">mpc_density_water_r4</span></code></a>, <a class="reference internal" href="#f/mathphysconstants_mod/mpc_density_water_r8" title="f/mathphysconstants_mod/mpc_density_water_r8"><code class="xref f f-var docutils literal notranslate"><span class="pre">mpc_density_water_r8</span></code></a>, <a class="reference internal" href="#f/mathphysconstants_mod/mpc_eps1_r4" title="f/mathphysconstants_mod/mpc_eps1_r4"><code class="xref f f-var docutils literal notranslate"><span class="pre">mpc_eps1_r4</span></code></a>, <a class="reference internal" href="#f/mathphysconstants_mod/mpc_eps1_r8" title="f/mathphysconstants_mod/mpc_eps1_r8"><code class="xref f f-var docutils literal notranslate"><span class="pre">mpc_eps1_r8</span></code></a>, <a class="reference internal" href="#f/mathphysconstants_mod/mpc_eps2_r4" title="f/mathphysconstants_mod/mpc_eps2_r4"><code class="xref f f-var docutils literal notranslate"><span class="pre">mpc_eps2_r4</span></code></a>, <a class="reference internal" href="#f/mathphysconstants_mod/mpc_eps2_r8" title="f/mathphysconstants_mod/mpc_eps2_r8"><code class="xref f f-var docutils literal notranslate"><span class="pre">mpc_eps2_r8</span></code></a>, <a class="reference internal" href="#f/mathphysconstants_mod/mpc_heat_condens_water_r4" title="f/mathphysconstants_mod/mpc_heat_condens_water_r4"><code class="xref f f-var docutils literal notranslate"><span class="pre">mpc_heat_condens_water_r4</span></code></a>, <a class="reference internal" href="#f/mathphysconstants_mod/mpc_heat_condens_water_r8" title="f/mathphysconstants_mod/mpc_heat_condens_water_r8"><code class="xref f f-var docutils literal notranslate"><span class="pre">mpc_heat_condens_water_r8</span></code></a>, <a class="reference internal" href="#f/mathphysconstants_mod/mpc_heat_fusion_water_r4" title="f/mathphysconstants_mod/mpc_heat_fusion_water_r4"><code class="xref f f-var docutils literal notranslate"><span class="pre">mpc_heat_fusion_water_r4</span></code></a>, <a class="reference internal" href="#f/mathphysconstants_mod/mpc_heat_fusion_water_r8" title="f/mathphysconstants_mod/mpc_heat_fusion_water_r8"><code class="xref f f-var docutils literal notranslate"><span class="pre">mpc_heat_fusion_water_r8</span></code></a>, <a class="reference internal" href="#f/mathphysconstants_mod/mpc_heat_subl_water_r4" title="f/mathphysconstants_mod/mpc_heat_subl_water_r4"><code class="xref f f-var docutils literal notranslate"><span class="pre">mpc_heat_subl_water_r4</span></code></a>, <a class="reference internal" href="#f/mathphysconstants_mod/mpc_heat_subl_water_r8" title="f/mathphysconstants_mod/mpc_heat_subl_water_r8"><code class="xref f f-var docutils literal notranslate"><span class="pre">mpc_heat_subl_water_r8</span></code></a>, <a class="reference internal" href="#f/mathphysconstants_mod/mpc_k_c_degree_offset_r4" title="f/mathphysconstants_mod/mpc_k_c_degree_offset_r4"><code class="xref f f-var docutils literal notranslate"><span class="pre">mpc_k_c_degree_offset_r4</span></code></a>, <a class="reference internal" href="#f/mathphysconstants_mod/mpc_k_c_degree_offset_r8" title="f/mathphysconstants_mod/mpc_k_c_degree_offset_r8"><code class="xref f f-var docutils literal notranslate"><span class="pre">mpc_k_c_degree_offset_r8</span></code></a>, <a class="reference internal" href="#f/mathphysconstants_mod/mpc_kappa_r4" title="f/mathphysconstants_mod/mpc_kappa_r4"><code class="xref f f-var docutils literal notranslate"><span class="pre">mpc_kappa_r4</span></code></a>, <a class="reference internal" href="#f/mathphysconstants_mod/mpc_kappa_r8" title="f/mathphysconstants_mod/mpc_kappa_r8"><code class="xref f f-var docutils literal notranslate"><span class="pre">mpc_kappa_r8</span></code></a>, <a class="reference internal" href="#f/mathphysconstants_mod/mpc_karman_r4" title="f/mathphysconstants_mod/mpc_karman_r4"><code class="xref f f-var docutils literal notranslate"><span class="pre">mpc_karman_r4</span></code></a>, <a class="reference internal" href="#f/mathphysconstants_mod/mpc_karman_r8" title="f/mathphysconstants_mod/mpc_karman_r8"><code class="xref f f-var docutils literal notranslate"><span class="pre">mpc_karman_r8</span></code></a>, <a class="reference internal" href="#f/mathphysconstants_mod/mpc_knots_per_m_per_s_r4" title="f/mathphysconstants_mod/mpc_knots_per_m_per_s_r4"><code class="xref f f-var docutils literal notranslate"><span class="pre">mpc_knots_per_m_per_s_r4</span></code></a>, <a class="reference internal" href="#f/mathphysconstants_mod/mpc_knots_per_m_per_s_r8" title="f/mathphysconstants_mod/mpc_knots_per_m_per_s_r8"><code class="xref f f-var docutils literal notranslate"><span class="pre">mpc_knots_per_m_per_s_r8</span></code></a>, <a class="reference internal" href="#f/mathphysconstants_mod/mpc_m_per_s_per_knot_r4" title="f/mathphysconstants_mod/mpc_m_per_s_per_knot_r4"><code class="xref f f-var docutils literal notranslate"><span class="pre">mpc_m_per_s_per_knot_r4</span></code></a>, <a class="reference internal" href="#f/mathphysconstants_mod/mpc_m_per_s_per_knot_r8" title="f/mathphysconstants_mod/mpc_m_per_s_per_knot_r8"><code class="xref f f-var docutils literal notranslate"><span class="pre">mpc_m_per_s_per_knot_r8</span></code></a>, <a class="reference internal" href="#f/mathphysconstants_mod/mpc_maximum_es_r4" title="f/mathphysconstants_mod/mpc_maximum_es_r4"><code class="xref f f-var docutils literal notranslate"><span class="pre">mpc_maximum_es_r4</span></code></a>, <a class="reference internal" href="#f/mathphysconstants_mod/mpc_maximum_es_r8" title="f/mathphysconstants_mod/mpc_maximum_es_r8"><code class="xref f f-var docutils literal notranslate"><span class="pre">mpc_maximum_es_r8</span></code></a>, <a class="reference internal" href="#f/mathphysconstants_mod/mpc_maximum_vis_r4" title="f/mathphysconstants_mod/mpc_maximum_vis_r4"><code class="xref f f-var docutils literal notranslate"><span class="pre">mpc_maximum_vis_r4</span></code></a>, <a class="reference internal" href="#f/mathphysconstants_mod/mpc_maximum_vis_r8" title="f/mathphysconstants_mod/mpc_maximum_vis_r8"><code class="xref f f-var docutils literal notranslate"><span class="pre">mpc_maximum_vis_r8</span></code></a>, <a class="reference internal" href="#f/mathphysconstants_mod/mpc_mbar_per_pa_r4" title="f/mathphysconstants_mod/mpc_mbar_per_pa_r4"><code class="xref f f-var docutils literal notranslate"><span class="pre">mpc_mbar_per_pa_r4</span></code></a>, <a class="reference internal" href="#f/mathphysconstants_mod/mpc_mbar_per_pa_r8" title="f/mathphysconstants_mod/mpc_mbar_per_pa_r8"><code class="xref f f-var docutils literal notranslate"><span class="pre">mpc_mbar_per_pa_r8</span></code></a>, <a class="reference internal" href="#f/mathphysconstants_mod/mpc_mean_anomaly_r4" title="f/mathphysconstants_mod/mpc_mean_anomaly_r4"><code class="xref f f-var docutils literal notranslate"><span class="pre">mpc_mean_anomaly_r4</span></code></a>, <a class="reference internal" href="#f/mathphysconstants_mod/mpc_mean_anomaly_r8" title="f/mathphysconstants_mod/mpc_mean_anomaly_r8"><code class="xref f f-var docutils literal notranslate"><span class="pre">mpc_mean_anomaly_r8</span></code></a>, <a class="reference internal" href="#f/mathphysconstants_mod/mpc_minimum_ch_r4" title="f/mathphysconstants_mod/mpc_minimum_ch_r4"><code class="xref f f-var docutils literal notranslate"><span class="pre">mpc_minimum_ch_r4</span></code></a>, <a class="reference internal" href="#f/mathphysconstants_mod/mpc_minimum_ch_r8" title="f/mathphysconstants_mod/mpc_minimum_ch_r8"><code class="xref f f-var docutils literal notranslate"><span class="pre">mpc_minimum_ch_r8</span></code></a>, <a class="reference internal" href="#f/mathphysconstants_mod/mpc_minimum_hu_r4" title="f/mathphysconstants_mod/mpc_minimum_hu_r4"><code class="xref f f-var docutils literal notranslate"><span class="pre">mpc_minimum_hu_r4</span></code></a>, <a class="reference internal" href="#f/mathphysconstants_mod/mpc_minimum_hu_r8" title="f/mathphysconstants_mod/mpc_minimum_hu_r8"><code class="xref f f-var docutils literal notranslate"><span class="pre">mpc_minimum_hu_r8</span></code></a>, <a class="reference internal" href="#f/mathphysconstants_mod/mpc_minimum_pm_r4" title="f/mathphysconstants_mod/mpc_minimum_pm_r4"><code class="xref f f-var docutils literal notranslate"><span class="pre">mpc_minimum_pm_r4</span></code></a>, <a class="reference internal" href="#f/mathphysconstants_mod/mpc_minimum_pm_r8" title="f/mathphysconstants_mod/mpc_minimum_pm_r8"><code class="xref f f-var docutils literal notranslate"><span class="pre">mpc_minimum_pm_r8</span></code></a>, <a class="reference internal" href="#f/mathphysconstants_mod/mpc_minimum_pr_r4" title="f/mathphysconstants_mod/mpc_minimum_pr_r4"><code class="xref f f-var docutils literal notranslate"><span class="pre">mpc_minimum_pr_r4</span></code></a>, <a class="reference internal" href="#f/mathphysconstants_mod/mpc_minimum_pr_r8" title="f/mathphysconstants_mod/mpc_minimum_pr_r8"><code class="xref f f-var docutils literal notranslate"><span class="pre">mpc_minimum_pr_r8</span></code></a>, <a class="reference internal" href="#f/mathphysconstants_mod/mpc_minimum_vis_r4" title="f/mathphysconstants_mod/mpc_minimum_vis_r4"><code class="xref f f-var docutils literal notranslate"><span class="pre">mpc_minimum_vis_r4</span></code></a>, <a class="reference internal" href="#f/mathphysconstants_mod/mpc_minimum_vis_r8" title="f/mathphysconstants_mod/mpc_minimum_vis_r8"><code class="xref f f-var docutils literal notranslate"><span class="pre">mpc_minimum_vis_r8</span></code></a>, <a class="reference internal" href="#f/mathphysconstants_mod/mpc_missingvalue_int" title="f/mathphysconstants_mod/mpc_missingvalue_int"><code class="xref f f-var docutils literal notranslate"><span class="pre">mpc_missingvalue_int</span></code></a>, <a class="reference internal" href="#f/mathphysconstants_mod/mpc_missingvalue_r4" title="f/mathphysconstants_mod/mpc_missingvalue_r4"><code class="xref f f-var docutils literal notranslate"><span class="pre">mpc_missingvalue_r4</span></code></a>, <a class="reference internal" href="#f/mathphysconstants_mod/mpc_missingvalue_r8" title="f/mathphysconstants_mod/mpc_missingvalue_r8"><code class="xref f f-var docutils literal notranslate"><span class="pre">mpc_missingvalue_r8</span></code></a>, <a class="reference internal" href="#f/mathphysconstants_mod/mpc_molar_mass_ch4_r4" title="f/mathphysconstants_mod/mpc_molar_mass_ch4_r4"><code class="xref f f-var docutils literal notranslate"><span class="pre">mpc_molar_mass_ch4_r4</span></code></a>, <a class="reference internal" href="#f/mathphysconstants_mod/mpc_molar_mass_ch4_r8" title="f/mathphysconstants_mod/mpc_molar_mass_ch4_r8"><code class="xref f f-var docutils literal notranslate"><span class="pre">mpc_molar_mass_ch4_r8</span></code></a>, <a class="reference internal" href="#f/mathphysconstants_mod/mpc_molar_mass_co2_r4" title="f/mathphysconstants_mod/mpc_molar_mass_co2_r4"><code class="xref f f-var docutils literal notranslate"><span class="pre">mpc_molar_mass_co2_r4</span></code></a>, <a class="reference internal" href="#f/mathphysconstants_mod/mpc_molar_mass_co2_r8" title="f/mathphysconstants_mod/mpc_molar_mass_co2_r8"><code class="xref f f-var docutils literal notranslate"><span class="pre">mpc_molar_mass_co2_r8</span></code></a>, <a class="reference internal" href="#f/mathphysconstants_mod/mpc_molar_mass_co_r4" title="f/mathphysconstants_mod/mpc_molar_mass_co_r4"><code class="xref f f-var docutils literal notranslate"><span class="pre">mpc_molar_mass_co_r4</span></code></a>, <a class="reference internal" href="#f/mathphysconstants_mod/mpc_molar_mass_co_r8" title="f/mathphysconstants_mod/mpc_molar_mass_co_r8"><code class="xref f f-var docutils literal notranslate"><span class="pre">mpc_molar_mass_co_r8</span></code></a>, <a class="reference internal" href="#f/mathphysconstants_mod/mpc_molar_mass_dry_air_r4" title="f/mathphysconstants_mod/mpc_molar_mass_dry_air_r4"><code class="xref f f-var docutils literal notranslate"><span class="pre">mpc_molar_mass_dry_air_r4</span></code></a>, <a class="reference internal" href="#f/mathphysconstants_mod/mpc_molar_mass_dry_air_r8" title="f/mathphysconstants_mod/mpc_molar_mass_dry_air_r8"><code class="xref f f-var docutils literal notranslate"><span class="pre">mpc_molar_mass_dry_air_r8</span></code></a>, <a class="reference internal" href="#f/mathphysconstants_mod/mpc_molar_mass_hcho_r4" title="f/mathphysconstants_mod/mpc_molar_mass_hcho_r4"><code class="xref f f-var docutils literal notranslate"><span class="pre">mpc_molar_mass_hcho_r4</span></code></a>, <a class="reference internal" href="#f/mathphysconstants_mod/mpc_molar_mass_hcho_r8" title="f/mathphysconstants_mod/mpc_molar_mass_hcho_r8"><code class="xref f f-var docutils literal notranslate"><span class="pre">mpc_molar_mass_hcho_r8</span></code></a>, <a class="reference internal" href="#f/mathphysconstants_mod/mpc_molar_mass_n2o_r4" title="f/mathphysconstants_mod/mpc_molar_mass_n2o_r4"><code class="xref f f-var docutils literal notranslate"><span class="pre">mpc_molar_mass_n2o_r4</span></code></a>, <a class="reference internal" href="#f/mathphysconstants_mod/mpc_molar_mass_n2o_r8" title="f/mathphysconstants_mod/mpc_molar_mass_n2o_r8"><code class="xref f f-var docutils literal notranslate"><span class="pre">mpc_molar_mass_n2o_r8</span></code></a>, <a class="reference internal" href="#f/mathphysconstants_mod/mpc_molar_mass_nh3_r4" title="f/mathphysconstants_mod/mpc_molar_mass_nh3_r4"><code class="xref f f-var docutils literal notranslate"><span class="pre">mpc_molar_mass_nh3_r4</span></code></a>, <a class="reference internal" href="#f/mathphysconstants_mod/mpc_molar_mass_nh3_r8" title="f/mathphysconstants_mod/mpc_molar_mass_nh3_r8"><code class="xref f f-var docutils literal notranslate"><span class="pre">mpc_molar_mass_nh3_r8</span></code></a>, <a class="reference internal" href="#f/mathphysconstants_mod/mpc_molar_mass_no2_r4" title="f/mathphysconstants_mod/mpc_molar_mass_no2_r4"><code class="xref f f-var docutils literal notranslate"><span class="pre">mpc_molar_mass_no2_r4</span></code></a>, <a class="reference internal" href="#f/mathphysconstants_mod/mpc_molar_mass_no2_r8" title="f/mathphysconstants_mod/mpc_molar_mass_no2_r8"><code class="xref f f-var docutils literal notranslate"><span class="pre">mpc_molar_mass_no2_r8</span></code></a>, <a class="reference internal" href="#f/mathphysconstants_mod/mpc_molar_mass_no_r4" title="f/mathphysconstants_mod/mpc_molar_mass_no_r4"><code class="xref f f-var docutils literal notranslate"><span class="pre">mpc_molar_mass_no_r4</span></code></a>, <a class="reference internal" href="#f/mathphysconstants_mod/mpc_molar_mass_no_r8" title="f/mathphysconstants_mod/mpc_molar_mass_no_r8"><code class="xref f f-var docutils literal notranslate"><span class="pre">mpc_molar_mass_no_r8</span></code></a>, <a class="reference internal" href="#f/mathphysconstants_mod/mpc_molar_mass_o3_r4" title="f/mathphysconstants_mod/mpc_molar_mass_o3_r4"><code class="xref f f-var docutils literal notranslate"><span class="pre">mpc_molar_mass_o3_r4</span></code></a>, <a class="reference internal" href="#f/mathphysconstants_mod/mpc_molar_mass_o3_r8" title="f/mathphysconstants_mod/mpc_molar_mass_o3_r8"><code class="xref f f-var docutils literal notranslate"><span class="pre">mpc_molar_mass_o3_r8</span></code></a>, <a class="reference internal" href="#f/mathphysconstants_mod/mpc_molar_mass_so2_r4" title="f/mathphysconstants_mod/mpc_molar_mass_so2_r4"><code class="xref f f-var docutils literal notranslate"><span class="pre">mpc_molar_mass_so2_r4</span></code></a>, <a class="reference internal" href="#f/mathphysconstants_mod/mpc_molar_mass_so2_r8" title="f/mathphysconstants_mod/mpc_molar_mass_so2_r8"><code class="xref f f-var docutils literal notranslate"><span class="pre">mpc_molar_mass_so2_r8</span></code></a>, <a class="reference internal" href="#f/mathphysconstants_mod/mpc_molar_mass_vapour_r4" title="f/mathphysconstants_mod/mpc_molar_mass_vapour_r4"><code class="xref f f-var docutils literal notranslate"><span class="pre">mpc_molar_mass_vapour_r4</span></code></a>, <a class="reference internal" href="#f/mathphysconstants_mod/mpc_molar_mass_vapour_r8" title="f/mathphysconstants_mod/mpc_molar_mass_vapour_r8"><code class="xref f f-var docutils literal notranslate"><span class="pre">mpc_molar_mass_vapour_r8</span></code></a>, <a class="reference internal" href="#f/mathphysconstants_mod/mpc_pa_per_mbar_r4" title="f/mathphysconstants_mod/mpc_pa_per_mbar_r4"><code class="xref f f-var docutils literal notranslate"><span class="pre">mpc_pa_per_mbar_r4</span></code></a>, <a class="reference internal" href="#f/mathphysconstants_mod/mpc_pa_per_mbar_r8" title="f/mathphysconstants_mod/mpc_pa_per_mbar_r8"><code class="xref f f-var docutils literal notranslate"><span class="pre">mpc_pa_per_mbar_r8</span></code></a>, <a class="reference internal" href="#f/mathphysconstants_mod/mpc_pi_r4" title="f/mathphysconstants_mod/mpc_pi_r4"><code class="xref f f-var docutils literal notranslate"><span class="pre">mpc_pi_r4</span></code></a>, <a class="reference internal" href="#f/mathphysconstants_mod/mpc_pi_r8" title="f/mathphysconstants_mod/mpc_pi_r8"><code class="xref f f-var docutils literal notranslate"><span class="pre">mpc_pi_r8</span></code></a>, <a class="reference internal" href="#f/mathphysconstants_mod/mpc_planck_r4" title="f/mathphysconstants_mod/mpc_planck_r4"><code class="xref f f-var docutils literal notranslate"><span class="pre">mpc_planck_r4</span></code></a>, <a class="reference internal" href="#f/mathphysconstants_mod/mpc_planck_r8" title="f/mathphysconstants_mod/mpc_planck_r8"><code class="xref f f-var docutils literal notranslate"><span class="pre">mpc_planck_r8</span></code></a>, <a class="reference internal" href="#f/mathphysconstants_mod/mpc_radians_per_degree_r4" title="f/mathphysconstants_mod/mpc_radians_per_degree_r4"><code class="xref f f-var docutils literal notranslate"><span class="pre">mpc_radians_per_degree_r4</span></code></a>, <a class="reference internal" href="#f/mathphysconstants_mod/mpc_radians_per_degree_r8" title="f/mathphysconstants_mod/mpc_radians_per_degree_r8"><code class="xref f f-var docutils literal notranslate"><span class="pre">mpc_radians_per_degree_r8</span></code></a>, <a class="reference internal" href="#f/mathphysconstants_mod/mpc_rgas_dry_air_r4" title="f/mathphysconstants_mod/mpc_rgas_dry_air_r4"><code class="xref f f-var docutils literal notranslate"><span class="pre">mpc_rgas_dry_air_r4</span></code></a>, <a class="reference internal" href="#f/mathphysconstants_mod/mpc_rgas_dry_air_r8" title="f/mathphysconstants_mod/mpc_rgas_dry_air_r8"><code class="xref f f-var docutils literal notranslate"><span class="pre">mpc_rgas_dry_air_r8</span></code></a>, <a class="reference internal" href="#f/mathphysconstants_mod/mpc_rgas_ideal_r4" title="f/mathphysconstants_mod/mpc_rgas_ideal_r4"><code class="xref f f-var docutils literal notranslate"><span class="pre">mpc_rgas_ideal_r4</span></code></a>, <a class="reference internal" href="#f/mathphysconstants_mod/mpc_rgas_ideal_r8" title="f/mathphysconstants_mod/mpc_rgas_ideal_r8"><code class="xref f f-var docutils literal notranslate"><span class="pre">mpc_rgas_ideal_r8</span></code></a>, <a class="reference internal" href="#f/mathphysconstants_mod/mpc_rgas_vapour_r4" title="f/mathphysconstants_mod/mpc_rgas_vapour_r4"><code class="xref f f-var docutils literal notranslate"><span class="pre">mpc_rgas_vapour_r4</span></code></a>, <a class="reference internal" href="#f/mathphysconstants_mod/mpc_rgas_vapour_r8" title="f/mathphysconstants_mod/mpc_rgas_vapour_r8"><code class="xref f f-var docutils literal notranslate"><span class="pre">mpc_rgas_vapour_r8</span></code></a>, <a class="reference internal" href="#f/mathphysconstants_mod/mpc_schumann_newell_lapse_rate_r4" title="f/mathphysconstants_mod/mpc_schumann_newell_lapse_rate_r4"><code class="xref f f-var docutils literal notranslate"><span class="pre">mpc_schumann_newell_lapse_rate_r4</span></code></a>, <a class="reference internal" href="#f/mathphysconstants_mod/mpc_schumann_newell_lapse_rate_r8" title="f/mathphysconstants_mod/mpc_schumann_newell_lapse_rate_r8"><code class="xref f f-var docutils literal notranslate"><span class="pre">mpc_schumann_newell_lapse_rate_r8</span></code></a>, <a class="reference internal" href="#f/mathphysconstants_mod/mpc_sidereal_year_r4" title="f/mathphysconstants_mod/mpc_sidereal_year_r4"><code class="xref f f-var docutils literal notranslate"><span class="pre">mpc_sidereal_year_r4</span></code></a>, <a class="reference internal" href="#f/mathphysconstants_mod/mpc_sidereal_year_r8" title="f/mathphysconstants_mod/mpc_sidereal_year_r8"><code class="xref f f-var docutils literal notranslate"><span class="pre">mpc_sidereal_year_r8</span></code></a>, <a class="reference internal" href="#f/mathphysconstants_mod/mpc_slp_r4" title="f/mathphysconstants_mod/mpc_slp_r4"><code class="xref f f-var docutils literal notranslate"><span class="pre">mpc_slp_r4</span></code></a>, <a class="reference internal" href="#f/mathphysconstants_mod/mpc_slp_r8" title="f/mathphysconstants_mod/mpc_slp_r8"><code class="xref f f-var docutils literal notranslate"><span class="pre">mpc_slp_r8</span></code></a>, <a class="reference internal" href="#f/mathphysconstants_mod/mpc_solar_constant_r4" title="f/mathphysconstants_mod/mpc_solar_constant_r4"><code class="xref f f-var docutils literal notranslate"><span class="pre">mpc_solar_constant_r4</span></code></a>, <a class="reference internal" href="#f/mathphysconstants_mod/mpc_solar_constant_r8" title="f/mathphysconstants_mod/mpc_solar_constant_r8"><code class="xref f f-var docutils literal notranslate"><span class="pre">mpc_solar_constant_r8</span></code></a>, <a class="reference internal" href="#f/mathphysconstants_mod/mpc_speed_of_light_r4" title="f/mathphysconstants_mod/mpc_speed_of_light_r4"><code class="xref f f-var docutils literal notranslate"><span class="pre">mpc_speed_of_light_r4</span></code></a>, <a class="reference internal" href="#f/mathphysconstants_mod/mpc_speed_of_light_r8" title="f/mathphysconstants_mod/mpc_speed_of_light_r8"><code class="xref f f-var docutils literal notranslate"><span class="pre">mpc_speed_of_light_r8</span></code></a>, <a class="reference internal" href="#f/mathphysconstants_mod/mpc_stefan_boltzmann_r4" title="f/mathphysconstants_mod/mpc_stefan_boltzmann_r4"><code class="xref f f-var docutils literal notranslate"><span class="pre">mpc_stefan_boltzmann_r4</span></code></a>, <a class="reference internal" href="#f/mathphysconstants_mod/mpc_stefan_boltzmann_r8" title="f/mathphysconstants_mod/mpc_stefan_boltzmann_r8"><code class="xref f f-var docutils literal notranslate"><span class="pre">mpc_stefan_boltzmann_r8</span></code></a>, <a class="reference internal" href="#f/mathphysconstants_mod/mpc_t1s_r4" title="f/mathphysconstants_mod/mpc_t1s_r4"><code class="xref f f-var docutils literal notranslate"><span class="pre">mpc_t1s_r4</span></code></a>, <a class="reference internal" href="#f/mathphysconstants_mod/mpc_t1s_r8" title="f/mathphysconstants_mod/mpc_t1s_r8"><code class="xref f f-var docutils literal notranslate"><span class="pre">mpc_t1s_r8</span></code></a>, <a class="reference internal" href="#f/mathphysconstants_mod/mpc_t2s_r4" title="f/mathphysconstants_mod/mpc_t2s_r4"><code class="xref f f-var docutils literal notranslate"><span class="pre">mpc_t2s_r4</span></code></a>, <a class="reference internal" href="#f/mathphysconstants_mod/mpc_t2s_r8" title="f/mathphysconstants_mod/mpc_t2s_r8"><code class="xref f f-var docutils literal notranslate"><span class="pre">mpc_t2s_r8</span></code></a>, <a class="reference internal" href="#f/mathphysconstants_mod/mpc_t_ice_r4" title="f/mathphysconstants_mod/mpc_t_ice_r4"><code class="xref f f-var docutils literal notranslate"><span class="pre">mpc_t_ice_r4</span></code></a>, <a class="reference internal" href="#f/mathphysconstants_mod/mpc_t_ice_r8" title="f/mathphysconstants_mod/mpc_t_ice_r8"><code class="xref f f-var docutils literal notranslate"><span class="pre">mpc_t_ice_r8</span></code></a>, <a class="reference internal" href="#f/mathphysconstants_mod/mpc_triple_point_r4" title="f/mathphysconstants_mod/mpc_triple_point_r4"><code class="xref f f-var docutils literal notranslate"><span class="pre">mpc_triple_point_r4</span></code></a>, <a class="reference internal" href="#f/mathphysconstants_mod/mpc_triple_point_r8" title="f/mathphysconstants_mod/mpc_triple_point_r8"><code class="xref f f-var docutils literal notranslate"><span class="pre">mpc_triple_point_r8</span></code></a></p>
+</dd>
+<dt class="field-even">Routines</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/mathphysconstants_mod/mpc_printconstants" title="f/mathphysconstants_mod/mpc_printconstants"><code class="xref f f-func docutils literal notranslate"><span class="pre">mpc_printconstants()</span></code></a>, <a class="reference internal" href="#f/mathphysconstants_mod/mpc_setvalue" title="f/mathphysconstants_mod/mpc_setvalue"><code class="xref f f-func docutils literal notranslate"><span class="pre">mpc_setvalue()</span></code></a></p>
+</dd>
+</dl>
+<p class="rubric">Variables</p>
+<ul>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/mathphysconstants_mod/mpc_ai_r4">
+<span class="sig-prename descclassname"><span class="pre">mathphysconstants_mod/</span></span><span class="sig-name descname"><span class="pre">mpc_ai_r4</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/mathphysconstants_mod/mpc_ai_r4" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/mathphysconstants_mod/mpc_ai_r8">
+<span class="sig-prename descclassname"><span class="pre">mathphysconstants_mod/</span></span><span class="sig-name descname"><span class="pre">mpc_ai_r8</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/mathphysconstants_mod/mpc_ai_r8" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/mathphysconstants_mod/mpc_astronomical_unit_r4">
+<span class="sig-prename descclassname"><span class="pre">mathphysconstants_mod/</span></span><span class="sig-name descname"><span class="pre">mpc_astronomical_unit_r4</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/mathphysconstants_mod/mpc_astronomical_unit_r4" title="Permalink to this definition">¶</a></dt>
+<dd><p>m - half g. axis</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/mathphysconstants_mod/mpc_astronomical_unit_r8">
+<span class="sig-prename descclassname"><span class="pre">mathphysconstants_mod/</span></span><span class="sig-name descname"><span class="pre">mpc_astronomical_unit_r8</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/mathphysconstants_mod/mpc_astronomical_unit_r8" title="Permalink to this definition">¶</a></dt>
+<dd><p>m - half g. axis</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/mathphysconstants_mod/mpc_avogadro_r4">
+<span class="sig-prename descclassname"><span class="pre">mathphysconstants_mod/</span></span><span class="sig-name descname"><span class="pre">mpc_avogadro_r4</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/mathphysconstants_mod/mpc_avogadro_r4" title="Permalink to this definition">¶</a></dt>
+<dd><p>mol-1 - Avogadro’s number</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/mathphysconstants_mod/mpc_avogadro_r8">
+<span class="sig-prename descclassname"><span class="pre">mathphysconstants_mod/</span></span><span class="sig-name descname"><span class="pre">mpc_avogadro_r8</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/mathphysconstants_mod/mpc_avogadro_r8" title="Permalink to this definition">¶</a></dt>
+<dd><p>mol-1 - Avogadro’s number</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/mathphysconstants_mod/mpc_aw_r4">
+<span class="sig-prename descclassname"><span class="pre">mathphysconstants_mod/</span></span><span class="sig-name descname"><span class="pre">mpc_aw_r4</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/mathphysconstants_mod/mpc_aw_r4" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/mathphysconstants_mod/mpc_aw_r8">
+<span class="sig-prename descclassname"><span class="pre">mathphysconstants_mod/</span></span><span class="sig-name descname"><span class="pre">mpc_aw_r8</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/mathphysconstants_mod/mpc_aw_r8" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/mathphysconstants_mod/mpc_bi_r4">
+<span class="sig-prename descclassname"><span class="pre">mathphysconstants_mod/</span></span><span class="sig-name descname"><span class="pre">mpc_bi_r4</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/mathphysconstants_mod/mpc_bi_r4" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/mathphysconstants_mod/mpc_bi_r8">
+<span class="sig-prename descclassname"><span class="pre">mathphysconstants_mod/</span></span><span class="sig-name descname"><span class="pre">mpc_bi_r8</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/mathphysconstants_mod/mpc_bi_r8" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/mathphysconstants_mod/mpc_boltzmann_r4">
+<span class="sig-prename descclassname"><span class="pre">mathphysconstants_mod/</span></span><span class="sig-name descname"><span class="pre">mpc_boltzmann_r4</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/mathphysconstants_mod/mpc_boltzmann_r4" title="Permalink to this definition">¶</a></dt>
+<dd><p>J/K - Boltzmann constant</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/mathphysconstants_mod/mpc_boltzmann_r8">
+<span class="sig-prename descclassname"><span class="pre">mathphysconstants_mod/</span></span><span class="sig-name descname"><span class="pre">mpc_boltzmann_r8</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/mathphysconstants_mod/mpc_boltzmann_r8" title="Permalink to this definition">¶</a></dt>
+<dd><p>J/K - Boltzmann constant</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/mathphysconstants_mod/mpc_bw_r4">
+<span class="sig-prename descclassname"><span class="pre">mathphysconstants_mod/</span></span><span class="sig-name descname"><span class="pre">mpc_bw_r4</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/mathphysconstants_mod/mpc_bw_r4" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/mathphysconstants_mod/mpc_bw_r8">
+<span class="sig-prename descclassname"><span class="pre">mathphysconstants_mod/</span></span><span class="sig-name descname"><span class="pre">mpc_bw_r8</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/mathphysconstants_mod/mpc_bw_r8" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/mathphysconstants_mod/mpc_cp_dry_air_r4">
+<span class="sig-prename descclassname"><span class="pre">mathphysconstants_mod/</span></span><span class="sig-name descname"><span class="pre">mpc_cp_dry_air_r4</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/mathphysconstants_mod/mpc_cp_dry_air_r4" title="Permalink to this definition">¶</a></dt>
+<dd><p>J kg-1 K-1 - sp. heat(P) of dry air</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/mathphysconstants_mod/mpc_cp_dry_air_r8">
+<span class="sig-prename descclassname"><span class="pre">mathphysconstants_mod/</span></span><span class="sig-name descname"><span class="pre">mpc_cp_dry_air_r8</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/mathphysconstants_mod/mpc_cp_dry_air_r8" title="Permalink to this definition">¶</a></dt>
+<dd><p>J kg-1 K-1 - sp. heat(P) of dry air</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/mathphysconstants_mod/mpc_cp_ice_r4">
+<span class="sig-prename descclassname"><span class="pre">mathphysconstants_mod/</span></span><span class="sig-name descname"><span class="pre">mpc_cp_ice_r4</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/mathphysconstants_mod/mpc_cp_ice_r4" title="Permalink to this definition">¶</a></dt>
+<dd><p>J kg-1 K-1 - sp. heat(P?) of ice</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/mathphysconstants_mod/mpc_cp_ice_r8">
+<span class="sig-prename descclassname"><span class="pre">mathphysconstants_mod/</span></span><span class="sig-name descname"><span class="pre">mpc_cp_ice_r8</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/mathphysconstants_mod/mpc_cp_ice_r8" title="Permalink to this definition">¶</a></dt>
+<dd><p>J kg-1 K-1 - sp. heat(P?) of ice</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/mathphysconstants_mod/mpc_cp_vapour_r4">
+<span class="sig-prename descclassname"><span class="pre">mathphysconstants_mod/</span></span><span class="sig-name descname"><span class="pre">mpc_cp_vapour_r4</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/mathphysconstants_mod/mpc_cp_vapour_r4" title="Permalink to this definition">¶</a></dt>
+<dd><p>J kg-1 K-1 - sp. heat(P) of water vapour</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/mathphysconstants_mod/mpc_cp_vapour_r8">
+<span class="sig-prename descclassname"><span class="pre">mathphysconstants_mod/</span></span><span class="sig-name descname"><span class="pre">mpc_cp_vapour_r8</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/mathphysconstants_mod/mpc_cp_vapour_r8" title="Permalink to this definition">¶</a></dt>
+<dd><p>J kg-1 K-1 - sp. heat(P) of water vapour</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/mathphysconstants_mod/mpc_critical_richardson_r4">
+<span class="sig-prename descclassname"><span class="pre">mathphysconstants_mod/</span></span><span class="sig-name descname"><span class="pre">mpc_critical_richardson_r4</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/mathphysconstants_mod/mpc_critical_richardson_r4" title="Permalink to this definition">¶</a></dt>
+<dd><p>(unitless) -critical Richardson number</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/mathphysconstants_mod/mpc_critical_richardson_r8">
+<span class="sig-prename descclassname"><span class="pre">mathphysconstants_mod/</span></span><span class="sig-name descname"><span class="pre">mpc_critical_richardson_r8</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/mathphysconstants_mod/mpc_critical_richardson_r8" title="Permalink to this definition">¶</a></dt>
+<dd><p>(unitless) -critical Richardson number</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/mathphysconstants_mod/mpc_cv_dry_air_r4">
+<span class="sig-prename descclassname"><span class="pre">mathphysconstants_mod/</span></span><span class="sig-name descname"><span class="pre">mpc_cv_dry_air_r4</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/mathphysconstants_mod/mpc_cv_dry_air_r4" title="Permalink to this definition">¶</a></dt>
+<dd><p>J kg-1 K-1 - sp. heat(V) of dry air</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/mathphysconstants_mod/mpc_cv_dry_air_r8">
+<span class="sig-prename descclassname"><span class="pre">mathphysconstants_mod/</span></span><span class="sig-name descname"><span class="pre">mpc_cv_dry_air_r8</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/mathphysconstants_mod/mpc_cv_dry_air_r8" title="Permalink to this definition">¶</a></dt>
+<dd><p>J kg-1 K-1 - sp. heat(V) of dry air</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/mathphysconstants_mod/mpc_cv_vapour_r4">
+<span class="sig-prename descclassname"><span class="pre">mathphysconstants_mod/</span></span><span class="sig-name descname"><span class="pre">mpc_cv_vapour_r4</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/mathphysconstants_mod/mpc_cv_vapour_r4" title="Permalink to this definition">¶</a></dt>
+<dd><p>J kg-1 K-1 - sp. heat(V) of water vapour</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/mathphysconstants_mod/mpc_cv_vapour_r8">
+<span class="sig-prename descclassname"><span class="pre">mathphysconstants_mod/</span></span><span class="sig-name descname"><span class="pre">mpc_cv_vapour_r8</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/mathphysconstants_mod/mpc_cv_vapour_r8" title="Permalink to this definition">¶</a></dt>
+<dd><p>J kg-1 K-1 - sp. heat(V) of water vapour</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/mathphysconstants_mod/mpc_degrees_per_radian_r4">
+<span class="sig-prename descclassname"><span class="pre">mathphysconstants_mod/</span></span><span class="sig-name descname"><span class="pre">mpc_degrees_per_radian_r4</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/mathphysconstants_mod/mpc_degrees_per_radian_r4" title="Permalink to this definition">¶</a></dt>
+<dd><p>deg/rad - conversion: radians to degrees</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/mathphysconstants_mod/mpc_degrees_per_radian_r8">
+<span class="sig-prename descclassname"><span class="pre">mathphysconstants_mod/</span></span><span class="sig-name descname"><span class="pre">mpc_degrees_per_radian_r8</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/mathphysconstants_mod/mpc_degrees_per_radian_r8" title="Permalink to this definition">¶</a></dt>
+<dd><p>deg/rad - conversion: radians to degrees</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/mathphysconstants_mod/mpc_delta_r4">
+<span class="sig-prename descclassname"><span class="pre">mathphysconstants_mod/</span></span><span class="sig-name descname"><span class="pre">mpc_delta_r4</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/mathphysconstants_mod/mpc_delta_r4" title="Permalink to this definition">¶</a></dt>
+<dd><p>(unitless) - 1/eps1 - 1 (unitless) u2013 [R(vapour) / R(air)] - 1</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/mathphysconstants_mod/mpc_delta_r8">
+<span class="sig-prename descclassname"><span class="pre">mathphysconstants_mod/</span></span><span class="sig-name descname"><span class="pre">mpc_delta_r8</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/mathphysconstants_mod/mpc_delta_r8" title="Permalink to this definition">¶</a></dt>
+<dd><p>(unitless) - 1/eps1 - 1 (unitless) u2013 [R(vapour) / R(air)] - 1</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/mathphysconstants_mod/mpc_density_water_r4">
+<span class="sig-prename descclassname"><span class="pre">mathphysconstants_mod/</span></span><span class="sig-name descname"><span class="pre">mpc_density_water_r4</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/mathphysconstants_mod/mpc_density_water_r4" title="Permalink to this definition">¶</a></dt>
+<dd><p>kg m-3 - density of (liquid) water</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/mathphysconstants_mod/mpc_density_water_r8">
+<span class="sig-prename descclassname"><span class="pre">mathphysconstants_mod/</span></span><span class="sig-name descname"><span class="pre">mpc_density_water_r8</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/mathphysconstants_mod/mpc_density_water_r8" title="Permalink to this definition">¶</a></dt>
+<dd><p>kg m-3 - density of (liquid) water</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/mathphysconstants_mod/mpc_eps1_r4">
+<span class="sig-prename descclassname"><span class="pre">mathphysconstants_mod/</span></span><span class="sig-name descname"><span class="pre">mpc_eps1_r4</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/mathphysconstants_mod/mpc_eps1_r4" title="Permalink to this definition">¶</a></dt>
+<dd><p>(unitless) - R(air) / R(vapour)</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/mathphysconstants_mod/mpc_eps1_r8">
+<span class="sig-prename descclassname"><span class="pre">mathphysconstants_mod/</span></span><span class="sig-name descname"><span class="pre">mpc_eps1_r8</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/mathphysconstants_mod/mpc_eps1_r8" title="Permalink to this definition">¶</a></dt>
+<dd><p>(unitless) - R(air) / R(vapour)</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/mathphysconstants_mod/mpc_eps2_r4">
+<span class="sig-prename descclassname"><span class="pre">mathphysconstants_mod/</span></span><span class="sig-name descname"><span class="pre">mpc_eps2_r4</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/mathphysconstants_mod/mpc_eps2_r4" title="Permalink to this definition">¶</a></dt>
+<dd><p>(unitless) - 1 - eps1</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/mathphysconstants_mod/mpc_eps2_r8">
+<span class="sig-prename descclassname"><span class="pre">mathphysconstants_mod/</span></span><span class="sig-name descname"><span class="pre">mpc_eps2_r8</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/mathphysconstants_mod/mpc_eps2_r8" title="Permalink to this definition">¶</a></dt>
+<dd><p>(unitless) - 1 - eps1</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/mathphysconstants_mod/mpc_heat_condens_water_r4">
+<span class="sig-prename descclassname"><span class="pre">mathphysconstants_mod/</span></span><span class="sig-name descname"><span class="pre">mpc_heat_condens_water_r4</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/mathphysconstants_mod/mpc_heat_condens_water_r4" title="Permalink to this definition">¶</a></dt>
+<dd><p>J/kg - heat of condensation at 0C (water)</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/mathphysconstants_mod/mpc_heat_condens_water_r8">
+<span class="sig-prename descclassname"><span class="pre">mathphysconstants_mod/</span></span><span class="sig-name descname"><span class="pre">mpc_heat_condens_water_r8</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/mathphysconstants_mod/mpc_heat_condens_water_r8" title="Permalink to this definition">¶</a></dt>
+<dd><p>J/kg - heat of condensation at 0C (water)</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/mathphysconstants_mod/mpc_heat_fusion_water_r4">
+<span class="sig-prename descclassname"><span class="pre">mathphysconstants_mod/</span></span><span class="sig-name descname"><span class="pre">mpc_heat_fusion_water_r4</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/mathphysconstants_mod/mpc_heat_fusion_water_r4" title="Permalink to this definition">¶</a></dt>
+<dd><p>J/kg - heat of fusion (water)</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/mathphysconstants_mod/mpc_heat_fusion_water_r8">
+<span class="sig-prename descclassname"><span class="pre">mathphysconstants_mod/</span></span><span class="sig-name descname"><span class="pre">mpc_heat_fusion_water_r8</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/mathphysconstants_mod/mpc_heat_fusion_water_r8" title="Permalink to this definition">¶</a></dt>
+<dd><p>J/kg - heat of fusion (water)</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/mathphysconstants_mod/mpc_heat_subl_water_r4">
+<span class="sig-prename descclassname"><span class="pre">mathphysconstants_mod/</span></span><span class="sig-name descname"><span class="pre">mpc_heat_subl_water_r4</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/mathphysconstants_mod/mpc_heat_subl_water_r4" title="Permalink to this definition">¶</a></dt>
+<dd><p>J/kg - heat of sublimation (water)</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/mathphysconstants_mod/mpc_heat_subl_water_r8">
+<span class="sig-prename descclassname"><span class="pre">mathphysconstants_mod/</span></span><span class="sig-name descname"><span class="pre">mpc_heat_subl_water_r8</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/mathphysconstants_mod/mpc_heat_subl_water_r8" title="Permalink to this definition">¶</a></dt>
+<dd><p>J/kg - heat of sublimation (water)</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/mathphysconstants_mod/mpc_k_c_degree_offset_r4">
+<span class="sig-prename descclassname"><span class="pre">mathphysconstants_mod/</span></span><span class="sig-name descname"><span class="pre">mpc_k_c_degree_offset_r4</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/mathphysconstants_mod/mpc_k_c_degree_offset_r4" title="Permalink to this definition">¶</a></dt>
+<dd><p>K - offset between degrees K and C</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/mathphysconstants_mod/mpc_k_c_degree_offset_r8">
+<span class="sig-prename descclassname"><span class="pre">mathphysconstants_mod/</span></span><span class="sig-name descname"><span class="pre">mpc_k_c_degree_offset_r8</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/mathphysconstants_mod/mpc_k_c_degree_offset_r8" title="Permalink to this definition">¶</a></dt>
+<dd><p>K - offset between degrees K and C</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/mathphysconstants_mod/mpc_kappa_r4">
+<span class="sig-prename descclassname"><span class="pre">mathphysconstants_mod/</span></span><span class="sig-name descname"><span class="pre">mpc_kappa_r4</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/mathphysconstants_mod/mpc_kappa_r4" title="Permalink to this definition">¶</a></dt>
+<dd><p>(unitless) - for dry air: Rgas / Cp</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/mathphysconstants_mod/mpc_kappa_r8">
+<span class="sig-prename descclassname"><span class="pre">mathphysconstants_mod/</span></span><span class="sig-name descname"><span class="pre">mpc_kappa_r8</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/mathphysconstants_mod/mpc_kappa_r8" title="Permalink to this definition">¶</a></dt>
+<dd><p>(unitless) - for dry air: Rgas / Cp</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/mathphysconstants_mod/mpc_karman_r4">
+<span class="sig-prename descclassname"><span class="pre">mathphysconstants_mod/</span></span><span class="sig-name descname"><span class="pre">mpc_karman_r4</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/mathphysconstants_mod/mpc_karman_r4" title="Permalink to this definition">¶</a></dt>
+<dd><p>(unitless) - von Karman constant</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/mathphysconstants_mod/mpc_karman_r8">
+<span class="sig-prename descclassname"><span class="pre">mathphysconstants_mod/</span></span><span class="sig-name descname"><span class="pre">mpc_karman_r8</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/mathphysconstants_mod/mpc_karman_r8" title="Permalink to this definition">¶</a></dt>
+<dd><p>(unitless) - von Karman constant</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/mathphysconstants_mod/mpc_knots_per_m_per_s_r4">
+<span class="sig-prename descclassname"><span class="pre">mathphysconstants_mod/</span></span><span class="sig-name descname"><span class="pre">mpc_knots_per_m_per_s_r4</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/mathphysconstants_mod/mpc_knots_per_m_per_s_r4" title="Permalink to this definition">¶</a></dt>
+<dd><p>knots/(m/s) - conversion: m/s to knots</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/mathphysconstants_mod/mpc_knots_per_m_per_s_r8">
+<span class="sig-prename descclassname"><span class="pre">mathphysconstants_mod/</span></span><span class="sig-name descname"><span class="pre">mpc_knots_per_m_per_s_r8</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/mathphysconstants_mod/mpc_knots_per_m_per_s_r8" title="Permalink to this definition">¶</a></dt>
+<dd><p>knots/(m/s) - conversion: m/s to knots</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/mathphysconstants_mod/mpc_m_per_s_per_knot_r4">
+<span class="sig-prename descclassname"><span class="pre">mathphysconstants_mod/</span></span><span class="sig-name descname"><span class="pre">mpc_m_per_s_per_knot_r4</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/mathphysconstants_mod/mpc_m_per_s_per_knot_r4" title="Permalink to this definition">¶</a></dt>
+<dd><p>(m/s)/knot - conversion: knots to m/s</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/mathphysconstants_mod/mpc_m_per_s_per_knot_r8">
+<span class="sig-prename descclassname"><span class="pre">mathphysconstants_mod/</span></span><span class="sig-name descname"><span class="pre">mpc_m_per_s_per_knot_r8</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/mathphysconstants_mod/mpc_m_per_s_per_knot_r8" title="Permalink to this definition">¶</a></dt>
+<dd><p>(m/s)/knot - conversion: knots to m/s</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/mathphysconstants_mod/mpc_maximum_es_r4">
+<span class="sig-prename descclassname"><span class="pre">mathphysconstants_mod/</span></span><span class="sig-name descname"><span class="pre">mpc_maximum_es_r4</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/mathphysconstants_mod/mpc_maximum_es_r4" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/mathphysconstants_mod/mpc_maximum_es_r8">
+<span class="sig-prename descclassname"><span class="pre">mathphysconstants_mod/</span></span><span class="sig-name descname"><span class="pre">mpc_maximum_es_r8</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/mathphysconstants_mod/mpc_maximum_es_r8" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/mathphysconstants_mod/mpc_maximum_vis_r4">
+<span class="sig-prename descclassname"><span class="pre">mathphysconstants_mod/</span></span><span class="sig-name descname"><span class="pre">mpc_maximum_vis_r4</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/mathphysconstants_mod/mpc_maximum_vis_r4" title="Permalink to this definition">¶</a></dt>
+<dd><p>15km</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/mathphysconstants_mod/mpc_maximum_vis_r8">
+<span class="sig-prename descclassname"><span class="pre">mathphysconstants_mod/</span></span><span class="sig-name descname"><span class="pre">mpc_maximum_vis_r8</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/mathphysconstants_mod/mpc_maximum_vis_r8" title="Permalink to this definition">¶</a></dt>
+<dd><p>15km</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/mathphysconstants_mod/mpc_mbar_per_pa_r4">
+<span class="sig-prename descclassname"><span class="pre">mathphysconstants_mod/</span></span><span class="sig-name descname"><span class="pre">mpc_mbar_per_pa_r4</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/mathphysconstants_mod/mpc_mbar_per_pa_r4" title="Permalink to this definition">¶</a></dt>
+<dd><p>mbar/Pa - conversion: Pascals to mbars</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/mathphysconstants_mod/mpc_mbar_per_pa_r8">
+<span class="sig-prename descclassname"><span class="pre">mathphysconstants_mod/</span></span><span class="sig-name descname"><span class="pre">mpc_mbar_per_pa_r8</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/mathphysconstants_mod/mpc_mbar_per_pa_r8" title="Permalink to this definition">¶</a></dt>
+<dd><p>mbar/Pa - conversion: Pascals to mbars</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/mathphysconstants_mod/mpc_mean_anomaly_r4">
+<span class="sig-prename descclassname"><span class="pre">mathphysconstants_mod/</span></span><span class="sig-name descname"><span class="pre">mpc_mean_anomaly_r4</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/mathphysconstants_mod/mpc_mean_anomaly_r4" title="Permalink to this definition">¶</a></dt>
+<dd><p>(unitless) - mean anomaly</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/mathphysconstants_mod/mpc_mean_anomaly_r8">
+<span class="sig-prename descclassname"><span class="pre">mathphysconstants_mod/</span></span><span class="sig-name descname"><span class="pre">mpc_mean_anomaly_r8</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/mathphysconstants_mod/mpc_mean_anomaly_r8" title="Permalink to this definition">¶</a></dt>
+<dd><p>(unitless) - mean anomaly</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/mathphysconstants_mod/mpc_minimum_ch_r4">
+<span class="sig-prename descclassname"><span class="pre">mathphysconstants_mod/</span></span><span class="sig-name descname"><span class="pre">mpc_minimum_ch_r4</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/mathphysconstants_mod/mpc_minimum_ch_r4" title="Permalink to this definition">¶</a></dt>
+<dd><p>0.1 micrograms/kg (for constituents)</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/mathphysconstants_mod/mpc_minimum_ch_r8">
+<span class="sig-prename descclassname"><span class="pre">mathphysconstants_mod/</span></span><span class="sig-name descname"><span class="pre">mpc_minimum_ch_r8</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/mathphysconstants_mod/mpc_minimum_ch_r8" title="Permalink to this definition">¶</a></dt>
+<dd><p>0.1 micrograms/kg (for constituents)</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/mathphysconstants_mod/mpc_minimum_hu_r4">
+<span class="sig-prename descclassname"><span class="pre">mathphysconstants_mod/</span></span><span class="sig-name descname"><span class="pre">mpc_minimum_hu_r4</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/mathphysconstants_mod/mpc_minimum_hu_r4" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/mathphysconstants_mod/mpc_minimum_hu_r8">
+<span class="sig-prename descclassname"><span class="pre">mathphysconstants_mod/</span></span><span class="sig-name descname"><span class="pre">mpc_minimum_hu_r8</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/mathphysconstants_mod/mpc_minimum_hu_r8" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/mathphysconstants_mod/mpc_minimum_pm_r4">
+<span class="sig-prename descclassname"><span class="pre">mathphysconstants_mod/</span></span><span class="sig-name descname"><span class="pre">mpc_minimum_pm_r4</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/mathphysconstants_mod/mpc_minimum_pm_r4" title="Permalink to this definition">¶</a></dt>
+<dd><p>0 micrograms/m^3 (for particulate matter)</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/mathphysconstants_mod/mpc_minimum_pm_r8">
+<span class="sig-prename descclassname"><span class="pre">mathphysconstants_mod/</span></span><span class="sig-name descname"><span class="pre">mpc_minimum_pm_r8</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/mathphysconstants_mod/mpc_minimum_pm_r8" title="Permalink to this definition">¶</a></dt>
+<dd><p>0 micrograms/m^3 (for particulate matter)</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/mathphysconstants_mod/mpc_minimum_pr_r4">
+<span class="sig-prename descclassname"><span class="pre">mathphysconstants_mod/</span></span><span class="sig-name descname"><span class="pre">mpc_minimum_pr_r4</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/mathphysconstants_mod/mpc_minimum_pr_r4" title="Permalink to this definition">¶</a></dt>
+<dd><p>0.1 mm/h = 0.0001 m/h</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/mathphysconstants_mod/mpc_minimum_pr_r8">
+<span class="sig-prename descclassname"><span class="pre">mathphysconstants_mod/</span></span><span class="sig-name descname"><span class="pre">mpc_minimum_pr_r8</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/mathphysconstants_mod/mpc_minimum_pr_r8" title="Permalink to this definition">¶</a></dt>
+<dd><p>0.1 mm/h = 0.0001 m/h</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/mathphysconstants_mod/mpc_minimum_vis_r4">
+<span class="sig-prename descclassname"><span class="pre">mathphysconstants_mod/</span></span><span class="sig-name descname"><span class="pre">mpc_minimum_vis_r4</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/mathphysconstants_mod/mpc_minimum_vis_r4" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/mathphysconstants_mod/mpc_minimum_vis_r8">
+<span class="sig-prename descclassname"><span class="pre">mathphysconstants_mod/</span></span><span class="sig-name descname"><span class="pre">mpc_minimum_vis_r8</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/mathphysconstants_mod/mpc_minimum_vis_r8" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/mathphysconstants_mod/mpc_missingvalue_int">
+<span class="sig-prename descclassname"><span class="pre">mathphysconstants_mod/</span></span><span class="sig-name descname"><span class="pre">mpc_missingvalue_int</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/mathphysconstants_mod/mpc_missingvalue_int" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/mathphysconstants_mod/mpc_missingvalue_r4">
+<span class="sig-prename descclassname"><span class="pre">mathphysconstants_mod/</span></span><span class="sig-name descname"><span class="pre">mpc_missingvalue_r4</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/mathphysconstants_mod/mpc_missingvalue_r4" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/mathphysconstants_mod/mpc_missingvalue_r8">
+<span class="sig-prename descclassname"><span class="pre">mathphysconstants_mod/</span></span><span class="sig-name descname"><span class="pre">mpc_missingvalue_r8</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/mathphysconstants_mod/mpc_missingvalue_r8" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/mathphysconstants_mod/mpc_molar_mass_ch4_r4">
+<span class="sig-prename descclassname"><span class="pre">mathphysconstants_mod/</span></span><span class="sig-name descname"><span class="pre">mpc_molar_mass_ch4_r4</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/mathphysconstants_mod/mpc_molar_mass_ch4_r4" title="Permalink to this definition">¶</a></dt>
+<dd><p>g/mol - methane molar mass</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/mathphysconstants_mod/mpc_molar_mass_ch4_r8">
+<span class="sig-prename descclassname"><span class="pre">mathphysconstants_mod/</span></span><span class="sig-name descname"><span class="pre">mpc_molar_mass_ch4_r8</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/mathphysconstants_mod/mpc_molar_mass_ch4_r8" title="Permalink to this definition">¶</a></dt>
+<dd><p>g/mol - methane molar mass</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/mathphysconstants_mod/mpc_molar_mass_co2_r4">
+<span class="sig-prename descclassname"><span class="pre">mathphysconstants_mod/</span></span><span class="sig-name descname"><span class="pre">mpc_molar_mass_co2_r4</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/mathphysconstants_mod/mpc_molar_mass_co2_r4" title="Permalink to this definition">¶</a></dt>
+<dd><p>g/mol - CO2 molar mass</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/mathphysconstants_mod/mpc_molar_mass_co2_r8">
+<span class="sig-prename descclassname"><span class="pre">mathphysconstants_mod/</span></span><span class="sig-name descname"><span class="pre">mpc_molar_mass_co2_r8</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/mathphysconstants_mod/mpc_molar_mass_co2_r8" title="Permalink to this definition">¶</a></dt>
+<dd><p>g/mol - CO2 molar mass</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/mathphysconstants_mod/mpc_molar_mass_co_r4">
+<span class="sig-prename descclassname"><span class="pre">mathphysconstants_mod/</span></span><span class="sig-name descname"><span class="pre">mpc_molar_mass_co_r4</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/mathphysconstants_mod/mpc_molar_mass_co_r4" title="Permalink to this definition">¶</a></dt>
+<dd><p>g/mol - CO molar mass</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/mathphysconstants_mod/mpc_molar_mass_co_r8">
+<span class="sig-prename descclassname"><span class="pre">mathphysconstants_mod/</span></span><span class="sig-name descname"><span class="pre">mpc_molar_mass_co_r8</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/mathphysconstants_mod/mpc_molar_mass_co_r8" title="Permalink to this definition">¶</a></dt>
+<dd><p>g/mol - CO molar mass</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/mathphysconstants_mod/mpc_molar_mass_dry_air_r4">
+<span class="sig-prename descclassname"><span class="pre">mathphysconstants_mod/</span></span><span class="sig-name descname"><span class="pre">mpc_molar_mass_dry_air_r4</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/mathphysconstants_mod/mpc_molar_mass_dry_air_r4" title="Permalink to this definition">¶</a></dt>
+<dd><p>g/mol - dry-air molar mass</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/mathphysconstants_mod/mpc_molar_mass_dry_air_r8">
+<span class="sig-prename descclassname"><span class="pre">mathphysconstants_mod/</span></span><span class="sig-name descname"><span class="pre">mpc_molar_mass_dry_air_r8</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/mathphysconstants_mod/mpc_molar_mass_dry_air_r8" title="Permalink to this definition">¶</a></dt>
+<dd><p>g/mol - dry-air molar mass</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/mathphysconstants_mod/mpc_molar_mass_hcho_r4">
+<span class="sig-prename descclassname"><span class="pre">mathphysconstants_mod/</span></span><span class="sig-name descname"><span class="pre">mpc_molar_mass_hcho_r4</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/mathphysconstants_mod/mpc_molar_mass_hcho_r4" title="Permalink to this definition">¶</a></dt>
+<dd><p>g/mol - Formaldehyde molar mass</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/mathphysconstants_mod/mpc_molar_mass_hcho_r8">
+<span class="sig-prename descclassname"><span class="pre">mathphysconstants_mod/</span></span><span class="sig-name descname"><span class="pre">mpc_molar_mass_hcho_r8</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/mathphysconstants_mod/mpc_molar_mass_hcho_r8" title="Permalink to this definition">¶</a></dt>
+<dd><p>g/mol - Formaldehyde molar mass</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/mathphysconstants_mod/mpc_molar_mass_n2o_r4">
+<span class="sig-prename descclassname"><span class="pre">mathphysconstants_mod/</span></span><span class="sig-name descname"><span class="pre">mpc_molar_mass_n2o_r4</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/mathphysconstants_mod/mpc_molar_mass_n2o_r4" title="Permalink to this definition">¶</a></dt>
+<dd><p>g/mol - N2O molar mass</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/mathphysconstants_mod/mpc_molar_mass_n2o_r8">
+<span class="sig-prename descclassname"><span class="pre">mathphysconstants_mod/</span></span><span class="sig-name descname"><span class="pre">mpc_molar_mass_n2o_r8</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/mathphysconstants_mod/mpc_molar_mass_n2o_r8" title="Permalink to this definition">¶</a></dt>
+<dd><p>g/mol - N2O molar mass</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/mathphysconstants_mod/mpc_molar_mass_nh3_r4">
+<span class="sig-prename descclassname"><span class="pre">mathphysconstants_mod/</span></span><span class="sig-name descname"><span class="pre">mpc_molar_mass_nh3_r4</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/mathphysconstants_mod/mpc_molar_mass_nh3_r4" title="Permalink to this definition">¶</a></dt>
+<dd><p>g/mol - NH3 molar mass</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/mathphysconstants_mod/mpc_molar_mass_nh3_r8">
+<span class="sig-prename descclassname"><span class="pre">mathphysconstants_mod/</span></span><span class="sig-name descname"><span class="pre">mpc_molar_mass_nh3_r8</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/mathphysconstants_mod/mpc_molar_mass_nh3_r8" title="Permalink to this definition">¶</a></dt>
+<dd><p>g/mol - NH3 molar mass</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/mathphysconstants_mod/mpc_molar_mass_no2_r4">
+<span class="sig-prename descclassname"><span class="pre">mathphysconstants_mod/</span></span><span class="sig-name descname"><span class="pre">mpc_molar_mass_no2_r4</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/mathphysconstants_mod/mpc_molar_mass_no2_r4" title="Permalink to this definition">¶</a></dt>
+<dd><p>g/mol - NO2 molar mass</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/mathphysconstants_mod/mpc_molar_mass_no2_r8">
+<span class="sig-prename descclassname"><span class="pre">mathphysconstants_mod/</span></span><span class="sig-name descname"><span class="pre">mpc_molar_mass_no2_r8</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/mathphysconstants_mod/mpc_molar_mass_no2_r8" title="Permalink to this definition">¶</a></dt>
+<dd><p>g/mol - NO2 molar mass</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/mathphysconstants_mod/mpc_molar_mass_no_r4">
+<span class="sig-prename descclassname"><span class="pre">mathphysconstants_mod/</span></span><span class="sig-name descname"><span class="pre">mpc_molar_mass_no_r4</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/mathphysconstants_mod/mpc_molar_mass_no_r4" title="Permalink to this definition">¶</a></dt>
+<dd><p>g/mol - NO molar mass</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/mathphysconstants_mod/mpc_molar_mass_no_r8">
+<span class="sig-prename descclassname"><span class="pre">mathphysconstants_mod/</span></span><span class="sig-name descname"><span class="pre">mpc_molar_mass_no_r8</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/mathphysconstants_mod/mpc_molar_mass_no_r8" title="Permalink to this definition">¶</a></dt>
+<dd><p>g/mol - NO molar mass</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/mathphysconstants_mod/mpc_molar_mass_o3_r4">
+<span class="sig-prename descclassname"><span class="pre">mathphysconstants_mod/</span></span><span class="sig-name descname"><span class="pre">mpc_molar_mass_o3_r4</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/mathphysconstants_mod/mpc_molar_mass_o3_r4" title="Permalink to this definition">¶</a></dt>
+<dd><p>g/mol - ozone molar mass</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/mathphysconstants_mod/mpc_molar_mass_o3_r8">
+<span class="sig-prename descclassname"><span class="pre">mathphysconstants_mod/</span></span><span class="sig-name descname"><span class="pre">mpc_molar_mass_o3_r8</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/mathphysconstants_mod/mpc_molar_mass_o3_r8" title="Permalink to this definition">¶</a></dt>
+<dd><p>g/mol - ozone molar mass</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/mathphysconstants_mod/mpc_molar_mass_so2_r4">
+<span class="sig-prename descclassname"><span class="pre">mathphysconstants_mod/</span></span><span class="sig-name descname"><span class="pre">mpc_molar_mass_so2_r4</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/mathphysconstants_mod/mpc_molar_mass_so2_r4" title="Permalink to this definition">¶</a></dt>
+<dd><p>g/mol - SO2 molar mass</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/mathphysconstants_mod/mpc_molar_mass_so2_r8">
+<span class="sig-prename descclassname"><span class="pre">mathphysconstants_mod/</span></span><span class="sig-name descname"><span class="pre">mpc_molar_mass_so2_r8</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/mathphysconstants_mod/mpc_molar_mass_so2_r8" title="Permalink to this definition">¶</a></dt>
+<dd><p>g/mol - SO2 molar mass</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/mathphysconstants_mod/mpc_molar_mass_vapour_r4">
+<span class="sig-prename descclassname"><span class="pre">mathphysconstants_mod/</span></span><span class="sig-name descname"><span class="pre">mpc_molar_mass_vapour_r4</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/mathphysconstants_mod/mpc_molar_mass_vapour_r4" title="Permalink to this definition">¶</a></dt>
+<dd><p>g/mol - water-vapour molar mass</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/mathphysconstants_mod/mpc_molar_mass_vapour_r8">
+<span class="sig-prename descclassname"><span class="pre">mathphysconstants_mod/</span></span><span class="sig-name descname"><span class="pre">mpc_molar_mass_vapour_r8</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/mathphysconstants_mod/mpc_molar_mass_vapour_r8" title="Permalink to this definition">¶</a></dt>
+<dd><p>g/mol - water-vapour molar mass</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/mathphysconstants_mod/mpc_pa_per_mbar_r4">
+<span class="sig-prename descclassname"><span class="pre">mathphysconstants_mod/</span></span><span class="sig-name descname"><span class="pre">mpc_pa_per_mbar_r4</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/mathphysconstants_mod/mpc_pa_per_mbar_r4" title="Permalink to this definition">¶</a></dt>
+<dd><p>Pa/mbar - conversion: mbars to Pascals</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/mathphysconstants_mod/mpc_pa_per_mbar_r8">
+<span class="sig-prename descclassname"><span class="pre">mathphysconstants_mod/</span></span><span class="sig-name descname"><span class="pre">mpc_pa_per_mbar_r8</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/mathphysconstants_mod/mpc_pa_per_mbar_r8" title="Permalink to this definition">¶</a></dt>
+<dd><p>Pa/mbar - conversion: mbars to Pascals</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/mathphysconstants_mod/mpc_pi_r4">
+<span class="sig-prename descclassname"><span class="pre">mathphysconstants_mod/</span></span><span class="sig-name descname"><span class="pre">mpc_pi_r4</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/mathphysconstants_mod/mpc_pi_r4" title="Permalink to this definition">¶</a></dt>
+<dd><p>(unitless)</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/mathphysconstants_mod/mpc_pi_r8">
+<span class="sig-prename descclassname"><span class="pre">mathphysconstants_mod/</span></span><span class="sig-name descname"><span class="pre">mpc_pi_r8</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/mathphysconstants_mod/mpc_pi_r8" title="Permalink to this definition">¶</a></dt>
+<dd><p>(unitless)</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/mathphysconstants_mod/mpc_planck_r4">
+<span class="sig-prename descclassname"><span class="pre">mathphysconstants_mod/</span></span><span class="sig-name descname"><span class="pre">mpc_planck_r4</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/mathphysconstants_mod/mpc_planck_r4" title="Permalink to this definition">¶</a></dt>
+<dd><p>J/s - Planck’s constant</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/mathphysconstants_mod/mpc_planck_r8">
+<span class="sig-prename descclassname"><span class="pre">mathphysconstants_mod/</span></span><span class="sig-name descname"><span class="pre">mpc_planck_r8</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/mathphysconstants_mod/mpc_planck_r8" title="Permalink to this definition">¶</a></dt>
+<dd><p>J/s - Planck’s constant</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/mathphysconstants_mod/mpc_radians_per_degree_r4">
+<span class="sig-prename descclassname"><span class="pre">mathphysconstants_mod/</span></span><span class="sig-name descname"><span class="pre">mpc_radians_per_degree_r4</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/mathphysconstants_mod/mpc_radians_per_degree_r4" title="Permalink to this definition">¶</a></dt>
+<dd><p>rad/deg - conversion: degrees to radians</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/mathphysconstants_mod/mpc_radians_per_degree_r8">
+<span class="sig-prename descclassname"><span class="pre">mathphysconstants_mod/</span></span><span class="sig-name descname"><span class="pre">mpc_radians_per_degree_r8</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/mathphysconstants_mod/mpc_radians_per_degree_r8" title="Permalink to this definition">¶</a></dt>
+<dd><p>rad/deg - conversion: degrees to radians</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/mathphysconstants_mod/mpc_rgas_dry_air_r4">
+<span class="sig-prename descclassname"><span class="pre">mathphysconstants_mod/</span></span><span class="sig-name descname"><span class="pre">mpc_rgas_dry_air_r4</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/mathphysconstants_mod/mpc_rgas_dry_air_r4" title="Permalink to this definition">¶</a></dt>
+<dd><p>J kg-1 K-1 - gas constant, dry air</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/mathphysconstants_mod/mpc_rgas_dry_air_r8">
+<span class="sig-prename descclassname"><span class="pre">mathphysconstants_mod/</span></span><span class="sig-name descname"><span class="pre">mpc_rgas_dry_air_r8</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/mathphysconstants_mod/mpc_rgas_dry_air_r8" title="Permalink to this definition">¶</a></dt>
+<dd><p>J kg-1 K-1 - gas constant, dry air</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/mathphysconstants_mod/mpc_rgas_ideal_r4">
+<span class="sig-prename descclassname"><span class="pre">mathphysconstants_mod/</span></span><span class="sig-name descname"><span class="pre">mpc_rgas_ideal_r4</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/mathphysconstants_mod/mpc_rgas_ideal_r4" title="Permalink to this definition">¶</a></dt>
+<dd><p>J mol-1 K-1 - ideal-gas constant</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/mathphysconstants_mod/mpc_rgas_ideal_r8">
+<span class="sig-prename descclassname"><span class="pre">mathphysconstants_mod/</span></span><span class="sig-name descname"><span class="pre">mpc_rgas_ideal_r8</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/mathphysconstants_mod/mpc_rgas_ideal_r8" title="Permalink to this definition">¶</a></dt>
+<dd><p>J mol-1 K-1 - ideal-gas constant</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/mathphysconstants_mod/mpc_rgas_vapour_r4">
+<span class="sig-prename descclassname"><span class="pre">mathphysconstants_mod/</span></span><span class="sig-name descname"><span class="pre">mpc_rgas_vapour_r4</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/mathphysconstants_mod/mpc_rgas_vapour_r4" title="Permalink to this definition">¶</a></dt>
+<dd><p>J kg-1 K-1 - gas constant, water vapour</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/mathphysconstants_mod/mpc_rgas_vapour_r8">
+<span class="sig-prename descclassname"><span class="pre">mathphysconstants_mod/</span></span><span class="sig-name descname"><span class="pre">mpc_rgas_vapour_r8</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/mathphysconstants_mod/mpc_rgas_vapour_r8" title="Permalink to this definition">¶</a></dt>
+<dd><p>J kg-1 K-1 - gas constant, water vapour</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/mathphysconstants_mod/mpc_schumann_newell_lapse_rate_r4">
+<span class="sig-prename descclassname"><span class="pre">mathphysconstants_mod/</span></span><span class="sig-name descname"><span class="pre">mpc_schumann_newell_lapse_rate_r4</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/mathphysconstants_mod/mpc_schumann_newell_lapse_rate_r4" title="Permalink to this definition">¶</a></dt>
+<dd><p>K s2 m-2 - Schuman-Newell lapse rate</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/mathphysconstants_mod/mpc_schumann_newell_lapse_rate_r8">
+<span class="sig-prename descclassname"><span class="pre">mathphysconstants_mod/</span></span><span class="sig-name descname"><span class="pre">mpc_schumann_newell_lapse_rate_r8</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/mathphysconstants_mod/mpc_schumann_newell_lapse_rate_r8" title="Permalink to this definition">¶</a></dt>
+<dd><p>K s2 m-2 - Schuman-Newell lapse rate</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/mathphysconstants_mod/mpc_sidereal_year_r4">
+<span class="sig-prename descclassname"><span class="pre">mathphysconstants_mod/</span></span><span class="sig-name descname"><span class="pre">mpc_sidereal_year_r4</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/mathphysconstants_mod/mpc_sidereal_year_r4" title="Permalink to this definition">¶</a></dt>
+<dd><p>s - sidereal year</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/mathphysconstants_mod/mpc_sidereal_year_r8">
+<span class="sig-prename descclassname"><span class="pre">mathphysconstants_mod/</span></span><span class="sig-name descname"><span class="pre">mpc_sidereal_year_r8</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/mathphysconstants_mod/mpc_sidereal_year_r8" title="Permalink to this definition">¶</a></dt>
+<dd><p>s - sidereal year</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/mathphysconstants_mod/mpc_slp_r4">
+<span class="sig-prename descclassname"><span class="pre">mathphysconstants_mod/</span></span><span class="sig-name descname"><span class="pre">mpc_slp_r4</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/mathphysconstants_mod/mpc_slp_r4" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/mathphysconstants_mod/mpc_slp_r8">
+<span class="sig-prename descclassname"><span class="pre">mathphysconstants_mod/</span></span><span class="sig-name descname"><span class="pre">mpc_slp_r8</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/mathphysconstants_mod/mpc_slp_r8" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/mathphysconstants_mod/mpc_solar_constant_r4">
+<span class="sig-prename descclassname"><span class="pre">mathphysconstants_mod/</span></span><span class="sig-name descname"><span class="pre">mpc_solar_constant_r4</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/mathphysconstants_mod/mpc_solar_constant_r4" title="Permalink to this definition">¶</a></dt>
+<dd><p>W/m2 - solar constant</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/mathphysconstants_mod/mpc_solar_constant_r8">
+<span class="sig-prename descclassname"><span class="pre">mathphysconstants_mod/</span></span><span class="sig-name descname"><span class="pre">mpc_solar_constant_r8</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/mathphysconstants_mod/mpc_solar_constant_r8" title="Permalink to this definition">¶</a></dt>
+<dd><p>W/m2 - solar constant</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/mathphysconstants_mod/mpc_speed_of_light_r4">
+<span class="sig-prename descclassname"><span class="pre">mathphysconstants_mod/</span></span><span class="sig-name descname"><span class="pre">mpc_speed_of_light_r4</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/mathphysconstants_mod/mpc_speed_of_light_r4" title="Permalink to this definition">¶</a></dt>
+<dd><p>m/s - speed of light</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/mathphysconstants_mod/mpc_speed_of_light_r8">
+<span class="sig-prename descclassname"><span class="pre">mathphysconstants_mod/</span></span><span class="sig-name descname"><span class="pre">mpc_speed_of_light_r8</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/mathphysconstants_mod/mpc_speed_of_light_r8" title="Permalink to this definition">¶</a></dt>
+<dd><p>m/s - speed of light</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/mathphysconstants_mod/mpc_stefan_boltzmann_r4">
+<span class="sig-prename descclassname"><span class="pre">mathphysconstants_mod/</span></span><span class="sig-name descname"><span class="pre">mpc_stefan_boltzmann_r4</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/mathphysconstants_mod/mpc_stefan_boltzmann_r4" title="Permalink to this definition">¶</a></dt>
+<dd><p>W m-2 K-4 - Stefan-Boltzmann constant</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/mathphysconstants_mod/mpc_stefan_boltzmann_r8">
+<span class="sig-prename descclassname"><span class="pre">mathphysconstants_mod/</span></span><span class="sig-name descname"><span class="pre">mpc_stefan_boltzmann_r8</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/mathphysconstants_mod/mpc_stefan_boltzmann_r8" title="Permalink to this definition">¶</a></dt>
+<dd><p>W m-2 K-4 - Stefan-Boltzmann constant</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/mathphysconstants_mod/mpc_t1s_r4">
+<span class="sig-prename descclassname"><span class="pre">mathphysconstants_mod/</span></span><span class="sig-name descname"><span class="pre">mpc_t1s_r4</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/mathphysconstants_mod/mpc_t1s_r4" title="Permalink to this definition">¶</a></dt>
+<dd><p>K</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/mathphysconstants_mod/mpc_t1s_r8">
+<span class="sig-prename descclassname"><span class="pre">mathphysconstants_mod/</span></span><span class="sig-name descname"><span class="pre">mpc_t1s_r8</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/mathphysconstants_mod/mpc_t1s_r8" title="Permalink to this definition">¶</a></dt>
+<dd><p>K</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/mathphysconstants_mod/mpc_t2s_r4">
+<span class="sig-prename descclassname"><span class="pre">mathphysconstants_mod/</span></span><span class="sig-name descname"><span class="pre">mpc_t2s_r4</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/mathphysconstants_mod/mpc_t2s_r4" title="Permalink to this definition">¶</a></dt>
+<dd><p>K</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/mathphysconstants_mod/mpc_t2s_r8">
+<span class="sig-prename descclassname"><span class="pre">mathphysconstants_mod/</span></span><span class="sig-name descname"><span class="pre">mpc_t2s_r8</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/mathphysconstants_mod/mpc_t2s_r8" title="Permalink to this definition">¶</a></dt>
+<dd><p>K</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/mathphysconstants_mod/mpc_t_ice_r4">
+<span class="sig-prename descclassname"><span class="pre">mathphysconstants_mod/</span></span><span class="sig-name descname"><span class="pre">mpc_t_ice_r4</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/mathphysconstants_mod/mpc_t_ice_r4" title="Permalink to this definition">¶</a></dt>
+<dd><p>K - ice temperature in the atmosphere</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/mathphysconstants_mod/mpc_t_ice_r8">
+<span class="sig-prename descclassname"><span class="pre">mathphysconstants_mod/</span></span><span class="sig-name descname"><span class="pre">mpc_t_ice_r8</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/mathphysconstants_mod/mpc_t_ice_r8" title="Permalink to this definition">¶</a></dt>
+<dd><p>K - ice temperature in the atmosphere</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/mathphysconstants_mod/mpc_triple_point_r4">
+<span class="sig-prename descclassname"><span class="pre">mathphysconstants_mod/</span></span><span class="sig-name descname"><span class="pre">mpc_triple_point_r4</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/mathphysconstants_mod/mpc_triple_point_r4" title="Permalink to this definition">¶</a></dt>
+<dd><p>K - triple point of water</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/mathphysconstants_mod/mpc_triple_point_r8">
+<span class="sig-prename descclassname"><span class="pre">mathphysconstants_mod/</span></span><span class="sig-name descname"><span class="pre">mpc_triple_point_r8</span></span><em> <span class="pre">[</span></em><em><span class="pre">real</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/mathphysconstants_mod/mpc_triple_point_r8" title="Permalink to this definition">¶</a></dt>
+<dd><p>K - triple point of water</p>
+</dd></dl>
+
+</li>
+</ul>
+<p class="rubric">Subroutines and functions</p>
+<dl>
+<dt class="sig sig-object f" id="f/mathphysconstants_mod/mpc_setvalue">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">mathphysconstants_mod/</span></span><span class="sig-name descname"><span class="pre">mpc_setvalue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">name</span></em>, <em class="sig-param"><span class="pre">var_r4</span></em>, <em class="sig-param"><span class="pre">var_r8</span></em>, <em class="sig-param"><span class="pre">value</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/mathphysconstants_mod/mpc_setvalue" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>To provide a means to change a (non-parameter) value</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>name</strong><em> [</em><em>character </em><em>]</em></p></li>
+<li><p><strong>var_r4</strong><em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>var_r8</strong><em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>value</strong><em> [</em><em>real </em><em>]</em></p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/mathphysconstants_mod/mpc_printconstants">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">mathphysconstants_mod/</span></span><span class="sig-name descname"><span class="pre">mpc_printconstants</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">kulout</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/mathphysconstants_mod/mpc_printconstants" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>To print all of the constants that are provided by this module.
+The intent is to make it clear in a program listing which values
+were used.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>kulout</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em> :: unit number for printing</p>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="calcstatsglb_mod.html#f/calcstatsglb_mod/csg_setup" title="f/calcstatsglb_mod/csg_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">csg_setup()</span></code></a>, <a class="reference internal" href="ominusf_mod.html#f/ominusf_mod/omf_ominusf" title="f/ominusf_mod/omf_ominusf"><code class="xref f f-func docutils literal notranslate"><span class="pre">omf_ominusf()</span></code></a>, <a class="reference internal" href="ominusf_mod.html#f/ominusf_mod/omf_ominusfens" title="f/ominusf_mod/omf_ominusfens"><code class="xref f f-func docutils literal notranslate"><span class="pre">omf_ominusfens()</span></code></a>, <a class="reference internal" href="../programs/midas_sstbias.html#f/midas_sstbias" title="f/midas_sstbias"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_sstbias</span></code></a>, <a class="reference internal" href="../programs/midas_adjointtest.html#f/midas_adjointtest" title="f/midas_adjointtest"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_adjointtest</span></code></a>, <a class="reference internal" href="../programs/midas_analysiserroroi.html#f/midas_analysiserroroi" title="f/midas_analysiserroroi"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_analysiserroroi</span></code></a>, <a class="reference internal" href="../programs/midas_diaghbht.html#f/midas_diaghbht" title="f/midas_diaghbht"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_diaghbht</span></code></a>, <a class="reference internal" href="../programs/midas_gencoeff.html#f/midas_gencoeff" title="f/midas_gencoeff"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_gencoeff</span></code></a>, <a class="reference internal" href="../programs/midas_obsimpact.html#f/midas_obsimpact" title="f/midas_obsimpact"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_obsimpact</span></code></a>, <a class="reference internal" href="../programs/midas_obsselection.html#f/midas_obsselection" title="f/midas_obsselection"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_obsselection</span></code></a>, <a class="reference internal" href="../programs/midas_var.html#f/midas_var" title="f/midas_var"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_var</span></code></a>, <a class="reference internal" href="../programs/midas_var1d.html#f/midas_var1d" title="f/midas_var1d"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_var1d</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div></blockquote>
+</section>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="message_mod.html" title="message_mod"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="kdtree2_priority_queue_mod.html" title="kdtree2_priority_queue_mod"
+             >previous</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2018, ECCC.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,883 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>multi_ir_bgck_mod &mdash; MIDAS  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="MIDAS  documentation" href="../index.html" />
+    <link rel="next" title="obsspacediag_mod" href="obsspacediag_mod.html" />
+    <link rel="prev" title="minimization_mod" href="minimization_mod.html" /> 
+  </head>
+  <body>
+  <div>
+    <img src="../_static/MIDAS_header.png" alt="MIDAS" />
+  </div>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="obsspacediag_mod.html" title="obsspacediag_mod"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="minimization_mod.html" title="minimization_mod"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="minimization_mod.html"
+                          title="previous chapter">minimization_mod</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="obsspacediag_mod.html"
+                          title="next chapter">obsspacediag_mod</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/modules/multi_ir_bgck_mod.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <section id="multi-ir-bgck-mod">
+<h1>multi_ir_bgck_mod<a class="headerlink" href="#multi-ir-bgck-mod" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><p><a class="reference internal" href="multi_ir_bgck_mod_src.html"><span class="doc">link to source code</span></a></p>
+<p><strong>Dependency Diagrams:</strong></p>
+<figure class="align-default" id="id1">
+<a class="reference internal image-reference" href="multi_ir_bgck_mod.svg"><img alt="multi_ir_bgck_mod.svg" height="100px" src="multi_ir_bgck_mod.svg" /></a>
+<figcaption>
+<p><span class="caption-text">Direct Dependency Diagram</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id2">
+<a class="reference internal image-reference" href="multi_ir_bgck_mod_rev.svg"><img alt="multi_ir_bgck_mod_rev.svg" height="100px" src="multi_ir_bgck_mod_rev.svg" /></a>
+<figcaption>
+<p><span class="caption-text">Reverse Dependency Diagram</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<span class="target" id="f/multi_ir_bgck_mod"></span><p class="rubric">Description</p>
+<p>MODULE multi_ir_bgck_mod (prefix=’irbg’ category=’1. High-level functionality’)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Purpose</dt>
+<dd class="field-odd"><p>Variables for multispectral infrared background check and quality
+control.</p>
+</dd>
+</dl>
+<p class="rubric">Quick access</p>
+<dl class="field-list simple">
+<dt class="field-odd">Types</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/multi_ir_bgck_mod/avhrr_bgck_iasi" title="f/multi_ir_bgck_mod/avhrr_bgck_iasi"><code class="xref f f-type docutils literal notranslate"><span class="pre">avhrr_bgck_iasi</span></code></a></p>
+</dd>
+<dt class="field-even">Routines</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/multi_ir_bgck_mod/bgck_get_qcid" title="f/multi_ir_bgck_mod/bgck_get_qcid"><code class="xref f f-func docutils literal notranslate"><span class="pre">bgck_get_qcid()</span></code></a>, <a class="reference internal" href="#f/multi_ir_bgck_mod/calcbt" title="f/multi_ir_bgck_mod/calcbt"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcbt()</span></code></a>, <a class="reference internal" href="#f/multi_ir_bgck_mod/calcreflect" title="f/multi_ir_bgck_mod/calcreflect"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcreflect()</span></code></a>, <a class="reference internal" href="#f/multi_ir_bgck_mod/calcul_median_fast" title="f/multi_ir_bgck_mod/calcul_median_fast"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcul_median_fast()</span></code></a>, <a class="reference internal" href="#f/multi_ir_bgck_mod/cloud_height" title="f/multi_ir_bgck_mod/cloud_height"><code class="xref f f-func docutils literal notranslate"><span class="pre">cloud_height()</span></code></a>, <a class="reference internal" href="#f/multi_ir_bgck_mod/cloud_top" title="f/multi_ir_bgck_mod/cloud_top"><code class="xref f f-func docutils literal notranslate"><span class="pre">cloud_top()</span></code></a>, <a class="reference internal" href="#f/multi_ir_bgck_mod/co2_slicing" title="f/multi_ir_bgck_mod/co2_slicing"><code class="xref f f-func docutils literal notranslate"><span class="pre">co2_slicing()</span></code></a>, <a class="reference internal" href="#f/multi_ir_bgck_mod/convert_avhrr" title="f/multi_ir_bgck_mod/convert_avhrr"><code class="xref f f-func docutils literal notranslate"><span class="pre">convert_avhrr()</span></code></a>, <a class="reference internal" href="#f/multi_ir_bgck_mod/cor_albedo" title="f/multi_ir_bgck_mod/cor_albedo"><code class="xref f f-func docutils literal notranslate"><span class="pre">cor_albedo()</span></code></a>, <a class="reference internal" href="#f/multi_ir_bgck_mod/drcld" title="f/multi_ir_bgck_mod/drcld"><code class="xref f f-func docutils literal notranslate"><span class="pre">drcld()</span></code></a>, <a class="reference internal" href="#f/multi_ir_bgck_mod/drm" title="f/multi_ir_bgck_mod/drm"><code class="xref f f-func docutils literal notranslate"><span class="pre">drm()</span></code></a>, <a class="reference internal" href="#f/multi_ir_bgck_mod/estim_ts" title="f/multi_ir_bgck_mod/estim_ts"><code class="xref f f-func docutils literal notranslate"><span class="pre">estim_ts()</span></code></a>, <a class="reference internal" href="#f/multi_ir_bgck_mod/garand1998nadon" title="f/multi_ir_bgck_mod/garand1998nadon"><code class="xref f f-func docutils literal notranslate"><span class="pre">garand1998nadon()</span></code></a>, <a class="reference internal" href="#f/multi_ir_bgck_mod/get_avhrr_emiss" title="f/multi_ir_bgck_mod/get_avhrr_emiss"><code class="xref f f-func docutils literal notranslate"><span class="pre">get_avhrr_emiss()</span></code></a>, <a class="reference internal" href="#f/multi_ir_bgck_mod/get_top" title="f/multi_ir_bgck_mod/get_top"><code class="xref f f-func docutils literal notranslate"><span class="pre">get_top()</span></code></a>, <a class="reference internal" href="#f/multi_ir_bgck_mod/irbg_bgcheckir" title="f/multi_ir_bgck_mod/irbg_bgcheckir"><code class="xref f f-func docutils literal notranslate"><span class="pre">irbg_bgcheckir()</span></code></a>, <a class="reference internal" href="#f/multi_ir_bgck_mod/irbg_doqualitycontrol" title="f/multi_ir_bgck_mod/irbg_doqualitycontrol"><code class="xref f f-func docutils literal notranslate"><span class="pre">irbg_doqualitycontrol()</span></code></a>, <a class="reference internal" href="#f/multi_ir_bgck_mod/irbg_init" title="f/multi_ir_bgck_mod/irbg_init"><code class="xref f f-func docutils literal notranslate"><span class="pre">irbg_init()</span></code></a>, <a class="reference internal" href="#f/multi_ir_bgck_mod/irbg_setup" title="f/multi_ir_bgck_mod/irbg_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">irbg_setup()</span></code></a>, <a class="reference internal" href="#f/multi_ir_bgck_mod/lineq" title="f/multi_ir_bgck_mod/lineq"><code class="xref f f-func docutils literal notranslate"><span class="pre">lineq()</span></code></a>, <a class="reference internal" href="#f/multi_ir_bgck_mod/min_pres_new" title="f/multi_ir_bgck_mod/min_pres_new"><code class="xref f f-func docutils literal notranslate"><span class="pre">min_pres_new()</span></code></a>, <a class="reference internal" href="#f/multi_ir_bgck_mod/monotonic_inversion" title="f/multi_ir_bgck_mod/monotonic_inversion"><code class="xref f f-func docutils literal notranslate"><span class="pre">monotonic_inversion()</span></code></a>, <a class="reference internal" href="#f/multi_ir_bgck_mod/seltop" title="f/multi_ir_bgck_mod/seltop"><code class="xref f f-func docutils literal notranslate"><span class="pre">seltop()</span></code></a>, <a class="reference internal" href="#f/multi_ir_bgck_mod/stat_avhrr" title="f/multi_ir_bgck_mod/stat_avhrr"><code class="xref f f-func docutils literal notranslate"><span class="pre">stat_avhrr()</span></code></a>, <a class="reference internal" href="#f/multi_ir_bgck_mod/tovs_rttov_avhrr_for_iasi" title="f/multi_ir_bgck_mod/tovs_rttov_avhrr_for_iasi"><code class="xref f f-func docutils literal notranslate"><span class="pre">tovs_rttov_avhrr_for_iasi()</span></code></a>, <a class="reference internal" href="#f/multi_ir_bgck_mod/visocn" title="f/multi_ir_bgck_mod/visocn"><code class="xref f f-func docutils literal notranslate"><span class="pre">visocn()</span></code></a></p>
+</dd>
+</dl>
+<p class="rubric">Needed modules</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="rttov_interfaces_mod.html#f/rttov_interfaces_mod" title="f/rttov_interfaces_mod: MODULE rttov_interfaces_mod (prefix='' category='9. Global interfaces')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">rttov_interfaces_mod</span></code></a>: MODULE rttov_interfaces_mod (prefix=’’ category=’9. Global interfaces’)</p></li>
+<li><p><a class="reference internal" href="tovs_nl_mod.html#f/tovs_nl_mod" title="f/tovs_nl_mod: MODULE tovs_nl (prefix='tvs' category='5. Observation operators')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">tovs_nl_mod</span></code></a>: MODULE tovs_nl (prefix=’tvs’ category=’5. Observation operators’)</p></li>
+<li><p><code class="xref f f-mod docutils literal notranslate"><span class="pre">rttov_const</span></code> (<code class="xref f f-func docutils literal notranslate"><span class="pre">inst_id_iasi()</span></code>)</p></li>
+<li><p><code class="xref f f-mod docutils literal notranslate"><span class="pre">rttov_types</span></code> (<code class="xref f f-func docutils literal notranslate"><span class="pre">rttov_coefs()</span></code>, <code class="xref f f-func docutils literal notranslate"><span class="pre">rttov_profile()</span></code>, <code class="xref f f-func docutils literal notranslate"><span class="pre">rttov_radiance()</span></code>, <code class="xref f f-func docutils literal notranslate"><span class="pre">rttov_transmission()</span></code>, <code class="xref f f-func docutils literal notranslate"><span class="pre">rttov_chanprof()</span></code>, <code class="xref f f-func docutils literal notranslate"><span class="pre">rttov_emissivity()</span></code>)</p></li>
+<li><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod" title="f/utilities_mod: MODULE utilities_mod (prefix='utl' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">utilities_mod</span></code></a>: MODULE utilities_mod (prefix=’utl’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod" title="f/obsspacedata_mod: MODULE obsSpaceData_mod (prefix='obs' category='6. High-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">obsspacedata_mod</span></code></a>: MODULE obsSpaceData_mod (prefix=’obs’ category=’6. High-level data objects’)</p></li>
+<li><p><a class="reference internal" href="midasmpi_mod.html#f/midasmpi_mod" title="f/midasmpi_mod: MODULE midasMpi_mod (prefix='mmpi' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">midasmpi_mod</span></code></a>: MODULE midasMpi_mod (prefix=’mmpi’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="columndata_mod.html#f/columndata_mod" title="f/columndata_mod: MODULE columnData_mod (prefix='col' category='6. High-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">columndata_mod</span></code></a>: MODULE columnData_mod (prefix=’col’ category=’6. High-level data objects’)</p></li>
+<li><p><a class="reference internal" href="mathphysconstants_mod.html#f/mathphysconstants_mod" title="f/mathphysconstants_mod: MODULE MathPhysConstants_mod (prefix='mpc' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">mathphysconstants_mod</span></code></a>: MODULE MathPhysConstants_mod (prefix=’mpc’ category=’8. Low-level utilities and constants’)</p></li>
+</ul>
+<p class="rubric">Types</p>
+<ul>
+<li><dl>
+<dt class="sig sig-object f" id="f/multi_ir_bgck_mod/avhrr_bgck_iasi">
+<em class="property"><span class="pre">type</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">multi_ir_bgck_mod/</span></span><span class="sig-name descname"><span class="pre">avhrr_bgck_iasi</span></span><a class="headerlink" href="#f/multi_ir_bgck_mod/avhrr_bgck_iasi" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type fields</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">albedmoy</span> (nclassavhrr,nvis)<em> [</em><em>real </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">albedstd</span> (nclassavhrr,nvis)<em> [</em><em>real </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">albstd_pixeliasi</span> (nvis)<em> [</em><em>real </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">cfrac</span> (nclassavhrr)<em> [</em><em>real </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">emiss</span> (nvis+nir-(nvis+1)+1)<em> [</em><em>real </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">radclearcalc</span> (nvis+nir-(nvis+1)+1)<em> [</em><em>real </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">radmoy</span> (nclassavhrr,nchanavhrr)<em> [</em><em>real </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">radovcalc</span> (*,*)<em> [</em><em>real </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">radstd</span> (nclassavhrr,nchanavhrr)<em> [</em><em>real </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">tbclearcalc</span> (nvis+nir-(nvis+1)+1)<em> [</em><em>real </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">tbmoy</span> (nclassavhrr,nvis+nir-(nvis+1)+1)<em> [</em><em>real </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">tbstd</span> (nclassavhrr,nvis+nir-(nvis+1)+1)<em> [</em><em>real </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">tbstd_pixeliasi</span> (nvis+nir-(nvis+1)+1)<em> [</em><em>real </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">transmsurf</span> (nvis+nir-(nvis+1)+1)<em> [</em><em>real </em><em>]</em></p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</li>
+</ul>
+<p class="rubric">Variables</p>
+<p class="rubric">Subroutines and functions</p>
+<dl>
+<dt class="sig sig-object f" id="f/multi_ir_bgck_mod/irbg_init">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">multi_ir_bgck_mod/</span></span><span class="sig-name descname"><span class="pre">irbg_init</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#f/multi_ir_bgck_mod/irbg_init" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>This subroutine reads the namelist section NAMBGCKIR
+for the module.</p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/multi_ir_bgck_mod/irbg_bgcheckir" title="f/multi_ir_bgck_mod/irbg_bgcheckir"><code class="xref f f-func docutils literal notranslate"><span class="pre">irbg_bgcheckir()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/multi_ir_bgck_mod/irbg_setup">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">multi_ir_bgck_mod/</span></span><span class="sig-name descname"><span class="pre">irbg_setup</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#f/multi_ir_bgck_mod/irbg_setup" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Memory allocation for the Hyperspectral Infrared
+background check variables.</p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="innovation_mod.html#f/innovation_mod/inn_setupobs" title="f/innovation_mod/inn_setupobs"><code class="xref f f-func docutils literal notranslate"><span class="pre">inn_setupobs()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_checkallocationstatus" title="f/utilities_mod/utl_checkallocationstatus"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_checkallocationstatus()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/multi_ir_bgck_mod/irbg_bgcheckir">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">multi_ir_bgck_mod/</span></span><span class="sig-name descname"><span class="pre">irbg_bgcheckir</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">columntrlontrllev</span></em>, <em class="sig-param"><span class="pre">obsspacedata</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/multi_ir_bgck_mod/irbg_bgcheckir" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Do background check on all hyperspectral infrared observations</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>columntrlontrllev</strong><em> [</em><em>struct_columndata </em><em>]</em></p></li>
+<li><p><strong>obsspacedata</strong><em> [</em><em>struct_obs </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../programs/midas_obsselection.html#f/midas_obsselection" title="f/midas_obsselection"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_obsselection</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_start" title="f/utilities_mod/utl_tmg_start"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_start()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_getheaderindex" title="f/obsspacedata_mod/obs_getheaderindex"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_getheaderindex()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_headelem_i" title="f/obsspacedata_mod/obs_headelem_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_headelem_i()</span></code></a>, <a class="reference internal" href="tovs_nl_mod.html#f/tovs_nl_mod/tvs_isidburphyperspectral" title="f/tovs_nl_mod/tvs_isidburphyperspectral"><code class="xref f f-func docutils literal notranslate"><span class="pre">tvs_isidburphyperspectral()</span></code></a>, <a class="reference internal" href="#f/multi_ir_bgck_mod/irbg_init" title="f/multi_ir_bgck_mod/irbg_init"><code class="xref f f-func docutils literal notranslate"><span class="pre">irbg_init()</span></code></a>, <a class="reference internal" href="tovs_nl_mod.html#f/tovs_nl_mod/tvs_isidburptovs" title="f/tovs_nl_mod/tvs_isidburptovs"><code class="xref f f-func docutils literal notranslate"><span class="pre">tvs_isidburptovs()</span></code></a>, <a class="reference internal" href="tovs_nl_mod.html#f/tovs_nl_mod/tvs_isidburpinst" title="f/tovs_nl_mod/tvs_isidburpinst"><code class="xref f f-func docutils literal notranslate"><span class="pre">tvs_isidburpinst()</span></code></a>, <a class="reference internal" href="tovs_nl_mod.html#f/tovs_nl_mod/tvs_getinstrumentid" title="f/tovs_nl_mod/tvs_getinstrumentid"><code class="xref f f-func docutils literal notranslate"><span class="pre">tvs_getinstrumentid()</span></code></a>, <a class="reference internal" href="#f/multi_ir_bgck_mod/irbg_doqualitycontrol" title="f/multi_ir_bgck_mod/irbg_doqualitycontrol"><code class="xref f f-func docutils literal notranslate"><span class="pre">irbg_doqualitycontrol()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_stop" title="f/utilities_mod/utl_tmg_stop"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_stop()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/multi_ir_bgck_mod/bgck_get_qcid">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">multi_ir_bgck_mod/</span></span><span class="sig-name descname"><span class="pre">bgck_get_qcid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">instrumentname</span></em>, <em class="sig-param"><span class="pre">qcid</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/multi_ir_bgck_mod/bgck_get_qcid" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>instrumentname</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>qcid</strong><em> [</em><em>integer </em><em>,</em><em>out</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/multi_ir_bgck_mod/irbg_doqualitycontrol" title="f/multi_ir_bgck_mod/irbg_doqualitycontrol"><code class="xref f f-func docutils literal notranslate"><span class="pre">irbg_doqualitycontrol()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/multi_ir_bgck_mod/irbg_doqualitycontrol">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">multi_ir_bgck_mod/</span></span><span class="sig-name descname"><span class="pre">irbg_doqualitycontrol</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">columntrlontrllev</span></em>, <em class="sig-param"><span class="pre">obsspacedata</span></em>, <em class="sig-param"><span class="pre">instrumentname</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">id_opt</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/multi_ir_bgck_mod/irbg_doqualitycontrol" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Quality control of hyperspectral infrared observations.
+assign assimilation flags to observations</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>columntrlontrllev</strong><em> [</em><em>struct_columndata </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>obsspacedata</strong><em> [</em><em>struct_obs </em><em>,</em><em>inout</em><em>]</em></p></li>
+<li><p><strong>instrumentname</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Options</dt>
+<dd class="field-odd"><p><strong>id_opt</strong><em> [</em><em>integer </em><em>,</em><em>in,</em><em>]</em></p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/multi_ir_bgck_mod/irbg_bgcheckir" title="f/multi_ir_bgck_mod/irbg_bgcheckir"><code class="xref f f-func docutils literal notranslate"><span class="pre">irbg_bgcheckir()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="tovs_nl_mod.html#f/tovs_nl_mod/tvs_getprofile" title="f/tovs_nl_mod/tvs_getprofile"><code class="xref f f-func docutils literal notranslate"><span class="pre">tvs_getprofile()</span></code></a>, <a class="reference internal" href="#f/multi_ir_bgck_mod/bgck_get_qcid" title="f/multi_ir_bgck_mod/bgck_get_qcid"><code class="xref f f-func docutils literal notranslate"><span class="pre">bgck_get_qcid()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_getheaderindex" title="f/obsspacedata_mod/obs_getheaderindex"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_getheaderindex()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_headelem_i" title="f/obsspacedata_mod/obs_headelem_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_headelem_i()</span></code></a>, <a class="reference internal" href="tovs_nl_mod.html#f/tovs_nl_mod/tvs_isidburpinst" title="f/tovs_nl_mod/tvs_isidburpinst"><code class="xref f f-func docutils literal notranslate"><span class="pre">tvs_isidburpinst()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_getnumlev" title="f/columndata_mod/col_getnumlev"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_getnumlev()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_checkallocationstatus" title="f/utilities_mod/utl_checkallocationstatus"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_checkallocationstatus()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_getpressure" title="f/columndata_mod/col_getpressure"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_getpressure()</span></code></a>, <a class="reference internal" href="tovs_nl_mod.html#f/tovs_nl_mod/tvs_isidburptovs" title="f/tovs_nl_mod/tvs_isidburptovs"><code class="xref f f-func docutils literal notranslate"><span class="pre">tvs_isidburptovs()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_headelem_r" title="f/obsspacedata_mod/obs_headelem_r"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_headelem_r()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_getelem" title="f/columndata_mod/col_getelem"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_getelem()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_getheight" title="f/columndata_mod/col_getheight"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_getheight()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyelem_i" title="f/obsspacedata_mod/obs_bodyelem_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyelem_i()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyelem_r" title="f/obsspacedata_mod/obs_bodyelem_r"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyelem_r()</span></code></a>, <a class="reference internal" href="tovs_nl_mod.html#f/tovs_nl_mod/tvs_getlocalchannelindexfromchannelnumber" title="f/tovs_nl_mod/tvs_getlocalchannelindexfromchannelnumber"><code class="xref f f-func docutils literal notranslate"><span class="pre">tvs_getlocalchannelindexfromchannelnumber()</span></code></a>, <a class="reference internal" href="#f/multi_ir_bgck_mod/cloud_height" title="f/multi_ir_bgck_mod/cloud_height"><code class="xref f f-func docutils literal notranslate"><span class="pre">cloud_height()</span></code></a>, <a class="reference internal" href="#f/multi_ir_bgck_mod/get_avhrr_emiss" title="f/multi_ir_bgck_mod/get_avhrr_emiss"><code class="xref f f-func docutils literal notranslate"><span class="pre">get_avhrr_emiss()</span></code></a>, <a class="reference internal" href="#f/multi_ir_bgck_mod/tovs_rttov_avhrr_for_iasi" title="f/multi_ir_bgck_mod/tovs_rttov_avhrr_for_iasi"><code class="xref f f-func docutils literal notranslate"><span class="pre">tovs_rttov_avhrr_for_iasi()</span></code></a>, <a class="reference internal" href="#f/multi_ir_bgck_mod/convert_avhrr" title="f/multi_ir_bgck_mod/convert_avhrr"><code class="xref f f-func docutils literal notranslate"><span class="pre">convert_avhrr()</span></code></a>, <a class="reference internal" href="#f/multi_ir_bgck_mod/stat_avhrr" title="f/multi_ir_bgck_mod/stat_avhrr"><code class="xref f f-func docutils literal notranslate"><span class="pre">stat_avhrr()</span></code></a>, <a class="reference internal" href="#f/multi_ir_bgck_mod/garand1998nadon" title="f/multi_ir_bgck_mod/garand1998nadon"><code class="xref f f-func docutils literal notranslate"><span class="pre">garand1998nadon()</span></code></a>, <a class="reference internal" href="#f/multi_ir_bgck_mod/estim_ts" title="f/multi_ir_bgck_mod/estim_ts"><code class="xref f f-func docutils literal notranslate"><span class="pre">estim_ts()</span></code></a>, <a class="reference internal" href="#f/multi_ir_bgck_mod/visocn" title="f/multi_ir_bgck_mod/visocn"><code class="xref f f-func docutils literal notranslate"><span class="pre">visocn()</span></code></a>, <a class="reference internal" href="#f/multi_ir_bgck_mod/cor_albedo" title="f/multi_ir_bgck_mod/cor_albedo"><code class="xref f f-func docutils literal notranslate"><span class="pre">cor_albedo()</span></code></a>, <a class="reference internal" href="#f/multi_ir_bgck_mod/cloud_top" title="f/multi_ir_bgck_mod/cloud_top"><code class="xref f f-func docutils literal notranslate"><span class="pre">cloud_top()</span></code></a>, <a class="reference internal" href="#f/multi_ir_bgck_mod/co2_slicing" title="f/multi_ir_bgck_mod/co2_slicing"><code class="xref f f-func docutils literal notranslate"><span class="pre">co2_slicing()</span></code></a>, <a class="reference internal" href="#f/multi_ir_bgck_mod/seltop" title="f/multi_ir_bgck_mod/seltop"><code class="xref f f-func docutils literal notranslate"><span class="pre">seltop()</span></code></a>, <a class="reference internal" href="#f/multi_ir_bgck_mod/min_pres_new" title="f/multi_ir_bgck_mod/min_pres_new"><code class="xref f f-func docutils literal notranslate"><span class="pre">min_pres_new()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_headset_i" title="f/obsspacedata_mod/obs_headset_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_headset_i()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyset_i" title="f/obsspacedata_mod/obs_bodyset_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyset_i()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/multi_ir_bgck_mod/convert_avhrr">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">multi_ir_bgck_mod/</span></span><span class="sig-name descname"><span class="pre">convert_avhrr</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">sunzen</span></em>, <em class="sig-param"><span class="pre">avhrr</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/multi_ir_bgck_mod/convert_avhrr" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>conversion des radiance IR en temperatures de brillance
+et des radiances visibles en “albedo”</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>sunzen</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: Solar zenith angle</p></li>
+<li><p><strong>avhrr</strong><em> [</em><em>avhrr_bgck_iasi </em><em>,</em><em>inout</em><em>]</em> :: Structure containing AVHRR observations</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/multi_ir_bgck_mod/irbg_doqualitycontrol" title="f/multi_ir_bgck_mod/irbg_doqualitycontrol"><code class="xref f f-func docutils literal notranslate"><span class="pre">irbg_doqualitycontrol()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/multi_ir_bgck_mod/calcbt" title="f/multi_ir_bgck_mod/calcbt"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcbt()</span></code></a>, <a class="reference internal" href="#f/multi_ir_bgck_mod/calcreflect" title="f/multi_ir_bgck_mod/calcreflect"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcreflect()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/multi_ir_bgck_mod/calcreflect">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">multi_ir_bgck_mod/</span></span><span class="sig-name descname"><span class="pre">calcreflect</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">rad</span></em>, <em class="sig-param"><span class="pre">sunzen</span></em>, <em class="sig-param"><span class="pre">reflect</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/multi_ir_bgck_mod/calcreflect" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Computes Top of Atmosphere Albedo as defined by equation (4)
+of Rao et al. Int. J. of Remote Sensing, 2003, vol 24, no 9, 1913-1924</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>rad</strong> (nvis)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: radiances array</p></li>
+<li><p><strong>sunzen</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: Sun zenith angle</p></li>
+<li><p><strong>reflect</strong> (nvis)<em> [</em><em>real </em><em>,</em><em>out</em><em>]</em> :: TOA albedo en %</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/multi_ir_bgck_mod/convert_avhrr" title="f/multi_ir_bgck_mod/convert_avhrr"><code class="xref f f-func docutils literal notranslate"><span class="pre">convert_avhrr()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/multi_ir_bgck_mod/calcbt">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">multi_ir_bgck_mod/</span></span><span class="sig-name descname"><span class="pre">calcbt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">rad</span></em>, <em class="sig-param"><span class="pre">tb</span></em>, <em class="sig-param"><span class="pre">dtbsdrad</span></em>, <em class="sig-param"><span class="pre">freq</span></em>, <em class="sig-param"><span class="pre">offset</span></em>, <em class="sig-param"><span class="pre">slope</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/multi_ir_bgck_mod/calcbt" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Computes brightness temperature (bt) and the first derivative of
+bt with respect to radiance, from radiance, frequencies</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>rad</strong> (*)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: Radiance</p></li>
+<li><p><strong>tb</strong> (size(rad)<em> [</em><em>real </em><em>,</em><em>out</em><em>]</em></p></li>
+<li><p><strong>dtbsdrad</strong> (size(rad)<em> [</em><em>real </em><em>,</em><em>out</em><em>]</em></p></li>
+<li><p><strong>freq</strong> (size(rad)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>offset</strong> (size(rad)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>slope</strong> (size(rad)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/multi_ir_bgck_mod/convert_avhrr" title="f/multi_ir_bgck_mod/convert_avhrr"><code class="xref f f-func docutils literal notranslate"><span class="pre">convert_avhrr()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/multi_ir_bgck_mod/stat_avhrr">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">multi_ir_bgck_mod/</span></span><span class="sig-name descname"><span class="pre">stat_avhrr</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">avhrr</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/multi_ir_bgck_mod/stat_avhrr" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>calcul de statistiques
+sur l’information sous-pixel AVHRR</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>avhrr</strong><em> [</em><em>avhrr_bgck_iasi </em><em>,</em><em>inout</em><em>]</em></p>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/multi_ir_bgck_mod/irbg_doqualitycontrol" title="f/multi_ir_bgck_mod/irbg_doqualitycontrol"><code class="xref f f-func docutils literal notranslate"><span class="pre">irbg_doqualitycontrol()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/multi_ir_bgck_mod/co2_slicing">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">multi_ir_bgck_mod/</span></span><span class="sig-name descname"><span class="pre">co2_slicing</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">ptop</span></em>, <em class="sig-param"><span class="pre">ntop</span></em>, <em class="sig-param"><span class="pre">fcloud</span></em>, <em class="sig-param"><span class="pre">rcal</span></em>, <em class="sig-param"><span class="pre">cloudyradiance</span></em>, <em class="sig-param"><span class="pre">radobs</span></em>, <em class="sig-param"><span class="pre">p0</span></em>, <em class="sig-param"><span class="pre">plev</span></em>, <em class="sig-param"><span class="pre">cldflag</span></em>, <em class="sig-param"><span class="pre">rejflag</span></em>, <em class="sig-param"><span class="pre">lev_start</span></em>, <em class="sig-param"><span class="pre">ichref</span></em>, <em class="sig-param"><span class="pre">ilist</span></em>, <em class="sig-param"><span class="pre">ilist_pair</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/multi_ir_bgck_mod/co2_slicing" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>cloud top height computation.
+cloud top from co2 slicing and cloud fraction estimate</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>ptop</strong> (nco2)<em> [</em><em>real </em><em>,</em><em>out</em><em>]</em> :: Cloud top (hPa)</p></li>
+<li><p><strong>ntop</strong> (nco2)<em> [</em><em>integer </em><em>,</em><em>out</em><em>]</em> :: Nearest pressure level corresponding to ptop (ptop &lt;= p0)</p></li>
+<li><p><strong>fcloud</strong> (nco2)<em> [</em><em>real </em><em>,</em><em>out</em><em>]</em> :: Cloud fraction</p></li>
+<li><p><strong>rcal</strong> (*)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: computed clear radiances (mW/m2/sr/cm-1)</p></li>
+<li><p><strong>cloudyradiance</strong> (size(rcal,size(plev)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>radobs</strong> (size(rcal)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>p0</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: surface pressure (hPa)</p></li>
+<li><p><strong>plev</strong> (*)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: pressure levels (hPa)</p></li>
+<li><p><strong>cldflag</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em> :: Cloudy flag (0 Clear, 1 Cloudy, -1 undefined)</p></li>
+<li><p><strong>rejflag</strong> (,1)<em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em> :: flags for rejected observations</p></li>
+<li><p><strong>lev_start</strong><em> [</em><em>integer </em><em>,</em><em>inout</em><em>]</em> :: Level to start iteration (ideally tropopause)</p></li>
+<li><p><strong>ichref</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em> :: window channel to predetermine clear</p></li>
+<li><p><strong>ilist</strong> (nco2)<em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em> :: first list of channels</p></li>
+<li><p><strong>ilist_pair</strong> (nco2)<em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em> :: second list channe</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/multi_ir_bgck_mod/irbg_doqualitycontrol" title="f/multi_ir_bgck_mod/irbg_doqualitycontrol"><code class="xref f f-func docutils literal notranslate"><span class="pre">irbg_doqualitycontrol()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/multi_ir_bgck_mod/seltop">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">multi_ir_bgck_mod/</span></span><span class="sig-name descname"><span class="pre">seltop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">etop</span></em>, <em class="sig-param"><span class="pre">vtop</span></em>, <em class="sig-param"><span class="pre">ecf</span></em>, <em class="sig-param"><span class="pre">vcf</span></em>, <em class="sig-param"><span class="pre">ngood</span></em>, <em class="sig-param"><span class="pre">he</span></em>, <em class="sig-param"><span class="pre">ht</span></em>, <em class="sig-param"><span class="pre">cf</span></em>, <em class="sig-param"><span class="pre">cfsub</span></em>, <em class="sig-param"><span class="pre">ptop_mb</span></em>, <em class="sig-param"><span class="pre">p0</span></em>, <em class="sig-param"><span class="pre">cldflag</span></em>, <em class="sig-param"><span class="pre">gncldflag</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/multi_ir_bgck_mod/seltop" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Select cloud top by averaging co2-slicing results
+judged correct. all missing values are -1.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>etop</strong><em> [</em><em>real </em><em>,</em><em>out</em><em>]</em> :: consensus cloud top (hPa)</p></li>
+<li><p><strong>vtop</strong><em> [</em><em>real </em><em>,</em><em>out</em><em>]</em> :: corresponding variance on etop (hPa)</p></li>
+<li><p><strong>ecf</strong><em> [</em><em>real </em><em>,</em><em>out</em><em>]</em> :: consensus effective cloud fraction</p></li>
+<li><p><strong>vcf</strong><em> [</em><em>real </em><em>,</em><em>out</em><em>]</em> :: corresponding variance on ecf</p></li>
+<li><p><strong>ngood</strong><em> [</em><em>integer </em><em>,</em><em>out</em><em>]</em> :: number of good estimates</p></li>
+<li><p><strong>he</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: equivalent cloud top heights from a window channel (hPa)</p></li>
+<li><p><strong>ht</strong> (nco2)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: cloud tops from co2-slicing (hPa)</p></li>
+<li><p><strong>cf</strong> (nco2)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: effective cloud fraction for co2-slicing</p></li>
+<li><p><strong>cfsub</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: visible (“subpixel”) cloud fraction</p></li>
+<li><p><strong>ptop_mb</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: height (mb) from cloud_height subroutine</p></li>
+<li><p><strong>p0</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: surface pressure in (hPa)</p></li>
+<li><p><strong>cldflag</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em> :: Cloudy flag (0 Clear, 1 Cloudy, -1 undefined)</p></li>
+<li><p><strong>gncldflag</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em> :: Garand Nadon cloudy flag (0 Clear, 1 Cloudy, -1 undefined)</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/multi_ir_bgck_mod/irbg_doqualitycontrol" title="f/multi_ir_bgck_mod/irbg_doqualitycontrol"><code class="xref f f-func docutils literal notranslate"><span class="pre">irbg_doqualitycontrol()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/multi_ir_bgck_mod/calcul_median_fast" title="f/multi_ir_bgck_mod/calcul_median_fast"><code class="xref f f-func docutils literal notranslate"><span class="pre">calcul_median_fast()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/multi_ir_bgck_mod/calcul_median_fast">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">multi_ir_bgck_mod/</span></span><span class="sig-name descname"><span class="pre">calcul_median_fast</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">nestimates</span></em>, <em class="sig-param"><span class="pre">hin</span></em>, <em class="sig-param"><span class="pre">fin</span></em>, <em class="sig-param"><span class="pre">ctp</span></em>, <em class="sig-param"><span class="pre">cfr</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/multi_ir_bgck_mod/calcul_median_fast" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Compute cloud fraction and height median.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>nestimates</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em> :: Number of Co2 slicing estimates</p></li>
+<li><p><strong>hin</strong> (*)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: Array of Height estimates</p></li>
+<li><p><strong>fin</strong> (*)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: Array of Cloud fraction estimates</p></li>
+<li><p><strong>ctp</strong><em> [</em><em>real </em><em>,</em><em>out</em><em>]</em> :: Median of  cloud top pressure estimates</p></li>
+<li><p><strong>cfr</strong><em> [</em><em>real </em><em>,</em><em>out</em><em>]</em> :: Corresponding cloud fraction</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/multi_ir_bgck_mod/seltop" title="f/multi_ir_bgck_mod/seltop"><code class="xref f f-func docutils literal notranslate"><span class="pre">seltop()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/multi_ir_bgck_mod/min_pres_new">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">multi_ir_bgck_mod/</span></span><span class="sig-name descname"><span class="pre">min_pres_new</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">maxheight</span></em>, <em class="sig-param"><span class="pre">minp</span></em>, <em class="sig-param"><span class="pre">pmin</span></em>, <em class="sig-param"><span class="pre">dt1</span></em>, <em class="sig-param"><span class="pre">p0</span></em>, <em class="sig-param"><span class="pre">tau</span></em>, <em class="sig-param"><span class="pre">plev</span></em>, <em class="sig-param"><span class="pre">cldflag</span></em>, <em class="sig-param"><span class="pre">modeltopindex</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/multi_ir_bgck_mod/min_pres_new" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>from total transmittance array, find minimum height
+level of sensitivity for a number of profiles and channels.
+this may be used to select for assimilation only the
+observations without sensitivity to clouds, that is the
+response function significant only above cloud level.
+the criterion is that dtau/dplev &gt; 0.01 for a 100 mb layer.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>maxheight</strong> (*)<em> [</em><em>real </em><em>,</em><em>out</em><em>]</em> :: Height (hPa) of the maximum of the weighting function</p></li>
+<li><p><strong>minp</strong> (size(maxheight)<em> [</em><em>integer </em><em>,</em><em>out</em><em>]</em></p></li>
+<li><p><strong>pmin</strong> (size(maxheight)<em> [</em><em>real </em><em>,</em><em>out</em><em>]</em></p></li>
+<li><p><strong>dt1</strong> (size(maxheight)<em> [</em><em>real </em><em>,</em><em>out</em><em>]</em></p></li>
+<li><p><strong>p0</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: surface pressure (hPa)</p></li>
+<li><p><strong>tau</strong> (size(maxheight,size(plev)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>plev</strong> (*)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: pressure levels (hPa)</p></li>
+<li><p><strong>cldflag</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em> :: Cloudy flag (0 Clear, 1 Cloudy, -1 undefined)</p></li>
+<li><p><strong>modeltopindex</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em> :: rt model level nearest to model top</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/multi_ir_bgck_mod/irbg_doqualitycontrol" title="f/multi_ir_bgck_mod/irbg_doqualitycontrol"><code class="xref f f-func docutils literal notranslate"><span class="pre">irbg_doqualitycontrol()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/multi_ir_bgck_mod/cloud_height">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">multi_ir_bgck_mod/</span></span><span class="sig-name descname"><span class="pre">cloud_height</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">ptop</span></em>, <em class="sig-param"><span class="pre">ntop</span></em>, <em class="sig-param"><span class="pre">btobs</span></em>, <em class="sig-param"><span class="pre">cldflag</span></em>, <em class="sig-param"><span class="pre">tt</span></em>, <em class="sig-param"><span class="pre">height</span></em>, <em class="sig-param"><span class="pre">p0</span></em>, <em class="sig-param"><span class="pre">plev</span></em>, <em class="sig-param"><span class="pre">ichref</span></em>, <em class="sig-param"><span class="pre">lev_start</span></em>, <em class="sig-param"><span class="pre">iopt</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/multi_ir_bgck_mod/cloud_height" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Computation of cloud top height (above the ground)
+based on matching observed brightness temperature at a
+reference surface channel with background temperature profile.
+to use with one reference channel. used here on model levels.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>ptop</strong><em> [</em><em>real </em><em>,</em><em>out</em><em>]</em> :: Chosen equivalent cloud tops  (in hpa|m with iopt = 1|2)</p></li>
+<li><p><strong>ntop</strong><em> [</em><em>integer </em><em>,</em><em>out</em><em>]</em> :: Number of possible ptop solutions</p></li>
+<li><p><strong>btobs</strong> (*)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: Observed brightness temperature (deg k)</p></li>
+<li><p><strong>cldflag</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em> :: Cloudy flag (0 Clear, 1 Cloudy, -1 undefined)</p></li>
+<li><p><strong>tt</strong> (*)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: Temperature profiles (deg K)</p></li>
+<li><p><strong>height</strong> (size(tt)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>p0</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: Surface pressure (hPa)</p></li>
+<li><p><strong>plev</strong> (size(tt)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>ichref</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em> :: Chosen reference surface channel</p></li>
+<li><p><strong>lev_start</strong><em> [</em><em>integer </em><em>,</em><em>inout</em><em>]</em> :: Level to start iteration (ideally tropopause)</p></li>
+<li><p><strong>iopt</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em> :: Levels using plev (1) or height (2)</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/multi_ir_bgck_mod/irbg_doqualitycontrol" title="f/multi_ir_bgck_mod/irbg_doqualitycontrol"><code class="xref f f-func docutils literal notranslate"><span class="pre">irbg_doqualitycontrol()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/multi_ir_bgck_mod/get_top" title="f/multi_ir_bgck_mod/get_top"><code class="xref f f-func docutils literal notranslate"><span class="pre">get_top()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/multi_ir_bgck_mod/garand1998nadon">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">multi_ir_bgck_mod/</span></span><span class="sig-name descname"><span class="pre">garand1998nadon</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">cldflag</span></em>, <em class="sig-param"><span class="pre">btobs</span></em>, <em class="sig-param"><span class="pre">tg</span></em>, <em class="sig-param"><span class="pre">tt</span></em>, <em class="sig-param"><span class="pre">height</span></em>, <em class="sig-param"><span class="pre">ptop_eq</span></em>, <em class="sig-param"><span class="pre">ntop_eq</span></em>, <em class="sig-param"><span class="pre">ichref</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/multi_ir_bgck_mod/garand1998nadon" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Determine if the profiles are clear or cloudy based on
+the algorithm of garand &amp; nadon 98 j.clim v11 pp.1976-1996
+with channel iref.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>cldflag</strong><em> [</em><em>integer </em><em>,</em><em>inout</em><em>]</em> :: Cloudy flag (0 Clear, 1 Cloudy, -1 undefined)</p></li>
+<li><p><strong>btobs</strong> (*)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: Observed brightness temperatures (K)</p></li>
+<li><p><strong>tg</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: Guess skin temperatures (K)</p></li>
+<li><p><strong>tt</strong> (*)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: Guess temperature profiles (K)</p></li>
+<li><p><strong>height</strong> (size(tt)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>ptop_eq</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: Chosen equivalent cloud tops (m)</p></li>
+<li><p><strong>ntop_eq</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em> :: Number of possible ptop_eq solutions</p></li>
+<li><p><strong>ichref</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em> :: Chosen reference surface channel</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/multi_ir_bgck_mod/irbg_doqualitycontrol" title="f/multi_ir_bgck_mod/irbg_doqualitycontrol"><code class="xref f f-func docutils literal notranslate"><span class="pre">irbg_doqualitycontrol()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/multi_ir_bgck_mod/monotonic_inversion" title="f/multi_ir_bgck_mod/monotonic_inversion"><code class="xref f f-func docutils literal notranslate"><span class="pre">monotonic_inversion()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/multi_ir_bgck_mod/monotonic_inversion">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">multi_ir_bgck_mod/</span></span><span class="sig-name descname"><span class="pre">monotonic_inversion</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">ninvr</span></em>, <em class="sig-param"><span class="pre">tg</span></em>, <em class="sig-param"><span class="pre">tt</span></em>, <em class="sig-param"><span class="pre">height</span></em>, <em class="sig-param"><span class="pre">lvl</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/multi_ir_bgck_mod/monotonic_inversion" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Determine if there is a presence (ninvr=1) or not (ninvr=0)
+of a temperature inversion going from the surface up to the</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>height</strong> (size(tt)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: lvl</p></li>
+<li><p><strong>ninvr</strong><em> [</em><em>integer </em><em>,</em><em>out</em><em>]</em> :: Number of inversions
+FROM THE SURFACE TO HEIGHT LVL</p></li>
+<li><p><strong>tg</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: Skin temperature (K)</p></li>
+<li><p><strong>tt</strong> (*)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: Temperature profile (K)</p></li>
+<li><p><strong>lvl</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: Height to search for temperature inversion (m)</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Arguments </dt>
+<dd class="field-odd"><p></p></dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/multi_ir_bgck_mod/garand1998nadon" title="f/multi_ir_bgck_mod/garand1998nadon"><code class="xref f f-func docutils literal notranslate"><span class="pre">garand1998nadon()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/multi_ir_bgck_mod/estim_ts">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">multi_ir_bgck_mod/</span></span><span class="sig-name descname"><span class="pre">estim_ts</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">ts</span></em>, <em class="sig-param"><span class="pre">tg</span></em>, <em class="sig-param"><span class="pre">emi</span></em>, <em class="sig-param"><span class="pre">rcal</span></em>, <em class="sig-param"><span class="pre">radobs</span></em>, <em class="sig-param"><span class="pre">sfctau</span></em>, <em class="sig-param"><span class="pre">cldflag</span></em>, <em class="sig-param"><span class="pre">ichref</span></em>, <em class="sig-param"><span class="pre">mycoefs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/multi_ir_bgck_mod/estim_ts" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Get an estimated skin temperature by inversion of
+radiative transfer equation assuming guess t and q profiles
+are perfect. designed for a single channel ichref and nprf
+profiles. assumes a real tg (guess) over oceans and a tg
+with hypothesis of unity emissivity over land.</p>
+</dd>
+<dt class="field-even">Note </dt>
+<dd class="field-even"><p>Uses rcal = B(TG)*EMI*SFCtau + ATMOS_PART</p>
+</dd>
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ts</strong><em> [</em><em>real </em><em>,</em><em>out</em><em>]</em> :: Retrieved skin temperature (-1. for missing)
+SOLVES FOR ts</p></li>
+<li><p><strong>tg</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: Guess skin temperature (K)</p></li>
+<li><p><strong>emi</strong> (*)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: Surface emissivities from window channel (0.-1.)</p></li>
+<li><p><strong>rcal</strong> (size(emi)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>radobs</strong> (size(emi)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>sfctau</strong> (size(emi)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>cldflag</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em> :: Cloudy flag (0 Clear, 1 Cloudy, -1 undefined)</p></li>
+<li><p><strong>ichref</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em> :: Reference surface channel (subset values)</p></li>
+<li><p><strong>mycoefs</strong><em> [</em><em>rttov_coefs </em><em>,</em><em>in</em><em>]</em> :: RTTOV coefficients structure</p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/multi_ir_bgck_mod/irbg_doqualitycontrol" title="f/multi_ir_bgck_mod/irbg_doqualitycontrol"><code class="xref f f-func docutils literal notranslate"><span class="pre">irbg_doqualitycontrol()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/multi_ir_bgck_mod/cloud_top">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">multi_ir_bgck_mod/</span></span><span class="sig-name descname"><span class="pre">cloud_top</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">ptop_bt</span></em>, <em class="sig-param"><span class="pre">ptop_rd</span></em>, <em class="sig-param"><span class="pre">ntop_bt</span></em>, <em class="sig-param"><span class="pre">ntop_rd</span></em>, <em class="sig-param"><span class="pre">btobs</span></em>, <em class="sig-param"><span class="pre">tt</span></em>, <em class="sig-param"><span class="pre">height</span></em>, <em class="sig-param"><span class="pre">rcal</span></em>, <em class="sig-param"><span class="pre">p0</span></em>, <em class="sig-param"><span class="pre">radobs</span></em>, <em class="sig-param"><span class="pre">cloudyradiance</span></em>, <em class="sig-param"><span class="pre">plev</span></em>, <em class="sig-param"><span class="pre">cldflag</span></em>, <em class="sig-param"><span class="pre">lev_start</span></em>, <em class="sig-param"><span class="pre">iopt</span></em>, <em class="sig-param"><span class="pre">ihgt</span></em>, <em class="sig-param"><span class="pre">ilist</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">rejflag_opt</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">ichref_opt</span></em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/multi_ir_bgck_mod/cloud_top" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Computation of cloud top height (above the ground)
+based on matching observed brightness temperature with
+background temperature profiles and/or computed observed
+radiances with background radiance profiles.
+to use with more than one channel. used here on rttov levels.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>ptop_bt</strong> (*)<em> [</em><em>real </em><em>,</em><em>out</em><em>]</em> :: Chosen equivalent cloud tops based on brightness temperatures (in hpa|m with iopt = 1|2)</p></li>
+<li><p><strong>ptop_rd</strong> (*)<em> [</em><em>real </em><em>,</em><em>out</em><em>]</em> :: Chosen equivalent cloud tops based on radiances (in hpa|m with iopt = 1|2)</p></li>
+<li><p><strong>ntop_bt</strong> (*)<em> [</em><em>integer </em><em>,</em><em>out</em><em>]</em> :: Number of possible ptop_bt solutions</p></li>
+<li><p><strong>ntop_rd</strong> (*)<em> [</em><em>integer </em><em>,</em><em>out</em><em>]</em> :: Number of possible ptop_rd solutions</p></li>
+<li><p><strong>btobs</strong> (*)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: Observed brightness temperautres (K)</p></li>
+<li><p><strong>tt</strong> (*)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: Temperature profiles (K)</p></li>
+<li><p><strong>height</strong> (*)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: Height profiles above ground (m)</p></li>
+<li><p><strong>rcal</strong> (*)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: Computed clear radiances (mW/m2/sr/cm-1)</p></li>
+<li><p><strong>p0</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: Surface pressure (hPa)</p></li>
+<li><p><strong>radobs</strong> (*)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: Computed observed radiances (mW/m2/sr/cm-1)</p></li>
+<li><p><strong>cloudyradiance</strong> (*,*)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: Computed cloud radiances from each level (hPa)</p></li>
+<li><p><strong>plev</strong> (*)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: Pressure levels (hPa)</p></li>
+<li><p><strong>cldflag</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em> :: Cloudy flag (0 Clear, 1 Cloudy, -1 undefined)</p></li>
+<li><p><strong>lev_start</strong><em> [</em><em>integer </em><em>,</em><em>inout</em><em>]</em> :: Level to start iteration (ideally tropopause)</p></li>
+<li><p><strong>iopt</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em> :: Levels using plev (1) or height (2)</p></li>
+<li><p><strong>ihgt</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em> :: Get <em>_bt</em> only (0), <em>_rd</em> only (1), both (2)</p></li>
+<li><p><strong>ilist</strong> (*)<em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em> :: List of the channel numbers (subset values)</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Options</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>rejflag_opt</strong> (,1)<em> [</em><em>integer </em><em>,</em><em>in,</em><em>]</em> :: Flags for rejected observations</p></li>
+<li><p><strong>ichref_opt</strong><em> [</em><em>integer </em><em>,</em><em>in,</em><em>]</em> :: Reference surface channel (subset value)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/multi_ir_bgck_mod/irbg_doqualitycontrol" title="f/multi_ir_bgck_mod/irbg_doqualitycontrol"><code class="xref f f-func docutils literal notranslate"><span class="pre">irbg_doqualitycontrol()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/multi_ir_bgck_mod/get_top" title="f/multi_ir_bgck_mod/get_top"><code class="xref f f-func docutils literal notranslate"><span class="pre">get_top()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/multi_ir_bgck_mod/get_top">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">multi_ir_bgck_mod/</span></span><span class="sig-name descname"><span class="pre">get_top</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">ht</span></em>, <em class="sig-param"><span class="pre">nht</span></em>, <em class="sig-param"><span class="pre">bt</span></em>, <em class="sig-param"><span class="pre">tt</span></em>, <em class="sig-param"><span class="pre">pp</span></em>, <em class="sig-param"><span class="pre">lev_start</span></em>, <em class="sig-param"><span class="pre">iopt</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/multi_ir_bgck_mod/get_top" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Computation of cloud top height and number of possible heights.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>ht</strong> (*)<em> [</em><em>real </em><em>,</em><em>out</em><em>]</em> :: Cloud top height in hpa or meters (iopt = 1 or 2)</p></li>
+<li><p><strong>nht</strong><em> [</em><em>integer </em><em>,</em><em>out</em><em>]</em> :: Number of possible cloud height solutions</p></li>
+<li><p><strong>bt</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: Observed brightness temperatures (deg k) or radiance (mw/m2/sr/cm-1)</p></li>
+<li><p><strong>tt</strong> (*)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: Temperature profile (deg k) or computed cloud radiance from each level to top</p></li>
+<li><p><strong>pp</strong> (size(tt)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>lev_start</strong><em> [</em><em>integer </em><em>,</em><em>inout</em><em>]</em></p></li>
+<li><p><strong>iopt</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em> :: Height units in hpa (1) or in meters (2)</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/multi_ir_bgck_mod/cloud_height" title="f/multi_ir_bgck_mod/cloud_height"><code class="xref f f-func docutils literal notranslate"><span class="pre">cloud_height()</span></code></a>, <a class="reference internal" href="#f/multi_ir_bgck_mod/cloud_top" title="f/multi_ir_bgck_mod/cloud_top"><code class="xref f f-func docutils literal notranslate"><span class="pre">cloud_top()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/multi_ir_bgck_mod/get_avhrr_emiss">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">multi_ir_bgck_mod/</span></span><span class="sig-name descname"><span class="pre">get_avhrr_emiss</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">iasi_surfem1</span></em>, <em class="sig-param"><span class="pre">freqiasi</span></em>, <em class="sig-param"><span class="pre">nchaniasi</span></em>, <em class="sig-param"><span class="pre">avhrr_surfem1</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/multi_ir_bgck_mod/get_avhrr_emiss" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>choisi l’emissivite d’un canal IASI proche pour AVHRR
+a raffiner pour prendre en  compte la largeur  des canaux AVHRR ??</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>iasi_surfem1</strong> (nchaniasi)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: IASI emissivities</p></li>
+<li><p><strong>freqiasi</strong> (nchaniasi)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: IASI wavenumbers (cm-1)</p></li>
+<li><p><strong>nchaniasi</strong><em> [</em><em>integer </em><em>,</em><em>in,</em><em>]</em> :: Number of IASI channels</p></li>
+<li><p><strong>avhrr_surfem1</strong> (nir)<em> [</em><em>real </em><em>,</em><em>out</em><em>]</em> :: AVHRR emissivities</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/multi_ir_bgck_mod/irbg_doqualitycontrol" title="f/multi_ir_bgck_mod/irbg_doqualitycontrol"><code class="xref f f-func docutils literal notranslate"><span class="pre">irbg_doqualitycontrol()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/multi_ir_bgck_mod/tovs_rttov_avhrr_for_iasi">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">multi_ir_bgck_mod/</span></span><span class="sig-name descname"><span class="pre">tovs_rttov_avhrr_for_iasi</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">headerindex</span></em>, <em class="sig-param"><span class="pre">surfem1_avhrr</span></em>, <em class="sig-param"><span class="pre">idiasi</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/multi_ir_bgck_mod/tovs_rttov_avhrr_for_iasi" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Computation of forward radiance with rttov_direct
+(for AVHRR).
+appel de RTTOV pour le calcul des radiances AVHRR
+(non assimilees mais necessaires au background check IASI)</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>headerindex</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em> :: Location of the IASI observation in the TOVS structures and in obSpaceData (this is the same in IR bgck mode)</p></li>
+<li><p><strong>surfem1_avhrr</strong> (3)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: AHVRR surface emissivities</p></li>
+<li><p><strong>idiasi</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em> :: iasi (in fact METOP) number</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/multi_ir_bgck_mod/irbg_doqualitycontrol" title="f/multi_ir_bgck_mod/irbg_doqualitycontrol"><code class="xref f f-func docutils literal notranslate"><span class="pre">irbg_doqualitycontrol()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="tovs_nl_mod.html#f/tovs_nl_mod/tvs_getprofile" title="f/tovs_nl_mod/tvs_getprofile"><code class="xref f f-func docutils literal notranslate"><span class="pre">tvs_getprofile()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/multi_ir_bgck_mod/cor_albedo">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">multi_ir_bgck_mod/</span></span><span class="sig-name descname"><span class="pre">cor_albedo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">delta</span></em>, <em class="sig-param"><span class="pre">scos</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/multi_ir_bgck_mod/cor_albedo" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>ce sous-programme calcule un facteur de correction
+pour l’albedo a partir du cosinus de l’angle solaire.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>delta</strong><em> [</em><em>real </em><em>,</em><em>out</em><em>]</em> :: Correction factor</p></li>
+<li><p><strong>scos</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: Cosine of solar zenith angle</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/multi_ir_bgck_mod/irbg_doqualitycontrol" title="f/multi_ir_bgck_mod/irbg_doqualitycontrol"><code class="xref f f-func docutils literal notranslate"><span class="pre">irbg_doqualitycontrol()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/multi_ir_bgck_mod/drcld" title="f/multi_ir_bgck_mod/drcld"><code class="xref f f-func docutils literal notranslate"><span class="pre">drcld()</span></code></a>, <a class="reference internal" href="#f/multi_ir_bgck_mod/lineq" title="f/multi_ir_bgck_mod/lineq"><code class="xref f f-func docutils literal notranslate"><span class="pre">lineq()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/multi_ir_bgck_mod/drcld">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">multi_ir_bgck_mod/</span></span><span class="sig-name descname"><span class="pre">drcld</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">iz</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/multi_ir_bgck_mod/drcld" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Generaliser pour toutes les plateformes satellitaires.
+Ce sous-programme calcule la normalisation due
+a l’angle zenith solaire selon
+MINNIS-HARRISSON (COURBE FIG 7), P1038,JCAM 84.</p>
+</dd>
+<dt class="field-even">Output </dt>
+<dd class="field-even"><p>facteur de normalisation</p>
+</dd>
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><p><strong>iz</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em> :: Index for Sun angle bin</p>
+</dd>
+<dt class="field-even">Return</dt>
+<dd class="field-even"><p><strong>drcld</strong><em> [</em><em>real </em><em>]</em></p>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/multi_ir_bgck_mod/cor_albedo" title="f/multi_ir_bgck_mod/cor_albedo"><code class="xref f f-func docutils literal notranslate"><span class="pre">cor_albedo()</span></code></a>, <a class="reference internal" href="#f/multi_ir_bgck_mod/visocn" title="f/multi_ir_bgck_mod/visocn"><code class="xref f f-func docutils literal notranslate"><span class="pre">visocn()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/multi_ir_bgck_mod/visocn">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">multi_ir_bgck_mod/</span></span><span class="sig-name descname"><span class="pre">visocn</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">sz</span></em>, <em class="sig-param"><span class="pre">satz</span></em>, <em class="sig-param"><span class="pre">rz</span></em>, <em class="sig-param"><span class="pre">anisot</span></em>, <em class="sig-param"><span class="pre">zlamb</span></em>, <em class="sig-param"><span class="pre">zcloud</span></em>, <em class="sig-param"><span class="pre">ierr</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/multi_ir_bgck_mod/visocn" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>This routine provides the corrective factors for the anisotropy
+of reflectance over clear ocean.</p>
+</dd>
+<dt class="field-even">Notes </dt>
+<dd class="field-even"><p>Obtained from dr pat minnis,langley , and based on the work
+of minnis and harrisson,jcam 1984,p993.
+the routine is a look up table along with interpolation on the
+three angles.</p>
+</dd>
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sz</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: sun zenith angle in degrees (0 to 90)</p></li>
+<li><p><strong>satz</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: satellite zenith angle (0 to 90)</p></li>
+<li><p><strong>rz</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: relative angle in degrees (0-180) with 0 as backscattering and 180 as forward scattering</p></li>
+<li><p><strong>anisot</strong><em> [</em><em>real </em><em>,</em><em>out</em><em>]</em> :: anisotropic corrective factor (khi in minnis-harrisson)</p></li>
+<li><p><strong>zlamb</strong><em> [</em><em>real </em><em>,</em><em>out</em><em>]</em> :: corrective factor for lambertian reflectance (Ocean surface)</p></li>
+<li><p><strong>zcloud</strong><em> [</em><em>real </em><em>,</em><em>out</em><em>]</em> :: Same as zlamb but for cloud surface</p></li>
+<li><p><strong>ierr</strong><em> [</em><em>integer </em><em>,</em><em>out</em><em>]</em> :: Error code (0=ok; -1=problem with interpolation)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/multi_ir_bgck_mod/irbg_doqualitycontrol" title="f/multi_ir_bgck_mod/irbg_doqualitycontrol"><code class="xref f f-func docutils literal notranslate"><span class="pre">irbg_doqualitycontrol()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/multi_ir_bgck_mod/lineq" title="f/multi_ir_bgck_mod/lineq"><code class="xref f f-func docutils literal notranslate"><span class="pre">lineq()</span></code></a>, <a class="reference internal" href="#f/multi_ir_bgck_mod/drm" title="f/multi_ir_bgck_mod/drm"><code class="xref f f-func docutils literal notranslate"><span class="pre">drm()</span></code></a>, <a class="reference internal" href="#f/multi_ir_bgck_mod/drcld" title="f/multi_ir_bgck_mod/drcld"><code class="xref f f-func docutils literal notranslate"><span class="pre">drcld()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/multi_ir_bgck_mod/lineq">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">multi_ir_bgck_mod/</span></span><span class="sig-name descname"><span class="pre">lineq</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">x1</span></em>, <em class="sig-param"><span class="pre">x2</span></em>, <em class="sig-param"><span class="pre">y1</span></em>, <em class="sig-param"><span class="pre">y2</span></em>, <em class="sig-param"><span class="pre">a</span></em>, <em class="sig-param"><span class="pre">b</span></em>, <em class="sig-param"><span class="pre">ierr</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/multi_ir_bgck_mod/lineq" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>calculate slope and intercept of a line.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>x1</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: coordinate x of point 1</p></li>
+<li><p><strong>x2</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: coordinate x of point 2</p></li>
+<li><p><strong>y1</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: coordinate y of point 1</p></li>
+<li><p><strong>y2</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: coordinate y of point 2</p></li>
+<li><p><strong>a</strong><em> [</em><em>real </em><em>,</em><em>out</em><em>]</em> :: slope</p></li>
+<li><p><strong>b</strong><em> [</em><em>real </em><em>,</em><em>out</em><em>]</em> :: intercept</p></li>
+<li><p><strong>ierr</strong><em> [</em><em>integer </em><em>,</em><em>out</em><em>]</em> :: error code (0=ok)</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/multi_ir_bgck_mod/cor_albedo" title="f/multi_ir_bgck_mod/cor_albedo"><code class="xref f f-func docutils literal notranslate"><span class="pre">cor_albedo()</span></code></a>, <a class="reference internal" href="#f/multi_ir_bgck_mod/visocn" title="f/multi_ir_bgck_mod/visocn"><code class="xref f f-func docutils literal notranslate"><span class="pre">visocn()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/multi_ir_bgck_mod/drm">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">multi_ir_bgck_mod/</span></span><span class="sig-name descname"><span class="pre">drm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">iz</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/multi_ir_bgck_mod/drm" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Normalization for sun zenith angle (lambertian)
+for ocean.</p>
+</dd>
+<dt class="field-even">Outputs </dt>
+<dd class="field-even"><p>normalization factor</p>
+</dd>
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><p><strong>iz</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em> :: index</p>
+</dd>
+<dt class="field-even">Return</dt>
+<dd class="field-even"><p><strong>drm</strong><em> [</em><em>real </em><em>]</em></p>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/multi_ir_bgck_mod/visocn" title="f/multi_ir_bgck_mod/visocn"><code class="xref f f-func docutils literal notranslate"><span class="pre">visocn()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div></blockquote>
+</section>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="obsspacediag_mod.html" title="obsspacediag_mod"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="minimization_mod.html" title="minimization_mod"
+             >previous</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2018, ECCC.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.
+    </div>
+  </body>
+</html>

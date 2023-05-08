@@ -1,0 +1,19 @@
+==========================================
+randomnumber_mod
+==========================================
+
+    :doc:`link to source code <randomnumber_mod_src>`
+
+
+    **Dependency Diagrams:**
+
+      No Direct Dependency
+
+    .. figure:: /randomnumber_mod_rev.svg
+        :height: 100px
+
+        Reverse Dependency Diagram
+
+
+    .. f:automodule:: randomnumber_mod
+

@@ -1,0 +1,419 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>humiditylimits_mod &mdash; MIDAS  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="MIDAS  documentation" href="../index.html" />
+    <link rel="next" title="interpolation_mod" href="interpolation_mod.html" />
+    <link rel="prev" title="gridvariabletransforms_mod" href="gridvariabletransforms_mod.html" /> 
+  </head>
+  <body>
+  <div>
+    <img src="../_static/MIDAS_header.png" alt="MIDAS" />
+  </div>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="interpolation_mod.html" title="interpolation_mod"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="gridvariabletransforms_mod.html" title="gridvariabletransforms_mod"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="gridvariabletransforms_mod.html"
+                          title="previous chapter">gridvariabletransforms_mod</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="interpolation_mod.html"
+                          title="next chapter">interpolation_mod</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/modules/humiditylimits_mod.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <section id="humiditylimits-mod">
+<h1>humiditylimits_mod<a class="headerlink" href="#humiditylimits-mod" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><p><a class="reference internal" href="humiditylimits_mod_src.html"><span class="doc">link to source code</span></a></p>
+<p><strong>Dependency Diagrams:</strong></p>
+<figure class="align-default" id="id1">
+<a class="reference internal image-reference" href="humiditylimits_mod.svg"><img alt="humiditylimits_mod.svg" height="100px" src="humiditylimits_mod.svg" /></a>
+<figcaption>
+<p><span class="caption-text">Direct Dependency Diagram</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id2">
+<a class="reference internal image-reference" href="humiditylimits_mod_rev.svg"><img alt="humiditylimits_mod_rev.svg" height="100px" src="humiditylimits_mod_rev.svg" /></a>
+<figcaption>
+<p><span class="caption-text">Reverse Dependency Diagram</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<span class="target" id="f/humiditylimits_mod"></span><p class="rubric">Description</p>
+<p>MODULE humidityLimits_mod (prefix=’qlim’ category=’4. Data Object transformations’)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Purpose</dt>
+<dd class="field-odd"><p>Various manipulations of humidity-related quantities.</p>
+</dd>
+</dl>
+<p class="rubric">Quick access</p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/humiditylimits_mod/qlim_rttovlimit" title="f/humiditylimits_mod/qlim_rttovlimit"><code class="xref f f-var docutils literal notranslate"><span class="pre">qlim_rttovlimit</span></code></a>, <a class="reference internal" href="#f/humiditylimits_mod/qlim_saturationlimit" title="f/humiditylimits_mod/qlim_saturationlimit"><code class="xref f f-var docutils literal notranslate"><span class="pre">qlim_saturationlimit</span></code></a>, <a class="reference internal" href="#f/humiditylimits_mod/qlim_setmin" title="f/humiditylimits_mod/qlim_setmin"><code class="xref f f-var docutils literal notranslate"><span class="pre">qlim_setmin</span></code></a></p>
+</dd>
+<dt class="field-even">Routines</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/humiditylimits_mod/cloudexistinensemble" title="f/humiditylimits_mod/cloudexistinensemble"><code class="xref f f-func docutils literal notranslate"><span class="pre">cloudexistinensemble()</span></code></a>, <a class="reference internal" href="#f/humiditylimits_mod/cloudexistinstatevector" title="f/humiditylimits_mod/cloudexistinstatevector"><code class="xref f f-func docutils literal notranslate"><span class="pre">cloudexistinstatevector()</span></code></a>, <a class="reference internal" href="#f/humiditylimits_mod/qlim_getmaxvaluecloud" title="f/humiditylimits_mod/qlim_getmaxvaluecloud"><code class="xref f f-func docutils literal notranslate"><span class="pre">qlim_getmaxvaluecloud()</span></code></a>, <a class="reference internal" href="#f/humiditylimits_mod/qlim_getminvaluecloud" title="f/humiditylimits_mod/qlim_getminvaluecloud"><code class="xref f f-func docutils literal notranslate"><span class="pre">qlim_getminvaluecloud()</span></code></a>, <a class="reference internal" href="#f/humiditylimits_mod/qlim_lintv_minmax" title="f/humiditylimits_mod/qlim_lintv_minmax"><code class="xref f f-func docutils literal notranslate"><span class="pre">qlim_lintv_minmax()</span></code></a>, <a class="reference internal" href="#f/humiditylimits_mod/qlim_rttovlimit_ens" title="f/humiditylimits_mod/qlim_rttovlimit_ens"><code class="xref f f-func docutils literal notranslate"><span class="pre">qlim_rttovlimit_ens()</span></code></a>, <a class="reference internal" href="#f/humiditylimits_mod/qlim_rttovlimit_gsv" title="f/humiditylimits_mod/qlim_rttovlimit_gsv"><code class="xref f f-func docutils literal notranslate"><span class="pre">qlim_rttovlimit_gsv()</span></code></a>, <a class="reference internal" href="#f/humiditylimits_mod/qlim_saturationlimit_ens" title="f/humiditylimits_mod/qlim_saturationlimit_ens"><code class="xref f f-func docutils literal notranslate"><span class="pre">qlim_saturationlimit_ens()</span></code></a>, <a class="reference internal" href="#f/humiditylimits_mod/qlim_saturationlimit_gsv" title="f/humiditylimits_mod/qlim_saturationlimit_gsv"><code class="xref f f-func docutils literal notranslate"><span class="pre">qlim_saturationlimit_gsv()</span></code></a>, <a class="reference internal" href="#f/humiditylimits_mod/qlim_setmin_ens" title="f/humiditylimits_mod/qlim_setmin_ens"><code class="xref f f-func docutils literal notranslate"><span class="pre">qlim_setmin_ens()</span></code></a></p>
+</dd>
+</dl>
+<p class="rubric">Needed modules</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="midasmpi_mod.html#f/midasmpi_mod" title="f/midasmpi_mod: MODULE midasMpi_mod (prefix='mmpi' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">midasmpi_mod</span></code></a>: MODULE midasMpi_mod (prefix=’mmpi’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod" title="f/utilities_mod: MODULE utilities_mod (prefix='utl' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">utilities_mod</span></code></a>: MODULE utilities_mod (prefix=’utl’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="mathphysconstants_mod.html#f/mathphysconstants_mod" title="f/mathphysconstants_mod: MODULE MathPhysConstants_mod (prefix='mpc' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">mathphysconstants_mod</span></code></a>: MODULE MathPhysConstants_mod (prefix=’mpc’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="varnamelist_mod.html#f/varnamelist_mod" title="f/varnamelist_mod: MODULE varNameList (prefix='vnl' category='7. Low-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">varnamelist_mod</span></code></a>: MODULE varNameList (prefix=’vnl’ category=’7. Low-level data objects’)</p></li>
+<li><p><a class="reference internal" href="physicsfunctions_mod.html#f/physicsfunctions_mod" title="f/physicsfunctions_mod: MODULE physicsFunctions_mod (prefix='phf' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">physicsfunctions_mod</span></code></a>: MODULE physicsFunctions_mod (prefix=’phf’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="verticalcoord_mod.html#f/verticalcoord_mod" title="f/verticalcoord_mod: MODULE verticalcoord (prefix='vco' category='7. Low-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">verticalcoord_mod</span></code></a>: MODULE verticalcoord (prefix=’vco’ category=’7. Low-level data objects’)</p></li>
+<li><p><a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod" title="f/gridstatevector_mod: MODULE gridStateVector_mod (prefix='gsv' category='6. High-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">gridstatevector_mod</span></code></a>: MODULE gridStateVector_mod (prefix=’gsv’ category=’6. High-level data objects’)</p></li>
+<li><p><a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod" title="f/ensemblestatevector_mod: MODULE ensembleStateVector_mod (prefix='ens' category='6. High-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">ensemblestatevector_mod</span></code></a>: MODULE ensembleStateVector_mod (prefix=’ens’ category=’6. High-level data objects’)</p></li>
+<li><p><a class="reference internal" href="calcheightandpressure_mod.html#f/calcheightandpressure_mod" title="f/calcheightandpressure_mod: MODULE czp_calcHeightAndPressure (prefix='czp' category='4. Data Object transformations')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">calcheightandpressure_mod</span></code></a>: MODULE czp_calcHeightAndPressure (prefix=’czp’ category=’4. Data Object transformations’)</p></li>
+</ul>
+<p class="rubric">Variables</p>
+<ul>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/humiditylimits_mod/qlim_rttovlimit">
+<span class="sig-prename descclassname"><span class="pre">humiditylimits_mod/</span></span><span class="sig-name descname"><span class="pre">qlim_rttovlimit</span></span><em> <span class="pre">[</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/humiditylimits_mod/qlim_rttovlimit" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/humiditylimits_mod/qlim_saturationlimit">
+<span class="sig-prename descclassname"><span class="pre">humiditylimits_mod/</span></span><span class="sig-name descname"><span class="pre">qlim_saturationlimit</span></span><em> <span class="pre">[</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/humiditylimits_mod/qlim_saturationlimit" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/humiditylimits_mod/qlim_setmin">
+<span class="sig-prename descclassname"><span class="pre">humiditylimits_mod/</span></span><span class="sig-name descname"><span class="pre">qlim_setmin</span></span><em> <span class="pre">[</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/humiditylimits_mod/qlim_setmin" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+</ul>
+<p class="rubric">Subroutines and functions</p>
+<dl>
+<dt class="sig sig-object f" id="f/humiditylimits_mod/readnamelist">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">humiditylimits_mod/</span></span><span class="sig-name descname"><span class="pre">readnamelist</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#f/humiditylimits_mod/readnamelist" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Reading NAMQLIM namelist by any subroutines in humidityLimits_mod module.</p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_isnamelistpresent" title="f/utilities_mod/utl_isnamelistpresent"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_isnamelistpresent()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/humiditylimits_mod/qlim_saturationlimit_gsv">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">humiditylimits_mod/</span></span><span class="sig-name descname"><span class="pre">qlim_saturationlimit_gsv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">statevector</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/humiditylimits_mod/qlim_saturationlimit_gsv" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>To impose saturation limit on humidity variable of a statevector</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>statevector</strong><em> [</em><em>struct_gsv </em><em>]</em></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_varexist" title="f/gridstatevector_mod/gsv_varexist"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_varexist()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_getvco" title="f/gridstatevector_mod/gsv_getvco"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_getvco()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_getnumlev" title="f/gridstatevector_mod/gsv_getnumlev"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_getnumlev()</span></code></a>, <a class="reference internal" href="physicsfunctions_mod.html#f/physicsfunctions_mod/phf_foqst8" title="f/physicsfunctions_mod/phf_foqst8"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_foqst8()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/humiditylimits_mod/qlim_saturationlimit_ens">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">humiditylimits_mod/</span></span><span class="sig-name descname"><span class="pre">qlim_saturationlimit_ens</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">ensemble</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/humiditylimits_mod/qlim_saturationlimit_ens" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>To impose saturation limit on humidity variable of an ensemble</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>ensemble</strong><em> [</em><em>struct_ens </em><em>]</em></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_getdatakind" title="f/ensemblestatevector_mod/ens_getdatakind"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_getdatakind()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_varexist" title="f/ensemblestatevector_mod/ens_varexist"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_varexist()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_getvco" title="f/ensemblestatevector_mod/ens_getvco"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_getvco()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_getnumlev" title="f/ensemblestatevector_mod/ens_getnumlev"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_getnumlev()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_getlatlonbounds" title="f/ensemblestatevector_mod/ens_getlatlonbounds"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_getlatlonbounds()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_getnummembers" title="f/ensemblestatevector_mod/ens_getnummembers"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_getnummembers()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_getnumstep" title="f/ensemblestatevector_mod/ens_getnumstep"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_getnumstep()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_getkfromlevvarname" title="f/ensemblestatevector_mod/ens_getkfromlevvarname"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_getkfromlevvarname()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_getonelev_r4" title="f/ensemblestatevector_mod/ens_getonelev_r4"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_getonelev_r4()</span></code></a>, <a class="reference internal" href="physicsfunctions_mod.html#f/physicsfunctions_mod/phf_foqst8" title="f/physicsfunctions_mod/phf_foqst8"><code class="xref f f-func docutils literal notranslate"><span class="pre">phf_foqst8()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/humiditylimits_mod/qlim_rttovlimit_gsv">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">humiditylimits_mod/</span></span><span class="sig-name descname"><span class="pre">qlim_rttovlimit_gsv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">statevector</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">varname_opt</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">applylimittocloud_opt</span></em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/humiditylimits_mod/qlim_rttovlimit_gsv" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>To impose RTTOV limits on humidity/cloud</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>statevector</strong><em> [</em><em>struct_gsv </em><em>,</em><em>inout</em><em>]</em></p>
+</dd>
+<dt class="field-odd">Options</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>varname_opt</strong><em> [</em><em>character </em><em>,</em><em>in,</em><em>]</em></p></li>
+<li><p><strong>applylimittocloud_opt</strong><em> [</em><em>logical </em><em>,</em><em>in,</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="varnamelist_mod.html#f/varnamelist_mod/vnl_iscloudvar" title="f/varnamelist_mod/vnl_iscloudvar"><code class="xref f f-func docutils literal notranslate"><span class="pre">vnl_iscloudvar()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_varexist" title="f/gridstatevector_mod/gsv_varexist"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_varexist()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_getvco" title="f/gridstatevector_mod/gsv_getvco"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_getvco()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_getnumlev" title="f/gridstatevector_mod/gsv_getnumlev"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_getnumlev()</span></code></a>, <a class="reference internal" href="#f/humiditylimits_mod/qlim_lintv_minmax" title="f/humiditylimits_mod/qlim_lintv_minmax"><code class="xref f f-func docutils literal notranslate"><span class="pre">qlim_lintv_minmax()</span></code></a>, <a class="reference internal" href="#f/humiditylimits_mod/cloudexistinstatevector" title="f/humiditylimits_mod/cloudexistinstatevector"><code class="xref f f-func docutils literal notranslate"><span class="pre">cloudexistinstatevector()</span></code></a>, <a class="reference internal" href="#f/humiditylimits_mod/qlim_getminvaluecloud" title="f/humiditylimits_mod/qlim_getminvaluecloud"><code class="xref f f-func docutils literal notranslate"><span class="pre">qlim_getminvaluecloud()</span></code></a>, <a class="reference internal" href="#f/humiditylimits_mod/qlim_getmaxvaluecloud" title="f/humiditylimits_mod/qlim_getmaxvaluecloud"><code class="xref f f-func docutils literal notranslate"><span class="pre">qlim_getmaxvaluecloud()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/humiditylimits_mod/qlim_rttovlimit_ens">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">humiditylimits_mod/</span></span><span class="sig-name descname"><span class="pre">qlim_rttovlimit_ens</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">ensemble</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">varname_opt</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">applylimittocloud_opt</span></em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/humiditylimits_mod/qlim_rttovlimit_ens" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>To impose RTTOV limits on humidity/cloud</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>ensemble</strong><em> [</em><em>struct_ens </em><em>,</em><em>inout</em><em>]</em></p>
+</dd>
+<dt class="field-odd">Options</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>varname_opt</strong><em> [</em><em>character </em><em>,</em><em>in,</em><em>]</em></p></li>
+<li><p><strong>applylimittocloud_opt</strong><em> [</em><em>logical </em><em>,</em><em>in,</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="varnamelist_mod.html#f/varnamelist_mod/vnl_iscloudvar" title="f/varnamelist_mod/vnl_iscloudvar"><code class="xref f f-func docutils literal notranslate"><span class="pre">vnl_iscloudvar()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_varexist" title="f/ensemblestatevector_mod/ens_varexist"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_varexist()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_getdatakind" title="f/ensemblestatevector_mod/ens_getdatakind"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_getdatakind()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_getvco" title="f/ensemblestatevector_mod/ens_getvco"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_getvco()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_getnumlev" title="f/ensemblestatevector_mod/ens_getnumlev"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_getnumlev()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_getnummembers" title="f/ensemblestatevector_mod/ens_getnummembers"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_getnummembers()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_getnumstep" title="f/ensemblestatevector_mod/ens_getnumstep"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_getnumstep()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_getlatlonbounds" title="f/ensemblestatevector_mod/ens_getlatlonbounds"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_getlatlonbounds()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_getkfromlevvarname" title="f/ensemblestatevector_mod/ens_getkfromlevvarname"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_getkfromlevvarname()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_getonelev_r4" title="f/ensemblestatevector_mod/ens_getonelev_r4"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_getonelev_r4()</span></code></a>, <a class="reference internal" href="#f/humiditylimits_mod/qlim_lintv_minmax" title="f/humiditylimits_mod/qlim_lintv_minmax"><code class="xref f f-func docutils literal notranslate"><span class="pre">qlim_lintv_minmax()</span></code></a>, <a class="reference internal" href="#f/humiditylimits_mod/cloudexistinensemble" title="f/humiditylimits_mod/cloudexistinensemble"><code class="xref f f-func docutils literal notranslate"><span class="pre">cloudexistinensemble()</span></code></a>, <a class="reference internal" href="#f/humiditylimits_mod/qlim_getminvaluecloud" title="f/humiditylimits_mod/qlim_getminvaluecloud"><code class="xref f f-func docutils literal notranslate"><span class="pre">qlim_getminvaluecloud()</span></code></a>, <a class="reference internal" href="#f/humiditylimits_mod/qlim_getmaxvaluecloud" title="f/humiditylimits_mod/qlim_getmaxvaluecloud"><code class="xref f f-func docutils literal notranslate"><span class="pre">qlim_getmaxvaluecloud()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/humiditylimits_mod/qlim_lintv_minmax">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">humiditylimits_mod/</span></span><span class="sig-name descname"><span class="pre">qlim_lintv_minmax</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">press_src</span></em>, <em class="sig-param"><span class="pre">qmin_src</span></em>, <em class="sig-param"><span class="pre">qmax_src</span></em>, <em class="sig-param"><span class="pre">numlev_src</span></em>, <em class="sig-param"><span class="pre">ni_dest</span></em>, <em class="sig-param"><span class="pre">nj_dest</span></em>, <em class="sig-param"><span class="pre">numlev_dest</span></em>, <em class="sig-param"><span class="pre">press_dest</span></em>, <em class="sig-param"><span class="pre">qmin_dest</span></em>, <em class="sig-param"><span class="pre">qmax_dest</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/humiditylimits_mod/qlim_lintv_minmax" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>To perform the vertical interpolation in log of pressure and
+and constant value extrapolation of one-dimensional vectors.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>press_src</strong> (numlev_src)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: Vertical levels, pressure (source)</p></li>
+<li><p><strong>qmin_src</strong> (numlev_src)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: Vectors to be interpolated (source)</p></li>
+<li><p><strong>qmax_src</strong> (numlev_src)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: Vectors to be interpolated (source)</p></li>
+<li><p><strong>numlev_src</strong><em> [</em><em>integer </em><em>,</em><em>in,</em><em>]</em> :: Number of input levels (source)</p></li>
+<li><p><strong>ni_dest</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em> :: Number of profiles</p></li>
+<li><p><strong>nj_dest</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em> :: Number of profiles</p></li>
+<li><p><strong>numlev_dest</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em> :: Number of output levels (destination)</p></li>
+<li><p><strong>press_dest</strong> (*,*,*)<em> [</em><em>real </em><em>]</em> :: Vertical levels, pressure (destination)</p></li>
+<li><p><strong>qmin_dest</strong> (*,*,*)<em> [</em><em>real </em><em>]</em> :: Interpolated profiles (destination)</p></li>
+<li><p><strong>qmax_dest</strong> (*,*,*)<em> [</em><em>real </em><em>]</em> :: Interpolated profiles (destination)</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/humiditylimits_mod/qlim_rttovlimit_gsv" title="f/humiditylimits_mod/qlim_rttovlimit_gsv"><code class="xref f f-func docutils literal notranslate"><span class="pre">qlim_rttovlimit_gsv()</span></code></a>, <a class="reference internal" href="#f/humiditylimits_mod/qlim_rttovlimit_ens" title="f/humiditylimits_mod/qlim_rttovlimit_ens"><code class="xref f f-func docutils literal notranslate"><span class="pre">qlim_rttovlimit_ens()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/humiditylimits_mod/qlim_setmin_ens">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">humiditylimits_mod/</span></span><span class="sig-name descname"><span class="pre">qlim_setmin_ens</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">ensemble</span></em>, <em class="sig-param"><span class="pre">huminvalue</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/humiditylimits_mod/qlim_setmin_ens" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>To impose lower limit on humidity variable of an ensemble</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>ensemble</strong><em> [</em><em>struct_ens </em><em>,</em><em>inout</em><em>]</em></p></li>
+<li><p><strong>huminvalue</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_getdatakind" title="f/ensemblestatevector_mod/ens_getdatakind"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_getdatakind()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_varexist" title="f/ensemblestatevector_mod/ens_varexist"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_varexist()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_getnumlev" title="f/ensemblestatevector_mod/ens_getnumlev"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_getnumlev()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_getlatlonbounds" title="f/ensemblestatevector_mod/ens_getlatlonbounds"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_getlatlonbounds()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_getkfromlevvarname" title="f/ensemblestatevector_mod/ens_getkfromlevvarname"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_getkfromlevvarname()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_getonelev_r4" title="f/ensemblestatevector_mod/ens_getonelev_r4"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_getonelev_r4()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_getnumstep" title="f/ensemblestatevector_mod/ens_getnumstep"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_getnumstep()</span></code></a>, <a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_getnummembers" title="f/ensemblestatevector_mod/ens_getnummembers"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_getnummembers()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/humiditylimits_mod/qlim_getminvaluecloud">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">humiditylimits_mod/</span></span><span class="sig-name descname"><span class="pre">qlim_getminvaluecloud</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">varname</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/humiditylimits_mod/qlim_getminvaluecloud" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Return the minValue for the hydrometeor.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>varname</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em></p>
+</dd>
+<dt class="field-odd">Return</dt>
+<dd class="field-odd"><p><strong>minvalue</strong><em> [</em><em>real </em><em>]</em></p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/humiditylimits_mod/qlim_rttovlimit_gsv" title="f/humiditylimits_mod/qlim_rttovlimit_gsv"><code class="xref f f-func docutils literal notranslate"><span class="pre">qlim_rttovlimit_gsv()</span></code></a>, <a class="reference internal" href="#f/humiditylimits_mod/qlim_rttovlimit_ens" title="f/humiditylimits_mod/qlim_rttovlimit_ens"><code class="xref f f-func docutils literal notranslate"><span class="pre">qlim_rttovlimit_ens()</span></code></a>, <a class="reference internal" href="innovation_mod.html#f/innovation_mod/inn_setupcolumnsonanlinclev" title="f/innovation_mod/inn_setupcolumnsonanlinclev"><code class="xref f f-func docutils literal notranslate"><span class="pre">inn_setupcolumnsonanlinclev()</span></code></a>, <a class="reference internal" href="statetocolumn_mod.html#f/statetocolumn_mod/s2c_nl" title="f/statetocolumn_mod/s2c_nl"><code class="xref f f-func docutils literal notranslate"><span class="pre">s2c_nl()</span></code></a>, <a class="reference internal" href="tovs_nl_mod.html#f/tovs_nl_mod/tvs_fillprofiles" title="f/tovs_nl_mod/tvs_fillprofiles"><code class="xref f f-func docutils literal notranslate"><span class="pre">tvs_fillprofiles()</span></code></a>, <a class="reference internal" href="tovs_nl_mod.html#f/tovs_nl_mod/updatecloudintovsprofile" title="f/tovs_nl_mod/updatecloudintovsprofile"><code class="xref f f-func docutils literal notranslate"><span class="pre">updatecloudintovsprofile()</span></code></a>, <a class="reference internal" href="tovs_nl_mod.html#f/tovs_nl_mod/updatecloudintovscloudprofile" title="f/tovs_nl_mod/updatecloudintovscloudprofile"><code class="xref f f-func docutils literal notranslate"><span class="pre">updatecloudintovscloudprofile()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="increment_mod.html#f/increment_mod/readnamelist" title="f/increment_mod/readnamelist"><code class="xref f f-func docutils literal notranslate"><span class="pre">readnamelist()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/humiditylimits_mod/qlim_getmaxvaluecloud">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">humiditylimits_mod/</span></span><span class="sig-name descname"><span class="pre">qlim_getmaxvaluecloud</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">varname</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/humiditylimits_mod/qlim_getmaxvaluecloud" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Return the maxValue for the hydrometeor.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>varname</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em></p>
+</dd>
+<dt class="field-odd">Return</dt>
+<dd class="field-odd"><p><strong>maxvalue</strong><em> [</em><em>real </em><em>]</em></p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/humiditylimits_mod/qlim_rttovlimit_gsv" title="f/humiditylimits_mod/qlim_rttovlimit_gsv"><code class="xref f f-func docutils literal notranslate"><span class="pre">qlim_rttovlimit_gsv()</span></code></a>, <a class="reference internal" href="#f/humiditylimits_mod/qlim_rttovlimit_ens" title="f/humiditylimits_mod/qlim_rttovlimit_ens"><code class="xref f f-func docutils literal notranslate"><span class="pre">qlim_rttovlimit_ens()</span></code></a>, <a class="reference internal" href="innovation_mod.html#f/innovation_mod/inn_setupcolumnsonanlinclev" title="f/innovation_mod/inn_setupcolumnsonanlinclev"><code class="xref f f-func docutils literal notranslate"><span class="pre">inn_setupcolumnsonanlinclev()</span></code></a>, <a class="reference internal" href="statetocolumn_mod.html#f/statetocolumn_mod/s2c_nl" title="f/statetocolumn_mod/s2c_nl"><code class="xref f f-func docutils literal notranslate"><span class="pre">s2c_nl()</span></code></a>, <a class="reference internal" href="tovs_nl_mod.html#f/tovs_nl_mod/tvs_fillprofiles" title="f/tovs_nl_mod/tvs_fillprofiles"><code class="xref f f-func docutils literal notranslate"><span class="pre">tvs_fillprofiles()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="increment_mod.html#f/increment_mod/readnamelist" title="f/increment_mod/readnamelist"><code class="xref f f-func docutils literal notranslate"><span class="pre">readnamelist()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/humiditylimits_mod/cloudexistinensemble">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">humiditylimits_mod/</span></span><span class="sig-name descname"><span class="pre">cloudexistinensemble</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">ensemble</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/humiditylimits_mod/cloudexistinensemble" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>determine if any cloud variable exists in the ensemble.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>ensemble</strong><em> [</em><em>struct_ens </em><em>,</em><em>in</em><em>]</em></p>
+</dd>
+<dt class="field-odd">Return</dt>
+<dd class="field-odd"><p><strong>cloudexist</strong><em> [</em><em>logical </em><em>]</em></p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/humiditylimits_mod/qlim_rttovlimit_ens" title="f/humiditylimits_mod/qlim_rttovlimit_ens"><code class="xref f f-func docutils literal notranslate"><span class="pre">qlim_rttovlimit_ens()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_varexist" title="f/ensemblestatevector_mod/ens_varexist"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_varexist()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/humiditylimits_mod/cloudexistinstatevector">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">humiditylimits_mod/</span></span><span class="sig-name descname"><span class="pre">cloudexistinstatevector</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">statevector</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/humiditylimits_mod/cloudexistinstatevector" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>determine if any cloud variable exists in the stateVector.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>statevector</strong><em> [</em><em>struct_gsv </em><em>,</em><em>in</em><em>]</em></p>
+</dd>
+<dt class="field-odd">Return</dt>
+<dd class="field-odd"><p><strong>cloudexist</strong><em> [</em><em>logical </em><em>]</em></p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/humiditylimits_mod/qlim_rttovlimit_gsv" title="f/humiditylimits_mod/qlim_rttovlimit_gsv"><code class="xref f f-func docutils literal notranslate"><span class="pre">qlim_rttovlimit_gsv()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_varexist" title="f/gridstatevector_mod/gsv_varexist"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_varexist()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div></blockquote>
+</section>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="interpolation_mod.html" title="interpolation_mod"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="gridvariabletransforms_mod.html" title="gridvariabletransforms_mod"
+             >previous</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2018, ECCC.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.
+    </div>
+  </body>
+</html>

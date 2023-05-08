@@ -1,0 +1,478 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>analysisgrid_mod &mdash; MIDAS  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="MIDAS  documentation" href="../index.html" />
+    <link rel="next" title="filenames_mod" href="filenames_mod.html" />
+    <link rel="prev" title="obssubspacedata_mod" href="obssubspacedata_mod.html" /> 
+  </head>
+  <body>
+  <div>
+    <img src="../_static/MIDAS_header.png" alt="MIDAS" />
+  </div>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="filenames_mod.html" title="filenames_mod"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="obssubspacedata_mod.html" title="obssubspacedata_mod"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="obssubspacedata_mod.html"
+                          title="previous chapter">obssubspacedata_mod</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="filenames_mod.html"
+                          title="next chapter">filenames_mod</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/modules/analysisgrid_mod.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <section id="analysisgrid-mod">
+<h1>analysisgrid_mod<a class="headerlink" href="#analysisgrid-mod" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><p><a class="reference internal" href="analysisgrid_mod_src.html"><span class="doc">link to source code</span></a></p>
+<p><strong>Dependency Diagrams:</strong></p>
+<figure class="align-default" id="id1">
+<a class="reference internal image-reference" href="analysisgrid_mod.svg"><img alt="analysisgrid_mod.svg" height="100px" src="analysisgrid_mod.svg" /></a>
+<figcaption>
+<p><span class="caption-text">Direct Dependency Diagram</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id2">
+<a class="reference internal image-reference" href="analysisgrid_mod_rev.svg"><img alt="analysisgrid_mod_rev.svg" height="100px" src="analysisgrid_mod_rev.svg" /></a>
+<figcaption>
+<p><span class="caption-text">Reverse Dependency Diagram</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<span class="target" id="f/analysisgrid_mod"></span><p class="rubric">Description</p>
+<p>MODULE analysisGrid_mod (prefix=’agd’ category=’7. Low-level data objects’)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Purpose</dt>
+<dd class="field-odd"><p>Performs horizontal grid-point variable transforms
+for the limited-area computational analysis grids (extended and
+non-extended).</p>
+</dd>
+</dl>
+<p class="rubric">Quick access</p>
+<dl class="field-list simple">
+<dt class="field-odd">Routines</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/analysisgrid_mod/agd_createlamtemplategrids" title="f/analysisgrid_mod/agd_createlamtemplategrids"><code class="xref f f-func docutils literal notranslate"><span class="pre">agd_createlamtemplategrids()</span></code></a>, <a class="reference internal" href="#f/analysisgrid_mod/agd_mach" title="f/analysisgrid_mod/agd_mach"><code class="xref f f-func docutils literal notranslate"><span class="pre">agd_mach()</span></code></a>, <a class="reference internal" href="#f/analysisgrid_mod/agd_mach_r4" title="f/analysisgrid_mod/agd_mach_r4"><code class="xref f f-func docutils literal notranslate"><span class="pre">agd_mach_r4()</span></code></a>, <a class="reference internal" href="#f/analysisgrid_mod/agd_psichitouv" title="f/analysisgrid_mod/agd_psichitouv"><code class="xref f f-func docutils literal notranslate"><span class="pre">agd_psichitouv()</span></code></a>, <a class="reference internal" href="#f/analysisgrid_mod/agd_psichitouvadj" title="f/analysisgrid_mod/agd_psichitouvadj"><code class="xref f f-func docutils literal notranslate"><span class="pre">agd_psichitouvadj()</span></code></a>, <a class="reference internal" href="#f/analysisgrid_mod/agd_setupfromhco" title="f/analysisgrid_mod/agd_setupfromhco"><code class="xref f f-func docutils literal notranslate"><span class="pre">agd_setupfromhco()</span></code></a>, <a class="reference internal" href="#f/analysisgrid_mod/agd_uvtovortdiv" title="f/analysisgrid_mod/agd_uvtovortdiv"><code class="xref f f-func docutils literal notranslate"><span class="pre">agd_uvtovortdiv()</span></code></a>, <a class="reference internal" href="#f/analysisgrid_mod/symmetrize" title="f/analysisgrid_mod/symmetrize"><code class="xref f f-func docutils literal notranslate"><span class="pre">symmetrize()</span></code></a>, <a class="reference internal" href="#f/analysisgrid_mod/symmetrize_coef" title="f/analysisgrid_mod/symmetrize_coef"><code class="xref f f-func docutils literal notranslate"><span class="pre">symmetrize_coef()</span></code></a>, <a class="reference internal" href="#f/analysisgrid_mod/symmetrizeadj" title="f/analysisgrid_mod/symmetrizeadj"><code class="xref f f-func docutils literal notranslate"><span class="pre">symmetrizeadj()</span></code></a>, <a class="reference internal" href="#f/analysisgrid_mod/uvstagtocolloc" title="f/analysisgrid_mod/uvstagtocolloc"><code class="xref f f-func docutils literal notranslate"><span class="pre">uvstagtocolloc()</span></code></a>, <a class="reference internal" href="#f/analysisgrid_mod/uvstagtocollocadj" title="f/analysisgrid_mod/uvstagtocollocadj"><code class="xref f f-func docutils literal notranslate"><span class="pre">uvstagtocollocadj()</span></code></a></p>
+</dd>
+</dl>
+<p class="rubric">Needed modules</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="earthconstants_mod.html#f/earthconstants_mod" title="f/earthconstants_mod: MODULE earthConstants_mod (prefix='ec' category='8. Low-level utilities and constants') Prefixes: ec_ (Earth constants), for miscellaneous values from diverse sources"><code class="xref f f-mod docutils literal notranslate"><span class="pre">earthconstants_mod</span></code></a>: MODULE earthConstants_mod (prefix=’ec’ category=’8. Low-level utilities and constants’) Prefixes: <a href="#id3"><span class="problematic" id="id4">ec_</span></a> (Earth constants), for miscellaneous values from diverse sources</p></li>
+<li><p><a class="reference internal" href="mathphysconstants_mod.html#f/mathphysconstants_mod" title="f/mathphysconstants_mod: MODULE MathPhysConstants_mod (prefix='mpc' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">mathphysconstants_mod</span></code></a>: MODULE MathPhysConstants_mod (prefix=’mpc’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="horizontalcoord_mod.html#f/horizontalcoord_mod" title="f/horizontalcoord_mod: MODULE HorizontalCoord_mod (prefix='hco' category='7. Low-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">horizontalcoord_mod</span></code></a>: MODULE HorizontalCoord_mod (prefix=’hco’ category=’7. Low-level data objects’)</p></li>
+<li><p><a class="reference internal" href="verticalcoord_mod.html#f/verticalcoord_mod" title="f/verticalcoord_mod: MODULE verticalcoord (prefix='vco' category='7. Low-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">verticalcoord_mod</span></code></a>: MODULE verticalcoord (prefix=’vco’ category=’7. Low-level data objects’)</p></li>
+<li><p><a class="reference internal" href="midasmpi_mod.html#f/midasmpi_mod" title="f/midasmpi_mod: MODULE midasMpi_mod (prefix='mmpi' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">midasmpi_mod</span></code></a>: MODULE midasMpi_mod (prefix=’mmpi’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod" title="f/utilities_mod: MODULE utilities_mod (prefix='utl' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">utilities_mod</span></code></a>: MODULE utilities_mod (prefix=’utl’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><code class="xref f f-mod docutils literal notranslate"><span class="pre">vgrid_descriptors</span></code></p></li>
+</ul>
+<p class="rubric">Types</p>
+<ul>
+<li><dl>
+<dt class="sig sig-object f" id="f/analysisgrid_mod/unknown_type">
+<em class="property"><span class="pre">type</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">analysisgrid_mod/</span></span><span class="sig-name descname"><span class="pre">unknown_type</span></span><a class="headerlink" href="#f/analysisgrid_mod/unknown_type" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type fields</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">conima</span> (*)<em> [</em><em>real </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">conphy</span> (*)<em> [</em><em>real </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">cos2</span> (*)<em> [</em><em>real </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">cos2h</span> (*)<em> [</em><em>real </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">cos2hvd</span> (*)<em> [</em><em>real </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">cos2vd</span> (*)<em> [</em><em>real </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">dx</span><em> [</em><em>real </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">idmu</span> (*)<em> [</em><em>real </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">idmuh</span> (*)<em> [</em><em>real </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">rdlat</span><em> [</em><em>real </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">rdlon</span><em> [</em><em>real </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">rlat</span> (*)<em> [</em><em>real </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">rlon</span> (*)<em> [</em><em>real </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</li>
+</ul>
+<p class="rubric">Variables</p>
+<p class="rubric">Subroutines and functions</p>
+<dl>
+<dt class="sig sig-object f" id="f/analysisgrid_mod/agd_setupfromhco">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">analysisgrid_mod/</span></span><span class="sig-name descname"><span class="pre">agd_setupfromhco</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">hco_ext_in</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">hco_core_opt</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/analysisgrid_mod/agd_setupfromhco" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><p><strong>hco_ext_in</strong><em> [</em><em>struct_hco </em><em>,</em><em>pointer</em><em>]</em></p>
+</dd>
+<dt class="field-even">Options</dt>
+<dd class="field-even"><p><strong>hco_core_opt</strong><em> [</em><em>struct_hco </em><em>,</em><em>pointer</em><em>]</em></p>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="bmatrixensemble_mod.html#f/bmatrixensemble_mod/ben_setup" title="f/bmatrixensemble_mod/ben_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">ben_setup()</span></code></a>, <a class="reference internal" href="calcstatslam_mod.html#f/calcstatslam_mod/csl_setup" title="f/calcstatslam_mod/csl_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">csl_setup()</span></code></a>, <a class="reference internal" href="gridvariabletransforms_mod.html#f/gridvariabletransforms_mod/gvt_setup" title="f/gridvariabletransforms_mod/gvt_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">gvt_setup()</span></code></a>, <a class="reference internal" href="lambmatrixhi_mod.html#f/lambmatrixhi_mod/lbhi_setup" title="f/lambmatrixhi_mod/lbhi_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">lbhi_setup()</span></code></a>, <a class="reference internal" href="../programs/midas_sstbias.html#f/midas_sstbias" title="f/midas_sstbias"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_sstbias</span></code></a>, <a class="reference internal" href="../programs/midas_ssttrial.html#f/midas_ssttrial" title="f/midas_ssttrial"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_ssttrial</span></code></a>, <a class="reference internal" href="../programs/midas_pseudosstobs.html#f/midas_pseudosstobs" title="f/midas_pseudosstobs"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_pseudosstobs</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="#f/analysisgrid_mod/agd_mach" title="f/analysisgrid_mod/agd_mach"><code class="xref f f-func docutils literal notranslate"><span class="pre">agd_mach()</span></code></a>, <a class="reference internal" href="#f/analysisgrid_mod/symmetrize_coef" title="f/analysisgrid_mod/symmetrize_coef"><code class="xref f f-func docutils literal notranslate"><span class="pre">symmetrize_coef()</span></code></a>, <a class="reference internal" href="midasmpi_mod.html#f/midasmpi_mod/mmpi_setup_lonbands" title="f/midasmpi_mod/mmpi_setup_lonbands"><code class="xref f f-func docutils literal notranslate"><span class="pre">mmpi_setup_lonbands()</span></code></a>, <a class="reference internal" href="midasmpi_mod.html#f/midasmpi_mod/mmpi_setup_latbands" title="f/midasmpi_mod/mmpi_setup_latbands"><code class="xref f f-func docutils literal notranslate"><span class="pre">mmpi_setup_latbands()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/analysisgrid_mod/symmetrize_coef">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">analysisgrid_mod/</span></span><span class="sig-name descname"><span class="pre">symmetrize_coef</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">coef_inout</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/analysisgrid_mod/symmetrize_coef" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Extend symmetrically Metric coefficients.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>coef_inout</strong> (jend-(jstart)+1)<em> [</em><em>real </em><em>,</em><em>inout</em><em>]</em></p>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/analysisgrid_mod/agd_setupfromhco" title="f/analysisgrid_mod/agd_setupfromhco"><code class="xref f f-func docutils literal notranslate"><span class="pre">agd_setupfromhco()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/analysisgrid_mod/agd_psichitouv">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">analysisgrid_mod/</span></span><span class="sig-name descname"><span class="pre">agd_psichitouv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">psi</span></em>, <em class="sig-param"><span class="pre">chi</span></em>, <em class="sig-param"><span class="pre">uphy</span></em>, <em class="sig-param"><span class="pre">vphy</span></em>, <em class="sig-param"><span class="pre">nk</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/analysisgrid_mod/agd_psichitouv" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>psi</strong> (mylonend-(mylonbeg)+1,mylatend-(mylatbeg)+1,nk)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>chi</strong> (mylonend-(mylonbeg)+1,mylatend-(mylatbeg)+1,nk)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>uphy</strong> (mylonend-(mylonbeg)+1,mylatend-(mylatbeg)+1,nk)<em> [</em><em>real </em><em>,</em><em>out</em><em>]</em></p></li>
+<li><p><strong>vphy</strong> (mylonend-(mylonbeg)+1,mylatend-(mylatbeg)+1,nk)<em> [</em><em>real </em><em>,</em><em>out</em><em>]</em></p></li>
+<li><p><strong>nk</strong><em> [</em><em>integer </em><em>,</em><em>in,</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="lambmatrixhi_mod.html#f/lambmatrixhi_mod/lbhi_cv2gd" title="f/lambmatrixhi_mod/lbhi_cv2gd"><code class="xref f f-func docutils literal notranslate"><span class="pre">lbhi_cv2gd()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="#f/analysisgrid_mod/symmetrize" title="f/analysisgrid_mod/symmetrize"><code class="xref f f-func docutils literal notranslate"><span class="pre">symmetrize()</span></code></a>, <a class="reference internal" href="#f/analysisgrid_mod/uvstagtocolloc" title="f/analysisgrid_mod/uvstagtocolloc"><code class="xref f f-func docutils literal notranslate"><span class="pre">uvstagtocolloc()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/analysisgrid_mod/agd_psichitouvadj">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">analysisgrid_mod/</span></span><span class="sig-name descname"><span class="pre">agd_psichitouvadj</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">psi</span></em>, <em class="sig-param"><span class="pre">chi</span></em>, <em class="sig-param"><span class="pre">uphy</span></em>, <em class="sig-param"><span class="pre">vphy</span></em>, <em class="sig-param"><span class="pre">nk</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/analysisgrid_mod/agd_psichitouvadj" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>psi</strong> (mylonend-(mylonbeg)+1,mylatend-(mylatbeg)+1,nk)<em> [</em><em>real </em><em>,</em><em>out</em><em>]</em> :: OUT</p></li>
+<li><p><strong>chi</strong> (mylonend-(mylonbeg)+1,mylatend-(mylatbeg)+1,nk)<em> [</em><em>real </em><em>,</em><em>out</em><em>]</em> :: OUT</p></li>
+<li><p><strong>uphy</strong> (mylonend-(mylonbeg)+1,mylatend-(mylatbeg)+1,nk)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>vphy</strong> (mylonend-(mylonbeg)+1,mylatend-(mylatbeg)+1,nk)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>nk</strong><em> [</em><em>integer </em><em>,</em><em>in,</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="lambmatrixhi_mod.html#f/lambmatrixhi_mod/lbhi_cv2gdadj" title="f/lambmatrixhi_mod/lbhi_cv2gdadj"><code class="xref f f-func docutils literal notranslate"><span class="pre">lbhi_cv2gdadj()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="#f/analysisgrid_mod/uvstagtocollocadj" title="f/analysisgrid_mod/uvstagtocollocadj"><code class="xref f f-func docutils literal notranslate"><span class="pre">uvstagtocollocadj()</span></code></a>, <a class="reference internal" href="#f/analysisgrid_mod/symmetrizeadj" title="f/analysisgrid_mod/symmetrizeadj"><code class="xref f f-func docutils literal notranslate"><span class="pre">symmetrizeadj()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/analysisgrid_mod/uvstagtocolloc">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">analysisgrid_mod/</span></span><span class="sig-name descname"><span class="pre">uvstagtocolloc</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">ustag</span></em>, <em class="sig-param"><span class="pre">vstag</span></em>, <em class="sig-param"><span class="pre">ucolloc</span></em>, <em class="sig-param"><span class="pre">vcolloc</span></em>, <em class="sig-param"><span class="pre">ibeg</span></em>, <em class="sig-param"><span class="pre">iend</span></em>, <em class="sig-param"><span class="pre">jbeg</span></em>, <em class="sig-param"><span class="pre">jend</span></em>, <em class="sig-param"><span class="pre">nk</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/analysisgrid_mod/uvstagtocolloc" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ustag</strong> (iend-ibeg+2,jend-jbeg+2,nk)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>vstag</strong> (iend-ibeg+2,jend-jbeg+2,nk)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>ucolloc</strong> (iend-ibeg+1,jend-jbeg+1,nk)<em> [</em><em>real </em><em>,</em><em>out</em><em>]</em></p></li>
+<li><p><strong>vcolloc</strong> (iend-ibeg+1,jend-jbeg+1,nk)<em> [</em><em>real </em><em>,</em><em>out</em><em>]</em></p></li>
+<li><p><strong>ibeg</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>iend</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>jbeg</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>jend</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>nk</strong><em> [</em><em>integer </em><em>,</em><em>in,</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/analysisgrid_mod/agd_psichitouv" title="f/analysisgrid_mod/agd_psichitouv"><code class="xref f f-func docutils literal notranslate"><span class="pre">agd_psichitouv()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/analysisgrid_mod/uvstagtocollocadj">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">analysisgrid_mod/</span></span><span class="sig-name descname"><span class="pre">uvstagtocollocadj</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">ustag</span></em>, <em class="sig-param"><span class="pre">vstag</span></em>, <em class="sig-param"><span class="pre">ucolloc</span></em>, <em class="sig-param"><span class="pre">vcolloc</span></em>, <em class="sig-param"><span class="pre">ibeg</span></em>, <em class="sig-param"><span class="pre">iend</span></em>, <em class="sig-param"><span class="pre">jbeg</span></em>, <em class="sig-param"><span class="pre">jend</span></em>, <em class="sig-param"><span class="pre">nk</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/analysisgrid_mod/uvstagtocollocadj" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ustag</strong> (iend-ibeg+2,jend-jbeg+2,nk)<em> [</em><em>real </em><em>,</em><em>out</em><em>]</em></p></li>
+<li><p><strong>vstag</strong> (iend-ibeg+2,jend-jbeg+2,nk)<em> [</em><em>real </em><em>,</em><em>out</em><em>]</em></p></li>
+<li><p><strong>ucolloc</strong> (iend-ibeg+1,jend-jbeg+1,nk)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>vcolloc</strong> (iend-ibeg+1,jend-jbeg+1,nk)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>ibeg</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>iend</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>jbeg</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>jend</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>nk</strong><em> [</em><em>integer </em><em>,</em><em>in,</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/analysisgrid_mod/agd_psichitouvadj" title="f/analysisgrid_mod/agd_psichitouvadj"><code class="xref f f-func docutils literal notranslate"><span class="pre">agd_psichitouvadj()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/analysisgrid_mod/symmetrize">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">analysisgrid_mod/</span></span><span class="sig-name descname"><span class="pre">symmetrize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">field_out</span></em>, <em class="sig-param"><span class="pre">field_in</span></em>, <em class="sig-param"><span class="pre">ibeg</span></em>, <em class="sig-param"><span class="pre">iend</span></em>, <em class="sig-param"><span class="pre">jbeg</span></em>, <em class="sig-param"><span class="pre">jend</span></em>, <em class="sig-param"><span class="pre">nk</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/analysisgrid_mod/symmetrize" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Extend symmetrically outside 1 grid point all around LAM-boundary
+ready for finite differences</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>field_out</strong> (iend-ibeg+3,jend-jbeg+3,nk)<em> [</em><em>real </em><em>,</em><em>out</em><em>]</em></p></li>
+<li><p><strong>field_in</strong> (iend-ibeg+1,jend-jbeg+1,nk)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>ibeg</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>iend</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>jbeg</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>jend</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>nk</strong><em> [</em><em>integer </em><em>,</em><em>in,</em><em>]</em> :: IN</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/analysisgrid_mod/agd_psichitouv" title="f/analysisgrid_mod/agd_psichitouv"><code class="xref f f-func docutils literal notranslate"><span class="pre">agd_psichitouv()</span></code></a>, <a class="reference internal" href="#f/analysisgrid_mod/agd_uvtovortdiv" title="f/analysisgrid_mod/agd_uvtovortdiv"><code class="xref f f-func docutils literal notranslate"><span class="pre">agd_uvtovortdiv()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/analysisgrid_mod/symmetrizeadj">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">analysisgrid_mod/</span></span><span class="sig-name descname"><span class="pre">symmetrizeadj</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">field_in</span></em>, <em class="sig-param"><span class="pre">field_out</span></em>, <em class="sig-param"><span class="pre">ibeg</span></em>, <em class="sig-param"><span class="pre">iend</span></em>, <em class="sig-param"><span class="pre">jbeg</span></em>, <em class="sig-param"><span class="pre">jend</span></em>, <em class="sig-param"><span class="pre">nk</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/analysisgrid_mod/symmetrizeadj" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Adjoint of sub. symmetrize.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>field_in</strong> (iend-ibeg+3,jend-jbeg+3,nk)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>field_out</strong> (iend-ibeg+1,jend-jbeg+1,nk)<em> [</em><em>real </em><em>,</em><em>out</em><em>]</em></p></li>
+<li><p><strong>ibeg</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>iend</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>jbeg</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>jend</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>nk</strong><em> [</em><em>integer </em><em>,</em><em>in,</em><em>]</em> :: IN</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/analysisgrid_mod/agd_psichitouvadj" title="f/analysisgrid_mod/agd_psichitouvadj"><code class="xref f f-func docutils literal notranslate"><span class="pre">agd_psichitouvadj()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/analysisgrid_mod/agd_mach">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">analysisgrid_mod/</span></span><span class="sig-name descname"><span class="pre">agd_mach</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">gd</span></em>, <em class="sig-param"><span class="pre">ni</span></em>, <em class="sig-param"><span class="pre">nj</span></em>, <em class="sig-param"><span class="pre">nk</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/analysisgrid_mod/agd_mach" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>[to be completed]</p>
+</dd>
+<dt class="field-even">Arguments </dt>
+<dd class="field-even"><p></p></dd>
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ni</strong><em> [</em><em>integer </em><em>,</em><em>in,</em><em>]</em> :: Maximum I-dimension where the input array is assumed to carry
+information.  Will be used as I-limit where backward
+derivatives will be evaluated</p></li>
+<li><p><strong>nj</strong><em> [</em><em>integer </em><em>,</em><em>in,</em><em>]</em> :: Maximum J-dimension where the input array is assumed to carry
+information. Will be used as J-limit where backward derivatives
+will be evaluated</p></li>
+<li><p><strong>gd</strong> (ni,nj,nk)<em> [</em><em>real </em><em>,</em><em>inout</em><em>]</em></p></li>
+<li><p><strong>nk</strong><em> [</em><em>integer </em><em>,</em><em>in,</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/analysisgrid_mod/agd_setupfromhco" title="f/analysisgrid_mod/agd_setupfromhco"><code class="xref f f-func docutils literal notranslate"><span class="pre">agd_setupfromhco()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/analysisgrid_mod/agd_mach_r4">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">analysisgrid_mod/</span></span><span class="sig-name descname"><span class="pre">agd_mach_r4</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">gd</span></em>, <em class="sig-param"><span class="pre">ni</span></em>, <em class="sig-param"><span class="pre">nj</span></em>, <em class="sig-param"><span class="pre">nk</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/analysisgrid_mod/agd_mach_r4" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>[to be completed]</p>
+</dd>
+<dt class="field-even">Arguments </dt>
+<dd class="field-even"><p></p></dd>
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ni</strong><em> [</em><em>integer </em><em>,</em><em>in,</em><em>]</em> :: Maximum I-dimension where the input array is assumed to carry
+information. Will be used as I-limit where backward
+derivatives will be evaluated</p></li>
+<li><p><strong>nj</strong><em> [</em><em>integer </em><em>,</em><em>in,</em><em>]</em> :: Maximum J-dimension where the input array is assumed to carry
+information. Will be used as J-limit where backward
+derivatives will be evaluated</p></li>
+<li><p><strong>gd</strong> (ni,nj,nk)<em> [</em><em>real </em><em>,</em><em>inout</em><em>]</em></p></li>
+<li><p><strong>nk</strong><em> [</em><em>integer </em><em>,</em><em>in,</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="ensemblestatevector_mod.html#f/ensemblestatevector_mod/ens_readensemble" title="f/ensemblestatevector_mod/ens_readensemble"><code class="xref f f-func docutils literal notranslate"><span class="pre">ens_readensemble()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/analysisgrid_mod/agd_uvtovortdiv">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">analysisgrid_mod/</span></span><span class="sig-name descname"><span class="pre">agd_uvtovortdiv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">vorticity</span></em>, <em class="sig-param"><span class="pre">divergence</span></em>, <em class="sig-param"><span class="pre">uphy</span></em>, <em class="sig-param"><span class="pre">vphy</span></em>, <em class="sig-param"><span class="pre">nk</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/analysisgrid_mod/agd_uvtovortdiv" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>vorticity</strong> (mylonend-(mylonbeg)+1,mylatend-(mylatbeg)+1,nk)<em> [</em><em>real </em><em>,</em><em>out</em><em>]</em></p></li>
+<li><p><strong>divergence</strong> (mylonend-(mylonbeg)+1,mylatend-(mylatbeg)+1,nk)<em> [</em><em>real </em><em>,</em><em>out</em><em>]</em></p></li>
+<li><p><strong>uphy</strong> (mylonend-(mylonbeg)+1,mylatend-(mylatbeg)+1,nk)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>vphy</strong> (mylonend-(mylonbeg)+1,mylatend-(mylatbeg)+1,nk)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>nk</strong><em> [</em><em>integer </em><em>,</em><em>in,</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="gridvariabletransforms_mod.html#f/gridvariabletransforms_mod/uvtovortdiv_gsv" title="f/gridvariabletransforms_mod/uvtovortdiv_gsv"><code class="xref f f-func docutils literal notranslate"><span class="pre">uvtovortdiv_gsv()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="#f/analysisgrid_mod/symmetrize" title="f/analysisgrid_mod/symmetrize"><code class="xref f f-func docutils literal notranslate"><span class="pre">symmetrize()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/analysisgrid_mod/agd_createlamtemplategrids">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">analysisgrid_mod/</span></span><span class="sig-name descname"><span class="pre">agd_createlamtemplategrids</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">templatefilename</span></em>, <em class="sig-param"><span class="pre">hco_core</span></em>, <em class="sig-param"><span class="pre">vco</span></em>, <em class="sig-param"><span class="pre">grd_ext_x</span></em>, <em class="sig-param"><span class="pre">grd_ext_y</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/analysisgrid_mod/agd_createlamtemplategrids" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>templatefilename</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>hco_core</strong><em> [</em><em>struct_hco </em><em>]</em></p></li>
+<li><p><strong>vco</strong><em> [</em><em>struct_vco </em><em>]</em></p></li>
+<li><p><strong>grd_ext_x</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>grd_ext_y</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="calcstatslam_mod.html#f/calcstatslam_mod/csl_setup" title="f/calcstatslam_mod/csl_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">csl_setup()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_fstecr" title="f/utilities_mod/utl_fstecr"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_fstecr()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div></blockquote>
+</section>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="filenames_mod.html" title="filenames_mod"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="obssubspacedata_mod.html" title="obssubspacedata_mod"
+             >previous</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2018, ECCC.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.
+    </div>
+  </body>
+</html>

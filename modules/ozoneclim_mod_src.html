@@ -1,0 +1,254 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>ozoneclim_mod source &mdash; MIDAS  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="MIDAS  documentation" href="../index.html" /> 
+  </head>
+  <body>
+  <div>
+    <img src="../_static/MIDAS_header.png" alt="MIDAS" />
+  </div>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/modules/ozoneclim_mod_src.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <section id="ozoneclim-mod-source">
+<h1>ozoneclim_mod source<a class="headerlink" href="#ozoneclim-mod-source" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="linenos">  1</span><span class="c">!--------------------------------------- LICENCE BEGIN -----------------------------------</span>
+<span class="linenos">  2</span><span class="c">!Environment Canada - Atmospheric Science and Technology License/Disclaimer,</span>
+<span class="linenos">  3</span><span class="c">!                     version 3; Last Modified: May 7, 2008.</span>
+<span class="linenos">  4</span><span class="c">!This is free but copyrighted software; you can use/redistribute/modify it under the terms</span>
+<span class="linenos">  5</span><span class="c">!of the Environment Canada - Atmospheric Science and Technology License/Disclaimer</span>
+<span class="linenos">  6</span><span class="c">!version 3 or (at your option) any later version that should be found at:</span>
+<span class="linenos">  7</span><span class="c">!http://collaboration.cmc.ec.gc.ca/science/rpn.comm/license.html</span>
+<span class="linenos">  8</span><span class="c">!</span>
+<span class="linenos">  9</span><span class="c">!This software is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;</span>
+<span class="linenos"> 10</span><span class="c">!without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.</span>
+<span class="linenos"> 11</span><span class="c">!See the above mentioned License/Disclaimer for more details.</span>
+<span class="linenos"> 12</span><span class="c">!You should have received a copy of the License/Disclaimer along with this software;</span>
+<span class="linenos"> 13</span><span class="c">!if not, you can write to: EC-RPN COMM Group, 2121 TransCanada, suite 500, Dorval (Quebec),</span>
+<span class="linenos"> 14</span><span class="c">!CANADA, H9P 1J3; or send e-mail to service.rpn@ec.gc.ca</span>
+<span class="linenos"> 15</span><span class="c">!-------------------------------------- LICENCE END --------------------------------------</span>
+<span class="linenos"> 16</span>
+<span class="linenos"> 17</span><span class="k">module </span><span class="n">ozoneClim_mod</span><span class="w"></span>
+<span class="linenos"> 18</span><span class="w">  </span><span class="c">! MODULE ozoneClim_mod (prefix=&#39;ozo&#39; category=&#39;5. Observation operators&#39;)</span>
+<span class="linenos"> 19</span><span class="w">  </span><span class="c">!</span>
+<span class="linenos"> 20</span><span class="w">  </span><span class="c">!:Purpose: Climatological ozone (1998)</span>
+<span class="linenos"> 21</span><span class="w">  </span><span class="c">!</span>
+<span class="linenos"> 22</span><span class="w">  </span><span class="k">use </span><span class="n">obsSpaceData_mod</span><span class="w"></span>
+<span class="linenos"> 23</span><span class="w">  </span><span class="k">use </span><span class="n">presProfileOperators_mod</span><span class="w"></span>
+<span class="linenos"> 24</span><span class="w">  </span><span class="k">use </span><span class="n">utilities_mod</span><span class="w"></span>
+<span class="linenos"> 25</span><span class="w">  </span><span class="k">implicit none</span>
+<span class="linenos"> 26</span><span class="k">  save</span>
+<span class="linenos"> 27</span><span class="k">  private</span><span class="w"></span>
+<span class="linenos"> 28</span>
+<span class="linenos"> 29</span><span class="w">  </span><span class="c">! public procedures  </span>
+<span class="linenos"> 30</span><span class="w">  </span><span class="k">public</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">OZO_GET_PROFILE</span><span class="p">,</span><span class="w"> </span><span class="n">OZO_READ_CLIMATOLOGY</span><span class="w"></span>
+<span class="linenos"> 31</span>
+<span class="linenos"> 32</span>
+<span class="linenos"> 33</span><span class="w">  </span><span class="c">! Number of latitudes and vertical levels in climatology file</span>
+<span class="linenos"> 34</span><span class="w">  </span><span class="kt">INTEGER</span><span class="p">,</span><span class="w"> </span><span class="k">PARAMETER</span><span class="w">    </span><span class="kd">::</span><span class="w"> </span><span class="n">NLATO3</span><span class="o">=</span><span class="mi">19</span><span class="p">,</span><span class="w"> </span><span class="n">NLEVO3</span><span class="o">=</span><span class="mi">28</span><span class="w"></span>
+<span class="linenos"> 35</span>
+<span class="linenos"> 36</span><span class="w">  </span><span class="c">! Climatological ozone field (ppmv) and total ozone </span>
+<span class="linenos"> 37</span><span class="w">  </span><span class="kt">REAL</span><span class="w">                  </span><span class="kd">::</span><span class="w"> </span><span class="n">FOZO_r4</span><span class="p">(</span><span class="n">NLATO3</span><span class="p">,</span><span class="n">NLEVO3</span><span class="p">),</span><span class="w"> </span><span class="n">TOTOZO_r4</span><span class="p">(</span><span class="n">NLATO3</span><span class="p">,</span><span class="mi">12</span><span class="p">)</span><span class="w"></span>
+<span class="linenos"> 38</span>
+<span class="linenos"> 39</span><span class="w">  </span><span class="c">! Pressure height of climatology file vertical levels (mb)</span>
+<span class="linenos"> 40</span><span class="w">  </span><span class="kt">REAL</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span><span class="w">               </span><span class="kd">::</span><span class="w"> </span><span class="n">PO3</span><span class="p">(</span><span class="n">NLEVO3</span><span class="p">)</span><span class="w"></span>
+<span class="linenos"> 41</span>
+<span class="linenos"> 42</span><span class="w">  </span><span class="k">DATA </span><span class="n">PO3</span><span class="w"> </span><span class="o">/</span><span class="w">    </span><span class="mf">0.010D0</span><span class="p">,</span><span class="w"> </span><span class="mf">0.015D0</span><span class="p">,</span><span class="w"> </span><span class="mf">0.022D0</span><span class="p">,</span><span class="w"> </span><span class="mf">0.032D0</span><span class="p">,</span><span class="w"> </span><span class="mf">0.046D0</span><span class="p">,</span><span class="w"> </span><span class="mf">0.068D0</span><span class="p">,</span><span class="w"> </span><span class="mf">0.100D0</span><span class="p">,</span><span class="w">   </span><span class="p">&amp;</span><span class="w"></span>
+<span class="linenos"> 43</span><span class="w">       </span><span class="mf">0.150D0</span><span class="p">,</span><span class="w"> </span><span class="mf">0.200D0</span><span class="p">,</span><span class="w"> </span><span class="mf">0.300D0</span><span class="p">,</span><span class="w"> </span><span class="mf">0.500D0</span><span class="p">,</span><span class="w"> </span><span class="mf">1.000D0</span><span class="p">,</span><span class="w"> </span><span class="mf">2.000D0</span><span class="p">,</span><span class="w"> </span><span class="mf">3.000D0</span><span class="p">,</span><span class="w">   </span><span class="p">&amp;</span><span class="w"></span>
+<span class="linenos"> 44</span><span class="w">       </span><span class="mf">5.000D0</span><span class="p">,</span><span class="w"> </span><span class="mf">7.000D0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="mf">0.00D0</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="mf">0.00D0</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="mf">0.00D0</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="mf">0.00D0</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="mf">0.00D0</span><span class="p">,</span><span class="w">   </span><span class="p">&amp;</span><span class="w"></span>
+<span class="linenos"> 45</span><span class="w">       </span><span class="mi">10</span><span class="mf">0.0D0</span><span class="p">,</span><span class="w"> </span><span class="mi">15</span><span class="mf">0.0D0</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="mf">0.0D0</span><span class="p">,</span><span class="w"> </span><span class="mi">30</span><span class="mf">0.0D0</span><span class="p">,</span><span class="w"> </span><span class="mi">50</span><span class="mf">0.0D0</span><span class="p">,</span><span class="w"> </span><span class="mi">70</span><span class="mf">0.0D0</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span><span class="mf">0.D0</span><span class="w"> </span><span class="o">/</span><span class="w"> </span>
+<span class="linenos"> 46</span>
+<span class="linenos"> 47</span><span class="k">contains</span><span class="w"></span>
+<span class="linenos"> 48</span>
+<span class="linenos"> 49</span><span class="w">  </span><span class="c">!--------------------------------------------------------------------------</span>
+<span class="linenos"> 50</span><span class="w">  </span><span class="c">! ozo_get_profile</span>
+<span class="linenos"> 51</span><span class="w">  </span><span class="c">!--------------------------------------------------------------------------</span>
+<span class="linenos"> 52</span><span class="w">  </span><span class="k">subroutine </span><span class="n">ozo_get_profile</span><span class="p">(</span><span class="n">o3p</span><span class="p">,</span><span class="n">zlat</span><span class="p">,</span><span class="n">plev</span><span class="p">,</span><span class="n">nlev</span><span class="p">,</span><span class="n">nprf</span><span class="p">)</span><span class="w"></span>
+<span class="linenos"> 53</span><span class="w">    </span><span class="c">!</span>
+<span class="linenos"> 54</span><span class="w">    </span><span class="c">!:Purpose: Get ozone profile from climatology interpolated to desired P levels</span>
+<span class="linenos"> 55</span><span class="w">    </span><span class="c">!</span>
+<span class="linenos"> 56</span><span class="w">    </span><span class="k">IMPLICIT NONE       </span>
+<span class="linenos"> 57</span>
+<span class="linenos"> 58</span><span class="k">    </span><span class="kt">integer</span><span class="w"> </span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">nlev</span><span class="w">            </span><span class="c">! NUMBER OF VERTICAL LEVELS</span>
+<span class="linenos"> 59</span><span class="w">    </span><span class="kt">integer</span><span class="w"> </span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">nprf</span><span class="w">            </span><span class="c">! NUMBER OF PROFILES</span>
+<span class="linenos"> 60</span><span class="w">    </span><span class="kt">REAL</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w">  </span><span class="kd">::</span><span class="w"> </span><span class="n">ZLAT</span><span class="p">(</span><span class="n">NPRF</span><span class="p">)</span><span class="w">      </span><span class="c">! ARRAY OF LATITUDE (-90S TO 90N)</span>
+<span class="linenos"> 61</span><span class="w">    </span><span class="kt">REAL</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w">  </span><span class="kd">::</span><span class="w"> </span><span class="n">PLEV</span><span class="p">(</span><span class="n">NLEV</span><span class="p">,</span><span class="n">NPRF</span><span class="p">)</span><span class="w"> </span><span class="c">! PRESSURE LEVELS (HPA)</span>
+<span class="linenos"> 62</span><span class="w">    </span><span class="kt">REAL</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span><span class="k">intent</span><span class="p">(</span><span class="n">out</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">O3P</span><span class="p">(</span><span class="n">NLEV</span><span class="p">,</span><span class="n">NPRF</span><span class="p">)</span><span class="w">  </span><span class="c">! OZONE PROFILES (PPMV)</span>
+<span class="linenos"> 63</span>
+<span class="linenos"> 64</span><span class="w">    </span><span class="kt">INTEGER</span><span class="w">   </span><span class="kd">::</span><span class="w"> </span><span class="n">JN</span><span class="p">,</span><span class="w"> </span><span class="n">K</span><span class="p">,</span><span class="w"> </span><span class="n">NUMLAT</span><span class="w"></span>
+<span class="linenos"> 65</span><span class="w">    </span><span class="kt">REAL</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span><span class="w">   </span><span class="kd">::</span><span class="w"> </span><span class="n">QO3B</span><span class="p">(</span><span class="n">NLEVO3</span><span class="p">,</span><span class="n">NPRF</span><span class="p">)</span><span class="w"></span>
+<span class="linenos"> 66</span><span class="w">    </span><span class="kt">REAL</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span><span class="w">   </span><span class="kd">::</span><span class="w"> </span><span class="n">PRO3</span><span class="p">(</span><span class="n">NLEVO3</span><span class="p">,</span><span class="n">NPRF</span><span class="p">)</span><span class="w"></span>
+<span class="linenos"> 67</span>
+<span class="linenos"> 68</span>
+<span class="linenos"> 69</span><span class="w">    </span><span class="c">!* assign default qgas values if need be</span>
+<span class="linenos"> 70</span>
+<span class="linenos"> 71</span><span class="w">    </span><span class="k">DO </span><span class="n">JN</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">NPRF</span><span class="w"></span>
+<span class="linenos"> 72</span><span class="w">       </span><span class="n">NUMLAT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">NINT</span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="n">ZLAT</span><span class="p">(</span><span class="n">JN</span><span class="p">)</span><span class="o">+</span><span class="mi">9</span><span class="mf">0.D0</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="p">(</span><span class="mi">18</span><span class="mf">0.D0</span><span class="o">/</span><span class="p">(</span><span class="kt">REAL</span><span class="p">(</span><span class="n">NLATO3</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">8</span><span class="p">)))</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="linenos"> 73</span><span class="w">       </span><span class="k">DO </span><span class="n">K</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">NLEVO3</span><span class="w"></span>
+<span class="linenos"> 74</span><span class="w">          </span><span class="n">QO3B</span><span class="p">(</span><span class="n">K</span><span class="p">,</span><span class="n">JN</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FOZO_r4</span><span class="p">(</span><span class="n">NUMLAT</span><span class="p">,</span><span class="n">K</span><span class="p">)</span><span class="w"></span>
+<span class="linenos"> 75</span><span class="w">       </span><span class="k">END DO</span>
+<span class="linenos"> 76</span><span class="k">    END DO</span><span class="w"></span>
+<span class="linenos"> 77</span>
+<span class="linenos"> 78</span><span class="w">    </span><span class="c">!* interpolation of field QO3B at NLEVO3 levels of height PO3mbb</span>
+<span class="linenos"> 79</span><span class="w">    </span><span class="c">!* into field O3P at NLEV levels of height PLEV</span>
+<span class="linenos"> 80</span>
+<span class="linenos"> 81</span><span class="w">    </span><span class="k">FORALL</span><span class="p">(</span><span class="n">K</span><span class="o">=</span><span class="mi">1</span><span class="p">:</span><span class="n">NLEVO3</span><span class="p">)</span><span class="w"> </span><span class="n">PRO3</span><span class="p">(</span><span class="n">K</span><span class="p">,:)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">PO3</span><span class="p">(</span><span class="n">K</span><span class="p">)</span><span class="w"></span>
+<span class="linenos"> 82</span>
+<span class="linenos"> 83</span><span class="w">    </span><span class="k">CALL </span><span class="n">ppo_LINTV</span><span class="p">(</span><span class="n">pro3</span><span class="p">,</span><span class="n">qo3b</span><span class="p">,</span><span class="n">nlevo3</span><span class="p">,</span><span class="n">nprf</span><span class="p">,</span><span class="n">nlev</span><span class="p">,</span><span class="n">plev</span><span class="p">,</span><span class="n">O3P</span><span class="p">)</span><span class="w"></span>
+<span class="linenos"> 84</span>
+<span class="linenos"> 85</span><span class="w">  </span><span class="k">end subroutine </span><span class="n">ozo_get_profile</span><span class="w"></span>
+<span class="linenos"> 86</span>
+<span class="linenos"> 87</span><span class="w">  </span><span class="c">!--------------------------------------------------------------------------</span>
+<span class="linenos"> 88</span><span class="w">  </span><span class="c">! ozo_read_climatology</span>
+<span class="linenos"> 89</span><span class="w">  </span><span class="c">!--------------------------------------------------------------------------</span>
+<span class="linenos"> 90</span><span class="w">  </span><span class="k">subroutine </span><span class="n">ozo_read_climatology</span><span class="p">(</span><span class="n">datestamp</span><span class="p">,</span><span class="n">nlat_opt</span><span class="p">,</span><span class="n">nlev_opt</span><span class="p">,</span><span class="n">press_opt</span><span class="p">,</span><span class="n">ozone_opt</span><span class="p">)</span><span class="w"></span>
+<span class="linenos"> 91</span><span class="w">    </span><span class="c">!</span>
+<span class="linenos"> 92</span><span class="w">    </span><span class="c">!:Purpose: READ OZONE CLIMATOLOGICAL FIELDS</span>
+<span class="linenos"> 93</span><span class="w">    </span><span class="c">!</span>
+<span class="linenos"> 94</span><span class="w">    </span><span class="k">IMPLICIT NONE</span><span class="w"></span>
+<span class="linenos"> 95</span><span class="w">    </span>
+<span class="linenos"> 96</span><span class="w">    </span><span class="c">!Arguments</span>
+<span class="linenos"> 97</span><span class="w">    </span><span class="kt">integer</span><span class="w">            </span><span class="kd">::</span><span class="w"> </span><span class="n">datestamp</span><span class="w">            </span><span class="c">! Datestamp</span>
+<span class="linenos"> 98</span><span class="w">    </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">out</span><span class="p">),</span><span class="w"> </span><span class="k">optional</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">nlat_opt</span><span class="w"> </span><span class="c">! Number of latitudes</span>
+<span class="linenos"> 99</span><span class="w">    </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">out</span><span class="p">),</span><span class="w"> </span><span class="k">optional</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">nlev_opt</span><span class="w"> </span><span class="c">! Number of vertical levels</span>
+<span class="linenos">100</span><span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span><span class="w"> </span><span class="k">allocatable</span><span class="p">,</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">out</span><span class="p">),</span><span class="w"> </span><span class="k">optional</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">ozone_opt</span><span class="p">(:,:)</span><span class="w"> </span><span class="c">! Ozone field</span>
+<span class="linenos">101</span><span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span><span class="w"> </span><span class="k">allocatable</span><span class="p">,</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">out</span><span class="p">),</span><span class="w"> </span><span class="k">optional</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">press_opt</span><span class="p">(:)</span><span class="w">   </span><span class="c">! Pressure levels</span>
+<span class="linenos">102</span>
+<span class="linenos">103</span><span class="w">    </span><span class="c">!Locals</span>
+<span class="linenos">104</span><span class="w">    </span><span class="kt">INTEGER</span><span class="w">            </span><span class="kd">::</span><span class="w"> </span><span class="n">IJOUR</span><span class="p">,</span><span class="nb">ITIME</span><span class="p">,</span><span class="n">IMONTH</span><span class="p">,</span><span class="n">IJ</span><span class="p">,</span><span class="n">IER</span><span class="w"></span>
+<span class="linenos">105</span><span class="w">    </span><span class="kt">CHARACTER</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">CFILE</span><span class="w"></span>
+<span class="linenos">106</span><span class="w">    </span><span class="kt">INTEGER</span><span class="w">            </span><span class="kd">::</span><span class="w"> </span><span class="n">NIOZO</span><span class="p">,</span><span class="n">NJOZO</span><span class="p">,</span><span class="n">NKOZO</span><span class="w"></span>
+<span class="linenos">107</span><span class="w">    </span><span class="kt">INTEGER</span><span class="p">,</span><span class="w"> </span><span class="k">EXTERNAL</span><span class="w">  </span><span class="kd">::</span><span class="w"> </span><span class="n">FNOM</span><span class="p">,</span><span class="n">FSTOUV</span><span class="p">,</span><span class="n">FSTLIR</span><span class="p">,</span><span class="n">FSTFRM</span><span class="p">,</span><span class="n">FCLOS</span><span class="p">,</span><span class="n">NEWDATE</span><span class="w"></span>
+<span class="linenos">108</span>
+<span class="linenos">109</span><span class="w">    </span><span class="kt">integer</span><span class="w">            </span><span class="kd">::</span><span class="w"> </span><span class="n">IOZTEST</span><span class="w"></span>
+<span class="linenos">110</span><span class="w">    </span><span class="kt">integer</span><span class="w">            </span><span class="kd">::</span><span class="w"> </span><span class="n">iv1</span><span class="p">,</span><span class="n">iv2</span><span class="p">,</span><span class="n">iv3</span><span class="p">,</span><span class="n">iv4</span><span class="p">,</span><span class="n">iv5</span><span class="p">,</span><span class="n">iv6</span><span class="w"></span>
+<span class="linenos">111</span>
+<span class="linenos">112</span><span class="w">    </span><span class="n">ier</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">newdate</span><span class="p">(</span><span class="n">datestamp</span><span class="p">,</span><span class="n">ijour</span><span class="p">,</span><span class="nb">itime</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">113</span>
+<span class="linenos">114</span><span class="w">    </span><span class="n">IJ</span><span class="o">=</span><span class="w"> </span><span class="n">IJOUR</span><span class="o">/</span><span class="mi">100</span><span class="w"></span>
+<span class="linenos">115</span><span class="w">    </span><span class="n">IMONTH</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">IJ</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="p">(</span><span class="n">IJ</span><span class="o">/</span><span class="mi">100</span><span class="p">)</span><span class="o">*</span><span class="mi">100</span><span class="w"></span>
+<span class="linenos">116</span>
+<span class="linenos">117</span><span class="w">    </span><span class="n">ioztest</span><span class="o">=</span><span class="mi">0</span><span class="w"></span>
+<span class="linenos">118</span>
+<span class="linenos">119</span><span class="w">    </span><span class="n">CFILE</span><span class="o">=</span><span class="s1">&#39;ozoneclim98&#39;</span><span class="w"></span>
+<span class="linenos">120</span><span class="w">    </span><span class="n">IV1</span><span class="o">=</span><span class="n">FNOM</span><span class="p">(</span><span class="n">IOZTEST</span><span class="p">,</span><span class="n">CFILE</span><span class="p">,</span><span class="s1">&#39;RND+R/O&#39;</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">121</span><span class="w">    </span><span class="n">IV2</span><span class="o">=</span><span class="n">FSTOUV</span><span class="p">(</span><span class="n">IOZTEST</span><span class="p">,</span><span class="s1">&#39;RND&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">122</span><span class="w">    </span><span class="n">IV3</span><span class="o">=</span><span class="n">FSTLIR</span><span class="p">(</span><span class="n">FOZO_r4</span><span class="p">,</span><span class="n">IOZTEST</span><span class="p">,</span><span class="n">NIOZO</span><span class="p">,</span><span class="n">NJOZO</span><span class="p">,</span><span class="n">NKOZO</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39; &#39;</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">IMONTH</span><span class="p">,</span><span class="s1">&#39; &#39;</span><span class="p">,</span><span class="s1">&#39;O3&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">123</span><span class="w">    </span><span class="n">IV4</span><span class="o">=</span><span class="n">FSTLIR</span><span class="p">(</span><span class="n">TOTOZO_r4</span><span class="p">,</span><span class="n">IOZTEST</span><span class="p">,</span><span class="n">NIOZO</span><span class="p">,</span><span class="n">NJOZO</span><span class="p">,</span><span class="n">NKOZO</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39; &#39;</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39; &#39;</span><span class="p">,</span><span class="s1">&#39;TO&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">124</span><span class="w">    </span><span class="n">IV5</span><span class="o">=</span><span class="n">FSTFRM</span><span class="p">(</span><span class="n">IOZTEST</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">125</span><span class="w">    </span><span class="n">IV6</span><span class="o">=</span><span class="n">FCLOS</span><span class="p">(</span><span class="n">IOZTEST</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">126</span>
+<span class="linenos">127</span><span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">iv1</span><span class="p">.</span><span class="n">lt</span><span class="p">.</span><span class="mf">0.</span><span class="nb">or</span><span class="p">.</span><span class="n">iv2</span><span class="p">.</span><span class="n">lt</span><span class="p">.</span><span class="mf">0.</span><span class="nb">or</span><span class="p">.</span><span class="n">iv3</span><span class="p">.</span><span class="n">lt</span><span class="p">.</span><span class="mf">0.</span><span class="nb">or</span><span class="p">.</span><span class="n">iv4</span><span class="p">.</span><span class="n">lt</span><span class="p">.</span><span class="mf">0.</span><span class="nb">or</span><span class="p">.</span><span class="n">iv5</span><span class="p">.</span><span class="n">lt</span><span class="p">.</span><span class="mf">0.</span><span class="nb">or</span><span class="p">.</span><span class="n">iv6</span><span class="p">.</span><span class="n">lt</span><span class="p">.</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="linenos">128</span><span class="k">       write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;LES IV DE OZO_READ_CLIMATOLOGY &#39;</span><span class="p">,</span><span class="n">iv1</span><span class="p">,</span><span class="n">iv2</span><span class="p">,</span><span class="n">iv3</span><span class="p">,</span><span class="n">iv4</span><span class="p">,</span><span class="n">iv5</span><span class="p">,</span><span class="n">iv6</span><span class="w"></span>
+<span class="linenos">129</span><span class="w">       </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;THESE NUMBERS SHOULD NOT BE NEGATIVE&#39;</span><span class="w"></span>
+<span class="linenos">130</span><span class="w">       </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;datestamp,ijour,itime,imonth = &#39;</span><span class="p">,</span><span class="n">datestamp</span><span class="p">,</span><span class="n">ijour</span><span class="p">,</span><span class="nb">itime</span><span class="p">,</span><span class="n">imonth</span><span class="w"></span>
+<span class="linenos">131</span><span class="w">       </span><span class="k">call </span><span class="n">utl_abort</span><span class="p">(</span><span class="s1">&#39;Problem with file in ozo_read_climatology (ozoneclim_mod)&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">132</span><span class="w">    </span><span class="k">endif</span>
+<span class="linenos">133</span>
+<span class="linenos">134</span><span class="k">    if</span><span class="w"> </span><span class="p">(</span><span class="nb">present</span><span class="p">(</span><span class="n">nlat_opt</span><span class="p">))</span><span class="w"> </span><span class="k">then</span>
+<span class="linenos">135</span><span class="k">       </span><span class="n">nlat_opt</span><span class="o">=</span><span class="n">NLATO3</span><span class="w"></span>
+<span class="linenos">136</span><span class="w">       </span><span class="n">nlev_opt</span><span class="o">=</span><span class="n">NLEVO3</span><span class="w"></span>
+<span class="linenos">137</span><span class="w">       </span><span class="k">allocate</span><span class="p">(</span><span class="n">press_opt</span><span class="p">(</span><span class="n">nlevo3</span><span class="p">),</span><span class="n">ozone_opt</span><span class="p">(</span><span class="n">nlato3</span><span class="p">,</span><span class="n">nlevo3</span><span class="p">))</span><span class="w"></span>
+<span class="linenos">138</span><span class="w">       </span><span class="n">press_opt</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">nlevo3</span><span class="p">)</span><span class="o">=</span><span class="n">PO3</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">nlevo3</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">139</span><span class="w">       </span><span class="n">ozone_opt</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">nlato3</span><span class="p">,</span><span class="mi">1</span><span class="p">:</span><span class="n">nlevo3</span><span class="p">)</span><span class="o">=</span><span class="n">FOZO_r4</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">nlato3</span><span class="p">,</span><span class="mi">1</span><span class="p">:</span><span class="n">nlevo3</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">140</span><span class="w">    </span><span class="k">endif</span>
+<span class="linenos">141</span><span class="k">    </span>
+<span class="linenos">142</span><span class="k">  end subroutine </span><span class="n">OZO_READ_CLIMATOLOGY</span><span class="w"></span>
+<span class="linenos">143</span>
+<span class="linenos">144</span>
+<span class="linenos">145</span><span class="k">end module </span><span class="n">ozoneClim_mod</span><span class="w"></span>
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2018, ECCC.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.
+    </div>
+  </body>
+</html>

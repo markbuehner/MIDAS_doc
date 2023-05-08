@@ -1,0 +1,8 @@
+==========================================
+midas_pseudosstobs source
+==========================================
+
+    .. literalinclude:: ../_src_files/pseudoSSTobs.f90
+       :language: fortran
+       :linenos:
+

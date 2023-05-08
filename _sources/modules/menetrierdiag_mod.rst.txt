@@ -1,0 +1,22 @@
+==========================================
+menetrierdiag_mod
+==========================================
+
+    :doc:`link to source code <menetrierdiag_mod_src>`
+
+
+    **Dependency Diagrams:**
+
+    .. figure:: /menetrierdiag_mod.svg
+        :height: 100px
+
+        Direct Dependency Diagram
+
+    .. figure:: /menetrierdiag_mod_rev.svg
+        :height: 100px
+
+        Reverse Dependency Diagram
+
+
+    .. f:automodule:: menetrierdiag_mod
+

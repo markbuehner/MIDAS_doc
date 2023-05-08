@@ -1,0 +1,22 @@
+==========================================
+oceanobservations_mod
+==========================================
+
+    :doc:`link to source code <oceanobservations_mod_src>`
+
+
+    **Dependency Diagrams:**
+
+    .. figure:: /oceanobservations_mod.svg
+        :height: 100px
+
+        Direct Dependency Diagram
+
+    .. figure:: /oceanobservations_mod_rev.svg
+        :height: 100px
+
+        Reverse Dependency Diagram
+
+
+    .. f:automodule:: oceanobservations_mod
+

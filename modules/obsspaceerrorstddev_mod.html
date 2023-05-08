@@ -1,0 +1,657 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>obsspaceerrorstddev_mod &mdash; MIDAS  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="MIDAS  documentation" href="../index.html" />
+    <link rel="next" title="oceanbackground_mod" href="oceanbackground_mod.html" />
+    <link rel="prev" title="obsspacediag_mod" href="obsspacediag_mod.html" /> 
+  </head>
+  <body>
+  <div>
+    <img src="../_static/MIDAS_header.png" alt="MIDAS" />
+  </div>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="oceanbackground_mod.html" title="oceanbackground_mod"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="obsspacediag_mod.html" title="obsspacediag_mod"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="obsspacediag_mod.html"
+                          title="previous chapter">obsspacediag_mod</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="oceanbackground_mod.html"
+                          title="next chapter">oceanbackground_mod</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/modules/obsspaceerrorstddev_mod.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <section id="obsspaceerrorstddev-mod">
+<h1>obsspaceerrorstddev_mod<a class="headerlink" href="#obsspaceerrorstddev-mod" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><p><a class="reference internal" href="obsspaceerrorstddev_mod_src.html"><span class="doc">link to source code</span></a></p>
+<p><strong>Dependency Diagrams:</strong></p>
+<figure class="align-default" id="id1">
+<a class="reference internal image-reference" href="obsspaceerrorstddev_mod.svg"><img alt="obsspaceerrorstddev_mod.svg" height="100px" src="obsspaceerrorstddev_mod.svg" /></a>
+<figcaption>
+<p><span class="caption-text">Direct Dependency Diagram</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id2">
+<a class="reference internal image-reference" href="obsspaceerrorstddev_mod_rev.svg"><img alt="obsspaceerrorstddev_mod_rev.svg" height="100px" src="obsspaceerrorstddev_mod_rev.svg" /></a>
+<figcaption>
+<p><span class="caption-text">Reverse Dependency Diagram</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<span class="target" id="f/obsspaceerrorstddev_mod"></span><p class="rubric">Description</p>
+<p>MODULE obsSpaceErrorStdDev_mod (prefix=’ose’ category=’1. High-level functionality’)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Purpose</dt>
+<dd class="field-odd"><p>Contains subroutines for computing background-error and OmP-error
+standard deviations in observation space</p>
+</dd>
+</dl>
+<p class="rubric">Quick access</p>
+<dl class="field-list simple">
+<dt class="field-odd">Routines</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/obsspaceerrorstddev_mod/ose_calcompstddevch" title="f/obsspaceerrorstddev_mod/ose_calcompstddevch"><code class="xref f f-func docutils literal notranslate"><span class="pre">ose_calcompstddevch()</span></code></a>, <a class="reference internal" href="#f/obsspaceerrorstddev_mod/ose_compute_hbht_ensemble" title="f/obsspaceerrorstddev_mod/ose_compute_hbht_ensemble"><code class="xref f f-func docutils literal notranslate"><span class="pre">ose_compute_hbht_ensemble()</span></code></a>, <a class="reference internal" href="#f/obsspaceerrorstddev_mod/ose_compute_hbht_static" title="f/obsspaceerrorstddev_mod/ose_compute_hbht_static"><code class="xref f f-func docutils literal notranslate"><span class="pre">ose_compute_hbht_static()</span></code></a>, <a class="reference internal" href="#f/obsspaceerrorstddev_mod/ose_compute_hbht_static_chem" title="f/obsspaceerrorstddev_mod/ose_compute_hbht_static_chem"><code class="xref f f-func docutils literal notranslate"><span class="pre">ose_compute_hbht_static_chem()</span></code></a>, <a class="reference internal" href="#f/obsspaceerrorstddev_mod/ose_computestddev" title="f/obsspaceerrorstddev_mod/ose_computestddev"><code class="xref f f-func docutils literal notranslate"><span class="pre">ose_computestddev()</span></code></a>, <a class="reference internal" href="#f/obsspaceerrorstddev_mod/ose_deallocompstddevch" title="f/obsspaceerrorstddev_mod/ose_deallocompstddevch"><code class="xref f f-func docutils literal notranslate"><span class="pre">ose_deallocompstddevch()</span></code></a>, <a class="reference internal" href="#f/obsspaceerrorstddev_mod/ose_fillompstddevch" title="f/obsspaceerrorstddev_mod/ose_fillompstddevch"><code class="xref f f-func docutils literal notranslate"><span class="pre">ose_fillompstddevch()</span></code></a>, <a class="reference internal" href="#f/obsspaceerrorstddev_mod/ose_getompstddevch" title="f/obsspaceerrorstddev_mod/ose_getompstddevch"><code class="xref f f-func docutils literal notranslate"><span class="pre">ose_getompstddevch()</span></code></a>, <a class="reference internal" href="#f/obsspaceerrorstddev_mod/ose_ompstddevexistsforallch" title="f/obsspaceerrorstddev_mod/ose_ompstddevexistsforallch"><code class="xref f f-func docutils literal notranslate"><span class="pre">ose_ompstddevexistsforallch()</span></code></a>, <a class="reference internal" href="#f/obsspaceerrorstddev_mod/ose_readompstddev_auxfilech" title="f/obsspaceerrorstddev_mod/ose_readompstddev_auxfilech"><code class="xref f f-func docutils literal notranslate"><span class="pre">ose_readompstddev_auxfilech()</span></code></a>, <a class="reference internal" href="#f/obsspaceerrorstddev_mod/ose_setompstddevch" title="f/obsspaceerrorstddev_mod/ose_setompstddevch"><code class="xref f f-func docutils literal notranslate"><span class="pre">ose_setompstddevch()</span></code></a>, <a class="reference internal" href="#f/obsspaceerrorstddev_mod/ose_setstaticerrorstddev" title="f/obsspaceerrorstddev_mod/ose_setstaticerrorstddev"><code class="xref f f-func docutils literal notranslate"><span class="pre">ose_setstaticerrorstddev()</span></code></a>, <a class="reference internal" href="#f/obsspaceerrorstddev_mod/setfgedif" title="f/obsspaceerrorstddev_mod/setfgedif"><code class="xref f f-func docutils literal notranslate"><span class="pre">setfgedif()</span></code></a>, <a class="reference internal" href="#f/obsspaceerrorstddev_mod/setfgefam" title="f/obsspaceerrorstddev_mod/setfgefam"><code class="xref f f-func docutils literal notranslate"><span class="pre">setfgefam()</span></code></a>, <a class="reference internal" href="#f/obsspaceerrorstddev_mod/setfgefamz" title="f/obsspaceerrorstddev_mod/setfgefamz"><code class="xref f f-func docutils literal notranslate"><span class="pre">setfgefamz()</span></code></a>, <a class="reference internal" href="#f/obsspaceerrorstddev_mod/setfgegps" title="f/obsspaceerrorstddev_mod/setfgegps"><code class="xref f f-func docutils literal notranslate"><span class="pre">setfgegps()</span></code></a>, <a class="reference internal" href="#f/obsspaceerrorstddev_mod/setfgesurf" title="f/obsspaceerrorstddev_mod/setfgesurf"><code class="xref f f-func docutils literal notranslate"><span class="pre">setfgesurf()</span></code></a>, <a class="reference internal" href="#f/obsspaceerrorstddev_mod/setfgett" title="f/obsspaceerrorstddev_mod/setfgett"><code class="xref f f-func docutils literal notranslate"><span class="pre">setfgett()</span></code></a></p>
+</dd>
+</dl>
+<p class="rubric">Needed modules</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="midasmpi_mod.html#f/midasmpi_mod" title="f/midasmpi_mod: MODULE midasMpi_mod (prefix='mmpi' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">midasmpi_mod</span></code></a>: MODULE midasMpi_mod (prefix=’mmpi’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod" title="f/obsspacedata_mod: MODULE obsSpaceData_mod (prefix='obs' category='6. High-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">obsspacedata_mod</span></code></a>: MODULE obsSpaceData_mod (prefix=’obs’ category=’6. High-level data objects’)</p></li>
+<li><p><a class="reference internal" href="columndata_mod.html#f/columndata_mod" title="f/columndata_mod: MODULE columnData_mod (prefix='col' category='6. High-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">columndata_mod</span></code></a>: MODULE columnData_mod (prefix=’col’ category=’6. High-level data objects’)</p></li>
+<li><p><a class="reference internal" href="bufr_mod.html#f/bufr_mod" title="f/bufr_mod: MODULE bufr_mod (prefix='bufr' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">bufr_mod</span></code></a>: MODULE bufr_mod (prefix=’bufr’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod" title="f/utilities_mod: MODULE utilities_mod (prefix='utl' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">utilities_mod</span></code></a>: MODULE utilities_mod (prefix=’utl’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="earthconstants_mod.html#f/earthconstants_mod" title="f/earthconstants_mod: MODULE earthConstants_mod (prefix='ec' category='8. Low-level utilities and constants') Prefixes: ec_ (Earth constants), for miscellaneous values from diverse sources"><code class="xref f f-mod docutils literal notranslate"><span class="pre">earthconstants_mod</span></code></a>: MODULE earthConstants_mod (prefix=’ec’ category=’8. Low-level utilities and constants’) Prefixes: <a href="#id3"><span class="problematic" id="id4">ec_</span></a> (Earth constants), for miscellaneous values from diverse sources</p></li>
+<li><p><a class="reference internal" href="mathphysconstants_mod.html#f/mathphysconstants_mod" title="f/mathphysconstants_mod: MODULE MathPhysConstants_mod (prefix='mpc' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">mathphysconstants_mod</span></code></a>: MODULE MathPhysConstants_mod (prefix=’mpc’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="statetocolumn_mod.html#f/statetocolumn_mod" title="f/statetocolumn_mod: MODULE stateToColumn (prefix='s2c' category='4. Data Object transformations')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">statetocolumn_mod</span></code></a>: MODULE stateToColumn (prefix=’s2c’ category=’4. Data Object transformations’)</p></li>
+<li><p><a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod" title="f/gridstatevector_mod: MODULE gridStateVector_mod (prefix='gsv' category='6. High-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">gridstatevector_mod</span></code></a>: MODULE gridStateVector_mod (prefix=’gsv’ category=’6. High-level data objects’)</p></li>
+<li><p><a class="reference internal" href="verticalcoord_mod.html#f/verticalcoord_mod" title="f/verticalcoord_mod: MODULE verticalcoord (prefix='vco' category='7. Low-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">verticalcoord_mod</span></code></a>: MODULE verticalcoord (prefix=’vco’ category=’7. Low-level data objects’)</p></li>
+<li><p><a class="reference internal" href="horizontalcoord_mod.html#f/horizontalcoord_mod" title="f/horizontalcoord_mod: MODULE HorizontalCoord_mod (prefix='hco' category='7. Low-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">horizontalcoord_mod</span></code></a>: MODULE HorizontalCoord_mod (prefix=’hco’ category=’7. Low-level data objects’)</p></li>
+<li><p><a class="reference internal" href="bmatrixhi_mod.html#f/bmatrixhi_mod" title="f/bmatrixhi_mod: MODULE BmatrixHI_mod (prefix='bhi' category='2. B and R matrices')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">bmatrixhi_mod</span></code></a>: MODULE BmatrixHI_mod (prefix=’bhi’ category=’2. B and R matrices’)</p></li>
+<li><p><a class="reference internal" href="obsoperators_mod.html#f/obsoperators_mod" title="f/obsoperators_mod: MODULE obsOperators_mod (prefix='oop' category='5. Observation operators')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">obsoperators_mod</span></code></a>: MODULE obsOperators_mod (prefix=’oop’ category=’5. Observation operators’)</p></li>
+<li><p><a class="reference internal" href="gps_mod.html#f/gps_mod" title="f/gps_mod: MODULE gps_mod (prefix='gps' category='5. Observation operators')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">gps_mod</span></code></a>: MODULE gps_mod (prefix=’gps’ category=’5. Observation operators’)</p></li>
+<li><p><a class="reference internal" href="codtyp_mod.html#f/codtyp_mod" title="f/codtyp_mod: MODULE codtyp_mod (prefix='codtyp' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">codtyp_mod</span></code></a>: MODULE codtyp_mod (prefix=’codtyp’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="bcovarsetupchem_mod.html#f/bcovarsetupchem_mod" title="f/bcovarsetupchem_mod: MODULE BCovarSetupChem_mod (prefix='bcsc' category='6. High-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">bcovarsetupchem_mod</span></code></a>: MODULE BCovarSetupChem_mod (prefix=’bcsc’ category=’6. High-level data objects’)</p></li>
+<li><p><a class="reference internal" href="timecoord_mod.html#f/timecoord_mod" title="f/timecoord_mod: MODULE timeCoord (prefix='tim' category='7. Low-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">timecoord_mod</span></code></a>: MODULE timeCoord (prefix=’tim’ category=’7. Low-level data objects’)</p></li>
+<li><p><a class="reference internal" href="obstimeinterp_mod.html#f/obstimeinterp_mod" title="f/obstimeinterp_mod: MODULE obsTimeInterp_mod (prefix='oti' category='4. Data Object transformations')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">obstimeinterp_mod</span></code></a>: MODULE obsTimeInterp_mod (prefix=’oti’ category=’4. Data Object transformations’)</p></li>
+<li><p><a class="reference internal" href="bmatrixensemble_mod.html#f/bmatrixensemble_mod" title="f/bmatrixensemble_mod: MODULE BmatrixEnsemble_mod (prefix='ben' category='2. B and R matrices')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">bmatrixensemble_mod</span></code></a>: MODULE BmatrixEnsemble_mod (prefix=’ben’ category=’2. B and R matrices’)</p></li>
+<li><p><a class="reference internal" href="varnamelist_mod.html#f/varnamelist_mod" title="f/varnamelist_mod: MODULE varNameList (prefix='vnl' category='7. Low-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">varnamelist_mod</span></code></a>: MODULE varNameList (prefix=’vnl’ category=’7. Low-level data objects’)</p></li>
+<li><p><a class="reference internal" href="obsoperatorschem_mod.html#f/obsoperatorschem_mod" title="f/obsoperatorschem_mod: MODULE obsOperatorsChem_mod (prefix='oopc' category='5. Observation operators')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">obsoperatorschem_mod</span></code></a>: MODULE obsOperatorsChem_mod (prefix=’oopc’ category=’5. Observation operators’)</p></li>
+<li><p><a class="reference internal" href="obsfamilylist_mod.html#f/obsfamilylist_mod" title="f/obsfamilylist_mod: MODULE varNameList (prefix='ofl' category='7. Low-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">obsfamilylist_mod</span></code></a>: MODULE varNameList (prefix=’ofl’ category=’7. Low-level data objects’)</p></li>
+<li><p><a class="reference internal" href="calcheightandpressure_mod.html#f/calcheightandpressure_mod" title="f/calcheightandpressure_mod: MODULE czp_calcHeightAndPressure (prefix='czp' category='4. Data Object transformations')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">calcheightandpressure_mod</span></code></a>: MODULE czp_calcHeightAndPressure (prefix=’czp’ category=’4. Data Object transformations’)</p></li>
+</ul>
+<p class="rubric">Types</p>
+<ul>
+<li><dl>
+<dt class="sig sig-object f" id="f/obsspaceerrorstddev_mod/unknown_type">
+<em class="property"><span class="pre">type</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obsspaceerrorstddev_mod/</span></span><span class="sig-name descname"><span class="pre">unknown_type</span></span><a class="headerlink" href="#f/obsspaceerrorstddev_mod/unknown_type" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type fields</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">element</span> (*)<em> [</em><em>integer </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">ibegin</span> (*)<em> [</em><em>integer </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">lat</span> (*)<em> [</em><em>real </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">levels</span> (*)<em> [</em><em>real </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">month</span> (*)<em> [</em><em>real </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">n_lat</span> (*)<em> [</em><em>integer </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">n_lvl</span> (*)<em> [</em><em>integer </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">n_month</span> (*)<em> [</em><em>integer </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">n_stnid</span><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">source</span> (*)<em> [</em><em>integer </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">std</span> (*)<em> [</em><em>real </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">std_type</span> (*)<em> [</em><em>integer </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">stnids</span> (*)<em> [</em><em>character </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</li>
+</ul>
+<p class="rubric">Variables</p>
+<p class="rubric">Subroutines and functions</p>
+<dl>
+<dt class="sig sig-object f" id="f/obsspaceerrorstddev_mod/ose_computestddev">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obsspaceerrorstddev_mod/</span></span><span class="sig-name descname"><span class="pre">ose_computestddev</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">columntrlonanlinclev</span></em>, <em class="sig-param"><span class="pre">hco_anl_in</span></em>, <em class="sig-param"><span class="pre">obsspacedata</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/obsspaceerrorstddev_mod/ose_computestddev" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>To set OmP-error std dev when possible. Otherwise
+compute background-error stddev in observation space to
+estimate OmP-error std dev.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>columntrlonanlinclev</strong><em> [</em><em>struct_columndata </em><em>]</em> :: Columns of the background interpolated to analysis levels and to obs horizontal locations</p></li>
+<li><p><strong>hco_anl_in</strong><em> [</em><em>struct_hco </em><em>,</em><em>pointer</em><em>]</em></p></li>
+<li><p><strong>obsspacedata</strong><em> [</em><em>struct_obs </em><em>]</em> :: Observation-related data</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="backgroundcheck_mod.html#f/backgroundcheck_mod/bgck_bgcheck_conv" title="f/backgroundcheck_mod/bgck_bgcheck_conv"><code class="xref f f-func docutils literal notranslate"><span class="pre">bgck_bgcheck_conv()</span></code></a>, <a class="reference internal" href="ominusf_mod.html#f/ominusf_mod/omf_ominusf" title="f/ominusf_mod/omf_ominusf"><code class="xref f f-func docutils literal notranslate"><span class="pre">omf_ominusf()</span></code></a>, <a class="reference internal" href="ominusf_mod.html#f/ominusf_mod/omf_ominusfens" title="f/ominusf_mod/omf_ominusfens"><code class="xref f f-func docutils literal notranslate"><span class="pre">omf_ominusfens()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_numheader" title="f/obsspacedata_mod/obs_numheader"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_numheader()</span></code></a>, <a class="reference internal" href="#f/obsspaceerrorstddev_mod/ose_setstaticerrorstddev" title="f/obsspaceerrorstddev_mod/ose_setstaticerrorstddev"><code class="xref f f-func docutils literal notranslate"><span class="pre">ose_setstaticerrorstddev()</span></code></a>, <a class="reference internal" href="#f/obsspaceerrorstddev_mod/ose_compute_hbht_ensemble" title="f/obsspaceerrorstddev_mod/ose_compute_hbht_ensemble"><code class="xref f f-func docutils literal notranslate"><span class="pre">ose_compute_hbht_ensemble()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_numbody" title="f/obsspacedata_mod/obs_numbody"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_numbody()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyelem_r" title="f/obsspacedata_mod/obs_bodyelem_r"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyelem_r()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/obsspaceerrorstddev_mod/ose_setstaticerrorstddev">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obsspaceerrorstddev_mod/</span></span><span class="sig-name descname"><span class="pre">ose_setstaticerrorstddev</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">columntrlonanlinclev</span></em>, <em class="sig-param"><span class="pre">obsspacedata</span></em>, <em class="sig-param"><span class="pre">statushbht</span></em>, <em class="sig-param"><span class="pre">statushbht_ch</span></em>, <em class="sig-param"><span class="pre">statusompe_ch</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/obsspaceerrorstddev_mod/ose_setstaticerrorstddev" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>To assign or compute the OmP error standard deviations in
+observation space where requested. If not possible or available,
+compute background-error standard deviation.</p>
+</dd>
+<dt class="field-even">Note </dt>
+<dd class="field-even"><p>OmP error std dev assigment currently only available for the CH obs family.</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>columntrlonanlinclev</strong><em> [</em><em>struct_columndata </em><em>]</em></p></li>
+<li><p><strong>obsspacedata</strong><em> [</em><em>struct_obs </em><em>]</em> :: observation-space data, output saved in OBS_HPHT column</p></li>
+<li><p><strong>statushbht</strong><em> [</em><em>logical </em><em>,</em><em>inout</em><em>]</em></p></li>
+<li><p><strong>statushbht_ch</strong><em> [</em><em>logical </em><em>,</em><em>inout</em><em>]</em></p></li>
+<li><p><strong>statusompe_ch</strong><em> [</em><em>logical </em><em>,</em><em>inout</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/obsspaceerrorstddev_mod/ose_computestddev" title="f/obsspaceerrorstddev_mod/ose_computestddev"><code class="xref f f-func docutils literal notranslate"><span class="pre">ose_computestddev()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_famexist" title="f/obsspacedata_mod/obs_famexist"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_famexist()</span></code></a>, <a class="reference internal" href="#f/obsspaceerrorstddev_mod/ose_setompstddevch" title="f/obsspaceerrorstddev_mod/ose_setompstddevch"><code class="xref f f-func docutils literal notranslate"><span class="pre">ose_setompstddevch()</span></code></a>, <a class="reference internal" href="#f/obsspaceerrorstddev_mod/ose_compute_hbht_static" title="f/obsspaceerrorstddev_mod/ose_compute_hbht_static"><code class="xref f f-func docutils literal notranslate"><span class="pre">ose_compute_hbht_static()</span></code></a>, <a class="reference internal" href="#f/obsspaceerrorstddev_mod/ose_compute_hbht_static_chem" title="f/obsspaceerrorstddev_mod/ose_compute_hbht_static_chem"><code class="xref f f-func docutils literal notranslate"><span class="pre">ose_compute_hbht_static_chem()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/obsspaceerrorstddev_mod/ose_compute_hbht_static">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obsspaceerrorstddev_mod/</span></span><span class="sig-name descname"><span class="pre">ose_compute_hbht_static</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">columntrlonanlinclev</span></em>, <em class="sig-param"><span class="pre">lobsspacedata</span></em>, <em class="sig-param"><span class="pre">active</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/obsspaceerrorstddev_mod/ose_compute_hbht_static" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>To compute background-error stddev in observation space using
+fixed statistics specific in stats file.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>columntrlonanlinclev</strong><em> [</em><em>struct_columndata </em><em>]</em></p></li>
+<li><p><strong>lobsspacedata</strong><em> [</em><em>struct_obs </em><em>]</em></p></li>
+<li><p><strong>active</strong><em> [</em><em>logical </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/obsspaceerrorstddev_mod/ose_setstaticerrorstddev" title="f/obsspaceerrorstddev_mod/ose_setstaticerrorstddev"><code class="xref f f-func docutils literal notranslate"><span class="pre">ose_setstaticerrorstddev()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_getvco" title="f/columndata_mod/col_getvco"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_getvco()</span></code></a>, <a class="reference internal" href="bmatrixhi_mod.html#f/bmatrixhi_mod/bhi_setup" title="f/bmatrixhi_mod/bhi_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">bhi_setup()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_getnumlev" title="f/columndata_mod/col_getnumlev"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_getnumlev()</span></code></a>, <a class="reference internal" href="bmatrixhi_mod.html#f/bmatrixhi_mod/bhi_getscalefactor" title="f/bmatrixhi_mod/bhi_getscalefactor"><code class="xref f f-func docutils literal notranslate"><span class="pre">bhi_getscalefactor()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_allocate" title="f/gridstatevector_mod/gsv_allocate"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_allocate()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_zero" title="f/gridstatevector_mod/gsv_zero"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_zero()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_setvco" title="f/columndata_mod/col_setvco"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_setvco()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_allocate" title="f/columndata_mod/col_allocate"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_allocate()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_getnumcol" title="f/columndata_mod/col_getnumcol"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_getnumcol()</span></code></a>, <a class="reference internal" href="obsoperators_mod.html#f/obsoperators_mod/oop_vobslyrs" title="f/obsoperators_mod/oop_vobslyrs"><code class="xref f f-func docutils literal notranslate"><span class="pre">oop_vobslyrs()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_fstlir" title="f/utilities_mod/utl_fstlir"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_fstlir()</span></code></a>, <a class="reference internal" href="statetocolumn_mod.html#f/statetocolumn_mod/s2c_bgcheck_bilin" title="f/statetocolumn_mod/s2c_bgcheck_bilin"><code class="xref f f-func docutils literal notranslate"><span class="pre">s2c_bgcheck_bilin()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_getcolumn" title="f/columndata_mod/col_getcolumn"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_getcolumn()</span></code></a>, <a class="reference internal" href="#f/obsspaceerrorstddev_mod/setfgefam" title="f/obsspaceerrorstddev_mod/setfgefam"><code class="xref f f-func docutils literal notranslate"><span class="pre">setfgefam()</span></code></a>, <a class="reference internal" href="#f/obsspaceerrorstddev_mod/setfgefamz" title="f/obsspaceerrorstddev_mod/setfgefamz"><code class="xref f f-func docutils literal notranslate"><span class="pre">setfgefamz()</span></code></a>, <a class="reference internal" href="#f/obsspaceerrorstddev_mod/setfgedif" title="f/obsspaceerrorstddev_mod/setfgedif"><code class="xref f f-func docutils literal notranslate"><span class="pre">setfgedif()</span></code></a>, <a class="reference internal" href="#f/obsspaceerrorstddev_mod/setfgett" title="f/obsspaceerrorstddev_mod/setfgett"><code class="xref f f-func docutils literal notranslate"><span class="pre">setfgett()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_varexist" title="f/gridstatevector_mod/gsv_varexist"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_varexist()</span></code></a>, <a class="reference internal" href="#f/obsspaceerrorstddev_mod/setfgesurf" title="f/obsspaceerrorstddev_mod/setfgesurf"><code class="xref f f-func docutils literal notranslate"><span class="pre">setfgesurf()</span></code></a>, <a class="reference internal" href="#f/obsspaceerrorstddev_mod/setfgegps" title="f/obsspaceerrorstddev_mod/setfgegps"><code class="xref f f-func docutils literal notranslate"><span class="pre">setfgegps()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_deallocate" title="f/columndata_mod/col_deallocate"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_deallocate()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/obsspaceerrorstddev_mod/ose_compute_hbht_static_chem">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obsspaceerrorstddev_mod/</span></span><span class="sig-name descname"><span class="pre">ose_compute_hbht_static_chem</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">columntrlonanlinclev</span></em>, <em class="sig-param"><span class="pre">obsspacedata</span></em>, <em class="sig-param"><span class="pre">active</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/obsspaceerrorstddev_mod/ose_compute_hbht_static_chem" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>To compute the background error standard deviations in
+observation space, sqrt(diag(H*B_static*H^T)).</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>columntrlonanlinclev</strong><em> [</em><em>struct_columndata </em><em>]</em> :: column at observation location</p></li>
+<li><p><strong>obsspacedata</strong><em> [</em><em>struct_obs </em><em>]</em> :: observation-space data, output saved in OBS_HPHT column</p></li>
+<li><p><strong>active</strong><em> [</em><em>logical </em><em>]</em> :: flag to indicate if chemical constituents are to be used</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/obsspaceerrorstddev_mod/ose_setstaticerrorstddev" title="f/obsspaceerrorstddev_mod/ose_setstaticerrorstddev"><code class="xref f f-func docutils literal notranslate"><span class="pre">ose_setstaticerrorstddev()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_getvco" title="f/columndata_mod/col_getvco"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_getvco()</span></code></a>, <a class="reference internal" href="bcovarsetupchem_mod.html#f/bcovarsetupchem_mod/bcsc_setupch" title="f/bcovarsetupchem_mod/bcsc_setupch"><code class="xref f f-func docutils literal notranslate"><span class="pre">bcsc_setupch()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/obsspaceerrorstddev_mod/ose_compute_hbht_ensemble">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obsspaceerrorstddev_mod/</span></span><span class="sig-name descname"><span class="pre">ose_compute_hbht_ensemble</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">columntrlonanlinclev</span></em>, <em class="sig-param"><span class="pre">obsspacedata</span></em>, <em class="sig-param"><span class="pre">active</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/obsspaceerrorstddev_mod/ose_compute_hbht_ensemble" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>To compute background-error stddev in observation space using
+ensemble-based statistics.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>columntrlonanlinclev</strong><em> [</em><em>struct_columndata </em><em>]</em> :: Columns of the background interpolated to analysis levels and to obs horizontal locations</p></li>
+<li><p><strong>obsspacedata</strong><em> [</em><em>struct_obs </em><em>]</em> :: Observation-related data</p></li>
+<li><p><strong>active</strong><em> [</em><em>logical </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/obsspaceerrorstddev_mod/ose_computestddev" title="f/obsspaceerrorstddev_mod/ose_computestddev"><code class="xref f f-func docutils literal notranslate"><span class="pre">ose_computestddev()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_getvco" title="f/columndata_mod/col_getvco"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_getvco()</span></code></a>, <a class="reference internal" href="bmatrixensemble_mod.html#f/bmatrixensemble_mod/ben_setup" title="f/bmatrixensemble_mod/ben_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">ben_setup()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_allocate" title="f/gridstatevector_mod/gsv_allocate"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_allocate()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_setvco" title="f/columndata_mod/col_setvco"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_setvco()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_allocate" title="f/columndata_mod/col_allocate"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_allocate()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_getnumcol" title="f/columndata_mod/col_getnumcol"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_getnumcol()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_numbody" title="f/obsspacedata_mod/obs_numbody"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_numbody()</span></code></a>, <a class="reference internal" href="obstimeinterp_mod.html#f/obstimeinterp_mod/oti_timebinning" title="f/obstimeinterp_mod/oti_timebinning"><code class="xref f f-func docutils literal notranslate"><span class="pre">oti_timebinning()</span></code></a>, <a class="reference internal" href="bmatrixensemble_mod.html#f/bmatrixensemble_mod/ben_getnens" title="f/bmatrixensemble_mod/ben_getnens"><code class="xref f f-func docutils literal notranslate"><span class="pre">ben_getnens()</span></code></a>, <a class="reference internal" href="bmatrixensemble_mod.html#f/bmatrixensemble_mod/ben_getperturbation" title="f/bmatrixensemble_mod/ben_getperturbation"><code class="xref f f-func docutils literal notranslate"><span class="pre">ben_getperturbation()</span></code></a>, <a class="reference internal" href="statetocolumn_mod.html#f/statetocolumn_mod/s2c_tl" title="f/statetocolumn_mod/s2c_tl"><code class="xref f f-func docutils literal notranslate"><span class="pre">s2c_tl()</span></code></a>, <a class="reference internal" href="obsoperators_mod.html#f/obsoperators_mod/oop_htl" title="f/obsoperators_mod/oop_htl"><code class="xref f f-func docutils literal notranslate"><span class="pre">oop_htl()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyelem_r" title="f/obsspacedata_mod/obs_bodyelem_r"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyelem_r()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_deallocate" title="f/columndata_mod/col_deallocate"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_deallocate()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_deallocate" title="f/gridstatevector_mod/gsv_deallocate"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_deallocate()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/obsspaceerrorstddev_mod/setfgefam">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obsspaceerrorstddev_mod/</span></span><span class="sig-name descname"><span class="pre">setfgefam</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">cdfam</span></em>, <em class="sig-param"><span class="pre">column</span></em>, <em class="sig-param"><span class="pre">columntrlonanlinclev</span></em>, <em class="sig-param"><span class="pre">lobsspacedata</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/obsspaceerrorstddev_mod/setfgefam" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>To interpolate vertically the contents of “column” to
+the pressure levels of the observations. Then to compute
+THE FIRST GUESS ERROR VARIANCES. A linear interpolation in ln(p)
+is performed.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>cdfam</strong><em> [</em><em>character </em><em>]</em></p></li>
+<li><p><strong>column</strong><em> [</em><em>struct_columndata </em><em>]</em></p></li>
+<li><p><strong>columntrlonanlinclev</strong><em> [</em><em>struct_columndata </em><em>]</em></p></li>
+<li><p><strong>lobsspacedata</strong><em> [</em><em>struct_obs </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/obsspaceerrorstddev_mod/ose_compute_hbht_static" title="f/obsspaceerrorstddev_mod/ose_compute_hbht_static"><code class="xref f f-func docutils literal notranslate"><span class="pre">ose_compute_hbht_static()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_getheaderindex" title="f/obsspacedata_mod/obs_getheaderindex"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_getheaderindex()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyelem_i" title="f/obsspacedata_mod/obs_bodyelem_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyelem_i()</span></code></a>, <a class="reference internal" href="varnamelist_mod.html#f/varnamelist_mod/vnl_varlevelfromvarnum" title="f/varnamelist_mod/vnl_varlevelfromvarnum"><code class="xref f f-func docutils literal notranslate"><span class="pre">vnl_varlevelfromvarnum()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_getnumlev" title="f/columndata_mod/col_getnumlev"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_getnumlev()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_getoffsetfromvarno" title="f/columndata_mod/col_getoffsetfromvarno"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_getoffsetfromvarno()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_getelem" title="f/columndata_mod/col_getelem"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_getelem()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_getheight" title="f/columndata_mod/col_getheight"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_getheight()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyelem_r" title="f/obsspacedata_mod/obs_bodyelem_r"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyelem_r()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_getpressure" title="f/columndata_mod/col_getpressure"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_getpressure()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/obsspaceerrorstddev_mod/setfgefamz">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obsspaceerrorstddev_mod/</span></span><span class="sig-name descname"><span class="pre">setfgefamz</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">cdfam</span></em>, <em class="sig-param"><span class="pre">column</span></em>, <em class="sig-param"><span class="pre">columntrlonanlinclev</span></em>, <em class="sig-param"><span class="pre">obsspacedata</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/obsspaceerrorstddev_mod/setfgefamz" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>To interpolate vertically the contents of “column” to the levels
+of the observations (in meters). Then to compute THE FIRST GUESS
+ERROR VARIANCES. A linear interpolation in z is performed.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>cdfam</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>column</strong><em> [</em><em>struct_columndata </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>columntrlonanlinclev</strong><em> [</em><em>struct_columndata </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>obsspacedata</strong><em> [</em><em>struct_obs </em><em>,</em><em>inout</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/obsspaceerrorstddev_mod/ose_compute_hbht_static" title="f/obsspaceerrorstddev_mod/ose_compute_hbht_static"><code class="xref f f-func docutils literal notranslate"><span class="pre">ose_compute_hbht_static()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_getheaderindex" title="f/obsspacedata_mod/obs_getheaderindex"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_getheaderindex()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_headelem_r" title="f/obsspacedata_mod/obs_headelem_r"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_headelem_r()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyelem_i" title="f/obsspacedata_mod/obs_bodyelem_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyelem_i()</span></code></a>, <a class="reference internal" href="varnamelist_mod.html#f/varnamelist_mod/vnl_varlevelfromvarnum" title="f/varnamelist_mod/vnl_varlevelfromvarnum"><code class="xref f f-func docutils literal notranslate"><span class="pre">vnl_varlevelfromvarnum()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_getnumlev" title="f/columndata_mod/col_getnumlev"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_getnumlev()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_getoffsetfromvarno" title="f/columndata_mod/col_getoffsetfromvarno"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_getoffsetfromvarno()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_getelem" title="f/columndata_mod/col_getelem"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_getelem()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyelem_r" title="f/obsspacedata_mod/obs_bodyelem_r"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyelem_r()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_getheight" title="f/columndata_mod/col_getheight"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_getheight()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_headelem_i" title="f/obsspacedata_mod/obs_headelem_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_headelem_i()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/obsspaceerrorstddev_mod/setfgett">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obsspaceerrorstddev_mod/</span></span><span class="sig-name descname"><span class="pre">setfgett</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">column</span></em>, <em class="sig-param"><span class="pre">columntrlonanlinclev</span></em>, <em class="sig-param"><span class="pre">lobsspacedata</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/obsspaceerrorstddev_mod/setfgett" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>To interpolate vertically the contents of “column” to the
+pressure levels of the observations. Then to compute THE FIRST
+GUESS ERROR VARIANCES. A linear interpolation in ln(p) is
+performed.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>column</strong><em> [</em><em>struct_columndata </em><em>]</em></p></li>
+<li><p><strong>columntrlonanlinclev</strong><em> [</em><em>struct_columndata </em><em>]</em></p></li>
+<li><p><strong>lobsspacedata</strong><em> [</em><em>struct_obs </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/obsspaceerrorstddev_mod/ose_compute_hbht_static" title="f/obsspaceerrorstddev_mod/ose_compute_hbht_static"><code class="xref f f-func docutils literal notranslate"><span class="pre">ose_compute_hbht_static()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_numbody" title="f/obsspacedata_mod/obs_numbody"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_numbody()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyelem_i" title="f/obsspacedata_mod/obs_bodyelem_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyelem_i()</span></code></a>, <a class="reference internal" href="varnamelist_mod.html#f/varnamelist_mod/vnl_varlevelfromvarnum" title="f/varnamelist_mod/vnl_varlevelfromvarnum"><code class="xref f f-func docutils literal notranslate"><span class="pre">vnl_varlevelfromvarnum()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_getnumlev" title="f/columndata_mod/col_getnumlev"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_getnumlev()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_getoffsetfromvarno" title="f/columndata_mod/col_getoffsetfromvarno"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_getoffsetfromvarno()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_getelem" title="f/columndata_mod/col_getelem"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_getelem()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyelem_r" title="f/obsspacedata_mod/obs_bodyelem_r"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyelem_r()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_getpressure" title="f/columndata_mod/col_getpressure"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_getpressure()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/obsspaceerrorstddev_mod/setfgesurf">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obsspaceerrorstddev_mod/</span></span><span class="sig-name descname"><span class="pre">setfgesurf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">column</span></em>, <em class="sig-param"><span class="pre">columntrlonanlinclev</span></em>, <em class="sig-param"><span class="pre">lobsspacedata</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/obsspaceerrorstddev_mod/setfgesurf" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>To interpolate vertically the contents of “column” to the
+pressure levels of the observations. A linear interpolation in
+ln(p) is performed.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>column</strong><em> [</em><em>struct_columndata </em><em>]</em></p></li>
+<li><p><strong>columntrlonanlinclev</strong><em> [</em><em>struct_columndata </em><em>]</em></p></li>
+<li><p><strong>lobsspacedata</strong><em> [</em><em>struct_obs </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/obsspaceerrorstddev_mod/ose_compute_hbht_static" title="f/obsspaceerrorstddev_mod/ose_compute_hbht_static"><code class="xref f f-func docutils literal notranslate"><span class="pre">ose_compute_hbht_static()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_numbody" title="f/obsspacedata_mod/obs_numbody"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_numbody()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_getfamily" title="f/obsspacedata_mod/obs_getfamily"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_getfamily()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyelem_i" title="f/obsspacedata_mod/obs_bodyelem_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyelem_i()</span></code></a>, <a class="reference internal" href="varnamelist_mod.html#f/varnamelist_mod/vnl_varlevelfromvarnum" title="f/varnamelist_mod/vnl_varlevelfromvarnum"><code class="xref f f-func docutils literal notranslate"><span class="pre">vnl_varlevelfromvarnum()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyelem_r" title="f/obsspacedata_mod/obs_bodyelem_r"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyelem_r()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_getoffsetfromvarno" title="f/columndata_mod/col_getoffsetfromvarno"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_getoffsetfromvarno()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_getelem" title="f/columndata_mod/col_getelem"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_getelem()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_getheight" title="f/columndata_mod/col_getheight"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_getheight()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_elem_c" title="f/obsspacedata_mod/obs_elem_c"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_elem_c()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/obsspaceerrorstddev_mod/setfgedif">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obsspaceerrorstddev_mod/</span></span><span class="sig-name descname"><span class="pre">setfgedif</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">cdfam</span></em>, <em class="sig-param"><span class="pre">columntrlonanlinclev</span></em>, <em class="sig-param"><span class="pre">lobsspacedata</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/obsspaceerrorstddev_mod/setfgedif" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>To construct the FIRST GUESS ERROR VARIANCES from the
+diff-calculated dependencies and the primary errors.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>cdfam</strong><em> [</em><em>character </em><em>]</em></p></li>
+<li><p><strong>columntrlonanlinclev</strong><em> [</em><em>struct_columndata </em><em>]</em></p></li>
+<li><p><strong>lobsspacedata</strong><em> [</em><em>struct_obs </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/obsspaceerrorstddev_mod/ose_compute_hbht_static" title="f/obsspaceerrorstddev_mod/ose_compute_hbht_static"><code class="xref f f-func docutils literal notranslate"><span class="pre">ose_compute_hbht_static()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_getnumlev" title="f/columndata_mod/col_getnumlev"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_getnumlev()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_getvco" title="f/columndata_mod/col_getvco"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_getvco()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_getheaderindex" title="f/obsspacedata_mod/obs_getheaderindex"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_getheaderindex()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_headelem_i" title="f/obsspacedata_mod/obs_headelem_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_headelem_i()</span></code></a>, <a class="reference internal" href="gps_mod.html#f/gps_mod/gps_iprofile_from_index" title="f/gps_mod/gps_iprofile_from_index"><code class="xref f f-func docutils literal notranslate"><span class="pre">gps_iprofile_from_index()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyelem_i" title="f/obsspacedata_mod/obs_bodyelem_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyelem_i()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_headelem_r" title="f/obsspacedata_mod/obs_headelem_r"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_headelem_r()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_getheight" title="f/columndata_mod/col_getheight"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_getheight()</span></code></a>, <a class="reference internal" href="gps_mod.html#f/gps_mod/gps_gravitysrf" title="f/gps_mod/gps_gravitysrf"><code class="xref f f-func docutils literal notranslate"><span class="pre">gps_gravitysrf()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_getelem" title="f/columndata_mod/col_getelem"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_getelem()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_getpressure" title="f/columndata_mod/col_getpressure"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_getpressure()</span></code></a>, <a class="reference internal" href="gps_mod.html#f/gps_mod/gps_struct1sw" title="f/gps_mod/gps_struct1sw"><code class="xref f f-func docutils literal notranslate"><span class="pre">gps_struct1sw()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyelem_r" title="f/obsspacedata_mod/obs_bodyelem_r"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyelem_r()</span></code></a>, <a class="reference internal" href="gps_mod.html#f/gps_mod/gps_bndopv1" title="f/gps_mod/gps_bndopv1"><code class="xref f f-func docutils literal notranslate"><span class="pre">gps_bndopv1()</span></code></a>, <a class="reference internal" href="gps_mod.html#f/gps_mod/gps_refopv" title="f/gps_mod/gps_refopv"><code class="xref f f-func docutils literal notranslate"><span class="pre">gps_refopv()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/obsspaceerrorstddev_mod/setfgegps">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obsspaceerrorstddev_mod/</span></span><span class="sig-name descname"><span class="pre">setfgegps</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">column</span></em>, <em class="sig-param"><span class="pre">columntrlonanlinclev</span></em>, <em class="sig-param"><span class="pre">lobsspacedata</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/obsspaceerrorstddev_mod/setfgegps" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>To set FGE for all GPS ZTD observations using Jacobians from ZTD
+observation operator</p>
+</dd>
+<dt class="field-even">Option </dt>
+<dd class="field-even"><p>Test ZTD operators (compares H(x+dx)-H(x) with (dH/dx)*dx
+when gps_gb_LTESTOP = .true.)</p>
+</dd>
+<dt class="field-odd">Note </dt>
+<dd class="field-odd"><dl>
+<dt>_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/</dt><dd><blockquote>
+<div><p>9 October 2015</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">NOTE</dt>
+<dd class="field-odd"><p>Effective Rev644M, this routine is no longer used!
+FGE for ZTD is no longer needed for background check.
+Routine is called only when gps_gb_LTESTOP=.true., in which
+case the operator test only is done.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p>_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>column</strong><em> [</em><em>struct_columndata </em><em>]</em></p></li>
+<li><p><strong>columntrlonanlinclev</strong><em> [</em><em>struct_columndata </em><em>]</em></p></li>
+<li><p><strong>lobsspacedata</strong><em> [</em><em>struct_obs </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/obsspaceerrorstddev_mod/ose_compute_hbht_static" title="f/obsspaceerrorstddev_mod/ose_compute_hbht_static"><code class="xref f f-func docutils literal notranslate"><span class="pre">ose_compute_hbht_static()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_getnumlev" title="f/columndata_mod/col_getnumlev"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_getnumlev()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_getvco" title="f/columndata_mod/col_getvco"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_getvco()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_getheaderindex" title="f/obsspacedata_mod/obs_getheaderindex"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_getheaderindex()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_headelem_i" title="f/obsspacedata_mod/obs_headelem_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_headelem_i()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyelem_i" title="f/obsspacedata_mod/obs_bodyelem_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyelem_i()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyelem_r" title="f/obsspacedata_mod/obs_bodyelem_r"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyelem_r()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_headelem_r" title="f/obsspacedata_mod/obs_headelem_r"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_headelem_r()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_getelem" title="f/columndata_mod/col_getelem"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_getelem()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_getpressure" title="f/columndata_mod/col_getpressure"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_getpressure()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_getheight" title="f/columndata_mod/col_getheight"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_getheight()</span></code></a>, <a class="reference internal" href="gps_mod.html#f/gps_mod/gps_structztd_v2" title="f/gps_mod/gps_structztd_v2"><code class="xref f f-func docutils literal notranslate"><span class="pre">gps_structztd_v2()</span></code></a>, <a class="reference internal" href="gps_mod.html#f/gps_mod/gps_ztdopv" title="f/gps_mod/gps_ztdopv"><code class="xref f f-func docutils literal notranslate"><span class="pre">gps_ztdopv()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_elem_c" title="f/obsspacedata_mod/obs_elem_c"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_elem_c()</span></code></a>, <a class="reference internal" href="varnamelist_mod.html#f/varnamelist_mod/vnl_varlevelfromvarnum" title="f/varnamelist_mod/vnl_varlevelfromvarnum"><code class="xref f f-func docutils literal notranslate"><span class="pre">vnl_varlevelfromvarnum()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/obsspaceerrorstddev_mod/ose_setompstddevch">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obsspaceerrorstddev_mod/</span></span><span class="sig-name descname"><span class="pre">ose_setompstddevch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">obsspacedata</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/obsspaceerrorstddev_mod/ose_setompstddevch" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>To read OmP error std dev from auxiliary file or calculate from OmP.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>obsspacedata</strong><em> [</em><em>struct_obs </em><em>]</em> :: observation-space data; output saved in OBS_OMPE column</p>
+</dd>
+<dt class="field-odd">Return</dt>
+<dd class="field-odd"><p><strong>availableompe</strong></p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/obsspaceerrorstddev_mod/ose_setstaticerrorstddev" title="f/obsspaceerrorstddev_mod/ose_setstaticerrorstddev"><code class="xref f f-func docutils literal notranslate"><span class="pre">ose_setstaticerrorstddev()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_famexist" title="f/obsspacedata_mod/obs_famexist"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_famexist()</span></code></a>, <a class="reference internal" href="#f/obsspaceerrorstddev_mod/ose_readompstddev_auxfilech" title="f/obsspaceerrorstddev_mod/ose_readompstddev_auxfilech"><code class="xref f f-func docutils literal notranslate"><span class="pre">ose_readompstddev_auxfilech()</span></code></a>, <a class="reference internal" href="#f/obsspaceerrorstddev_mod/ose_calcompstddevch" title="f/obsspaceerrorstddev_mod/ose_calcompstddevch"><code class="xref f f-func docutils literal notranslate"><span class="pre">ose_calcompstddevch()</span></code></a>, <a class="reference internal" href="#f/obsspaceerrorstddev_mod/ose_fillompstddevch" title="f/obsspaceerrorstddev_mod/ose_fillompstddevch"><code class="xref f f-func docutils literal notranslate"><span class="pre">ose_fillompstddevch()</span></code></a>, <a class="reference internal" href="#f/obsspaceerrorstddev_mod/ose_deallocompstddevch" title="f/obsspaceerrorstddev_mod/ose_deallocompstddevch"><code class="xref f f-func docutils literal notranslate"><span class="pre">ose_deallocompstddevch()</span></code></a>, <a class="reference internal" href="#f/obsspaceerrorstddev_mod/ose_ompstddevexistsforallch" title="f/obsspaceerrorstddev_mod/ose_ompstddevexistsforallch"><code class="xref f f-func docutils literal notranslate"><span class="pre">ose_ompstddevexistsforallch()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/obsspaceerrorstddev_mod/ose_readompstddev_auxfilech">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obsspaceerrorstddev_mod/</span></span><span class="sig-name descname"><span class="pre">ose_readompstddev_auxfilech</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#f/obsspaceerrorstddev_mod/ose_readompstddev_auxfilech" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>To read and store OmP error std. dev. as needed for CH
+family obs - if/when available.</p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/obsspaceerrorstddev_mod/ose_setompstddevch" title="f/obsspaceerrorstddev_mod/ose_setompstddevch"><code class="xref f f-func docutils literal notranslate"><span class="pre">ose_setompstddevch()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/obsspaceerrorstddev_mod/ose_calcompstddevch">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obsspaceerrorstddev_mod/</span></span><span class="sig-name descname"><span class="pre">ose_calcompstddevch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">obsspacedata</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/obsspaceerrorstddev_mod/ose_calcompstddevch" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>To calc OmP error std dev for some obs sets of the CH family</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>obsspacedata</strong><em> [</em><em>struct_obs </em><em>]</em> :: observation-space data; output saved in OBS_OMPE column</p>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/obsspaceerrorstddev_mod/ose_setompstddevch" title="f/obsspaceerrorstddev_mod/ose_setompstddevch"><code class="xref f f-func docutils literal notranslate"><span class="pre">ose_setompstddevch()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_getheaderindex" title="f/obsspacedata_mod/obs_getheaderindex"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_getheaderindex()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_headelem_i" title="f/obsspacedata_mod/obs_headelem_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_headelem_i()</span></code></a>, <a class="reference internal" href="codtyp_mod.html#f/codtyp_mod/codtyp_get_codtyp" title="f/codtyp_mod/codtyp_get_codtyp"><code class="xref f f-func docutils literal notranslate"><span class="pre">codtyp_get_codtyp()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_elem_c" title="f/obsspacedata_mod/obs_elem_c"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_elem_c()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_stnid_equal" title="f/utilities_mod/utl_stnid_equal"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_stnid_equal()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyelem_i" title="f/obsspacedata_mod/obs_bodyelem_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyelem_i()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_headelem_r" title="f/obsspacedata_mod/obs_headelem_r"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_headelem_r()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyelem_r" title="f/obsspacedata_mod/obs_bodyelem_r"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyelem_r()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/obsspaceerrorstddev_mod/ose_fillompstddevch">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obsspaceerrorstddev_mod/</span></span><span class="sig-name descname"><span class="pre">ose_fillompstddevch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">obsspacedata</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/obsspaceerrorstddev_mod/ose_fillompstddevch" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>To assign the Omp error std dev where possible for the obs
+of the CH obs family.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>obsspacedata</strong><em> [</em><em>struct_obs </em><em>]</em> :: observation-space data; output saved in OBS_OMPE column</p>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/obsspaceerrorstddev_mod/ose_setompstddevch" title="f/obsspaceerrorstddev_mod/ose_setompstddevch"><code class="xref f f-func docutils literal notranslate"><span class="pre">ose_setompstddevch()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_getheaderindex" title="f/obsspacedata_mod/obs_getheaderindex"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_getheaderindex()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_headelem_i" title="f/obsspacedata_mod/obs_headelem_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_headelem_i()</span></code></a>, <a class="reference internal" href="codtyp_mod.html#f/codtyp_mod/codtyp_get_codtyp" title="f/codtyp_mod/codtyp_get_codtyp"><code class="xref f f-func docutils literal notranslate"><span class="pre">codtyp_get_codtyp()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_elem_c" title="f/obsspacedata_mod/obs_elem_c"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_elem_c()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_stnid_equal" title="f/utilities_mod/utl_stnid_equal"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_stnid_equal()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyelem_i" title="f/obsspacedata_mod/obs_bodyelem_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyelem_i()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_headelem_r" title="f/obsspacedata_mod/obs_headelem_r"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_headelem_r()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyelem_r" title="f/obsspacedata_mod/obs_bodyelem_r"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyelem_r()</span></code></a>, <a class="reference internal" href="#f/obsspaceerrorstddev_mod/ose_getompstddevch" title="f/obsspaceerrorstddev_mod/ose_getompstddevch"><code class="xref f f-func docutils literal notranslate"><span class="pre">ose_getompstddevch()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/obsspaceerrorstddev_mod/ose_getompstddevch">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obsspaceerrorstddev_mod/</span></span><span class="sig-name descname"><span class="pre">ose_getompstddevch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">zlat</span></em>, <em class="sig-param"><span class="pre">zlev</span></em>, <em class="sig-param"><span class="pre">stnidindex</span></em>, <em class="sig-param"><span class="pre">latindex</span></em>, <em class="sig-param"><span class="pre">monthindex</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/obsspaceerrorstddev_mod/ose_getompstddevch" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>To return the OmP error std dev for a CH family measurement</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>zlat</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: latitude (radians)</p></li>
+<li><p><strong>zlev</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: vertical coordinate value</p></li>
+<li><p><strong>stnidindex</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em> :: station and obs type index</p></li>
+<li><p><strong>latindex</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em> :: reference lat for interpolation</p></li>
+<li><p><strong>monthindex</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em> :: month index</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Return</dt>
+<dd class="field-odd"><p><strong>omp_err_stddev</strong></p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/obsspaceerrorstddev_mod/ose_fillompstddevch" title="f/obsspaceerrorstddev_mod/ose_fillompstddevch"><code class="xref f f-func docutils literal notranslate"><span class="pre">ose_fillompstddevch()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/obsspaceerrorstddev_mod/ose_ompstddevexistsforallch">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obsspaceerrorstddev_mod/</span></span><span class="sig-name descname"><span class="pre">ose_ompstddevexistsforallch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">obsspacedata</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/obsspaceerrorstddev_mod/ose_ompstddevexistsforallch" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>To determine if all obs to be processed have usable OBS_OMPE values
+for the CH obs family.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>obsspacedata</strong><em> [</em><em>struct_obs </em><em>]</em> :: observation-space data; output saved in OBS_OMPE column</p>
+</dd>
+<dt class="field-odd">Return</dt>
+<dd class="field-odd"><p><strong>allompe</strong></p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/obsspaceerrorstddev_mod/ose_setompstddevch" title="f/obsspaceerrorstddev_mod/ose_setompstddevch"><code class="xref f f-func docutils literal notranslate"><span class="pre">ose_setompstddevch()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_getheaderindex" title="f/obsspacedata_mod/obs_getheaderindex"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_getheaderindex()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_headelem_i" title="f/obsspacedata_mod/obs_headelem_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_headelem_i()</span></code></a>, <a class="reference internal" href="codtyp_mod.html#f/codtyp_mod/codtyp_get_codtyp" title="f/codtyp_mod/codtyp_get_codtyp"><code class="xref f f-func docutils literal notranslate"><span class="pre">codtyp_get_codtyp()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyelem_r" title="f/obsspacedata_mod/obs_bodyelem_r"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyelem_r()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyelem_i" title="f/obsspacedata_mod/obs_bodyelem_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyelem_i()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/obsspaceerrorstddev_mod/ose_deallocompstddevch">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">obsspaceerrorstddev_mod/</span></span><span class="sig-name descname"><span class="pre">ose_deallocompstddevch</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#f/obsspaceerrorstddev_mod/ose_deallocompstddevch" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>To deallocate temporary storage space used for OmP error std dev
+for the CH family.</p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/obsspaceerrorstddev_mod/ose_setompstddevch" title="f/obsspaceerrorstddev_mod/ose_setompstddevch"><code class="xref f f-func docutils literal notranslate"><span class="pre">ose_setompstddevch()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div></blockquote>
+</section>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="oceanbackground_mod.html" title="oceanbackground_mod"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="obsspacediag_mod.html" title="obsspacediag_mod"
+             >previous</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2018, ECCC.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.
+    </div>
+  </body>
+</html>

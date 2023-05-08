@@ -1,0 +1,654 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>bcovarsetupchem_mod &mdash; MIDAS  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="MIDAS  documentation" href="../index.html" />
+    <link rel="next" title="columndata_mod" href="columndata_mod.html" />
+    <link rel="prev" title="tovs_nl_mod" href="tovs_nl_mod.html" /> 
+  </head>
+  <body>
+  <div>
+    <img src="../_static/MIDAS_header.png" alt="MIDAS" />
+  </div>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="columndata_mod.html" title="columndata_mod"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="tovs_nl_mod.html" title="tovs_nl_mod"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="tovs_nl_mod.html"
+                          title="previous chapter">tovs_nl_mod</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="columndata_mod.html"
+                          title="next chapter">columndata_mod</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/modules/bcovarsetupchem_mod.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <section id="bcovarsetupchem-mod">
+<h1>bcovarsetupchem_mod<a class="headerlink" href="#bcovarsetupchem-mod" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><p><a class="reference internal" href="bcovarsetupchem_mod_src.html"><span class="doc">link to source code</span></a></p>
+<p><strong>Dependency Diagrams:</strong></p>
+<figure class="align-default" id="id1">
+<a class="reference internal image-reference" href="bcovarsetupchem_mod.svg"><img alt="bcovarsetupchem_mod.svg" height="100px" src="bcovarsetupchem_mod.svg" /></a>
+<figcaption>
+<p><span class="caption-text">Direct Dependency Diagram</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id2">
+<a class="reference internal image-reference" href="bcovarsetupchem_mod_rev.svg"><img alt="bcovarsetupchem_mod_rev.svg" height="100px" src="bcovarsetupchem_mod_rev.svg" /></a>
+<figcaption>
+<p><span class="caption-text">Reverse Dependency Diagram</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<span class="target" id="f/bcovarsetupchem_mod"></span><p class="rubric">Description</p>
+<p>MODULE BCovarSetupChem_mod (prefix=’bcsc’ category=’6. High-level data objects’)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Purpose</dt>
+<dd class="field-odd"><p>Contains routines for the reading and preparation of
+background-error covariance elements. Correlation matrices
+based on horizontally homogeneous/isotropic correlations.</p>
+</dd>
+<dt class="field-even">Comments</dt>
+<dd class="field-even"><ol class="arabic simple">
+<li><p>Covariances uncoupled from weather variable.</p></li>
+<li><p>Handles univariate and multivariate covariances.
+See routines bcsc_readcorns2 and bcsc_sucorns2.</p></li>
+<li><p>For multiple univariate variables (or univarite blocks of one to
+multiple variables), one can alternatively have multiple sets of
+covariance matrices within this module instead of a single covariance
+matrix setup (similarly to what was done for corvert*).</p></li>
+</ol>
+</dd>
+</dl>
+<p>Public Subroutines:</p>
+<p class="rubric">Quick access</p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/bcovarsetupchem_mod/struct_bcsc_bgstats" title="f/bcovarsetupchem_mod/struct_bcsc_bgstats"><code class="xref f f-var docutils literal notranslate"><span class="pre">struct_bcsc_bgstats</span></code></a></p>
+</dd>
+<dt class="field-even">Routines</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/bcovarsetupchem_mod/bcsc_addbgstddev" title="f/bcovarsetupchem_mod/bcsc_addbgstddev"><code class="xref f f-func docutils literal notranslate"><span class="pre">bcsc_addbgstddev()</span></code></a>, <a class="reference internal" href="#f/bcovarsetupchem_mod/bcsc_convol" title="f/bcovarsetupchem_mod/bcsc_convol"><code class="xref f f-func docutils literal notranslate"><span class="pre">bcsc_convol()</span></code></a>, <a class="reference internal" href="#f/bcovarsetupchem_mod/bcsc_corvertsetup" title="f/bcovarsetupchem_mod/bcsc_corvertsetup"><code class="xref f f-func docutils literal notranslate"><span class="pre">bcsc_corvertsetup()</span></code></a>, <a class="reference internal" href="#f/bcovarsetupchem_mod/bcsc_finalize" title="f/bcovarsetupchem_mod/bcsc_finalize"><code class="xref f f-func docutils literal notranslate"><span class="pre">bcsc_finalize()</span></code></a>, <a class="reference internal" href="#f/bcovarsetupchem_mod/bcsc_getbgstddev" title="f/bcovarsetupchem_mod/bcsc_getbgstddev"><code class="xref f f-func docutils literal notranslate"><span class="pre">bcsc_getbgstddev()</span></code></a>, <a class="reference internal" href="#f/bcovarsetupchem_mod/bcsc_getcovarch" title="f/bcovarsetupchem_mod/bcsc_getcovarch"><code class="xref f f-func docutils literal notranslate"><span class="pre">bcsc_getcovarch()</span></code></a>, <a class="reference internal" href="#f/bcovarsetupchem_mod/bcsc_getscalefactor" title="f/bcovarsetupchem_mod/bcsc_getscalefactor"><code class="xref f f-func docutils literal notranslate"><span class="pre">bcsc_getscalefactor()</span></code></a>, <a class="reference internal" href="#f/bcovarsetupchem_mod/bcsc_rdspstd" title="f/bcovarsetupchem_mod/bcsc_rdspstd"><code class="xref f f-func docutils literal notranslate"><span class="pre">bcsc_rdspstd()</span></code></a>, <a class="reference internal" href="#f/bcovarsetupchem_mod/bcsc_rdspstd_newfmt" title="f/bcovarsetupchem_mod/bcsc_rdspstd_newfmt"><code class="xref f f-func docutils literal notranslate"><span class="pre">bcsc_rdspstd_newfmt()</span></code></a>, <a class="reference internal" href="#f/bcovarsetupchem_mod/bcsc_rdstats" title="f/bcovarsetupchem_mod/bcsc_rdstats"><code class="xref f f-func docutils literal notranslate"><span class="pre">bcsc_rdstats()</span></code></a>, <a class="reference internal" href="#f/bcovarsetupchem_mod/bcsc_rdstd" title="f/bcovarsetupchem_mod/bcsc_rdstd"><code class="xref f f-func docutils literal notranslate"><span class="pre">bcsc_rdstd()</span></code></a>, <a class="reference internal" href="#f/bcovarsetupchem_mod/bcsc_rdstd3d" title="f/bcovarsetupchem_mod/bcsc_rdstd3d"><code class="xref f f-func docutils literal notranslate"><span class="pre">bcsc_rdstd3d()</span></code></a>, <a class="reference internal" href="#f/bcovarsetupchem_mod/bcsc_rdstddev" title="f/bcovarsetupchem_mod/bcsc_rdstddev"><code class="xref f f-func docutils literal notranslate"><span class="pre">bcsc_rdstddev()</span></code></a>, <a class="reference internal" href="#f/bcovarsetupchem_mod/bcsc_readcorns2" title="f/bcovarsetupchem_mod/bcsc_readcorns2"><code class="xref f f-func docutils literal notranslate"><span class="pre">bcsc_readcorns2()</span></code></a>, <a class="reference internal" href="#f/bcovarsetupchem_mod/bcsc_resetcorvert" title="f/bcovarsetupchem_mod/bcsc_resetcorvert"><code class="xref f f-func docutils literal notranslate"><span class="pre">bcsc_resetcorvert()</span></code></a>, <a class="reference internal" href="#f/bcovarsetupchem_mod/bcsc_resethcorrlen" title="f/bcovarsetupchem_mod/bcsc_resethcorrlen"><code class="xref f f-func docutils literal notranslate"><span class="pre">bcsc_resethcorrlen()</span></code></a>, <a class="reference internal" href="#f/bcovarsetupchem_mod/bcsc_retrievebgstddev" title="f/bcovarsetupchem_mod/bcsc_retrievebgstddev"><code class="xref f f-func docutils literal notranslate"><span class="pre">bcsc_retrievebgstddev()</span></code></a>, <a class="reference internal" href="#f/bcovarsetupchem_mod/bcsc_scalestd" title="f/bcovarsetupchem_mod/bcsc_scalestd"><code class="xref f f-func docutils literal notranslate"><span class="pre">bcsc_scalestd()</span></code></a>, <a class="reference internal" href="#f/bcovarsetupchem_mod/bcsc_setupch" title="f/bcovarsetupchem_mod/bcsc_setupch"><code class="xref f f-func docutils literal notranslate"><span class="pre">bcsc_setupch()</span></code></a>, <a class="reference internal" href="#f/bcovarsetupchem_mod/bcsc_statsexistforvarname" title="f/bcovarsetupchem_mod/bcsc_statsexistforvarname"><code class="xref f f-func docutils literal notranslate"><span class="pre">bcsc_statsexistforvarname()</span></code></a>, <a class="reference internal" href="#f/bcovarsetupchem_mod/bcsc_sucorns2" title="f/bcovarsetupchem_mod/bcsc_sucorns2"><code class="xref f f-func docutils literal notranslate"><span class="pre">bcsc_sucorns2()</span></code></a>, <a class="reference internal" href="#f/bcovarsetupchem_mod/readcorns" title="f/bcovarsetupchem_mod/readcorns"><code class="xref f f-func docutils literal notranslate"><span class="pre">readcorns()</span></code></a>, <a class="reference internal" href="#f/bcovarsetupchem_mod/writecorns" title="f/bcovarsetupchem_mod/writecorns"><code class="xref f f-func docutils literal notranslate"><span class="pre">writecorns()</span></code></a></p>
+</dd>
+</dl>
+<p class="rubric">Needed modules</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="midasmpi_mod.html#f/midasmpi_mod" title="f/midasmpi_mod: MODULE midasMpi_mod (prefix='mmpi' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">midasmpi_mod</span></code></a>: MODULE midasMpi_mod (prefix=’mmpi’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="mathphysconstants_mod.html#f/mathphysconstants_mod" title="f/mathphysconstants_mod: MODULE MathPhysConstants_mod (prefix='mpc' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">mathphysconstants_mod</span></code></a>: MODULE MathPhysConstants_mod (prefix=’mpc’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="earthconstants_mod.html#f/earthconstants_mod" title="f/earthconstants_mod: MODULE earthConstants_mod (prefix='ec' category='8. Low-level utilities and constants') Prefixes: ec_ (Earth constants), for miscellaneous values from diverse sources"><code class="xref f f-mod docutils literal notranslate"><span class="pre">earthconstants_mod</span></code></a>: MODULE earthConstants_mod (prefix=’ec’ category=’8. Low-level utilities and constants’) Prefixes: <a href="#id3"><span class="problematic" id="id4">ec_</span></a> (Earth constants), for miscellaneous values from diverse sources</p></li>
+<li><p><a class="reference internal" href="obssubspacedata_mod.html#f/obssubspacedata_mod" title="f/obssubspacedata_mod: MODULE obsSubSpaceData_mod (prefix='oss' category='6. High-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">obssubspacedata_mod</span></code></a>: MODULE obsSubSpaceData_mod (prefix=’oss’ category=’6. High-level data objects’)</p></li>
+<li><p><a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod" title="f/gridstatevector_mod: MODULE gridStateVector_mod (prefix='gsv' category='6. High-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">gridstatevector_mod</span></code></a>: MODULE gridStateVector_mod (prefix=’gsv’ category=’6. High-level data objects’)</p></li>
+<li><p><a class="reference internal" href="globalspectraltransform_mod.html#f/globalspectraltransform_mod" title="f/globalspectraltransform_mod: MODULE globalSpectralTransform_mod (prefix='gst' category='4. Data Object transformations')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">globalspectraltransform_mod</span></code></a>: MODULE globalSpectralTransform_mod (prefix=’gst’ category=’4. Data Object transformations’)</p></li>
+<li><p><a class="reference internal" href="horizontalcoord_mod.html#f/horizontalcoord_mod" title="f/horizontalcoord_mod: MODULE HorizontalCoord_mod (prefix='hco' category='7. Low-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">horizontalcoord_mod</span></code></a>: MODULE HorizontalCoord_mod (prefix=’hco’ category=’7. Low-level data objects’)</p></li>
+<li><p><a class="reference internal" href="verticalcoord_mod.html#f/verticalcoord_mod" title="f/verticalcoord_mod: MODULE verticalcoord (prefix='vco' category='7. Low-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">verticalcoord_mod</span></code></a>: MODULE verticalcoord (prefix=’vco’ category=’7. Low-level data objects’)</p></li>
+<li><p><a class="reference internal" href="varnamelist_mod.html#f/varnamelist_mod" title="f/varnamelist_mod: MODULE varNameList (prefix='vnl' category='7. Low-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">varnamelist_mod</span></code></a>: MODULE varNameList (prefix=’vnl’ category=’7. Low-level data objects’)</p></li>
+<li><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod" title="f/utilities_mod: MODULE utilities_mod (prefix='utl' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">utilities_mod</span></code></a>: MODULE utilities_mod (prefix=’utl’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="calcheightandpressure_mod.html#f/calcheightandpressure_mod" title="f/calcheightandpressure_mod: MODULE czp_calcHeightAndPressure (prefix='czp' category='4. Data Object transformations')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">calcheightandpressure_mod</span></code></a>: MODULE czp_calcHeightAndPressure (prefix=’czp’ category=’4. Data Object transformations’)</p></li>
+</ul>
+<p class="rubric">Types</p>
+<ul>
+<li><dl>
+<dt class="sig sig-object f" id="f/bcovarsetupchem_mod/unknown_type">
+<em class="property"><span class="pre">type</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">bcovarsetupchem_mod/</span></span><span class="sig-name descname"><span class="pre">unknown_type</span></span><a class="headerlink" href="#f/bcovarsetupchem_mod/unknown_type" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type fields</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">corns</span> (*,*,*)<em> [</em><em>real </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">corvert</span> (*,*,*)<em> [</em><em>real </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">corverti</span> (*,*,*)<em> [</em><em>real </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">hcorrlen</span> (*,*)<em> [</em><em>real </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">initialized</span><em> [</em><em>logical </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">lat</span> (*)<em> [</em><em>real </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">lon</span> (*)<em> [</em><em>real </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">ni</span><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">nj</span><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">nkgdim</span><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">nlev</span><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">nsposit</span> (*)<em> [</em><em>integer </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">ntrunc</span><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">numvar2d</span><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">numvar3d</span><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">stddev</span> (*,*,*)<em> [</em><em>real </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">varnamelist</span> (*)<em> [</em><em>character </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">vlev</span> (*)<em> [</em><em>real </em><em>,</em><em>allocatable</em><em>]</em></p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</li>
+</ul>
+<p class="rubric">Variables</p>
+<ul>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/bcovarsetupchem_mod/struct_bcsc_bgstats">
+<span class="sig-prename descclassname"><span class="pre">bcovarsetupchem_mod/</span></span><span class="sig-name descname"><span class="pre">struct_bcsc_bgstats</span></span><em> <span class="pre">[</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/bcovarsetupchem_mod/struct_bcsc_bgstats" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+</ul>
+<p class="rubric">Subroutines and functions</p>
+<dl>
+<dt class="sig sig-object f" id="f/bcovarsetupchem_mod/bcsc_setupch">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">bcovarsetupchem_mod/</span></span><span class="sig-name descname"><span class="pre">bcsc_setupch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">hco_in</span></em>, <em class="sig-param"><span class="pre">vco_in</span></em>, <em class="sig-param"><span class="pre">covarneeded</span></em>, <em class="sig-param"><span class="pre">mode</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/bcovarsetupchem_mod/bcsc_setupch" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Set up for constituents static background error covariances.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>hco_in</strong><em> [</em><em>struct_hco </em><em>,</em><em>in,pointer</em><em>]</em></p></li>
+<li><p><strong>vco_in</strong><em> [</em><em>struct_vco </em><em>,</em><em>in,pointer</em><em>]</em></p></li>
+<li><p><strong>covarneeded</strong><em> [</em><em>logical </em><em>,</em><em>out</em><em>]</em></p></li>
+<li><p><strong>mode</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em> :: ‘Analysis’ or ‘BackgroundCheck’</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="bmatrixchem_mod.html#f/bmatrixchem_mod/bchm_setupch" title="f/bmatrixchem_mod/bchm_setupch"><code class="xref f f-func docutils literal notranslate"><span class="pre">bchm_setupch()</span></code></a>, <a class="reference internal" href="obsspaceerrorstddev_mod.html#f/obsspaceerrorstddev_mod/ose_compute_hbht_static_chem" title="f/obsspaceerrorstddev_mod/ose_compute_hbht_static_chem"><code class="xref f f-func docutils literal notranslate"><span class="pre">ose_compute_hbht_static_chem()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_varexist" title="f/gridstatevector_mod/gsv_varexist"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_varexist()</span></code></a>, <a class="reference internal" href="varnamelist_mod.html#f/varnamelist_mod/vnl_varkindfromvarname" title="f/varnamelist_mod/vnl_varkindfromvarname"><code class="xref f f-func docutils literal notranslate"><span class="pre">vnl_varkindfromvarname()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="globalspectraltransform_mod.html#f/globalspectraltransform_mod/gst_setup" title="f/globalspectraltransform_mod/gst_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">gst_setup()</span></code></a>, <a class="reference internal" href="#f/bcovarsetupchem_mod/bcsc_rdstats" title="f/bcovarsetupchem_mod/bcsc_rdstats"><code class="xref f f-func docutils literal notranslate"><span class="pre">bcsc_rdstats()</span></code></a>, <a class="reference internal" href="#f/bcovarsetupchem_mod/bcsc_sucorns2" title="f/bcovarsetupchem_mod/bcsc_sucorns2"><code class="xref f f-func docutils literal notranslate"><span class="pre">bcsc_sucorns2()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/bcovarsetupchem_mod/bcsc_getscalefactor">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">bcovarsetupchem_mod/</span></span><span class="sig-name descname"><span class="pre">bcsc_getscalefactor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">scalefactorout</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/bcovarsetupchem_mod/bcsc_getscalefactor" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>To set scaling factors for background error std. dev.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>scalefactorout</strong> (*,*)<em> [</em><em>real </em><em>,</em><em>out</em><em>]</em> :: Error std. dev. scale factor</p>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="obsspacediag_mod.html#f/obsspacediag_mod/osd_calcinflation" title="f/obsspacediag_mod/osd_calcinflation"><code class="xref f f-func docutils literal notranslate"><span class="pre">osd_calcinflation()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/bcovarsetupchem_mod/bcsc_rdstats">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">bcovarsetupchem_mod/</span></span><span class="sig-name descname"><span class="pre">bcsc_rdstats</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#f/bcovarsetupchem_mod/bcsc_rdstats" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>To read chemical constituents background stats file.</p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/bcovarsetupchem_mod/bcsc_setupch" title="f/bcovarsetupchem_mod/bcsc_setupch"><code class="xref f f-func docutils literal notranslate"><span class="pre">bcsc_setupch()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="verticalcoord_mod.html#f/verticalcoord_mod/vco_setupfromfile" title="f/verticalcoord_mod/vco_setupfromfile"><code class="xref f f-func docutils literal notranslate"><span class="pre">vco_setupfromfile()</span></code></a>, <a class="reference internal" href="verticalcoord_mod.html#f/verticalcoord_mod/vco_equal" title="f/verticalcoord_mod/vco_equal"><code class="xref f f-func docutils literal notranslate"><span class="pre">vco_equal()</span></code></a>, <a class="reference internal" href="#f/bcovarsetupchem_mod/bcsc_readcorns2" title="f/bcovarsetupchem_mod/bcsc_readcorns2"><code class="xref f f-func docutils literal notranslate"><span class="pre">bcsc_readcorns2()</span></code></a>, <a class="reference internal" href="#f/bcovarsetupchem_mod/bcsc_rdstddev" title="f/bcovarsetupchem_mod/bcsc_rdstddev"><code class="xref f f-func docutils literal notranslate"><span class="pre">bcsc_rdstddev()</span></code></a>, <a class="reference internal" href="#f/bcovarsetupchem_mod/bcsc_scalestd" title="f/bcovarsetupchem_mod/bcsc_scalestd"><code class="xref f f-func docutils literal notranslate"><span class="pre">bcsc_scalestd()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/bcovarsetupchem_mod/bcsc_scalestd">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">bcovarsetupchem_mod/</span></span><span class="sig-name descname"><span class="pre">bcsc_scalestd</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#f/bcovarsetupchem_mod/bcsc_scalestd" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>To scale error standard-deviation values.</p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/bcovarsetupchem_mod/bcsc_rdstats" title="f/bcovarsetupchem_mod/bcsc_rdstats"><code class="xref f f-func docutils literal notranslate"><span class="pre">bcsc_rdstats()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_fstecr" title="f/utilities_mod/utl_fstecr"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_fstecr()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/bcovarsetupchem_mod/bcsc_readcorns2">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">bcovarsetupchem_mod/</span></span><span class="sig-name descname"><span class="pre">bcsc_readcorns2</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#f/bcovarsetupchem_mod/bcsc_readcorns2" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>To read correlation information and to form the correlation
+matrix.</p>
+</dd>
+<dt class="field-even">Notes </dt>
+<dd class="field-even"><p>Can read distinct block diagonal matrices with or without
+cross-correlations.</p>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/bcovarsetupchem_mod/bcsc_rdstats" title="f/bcovarsetupchem_mod/bcsc_rdstats"><code class="xref f f-func docutils literal notranslate"><span class="pre">bcsc_rdstats()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_fstlir" title="f/utilities_mod/utl_fstlir"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_fstlir()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="#f/bcovarsetupchem_mod/bcsc_convol" title="f/bcovarsetupchem_mod/bcsc_convol"><code class="xref f f-func docutils literal notranslate"><span class="pre">bcsc_convol()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/bcovarsetupchem_mod/bcsc_convol">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">bcovarsetupchem_mod/</span></span><span class="sig-name descname"><span class="pre">bcsc_convol</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#f/bcovarsetupchem_mod/bcsc_convol" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/bcovarsetupchem_mod/bcsc_readcorns2" title="f/bcovarsetupchem_mod/bcsc_readcorns2"><code class="xref f f-func docutils literal notranslate"><span class="pre">bcsc_readcorns2()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="globalspectraltransform_mod.html#f/globalspectraltransform_mod/gst_getrmu" title="f/globalspectraltransform_mod/gst_getrmu"><code class="xref f f-func docutils literal notranslate"><span class="pre">gst_getrmu()</span></code></a>, <a class="reference internal" href="globalspectraltransform_mod.html#f/globalspectraltransform_mod/gst_zleginv" title="f/globalspectraltransform_mod/gst_zleginv"><code class="xref f f-func docutils literal notranslate"><span class="pre">gst_zleginv()</span></code></a>, <a class="reference internal" href="globalspectraltransform_mod.html#f/globalspectraltransform_mod/gst_zlegdir" title="f/globalspectraltransform_mod/gst_zlegdir"><code class="xref f f-func docutils literal notranslate"><span class="pre">gst_zlegdir()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_fstlir" title="f/utilities_mod/utl_fstlir"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_fstlir()</span></code></a>, <a class="reference internal" href="globalspectraltransform_mod.html#f/globalspectraltransform_mod/gst_getzleg" title="f/globalspectraltransform_mod/gst_getzleg"><code class="xref f f-func docutils literal notranslate"><span class="pre">gst_getzleg()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_fstecr" title="f/utilities_mod/utl_fstecr"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_fstecr()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/bcovarsetupchem_mod/bcsc_rdstddev">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">bcovarsetupchem_mod/</span></span><span class="sig-name descname"><span class="pre">bcsc_rdstddev</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#f/bcovarsetupchem_mod/bcsc_rdstddev" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>To read stddev and to set as 3D fields.</p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/bcovarsetupchem_mod/bcsc_rdstats" title="f/bcovarsetupchem_mod/bcsc_rdstats"><code class="xref f f-func docutils literal notranslate"><span class="pre">bcsc_rdstats()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_fstlir" title="f/utilities_mod/utl_fstlir"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_fstlir()</span></code></a>, <a class="reference internal" href="#f/bcovarsetupchem_mod/bcsc_rdstd3d" title="f/bcovarsetupchem_mod/bcsc_rdstd3d"><code class="xref f f-func docutils literal notranslate"><span class="pre">bcsc_rdstd3d()</span></code></a>, <a class="reference internal" href="#f/bcovarsetupchem_mod/bcsc_rdstd" title="f/bcovarsetupchem_mod/bcsc_rdstd"><code class="xref f f-func docutils literal notranslate"><span class="pre">bcsc_rdstd()</span></code></a>, <a class="reference internal" href="#f/bcovarsetupchem_mod/bcsc_rdspstd" title="f/bcovarsetupchem_mod/bcsc_rdspstd"><code class="xref f f-func docutils literal notranslate"><span class="pre">bcsc_rdspstd()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/bcovarsetupchem_mod/bcsc_rdspstd">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">bcovarsetupchem_mod/</span></span><span class="sig-name descname"><span class="pre">bcsc_rdspstd</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#f/bcovarsetupchem_mod/bcsc_rdspstd" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/bcovarsetupchem_mod/bcsc_rdstddev" title="f/bcovarsetupchem_mod/bcsc_rdstddev"><code class="xref f f-func docutils literal notranslate"><span class="pre">bcsc_rdstddev()</span></code></a>, <a class="reference internal" href="#f/bcovarsetupchem_mod/bcsc_rdspstd_newfmt" title="f/bcovarsetupchem_mod/bcsc_rdspstd_newfmt"><code class="xref f f-func docutils literal notranslate"><span class="pre">bcsc_rdspstd_newfmt()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_fstlir" title="f/utilities_mod/utl_fstlir"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_fstlir()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="globalspectraltransform_mod.html#f/globalspectraltransform_mod/gst_zleginv" title="f/globalspectraltransform_mod/gst_zleginv"><code class="xref f f-func docutils literal notranslate"><span class="pre">gst_zleginv()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/bcovarsetupchem_mod/bcsc_rdspstd_newfmt">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">bcovarsetupchem_mod/</span></span><span class="sig-name descname"><span class="pre">bcsc_rdspstd_newfmt</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#f/bcovarsetupchem_mod/bcsc_rdspstd_newfmt" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/bcovarsetupchem_mod/bcsc_rdspstd" title="f/bcovarsetupchem_mod/bcsc_rdspstd"><code class="xref f f-func docutils literal notranslate"><span class="pre">bcsc_rdspstd()</span></code></a>, <a class="reference internal" href="varnamelist_mod.html#f/varnamelist_mod/vnl_varlevelfromvarname" title="f/varnamelist_mod/vnl_varlevelfromvarname"><code class="xref f f-func docutils literal notranslate"><span class="pre">vnl_varlevelfromvarname()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_fstlir" title="f/utilities_mod/utl_fstlir"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_fstlir()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="globalspectraltransform_mod.html#f/globalspectraltransform_mod/gst_zleginv" title="f/globalspectraltransform_mod/gst_zleginv"><code class="xref f f-func docutils literal notranslate"><span class="pre">gst_zleginv()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/bcovarsetupchem_mod/bcsc_rdstd">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">bcovarsetupchem_mod/</span></span><span class="sig-name descname"><span class="pre">bcsc_rdstd</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#f/bcovarsetupchem_mod/bcsc_rdstd" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>To read 2D stddev and to store as 3D</p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/bcovarsetupchem_mod/bcsc_rdstddev" title="f/bcovarsetupchem_mod/bcsc_rdstddev"><code class="xref f f-func docutils literal notranslate"><span class="pre">bcsc_rdstddev()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_fstlir" title="f/utilities_mod/utl_fstlir"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_fstlir()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_field3d_hbilin" title="f/gridstatevector_mod/gsv_field3d_hbilin"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_field3d_hbilin()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/bcovarsetupchem_mod/bcsc_rdstd3d">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">bcovarsetupchem_mod/</span></span><span class="sig-name descname"><span class="pre">bcsc_rdstd3d</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#f/bcovarsetupchem_mod/bcsc_rdstd3d" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>To read 3D stddev.</p>
+<p>Originally based on bcsc_rdspstd_newfmt</p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/bcovarsetupchem_mod/bcsc_rdstddev" title="f/bcovarsetupchem_mod/bcsc_rdstddev"><code class="xref f f-func docutils literal notranslate"><span class="pre">bcsc_rdstddev()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="varnamelist_mod.html#f/varnamelist_mod/vnl_varlevelfromvarname" title="f/varnamelist_mod/vnl_varlevelfromvarname"><code class="xref f f-func docutils literal notranslate"><span class="pre">vnl_varlevelfromvarname()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_fstlir" title="f/utilities_mod/utl_fstlir"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_fstlir()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_field3d_hbilin" title="f/gridstatevector_mod/gsv_field3d_hbilin"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_field3d_hbilin()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/bcovarsetupchem_mod/bcsc_sucorns2">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">bcovarsetupchem_mod/</span></span><span class="sig-name descname"><span class="pre">bcsc_sucorns2</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#f/bcovarsetupchem_mod/bcsc_sucorns2" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/bcovarsetupchem_mod/bcsc_setupch" title="f/bcovarsetupchem_mod/bcsc_setupch"><code class="xref f f-func docutils literal notranslate"><span class="pre">bcsc_setupch()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="bmatrixhi_mod.html#f/bmatrixhi_mod/gasparicohn" title="f/bmatrixhi_mod/gasparicohn"><code class="xref f f-func docutils literal notranslate"><span class="pre">gasparicohn()</span></code></a>, <a class="reference internal" href="#f/bcovarsetupchem_mod/bcsc_corvertsetup" title="f/bcovarsetupchem_mod/bcsc_corvertsetup"><code class="xref f f-func docutils literal notranslate"><span class="pre">bcsc_corvertsetup()</span></code></a>, <a class="reference internal" href="#f/bcovarsetupchem_mod/readcorns" title="f/bcovarsetupchem_mod/readcorns"><code class="xref f f-func docutils literal notranslate"><span class="pre">readcorns()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="#f/bcovarsetupchem_mod/writecorns" title="f/bcovarsetupchem_mod/writecorns"><code class="xref f f-func docutils literal notranslate"><span class="pre">writecorns()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/bcovarsetupchem_mod/bcsc_corvertsetup">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">bcovarsetupchem_mod/</span></span><span class="sig-name descname"><span class="pre">bcsc_corvertsetup</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#f/bcovarsetupchem_mod/bcsc_corvertsetup" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>To compute total vertical correlations (bcsc_corvert) and its
+inverse (bgStats%corverti; currently for each block matrix).</p>
+</dd>
+<dt class="field-even">Note </dt>
+<dd class="field-even"><p>Currently assumes no (or neglects) cross-correlations</p>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/bcovarsetupchem_mod/bcsc_sucorns2" title="f/bcovarsetupchem_mod/bcsc_sucorns2"><code class="xref f f-func docutils literal notranslate"><span class="pre">bcsc_sucorns2()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/bcovarsetupchem_mod/readcorns" title="f/bcovarsetupchem_mod/readcorns"><code class="xref f f-func docutils literal notranslate"><span class="pre">readcorns()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_fstecr" title="f/utilities_mod/utl_fstecr"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_fstecr()</span></code></a>, <a class="reference internal" href="#f/bcovarsetupchem_mod/writecorns" title="f/bcovarsetupchem_mod/writecorns"><code class="xref f f-func docutils literal notranslate"><span class="pre">writecorns()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/bcovarsetupchem_mod/writecorns">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">bcovarsetupchem_mod/</span></span><span class="sig-name descname"><span class="pre">writecorns</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">nmat</span></em>, <em class="sig-param"><span class="pre">cletiket</span></em>, <em class="sig-param"><span class="pre">nlev</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/bcovarsetupchem_mod/writecorns" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>nmat</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>cletiket</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>nlev</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/bcovarsetupchem_mod/bcsc_sucorns2" title="f/bcovarsetupchem_mod/bcsc_sucorns2"><code class="xref f f-func docutils literal notranslate"><span class="pre">bcsc_sucorns2()</span></code></a>, <a class="reference internal" href="#f/bcovarsetupchem_mod/bcsc_corvertsetup" title="f/bcovarsetupchem_mod/bcsc_corvertsetup"><code class="xref f f-func docutils literal notranslate"><span class="pre">bcsc_corvertsetup()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_fstecr" title="f/utilities_mod/utl_fstecr"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_fstecr()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/bcovarsetupchem_mod/readcorns">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">bcovarsetupchem_mod/</span></span><span class="sig-name descname"><span class="pre">readcorns</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">lfound</span></em>, <em class="sig-param"><span class="pre">nmat</span></em>, <em class="sig-param"><span class="pre">cletiket</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/bcovarsetupchem_mod/readcorns" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>lfound</strong> (*)<em> [</em><em>logical </em><em>,</em><em>out</em><em>]</em></p></li>
+<li><p><strong>nmat</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>cletiket</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/bcovarsetupchem_mod/bcsc_sucorns2" title="f/bcovarsetupchem_mod/bcsc_sucorns2"><code class="xref f f-func docutils literal notranslate"><span class="pre">bcsc_sucorns2()</span></code></a>, <a class="reference internal" href="#f/bcovarsetupchem_mod/bcsc_corvertsetup" title="f/bcovarsetupchem_mod/bcsc_corvertsetup"><code class="xref f f-func docutils literal notranslate"><span class="pre">bcsc_corvertsetup()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_fstlir" title="f/utilities_mod/utl_fstlir"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_fstlir()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/bcovarsetupchem_mod/gasparicohn">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">bcovarsetupchem_mod/</span></span><span class="sig-name descname"><span class="pre">gasparicohn</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">ztlen</span></em>, <em class="sig-param"><span class="pre">zr</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/bcovarsetupchem_mod/gasparicohn" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ztlen</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>zr</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Return</dt>
+<dd class="field-even"><p><strong>gasparicohn</strong><em> [</em><em>real </em><em>]</em></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/bcovarsetupchem_mod/bcsc_finalize">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">bcovarsetupchem_mod/</span></span><span class="sig-name descname"><span class="pre">bcsc_finalize</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#f/bcovarsetupchem_mod/bcsc_finalize" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="bmatrixchem_mod.html#f/bmatrixchem_mod/bchm_finalize" title="f/bmatrixchem_mod/bchm_finalize"><code class="xref f f-func docutils literal notranslate"><span class="pre">bchm_finalize()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/bcovarsetupchem_mod/bcsc_getcovarch">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">bcovarsetupchem_mod/</span></span><span class="sig-name descname"><span class="pre">bcsc_getcovarch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">bgstatsout</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">transformvarkind_opt</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/bcovarsetupchem_mod/bcsc_getcovarch" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Pass on covariances in bgStats</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>bgstatsout</strong><em> [</em><em>struct_bcsc_bgstats </em><em>,</em><em>out</em><em>]</em> :: Structure with covariance elements</p>
+</dd>
+<dt class="field-odd">Options</dt>
+<dd class="field-odd"><p><strong>transformvarkind_opt</strong><em> [</em><em>character </em><em>,</em><em>out,</em><em>]</em></p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="bmatrixchem_mod.html#f/bmatrixchem_mod/bchm_setupch" title="f/bmatrixchem_mod/bchm_setupch"><code class="xref f f-func docutils literal notranslate"><span class="pre">bchm_setupch()</span></code></a>, <a class="reference internal" href="obsoperatorschem_mod.html#f/obsoperatorschem_mod/oopc_setupch" title="f/obsoperatorschem_mod/oopc_setupch"><code class="xref f f-func docutils literal notranslate"><span class="pre">oopc_setupch()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/bcovarsetupchem_mod/bcsc_resetcorvert">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">bcovarsetupchem_mod/</span></span><span class="sig-name descname"><span class="pre">bcsc_resetcorvert</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">nlev_t</span></em>, <em class="sig-param"><span class="pre">vlev_t</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/bcovarsetupchem_mod/bcsc_resetcorvert" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Vertically interpolate error correlation matrix fields to
+generate approximate matrices/vectors in trial field vertical
+levels via interpolation. No need to make matrix positive
+definite for this approximation.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>nlev_t</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em> :: Number of vertical levels for trial fields</p></li>
+<li><p><strong>vlev_t</strong> (*)<em> [</em><em>real </em><em>,</em><em>in,pointer</em><em>]</em> :: Trial field vertical levels</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/bcovarsetupchem_mod/bcsc_resethcorrlen">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">bcovarsetupchem_mod/</span></span><span class="sig-name descname"><span class="pre">bcsc_resethcorrlen</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">nlev_t</span></em>, <em class="sig-param"><span class="pre">vlev_t</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/bcovarsetupchem_mod/bcsc_resethcorrlen" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>To interpolate horizontal correlation length
+to trial field vertical levels.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>nlev_t</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em> :: Number of target vertical levels</p></li>
+<li><p><strong>vlev_t</strong> (*)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: Target vertical levels</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/bcovarsetupchem_mod/bcsc_statsexistforvarname">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">bcovarsetupchem_mod/</span></span><span class="sig-name descname"><span class="pre">bcsc_statsexistforvarname</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">varname</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/bcovarsetupchem_mod/bcsc_statsexistforvarname" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>To check whether covariances have been made available for the
+specified variable</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>varname</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em></p>
+</dd>
+<dt class="field-odd">Return</dt>
+<dd class="field-odd"><p><strong>bcsc_statsexistforvarname</strong><em> [</em><em>logical </em><em>]</em></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/bcovarsetupchem_mod/bcsc_getbgstddev">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">bcovarsetupchem_mod/</span></span><span class="sig-name descname"><span class="pre">bcsc_getbgstddev</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">varname</span></em>, <em class="sig-param"><span class="pre">maxsize</span></em>, <em class="sig-param"><span class="pre">xlat</span></em>, <em class="sig-param"><span class="pre">xlong</span></em>, <em class="sig-param"><span class="pre">stddevout</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">vlev_opt</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/bcovarsetupchem_mod/bcsc_getbgstddev" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>To interpolate error std. dev. to obs location.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>varname</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em> :: Variable name</p></li>
+<li><p><strong>maxsize</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em> :: Max array size</p></li>
+<li><p><strong>xlat</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: Target latitude</p></li>
+<li><p><strong>xlong</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: Target longitude</p></li>
+<li><p><strong>stddevout</strong> (*)<em> [</em><em>real </em><em>,</em><em>out</em><em>]</em> :: Error std. dev.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Options</dt>
+<dd class="field-odd"><p><strong>vlev_opt</strong> (*)<em> [</em><em>real </em><em>,</em><em>in,</em><em>]</em> :: Target vertical levels</p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/bcovarsetupchem_mod/bcsc_addbgstddev">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">bcovarsetupchem_mod/</span></span><span class="sig-name descname"><span class="pre">bcsc_addbgstddev</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">headerindex</span></em>, <em class="sig-param"><span class="pre">stddevin</span></em>, <em class="sig-param"><span class="pre">obsdatamaxsize</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/bcovarsetupchem_mod/bcsc_addbgstddev" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>To add background stddev profiles (and inverse) to bgStddev
+which can be retrieved later using a header index.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>headerindex</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>stddevin</strong> (*,*)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>obsdatamaxsize</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="obssubspacedata_mod.html#f/obssubspacedata_mod/oss_obsdata_alloc" title="f/obssubspacedata_mod/oss_obsdata_alloc"><code class="xref f f-func docutils literal notranslate"><span class="pre">oss_obsdata_alloc()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/bcovarsetupchem_mod/bcsc_retrievebgstddev">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">bcovarsetupchem_mod/</span></span><span class="sig-name descname"><span class="pre">bcsc_retrievebgstddev</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">dim1</span></em>, <em class="sig-param"><span class="pre">dim2</span></em>, <em class="sig-param"><span class="pre">headerindex</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/bcovarsetupchem_mod/bcsc_retrievebgstddev" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>To retrieve previously saved background stddev profiles
+in bgStddev from the header index of the observation.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>dim1</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>dim2</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em> :: Dimensions of output array</p></li>
+<li><p><strong>headerindex</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em> :: Index of observation</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Return</dt>
+<dd class="field-odd"><p><strong>stddevout</strong> (dim1,dim2)<em> [</em><em>real </em><em>]</em></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="obssubspacedata_mod.html#f/obssubspacedata_mod/oss_obsdata_get_array2d" title="f/obssubspacedata_mod/oss_obsdata_get_array2d"><code class="xref f f-func docutils literal notranslate"><span class="pre">oss_obsdata_get_array2d()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div></blockquote>
+</section>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="columndata_mod.html" title="columndata_mod"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="tovs_nl_mod.html" title="tovs_nl_mod"
+             >previous</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2018, ECCC.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.
+    </div>
+  </body>
+</html>

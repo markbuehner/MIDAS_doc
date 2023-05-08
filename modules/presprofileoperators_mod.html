@@ -1,0 +1,776 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>presprofileoperators_mod &mdash; MIDAS  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="MIDAS  documentation" href="../index.html" />
+    <link rel="next" title="ramdisk_mod" href="ramdisk_mod.html" />
+    <link rel="prev" title="physicsfunctions_mod" href="physicsfunctions_mod.html" /> 
+  </head>
+  <body>
+  <div>
+    <img src="../_static/MIDAS_header.png" alt="MIDAS" />
+  </div>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="ramdisk_mod.html" title="ramdisk_mod"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="physicsfunctions_mod.html" title="physicsfunctions_mod"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="physicsfunctions_mod.html"
+                          title="previous chapter">physicsfunctions_mod</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="ramdisk_mod.html"
+                          title="next chapter">ramdisk_mod</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/modules/presprofileoperators_mod.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <section id="presprofileoperators-mod">
+<h1>presprofileoperators_mod<a class="headerlink" href="#presprofileoperators-mod" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><p><a class="reference internal" href="presprofileoperators_mod_src.html"><span class="doc">link to source code</span></a></p>
+<p><strong>Dependency Diagrams:</strong></p>
+<figure class="align-default" id="id1">
+<a class="reference internal image-reference" href="presprofileoperators_mod.svg"><img alt="presprofileoperators_mod.svg" height="100px" src="presprofileoperators_mod.svg" /></a>
+<figcaption>
+<p><span class="caption-text">Direct Dependency Diagram</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id2">
+<a class="reference internal image-reference" href="presprofileoperators_mod_rev.svg"><img alt="presprofileoperators_mod_rev.svg" height="100px" src="presprofileoperators_mod_rev.svg" /></a>
+<figcaption>
+<p><span class="caption-text">Reverse Dependency Diagram</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<span class="target" id="f/presprofileoperators_mod"></span><p class="rubric">Description</p>
+<p>MODULE presProfileOperators_mod (prefix=’ppo’ category=’8. Low-level utilities and constants’)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Purpose</dt>
+<dd class="field-odd"><p>Vertical interpolation, integration, and layer averaging subroutines.
+Includes the special routines designed to interpolate to the
+(widely spaced) RTTOV pressure levels.</p>
+</dd>
+</dl>
+<p class="rubric">Quick access</p>
+<dl class="field-list simple">
+<dt class="field-odd">Routines</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/presprofileoperators_mod/ppo_getlevelindex" title="f/presprofileoperators_mod/ppo_getlevelindex"><code class="xref f f-func docutils literal notranslate"><span class="pre">ppo_getlevelindex()</span></code></a>, <a class="reference internal" href="#f/presprofileoperators_mod/ppo_layeravginterpwgts" title="f/presprofileoperators_mod/ppo_layeravginterpwgts"><code class="xref f f-func docutils literal notranslate"><span class="pre">ppo_layeravginterpwgts()</span></code></a>, <a class="reference internal" href="#f/presprofileoperators_mod/ppo_lintv" title="f/presprofileoperators_mod/ppo_lintv"><code class="xref f f-func docutils literal notranslate"><span class="pre">ppo_lintv()</span></code></a>, <a class="reference internal" href="#f/presprofileoperators_mod/ppo_piecewiselinearwgts" title="f/presprofileoperators_mod/ppo_piecewiselinearwgts"><code class="xref f f-func docutils literal notranslate"><span class="pre">ppo_piecewiselinearwgts()</span></code></a>, <a class="reference internal" href="#f/presprofileoperators_mod/ppo_sublayerinterpwgts" title="f/presprofileoperators_mod/ppo_sublayerinterpwgts"><code class="xref f f-func docutils literal notranslate"><span class="pre">ppo_sublayerinterpwgts()</span></code></a>, <a class="reference internal" href="#f/presprofileoperators_mod/ppo_vertavgwgts" title="f/presprofileoperators_mod/ppo_vertavgwgts"><code class="xref f f-func docutils literal notranslate"><span class="pre">ppo_vertavgwgts()</span></code></a>, <a class="reference internal" href="#f/presprofileoperators_mod/ppo_vertintegwgts" title="f/presprofileoperators_mod/ppo_vertintegwgts"><code class="xref f f-func docutils literal notranslate"><span class="pre">ppo_vertintegwgts()</span></code></a>, <a class="reference internal" href="#f/presprofileoperators_mod/ppo_vertinterpwgts" title="f/presprofileoperators_mod/ppo_vertinterpwgts"><code class="xref f f-func docutils literal notranslate"><span class="pre">ppo_vertinterpwgts()</span></code></a>, <a class="reference internal" href="#f/presprofileoperators_mod/ppo_vertlayerssetup" title="f/presprofileoperators_mod/ppo_vertlayerssetup"><code class="xref f f-func docutils literal notranslate"><span class="pre">ppo_vertlayerssetup()</span></code></a></p>
+</dd>
+</dl>
+<p class="rubric">Needed modules</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod" title="f/utilities_mod: MODULE utilities_mod (prefix='utl' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">utilities_mod</span></code></a>: MODULE utilities_mod (prefix=’utl’ category=’8. Low-level utilities and constants’)</p></li>
+</ul>
+<p class="rubric">Variables</p>
+<p class="rubric">Subroutines and functions</p>
+<dl>
+<dt class="sig sig-object f" id="f/presprofileoperators_mod/ppo_lintv">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">presprofileoperators_mod/</span></span><span class="sig-name descname"><span class="pre">ppo_lintv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">pvlev</span></em>, <em class="sig-param"><span class="pre">pvi</span></em>, <em class="sig-param"><span class="pre">kni</span></em>, <em class="sig-param"><span class="pre">knprof</span></em>, <em class="sig-param"><span class="pre">kno</span></em>, <em class="sig-param"><span class="pre">ppo</span></em>, <em class="sig-param"><span class="pre">pvo</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/presprofileoperators_mod/ppo_lintv" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>To perform the vertical interpolation in log of pressure and
+constant-value extrapolation of one-dimensional vectors. Input
+pressure levels can vary for each profile.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>pvlev</strong> (kni,knprof)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: Vertical levels, pressure (source)</p></li>
+<li><p><strong>pvi</strong> (kni,knprof)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: Vector to be interpolated (source)</p></li>
+<li><p><strong>kni</strong><em> [</em><em>integer </em><em>,</em><em>in,</em><em>]</em> :: Number of input levels (source)</p></li>
+<li><p><strong>knprof</strong><em> [</em><em>integer </em><em>,</em><em>in,</em><em>]</em> :: Number of profiles</p></li>
+<li><p><strong>kno</strong><em> [</em><em>integer </em><em>,</em><em>in,</em><em>]</em> :: Number of output levels (destination)</p></li>
+<li><p><strong>ppo</strong> (kno,knprof)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: Vertical levels, pressure (destination)</p></li>
+<li><p><strong>pvo</strong> (kno,knprof)<em> [</em><em>real </em><em>,</em><em>out</em><em>]</em> :: Interpolated profiles (destination)</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="ozoneclim_mod.html#f/ozoneclim_mod/ozo_get_profile" title="f/ozoneclim_mod/ozo_get_profile"><code class="xref f f-func docutils literal notranslate"><span class="pre">ozo_get_profile()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/presprofileoperators_mod/ppo_vertinterpwgts">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">presprofileoperators_mod/</span></span><span class="sig-name descname"><span class="pre">ppo_vertinterpwgts</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">pressinput</span></em>, <em class="sig-param"><span class="pre">presstarget</span></em>, <em class="sig-param"><span class="pre">numinputlevs</span></em>, <em class="sig-param"><span class="pre">numtargetlevs</span></em>, <em class="sig-param"><span class="pre">wgts</span></em>, <em class="sig-param"><span class="pre">kstart</span></em>, <em class="sig-param"><span class="pre">kend</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">method_opt</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">skiptype_opt</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">outbound_opt</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">success_opt</span></em><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/presprofileoperators_mod/ppo_vertinterpwgts" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Determination of interpolation weights for interpolation to points
+in a profile. Applies interpolation in log(Pressure).</p>
+</dd>
+<dt class="field-even">Input </dt>
+<dd class="field-even"><dl class="field-list simple">
+<dt class="field-odd">pressInput</dt>
+<dd class="field-odd"><p>pressure on reference column levels assumed to be in ascending order</p>
+</dd>
+<dt class="field-even">pressTarget</dt>
+<dd class="field-even"><p>target pressure levels assumed to be in ascending order</p>
+</dd>
+<dt class="field-odd">numInputLevs</dt>
+<dd class="field-odd"><p>number of input/reference levels</p>
+</dd>
+<dt class="field-even">numTargetLevs</dt>
+<dd class="field-even"><p>number of target levels</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-odd">Options</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>method_opt</strong><em> [</em><em>character </em><em>,</em><em>in,</em><em>]</em> :: <p>Specified interpolation method
+:skipType_opt:     Skipping processing of specific target levels depending on case:</p>
+<blockquote>
+<div><p>’default’  - extrapolation allowed and skipping application via input success_opt only
+‘noExtrap’ - no extrapolation as well as additional skipping via input success_opt
+‘doAll&amp;noExtrap’  - no extrapolation only (all other levels processed)</p>
+</div></blockquote>
+</p></li>
+<li><p><strong>skiptype_opt</strong><em> [</em><em>character </em><em>,</em><em>in,</em><em>]</em> :: Skipping processing of specific target levels depending on case</p></li>
+</ul>
+</dd>
+<dt class="field-even">Inout </dt>
+<dd class="field-even"><p></p></dd>
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>outbound_opt</strong> (numtargetlevs)<em> [</em><em>integer </em><em>,</em><em>inout,</em><em>]</em> :: Flag indicating if obs outside model vertical range (0 for no)</p></li>
+<li><p><strong>success_opt</strong> (numtargetlevs)<em> [</em><em>logical </em><em>,</em><em>inout,</em><em>]</em> :: success of interpolation</p></li>
+<li><p><strong>wgts</strong> (numtargetlevs,numinputlevs)<em> [</em><em>real </em><em>,</em><em>out</em><em>]</em> :: Averaging weights</p></li>
+<li><p><strong>kstart</strong> (numtargetlevs)<em> [</em><em>integer </em><em>,</em><em>out</em><em>]</em> :: Index of first relevant original/input level for each target level</p></li>
+<li><p><strong>kend</strong> (numtargetlevs)<em> [</em><em>integer </em><em>,</em><em>out</em><em>]</em> :: Index of last relevant original/input level for each target level</p></li>
+<li><p><strong>pressinput</strong> (numinputlevs)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: pressure on reference column levels assumed to be in ascending order</p></li>
+<li><p><strong>presstarget</strong> (numtargetlevs)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: target pressure levels assumed to be in ascending order</p></li>
+<li><p><strong>numinputlevs</strong><em> [</em><em>integer </em><em>,</em><em>in,</em><em>]</em> :: # of original/input vertical levels</p></li>
+<li><p><strong>numtargetlevs</strong><em> [</em><em>integer </em><em>,</em><em>in,</em><em>]</em> :: # of target vertical levels</p></li>
+</ul>
+</dd>
+<dt class="field-even">Output </dt>
+<dd class="field-even"><p></p></dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/presprofileoperators_mod/ppo_piecewiselinearwgts" title="f/presprofileoperators_mod/ppo_piecewiselinearwgts"><code class="xref f f-func docutils literal notranslate"><span class="pre">ppo_piecewiselinearwgts()</span></code></a>, <a class="reference internal" href="#f/presprofileoperators_mod/ppo_layeravginterpwgts" title="f/presprofileoperators_mod/ppo_layeravginterpwgts"><code class="xref f f-func docutils literal notranslate"><span class="pre">ppo_layeravginterpwgts()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/presprofileoperators_mod/ppo_piecewiselinearwgts">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">presprofileoperators_mod/</span></span><span class="sig-name descname"><span class="pre">ppo_piecewiselinearwgts</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">pvo</span></em>, <em class="sig-param"><span class="pre">pvi</span></em>, <em class="sig-param"><span class="pre">kno</span></em>, <em class="sig-param"><span class="pre">kni</span></em>, <em class="sig-param"><span class="pre">wgts</span></em>, <em class="sig-param"><span class="pre">kstart</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">validlevel_opt</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/presprofileoperators_mod/ppo_piecewiselinearwgts" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>To obtain peacewise linear interpolation weigths.
+Assumes pv*(i) &lt; pv*(i+1). Constant values extrapolation is applied.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>pvo</strong> (kno)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: Vertical levels, pressure (destination)</p></li>
+<li><p><strong>pvi</strong> (kni)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: Vertical levels, pressure (source)</p></li>
+<li><p><strong>kno</strong><em> [</em><em>integer </em><em>,</em><em>in,</em><em>]</em> :: Number of output levels (destination)</p></li>
+<li><p><strong>kni</strong><em> [</em><em>integer </em><em>,</em><em>in,</em><em>]</em> :: Number of input levels (source)</p></li>
+<li><p><strong>wgts</strong> (kno,2)<em> [</em><em>real </em><em>,</em><em>out</em><em>]</em> :: Interpolation weights (destination)</p></li>
+<li><p><strong>kstart</strong> (kno)<em> [</em><em>integer </em><em>,</em><em>out</em><em>]</em> :: Index i of pvlev level associated to  pvo(j,1)</p></li>
+<li><p><strong>validlevel_opt</strong> (kno)<em> [</em><em>logical </em><em>,</em><em>out,</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/presprofileoperators_mod/ppo_vertinterpwgts" title="f/presprofileoperators_mod/ppo_vertinterpwgts"><code class="xref f f-func docutils literal notranslate"><span class="pre">ppo_vertinterpwgts()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/presprofileoperators_mod/ppo_layeravginterpwgts">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">presprofileoperators_mod/</span></span><span class="sig-name descname"><span class="pre">ppo_layeravginterpwgts</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">px1</span></em>, <em class="sig-param"><span class="pre">px2</span></em>, <em class="sig-param"><span class="pre">kn1</span></em>, <em class="sig-param"><span class="pre">kn2</span></em>, <em class="sig-param"><span class="pre">pz</span></em>, <em class="sig-param"><span class="pre">kstart</span></em>, <em class="sig-param"><span class="pre">kend</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">pzs1_opt</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">pzs2_opt</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">pzdps_opt</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">rttov_opt</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">validlevel_opt</span></em><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/presprofileoperators_mod/ppo_layeravginterpwgts" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Determine profile interpolation weights by considering integrations
+over of series of  segments [PX1(KI-1),PX1(KI+1)] using  piecewise
+linear weighting with weights of zero at  KI-1 and KI+1 and
+max weight at KI. KI ranges from 1 to KN1.</p>
+<p>Can also provide gradient contributions from both
+linear and non-linear components of interpolator. The non-linear
+components (case PZS* is present) stem from vertical coordinate
+independent variables (e.g. dependency on Ps). The gradients
+contributions from the linear components are the interpolation weights.</p>
+<p>For the interpolation model f(x) where</p>
+<blockquote>
+<div><dl>
+<dt>f(v,x) = F(v)*x</dt><dd><blockquote>
+<div><p>~ F(vo)*xo + F(vo)*(x-xo) + (dF/dv)*xo*(v-vo)
+= F(vo)*x + (dF/dv)*xo*(v-vo)                (eqn 1)</p>
+</div></blockquote>
+<dl class="simple">
+<dt>F(vo):  array of interpolation weights</dt><dd><p>= array of gradients from the linear component</p>
+</dd>
+<dt>(dF/dv)*xo:</dt><dd><p>array of gradients from linearized component.
+(dF/dv) or (dF/dv)*(v-vo) provided when pzs* is present</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</div></blockquote>
+<dl>
+<dt>Method:</dt><dd><ul>
+<li><p>Piecewise weighted interpolation in ln(P).</p></li>
+<li><p>Journal reference:
+Rochon, Y.J., L. Garand, D.S. Turner, and S. Polavarapu.
+Jacobian mapping between coordinate systems in data assimilation,
+Q. J. of the Royal Met. Soc., vol 133, 1547-1558, 2007.
+(www.interscience.wiley.com) DOI:10.1002/qj.117</p>
+<p>URL:
+<a class="reference external" href="http://www3.interscience.wiley.com/cgi-bin/fulltext/116320452/PDFSTART">http://www3.interscience.wiley.com/cgi-bin/fulltext/116320452/PDFSTART</a></p>
+</li>
+</ul>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Comments </dt>
+<dd class="field-even"><p>Assumption: PX1(i)&lt;PX1(i+1) &amp; PX2(i)&lt;PX2(i+1)</p>
+<ol class="arabic simple">
+<li><p>The input profile is now extrapolated at constant value.</p></li>
+</ol>
+<p>The impact is of most practical significance for instruments where
+the weighting function peaks at or near the surface such as SSMI.</p>
+<p>This approach increases the weights of contribution from
+the lowest and highest input domain levels for output
+layers intersecting these input domain boundaries. It consists
+of applying contant value extrapolation by introducing
+‘fake’ or ‘virtual’ layers. For the lowest level of the input domain,
+as example, this implies creating a virtual surface layer which
+extends to the lower boundary of the output domain layer which
+contains the input domain surface. This increases the
+contributing weight of the surface which would be otherwise
+understimated in the original code due to the interpolator
+actually doing piecewise weighted averaging.</p>
+<ol class="arabic simple" start="2">
+<li><p>COmment out use of ‘zb’ for consistency with RTTOV-9 when</p></li>
+</ol>
+</dd>
+<dt class="field-odd">Options</dt>
+<dd class="field-odd"><p><strong>rttov_opt</strong><em> [</em><em>logical </em><em>,</em><em>in,</em><em>]</em> :: <p>Commented out use of ‘zb’ when .true. for consistency with RTTOV-9
+See the four lines ending with !C1 and version 7 comment above.</p>
+<p>3) A major reduction in computational time results from only
+assigning values to the non-zero ranges of the 2D output
+arrays. These ranges of the 2D areas are identified by ‘kstart’
+and ‘kend’. Initialization to zero for values within these ranges
+is done using 1D work arrays ‘zpz’ and ‘zpzd’, with the resulting
+values then being assigned to the related elements of ‘PZ’ and
+‘PZDPS’.</p>
+<p>Therefore, elements of ‘PZ’ and ‘PZDPS’ outside these ranges
+could be undefined (i.e. NaN if not 0.0) and should not be used.</p>
+<p>Other notable reductions in computational time stem (a) from inlining
+of ‘sublayer’ code (applied to a reduced degree in ‘layeravg’ as
+compared to ‘rttov_layeravg_*) and (b) from updating the start
+position ‘istart’ of the loops over J. The latter was faciliated
+by moving the loop over KI inside ‘layeravg’.</p>
+<p>These improvements were originally devised and implemented by
+Deborah Salmond and Mats Hamrud (ECMWF) in the RTTOV-9 routines
+‘rttov_layeravg*’.</p>
+<p>4) Contributors to improvements and changes to the original version
+of ‘layeravg’ and to ‘rttov_layeravg*’: members of the RTTOV9
+development team, namely Niels Bormann, Alan Geer, Deborah Salmond,
+and Mats Hamrud of ECMWF, Peter Rayer and Roger Saunders of the
+Met Office and Pascal Brunel of Meteo-France, and Y.J. Rochon (EC).</p>
+</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>px1</strong> (kn1)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: Levels of output domain (e.g. lnP; in increasing values)</p></li>
+<li><p><strong>px2</strong> (kn2)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: Levels of input domain (e.g. lnP; in increasing values)</p></li>
+<li><p><strong>kn1</strong><em> [</em><em>integer </em><em>,</em><em>in,</em><em>]</em> :: Dimension of PX1</p></li>
+<li><p><strong>kn2</strong><em> [</em><em>integer </em><em>,</em><em>in,</em><em>]</em> :: Dimension of other arrays</p></li>
+<li><p><strong>pz</strong> (kn1,kn2)<em> [</em><em>real </em><em>,</em><em>out</em><em>]</em> :: F(vo): Resultant accumulated weighting factors</p></li>
+<li><p><strong>kstart</strong> (kn1)<em> [</em><em>integer </em><em>,</em><em>out</em><em>]</em> :: Start index for relevant PZ row</p></li>
+<li><p><strong>kend</strong> (kn1)<em> [</em><em>integer </em><em>,</em><em>out</em><em>]</em> :: End index of relevant PZ row</p></li>
+<li><p><strong>pzs1_opt</strong> (kn1)<em> [</em><em>real </em><em>,</em><em>in,</em><em>]</em> :: dPX1/dv or perturbation dPX1/dv * delta(v) where PX1(v), e.g. v=Ps</p></li>
+<li><p><strong>pzs2_opt</strong> (kn2)<em> [</em><em>real </em><em>,</em><em>in,</em><em>]</em> :: dPX2/dv or perturbation dPX2/dv * delta(v) where PX2(v), e.g. v=Ps</p></li>
+<li><p><strong>pzdps_opt</strong> (kn1,kn2)<em> [</em><em>real </em><em>,</em><em>out,</em><em>]</em> :: dF/dv or perturbations (dF/dv)*(v-vo):</p></li>
+<li><p><strong>validlevel_opt</strong> (kn1)<em> [</em><em>logical </em><em>,</em><em>in,</em><em>]</em> :: Logical indicating validity of each output level</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/presprofileoperators_mod/ppo_vertinterpwgts" title="f/presprofileoperators_mod/ppo_vertinterpwgts"><code class="xref f f-func docutils literal notranslate"><span class="pre">ppo_vertinterpwgts()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/presprofileoperators_mod/ppo_sublayerinterpwgts" title="f/presprofileoperators_mod/ppo_sublayerinterpwgts"><code class="xref f f-func docutils literal notranslate"><span class="pre">ppo_sublayerinterpwgts()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/presprofileoperators_mod/ppo_sublayerinterpwgts">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">presprofileoperators_mod/</span></span><span class="sig-name descname"><span class="pre">ppo_sublayerinterpwgts</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">z1</span></em>, <em class="sig-param"><span class="pre">z2</span></em>, <em class="sig-param"><span class="pre">dzd</span></em>, <em class="sig-param"><span class="pre">wgt1</span></em>, <em class="sig-param"><span class="pre">wgt2</span></em>, <em class="sig-param"><span class="pre">x1</span></em>, <em class="sig-param"><span class="pre">x2</span></em>, <em class="sig-param"><span class="pre">dxd</span></em>, <em class="sig-param"><span class="pre">w1</span></em>, <em class="sig-param"><span class="pre">w2</span></em>, <em class="sig-param"><span class="pre">pzs1</span></em>, <em class="sig-param"><span class="pre">pzs2</span></em>, <em class="sig-param"><span class="pre">pxs1</span></em>, <em class="sig-param"><span class="pre">pxs2</span></em>, <em class="sig-param"><span class="pre">wps1</span></em>, <em class="sig-param"><span class="pre">wps2</span></em>, <em class="sig-param"><span class="pre">lgradpx</span></em>, <em class="sig-param"><span class="pre">lgradpz</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/presprofileoperators_mod/ppo_sublayerinterpwgts" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Determine weight coefficient contributions to w1 and w2 to assign
+to input domain (e.g. NWP model) variables at x1 and x2. Weights
+are determined from integration over the intersecting segment (y1,y2)
+of the ranges (x1,x2) for the input domain and (z1,z2) for the
+output domain. Integrals are approximated via the trapezoidal rule:</p>
+<p>integral of f(x)=w(x)*t(x) from y1 to y2</p>
+<blockquote>
+<div><p>= (f(y1)+f(y2))/2*(y2-y1)
+= w(y1)*t(y1)+w(y2)*t(y2)
+= w1*t(x1)+w2*t(x2)
+= w1*t1+w2*t2</p>
+</div></blockquote>
+<p>This is synonomous to having an integrand linear in x.</p>
+<p>In the above (and below) equation(s), w1 and w2 are contributions to
+the input values.</p>
+<p>The weights for linearized contributions of non-linear interpolator
+components, i.e. gradient w.r.t. the vertical coordinate
+independent variable (e.g. v*=Ps), are calculated
+when LGRADP* is .true.:</p>
+<blockquote>
+<div><dl>
+<dt>pzps = pzps + (df/dx1)*(dx1/dvx1)+(df/dx2)*(dx2/dvx2)</dt><dd><blockquote>
+<div><ul class="simple">
+<li><p>(df/dz1)*(dz1/dvz1)+(df/dz2)*(dz2/dvz2)</p></li>
+</ul>
+</div></blockquote>
+<dl class="simple">
+<dt>= pzpz + (dw1/dx1*t1+dw2/dx1*t2)*pxs1</dt><dd><ul class="simple">
+<li><p>(dw1/dx2*t1+dw2/dx2*t2)*pxs2</p></li>
+<li><p>(dw1/dz1*t1+dw2/dz1*t2)*pzs1</p></li>
+<li><p>(dw1/dz2*t1+dw2/dz2*t2)*pzs2</p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+</dl>
+</div></blockquote>
+<p>This routine provides terms on the right-hand-side.</p>
+<p>Note: pxs* and pzs* can be provided either as gradients or
+perturbations.</p>
+<p>Method:
+- Piecewise weighted interpolation in ln(P).
+- Journal reference:</p>
+<blockquote>
+<div><blockquote>
+<div><p>Rochon, Y.J., L. Garand, D.S. Turner, and S. Polavarapu.
+Jacobian mapping between coordinate systems in data assimilation,
+Q. J. of the Royal Met. Soc., vol 133, 1547-1558, 2007.
+(www.interscience.wiley.com) DOI:10.1002/qj.117</p>
+</div></blockquote>
+<p>URL:
+<a class="reference external" href="http://www3.interscience.wiley.com/cgi-bin/fulltext/116320452/PDFSTART">http://www3.interscience.wiley.com/cgi-bin/fulltext/116320452/PDFSTART</a></p>
+</div></blockquote>
+</dd>
+<dt class="field-even">Comments </dt>
+<dd class="field-even"><p>Assumptions:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>x1&lt;x2</p></li>
+<li><p>z1&lt;z2</p></li>
+</ol>
+<p>3) The ranges (z1,z2) and (x1,x2) overlap. The overlap region
+will be identified as (y1,y2) with y1&lt;y2.</p>
+</div></blockquote>
+<p>1) w(y1) and w(y2) are obtained by linear interpolation of the linear
+weighting function w with w(z1)=wgt1 and w(z2)=wgt2.</p>
+<p>2) The w1 and w2 above are determined by expanding t(y1) and t(y2)
+as linear functions of t(x1)=t1 and t(x2)=t2.</p>
+<ol class="arabic" start="3">
+<li><p>The factor of 1/2 in</p>
+<blockquote>
+<div><dl class="simple">
+<dt>(f(y1)+f(y2))/2*(y2-y1)</dt><dd><p>= w(y1)*t(y1)+w(y2)*t(y2)</p>
+</dd>
+</dl>
+</div></blockquote>
+</li>
+</ol>
+<p>is omitted as normalization is performed in the calling routine
+LAYERAVG.</p>
+<p>4) The code version of the interpolator part of ‘int_sublayerInterpWgts’
+provided for RTTOV-9 assumed the following conditions:</p>
+<blockquote>
+<div><dl class="simple">
+<dt>(wgt1,wgt2)=(0,1),  d1=(y1-x1)=0 from y1=x1 or</dt><dd><p>wy1=0 from wgt1=0 and y1=z1,</p>
+</dd>
+</dl>
+</div></blockquote>
+<p>or</p>
+<blockquote>
+<div><dl class="simple">
+<dt>(wgt1,wgt2)=(1,0),  d2=(y2-x2)=0 when y2=x2 or</dt><dd><p>wy2=0 from wgt2=0 and y2=z2</p>
+</dd>
+</dl>
+</div></blockquote>
+<p>and took account of the implications on d* and wy*.</p>
+<p>The version presented here has each step accompanied by
+related equations. It does not assume the above restrictions on</p>
+</dd>
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>wgt1</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: <p>Weight at z1 (0.0 or 1.0 or …)
+comments section of the RTTOV-9 module ‘rttov_sublayer’.</p>
+<p>5)  When LGRADP*=.true., this routine provides terms needed for
+the gradients w.r.t.the vertical coordinate independent variable,
+e.g. Ps.</p>
+</p></li>
+<li><p><strong>z1</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: Upper level of output domain half-layer (z1&lt;z2)</p></li>
+<li><p><strong>z2</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: Lower level of output domain half-layer</p></li>
+<li><p><strong>dzd</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: 1.0/(z2-z1)=1.0/dz</p></li>
+<li><p><strong>wgt2</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: Weight at z2 (1.0 or 0.0 or …)</p></li>
+<li><p><strong>x1</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: Upper boundary of input layer (x1&lt;x2)</p></li>
+<li><p><strong>x2</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: Lower boundary of input layer</p></li>
+<li><p><strong>dxd</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: 1.0/(x2-x1)=1.0/dx</p></li>
+<li><p><strong>w1</strong><em> [</em><em>real </em><em>,</em><em>inout</em><em>]</em> :: Starting (in) and updated (out) weight</p></li>
+<li><p><strong>w2</strong><em> [</em><em>real </em><em>,</em><em>inout</em><em>]</em> :: Starting (in) and updated (out) weight</p></li>
+<li><p><strong>pzs1</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: dz1/dvz or perturbation dz1/dvz * delta(vz)</p></li>
+<li><p><strong>pzs2</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: dz2/dvz or perturbation dz2/dvz * delta(vz)</p></li>
+<li><p><strong>pxs1</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: dx1/dvx or perturbation dx1/dvx * delta(vx)</p></li>
+<li><p><strong>pxs2</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: dx2/dvx or perturbation dx2/dvx * delta(vx)</p></li>
+<li><p><strong>wps1</strong><em> [</em><em>real </em><em>,</em><em>inout</em><em>]</em> :: Starting (in) and updated (out) value of</p></li>
+<li><p><strong>wps2</strong><em> [</em><em>real </em><em>,</em><em>inout</em><em>]</em> :: Starting (in) and updated (out) value of</p></li>
+<li><p><strong>lgradpx</strong><em> [</em><em>logical </em><em>,</em><em>in</em><em>]</em> :: Input domain logical indicating if gradient w.r.t. vertical coordinate</p></li>
+<li><p><strong>lgradpz</strong><em> [</em><em>logical </em><em>,</em><em>in</em><em>]</em> :: Outpout domain logical indicating if gradient w.r.t. vertical coordinate</p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/presprofileoperators_mod/ppo_layeravginterpwgts" title="f/presprofileoperators_mod/ppo_layeravginterpwgts"><code class="xref f f-func docutils literal notranslate"><span class="pre">ppo_layeravginterpwgts()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/presprofileoperators_mod/ppo_vertlayerssetup">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">presprofileoperators_mod/</span></span><span class="sig-name descname"><span class="pre">ppo_vertlayerssetup</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">operatortype</span></em>, <em class="sig-param"><span class="pre">pressinput</span></em>, <em class="sig-param"><span class="pre">numinputlevs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/presprofileoperators_mod/ppo_vertlayerssetup" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Preliminary calculations for producing components required for
+vertical integration (or averaging) w.r.t. pressure for the full
+vertical rangeor a set of target layers. To be called before
+routine ppo_vertIntegWgts or ppo_vertAvgWgts.</p>
+<p>Integration calculations are performed appling quadratic interpolation
+in P between level.</p>
+</dd>
+<dt class="field-even">Input </dt>
+<dd class="field-even"><dl class="field-list simple">
+<dt class="field-odd">operatorType</dt>
+<dd class="field-odd"><p>‘integ’ for intergration; ‘avg’ for averaging</p>
+</dd>
+<dt class="field-even">pressInput</dt>
+<dd class="field-even"><p>Reference input levels</p>
+</dd>
+<dt class="field-odd">numInputLevs</dt>
+<dd class="field-odd"><p># of model vertical levels</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-odd">Output </dt>
+<dd class="field-odd"><dl class="field-list simple">
+<dt class="field-odd">boundaries(numInputLevs+1)</dt>
+<dd class="field-odd"><p>Input layer boundaries assuming
+provided input levels can be taken as
+mid-layer values.</p>
+</dd>
+<dt class="field-even">weights</dt>
+<dd class="field-even"><p>Second order Lagrangian
+interp integration weights or
+unity for averaging weights</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Comments </dt>
+<dd class="field-even"><ul class="simple">
+<li><p>This subroutine does the following:</p>
+<ul>
+<li><p>Setting of layer boundaries</p></li>
+<li><p>If integration, determining integration weights associated
+to second order Lagrangian interpolation. Otherwise, initialize
+weights to unity.</p></li>
+</ul>
+</li>
+<li><p>Layer boundaries are taken as mid-point between provided levels in
+lnP coordinate. Layer values are set to be the values
+interpolated to the mid-point in P within the various layers.
+Interpolation in P is done quadratically.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>operatortype</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em> :: ‘integ’ for integration; ‘avg’ for averaging</p></li>
+<li><p><strong>pressinput</strong> (numinputlevs)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: Reference input levels</p></li>
+<li><p><strong>numinputlevs</strong><em> [</em><em>integer </em><em>,</em><em>in,</em><em>]</em> :: # of model vertical levels</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/presprofileoperators_mod/ppo_vertintegwgts">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">presprofileoperators_mod/</span></span><span class="sig-name descname"><span class="pre">ppo_vertintegwgts</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">targetlayerstop</span></em>, <em class="sig-param"><span class="pre">targetlayersbot</span></em>, <em class="sig-param"><span class="pre">numinputlevs</span></em>, <em class="sig-param"><span class="pre">numtargetlevs</span></em>, <em class="sig-param"><span class="pre">kstart</span></em>, <em class="sig-param"><span class="pre">kend</span></em>, <em class="sig-param"><span class="pre">wgts</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">wgts_opt</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">skiptype_opt</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">outbound_opt</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">success_opt</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">dealloc_opt</span></em><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/presprofileoperators_mod/ppo_vertintegwgts" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>To calculate integration weights “wgts” required for vertical integration w.r.t.
+pressure for the full vertical range or a set of target layers.
+Given the calculated weights and a user intergrand array vector X, the integral
+for a given layer i would be given by sum(wgts(i,:)*X(:))</p>
+<p>Integration calculations are performed applying quadratic interpolation
+in P between level.</p>
+<p>Routine ppo_vertLayersSetup to be called beforehand to generate Lagrangian weights
+and related layer boundaries (arrays ‘weights’ and ‘boundaries’)</p>
+</dd>
+<dt class="field-even">Input </dt>
+<dd class="field-even"><dl class="field-list simple">
+<dt class="field-odd">targetLayersTop</dt>
+<dd class="field-odd"><p>top of target layers</p>
+</dd>
+<dt class="field-even">targetLayersBot</dt>
+<dd class="field-even"><p>bottom of target layers</p>
+</dd>
+<dt class="field-odd">numInputLevs</dt>
+<dd class="field-odd"><p># of original/input vertical levels</p>
+</dd>
+<dt class="field-even">numTargetLevs</dt>
+<dd class="field-even"><p># of target vertical levels</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>kstart</strong> (numtargetlevs)<em> [</em><em>integer </em><em>,</em><em>inout</em><em>]</em> :: Index of first relevant original/input level for each target level</p></li>
+<li><p><strong>kend</strong> (numtargetlevs)<em> [</em><em>integer </em><em>,</em><em>inout</em><em>]</em> :: <dl class="simple">
+<dt>Index of last relevant original/input level for each target level</dt><dd><p>If kstart and kend are non-zero on input,
+the input are initial estimates of the values.</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">weights</dt>
+<dd class="field-odd"><p>See routine ppo_vertLayersSetup</p>
+</dd>
+<dt class="field-even">boundaries</dt>
+<dd class="field-even"><p>Boundaries of input layers</p>
+</dd>
+<dt class="field-odd">skipType_opt</dt>
+<dd class="field-odd"><p>Skipping processing of specific target layers depending on case:
+‘default’ - skipping application via input success_opt only
+‘doAll&amp;noExtrap’ - application of both success_opt and outbound_opt</p>
+</dd>
+</dl>
+</p></li>
+<li><p><strong>outbound_opt</strong> (numtargetlevs)<em> [</em><em>integer </em><em>,</em><em>inout,</em><em>]</em> :: Flag indicating if obs outside input vertical range (0 for no)</p></li>
+<li><p><strong>success_opt</strong> (numtargetlevs)<em> [</em><em>logical </em><em>,</em><em>inout,</em><em>]</em> :: success of interpolation</p></li>
+<li><p><strong>wgts</strong> (numtargetlevs,numinputlevs)<em> [</em><em>real </em><em>,</em><em>out</em><em>]</em> :: Averaging weights</p></li>
+<li><p><strong>wgts_opt</strong> (numtargetlevs,numinputlevs)<em> [</em><em>real </em><em>,</em><em>out,</em><em>]</em> :: Part of averaging weights not related to resolution</p></li>
+<li><p><strong>targetlayerstop</strong> (numtargetlevs)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: top of target layers</p></li>
+<li><p><strong>targetlayersbot</strong> (numtargetlevs)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: bottom of target layers</p></li>
+<li><p><strong>numinputlevs</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em> :: # of original/input vertical levels</p></li>
+<li><p><strong>numtargetlevs</strong><em> [</em><em>integer </em><em>,</em><em>in,</em><em>]</em> :: # of target vertical levels</p></li>
+</ul>
+</dd>
+<dt class="field-even">Options</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>dealloc_opt</strong><em> [</em><em>logical </em><em>,</em><em>in,</em><em>]</em> :: Logical indicating if deallocation is desired when done</p></li>
+<li><p><strong>skiptype_opt</strong><em> [</em><em>character </em><em>,</em><em>in,</em><em>]</em> :: Skipping processing of specific target layers depending on case</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Output </dt>
+<dd class="field-odd"><p></p></dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/presprofileoperators_mod/ppo_getlevelindex" title="f/presprofileoperators_mod/ppo_getlevelindex"><code class="xref f f-func docutils literal notranslate"><span class="pre">ppo_getlevelindex()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/presprofileoperators_mod/ppo_getlevelindex">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">presprofileoperators_mod/</span></span><span class="sig-name descname"><span class="pre">ppo_getlevelindex</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">level</span></em>, <em class="sig-param"><span class="pre">layerboundarylevels</span></em>, <em class="sig-param"><span class="pre">topbtm</span></em>, <em class="sig-param"><span class="pre">numboundaries</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/presprofileoperators_mod/ppo_getlevelindex" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>To get the vertical input level index for level
+within target layer and nearest specified layer boundary.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>level</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: Target layer index</p></li>
+<li><p><strong>layerboundarylevels</strong> (numboundaries)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: Layer boundaries</p></li>
+<li><p><strong>topbtm</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em> :: indicating whether we are looking for top or bottom level</p></li>
+<li><p><strong>numboundaries</strong><em> [</em><em>integer </em><em>,</em><em>in,</em><em>]</em> :: Number of layer boundaries</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Return</dt>
+<dd class="field-odd"><p><strong>ppo_getlevelindex</strong><em> [</em><em>integer </em><em>]</em></p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/presprofileoperators_mod/ppo_vertintegwgts" title="f/presprofileoperators_mod/ppo_vertintegwgts"><code class="xref f f-func docutils literal notranslate"><span class="pre">ppo_vertintegwgts()</span></code></a>, <a class="reference internal" href="#f/presprofileoperators_mod/ppo_vertavgwgts" title="f/presprofileoperators_mod/ppo_vertavgwgts"><code class="xref f f-func docutils literal notranslate"><span class="pre">ppo_vertavgwgts()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/presprofileoperators_mod/ppo_vertavgwgts">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">presprofileoperators_mod/</span></span><span class="sig-name descname"><span class="pre">ppo_vertavgwgts</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">targetlayerstop</span></em>, <em class="sig-param"><span class="pre">targetlayersbot</span></em>, <em class="sig-param"><span class="pre">numinputlevs</span></em>, <em class="sig-param"><span class="pre">numtargetlevs</span></em>, <em class="sig-param"><span class="pre">kstart</span></em>, <em class="sig-param"><span class="pre">kend</span></em>, <em class="sig-param"><span class="pre">wgts</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">wgts_opt</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">skiptype_opt</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">outbound_opt</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">success_opt</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">dealloc_opt</span></em><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/presprofileoperators_mod/ppo_vertavgwgts" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>To calculate averaging weights “wgts” required for vertical averaging
+w.r.t. ln(pressure) for the full vertical range or a set of target layers.
+Given the calculated weights and a user input array vector X, the average
+for a given layer i would be given by sum(wgts(i,:)*X(:))</p>
+<p>Routine ppo_vertLayersSetup to be called beforehand to initial weigths
+and related layer boundaries (arrays ‘weights’ and ‘boundaries’)</p>
+</dd>
+<dt class="field-even">Input </dt>
+<dd class="field-even"><dl class="field-list simple">
+<dt class="field-odd">targetLayersTop</dt>
+<dd class="field-odd"><p>top of target layers</p>
+</dd>
+<dt class="field-even">targetLayersBot</dt>
+<dd class="field-even"><p>bottom of target layers</p>
+</dd>
+<dt class="field-odd">numInputLevs</dt>
+<dd class="field-odd"><p># of original/input vertical levels</p>
+</dd>
+<dt class="field-even">numTargetLevs</dt>
+<dd class="field-even"><p># of target vertical levels</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>kstart</strong> (numtargetlevs)<em> [</em><em>integer </em><em>,</em><em>inout</em><em>]</em> :: Index of first relevant original/input level for each target level</p></li>
+<li><p><strong>kend</strong> (numtargetlevs)<em> [</em><em>integer </em><em>,</em><em>inout</em><em>]</em> :: <dl class="simple">
+<dt>Index of last relevant original/input level for each target level</dt><dd><p>If kstart and kend are non-zero on input,
+the input are initial estimates of the values.</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">weights</dt>
+<dd class="field-odd"><p>See routine ppo_vertLayersSetup</p>
+</dd>
+<dt class="field-even">boundaries</dt>
+<dd class="field-even"><p>Boundaries of input layers</p>
+</dd>
+<dt class="field-odd">skipType_opt</dt>
+<dd class="field-odd"><p>Skipping processing of specific target layers depending on case:
+‘default’ - skipping application via input success_opt only
+‘doAll&amp;noExtrap’ - application of both success_opt and outbound_opt</p>
+</dd>
+</dl>
+</p></li>
+<li><p><strong>outbound_opt</strong> (numtargetlevs)<em> [</em><em>integer </em><em>,</em><em>inout,</em><em>]</em> :: Flag indicating if obs outside input vertical range (0 for no)</p></li>
+<li><p><strong>success_opt</strong> (numtargetlevs)<em> [</em><em>logical </em><em>,</em><em>inout,</em><em>]</em> :: success of interpolation</p></li>
+<li><p><strong>wgts</strong> (numtargetlevs,numinputlevs)<em> [</em><em>real </em><em>,</em><em>out</em><em>]</em> :: Averaging weights</p></li>
+<li><p><strong>wgts_opt</strong> (numtargetlevs,numinputlevs)<em> [</em><em>real </em><em>,</em><em>out,</em><em>]</em> :: Part of averaging weights not related to resolution</p></li>
+<li><p><strong>targetlayerstop</strong> (numtargetlevs)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: top of target layers</p></li>
+<li><p><strong>targetlayersbot</strong> (numtargetlevs)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: bottom of target layers</p></li>
+<li><p><strong>numinputlevs</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em> :: # of original/input vertical levels</p></li>
+<li><p><strong>numtargetlevs</strong><em> [</em><em>integer </em><em>,</em><em>in,</em><em>]</em> :: # of target vertical levels</p></li>
+</ul>
+</dd>
+<dt class="field-even">Options</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>dealloc_opt</strong><em> [</em><em>logical </em><em>,</em><em>in,</em><em>]</em> :: Logical indicating if deallocation is desired when done</p></li>
+<li><p><strong>skiptype_opt</strong><em> [</em><em>character </em><em>,</em><em>in,</em><em>]</em> :: Skipping processing of specific target layers depending on case</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Output </dt>
+<dd class="field-odd"><p></p></dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/presprofileoperators_mod/ppo_getlevelindex" title="f/presprofileoperators_mod/ppo_getlevelindex"><code class="xref f f-func docutils literal notranslate"><span class="pre">ppo_getlevelindex()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div></blockquote>
+</section>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="ramdisk_mod.html" title="ramdisk_mod"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="physicsfunctions_mod.html" title="physicsfunctions_mod"
+             >previous</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2018, ECCC.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.
+    </div>
+  </body>
+</html>

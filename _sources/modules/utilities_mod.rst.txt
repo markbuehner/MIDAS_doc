@@ -1,0 +1,22 @@
+==========================================
+utilities_mod
+==========================================
+
+    :doc:`link to source code <utilities_mod_src>`
+
+
+    **Dependency Diagrams:**
+
+    .. figure:: /utilities_mod.svg
+        :height: 100px
+
+        Direct Dependency Diagram
+
+    .. figure:: /utilities_mod_rev.svg
+        :height: 100px
+
+        Reverse Dependency Diagram
+
+
+    .. f:automodule:: utilities_mod
+

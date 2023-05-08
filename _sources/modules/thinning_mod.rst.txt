@@ -1,0 +1,22 @@
+==========================================
+thinning_mod
+==========================================
+
+    :doc:`link to source code <thinning_mod_src>`
+
+
+    **Dependency Diagrams:**
+
+    .. figure:: /thinning_mod.svg
+        :height: 100px
+
+        Direct Dependency Diagram
+
+    .. figure:: /thinning_mod_rev.svg
+        :height: 100px
+
+        Reverse Dependency Diagram
+
+
+    .. f:automodule:: thinning_mod
+

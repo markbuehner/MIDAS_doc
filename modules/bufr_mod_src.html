@@ -1,0 +1,373 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>bufr_mod source &mdash; MIDAS  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="MIDAS  documentation" href="../index.html" /> 
+  </head>
+  <body>
+  <div>
+    <img src="../_static/MIDAS_header.png" alt="MIDAS" />
+  </div>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/modules/bufr_mod_src.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <section id="bufr-mod-source">
+<h1>bufr_mod source<a class="headerlink" href="#bufr-mod-source" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="linenos">  1</span><span class="c">!-------------------------------------- LICENCE BEGIN ------------------------------------</span>
+<span class="linenos">  2</span><span class="c">!Environment Canada - Atmospheric Science and Technology License/Disclaimer,</span>
+<span class="linenos">  3</span><span class="c">!                     version 3; Last Modified: May 7, 2008.</span>
+<span class="linenos">  4</span><span class="c">!This is free but copyrighted software; you can use/redistribute/modify it under the terms</span>
+<span class="linenos">  5</span><span class="c">!of the Environment Canada - Atmospheric Science and Technology License/Disclaimer</span>
+<span class="linenos">  6</span><span class="c">!version 3 or (at your option) any later version that should be found at:</span>
+<span class="linenos">  7</span><span class="c">!http://collaboration.cmc.ec.gc.ca/science/rpn.comm/license.html</span>
+<span class="linenos">  8</span><span class="c">!</span>
+<span class="linenos">  9</span><span class="c">!This software is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;</span>
+<span class="linenos"> 10</span><span class="c">!without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.</span>
+<span class="linenos"> 11</span><span class="c">!See the above mentioned License/Disclaimer for more details.</span>
+<span class="linenos"> 12</span><span class="c">!You should have received a copy of the License/Disclaimer along with this software;</span>
+<span class="linenos"> 13</span><span class="c">!if not, you can write to: EC-RPN COMM Group, 2121 TransCanada, suite 500, Dorval (Quebec),</span>
+<span class="linenos"> 14</span><span class="c">!CANADA, H9P 1J3; or send e-mail to service.rpn@ec.gc.ca</span>
+<span class="linenos"> 15</span><span class="c">!-------------------------------------- LICENCE END --------------------------------------</span>
+<span class="linenos"> 16</span>
+<span class="linenos"> 17</span><span class="k">module </span><span class="n">bufr_mod</span><span class="w"></span>
+<span class="linenos"> 18</span><span class="w">  </span><span class="c">! MODULE bufr_mod (prefix=&#39;bufr&#39; category=&#39;8. Low-level utilities and constants&#39;)</span>
+<span class="linenos"> 19</span><span class="w">  </span><span class="c">!</span>
+<span class="linenos"> 20</span><span class="w">  </span><span class="c">!:Purpose: This module is a holder for information that is needed from *the</span>
+<span class="linenos"> 21</span><span class="w">  </span><span class="c">!           Binary Universal Form for the Representation of meteorological</span>
+<span class="linenos"> 22</span><span class="w">  </span><span class="c">!           data* (BUFR), maintained by the World Meteorological Organization</span>
+<span class="linenos"> 23</span><span class="w">  </span><span class="c">!</span>
+<span class="linenos"> 24</span>
+<span class="linenos"> 25</span><span class="w">  </span><span class="c">! Public routines:</span>
+<span class="linenos"> 26</span><span class="w">  </span><span class="c">!</span>
+<span class="linenos"> 27</span><span class="w">  </span><span class="c">!       - &quot;bufr_IsAtmosConstituent&quot; determines if observation is</span>
+<span class="linenos"> 28</span><span class="w">  </span><span class="c">!         constituent/chemistry data</span>
+<span class="linenos"> 29</span><span class="w">  </span><span class="c">!</span>
+<span class="linenos"> 30</span><span class="w">  </span><span class="c">!       - &quot;bufr_IsIntegral&quot; determines if vertical integral measurement</span>
+<span class="linenos"> 31</span><span class="w">  </span><span class="c">!</span>
+<span class="linenos"> 32</span><span class="w">  </span><span class="c">!       - &quot;bufr_isWindComponent&quot; determines if a wind component variable</span>
+<span class="linenos"> 33</span><span class="w">  </span><span class="c">!</span>
+<span class="linenos"> 34</span>
+<span class="linenos"> 35</span><span class="w"> </span><span class="k">public</span><span class="w"></span>
+<span class="linenos"> 36</span>
+<span class="linenos"> 37</span><span class="w"> </span><span class="c">! Table B:</span>
+<span class="linenos"> 38</span><span class="w"> </span><span class="c">!          Universal Field-Identity Numbers</span>
+<span class="linenos"> 39</span><span class="w"> </span><span class="c">!          (At the CMC, these have also been known as burp_id.)</span>
+<span class="linenos"> 40</span><span class="w"> </span><span class="c">!</span>
+<span class="linenos"> 41</span><span class="w"> </span><span class="c">! Use the program codbuf to find out the meaning of these IDs.</span>
+<span class="linenos"> 42</span><span class="w"> </span><span class="c">!</span>
+<span class="linenos"> 43</span><span class="w"> </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">bufr_suWindSpeed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">08194</span><span class="w"> </span><span class="c">! source and units of wind speed IW, code 1855, code table</span>
+<span class="linenos"> 44</span><span class="w"> </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">BUFR_NETT</span><span class="w">        </span><span class="o">=</span><span class="w"> </span><span class="mi">12001</span><span class="w"></span>
+<span class="linenos"> 45</span><span class="w"> </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">BUFR_NEUU</span><span class="w">        </span><span class="o">=</span><span class="w"> </span><span class="mi">11003</span><span class="w"></span>
+<span class="linenos"> 46</span><span class="w"> </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">BUFR_NEVV</span><span class="w">        </span><span class="o">=</span><span class="w"> </span><span class="mi">11004</span><span class="w"></span>
+<span class="linenos"> 47</span><span class="w"> </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">BUFR_NEGZ</span><span class="w">        </span><span class="o">=</span><span class="w"> </span><span class="mi">10194</span><span class="w"></span>
+<span class="linenos"> 48</span><span class="w"> </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">BUFR_NEES</span><span class="w">        </span><span class="o">=</span><span class="w"> </span><span class="mi">12192</span><span class="w"></span>
+<span class="linenos"> 49</span><span class="w"> </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">BUFR_NEFF</span><span class="w">        </span><span class="o">=</span><span class="w"> </span><span class="mi">11002</span><span class="w"></span>
+<span class="linenos"> 50</span><span class="w"> </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">BUFR_NEDD</span><span class="w">        </span><span class="o">=</span><span class="w"> </span><span class="mi">11001</span><span class="w"></span>
+<span class="linenos"> 51</span><span class="w"> </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">BUFR_NEUS</span><span class="w">        </span><span class="o">=</span><span class="w"> </span><span class="mi">11215</span><span class="w"></span>
+<span class="linenos"> 52</span><span class="w"> </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">BUFR_NEVS</span><span class="w">        </span><span class="o">=</span><span class="w"> </span><span class="mi">11216</span><span class="w"></span>
+<span class="linenos"> 53</span><span class="w"> </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">BUFR_NETS</span><span class="w">        </span><span class="o">=</span><span class="w"> </span><span class="mi">12004</span><span class="w"></span>
+<span class="linenos"> 54</span><span class="w"> </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">BUFR_NESS</span><span class="w">        </span><span class="o">=</span><span class="w"> </span><span class="mi">12203</span><span class="w"></span>
+<span class="linenos"> 55</span><span class="w"> </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">BUFR_NEFS</span><span class="w">        </span><span class="o">=</span><span class="w"> </span><span class="mi">11012</span><span class="w"></span>
+<span class="linenos"> 56</span><span class="w"> </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">BUFR_NEDS</span><span class="w">        </span><span class="o">=</span><span class="w"> </span><span class="mi">11011</span><span class="w"></span>
+<span class="linenos"> 57</span><span class="w"> </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">BUFR_NEDZ</span><span class="w">        </span><span class="o">=</span><span class="w"> </span><span class="mi">10192</span><span class="w"></span>
+<span class="linenos"> 58</span><span class="w"> </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">BUFR_NEPP</span><span class="w">        </span><span class="o">=</span><span class="w"> </span><span class="mi">07004</span><span class="w"></span>
+<span class="linenos"> 59</span><span class="w"> </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">BUFR_NEPS</span><span class="w">        </span><span class="o">=</span><span class="w"> </span><span class="mi">10004</span><span class="w"></span>
+<span class="linenos"> 60</span><span class="w"> </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">BUFR_NEPN</span><span class="w">        </span><span class="o">=</span><span class="w"> </span><span class="mi">10051</span><span class="w"></span>
+<span class="linenos"> 61</span><span class="w"> </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">bufr_dewPoint2m</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="mi">12006</span><span class="w"> </span><span class="c">! Dewpoint temperature at 2m</span>
+<span class="linenos"> 62</span><span class="w"> </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">BUFR_NBT1</span><span class="w">        </span><span class="o">=</span><span class="w"> </span><span class="mi">12062</span><span class="w"></span>
+<span class="linenos"> 63</span><span class="w"> </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">BUFR_NBT2</span><span class="w">        </span><span class="o">=</span><span class="w"> </span><span class="mi">12063</span><span class="w"></span>
+<span class="linenos"> 64</span><span class="w"> </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">BUFR_NBT3</span><span class="w">        </span><span class="o">=</span><span class="w"> </span><span class="mi">12163</span><span class="w"></span>
+<span class="linenos"> 65</span><span class="w"> </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">BUFR_NEBD</span><span class="w">        </span><span class="o">=</span><span class="w"> </span><span class="mi">15037</span><span class="w"></span>
+<span class="linenos"> 66</span><span class="w"> </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">BUFR_NERF</span><span class="w">        </span><span class="o">=</span><span class="w"> </span><span class="mi">15036</span><span class="w"></span>
+<span class="linenos"> 67</span><span class="w"> </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">BUFR_NEHU</span><span class="w">        </span><span class="o">=</span><span class="w"> </span><span class="mi">13210</span><span class="w"></span>
+<span class="linenos"> 68</span><span class="w"> </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">BUFR_NEHS</span><span class="w">        </span><span class="o">=</span><span class="w"> </span><span class="mi">13220</span><span class="w"></span>
+<span class="linenos"> 69</span><span class="w"> </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">BUFR_NEZD</span><span class="w">        </span><span class="o">=</span><span class="w"> </span><span class="mi">15031</span><span class="w"></span>
+<span class="linenos"> 70</span><span class="w"> </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">BUFR_NEFE</span><span class="w">        </span><span class="o">=</span><span class="w"> </span><span class="mi">15032</span><span class="w"></span>
+<span class="linenos"> 71</span><span class="w"> </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">BUFR_NEZW</span><span class="w">        </span><span class="o">=</span><span class="w"> </span><span class="mi">15035</span><span class="w"></span>
+<span class="linenos"> 72</span><span class="w"> </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">BUFR_ZTDSCORE</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="mi">40026</span><span class="w"></span>
+<span class="linenos"> 73</span><span class="w"> </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">BUFR_NEAZ</span><span class="w">        </span><span class="o">=</span><span class="w"> </span><span class="mi">05021</span><span class="w"></span>
+<span class="linenos"> 74</span><span class="w"> </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">BUFR_NEAL</span><span class="w">        </span><span class="o">=</span><span class="w"> </span><span class="mi">40030</span><span class="w"> </span><span class="c">! aladin HLOS wind</span>
+<span class="linenos"> 75</span><span class="w"> </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">BUFR_NEDWDP</span><span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="mi">40032</span><span class="w"> </span><span class="c">! derivative of HLOS wrt P</span>
+<span class="linenos"> 76</span><span class="w"> </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">BUFR_NEDWDT</span><span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="mi">40033</span><span class="w"> </span><span class="c">! derivative of HLOS wrt T</span>
+<span class="linenos"> 77</span><span class="w"> </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">BUFR_NEDW</span><span class="w">        </span><span class="o">=</span><span class="w"> </span><span class="mi">11200</span><span class="w"> </span><span class="c">! Doppler wind</span>
+<span class="linenos"> 78</span><span class="w"> </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">BUFR_radarPrecip</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">21036</span><span class="w"> </span><span class="c">! radar precipitation</span>
+<span class="linenos"> 79</span><span class="w"> </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">BUFR_logRadarPrecip</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">51036</span><span class="w"> </span><span class="c">! radar precipitation</span>
+<span class="linenos"> 80</span><span class="w"> </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">bufr_sst</span><span class="w">         </span><span class="o">=</span><span class="w"> </span><span class="mi">22042</span><span class="w"> </span><span class="c">! sea/water temperature</span>
+<span class="linenos"> 81</span><span class="w"> </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">bufr_soz</span><span class="w">         </span><span class="o">=</span><span class="w"> </span><span class="mi">07025</span><span class="w"></span>
+<span class="linenos"> 82</span><span class="w"> </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">BUFR_ICEC</span><span class="w">        </span><span class="o">=</span><span class="w"> </span><span class="mi">20237</span><span class="w"> </span><span class="c">! concentration (%) from ice charts</span>
+<span class="linenos"> 83</span><span class="w"> </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">BUFR_ICEP</span><span class="w">        </span><span class="o">=</span><span class="w"> </span><span class="mi">20222</span><span class="w"> </span><span class="c">! concentration (%) from passive microwave retrievals</span>
+<span class="linenos"> 84</span><span class="w"> </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">BUFR_ICEV</span><span class="w">        </span><span class="o">=</span><span class="w"> </span><span class="mi">21169</span><span class="w"> </span><span class="c">! presence of ice retrieval from Vis/IR</span>
+<span class="linenos"> 85</span><span class="w"> </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">BUFR_ICES</span><span class="w">        </span><span class="o">=</span><span class="w"> </span><span class="mi">21199</span><span class="w"> </span><span class="c">! backscatter anisotropy from scatterometer</span>
+<span class="linenos"> 86</span><span class="w"> </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">bufr_vis</span><span class="w">         </span><span class="o">=</span><span class="w"> </span><span class="mi">20001</span><span class="w"> </span><span class="c">! horizontal visibility</span>
+<span class="linenos"> 87</span><span class="w"> </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">bufr_logVis</span><span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="mi">50001</span><span class="w"> </span><span class="c">! log(horizontal visibility)</span>
+<span class="linenos"> 88</span><span class="w"> </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">bufr_gust</span><span class="w">        </span><span class="o">=</span><span class="w"> </span><span class="mi">11041</span><span class="w"></span>
+<span class="linenos"> 89</span><span class="w"> </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">bufr_riverFlow</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="mi">23040</span><span class="w"></span>
+<span class="linenos"> 90</span><span class="w"> </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">bufr_cloudInSeg</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="mi">20081</span><span class="w"></span>
+<span class="linenos"> 91</span><span class="w"> </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">bufr_radvel</span><span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="mi">21014</span><span class="w"> </span><span class="c">! Doppler velocity (Radial Wind)</span>
+<span class="linenos"> 92</span>
+<span class="linenos"> 93</span><span class="w"> </span><span class="c">!</span>
+<span class="linenos"> 94</span><span class="w"> </span><span class="c">! Table C-14: (for Code Table 08046)</span>
+<span class="linenos"> 95</span><span class="w"> </span><span class="c">!             Atmospheric chemical or physical constituent type</span>
+<span class="linenos"> 96</span><span class="w"> </span><span class="c">!             - Includes local values as well!</span>
+<span class="linenos"> 97</span><span class="w"> </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">BUFR_NECH_O3</span><span class="w">    </span><span class="o">=</span><span class="mi">0</span><span class="w">   </span>
+<span class="linenos"> 98</span><span class="w"> </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">BUFR_NECH_H2O</span><span class="w">   </span><span class="o">=</span><span class="mi">1</span><span class="w">   </span>
+<span class="linenos"> 99</span><span class="w"> </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">BUFR_NECH_CH4</span><span class="w">   </span><span class="o">=</span><span class="mi">2</span><span class="w">   </span>
+<span class="linenos">100</span><span class="w"> </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">BUFR_NECH_CO2</span><span class="w">   </span><span class="o">=</span><span class="mi">3</span><span class="w">   </span>
+<span class="linenos">101</span><span class="w"> </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">BUFR_NECH_CO</span><span class="w">    </span><span class="o">=</span><span class="mi">4</span><span class="w">   </span>
+<span class="linenos">102</span><span class="w"> </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">BUFR_NECH_NO2</span><span class="w">   </span><span class="o">=</span><span class="mi">5</span><span class="w">   </span>
+<span class="linenos">103</span><span class="w"> </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">BUFR_NECH_N2O</span><span class="w">   </span><span class="o">=</span><span class="mi">6</span><span class="w">   </span>
+<span class="linenos">104</span><span class="w"> </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">BUFR_NECH_HCHO</span><span class="w">  </span><span class="o">=</span><span class="mi">7</span><span class="w"></span>
+<span class="linenos">105</span><span class="w"> </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">BUFR_NECH_SO2</span><span class="w">   </span><span class="o">=</span><span class="mi">8</span><span class="w">  </span>
+<span class="linenos">106</span><span class="w"> </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">BUFR_NECH_NH3</span><span class="w">   </span><span class="o">=</span><span class="mi">9</span><span class="w">  </span>
+<span class="linenos">107</span><span class="w"> </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">BUFR_NECH_NO</span><span class="w">    </span><span class="o">=</span><span class="mi">11</span><span class="w"></span>
+<span class="linenos">108</span><span class="w"> </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">BUFR_NECH_PM25</span><span class="w">  </span><span class="o">=</span><span class="mi">26</span><span class="w"> </span>
+<span class="linenos">109</span><span class="w"> </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">BUFR_NECH_PM10</span><span class="w">  </span><span class="o">=</span><span class="mi">27</span><span class="w">  </span>
+<span class="linenos">110</span>
+<span class="linenos">111</span><span class="w"> </span><span class="c">! Table B elements associated to constituents/chemistry</span>
+<span class="linenos">112</span><span class="w"> </span><span class="c">! -----------------------------------------------------</span>
+<span class="linenos">113</span><span class="w"> </span><span class="c">!</span>
+<span class="linenos">114</span><span class="w"> </span><span class="c">! Element denoting exponents accompanying obs bufr element</span>
+<span class="linenos">115</span><span class="w"> </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">BUFR_SCALE_EXPONENT</span><span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="mi">8090</span><span class="w"></span>
+<span class="linenos">116</span><span class="w"> </span>
+<span class="linenos">117</span><span class="w"> </span><span class="c">! Element used for denoting averaging kernel elements </span>
+<span class="linenos">118</span><span class="w"> </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">BUFR_AVGKERN</span><span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="mi">25143</span><span class="w"></span>
+<span class="linenos">119</span><span class="w"> </span>
+<span class="linenos">120</span><span class="w"> </span><span class="c">! Element denoting error correlation matrix elements</span>
+<span class="linenos">121</span><span class="w"> </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">BUFR_CORREL</span><span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="mi">33205</span><span class="w"></span>
+<span class="linenos">122</span><span class="w"> </span>
+<span class="linenos">123</span><span class="w"> </span><span class="c">! Elements for units of constituent observations</span>
+<span class="linenos">124</span><span class="w"> </span><span class="c">!</span>
+<span class="linenos">125</span><span class="w"> </span><span class="c">! When needed, used in tandem with BUFR_NECH_* identifying the consituent</span>
+<span class="linenos">126</span><span class="w"> </span><span class="c">! and BUFR_SCALE_EXPONENT when the input file contains an exponent for</span>
+<span class="linenos">127</span><span class="w"> </span><span class="c">! a power ten scale factor. </span>
+<span class="linenos">128</span><span class="w"> </span><span class="c">!</span>
+<span class="linenos">129</span><span class="w"> </span><span class="c">! For some units, multiple BUFR are available, some originally defined to</span>
+<span class="linenos">130</span><span class="w"> </span><span class="c">! be specific to certain constituents and some being local elements devised</span>
+<span class="linenos">131</span><span class="w"> </span><span class="c">! prior to official elements being assigned. While a single set would be</span>
+<span class="linenos">132</span><span class="w"> </span><span class="c">! sufficient, all are included for completeness. A sufficient set might be</span>
+<span class="linenos">133</span><span class="w"> </span><span class="c">! 15008,15026,13002,15022,15207,15027,15003,15029,15198,15201,15021,15202,15024,15028.</span>
+<span class="linenos">134</span>
+<span class="linenos">135</span><span class="w"> </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">BUFR_UNIT_VMR</span><span class="w">            </span><span class="o">=</span><span class="w"> </span><span class="mi">15008</span><span class="w">   </span><span class="c">! Volume mixing ratio (vmr)</span>
+<span class="linenos">136</span><span class="w"> </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">BUFR_UNIT_VMR2</span><span class="w">           </span><span class="o">=</span><span class="w"> </span><span class="mi">15208</span><span class="w">   </span><span class="c">! Volume mixing ratio  </span>
+<span class="linenos">137</span><span class="w"> </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">BUFR_UNIT_MolePerMole</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="mi">15026</span><span class="w">   </span><span class="c">! Pollutant concentration (mole/mole)</span>
+<span class="linenos">138</span><span class="w"> </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">BUFR_UNIT_MolePerMole2</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="mi">15197</span><span class="w">   </span><span class="c">! Mixing ratio (mole/mole)</span>
+<span class="linenos">139</span><span class="w"> </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">BUFR_UNIT_MMR</span><span class="w">            </span><span class="o">=</span><span class="w"> </span><span class="mi">13002</span><span class="w">   </span><span class="c">! Mass mixing ratio (kg/kg)</span>
+<span class="linenos">140</span><span class="w"> </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">BUFR_UNIT_MMR2</span><span class="w">           </span><span class="o">=</span><span class="w"> </span><span class="mi">13001</span><span class="w">   </span><span class="c">! Humidity mass mixing ratio (kg/kg) - same as above</span>
+<span class="linenos">141</span><span class="w"> </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">BUFR_UNIT_NumberDensity</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="mi">15207</span><span class="w">   </span><span class="c">! Number density (1/m^3) </span>
+<span class="linenos">142</span><span class="w"> </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">BUFR_UNIT_MolarDensity</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="mi">15230</span><span class="w">   </span><span class="c">! Molar density (mole/m^3)  </span>
+<span class="linenos">143</span><span class="w"> </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">BUFR_UNIT_Density</span><span class="w">        </span><span class="o">=</span><span class="w"> </span><span class="mi">15027</span><span class="w">   </span><span class="c">! Concentration in kg/m^3</span>
+<span class="linenos">144</span><span class="w"> </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">BUFR_UNIT_Density2</span><span class="w">       </span><span class="o">=</span><span class="w"> </span><span class="mi">15223</span><span class="w">   </span><span class="c">! Concentration = Density (kg/m^3) </span>
+<span class="linenos">145</span><span class="w"> </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">BUFR_UNIT_AirDensity</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="mi">15194</span><span class="w">   </span><span class="c">! Air density (kg/m^3) </span>
+<span class="linenos">146</span><span class="w"> </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">BUFR_UNIT_PMDensity</span><span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="mi">15195</span><span class="w">   </span><span class="c">! Density of PM2.5 (kg/m^3)  </span>
+<span class="linenos">147</span><span class="w"> </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">BUFR_UNIT_PartPress</span><span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="mi">15003</span><span class="w">   </span><span class="c">! Partial pressure in Pa (not just for ozone)</span>
+<span class="linenos">148</span><span class="w"> </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">BUFR_UNIT_PartPress2</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="mi">15199</span><span class="w">   </span><span class="c">! Partial pressure in Pa (same as above)</span>
+<span class="linenos">149</span><span class="w"> </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">BUFR_UNIT_MR_NVaerosol</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="mi">15055</span><span class="w">   </span><span class="c">! Non-volatile aerosol mixing ratio (unitless)  </span>
+<span class="linenos">150</span><span class="w"> </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">BUFR_UNIT_ExtinctCoef</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="mi">15029</span><span class="w">   </span><span class="c">! Extinction coefficient (1/m)</span>
+<span class="linenos">151</span><span class="w"> </span>
+<span class="linenos">152</span><span class="w"> </span><span class="c">! The following elements are all vertically integrated quantities</span>
+<span class="linenos">153</span>
+<span class="linenos">154</span><span class="w"> </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">BUFR_UNIT_DU</span><span class="w">             </span><span class="o">=</span><span class="w"> </span><span class="mi">15198</span><span class="w">   </span><span class="c">! Integrate number density in Dobson units DU</span>
+<span class="linenos">155</span><span class="w"> </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">BUFR_UNIT_DU2</span><span class="w">            </span><span class="o">=</span><span class="w"> </span><span class="mi">15001</span><span class="w">   </span><span class="c">! Total ozone in DU (same as above) - applicable for all</span>
+<span class="linenos">156</span><span class="w"> </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">BUFR_UNIT_DU3</span><span class="w">            </span><span class="o">=</span><span class="w"> </span><span class="mi">15005</span><span class="w">   </span><span class="c">! Partial column for ozone in DU (same as above) - applicable for all</span>
+<span class="linenos">157</span><span class="w"> </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">BUFR_UNIT_DU4</span><span class="w">            </span><span class="o">=</span><span class="w"> </span><span class="mi">15045</span><span class="w">   </span><span class="c">! Partial column for SO2 in DU (same as above) - applicable for all</span>
+<span class="linenos">158</span><span class="w"> </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">BUFR_UNIT_IntegND</span><span class="w">        </span><span class="o">=</span><span class="w"> </span><span class="mi">15201</span><span class="w">   </span><span class="c">! Integrated number density (1/m^2)</span>
+<span class="linenos">159</span><span class="w"> </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">BUFR_UNIT_IntegND2</span><span class="w">       </span><span class="o">=</span><span class="w"> </span><span class="mi">15012</span><span class="w">   </span><span class="c">! Electron density per m^2 (1/m^2) </span>
+<span class="linenos">160</span><span class="w"> </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">BUFR_UNIT_IntegDens</span><span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="mi">15021</span><span class="w">   </span><span class="c">! Integrated density (kg/m^2)</span>
+<span class="linenos">161</span><span class="w"> </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">BUFR_UNIT_IntegDens2</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="mi">15020</span><span class="w">   </span><span class="c">! Integrated density for ozone (kg/m^2; same as above) - applicable to all</span>
+<span class="linenos">162</span><span class="w"> </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">BUFR_UNIT_IntegDens3</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="mi">15200</span><span class="w">   </span><span class="c">! Integrated density (kg/m^2)</span>
+<span class="linenos">163</span><span class="w"> </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">BUFR_UNIT_IntegMolarDens</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">15202</span><span class="w">   </span><span class="c">! Integrated molar density (mole/m^2)</span>
+<span class="linenos">164</span>
+<span class="linenos">165</span><span class="w"> </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">BUFR_UNIT_OptDepth</span><span class="w">       </span><span class="o">=</span><span class="w"> </span><span class="mi">15024</span><span class="w">   </span><span class="c">! Optical depth (unitless)</span>
+<span class="linenos">166</span><span class="w"> </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">BUFR_UNIT_OptDepth2</span><span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="mi">15196</span><span class="w">   </span><span class="c">! Optical depth (unitless)</span>
+<span class="linenos">167</span><span class="w"> </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">BUFR_UNIT_OptDepth3</span><span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="mi">15062</span><span class="w">   </span><span class="c">! Aerosol Optical depth (unitless)</span>
+<span class="linenos">168</span>
+<span class="linenos">169</span><span class="w"> </span><span class="c">! Additional elements associated to chemistry</span>
+<span class="linenos">170</span><span class="w"> </span>
+<span class="linenos">171</span><span class="w"> </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">BUFR_UNIT_PhotoDissoc</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="mi">15028</span><span class="w">   </span><span class="c">! Photodissociate rate (1/sec)</span>
+<span class="linenos">172</span><span class="w"> </span>
+<span class="linenos">173</span><span class="w"> </span><span class="c">! ----------------------------------------------</span>
+<span class="linenos">174</span><span class="w">  </span>
+<span class="linenos">175</span><span class="k">contains</span>
+<span class="linenos">176</span>
+<span class="linenos">177</span><span class="k">  function </span><span class="n">bufr_IsAtmosConstituent</span><span class="p">(</span><span class="n">varNumber</span><span class="p">)</span><span class="w"> </span><span class="k">result</span><span class="p">(</span><span class="n">var_chm</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">178</span><span class="w">    </span><span class="c">!</span>
+<span class="linenos">179</span><span class="w">    </span><span class="c">!:Purpose: To determine whether &#39;varNumber&#39; refers to constituent data from</span>
+<span class="linenos">180</span><span class="w">    </span><span class="c">!          the CH family with recognized data units.</span>
+<span class="linenos">181</span><span class="w">    </span><span class="c">!</span>
+<span class="linenos">182</span><span class="w">    </span><span class="k">implicit none</span><span class="w"></span>
+<span class="linenos">183</span>
+<span class="linenos">184</span><span class="w">    </span><span class="c">! Arguments:</span>
+<span class="linenos">185</span><span class="w">    </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w">           </span><span class="kd">::</span><span class="w"> </span><span class="n">varNumber</span><span class="w"> </span><span class="c">! BUFR element number</span>
+<span class="linenos">186</span><span class="w">    </span><span class="kt">logical</span><span class="w">                       </span><span class="kd">::</span><span class="w"> </span><span class="n">var_chm</span><span class="w"></span>
+<span class="linenos">187</span><span class="w">      </span>
+<span class="linenos">188</span><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nb">any</span><span class="p">(</span><span class="n">varNumber</span><span class="p">.</span><span class="n">eq</span><span class="p">.</span><span class="w"> </span><span class="p">(</span><span class="o">/</span><span class="w"> </span><span class="n">BUFR_UNIT_VMR</span><span class="p">,</span><span class="w"> </span><span class="n">BUFR_UNIT_VMR2</span><span class="p">,</span><span class="w"> </span><span class="n">BUFR_UNIT_MolePerMole</span><span class="p">,</span><span class="w"> </span><span class="n">BUFR_UNIT_MolePerMole2</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span><span class="w"></span>
+<span class="linenos">189</span><span class="w">                             </span><span class="n">BUFR_UNIT_MMR</span><span class="p">,</span><span class="w"> </span><span class="n">BUFR_UNIT_MMR2</span><span class="p">,</span><span class="w"> </span><span class="n">BUFR_UNIT_NumberDensity</span><span class="p">,</span><span class="w"> </span><span class="n">BUFR_UNIT_MolarDensity</span><span class="p">,</span><span class="w">  </span><span class="p">&amp;</span><span class="w"></span>
+<span class="linenos">190</span><span class="w">                             </span><span class="n">BUFR_UNIT_Density</span><span class="p">,</span><span class="w"> </span><span class="n">BUFR_UNIT_Density2</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span><span class="w"></span>
+<span class="linenos">191</span><span class="w">                             </span><span class="n">BUFR_UNIT_AirDensity</span><span class="p">,</span><span class="w"> </span><span class="n">BUFR_UNIT_PMDensity</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span><span class="w"></span>
+<span class="linenos">192</span><span class="w">                             </span><span class="n">BUFR_UNIT_OptDepth</span><span class="p">,</span><span class="w"> </span><span class="n">BUFR_UNIT_OptDepth2</span><span class="p">,</span><span class="w"> </span><span class="n">BUFR_UNIT_OptDepth3</span><span class="p">,</span><span class="w"> </span><span class="n">BUFR_UNIT_MR_NVaerosol</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span><span class="w"></span>
+<span class="linenos">193</span><span class="w">                             </span><span class="n">BUFR_UNIT_PartPress</span><span class="p">,</span><span class="w"> </span><span class="n">BUFR_UNIT_PartPress2</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span><span class="w"></span>
+<span class="linenos">194</span><span class="w">                             </span><span class="n">BUFR_UNIT_DU</span><span class="p">,</span><span class="w"> </span><span class="n">BUFR_UNIT_DU2</span><span class="p">,</span><span class="w"> </span><span class="n">BUFR_UNIT_DU3</span><span class="p">,</span><span class="w"> </span><span class="n">BUFR_UNIT_DU4</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span><span class="w"></span>
+<span class="linenos">195</span><span class="w">                             </span><span class="n">BUFR_UNIT_IntegND</span><span class="p">,</span><span class="w"> </span><span class="n">BUFR_UNIT_IntegND2</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span><span class="w"></span>
+<span class="linenos">196</span><span class="w">                             </span><span class="n">BUFR_UNIT_IntegDens</span><span class="p">,</span><span class="w"> </span><span class="n">BUFR_UNIT_IntegDens2</span><span class="p">,</span><span class="w"> </span><span class="n">BUFR_UNIT_IntegDens3</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span><span class="w"></span>
+<span class="linenos">197</span><span class="w">                             </span><span class="n">BUFR_UNIT_IntegMolarDens</span><span class="p">,</span><span class="w"> </span><span class="n">BUFR_UNIT_ExtinctCoef</span><span class="p">,</span><span class="w"> </span><span class="n">BUFR_UNIT_PhotoDissoc</span><span class="w"> </span><span class="o">/</span><span class="p">)</span><span class="w"> </span><span class="p">))</span><span class="w"> </span><span class="k">then          </span>
+<span class="linenos">198</span><span class="k">       </span><span class="n">var_chm</span><span class="o">=</span><span class="p">.</span><span class="n">true</span><span class="p">.</span><span class="w"></span>
+<span class="linenos">199</span><span class="w">    </span><span class="k">else         </span>
+<span class="linenos">200</span><span class="k">       </span><span class="n">var_chm</span><span class="o">=</span><span class="p">.</span><span class="n">false</span><span class="p">.</span><span class="w"></span>
+<span class="linenos">201</span><span class="w">    </span><span class="k">end if</span>
+<span class="linenos">202</span><span class="k">      </span>
+<span class="linenos">203</span><span class="k">  end function </span><span class="n">bufr_IsAtmosConstituent</span><span class="w"></span>
+<span class="linenos">204</span>
+<span class="linenos">205</span>
+<span class="linenos">206</span><span class="w">  </span><span class="kt">logical </span><span class="k">function </span><span class="n">bufr_IsIntegral</span><span class="p">(</span><span class="n">varNumber</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">207</span><span class="w">    </span><span class="c">!</span>
+<span class="linenos">208</span><span class="w">    </span><span class="c">!:Purpose: To identify whether obs is a vertically integrated constituent</span>
+<span class="linenos">209</span><span class="w">    </span><span class="c">!          measurement.</span>
+<span class="linenos">210</span><span class="w">    </span><span class="c">!</span>
+<span class="linenos">211</span><span class="w">    </span><span class="k">implicit none</span><span class="w"></span>
+<span class="linenos">212</span>
+<span class="linenos">213</span><span class="w">    </span><span class="c">! Arguments:</span>
+<span class="linenos">214</span><span class="w">    </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">varNumber</span><span class="w"> </span><span class="c">! BUFR element number</span>
+<span class="linenos">215</span><span class="w"> </span>
+<span class="linenos">216</span><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nb">any</span><span class="p">(</span><span class="n">varNumber</span><span class="w"> </span><span class="p">.</span><span class="n">eq</span><span class="p">.</span><span class="w"> </span><span class="p">(</span><span class="o">/</span><span class="w"> </span><span class="n">BUFR_UNIT_DU</span><span class="p">,</span><span class="w"> </span><span class="n">BUFR_UNIT_DU2</span><span class="p">,</span><span class="w"> </span><span class="n">BUFR_UNIT_DU3</span><span class="p">,</span><span class="w"> </span><span class="n">BUFR_UNIT_DU4</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span><span class="w"></span>
+<span class="linenos">217</span><span class="w">                              </span><span class="n">BUFR_UNIT_IntegND</span><span class="p">,</span><span class="w"> </span><span class="n">BUFR_UNIT_IntegND2</span><span class="p">,</span><span class="w"> </span><span class="n">BUFR_UNIT_IntegDens</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span><span class="w"></span>
+<span class="linenos">218</span><span class="w">                              </span><span class="n">BUFR_UNIT_IntegDens2</span><span class="p">,</span><span class="w"> </span><span class="n">BUFR_UNIT_IntegDens3</span><span class="p">,</span><span class="w"> </span><span class="n">BUFR_UNIT_IntegMolarDens</span><span class="w"> </span><span class="o">/</span><span class="p">)</span><span class="w"> </span><span class="p">))</span><span class="w"> </span><span class="k">then      </span>
+<span class="linenos">219</span><span class="k">      </span><span class="n">bufr_IsIntegral</span><span class="o">=</span><span class="p">.</span><span class="n">true</span><span class="p">.</span><span class="w">     </span>
+<span class="linenos">220</span><span class="w">    </span><span class="k">else</span>
+<span class="linenos">221</span><span class="k">      </span><span class="n">bufr_IsIntegral</span><span class="o">=</span><span class="p">.</span><span class="n">false</span><span class="p">.</span><span class="w"></span>
+<span class="linenos">222</span><span class="w">    </span><span class="k">end if</span>
+<span class="linenos">223</span><span class="k">  </span>
+<span class="linenos">224</span><span class="k">  end function </span><span class="n">bufr_IsIntegral</span><span class="w"></span>
+<span class="linenos">225</span>
+<span class="linenos">226</span>
+<span class="linenos">227</span><span class="w">  </span><span class="kt">logical </span><span class="k">function </span><span class="n">bufr_isWindComponent</span><span class="p">(</span><span class="n">varNumber</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">228</span><span class="w">    </span><span class="c">!</span>
+<span class="linenos">229</span><span class="w">    </span><span class="c">!:Purpose: True if the variable is a wind component</span>
+<span class="linenos">230</span><span class="w">    </span><span class="c">!</span>
+<span class="linenos">231</span><span class="w">    </span><span class="k">implicit none</span><span class="w"></span>
+<span class="linenos">232</span><span class="w">    </span>
+<span class="linenos">233</span><span class="w">    </span><span class="c">! Arguments:</span>
+<span class="linenos">234</span><span class="w">    </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">varNumber</span><span class="w"> </span><span class="c">! BUFR element number</span>
+<span class="linenos">235</span>
+<span class="linenos">236</span><span class="w">    </span><span class="k">select case</span><span class="p">(</span><span class="n">varNumber</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">237</span><span class="w">    </span><span class="k">case</span><span class="p">(</span><span class="n">BUFR_NEUU</span><span class="p">,</span><span class="w"> </span><span class="n">BUFR_NEVV</span><span class="p">,</span><span class="w"> </span><span class="n">BUFR_NEUS</span><span class="p">,</span><span class="w"> </span><span class="n">BUFR_NEVS</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">238</span><span class="w">      </span><span class="n">bufr_isWindComponent</span><span class="o">=</span><span class="p">.</span><span class="n">true</span><span class="p">.</span><span class="w"></span>
+<span class="linenos">239</span><span class="w">    </span><span class="k">case </span><span class="n">default</span><span class="w"></span>
+<span class="linenos">240</span><span class="w">      </span><span class="n">bufr_isWindComponent</span><span class="o">=</span><span class="p">.</span><span class="n">false</span><span class="p">.</span><span class="w"></span>
+<span class="linenos">241</span><span class="w">    </span><span class="k">end select</span>
+<span class="linenos">242</span>
+<span class="linenos">243</span><span class="k">  end function </span><span class="n">bufr_isWindComponent</span><span class="w"></span>
+<span class="linenos">244</span>
+<span class="linenos">245</span><span class="w">  </span>
+<span class="linenos">246</span><span class="w">  </span><span class="kt">logical </span><span class="k">function </span><span class="n">bufr_isOceanObs</span><span class="p">(</span><span class="n">varNumber</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">247</span><span class="w">    </span><span class="c">!</span>
+<span class="linenos">248</span><span class="w">    </span><span class="c">!:Purpose: True if the variable is an ocean observation</span>
+<span class="linenos">249</span><span class="w">    </span><span class="c">!</span>
+<span class="linenos">250</span><span class="w">    </span><span class="k">implicit none</span><span class="w"></span>
+<span class="linenos">251</span><span class="w">    </span>
+<span class="linenos">252</span><span class="w">    </span><span class="c">! Arguments:</span>
+<span class="linenos">253</span><span class="w">    </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">varNumber</span><span class="w"> </span><span class="c">! BUFR element number</span>
+<span class="linenos">254</span>
+<span class="linenos">255</span><span class="w">    </span><span class="k">select case</span><span class="p">(</span><span class="n">varNumber</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">256</span><span class="w">    </span><span class="k">case</span><span class="p">(</span><span class="n">BUFR_SST</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">257</span><span class="w">      </span><span class="n">bufr_isOceanObs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">true</span><span class="p">.</span><span class="w"></span>
+<span class="linenos">258</span><span class="w">    </span><span class="k">case </span><span class="n">default</span><span class="w"></span>
+<span class="linenos">259</span><span class="w">      </span><span class="n">bufr_isOceanObs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">false</span><span class="p">.</span><span class="w"></span>
+<span class="linenos">260</span><span class="w">    </span><span class="k">end select</span>
+<span class="linenos">261</span>
+<span class="linenos">262</span><span class="k">  end function </span><span class="n">bufr_isOceanObs</span><span class="w"></span>
+<span class="linenos">263</span>
+<span class="linenos">264</span><span class="k">end module </span><span class="n">bufr_mod</span><span class="w"></span>
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2018, ECCC.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,17 @@
+==========================================
+midas_obsselection
+==========================================
+
+    :doc:`link to source code <midas_obsselection_src>`
+
+
+    **Dependency Diagrams:**
+
+    .. figure:: /midas_obsselection.svg
+        :height: 100px
+
+        Direct Dependency Diagram
+
+
+    .. f:autoprogram:: midas_obsselection
+

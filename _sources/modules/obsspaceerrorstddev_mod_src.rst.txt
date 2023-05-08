@@ -1,0 +1,8 @@
+==========================================
+obsspaceerrorstddev_mod source
+==========================================
+
+    .. literalinclude:: ../_src_files/obsSpaceErrorStdDev_mod.f90
+       :language: fortran
+       :linenos:
+

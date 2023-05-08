@@ -1,0 +1,8 @@
+==========================================
+midas_adjointtest source
+==========================================
+
+    .. literalinclude:: ../_src_files/adjointTest.f90
+       :language: fortran
+       :linenos:
+

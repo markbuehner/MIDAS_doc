@@ -1,0 +1,17 @@
+==========================================
+midas_extractbmatrixfor1dvar
+==========================================
+
+    :doc:`link to source code <midas_extractbmatrixfor1dvar_src>`
+
+
+    **Dependency Diagrams:**
+
+    .. figure:: /midas_extractbmatrixfor1dvar.svg
+        :height: 100px
+
+        Direct Dependency Diagram
+
+
+    .. f:autoprogram:: midas_extractbmatrixfor1dvar
+

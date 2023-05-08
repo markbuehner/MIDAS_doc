@@ -1,0 +1,1734 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>obscolumnnames_mod &mdash; MIDAS  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="MIDAS  documentation" href="../index.html" />
+    <link rel="next" title="obsdatacolumn_mod" href="obsdatacolumn_mod.html" />
+    <link rel="prev" title="indexlistdepot_mod" href="indexlistdepot_mod.html" /> 
+  </head>
+  <body>
+  <div>
+    <img src="../_static/MIDAS_header.png" alt="MIDAS" />
+  </div>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="obsdatacolumn_mod.html" title="obsdatacolumn_mod"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="indexlistdepot_mod.html" title="indexlistdepot_mod"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="indexlistdepot_mod.html"
+                          title="previous chapter">indexlistdepot_mod</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="obsdatacolumn_mod.html"
+                          title="next chapter">obsdatacolumn_mod</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/modules/obscolumnnames_mod.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <section id="obscolumnnames-mod">
+<h1>obscolumnnames_mod<a class="headerlink" href="#obscolumnnames-mod" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><p><a class="reference internal" href="obscolumnnames_mod_src.html"><span class="doc">link to source code</span></a></p>
+<p><strong>Dependency Diagrams:</strong></p>
+<blockquote>
+<div><p>No Direct Dependency</p>
+</div></blockquote>
+<figure class="align-default" id="id1">
+<a class="reference internal image-reference" href="obscolumnnames_mod_rev.svg"><img alt="obscolumnnames_mod_rev.svg" height="100px" src="obscolumnnames_mod_rev.svg" /></a>
+<figcaption>
+<p><span class="caption-text">Reverse Dependency Diagram</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<span class="target" id="f/obscolumnnames_mod"></span><p class="rubric">Description</p>
+<p>MODULE obsColumnNames_mod (prefix=’ocn’ category=’7. Low-level data objects and utilities’)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Purpose</dt>
+<dd class="field-odd"><p>This module simply groups together many fortran paramters that
+serve as column names for ObsSpaceData_mod.</p>
+</dd>
+<dt class="field-even">NOTE</dt>
+<dd class="field-even"><p>This module is logistically a part of the ObsSpaceData_mod module.
+In fact, if fortran allowed it, ObsColumnNames_mod would be
+‘contain’ed inside the ObsSpaceData_mod module. For this reason, and
+more importantly because these parameters constitute a part of the
+visible (from outside ObsSpaceData_mod) interface to
+ObsSpaceData_mod, the parameters defined in this module carry the
+prefix, OBS, and not CN.</p>
+</dd>
+</dl>
+<p class="rubric">Quick access</p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/obscolumnnames_mod/nbdy_int_beg" title="f/obscolumnnames_mod/nbdy_int_beg"><code class="xref f f-var docutils literal notranslate"><span class="pre">nbdy_int_beg</span></code></a>, <a class="reference internal" href="#f/obscolumnnames_mod/nbdy_int_end" title="f/obscolumnnames_mod/nbdy_int_end"><code class="xref f f-var docutils literal notranslate"><span class="pre">nbdy_int_end</span></code></a>, <a class="reference internal" href="#f/obscolumnnames_mod/nbdy_int_size" title="f/obscolumnnames_mod/nbdy_int_size"><code class="xref f f-var docutils literal notranslate"><span class="pre">nbdy_int_size</span></code></a>, <a class="reference internal" href="#f/obscolumnnames_mod/nbdy_real_beg" title="f/obscolumnnames_mod/nbdy_real_beg"><code class="xref f f-var docutils literal notranslate"><span class="pre">nbdy_real_beg</span></code></a>, <a class="reference internal" href="#f/obscolumnnames_mod/nbdy_real_end" title="f/obscolumnnames_mod/nbdy_real_end"><code class="xref f f-var docutils literal notranslate"><span class="pre">nbdy_real_end</span></code></a>, <a class="reference internal" href="#f/obscolumnnames_mod/nbdy_real_size" title="f/obscolumnnames_mod/nbdy_real_size"><code class="xref f f-var docutils literal notranslate"><span class="pre">nbdy_real_size</span></code></a>, <a class="reference internal" href="#f/obscolumnnames_mod/nhdr_int_beg" title="f/obscolumnnames_mod/nhdr_int_beg"><code class="xref f f-var docutils literal notranslate"><span class="pre">nhdr_int_beg</span></code></a>, <a class="reference internal" href="#f/obscolumnnames_mod/nhdr_int_end" title="f/obscolumnnames_mod/nhdr_int_end"><code class="xref f f-var docutils literal notranslate"><span class="pre">nhdr_int_end</span></code></a>, <a class="reference internal" href="#f/obscolumnnames_mod/nhdr_int_size" title="f/obscolumnnames_mod/nhdr_int_size"><code class="xref f f-var docutils literal notranslate"><span class="pre">nhdr_int_size</span></code></a>, <a class="reference internal" href="#f/obscolumnnames_mod/nhdr_real_beg" title="f/obscolumnnames_mod/nhdr_real_beg"><code class="xref f f-var docutils literal notranslate"><span class="pre">nhdr_real_beg</span></code></a>, <a class="reference internal" href="#f/obscolumnnames_mod/nhdr_real_end" title="f/obscolumnnames_mod/nhdr_real_end"><code class="xref f f-var docutils literal notranslate"><span class="pre">nhdr_real_end</span></code></a>, <a class="reference internal" href="#f/obscolumnnames_mod/nhdr_real_size" title="f/obscolumnnames_mod/nhdr_real_size"><code class="xref f f-var docutils literal notranslate"><span class="pre">nhdr_real_size</span></code></a>, <a class="reference internal" href="#f/obscolumnnames_mod/ocn_columnnamelist_ib" title="f/obscolumnnames_mod/ocn_columnnamelist_ib"><code class="xref f f-var docutils literal notranslate"><span class="pre">ocn_columnnamelist_ib</span></code></a>, <a class="reference internal" href="#f/obscolumnnames_mod/ocn_columnnamelist_ih" title="f/obscolumnnames_mod/ocn_columnnamelist_ih"><code class="xref f f-var docutils literal notranslate"><span class="pre">ocn_columnnamelist_ih</span></code></a>, <a class="reference internal" href="#f/obscolumnnames_mod/ocn_columnnamelist_rb" title="f/obscolumnnames_mod/ocn_columnnamelist_rb"><code class="xref f f-var docutils literal notranslate"><span class="pre">ocn_columnnamelist_rb</span></code></a>, <a class="reference internal" href="#f/obscolumnnames_mod/ocn_columnnamelist_rh" title="f/obscolumnnames_mod/ocn_columnnamelist_rh"><code class="xref f f-var docutils literal notranslate"><span class="pre">ocn_columnnamelist_rh</span></code></a></p>
+</dd>
+</dl>
+<p class="rubric">Variables</p>
+<ul>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/nbdy_int_beg">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">nbdy_int_beg</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/nbdy_int_beg" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/nbdy_int_end">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">nbdy_int_end</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/nbdy_int_end" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/nbdy_int_size">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">nbdy_int_size</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/nbdy_int_size" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/nbdy_real_beg">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">nbdy_real_beg</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/nbdy_real_beg" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/nbdy_real_end">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">nbdy_real_end</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/nbdy_real_end" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/nbdy_real_size">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">nbdy_real_size</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/nbdy_real_size" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/nhdr_int_beg">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">nhdr_int_beg</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/nhdr_int_beg" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/nhdr_int_end">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">nhdr_int_end</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/nhdr_int_end" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/nhdr_int_size">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">nhdr_int_size</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/nhdr_int_size" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/nhdr_real_beg">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">nhdr_real_beg</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/nhdr_real_beg" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/nhdr_real_end">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">nhdr_real_end</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/nhdr_real_end" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/nhdr_real_size">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">nhdr_real_size</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/nhdr_real_size" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_alt">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_alt</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_alt" title="Permalink to this definition">¶</a></dt>
+<dd><p>station altitude</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_aqf1">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_aqf1</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_aqf1" title="Permalink to this definition">¶</a></dt>
+<dd><p>ATMS Geolocalisation Quality Control Flag</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_aqf2">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_aqf2</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_aqf2" title="Permalink to this definition">¶</a></dt>
+<dd><p>ATMS Granule Level Quality Control Flag</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_aqf3">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_aqf3</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_aqf3" title="Permalink to this definition">¶</a></dt>
+<dd><p>ATMS Scan Level Quality Control Flag</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_ass">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_ass</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_ass" title="Permalink to this definition">¶</a></dt>
+<dd><p>flag to indicate if assimilated</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_aza">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_aza</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_aza" title="Permalink to this definition">¶</a></dt>
+<dd><p>satellite azimuthal angle</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_bcor">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_bcor</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_bcor" title="Permalink to this definition">¶</a></dt>
+<dd><p>observation bias correction</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_btcl">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_btcl</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_btcl" title="Permalink to this definition">¶</a></dt>
+<dd><p>clear-sky simulated observation</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_bx">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_bx</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_bx" title="Permalink to this definition">¶</a></dt>
+<dd><p>x-coordinate of block in R3</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_by">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_by</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_by" title="Permalink to this definition">¶</a></dt>
+<dd><p>y-coordinate of block in R3</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_bz">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_bz</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_bz" title="Permalink to this definition">¶</a></dt>
+<dd><p>z-coordinate of block in R3</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_cf1">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_cf1</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_cf1" title="Permalink to this definition">¶</a></dt>
+<dd><p>AVHRR fraction of class 1</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_cf2">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_cf2</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_cf2" title="Permalink to this definition">¶</a></dt>
+<dd><p>AVHRR fraction of class 2</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_cf3">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_cf3</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_cf3" title="Permalink to this definition">¶</a></dt>
+<dd><p>AVHRR fraction of class 3</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_cf4">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_cf4</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_cf4" title="Permalink to this definition">¶</a></dt>
+<dd><p>AVHRR fraction of class 4</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_cf5">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_cf5</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_cf5" title="Permalink to this definition">¶</a></dt>
+<dd><p>AVHRR fraction of class 5</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_cf6">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_cf6</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_cf6" title="Permalink to this definition">¶</a></dt>
+<dd><p>AVHRR fraction of class 6</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_cf7">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_cf7</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_cf7" title="Permalink to this definition">¶</a></dt>
+<dd><p>AVHRR fraction of class 7</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_chid">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_chid</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_chid" title="Permalink to this definition">¶</a></dt>
+<dd><p>id. no. of ice chart</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_chm">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_chm</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_chm" title="Permalink to this definition">¶</a></dt>
+<dd><p>BUFR code (table 08046) of constituent type (for the CH family)</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_cla">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_cla</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_cla" title="Permalink to this definition">¶</a></dt>
+<dd><p>csr cloud amount btyp 9248 ele 020081</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_clf">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_clf</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_clf" title="Permalink to this definition">¶</a></dt>
+<dd><p>cloud fraction</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_clwb">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_clwb</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_clwb" title="Permalink to this definition">¶</a></dt>
+<dd><p>cloud liquid water retrieved from background</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_clwo">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_clwo</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_clwo" title="Permalink to this definition">¶</a></dt>
+<dd><p>cloud liquid water retrieved from observation</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_crps">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_crps</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_crps" title="Permalink to this definition">¶</a></dt>
+<dd><p>Continuous Ranked Probability Score</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_dat">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_dat</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_dat" title="Permalink to this definition">¶</a></dt>
+<dd><p>observation date YYYYMMD</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_ecf">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_ecf</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_ecf" title="Permalink to this definition">¶</a></dt>
+<dd><p>CO2 slicing effective cloud fraction</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_etm">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_etm</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_etm" title="Permalink to this definition">¶</a></dt>
+<dd><p>observation time HHMM</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_etop">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_etop</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_etop" title="Permalink to this definition">¶</a></dt>
+<dd><p>CO2 slicing consensus (median) cloud top pressure</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_flg">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_flg</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_flg" title="Permalink to this definition">¶</a></dt>
+<dd><p>flags</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_fov">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_fov</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_fov" title="Permalink to this definition">¶</a></dt>
+<dd><p>field of view</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_fso">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_fso</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_fso" title="Permalink to this definition">¶</a></dt>
+<dd><p>forecast sensitivity to observations</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_geoi">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_geoi</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_geoi" title="Permalink to this definition">¶</a></dt>
+<dd><p>Geoid Undulation  Metres</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_gqf">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_gqf</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_gqf" title="Permalink to this definition">¶</a></dt>
+<dd><p>iasi GQISFLAGQUAL: general quality flag which indicates,</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_gql">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_gql</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_gql" title="Permalink to this definition">¶</a></dt>
+<dd><p>iasi GQISQUALINDEXLOC: It is defined as the uncertainty of the</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_haht">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_haht</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_haht" title="Permalink to this definition">¶</a></dt>
+<dd><p>root of (hp_{a}ht with hx scalar)</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_hdd">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_hdd</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_hdd" title="Permalink to this definition">¶</a></dt>
+<dd><p>date in burp header</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_hdt">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_hdt</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_hdt" title="Permalink to this definition">¶</a></dt>
+<dd><p>time in burp header</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_he">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_he</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_he" title="Permalink to this definition">¶</a></dt>
+<dd><p>cloud effective height (one channel)</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_hind">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_hind</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_hind" title="Permalink to this definition">¶</a></dt>
+<dd><p>corresponding header row index</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_hpht">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_hpht</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_hpht" title="Permalink to this definition">¶</a></dt>
+<dd><p>root of (hpht with hx scalar)</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_idf">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_idf</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_idf" title="Permalink to this definition">¶</a></dt>
+<dd><p>id. no. of observation-source file</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_infg">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_infg</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_infg" title="Permalink to this definition">¶</a></dt>
+<dd><p>SATPLOT INFO FLAG for TOVS</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_ins">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_ins</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_ins" title="Permalink to this definition">¶</a></dt>
+<dd><p>instrument ID</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_ip">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_ip</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_ip" title="Permalink to this definition">¶</a></dt>
+<dd><p>number of mpi processors</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_ipc">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_ipc</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_ipc" title="Permalink to this definition">¶</a></dt>
+<dd><p>mpi task id for column/obsspacedata</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_ipf">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_ipf</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_ipf" title="Permalink to this definition">¶</a></dt>
+<dd><p>mpi task id for file</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_ipt">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_ipt</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_ipt" title="Permalink to this definition">¶</a></dt>
+<dd><p>mpi task id for latlontile</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_ity">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_ity</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_ity" title="Permalink to this definition">¶</a></dt>
+<dd><p>code: instrument &amp; retrieval type</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_iwv">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_iwv</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_iwv" title="Permalink to this definition">¶</a></dt>
+<dd><p>atmospheric integrated water vapor for ssmis</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_jobs">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_jobs</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_jobs" title="Permalink to this definition">¶</a></dt>
+<dd><p>contribution to obs cost function</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_kfa">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_kfa</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_kfa" title="Permalink to this definition">¶</a></dt>
+<dd><p>marker for forward interp problems</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_lat">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_lat</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_lat" title="Permalink to this definition">¶</a></dt>
+<dd><p>latitude  in radians (N positive)</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_latd">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_latd</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_latd" title="Permalink to this definition">¶</a></dt>
+<dd><p>obs LATitude  in Data table (radians)</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_lch">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_lch</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_lch" title="Permalink to this definition">¶</a></dt>
+<dd><p>launch time (hhmm)</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_lflg">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_lflg</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_lflg" title="Permalink to this definition">¶</a></dt>
+<dd><p>flag for hi-res lat element</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_loci">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_loci</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_loci" title="Permalink to this definition">¶</a></dt>
+<dd><p>LOCation Information for observation (e.g. range along radar beam)</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_lon">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_lon</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_lon" title="Permalink to this definition">¶</a></dt>
+<dd><p>longitude in radians (E positive)</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_lond">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_lond</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_lond" title="Permalink to this definition">¶</a></dt>
+<dd><p>obs LONgitude in Data table (radians)</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_lyr">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_lyr</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_lyr" title="Permalink to this definition">¶</a></dt>
+<dd><p>Index of anal level above observ’n</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_m1c1">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_m1c1</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_m1c1" title="Permalink to this definition">¶</a></dt>
+<dd><p>mean for class 1 AVHRR channel 1</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_m1c2">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_m1c2</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_m1c2" title="Permalink to this definition">¶</a></dt>
+<dd><p>mean for class 1 AVHRR channel 2</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_m1c3">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_m1c3</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_m1c3" title="Permalink to this definition">¶</a></dt>
+<dd><p>mean for class 1 AVHRR channel 3</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_m1c4">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_m1c4</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_m1c4" title="Permalink to this definition">¶</a></dt>
+<dd><p>mean for class 1 AVHRR channel 4</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_m1c5">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_m1c5</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_m1c5" title="Permalink to this definition">¶</a></dt>
+<dd><p>mean for class 1 AVHRR channel 5</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_m1c6">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_m1c6</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_m1c6" title="Permalink to this definition">¶</a></dt>
+<dd><p>mean for class 1 AVHRR channel 6</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_m2c1">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_m2c1</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_m2c1" title="Permalink to this definition">¶</a></dt>
+<dd><p>mean for class 2 AVHRR channel 1</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_m2c2">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_m2c2</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_m2c2" title="Permalink to this definition">¶</a></dt>
+<dd><p>mean for class 2 AVHRR channel 2</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_m2c3">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_m2c3</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_m2c3" title="Permalink to this definition">¶</a></dt>
+<dd><p>mean for class 2 AVHRR channel 3</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_m2c4">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_m2c4</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_m2c4" title="Permalink to this definition">¶</a></dt>
+<dd><p>mean for class 2 AVHRR channel 4</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_m2c5">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_m2c5</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_m2c5" title="Permalink to this definition">¶</a></dt>
+<dd><p>mean for class 2 AVHRR channel 5</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_m2c6">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_m2c6</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_m2c6" title="Permalink to this definition">¶</a></dt>
+<dd><p>mean for class 2 AVHRR channel 6</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_m3c1">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_m3c1</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_m3c1" title="Permalink to this definition">¶</a></dt>
+<dd><p>mean for class 3 AVHRR channel 1</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_m3c2">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_m3c2</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_m3c2" title="Permalink to this definition">¶</a></dt>
+<dd><p>mean for class 3 AVHRR channel 2</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_m3c3">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_m3c3</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_m3c3" title="Permalink to this definition">¶</a></dt>
+<dd><p>mean for class 3 AVHRR channel 3</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_m3c4">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_m3c4</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_m3c4" title="Permalink to this definition">¶</a></dt>
+<dd><p>mean for class 3 AVHRR channel 4</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_m3c5">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_m3c5</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_m3c5" title="Permalink to this definition">¶</a></dt>
+<dd><p>mean for class 3 AVHRR channel 5</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_m3c6">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_m3c6</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_m3c6" title="Permalink to this definition">¶</a></dt>
+<dd><p>mean for class 3 AVHRR channel 6</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_m4c1">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_m4c1</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_m4c1" title="Permalink to this definition">¶</a></dt>
+<dd><p>mean for class 4 AVHRR channel 1</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_m4c2">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_m4c2</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_m4c2" title="Permalink to this definition">¶</a></dt>
+<dd><p>mean for class 4 AVHRR channel 2</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_m4c3">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_m4c3</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_m4c3" title="Permalink to this definition">¶</a></dt>
+<dd><p>mean for class 4 AVHRR channel 3</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_m4c4">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_m4c4</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_m4c4" title="Permalink to this definition">¶</a></dt>
+<dd><p>mean for class 4 AVHRR channel 4</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_m4c5">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_m4c5</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_m4c5" title="Permalink to this definition">¶</a></dt>
+<dd><p>mean for class 4 AVHRR channel 5</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_m4c6">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_m4c6</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_m4c6" title="Permalink to this definition">¶</a></dt>
+<dd><p>mean for class 4 AVHRR channel 6</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_m5c1">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_m5c1</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_m5c1" title="Permalink to this definition">¶</a></dt>
+<dd><p>mean for class 5 AVHRR channel 1</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_m5c2">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_m5c2</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_m5c2" title="Permalink to this definition">¶</a></dt>
+<dd><p>mean for class 5 AVHRR channel 2</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_m5c3">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_m5c3</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_m5c3" title="Permalink to this definition">¶</a></dt>
+<dd><p>mean for class 5 AVHRR channel 3</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_m5c4">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_m5c4</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_m5c4" title="Permalink to this definition">¶</a></dt>
+<dd><p>mean for class 5 AVHRR channel 4</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_m5c5">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_m5c5</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_m5c5" title="Permalink to this definition">¶</a></dt>
+<dd><p>mean for class 5 AVHRR channel 5</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_m5c6">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_m5c6</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_m5c6" title="Permalink to this definition">¶</a></dt>
+<dd><p>mean for class 5 AVHRR channel 6</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_m6c1">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_m6c1</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_m6c1" title="Permalink to this definition">¶</a></dt>
+<dd><p>mean for class 6 AVHRR channel 1</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_m6c2">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_m6c2</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_m6c2" title="Permalink to this definition">¶</a></dt>
+<dd><p>mean for class 6 AVHRR channel 2</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_m6c3">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_m6c3</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_m6c3" title="Permalink to this definition">¶</a></dt>
+<dd><p>mean for class 6 AVHRR channel 3</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_m6c4">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_m6c4</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_m6c4" title="Permalink to this definition">¶</a></dt>
+<dd><p>mean for class 6 AVHRR channel 4</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_m6c5">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_m6c5</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_m6c5" title="Permalink to this definition">¶</a></dt>
+<dd><p>mean for class 6 AVHRR channel 5</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_m6c6">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_m6c6</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_m6c6" title="Permalink to this definition">¶</a></dt>
+<dd><p>mean for class 6 AVHRR channel 6</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_m7c1">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_m7c1</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_m7c1" title="Permalink to this definition">¶</a></dt>
+<dd><p>mean for class 7 AVHRR channel 1</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_m7c2">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_m7c2</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_m7c2" title="Permalink to this definition">¶</a></dt>
+<dd><p>mean for class 7 AVHRR channel 2</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_m7c3">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_m7c3</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_m7c3" title="Permalink to this definition">¶</a></dt>
+<dd><p>mean for class 7 AVHRR channel 3</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_m7c4">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_m7c4</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_m7c4" title="Permalink to this definition">¶</a></dt>
+<dd><p>mean for class 7 AVHRR channel 4</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_m7c5">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_m7c5</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_m7c5" title="Permalink to this definition">¶</a></dt>
+<dd><p>mean for class 7 AVHRR channel 5</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_m7c6">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_m7c6</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_m7c6" title="Permalink to this definition">¶</a></dt>
+<dd><p>mean for class 7 AVHRR channel 6</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_mws">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_mws</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_mws" title="Permalink to this definition">¶</a></dt>
+<dd><p>model wind speed (in ASCAT data)</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_nco2">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_nco2</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_nco2" title="Permalink to this definition">¶</a></dt>
+<dd><p>NCO2: number of valid CO2 slicing estimates (AIRS,IASI,CrIS)</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_nlv">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_nlv</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_nlv" title="Permalink to this definition">¶</a></dt>
+<dd><p>number of data at this location</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_oer">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_oer</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_oer" title="Permalink to this definition">¶</a></dt>
+<dd><p>sigma(obs)</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_oma">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_oma</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_oma" title="Permalink to this definition">¶</a></dt>
+<dd><p>obs - H (analysis mean)</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_oma0">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_oma0</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_oma0" title="Permalink to this definition">¶</a></dt>
+<dd><p>obs - H (analysis at central time)</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_omam">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_omam</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_omam" title="Permalink to this definition">¶</a></dt>
+<dd><p>obs - H (analysis member)</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_omp">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_omp</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_omp" title="Permalink to this definition">¶</a></dt>
+<dd><p>obs - H (trial field)</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_omp6">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_omp6</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_omp6" title="Permalink to this definition">¶</a></dt>
+<dd><p>obs - H (6-h trial field)</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_ompe">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_ompe</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_ompe" title="Permalink to this definition">¶</a></dt>
+<dd><p>error standard deviation of [obs - H (trial field)]</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_onm">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_onm</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_onm" title="Permalink to this definition">¶</a></dt>
+<dd><p>ordered, station id number</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_orbi">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_orbi</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_orbi" title="Permalink to this definition">¶</a></dt>
+<dd><p>satellite orbit index</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_ori">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_ori</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_ori" title="Permalink to this definition">¶</a></dt>
+<dd><p>originating centre code</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_otp">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_otp</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_otp" title="Permalink to this definition">¶</a></dt>
+<dd><p>observation Type (file index)</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_pas">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_pas</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_pas" title="Permalink to this definition">¶</a></dt>
+<dd><p>batch no. in sequential analysis</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_phas">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_phas</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_phas" title="Permalink to this definition">¶</a></dt>
+<dd><p>phase of flight</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_pob">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_pob</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_pob" title="Permalink to this definition">¶</a></dt>
+<dd><p>initial value of “gamma” for variational QC</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_ppp">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_ppp</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_ppp" title="Permalink to this definition">¶</a></dt>
+<dd><p>vertical coordinate</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_prfl">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_prfl</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_prfl" title="Permalink to this definition">¶</a></dt>
+<dd><p>profile id. number</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_prm">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_prm</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_prm" title="Permalink to this definition">¶</a></dt>
+<dd><p>(adjusted) observed value for tovs in variational assimilation</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_qcf2">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_qcf2</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_qcf2" title="Permalink to this definition">¶</a></dt>
+<dd><p>TOVs Data Level Qc Flag</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_qcv">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_qcv</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_qcv" title="Permalink to this definition">¶</a></dt>
+<dd><p>weight-reduction factor for var QC</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_rain">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_rain</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_rain" title="Permalink to this definition">¶</a></dt>
+<dd><p>UKMO rain flag for ssmis obs</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_rane">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_rane</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_rane" title="Permalink to this definition">¶</a></dt>
+<dd><p>Final range of the Radar beam</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_rans">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_rans</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_rans" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initial range of the Radar beam</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_reg">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_reg</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_reg" title="Permalink to this definition">¶</a></dt>
+<dd><p>region number in the batch</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_rele">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_rele</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_rele" title="Permalink to this definition">¶</a></dt>
+<dd><p>Elevation of the Radar beam (radians)</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_rln">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_rln</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_rln" title="Permalink to this definition">¶</a></dt>
+<dd><p>report location</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_roqf">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_roqf</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_roqf" title="Permalink to this definition">¶</a></dt>
+<dd><p>QUALITY FLAGS FOR RADIO OCCULTATION DATA</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_rtp">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_rtp</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_rtp" title="Permalink to this definition">¶</a></dt>
+<dd><p>radiosonde type code</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_rzam">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_rzam</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_rzam" title="Permalink to this definition">¶</a></dt>
+<dd><p>Azimuth of the Radar beam   (radians)</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_s1c1">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_s1c1</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_s1c1" title="Permalink to this definition">¶</a></dt>
+<dd><p>stdev for class 1 AVHRR channel 1</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_s1c2">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_s1c2</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_s1c2" title="Permalink to this definition">¶</a></dt>
+<dd><p>stdev for class 1 AVHRR channel 2</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_s1c3">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_s1c3</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_s1c3" title="Permalink to this definition">¶</a></dt>
+<dd><p>stdev for class 1 AVHRR channel 3</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_s1c4">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_s1c4</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_s1c4" title="Permalink to this definition">¶</a></dt>
+<dd><p>stdev for class 1 AVHRR channel 4</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_s1c5">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_s1c5</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_s1c5" title="Permalink to this definition">¶</a></dt>
+<dd><p>stdev for class 1 AVHRR channel 5</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_s1c6">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_s1c6</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_s1c6" title="Permalink to this definition">¶</a></dt>
+<dd><p>stdev for class 1 AVHRR channel 6</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_s2c1">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_s2c1</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_s2c1" title="Permalink to this definition">¶</a></dt>
+<dd><p>stdev for class 2 AVHRR channel 1</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_s2c2">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_s2c2</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_s2c2" title="Permalink to this definition">¶</a></dt>
+<dd><p>stdev for class 2 AVHRR channel 2</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_s2c3">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_s2c3</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_s2c3" title="Permalink to this definition">¶</a></dt>
+<dd><p>stdev for class 2 AVHRR channel 3</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_s2c4">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_s2c4</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_s2c4" title="Permalink to this definition">¶</a></dt>
+<dd><p>stdev for class 2 AVHRR channel 4</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_s2c5">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_s2c5</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_s2c5" title="Permalink to this definition">¶</a></dt>
+<dd><p>stdev for class 2 AVHRR channel 5</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_s2c6">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_s2c6</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_s2c6" title="Permalink to this definition">¶</a></dt>
+<dd><p>stdev for class 2 AVHRR channel 6</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_s3c1">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_s3c1</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_s3c1" title="Permalink to this definition">¶</a></dt>
+<dd><p>stdev for class 3 AVHRR channel 1</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_s3c2">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_s3c2</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_s3c2" title="Permalink to this definition">¶</a></dt>
+<dd><p>stdev for class 3 AVHRR channel 2</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_s3c3">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_s3c3</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_s3c3" title="Permalink to this definition">¶</a></dt>
+<dd><p>stdev for class 3 AVHRR channel 3</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_s3c4">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_s3c4</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_s3c4" title="Permalink to this definition">¶</a></dt>
+<dd><p>stdev for class 3 AVHRR channel 4</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_s3c5">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_s3c5</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_s3c5" title="Permalink to this definition">¶</a></dt>
+<dd><p>stdev for class 3 AVHRR channel 5</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_s3c6">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_s3c6</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_s3c6" title="Permalink to this definition">¶</a></dt>
+<dd><p>stdev for class 3 AVHRR channel 6</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_s4c1">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_s4c1</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_s4c1" title="Permalink to this definition">¶</a></dt>
+<dd><p>stdev for class 4 AVHRR channel 1</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_s4c2">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_s4c2</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_s4c2" title="Permalink to this definition">¶</a></dt>
+<dd><p>stdev for class 4 AVHRR channel 2</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_s4c3">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_s4c3</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_s4c3" title="Permalink to this definition">¶</a></dt>
+<dd><p>stdev for class 4 AVHRR channel 3</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_s4c4">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_s4c4</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_s4c4" title="Permalink to this definition">¶</a></dt>
+<dd><p>stdev for class 4 AVHRR channel 4</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_s4c5">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_s4c5</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_s4c5" title="Permalink to this definition">¶</a></dt>
+<dd><p>stdev for class 4 AVHRR channel 5</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_s4c6">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_s4c6</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_s4c6" title="Permalink to this definition">¶</a></dt>
+<dd><p>stdev for class 4 AVHRR channel 6</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_s5c1">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_s5c1</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_s5c1" title="Permalink to this definition">¶</a></dt>
+<dd><p>stdev for class 5 AVHRR channel 1</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_s5c2">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_s5c2</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_s5c2" title="Permalink to this definition">¶</a></dt>
+<dd><p>stdev for class 5 AVHRR channel 2</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_s5c3">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_s5c3</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_s5c3" title="Permalink to this definition">¶</a></dt>
+<dd><p>stdev for class 5 AVHRR channel 3</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_s5c4">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_s5c4</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_s5c4" title="Permalink to this definition">¶</a></dt>
+<dd><p>stdev for class 5 AVHRR channel 4</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_s5c5">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_s5c5</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_s5c5" title="Permalink to this definition">¶</a></dt>
+<dd><p>stdev for class 5 AVHRR channel 5</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_s5c6">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_s5c6</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_s5c6" title="Permalink to this definition">¶</a></dt>
+<dd><p>stdev for class 5 AVHRR channel 6</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_s6c1">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_s6c1</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_s6c1" title="Permalink to this definition">¶</a></dt>
+<dd><p>stdev for class 6 AVHRR channel 1</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_s6c2">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_s6c2</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_s6c2" title="Permalink to this definition">¶</a></dt>
+<dd><p>stdev for class 6 AVHRR channel 2</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_s6c3">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_s6c3</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_s6c3" title="Permalink to this definition">¶</a></dt>
+<dd><p>stdev for class 6 AVHRR channel 3</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_s6c4">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_s6c4</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_s6c4" title="Permalink to this definition">¶</a></dt>
+<dd><p>stdev for class 6 AVHRR channel 4</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_s6c5">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_s6c5</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_s6c5" title="Permalink to this definition">¶</a></dt>
+<dd><p>stdev for class 6 AVHRR channel 5</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_s6c6">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_s6c6</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_s6c6" title="Permalink to this definition">¶</a></dt>
+<dd><p>stdev for class 6 AVHRR channel 6</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_s7c1">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_s7c1</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_s7c1" title="Permalink to this definition">¶</a></dt>
+<dd><p>stdev for class 7 AVHRR channel 1</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_s7c2">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_s7c2</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_s7c2" title="Permalink to this definition">¶</a></dt>
+<dd><p>stdev for class 7 AVHRR channel 2</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_s7c3">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_s7c3</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_s7c3" title="Permalink to this definition">¶</a></dt>
+<dd><p>stdev for class 7 AVHRR channel 3</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_s7c4">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_s7c4</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_s7c4" title="Permalink to this definition">¶</a></dt>
+<dd><p>stdev for class 7 AVHRR channel 4</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_s7c5">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_s7c5</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_s7c5" title="Permalink to this definition">¶</a></dt>
+<dd><p>stdev for class 7 AVHRR channel 5</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_s7c6">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_s7c6</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_s7c6" title="Permalink to this definition">¶</a></dt>
+<dd><p>stdev for class 7 AVHRR channel 6</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_sat">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_sat</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_sat" title="Permalink to this definition">¶</a></dt>
+<dd><p>satellite code</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_saz">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_saz</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_saz" title="Permalink to this definition">¶</a></dt>
+<dd><p>sun azimuth angle</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_sem">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_sem</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_sem" title="Permalink to this definition">¶</a></dt>
+<dd><p>surface emissivity</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_sen">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_sen</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_sen" title="Permalink to this definition">¶</a></dt>
+<dd><p>satellite sensor code</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_sib">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_sib</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_sib" title="Permalink to this definition">¶</a></dt>
+<dd><p>scatering index retrieved from background</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_sigi">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_sigi</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_sigi" title="Permalink to this definition">¶</a></dt>
+<dd><p>ensemble-based estimate of the innov std dev</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_sigo">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_sigo</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_sigo" title="Permalink to this definition">¶</a></dt>
+<dd><p>ensemble-based estimate of obs std dev</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_sio">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_sio</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_sio" title="Permalink to this definition">¶</a></dt>
+<dd><p>scatering index retrieved from observation</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_st1">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_st1</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_st1" title="Permalink to this definition">¶</a></dt>
+<dd><p>header level status/rejection flag</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_styp">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_styp</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_styp" title="Permalink to this definition">¶</a></dt>
+<dd><p>surface type in obs file (0,1,2)</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_sun">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_sun</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_sun" title="Permalink to this definition">¶</a></dt>
+<dd><p>sun zenith angle</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_swga">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_swga</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_swga" title="Permalink to this definition">¶</a></dt>
+<dd><p>QUALITY VALUES FOR SW (AMV) DATA</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_swha">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_swha</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_swha" title="Permalink to this definition">¶</a></dt>
+<dd><p>QUALITY VALUES FOR SW (AMV) DATA</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_swls">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_swls</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_swls" title="Permalink to this definition">¶</a></dt>
+<dd><p>QUALITY VALUES FOR SW (AMV) DATA</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_swmt">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_swmt</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_swmt" title="Permalink to this definition">¶</a></dt>
+<dd><p>QUALITY VALUES FOR SW (AMV) DATA</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_swq1">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_swq1</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_swq1" title="Permalink to this definition">¶</a></dt>
+<dd><p>QUALITY VALUES FOR SW (AMV) DATA</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_swq2">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_swq2</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_swq2" title="Permalink to this definition">¶</a></dt>
+<dd><p>QUALITY VALUES FOR SW (AMV) DATA</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_sza">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_sza</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_sza" title="Permalink to this definition">¶</a></dt>
+<dd><p>satellite zenith angle</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_tec">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_tec</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_tec" title="Permalink to this definition">¶</a></dt>
+<dd><p>satellite processing technique</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_tflg">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_tflg</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_tflg" title="Permalink to this definition">¶</a></dt>
+<dd><p>flag for hi-res time element</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_trad">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_trad</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_trad" title="Permalink to this definition">¶</a></dt>
+<dd><p>Local EARTH Radius Metres</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_ttyp">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_ttyp</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_ttyp" title="Permalink to this definition">¶</a></dt>
+<dd><p>TERRAIN TYP INDICE for TOVS QC</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_var">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_var</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_var" title="Permalink to this definition">¶</a></dt>
+<dd><p>value of the observation</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_vcf">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_vcf</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_vcf" title="Permalink to this definition">¶</a></dt>
+<dd><p>estimated error on CO2 CO2 slicing cloud  fraction</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_vco">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_vco</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_vco" title="Permalink to this definition">¶</a></dt>
+<dd><p>type of vertical coordinate</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_vnm">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_vnm</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_vnm" title="Permalink to this definition">¶</a></dt>
+<dd><p>variable number</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_vtop">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_vtop</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_vtop" title="Permalink to this definition">¶</a></dt>
+<dd><p>estimated error on CO2 slicing cloud top pressure</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_work">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_work</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_work" title="Permalink to this definition">¶</a></dt>
+<dd><p>temporary values</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_xtr">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_xtr</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_xtr" title="Permalink to this definition">¶</a></dt>
+<dd><p>anal variables to obs’n location</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_zha">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_zha</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_zha" title="Permalink to this definition">¶</a></dt>
+<dd><p>vert coordinate for Schur product</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_zlqm">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_zlqm</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_zlqm" title="Permalink to this definition">¶</a></dt>
+<dd><p>specific humidity at surface (2m) in kg/kg</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_zps">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_zps</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_zps" title="Permalink to this definition">¶</a></dt>
+<dd><p>surface model pressure in Pa</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_ztgm">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_ztgm</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_ztgm" title="Permalink to this definition">¶</a></dt>
+<dd><p>surface model temperature (skin) in K</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_ztm">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_ztm</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_ztm" title="Permalink to this definition">¶</a></dt>
+<dd><p>model temperature, eta=1, in K (should not be there)</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/obs_ztsr">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">obs_ztsr</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public/parameter</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/obs_ztsr" title="Permalink to this definition">¶</a></dt>
+<dd><p>retrieved skin temperature from window channel in K</p>
+</dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/ocn_columnnamelist_ib">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">ocn_columnnamelist_ib</span></span> <span class="pre">(</span><span class="pre">obs</span><span class="pre">)-</span><span class="pre">400</span><span class="pre">)</span><em> <span class="pre">[</span></em><em><span class="pre">character</span></em><em><span class="pre">,</span></em><em><span class="pre">public/target</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/ocn_columnnamelist_ib" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/ocn_columnnamelist_ih">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">ocn_columnnamelist_ih</span></span> <span class="pre">(</span><span class="pre">obs</span><span class="pre">)-</span><span class="pre">100</span><span class="pre">)</span><em> <span class="pre">[</span></em><em><span class="pre">character</span></em><em><span class="pre">,</span></em><em><span class="pre">public/target</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/ocn_columnnamelist_ih" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/ocn_columnnamelist_rb">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">ocn_columnnamelist_rb</span></span> <span class="pre">(</span><span class="pre">obs</span><span class="pre">)-</span><span class="pre">500</span><span class="pre">)</span><em> <span class="pre">[</span></em><em><span class="pre">character</span></em><em><span class="pre">,</span></em><em><span class="pre">public/target</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/ocn_columnnamelist_rb" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/obscolumnnames_mod/ocn_columnnamelist_rh">
+<span class="sig-prename descclassname"><span class="pre">obscolumnnames_mod/</span></span><span class="sig-name descname"><span class="pre">ocn_columnnamelist_rh</span></span> <span class="pre">(</span><span class="pre">obs</span><span class="pre">)-</span><span class="pre">200</span><span class="pre">)</span><em> <span class="pre">[</span></em><em><span class="pre">character</span></em><em><span class="pre">,</span></em><em><span class="pre">public/target</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/obscolumnnames_mod/ocn_columnnamelist_rh" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+</ul>
+</div></blockquote>
+</section>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="obsdatacolumn_mod.html" title="obsdatacolumn_mod"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="indexlistdepot_mod.html" title="indexlistdepot_mod"
+             >previous</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2018, ECCC.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.
+    </div>
+  </body>
+</html>

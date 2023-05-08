@@ -1,0 +1,336 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>controlvector_mod &mdash; MIDAS  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="MIDAS  documentation" href="../index.html" />
+    <link rel="next" title="ensembleobservations_mod" href="ensembleobservations_mod.html" />
+    <link rel="prev" title="columndata_mod" href="columndata_mod.html" /> 
+  </head>
+  <body>
+  <div>
+    <img src="../_static/MIDAS_header.png" alt="MIDAS" />
+  </div>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="ensembleobservations_mod.html" title="ensembleobservations_mod"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="columndata_mod.html" title="columndata_mod"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="columndata_mod.html"
+                          title="previous chapter">columndata_mod</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="ensembleobservations_mod.html"
+                          title="next chapter">ensembleobservations_mod</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/modules/controlvector_mod.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <section id="controlvector-mod">
+<h1>controlvector_mod<a class="headerlink" href="#controlvector-mod" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><p><a class="reference internal" href="controlvector_mod_src.html"><span class="doc">link to source code</span></a></p>
+<p><strong>Dependency Diagrams:</strong></p>
+<figure class="align-default" id="id1">
+<a class="reference internal image-reference" href="controlvector_mod.svg"><img alt="controlvector_mod.svg" height="100px" src="controlvector_mod.svg" /></a>
+<figcaption>
+<p><span class="caption-text">Direct Dependency Diagram</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id2">
+<a class="reference internal image-reference" href="controlvector_mod_rev.svg"><img alt="controlvector_mod_rev.svg" height="100px" src="controlvector_mod_rev.svg" /></a>
+<figcaption>
+<p><span class="caption-text">Reverse Dependency Diagram</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<span class="target" id="f/controlvector_mod"></span><p class="rubric">Description</p>
+<p>MODULE controlVector_mod (prefix=’cvm’ category=’6. High-level data objects’)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Purpose</dt>
+<dd class="field-odd"><p>The control vector and related information.</p>
+</dd>
+</dl>
+<p class="rubric">Quick access</p>
+<dl class="field-list simple">
+<dt class="field-odd">Types</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/controlvector_mod/struct_cvm" title="f/controlvector_mod/struct_cvm"><code class="xref f f-type docutils literal notranslate"><span class="pre">struct_cvm</span></code></a></p>
+</dd>
+<dt class="field-even">Variables</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/controlvector_mod/cvm_nvadim" title="f/controlvector_mod/cvm_nvadim"><code class="xref f f-var docutils literal notranslate"><span class="pre">cvm_nvadim</span></code></a>, <a class="reference internal" href="#f/controlvector_mod/cvm_nvadim_mpiglobal" title="f/controlvector_mod/cvm_nvadim_mpiglobal"><code class="xref f f-var docutils literal notranslate"><span class="pre">cvm_nvadim_mpiglobal</span></code></a></p>
+</dd>
+<dt class="field-odd">Routines</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/controlvector_mod/cvm_getsubvector" title="f/controlvector_mod/cvm_getsubvector"><code class="xref f f-func docutils literal notranslate"><span class="pre">cvm_getsubvector()</span></code></a>, <a class="reference internal" href="#f/controlvector_mod/cvm_getsubvector_mpiglobal" title="f/controlvector_mod/cvm_getsubvector_mpiglobal"><code class="xref f f-func docutils literal notranslate"><span class="pre">cvm_getsubvector_mpiglobal()</span></code></a>, <a class="reference internal" href="#f/controlvector_mod/cvm_getsubvector_mpiglobal_r4" title="f/controlvector_mod/cvm_getsubvector_mpiglobal_r4"><code class="xref f f-func docutils literal notranslate"><span class="pre">cvm_getsubvector_mpiglobal_r4()</span></code></a>, <a class="reference internal" href="#f/controlvector_mod/cvm_getsubvector_r4" title="f/controlvector_mod/cvm_getsubvector_r4"><code class="xref f f-func docutils literal notranslate"><span class="pre">cvm_getsubvector_r4()</span></code></a>, <a class="reference internal" href="#f/controlvector_mod/cvm_indexfromlabel" title="f/controlvector_mod/cvm_indexfromlabel"><code class="xref f f-func docutils literal notranslate"><span class="pre">cvm_indexfromlabel()</span></code></a>, <a class="reference internal" href="#f/controlvector_mod/cvm_setupsubvector" title="f/controlvector_mod/cvm_setupsubvector"><code class="xref f f-func docutils literal notranslate"><span class="pre">cvm_setupsubvector()</span></code></a>, <a class="reference internal" href="#f/controlvector_mod/cvm_subvectorexists" title="f/controlvector_mod/cvm_subvectorexists"><code class="xref f f-func docutils literal notranslate"><span class="pre">cvm_subvectorexists()</span></code></a></p>
+</dd>
+</dl>
+<p class="rubric">Needed modules</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod" title="f/utilities_mod: MODULE utilities_mod (prefix='utl' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">utilities_mod</span></code></a>: MODULE utilities_mod (prefix=’utl’ category=’8. Low-level utilities and constants’)</p></li>
+</ul>
+<p class="rubric">Types</p>
+<ul>
+<li><dl>
+<dt class="sig sig-object f" id="f/controlvector_mod/struct_cvm">
+<em class="property"><span class="pre">type</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">controlvector_mod/</span></span><span class="sig-name descname"><span class="pre">struct_cvm</span></span><a class="headerlink" href="#f/controlvector_mod/struct_cvm" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+</ul>
+<p class="rubric">Variables</p>
+<ul>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/controlvector_mod/cvm_nvadim">
+<span class="sig-prename descclassname"><span class="pre">controlvector_mod/</span></span><span class="sig-name descname"><span class="pre">cvm_nvadim</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/controlvector_mod/cvm_nvadim" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+<li><dl class="f variable">
+<dt class="sig sig-object f" id="f/controlvector_mod/cvm_nvadim_mpiglobal">
+<span class="sig-prename descclassname"><span class="pre">controlvector_mod/</span></span><span class="sig-name descname"><span class="pre">cvm_nvadim_mpiglobal</span></span><em> <span class="pre">[</span></em><em><span class="pre">integer</span></em><em><span class="pre">,</span></em><em><span class="pre">public</span></em><em><span class="pre">]</span></em><a class="headerlink" href="#f/controlvector_mod/cvm_nvadim_mpiglobal" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</li>
+</ul>
+<p class="rubric">Subroutines and functions</p>
+<dl>
+<dt class="sig sig-object f" id="f/controlvector_mod/cvm_setupsubvector">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">controlvector_mod/</span></span><span class="sig-name descname"><span class="pre">cvm_setupsubvector</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">label</span></em>, <em class="sig-param"><span class="pre">bmatrixtype</span></em>, <em class="sig-param"><span class="pre">dimvector</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/controlvector_mod/cvm_setupsubvector" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>label</strong><em> [</em><em>character </em><em>]</em></p></li>
+<li><p><strong>bmatrixtype</strong><em> [</em><em>character </em><em>]</em></p></li>
+<li><p><strong>dimvector</strong><em> [</em><em>integer </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="biascorrectionsat_mod.html#f/biascorrectionsat_mod/bcs_setup" title="f/biascorrectionsat_mod/bcs_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">bcs_setup()</span></code></a>, <a class="reference internal" href="bmatrix1dvar_mod.html#f/bmatrix1dvar_mod/bmat1d_bsetup" title="f/bmatrix1dvar_mod/bmat1d_bsetup"><code class="xref f f-func docutils literal notranslate"><span class="pre">bmat1d_bsetup()</span></code></a>, <a class="reference internal" href="bmatrix_mod.html#f/bmatrix_mod/bmat_setup" title="f/bmatrix_mod/bmat_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">bmat_setup()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/controlvector_mod/cvm_indexfromlabel">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">controlvector_mod/</span></span><span class="sig-name descname"><span class="pre">cvm_indexfromlabel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">subvectorlabel</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/controlvector_mod/cvm_indexfromlabel" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><p><strong>subvectorlabel</strong><em> [</em><em>character </em><em>]</em></p>
+</dd>
+<dt class="field-even">Return</dt>
+<dd class="field-even"><p><strong>subvectorindex</strong><em> [</em><em>integer </em><em>]</em></p>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/controlvector_mod/cvm_subvectorexists" title="f/controlvector_mod/cvm_subvectorexists"><code class="xref f f-func docutils literal notranslate"><span class="pre">cvm_subvectorexists()</span></code></a>, <a class="reference internal" href="#f/controlvector_mod/cvm_getsubvector" title="f/controlvector_mod/cvm_getsubvector"><code class="xref f f-func docutils literal notranslate"><span class="pre">cvm_getsubvector()</span></code></a>, <a class="reference internal" href="#f/controlvector_mod/cvm_getsubvector_r4" title="f/controlvector_mod/cvm_getsubvector_r4"><code class="xref f f-func docutils literal notranslate"><span class="pre">cvm_getsubvector_r4()</span></code></a>, <a class="reference internal" href="#f/controlvector_mod/cvm_getsubvector_mpiglobal" title="f/controlvector_mod/cvm_getsubvector_mpiglobal"><code class="xref f f-func docutils literal notranslate"><span class="pre">cvm_getsubvector_mpiglobal()</span></code></a>, <a class="reference internal" href="#f/controlvector_mod/cvm_getsubvector_mpiglobal_r4" title="f/controlvector_mod/cvm_getsubvector_mpiglobal_r4"><code class="xref f f-func docutils literal notranslate"><span class="pre">cvm_getsubvector_mpiglobal_r4()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/controlvector_mod/cvm_subvectorexists">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">controlvector_mod/</span></span><span class="sig-name descname"><span class="pre">cvm_subvectorexists</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">subvectorlabel</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/controlvector_mod/cvm_subvectorexists" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><p><strong>subvectorlabel</strong><em> [</em><em>character </em><em>]</em></p>
+</dd>
+<dt class="field-even">Return</dt>
+<dd class="field-even"><p><strong>exists</strong><em> [</em><em>logical </em><em>]</em></p>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="biascorrectionsat_mod.html#f/biascorrectionsat_mod/bcs_calcbias_tl" title="f/biascorrectionsat_mod/bcs_calcbias_tl"><code class="xref f f-func docutils literal notranslate"><span class="pre">bcs_calcbias_tl()</span></code></a>, <a class="reference internal" href="biascorrectionsat_mod.html#f/biascorrectionsat_mod/bcs_calcbias_ad" title="f/biascorrectionsat_mod/bcs_calcbias_ad"><code class="xref f f-func docutils literal notranslate"><span class="pre">bcs_calcbias_ad()</span></code></a>, <a class="reference internal" href="biascorrectionsat_mod.html#f/biascorrectionsat_mod/bcs_writebias" title="f/biascorrectionsat_mod/bcs_writebias"><code class="xref f f-func docutils literal notranslate"><span class="pre">bcs_writebias()</span></code></a>, <a class="reference internal" href="bmatrix1dvar_mod.html#f/bmatrix1dvar_mod/bmat1d_bsetup" title="f/bmatrix1dvar_mod/bmat1d_bsetup"><code class="xref f f-func docutils literal notranslate"><span class="pre">bmat1d_bsetup()</span></code></a>, <a class="reference internal" href="bmatrix_mod.html#f/bmatrix_mod/bmat_setup" title="f/bmatrix_mod/bmat_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">bmat_setup()</span></code></a>, <a class="reference internal" href="obsspacediag_mod.html#f/obsspacediag_mod/osd_calcinflation" title="f/obsspacediag_mod/osd_calcinflation"><code class="xref f f-func docutils literal notranslate"><span class="pre">osd_calcinflation()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/controlvector_mod/cvm_indexfromlabel" title="f/controlvector_mod/cvm_indexfromlabel"><code class="xref f f-func docutils literal notranslate"><span class="pre">cvm_indexfromlabel()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/controlvector_mod/cvm_getsubvector">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">controlvector_mod/</span></span><span class="sig-name descname"><span class="pre">cvm_getsubvector</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">controlvector</span></em>, <em class="sig-param"><span class="pre">subvectorlabel</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/controlvector_mod/cvm_getsubvector" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>controlvector</strong> (*)<em> [</em><em>real </em><em>,</em><em>target</em><em>]</em></p></li>
+<li><p><strong>subvectorlabel</strong><em> [</em><em>character </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Return</dt>
+<dd class="field-even"><p><strong>subvector</strong> (*)<em> [</em><em>real </em><em>,</em><em>pointer</em><em>]</em></p>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="biascorrectionsat_mod.html#f/biascorrectionsat_mod/bcs_calcbias_tl" title="f/biascorrectionsat_mod/bcs_calcbias_tl"><code class="xref f f-func docutils literal notranslate"><span class="pre">bcs_calcbias_tl()</span></code></a>, <a class="reference internal" href="biascorrectionsat_mod.html#f/biascorrectionsat_mod/bcs_calcbias_ad" title="f/biascorrectionsat_mod/bcs_calcbias_ad"><code class="xref f f-func docutils literal notranslate"><span class="pre">bcs_calcbias_ad()</span></code></a>, <a class="reference internal" href="biascorrectionsat_mod.html#f/biascorrectionsat_mod/bcs_writebias" title="f/biascorrectionsat_mod/bcs_writebias"><code class="xref f f-func docutils literal notranslate"><span class="pre">bcs_writebias()</span></code></a>, <a class="reference internal" href="bmatrix1dvar_mod.html#f/bmatrix1dvar_mod/bmat1d_sqrtb" title="f/bmatrix1dvar_mod/bmat1d_sqrtb"><code class="xref f f-func docutils literal notranslate"><span class="pre">bmat1d_sqrtb()</span></code></a>, <a class="reference internal" href="bmatrix1dvar_mod.html#f/bmatrix1dvar_mod/bmat1d_sqrtbt" title="f/bmatrix1dvar_mod/bmat1d_sqrtbt"><code class="xref f f-func docutils literal notranslate"><span class="pre">bmat1d_sqrtbt()</span></code></a>, <a class="reference internal" href="bmatrix_mod.html#f/bmatrix_mod/bmat_sqrtb" title="f/bmatrix_mod/bmat_sqrtb"><code class="xref f f-func docutils literal notranslate"><span class="pre">bmat_sqrtb()</span></code></a>, <a class="reference internal" href="bmatrix_mod.html#f/bmatrix_mod/bmat_sqrtbt" title="f/bmatrix_mod/bmat_sqrtbt"><code class="xref f f-func docutils literal notranslate"><span class="pre">bmat_sqrtbt()</span></code></a>, <a class="reference internal" href="bmatrix_mod.html#f/bmatrix_mod/bmat_reducetompilocal" title="f/bmatrix_mod/bmat_reducetompilocal"><code class="xref f f-func docutils literal notranslate"><span class="pre">bmat_reducetompilocal()</span></code></a>, <a class="reference internal" href="bmatrix_mod.html#f/bmatrix_mod/bmat_expandtompiglobal" title="f/bmatrix_mod/bmat_expandtompiglobal"><code class="xref f f-func docutils literal notranslate"><span class="pre">bmat_expandtompiglobal()</span></code></a>, <a class="reference internal" href="obsspacediag_mod.html#f/obsspacediag_mod/osd_calcinflation" title="f/obsspacediag_mod/osd_calcinflation"><code class="xref f f-func docutils literal notranslate"><span class="pre">osd_calcinflation()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/controlvector_mod/cvm_indexfromlabel" title="f/controlvector_mod/cvm_indexfromlabel"><code class="xref f f-func docutils literal notranslate"><span class="pre">cvm_indexfromlabel()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/controlvector_mod/cvm_getsubvector_r4">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">controlvector_mod/</span></span><span class="sig-name descname"><span class="pre">cvm_getsubvector_r4</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">controlvector</span></em>, <em class="sig-param"><span class="pre">subvectorlabel</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/controlvector_mod/cvm_getsubvector_r4" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>controlvector</strong> (*)<em> [</em><em>real </em><em>,</em><em>target</em><em>]</em></p></li>
+<li><p><strong>subvectorlabel</strong><em> [</em><em>character </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Return</dt>
+<dd class="field-even"><p><strong>subvector</strong> (*)<em> [</em><em>real </em><em>,</em><em>pointer</em><em>]</em></p>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="bmatrix_mod.html#f/bmatrix_mod/bmat_reducetompilocal_r4" title="f/bmatrix_mod/bmat_reducetompilocal_r4"><code class="xref f f-func docutils literal notranslate"><span class="pre">bmat_reducetompilocal_r4()</span></code></a>, <a class="reference internal" href="bmatrix_mod.html#f/bmatrix_mod/bmat_expandtompiglobal_r4" title="f/bmatrix_mod/bmat_expandtompiglobal_r4"><code class="xref f f-func docutils literal notranslate"><span class="pre">bmat_expandtompiglobal_r4()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/controlvector_mod/cvm_indexfromlabel" title="f/controlvector_mod/cvm_indexfromlabel"><code class="xref f f-func docutils literal notranslate"><span class="pre">cvm_indexfromlabel()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/controlvector_mod/cvm_getsubvector_mpiglobal">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">controlvector_mod/</span></span><span class="sig-name descname"><span class="pre">cvm_getsubvector_mpiglobal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">controlvector</span></em>, <em class="sig-param"><span class="pre">subvectorlabel</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/controlvector_mod/cvm_getsubvector_mpiglobal" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>controlvector</strong> (*)<em> [</em><em>real </em><em>,</em><em>target</em><em>]</em></p></li>
+<li><p><strong>subvectorlabel</strong><em> [</em><em>character </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Return</dt>
+<dd class="field-even"><p><strong>subvector</strong> (*)<em> [</em><em>real </em><em>,</em><em>pointer</em><em>]</em></p>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="bmatrix_mod.html#f/bmatrix_mod/bmat_reducetompilocal" title="f/bmatrix_mod/bmat_reducetompilocal"><code class="xref f f-func docutils literal notranslate"><span class="pre">bmat_reducetompilocal()</span></code></a>, <a class="reference internal" href="bmatrix_mod.html#f/bmatrix_mod/bmat_expandtompiglobal" title="f/bmatrix_mod/bmat_expandtompiglobal"><code class="xref f f-func docutils literal notranslate"><span class="pre">bmat_expandtompiglobal()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/controlvector_mod/cvm_indexfromlabel" title="f/controlvector_mod/cvm_indexfromlabel"><code class="xref f f-func docutils literal notranslate"><span class="pre">cvm_indexfromlabel()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/controlvector_mod/cvm_getsubvector_mpiglobal_r4">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">controlvector_mod/</span></span><span class="sig-name descname"><span class="pre">cvm_getsubvector_mpiglobal_r4</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">controlvector</span></em>, <em class="sig-param"><span class="pre">subvectorlabel</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/controlvector_mod/cvm_getsubvector_mpiglobal_r4" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>controlvector</strong> (*)<em> [</em><em>real </em><em>,</em><em>target</em><em>]</em></p></li>
+<li><p><strong>subvectorlabel</strong><em> [</em><em>character </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Return</dt>
+<dd class="field-even"><p><strong>subvector</strong> (*)<em> [</em><em>real </em><em>,</em><em>pointer</em><em>]</em></p>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="bmatrix_mod.html#f/bmatrix_mod/bmat_reducetompilocal_r4" title="f/bmatrix_mod/bmat_reducetompilocal_r4"><code class="xref f f-func docutils literal notranslate"><span class="pre">bmat_reducetompilocal_r4()</span></code></a>, <a class="reference internal" href="bmatrix_mod.html#f/bmatrix_mod/bmat_expandtompiglobal_r4" title="f/bmatrix_mod/bmat_expandtompiglobal_r4"><code class="xref f f-func docutils literal notranslate"><span class="pre">bmat_expandtompiglobal_r4()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/controlvector_mod/cvm_indexfromlabel" title="f/controlvector_mod/cvm_indexfromlabel"><code class="xref f f-func docutils literal notranslate"><span class="pre">cvm_indexfromlabel()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div></blockquote>
+</section>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="ensembleobservations_mod.html" title="ensembleobservations_mod"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="columndata_mod.html" title="columndata_mod"
+             >previous</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2018, ECCC.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.
+    </div>
+  </body>
+</html>

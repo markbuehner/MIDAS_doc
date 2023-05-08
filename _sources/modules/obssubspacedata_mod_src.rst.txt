@@ -1,0 +1,8 @@
+==========================================
+obssubspacedata_mod source
+==========================================
+
+    .. literalinclude:: ../_src_files/obssubspacedata_mod.f90
+       :language: fortran
+       :linenos:
+

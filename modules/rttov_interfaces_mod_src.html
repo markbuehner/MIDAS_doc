@@ -1,0 +1,164 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>rttov_interfaces_mod source &mdash; MIDAS  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="MIDAS  documentation" href="../index.html" /> 
+  </head>
+  <body>
+  <div>
+    <img src="../_static/MIDAS_header.png" alt="MIDAS" />
+  </div>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/modules/rttov_interfaces_mod_src.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <section id="rttov-interfaces-mod-source">
+<h1>rttov_interfaces_mod source<a class="headerlink" href="#rttov-interfaces-mod-source" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="c">!--------------------------------------- LICENCE BEGIN -----------------------------------</span>
+<span class="linenos"> 2</span><span class="c">!Environment Canada - Atmospheric Science and Technology License/Disclaimer,</span>
+<span class="linenos"> 3</span><span class="c">!                     version 3; Last Modified: May 7, 2008.</span>
+<span class="linenos"> 4</span><span class="c">!This is free but copyrighted software; you can use/redistribute/modify it under the terms</span>
+<span class="linenos"> 5</span><span class="c">!of the Environment Canada - Atmospheric Science and Technology License/Disclaimer</span>
+<span class="linenos"> 6</span><span class="c">!version 3 or (at your option) any later version that should be found at:</span>
+<span class="linenos"> 7</span><span class="c">!http://collaboration.cmc.ec.gc.ca/science/rpn.comm/license.html</span>
+<span class="linenos"> 8</span><span class="c">!</span>
+<span class="linenos"> 9</span><span class="c">!This software is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;</span>
+<span class="linenos">10</span><span class="c">!without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.</span>
+<span class="linenos">11</span><span class="c">!See the above mentioned License/Disclaimer for more details.</span>
+<span class="linenos">12</span><span class="c">!You should have received a copy of the License/Disclaimer along with this software;</span>
+<span class="linenos">13</span><span class="c">!if not, you can write to: EC-RPN COMM Group, 2121 TransCanada, suite 500, Dorval (Quebec),</span>
+<span class="linenos">14</span><span class="c">!CANADA, H9P 1J3; or send e-mail to service.rpn@ec.gc.ca</span>
+<span class="linenos">15</span><span class="c">!-------------------------------------- LICENCE END --------------------------------------</span>
+<span class="linenos">16</span>
+<span class="linenos">17</span><span class="k">module </span><span class="n">rttov_interfaces_mod</span><span class="w"></span>
+<span class="linenos">18</span><span class="w">  </span><span class="c">! MODULE rttov_interfaces_mod (prefix=&#39;&#39; category=&#39;9. Global interfaces&#39;)</span>
+<span class="linenos">19</span><span class="w">  </span><span class="c">!</span>
+<span class="linenos">20</span><span class="w">  </span><span class="c">!:Purpose: To *include* all of the needed files containing the interfaces</span>
+<span class="linenos">21</span><span class="w">  </span><span class="c">!           for the rttov library subroutines. This allows all other </span>
+<span class="linenos">22</span><span class="w">  </span><span class="c">!           files in MIDAS to be of the *f90* type (instead of *ftn90*),</span>
+<span class="linenos">23</span><span class="w">  </span><span class="c">!           thus avoiding a pass through the pre-processor.</span>
+<span class="linenos">24</span><span class="w">  </span><span class="c">!</span>
+<span class="linenos">25</span><span class="k">implicit none</span>
+<span class="linenos">26</span><span class="k">public</span><span class="w"></span>
+<span class="linenos">27</span>
+<span class="linenos">28</span><span class="cp">#include &quot;rttov_coeffname.interface&quot;</span>
+<span class="linenos">29</span><span class="cp">#include &quot;rttov_user_options_checkinput.interface&quot;</span>
+<span class="linenos">30</span><span class="cp">#include &quot;rttov_alloc_prof.interface&quot;</span>
+<span class="linenos">31</span><span class="cp">#include &quot;rttov_parallel_direct.interface&quot;</span>
+<span class="linenos">32</span><span class="cp">#include &quot;rttov_alloc_rad.interface&quot;</span>
+<span class="linenos">33</span><span class="cp">#include &quot;rttov_alloc_transmission.interface&quot;</span>
+<span class="linenos">34</span><span class="cp">#include &quot;rttov_alloc_direct.interface&quot;</span>
+<span class="linenos">35</span><span class="cp">#include &quot;rttov_alloc_tl.interface&quot;</span>
+<span class="linenos">36</span><span class="cp">#include &quot;rttov_alloc_ad.interface&quot;</span>
+<span class="linenos">37</span><span class="cp">#include &quot;rttov_print_profile.interface&quot;</span>
+<span class="linenos">38</span><span class="cp">#include &quot;rttov_get_emis.interface&quot;</span>
+<span class="linenos">39</span><span class="cp">#include &quot;rttov_setup_emis_atlas.interface&quot;</span>
+<span class="linenos">40</span><span class="cp">#include &quot;rttov_read_coefs.interface&quot;</span>
+<span class="linenos">41</span><span class="cp">#include &quot;rttov_dealloc_coefs.interface&quot;</span>
+<span class="linenos">42</span><span class="cp">#include &quot;rttov_nullify_coef.interface&quot;</span>
+<span class="linenos">43</span><span class="cp">#include &quot;rttov_parallel_tl.interface&quot;</span>
+<span class="linenos">44</span><span class="cp">#include &quot;rttov_parallel_ad.interface&quot;</span>
+<span class="linenos">45</span><span class="cp">#include &quot;rttov_direct.interface&quot;</span>
+<span class="linenos">46</span>
+<span class="linenos">47</span><span class="cp">#include &quot;rttov_scatt.interface&quot;</span>
+<span class="linenos">48</span><span class="cp">#include &quot;rttov_scatt_tl.interface&quot;</span>
+<span class="linenos">49</span><span class="cp">#include &quot;rttov_scatt_ad.interface&quot;</span>
+<span class="linenos">50</span><span class="cp">#include &quot;rttov_alloc_scatt_prof.interface&quot;</span>
+<span class="linenos">51</span><span class="cp">#include &quot;rttov_read_scattcoeffs.interface&quot;</span>
+<span class="linenos">52</span><span class="cp">#include &quot;rttov_dealloc_scattcoeffs.interface&quot;</span>
+<span class="linenos">53</span><span class="cp">#include &quot;rttov_scatt_setupindex.interface&quot;</span>
+<span class="linenos">54</span>
+<span class="linenos">55</span><span class="k">end module </span><span class="n">rttov_interfaces_mod</span><span class="w"></span>
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2018, ECCC.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.
+    </div>
+  </body>
+</html>

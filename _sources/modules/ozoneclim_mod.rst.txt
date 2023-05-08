@@ -1,0 +1,22 @@
+==========================================
+ozoneclim_mod
+==========================================
+
+    :doc:`link to source code <ozoneclim_mod_src>`
+
+
+    **Dependency Diagrams:**
+
+    .. figure:: /ozoneclim_mod.svg
+        :height: 100px
+
+        Direct Dependency Diagram
+
+    .. figure:: /ozoneclim_mod_rev.svg
+        :height: 100px
+
+        Reverse Dependency Diagram
+
+
+    .. f:automodule:: ozoneclim_mod
+

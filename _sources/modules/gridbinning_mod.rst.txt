@@ -1,0 +1,22 @@
+==========================================
+gridbinning_mod
+==========================================
+
+    :doc:`link to source code <gridbinning_mod_src>`
+
+
+    **Dependency Diagrams:**
+
+    .. figure:: /gridbinning_mod.svg
+        :height: 100px
+
+        Direct Dependency Diagram
+
+    .. figure:: /gridbinning_mod_rev.svg
+        :height: 100px
+
+        Reverse Dependency Diagram
+
+
+    .. f:automodule:: gridbinning_mod
+

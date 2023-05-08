@@ -1,0 +1,22 @@
+==========================================
+oceanmask_mod
+==========================================
+
+    :doc:`link to source code <oceanmask_mod_src>`
+
+
+    **Dependency Diagrams:**
+
+    .. figure:: /oceanmask_mod.svg
+        :height: 100px
+
+        Direct Dependency Diagram
+
+    .. figure:: /oceanmask_mod_rev.svg
+        :height: 100px
+
+        Reverse Dependency Diagram
+
+
+    .. f:automodule:: oceanmask_mod
+

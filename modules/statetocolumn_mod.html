@@ -1,0 +1,936 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>statetocolumn_mod &mdash; MIDAS  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="MIDAS  documentation" href="../index.html" />
+    <link rel="next" title="var1d_mod" href="var1d_mod.html" />
+    <link rel="prev" title="obsvariabletransforms_mod" href="obsvariabletransforms_mod.html" /> 
+  </head>
+  <body>
+  <div>
+    <img src="../_static/MIDAS_header.png" alt="MIDAS" />
+  </div>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="var1d_mod.html" title="var1d_mod"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="obsvariabletransforms_mod.html" title="obsvariabletransforms_mod"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="obsvariabletransforms_mod.html"
+                          title="previous chapter">obsvariabletransforms_mod</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="var1d_mod.html"
+                          title="next chapter">var1d_mod</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/modules/statetocolumn_mod.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <section id="statetocolumn-mod">
+<h1>statetocolumn_mod<a class="headerlink" href="#statetocolumn-mod" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><p><a class="reference internal" href="statetocolumn_mod_src.html"><span class="doc">link to source code</span></a></p>
+<p><strong>Dependency Diagrams:</strong></p>
+<figure class="align-default" id="id1">
+<a class="reference internal image-reference" href="statetocolumn_mod.svg"><img alt="statetocolumn_mod.svg" height="100px" src="statetocolumn_mod.svg" /></a>
+<figcaption>
+<p><span class="caption-text">Direct Dependency Diagram</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id2">
+<a class="reference internal image-reference" href="statetocolumn_mod_rev.svg"><img alt="statetocolumn_mod_rev.svg" height="100px" src="statetocolumn_mod_rev.svg" /></a>
+<figcaption>
+<p><span class="caption-text">Reverse Dependency Diagram</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<span class="target" id="f/statetocolumn_mod"></span><p class="rubric">Description</p>
+<p>MODULE stateToColumn (prefix=’s2c’ category=’4. Data Object transformations’)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Purpose</dt>
+<dd class="field-odd"><p>Non-linear, tangent-linear and adjoint versions of
+horizontal-temporal interpolation between a gridStateVector object
+and a columnData object.</p>
+</dd>
+</dl>
+<p class="rubric">Quick access</p>
+<dl class="field-list simple">
+<dt class="field-odd">Types</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/statetocolumn_mod/struct_interpinfo" title="f/statetocolumn_mod/struct_interpinfo"><code class="xref f f-type docutils literal notranslate"><span class="pre">struct_interpinfo</span></code></a>, <a class="reference internal" href="#f/statetocolumn_mod/struct_stepprocdata" title="f/statetocolumn_mod/struct_stepprocdata"><code class="xref f f-type docutils literal notranslate"><span class="pre">struct_stepprocdata</span></code></a></p>
+</dd>
+<dt class="field-even">Routines</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/statetocolumn_mod/checkcolumnstatevectormatch" title="f/statetocolumn_mod/checkcolumnstatevectormatch"><code class="xref f f-func docutils literal notranslate"><span class="pre">checkcolumnstatevectormatch()</span></code></a>, <a class="reference internal" href="#f/statetocolumn_mod/gettovsfootprintradius" title="f/statetocolumn_mod/gettovsfootprintradius"><code class="xref f f-func docutils literal notranslate"><span class="pre">gettovsfootprintradius()</span></code></a>, <a class="reference internal" href="#f/statetocolumn_mod/latlonchecks" title="f/statetocolumn_mod/latlonchecks"><code class="xref f f-func docutils literal notranslate"><span class="pre">latlonchecks()</span></code></a>, <a class="reference internal" href="#f/statetocolumn_mod/latlonchecksanlgrid" title="f/statetocolumn_mod/latlonchecksanlgrid"><code class="xref f f-func docutils literal notranslate"><span class="pre">latlonchecksanlgrid()</span></code></a>, <a class="reference internal" href="#f/statetocolumn_mod/myezsint_ad" title="f/statetocolumn_mod/myezsint_ad"><code class="xref f f-func docutils literal notranslate"><span class="pre">myezsint_ad()</span></code></a>, <a class="reference internal" href="#f/statetocolumn_mod/myezsint_nl" title="f/statetocolumn_mod/myezsint_nl"><code class="xref f f-func docutils literal notranslate"><span class="pre">myezsint_nl()</span></code></a>, <a class="reference internal" href="#f/statetocolumn_mod/myezsint_r8_nl" title="f/statetocolumn_mod/myezsint_r8_nl"><code class="xref f f-func docutils literal notranslate"><span class="pre">myezsint_r8_nl()</span></code></a>, <a class="reference internal" href="#f/statetocolumn_mod/myezsint_tl" title="f/statetocolumn_mod/myezsint_tl"><code class="xref f f-func docutils literal notranslate"><span class="pre">myezsint_tl()</span></code></a>, <a class="reference internal" href="#f/statetocolumn_mod/myezuvint_ad" title="f/statetocolumn_mod/myezuvint_ad"><code class="xref f f-func docutils literal notranslate"><span class="pre">myezuvint_ad()</span></code></a>, <a class="reference internal" href="#f/statetocolumn_mod/myezuvint_nl" title="f/statetocolumn_mod/myezuvint_nl"><code class="xref f f-func docutils literal notranslate"><span class="pre">myezuvint_nl()</span></code></a>, <a class="reference internal" href="#f/statetocolumn_mod/myezuvint_tl" title="f/statetocolumn_mod/myezuvint_tl"><code class="xref f f-func docutils literal notranslate"><span class="pre">myezuvint_tl()</span></code></a>, <a class="reference internal" href="#f/statetocolumn_mod/pressureprofilemonotonicitycheck" title="f/statetocolumn_mod/pressureprofilemonotonicitycheck"><code class="xref f f-func docutils literal notranslate"><span class="pre">pressureprofilemonotonicitycheck()</span></code></a>, <a class="reference internal" href="#f/statetocolumn_mod/s2c_ad" title="f/statetocolumn_mod/s2c_ad"><code class="xref f f-func docutils literal notranslate"><span class="pre">s2c_ad()</span></code></a>, <a class="reference internal" href="#f/statetocolumn_mod/s2c_bgcheck_bilin" title="f/statetocolumn_mod/s2c_bgcheck_bilin"><code class="xref f f-func docutils literal notranslate"><span class="pre">s2c_bgcheck_bilin()</span></code></a>, <a class="reference internal" href="#f/statetocolumn_mod/s2c_deallocinterpinfo" title="f/statetocolumn_mod/s2c_deallocinterpinfo"><code class="xref f f-func docutils literal notranslate"><span class="pre">s2c_deallocinterpinfo()</span></code></a>, <a class="reference internal" href="#f/statetocolumn_mod/s2c_getfootprintradius" title="f/statetocolumn_mod/s2c_getfootprintradius"><code class="xref f f-func docutils literal notranslate"><span class="pre">s2c_getfootprintradius()</span></code></a>, <a class="reference internal" href="#f/statetocolumn_mod/s2c_getweightsandgridpointindexes" title="f/statetocolumn_mod/s2c_getweightsandgridpointindexes"><code class="xref f f-func docutils literal notranslate"><span class="pre">s2c_getweightsandgridpointindexes()</span></code></a>, <a class="reference internal" href="#f/statetocolumn_mod/s2c_nl" title="f/statetocolumn_mod/s2c_nl"><code class="xref f f-func docutils literal notranslate"><span class="pre">s2c_nl()</span></code></a>, <a class="reference internal" href="#f/statetocolumn_mod/s2c_rejectzeroweightobs" title="f/statetocolumn_mod/s2c_rejectzeroweightobs"><code class="xref f f-func docutils literal notranslate"><span class="pre">s2c_rejectzeroweightobs()</span></code></a>, <a class="reference internal" href="#f/statetocolumn_mod/s2c_setupbilinearinterp" title="f/statetocolumn_mod/s2c_setupbilinearinterp"><code class="xref f f-func docutils literal notranslate"><span class="pre">s2c_setupbilinearinterp()</span></code></a>, <a class="reference internal" href="#f/statetocolumn_mod/s2c_setupfootprintinterp" title="f/statetocolumn_mod/s2c_setupfootprintinterp"><code class="xref f f-func docutils literal notranslate"><span class="pre">s2c_setupfootprintinterp()</span></code></a>, <a class="reference internal" href="#f/statetocolumn_mod/s2c_setuphorizinterp" title="f/statetocolumn_mod/s2c_setuphorizinterp"><code class="xref f f-func docutils literal notranslate"><span class="pre">s2c_setuphorizinterp()</span></code></a>, <a class="reference internal" href="#f/statetocolumn_mod/s2c_setupinterpinfo" title="f/statetocolumn_mod/s2c_setupinterpinfo"><code class="xref f f-func docutils literal notranslate"><span class="pre">s2c_setupinterpinfo()</span></code></a>, <a class="reference internal" href="#f/statetocolumn_mod/s2c_setuplakeinterp" title="f/statetocolumn_mod/s2c_setuplakeinterp"><code class="xref f f-func docutils literal notranslate"><span class="pre">s2c_setuplakeinterp()</span></code></a>, <a class="reference internal" href="#f/statetocolumn_mod/s2c_setupnearestneighbor" title="f/statetocolumn_mod/s2c_setupnearestneighbor"><code class="xref f f-func docutils literal notranslate"><span class="pre">s2c_setupnearestneighbor()</span></code></a>, <a class="reference internal" href="#f/statetocolumn_mod/s2c_tl" title="f/statetocolumn_mod/s2c_tl"><code class="xref f f-func docutils literal notranslate"><span class="pre">s2c_tl()</span></code></a></p>
+</dd>
+</dl>
+<p class="rubric">Needed modules</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="mathphysconstants_mod.html#f/mathphysconstants_mod" title="f/mathphysconstants_mod: MODULE MathPhysConstants_mod (prefix='mpc' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">mathphysconstants_mod</span></code></a>: MODULE MathPhysConstants_mod (prefix=’mpc’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="earthconstants_mod.html#f/earthconstants_mod" title="f/earthconstants_mod: MODULE earthConstants_mod (prefix='ec' category='8. Low-level utilities and constants') Prefixes: ec_ (Earth constants), for miscellaneous values from diverse sources"><code class="xref f f-mod docutils literal notranslate"><span class="pre">earthconstants_mod</span></code></a>: MODULE earthConstants_mod (prefix=’ec’ category=’8. Low-level utilities and constants’) Prefixes: <a href="#id3"><span class="problematic" id="id4">ec_</span></a> (Earth constants), for miscellaneous values from diverse sources</p></li>
+<li><p><code class="xref f f-mod docutils literal notranslate"><span class="pre">mpi</span></code> (<code class="xref f f-func docutils literal notranslate"><span class="pre">mpi_status_size()</span></code>)</p></li>
+<li><p><a class="reference internal" href="midasmpi_mod.html#f/midasmpi_mod" title="f/midasmpi_mod: MODULE midasMpi_mod (prefix='mmpi' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">midasmpi_mod</span></code></a>: MODULE midasMpi_mod (prefix=’mmpi’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="codeprecision_mod.html#f/codeprecision_mod" title="f/codeprecision_mod: MODULE codePrecision_mod (prefix='pre' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">codeprecision_mod</span></code></a>: MODULE codePrecision_mod (prefix=’pre’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod" title="f/gridstatevector_mod: MODULE gridStateVector_mod (prefix='gsv' category='6. High-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">gridstatevector_mod</span></code></a>: MODULE gridStateVector_mod (prefix=’gsv’ category=’6. High-level data objects’)</p></li>
+<li><p><a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod" title="f/obsspacedata_mod: MODULE obsSpaceData_mod (prefix='obs' category='6. High-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">obsspacedata_mod</span></code></a>: MODULE obsSpaceData_mod (prefix=’obs’ category=’6. High-level data objects’)</p></li>
+<li><p><a class="reference internal" href="columndata_mod.html#f/columndata_mod" title="f/columndata_mod: MODULE columnData_mod (prefix='col' category='6. High-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">columndata_mod</span></code></a>: MODULE columnData_mod (prefix=’col’ category=’6. High-level data objects’)</p></li>
+<li><p><a class="reference internal" href="horizontalcoord_mod.html#f/horizontalcoord_mod" title="f/horizontalcoord_mod: MODULE HorizontalCoord_mod (prefix='hco' category='7. Low-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">horizontalcoord_mod</span></code></a>: MODULE HorizontalCoord_mod (prefix=’hco’ category=’7. Low-level data objects’)</p></li>
+<li><p><a class="reference internal" href="obstimeinterp_mod.html#f/obstimeinterp_mod" title="f/obstimeinterp_mod: MODULE obsTimeInterp_mod (prefix='oti' category='4. Data Object transformations')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">obstimeinterp_mod</span></code></a>: MODULE obsTimeInterp_mod (prefix=’oti’ category=’4. Data Object transformations’)</p></li>
+<li><p><a class="reference internal" href="windrotation_mod.html#f/windrotation_mod" title="f/windrotation_mod: MODULE windRotation (prefix='uvr' category='4. Data Object transformations')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">windrotation_mod</span></code></a>: MODULE windRotation (prefix=’uvr’ category=’4. Data Object transformations’)</p></li>
+<li><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod" title="f/utilities_mod: MODULE utilities_mod (prefix='utl' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">utilities_mod</span></code></a>: MODULE utilities_mod (prefix=’utl’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="gridvariabletransforms_mod.html#f/gridvariabletransforms_mod" title="f/gridvariabletransforms_mod: MODULE gridVariableTransforms (prefix='gvt' category='4. Data Object transformations')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">gridvariabletransforms_mod</span></code></a>: MODULE gridVariableTransforms (prefix=’gvt’ category=’4. Data Object transformations’)</p></li>
+<li><p><a class="reference internal" href="varnamelist_mod.html#f/varnamelist_mod" title="f/varnamelist_mod: MODULE varNameList (prefix='vnl' category='7. Low-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">varnamelist_mod</span></code></a>: MODULE varNameList (prefix=’vnl’ category=’7. Low-level data objects’)</p></li>
+<li><p><a class="reference internal" href="slantprofilelatlon_mod.html#f/slantprofilelatlon_mod" title="f/slantprofilelatlon_mod: MODULE slantprofilelatlon_mod (prefix='slp' category='5. Observation operators')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">slantprofilelatlon_mod</span></code></a>: MODULE slantprofilelatlon_mod (prefix=’slp’ category=’5. Observation operators’)</p></li>
+<li><p><a class="reference internal" href="tovs_nl_mod.html#f/tovs_nl_mod" title="f/tovs_nl_mod: MODULE tovs_nl (prefix='tvs' category='5. Observation operators')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">tovs_nl_mod</span></code></a>: MODULE tovs_nl (prefix=’tvs’ category=’5. Observation operators’)</p></li>
+<li><p><a class="reference internal" href="codtyp_mod.html#f/codtyp_mod" title="f/codtyp_mod: MODULE codtyp_mod (prefix='codtyp' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">codtyp_mod</span></code></a>: MODULE codtyp_mod (prefix=’codtyp’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="getgridposition_mod.html#f/getgridposition_mod" title="f/getgridposition_mod: MODULE getGridPosition_mod (prefix='gpos' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">getgridposition_mod</span></code></a>: MODULE getGridPosition_mod (prefix=’gpos’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="kdtree2_mod.html#f/kdtree2_mod" title="f/kdtree2_mod: MODULE kdtree2_mod (prefix='kdtree2' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">kdtree2_mod</span></code></a>: MODULE kdtree2_mod (prefix=’kdtree2’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="calcheightandpressure_mod.html#f/calcheightandpressure_mod" title="f/calcheightandpressure_mod: MODULE czp_calcHeightAndPressure (prefix='czp' category='4. Data Object transformations')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">calcheightandpressure_mod</span></code></a>: MODULE czp_calcHeightAndPressure (prefix=’czp’ category=’4. Data Object transformations’)</p></li>
+<li><p><a class="reference internal" href="humiditylimits_mod.html#f/humiditylimits_mod" title="f/humiditylimits_mod: MODULE humidityLimits_mod (prefix='qlim' category='4. Data Object transformations')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">humiditylimits_mod</span></code></a>: MODULE humidityLimits_mod (prefix=’qlim’ category=’4. Data Object transformations’)</p></li>
+</ul>
+<p class="rubric">Types</p>
+<ul>
+<li><dl>
+<dt class="sig sig-object f" id="f/statetocolumn_mod/struct_stepprocdata">
+<em class="property"><span class="pre">type</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">statetocolumn_mod/</span></span><span class="sig-name descname"><span class="pre">struct_stepprocdata</span></span><a class="headerlink" href="#f/statetocolumn_mod/struct_stepprocdata" title="Permalink to this definition">¶</a></dt>
+<dd><p>lat-lon location of observations to be interpolated</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type fields</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">allheaderindex</span> (*)<em> [</em><em>integer </em><em>,</em><em>pointer</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">alllat</span> (*,*)<em> [</em><em>real </em><em>,</em><em>pointer</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">alllatrot</span> (*,*,*)<em> [</em><em>real </em><em>,</em><em>pointer</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">alllon</span> (*,*)<em> [</em><em>real </em><em>,</em><em>pointer</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">alllonrot</span> (*,*,*)<em> [</em><em>real </em><em>,</em><em>pointer</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">depotindexbeg</span> (*,*,*)<em> [</em><em>integer </em><em>,</em><em>pointer</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">depotindexend</span> (*,*,*)<em> [</em><em>integer </em><em>,</em><em>pointer</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">null</span><em> [</em><em>real </em><em>,</em><em>pointer</em><em>]</em></p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</li>
+<li><dl>
+<dt class="sig sig-object f" id="f/statetocolumn_mod/struct_interpinfo">
+<em class="property"><span class="pre">type</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">statetocolumn_mod/</span></span><span class="sig-name descname"><span class="pre">struct_interpinfo</span></span><a class="headerlink" href="#f/statetocolumn_mod/struct_interpinfo" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type fields</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">allnumheaderused</span> (*,*)<em> [</em><em>integer </em><em>,</em><em>pointer</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">hco</span><em> [</em><em>struct_hco </em><em>,</em><em>pointer</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">initialized</span><em> [</em><em>logical </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">inputstatevectortype</span><em> [</em><em>character </em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">interpweightdepot</span> (*)<em> [</em><em>real </em><em>,</em><em>allocatable</em><em>]</em> :: (depotIndex)</p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">latindexdepot</span> (*)<em> [</em><em>integer </em><em>,</em><em>pointer</em><em>]</em> :: (depotIndex)</p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">lonindexdepot</span> (*)<em> [</em><em>integer </em><em>,</em><em>pointer</em><em>]</em> :: (depotIndex)</p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">null</span><em> [</em><em>struct_hco </em><em>,</em><em>pointer</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">oti</span><em> [</em><em>struct_oti </em><em>,</em><em>pointer</em><em>]</em></p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">stepprocdata</span> (*,*)<em> [</em><em>struct_stepprocdata </em><em>,</em><em>allocatable</em><em>]</em> :: (proc, step)</p></li>
+<li><p><span class="sig-name descname">% </span><span class="sig-name descname">uvr</span><em> [</em><em>struct_uvr </em><em>,</em><em>pointer</em><em>]</em></p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</li>
+</ul>
+<p class="rubric">Variables</p>
+<p class="rubric">Subroutines and functions</p>
+<dl>
+<dt class="sig sig-object f" id="f/statetocolumn_mod/pressureprofilemonotonicitycheck">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">statetocolumn_mod/</span></span><span class="sig-name descname"><span class="pre">pressureprofilemonotonicitycheck</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">obsspacedata</span></em>, <em class="sig-param"><span class="pre">column</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/statetocolumn_mod/pressureprofilemonotonicitycheck" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Check for non monotonic pressure profiles that can be computed in slantpathmode</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>obsspacedata</strong><em> [</em><em>struct_obs </em><em>,</em><em>inout</em><em>]</em></p></li>
+<li><p><strong>column</strong><em> [</em><em>struct_columndata </em><em>,</em><em>inout</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/statetocolumn_mod/s2c_tl" title="f/statetocolumn_mod/s2c_tl"><code class="xref f f-func docutils literal notranslate"><span class="pre">s2c_tl()</span></code></a>, <a class="reference internal" href="#f/statetocolumn_mod/s2c_ad" title="f/statetocolumn_mod/s2c_ad"><code class="xref f f-func docutils literal notranslate"><span class="pre">s2c_ad()</span></code></a>, <a class="reference internal" href="#f/statetocolumn_mod/s2c_nl" title="f/statetocolumn_mod/s2c_nl"><code class="xref f f-func docutils literal notranslate"><span class="pre">s2c_nl()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_getheaderindex" title="f/obsspacedata_mod/obs_getheaderindex"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_getheaderindex()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_getcolumn" title="f/columndata_mod/col_getcolumn"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_getcolumn()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_headset_i" title="f/obsspacedata_mod/obs_headset_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_headset_i()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_headelem_i" title="f/obsspacedata_mod/obs_headelem_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_headelem_i()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyset_i" title="f/obsspacedata_mod/obs_bodyset_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyset_i()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyelem_i" title="f/obsspacedata_mod/obs_bodyelem_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyelem_i()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/statetocolumn_mod/latlonchecksanlgrid">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">statetocolumn_mod/</span></span><span class="sig-name descname"><span class="pre">latlonchecksanlgrid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">obsspacedata</span></em>, <em class="sig-param"><span class="pre">hco_core</span></em>, <em class="sig-param"><span class="pre">moveobsatpole</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/statetocolumn_mod/latlonchecksanlgrid" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Check the lat/lon of observations and modify if necessary</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>obsspacedata</strong><em> [</em><em>struct_obs </em><em>]</em></p></li>
+<li><p><strong>hco_core</strong><em> [</em><em>struct_hco </em><em>,</em><em>pointer</em><em>]</em></p></li>
+<li><p><strong>moveobsatpole</strong><em> [</em><em>logical </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/statetocolumn_mod/s2c_nl" title="f/statetocolumn_mod/s2c_nl"><code class="xref f f-func docutils literal notranslate"><span class="pre">s2c_nl()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_numheader" title="f/obsspacedata_mod/obs_numheader"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_numheader()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_headelem_r" title="f/obsspacedata_mod/obs_headelem_r"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_headelem_r()</span></code></a>, <a class="reference internal" href="getgridposition_mod.html#f/getgridposition_mod/gpos_getpositionxy" title="f/getgridposition_mod/gpos_getpositionxy"><code class="xref f f-func docutils literal notranslate"><span class="pre">gpos_getpositionxy()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_headelem_i" title="f/obsspacedata_mod/obs_headelem_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_headelem_i()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyset_i" title="f/obsspacedata_mod/obs_bodyset_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyset_i()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_headset_i" title="f/obsspacedata_mod/obs_headset_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_headset_i()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/statetocolumn_mod/s2c_setupinterpinfo">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">statetocolumn_mod/</span></span><span class="sig-name descname"><span class="pre">s2c_setupinterpinfo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">interpinfo</span></em>, <em class="sig-param"><span class="pre">obsspacedata</span></em>, <em class="sig-param"><span class="pre">statevector</span></em>, <em class="sig-param"><span class="pre">headerindexbeg</span></em>, <em class="sig-param"><span class="pre">headerindexend</span></em>, <em class="sig-param"><span class="pre">timeinterptype</span></em>, <em class="sig-param"><span class="pre">rejectoutsideobs</span></em>, <em class="sig-param"><span class="pre">inputstatevectortype</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">lastcall_opt</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/statetocolumn_mod/s2c_setupinterpinfo" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Setup all of the information needed to quickly
+perform the horizontal interpolation to the observation
+locations.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>interpinfo</strong><em> [</em><em>struct_interpinfo </em><em>]</em></p></li>
+<li><p><strong>obsspacedata</strong><em> [</em><em>struct_obs </em><em>]</em></p></li>
+<li><p><strong>statevector</strong><em> [</em><em>struct_gsv </em><em>,</em><em>target</em><em>]</em> :: IN</p></li>
+<li><p><strong>headerindexbeg</strong><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><strong>headerindexend</strong><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><strong>timeinterptype</strong><em> [</em><em>character </em><em>]</em></p></li>
+<li><p><strong>rejectoutsideobs</strong><em> [</em><em>logical </em><em>]</em> :: IN</p></li>
+<li><p><strong>inputstatevectortype</strong><em> [</em><em>character </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Options</dt>
+<dd class="field-odd"><p><strong>lastcall_opt</strong><em> [</em><em>logical </em><em>]</em></p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/statetocolumn_mod/s2c_tl" title="f/statetocolumn_mod/s2c_tl"><code class="xref f f-func docutils literal notranslate"><span class="pre">s2c_tl()</span></code></a>, <a class="reference internal" href="#f/statetocolumn_mod/s2c_ad" title="f/statetocolumn_mod/s2c_ad"><code class="xref f f-func docutils literal notranslate"><span class="pre">s2c_ad()</span></code></a>, <a class="reference internal" href="#f/statetocolumn_mod/s2c_nl" title="f/statetocolumn_mod/s2c_nl"><code class="xref f f-func docutils literal notranslate"><span class="pre">s2c_nl()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_isnamelistpresent" title="f/utilities_mod/utl_isnamelistpresent"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_isnamelistpresent()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="obstimeinterp_mod.html#f/obstimeinterp_mod/oti_setup" title="f/obstimeinterp_mod/oti_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">oti_setup()</span></code></a>, <a class="reference internal" href="obstimeinterp_mod.html#f/obstimeinterp_mod/oti_gettimeinterpweight" title="f/obstimeinterp_mod/oti_gettimeinterpweight"><code class="xref f f-func docutils literal notranslate"><span class="pre">oti_gettimeinterpweight()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_varexist" title="f/gridstatevector_mod/gsv_varexist"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_varexist()</span></code></a>, <a class="reference internal" href="windrotation_mod.html#f/windrotation_mod/uvr_setup" title="f/windrotation_mod/uvr_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">uvr_setup()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_getnumlev" title="f/gridstatevector_mod/gsv_getnumlev"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_getnumlev()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_isallocated" title="f/gridstatevector_mod/gsv_isallocated"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_isallocated()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_varnameslist" title="f/gridstatevector_mod/gsv_varnameslist"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_varnameslist()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_allocate" title="f/gridstatevector_mod/gsv_allocate"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_allocate()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_transposevarslevstotiles" title="f/gridstatevector_mod/gsv_transposevarslevstotiles"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_transposevarslevstotiles()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_deallocate" title="f/gridstatevector_mod/gsv_deallocate"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_deallocate()</span></code></a>, <a class="reference internal" href="gridvariabletransforms_mod.html#f/gridvariabletransforms_mod/gvt_getstatevectortrial" title="f/gridvariabletransforms_mod/gvt_getstatevectortrial"><code class="xref f f-func docutils literal notranslate"><span class="pre">gvt_getstatevectortrial()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_start" title="f/utilities_mod/utl_tmg_start"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_start()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_transposetilestompiglobal" title="f/gridstatevector_mod/gsv_transposetilestompiglobal"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_transposetilestompiglobal()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_stop" title="f/utilities_mod/utl_tmg_stop"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_stop()</span></code></a>, <a class="reference internal" href="#f/statetocolumn_mod/s2c_getfootprintradius" title="f/statetocolumn_mod/s2c_getfootprintradius"><code class="xref f f-func docutils literal notranslate"><span class="pre">s2c_getfootprintradius()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_headelem_r" title="f/obsspacedata_mod/obs_headelem_r"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_headelem_r()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_headelem_i" title="f/obsspacedata_mod/obs_headelem_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_headelem_i()</span></code></a>, <a class="reference internal" href="tovs_nl_mod.html#f/tovs_nl_mod/tvs_isidburptovs" title="f/tovs_nl_mod/tvs_isidburptovs"><code class="xref f f-func docutils literal notranslate"><span class="pre">tvs_isidburptovs()</span></code></a>, <a class="reference internal" href="slantprofilelatlon_mod.html#f/slantprofilelatlon_mod/slp_calclatlontovs" title="f/slantprofilelatlon_mod/slp_calclatlontovs"><code class="xref f f-func docutils literal notranslate"><span class="pre">slp_calclatlontovs()</span></code></a>, <a class="reference internal" href="codtyp_mod.html#f/codtyp_mod/codtyp_get_codtyp" title="f/codtyp_mod/codtyp_get_codtyp"><code class="xref f f-func docutils literal notranslate"><span class="pre">codtyp_get_codtyp()</span></code></a>, <a class="reference internal" href="slantprofilelatlon_mod.html#f/slantprofilelatlon_mod/slp_calclatlonro" title="f/slantprofilelatlon_mod/slp_calclatlonro"><code class="xref f f-func docutils literal notranslate"><span class="pre">slp_calclatlonro()</span></code></a>, <a class="reference internal" href="slantprofilelatlon_mod.html#f/slantprofilelatlon_mod/slp_calclatlonradar" title="f/slantprofilelatlon_mod/slp_calclatlonradar"><code class="xref f f-func docutils literal notranslate"><span class="pre">slp_calclatlonradar()</span></code></a>, <a class="reference internal" href="#f/statetocolumn_mod/latlonchecks" title="f/statetocolumn_mod/latlonchecks"><code class="xref f f-func docutils literal notranslate"><span class="pre">latlonchecks()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_getlevfromk" title="f/gridstatevector_mod/gsv_getlevfromk"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_getlevfromk()</span></code></a>, <a class="reference internal" href="varnamelist_mod.html#f/varnamelist_mod/vnl_varlevelfromvarname" title="f/varnamelist_mod/vnl_varlevelfromvarname"><code class="xref f f-func docutils literal notranslate"><span class="pre">vnl_varlevelfromvarname()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_getvarnamefromk" title="f/gridstatevector_mod/gsv_getvarnamefromk"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_getvarnamefromk()</span></code></a>, <a class="reference internal" href="kdtree2_mod.html#f/kdtree2_mod/kdtree2_3dposition" title="f/kdtree2_mod/kdtree2_3dposition"><code class="xref f f-func docutils literal notranslate"><span class="pre">kdtree2_3dposition()</span></code></a>, <a class="reference internal" href="kdtree2_mod.html#f/kdtree2_mod/kdtree2_create" title="f/kdtree2_mod/kdtree2_create"><code class="xref f f-func docutils literal notranslate"><span class="pre">kdtree2_create()</span></code></a>, <a class="reference internal" href="getgridposition_mod.html#f/getgridposition_mod/gpos_getpositionxy" title="f/getgridposition_mod/gpos_getpositionxy"><code class="xref f f-func docutils literal notranslate"><span class="pre">gpos_getpositionxy()</span></code></a>, <a class="reference internal" href="windrotation_mod.html#f/windrotation_mod/uvr_rotatelatlon" title="f/windrotation_mod/uvr_rotatelatlon"><code class="xref f f-func docutils literal notranslate"><span class="pre">uvr_rotatelatlon()</span></code></a>, <a class="reference internal" href="#f/statetocolumn_mod/s2c_setuphorizinterp" title="f/statetocolumn_mod/s2c_setuphorizinterp"><code class="xref f f-func docutils literal notranslate"><span class="pre">s2c_setuphorizinterp()</span></code></a>, <a class="reference internal" href="#f/statetocolumn_mod/s2c_rejectzeroweightobs" title="f/statetocolumn_mod/s2c_rejectzeroweightobs"><code class="xref f f-func docutils literal notranslate"><span class="pre">s2c_rejectzeroweightobs()</span></code></a>, <a class="reference internal" href="kdtree2_mod.html#f/kdtree2_mod/kdtree2_destroy" title="f/kdtree2_mod/kdtree2_destroy"><code class="xref f f-func docutils literal notranslate"><span class="pre">kdtree2_destroy()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/statetocolumn_mod/s2c_tl">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">statetocolumn_mod/</span></span><span class="sig-name descname"><span class="pre">s2c_tl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">statevector_in</span></em>, <em class="sig-param"><span class="pre">columnanlinc</span></em>, <em class="sig-param"><span class="pre">columntrlonanlinclev</span></em>, <em class="sig-param"><span class="pre">obsspacedata</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/statetocolumn_mod/s2c_tl" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Tangent linear version of the horizontal
+interpolation, used for the increment (or perturbations).</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>statevector_in</strong><em> [</em><em>struct_gsv </em><em>,</em><em>target</em><em>]</em></p></li>
+<li><p><strong>columnanlinc</strong><em> [</em><em>struct_columndata </em><em>]</em></p></li>
+<li><p><strong>columntrlonanlinclev</strong><em> [</em><em>struct_columndata </em><em>]</em></p></li>
+<li><p><strong>obsspacedata</strong><em> [</em><em>struct_obs </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="analysiserroroi_mod.html#f/analysiserroroi_mod/aer_analysiserror" title="f/analysiserroroi_mod/aer_analysiserror"><code class="xref f f-func docutils literal notranslate"><span class="pre">aer_analysiserror()</span></code></a>, <a class="reference internal" href="analysiserroroi_mod.html#f/analysiserroroi_mod/aer_dayssincelastobs" title="f/analysiserroroi_mod/aer_dayssincelastobs"><code class="xref f f-func docutils literal notranslate"><span class="pre">aer_dayssincelastobs()</span></code></a>, <a class="reference internal" href="fsoi_mod.html#f/fsoi_mod/fso_ensemble" title="f/fsoi_mod/fso_ensemble"><code class="xref f f-func docutils literal notranslate"><span class="pre">fso_ensemble()</span></code></a>, <a class="reference internal" href="minimization_mod.html#f/minimization_mod/simvar" title="f/minimization_mod/simvar"><code class="xref f f-func docutils literal notranslate"><span class="pre">simvar()</span></code></a>, <a class="reference internal" href="obsspaceerrorstddev_mod.html#f/obsspaceerrorstddev_mod/ose_compute_hbht_ensemble" title="f/obsspaceerrorstddev_mod/ose_compute_hbht_ensemble"><code class="xref f f-func docutils literal notranslate"><span class="pre">ose_compute_hbht_ensemble()</span></code></a>, <a class="reference internal" href="obsspacediag_mod.html#f/obsspacediag_mod/osd_calcinflation" title="f/obsspacediag_mod/osd_calcinflation"><code class="xref f f-func docutils literal notranslate"><span class="pre">osd_calcinflation()</span></code></a>, <a class="reference internal" href="../programs/midas_diaghbht.html#f/midas_diaghbht" title="f/midas_diaghbht"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_diaghbht</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_start" title="f/utilities_mod/utl_tmg_start"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_start()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_isallocated" title="f/gridstatevector_mod/gsv_isallocated"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_isallocated()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="horizontalcoord_mod.html#f/horizontalcoord_mod/hco_equal" title="f/horizontalcoord_mod/hco_equal"><code class="xref f f-func docutils literal notranslate"><span class="pre">hco_equal()</span></code></a>, <a class="reference internal" href="#f/statetocolumn_mod/s2c_deallocinterpinfo" title="f/statetocolumn_mod/s2c_deallocinterpinfo"><code class="xref f f-func docutils literal notranslate"><span class="pre">s2c_deallocinterpinfo()</span></code></a>, <a class="reference internal" href="#f/statetocolumn_mod/checkcolumnstatevectormatch" title="f/statetocolumn_mod/checkcolumnstatevectormatch"><code class="xref f f-func docutils literal notranslate"><span class="pre">checkcolumnstatevectormatch()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_allocate" title="f/gridstatevector_mod/gsv_allocate"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_allocate()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_getdatakind" title="f/gridstatevector_mod/gsv_getdatakind"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_getdatakind()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_copy" title="f/gridstatevector_mod/gsv_copy"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_copy()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_varnameslist" title="f/gridstatevector_mod/gsv_varnameslist"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_varnameslist()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_transposetilestovarslevs" title="f/gridstatevector_mod/gsv_transposetilestovarslevs"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_transposetilestovarslevs()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_numheader" title="f/obsspacedata_mod/obs_numheader"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_numheader()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_stop" title="f/utilities_mod/utl_tmg_stop"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_stop()</span></code></a>, <a class="reference internal" href="#f/statetocolumn_mod/s2c_setupinterpinfo" title="f/statetocolumn_mod/s2c_setupinterpinfo"><code class="xref f f-func docutils literal notranslate"><span class="pre">s2c_setupinterpinfo()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_getallcolumns" title="f/columndata_mod/col_getallcolumns"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_getallcolumns()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_getvarnamefromk" title="f/gridstatevector_mod/gsv_getvarnamefromk"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_getvarnamefromk()</span></code></a>, <a class="reference internal" href="#f/statetocolumn_mod/myezuvint_tl" title="f/statetocolumn_mod/myezuvint_tl"><code class="xref f f-func docutils literal notranslate"><span class="pre">myezuvint_tl()</span></code></a>, <a class="reference internal" href="#f/statetocolumn_mod/myezsint_tl" title="f/statetocolumn_mod/myezsint_tl"><code class="xref f f-func docutils literal notranslate"><span class="pre">myezsint_tl()</span></code></a>, <a class="reference internal" href="obstimeinterp_mod.html#f/obstimeinterp_mod/oti_gettimeinterpweightmpiglobal" title="f/obstimeinterp_mod/oti_gettimeinterpweightmpiglobal"><code class="xref f f-func docutils literal notranslate"><span class="pre">oti_gettimeinterpweightmpiglobal()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_getlevfromk" title="f/gridstatevector_mod/gsv_getlevfromk"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_getlevfromk()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_deallocate" title="f/gridstatevector_mod/gsv_deallocate"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_deallocate()</span></code></a>, <a class="reference internal" href="#f/statetocolumn_mod/pressureprofilemonotonicitycheck" title="f/statetocolumn_mod/pressureprofilemonotonicitycheck"><code class="xref f f-func docutils literal notranslate"><span class="pre">pressureprofilemonotonicitycheck()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/statetocolumn_mod/s2c_ad">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">statetocolumn_mod/</span></span><span class="sig-name descname"><span class="pre">s2c_ad</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">statevector_out</span></em>, <em class="sig-param"><span class="pre">columnanlinc</span></em>, <em class="sig-param"><span class="pre">columntrlonanlinclev</span></em>, <em class="sig-param"><span class="pre">obsspacedata</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/statetocolumn_mod/s2c_ad" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Adjoint version of the horizontal interpolation,
+used for the cost function gradient with respect to the increment.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>statevector_out</strong><em> [</em><em>struct_gsv </em><em>,</em><em>target</em><em>]</em></p></li>
+<li><p><strong>columnanlinc</strong><em> [</em><em>struct_columndata </em><em>]</em></p></li>
+<li><p><strong>columntrlonanlinclev</strong><em> [</em><em>struct_columndata </em><em>]</em></p></li>
+<li><p><strong>obsspacedata</strong><em> [</em><em>struct_obs </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="minimization_mod.html#f/minimization_mod/simvar" title="f/minimization_mod/simvar"><code class="xref f f-func docutils literal notranslate"><span class="pre">simvar()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_start" title="f/utilities_mod/utl_tmg_start"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_start()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_isallocated" title="f/gridstatevector_mod/gsv_isallocated"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_isallocated()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="horizontalcoord_mod.html#f/horizontalcoord_mod/hco_equal" title="f/horizontalcoord_mod/hco_equal"><code class="xref f f-func docutils literal notranslate"><span class="pre">hco_equal()</span></code></a>, <a class="reference internal" href="#f/statetocolumn_mod/s2c_deallocinterpinfo" title="f/statetocolumn_mod/s2c_deallocinterpinfo"><code class="xref f f-func docutils literal notranslate"><span class="pre">s2c_deallocinterpinfo()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_allocate" title="f/gridstatevector_mod/gsv_allocate"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_allocate()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_getdatakind" title="f/gridstatevector_mod/gsv_getdatakind"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_getdatakind()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_varnameslist" title="f/gridstatevector_mod/gsv_varnameslist"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_varnameslist()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_zero" title="f/gridstatevector_mod/gsv_zero"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_zero()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_numheader" title="f/obsspacedata_mod/obs_numheader"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_numheader()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_stop" title="f/utilities_mod/utl_tmg_stop"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_stop()</span></code></a>, <a class="reference internal" href="#f/statetocolumn_mod/s2c_setupinterpinfo" title="f/statetocolumn_mod/s2c_setupinterpinfo"><code class="xref f f-func docutils literal notranslate"><span class="pre">s2c_setupinterpinfo()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_getallcolumns" title="f/columndata_mod/col_getallcolumns"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_getallcolumns()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_getvarnamefromk" title="f/gridstatevector_mod/gsv_getvarnamefromk"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_getvarnamefromk()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_getlevfromk" title="f/gridstatevector_mod/gsv_getlevfromk"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_getlevfromk()</span></code></a>, <a class="reference internal" href="obstimeinterp_mod.html#f/obstimeinterp_mod/oti_gettimeinterpweightmpiglobal" title="f/obstimeinterp_mod/oti_gettimeinterpweightmpiglobal"><code class="xref f f-func docutils literal notranslate"><span class="pre">oti_gettimeinterpweightmpiglobal()</span></code></a>, <a class="reference internal" href="#f/statetocolumn_mod/myezuvint_ad" title="f/statetocolumn_mod/myezuvint_ad"><code class="xref f f-func docutils literal notranslate"><span class="pre">myezuvint_ad()</span></code></a>, <a class="reference internal" href="#f/statetocolumn_mod/myezsint_ad" title="f/statetocolumn_mod/myezsint_ad"><code class="xref f f-func docutils literal notranslate"><span class="pre">myezsint_ad()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_transposetilestovarslevsad" title="f/gridstatevector_mod/gsv_transposetilestovarslevsad"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_transposetilestovarslevsad()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_copy" title="f/gridstatevector_mod/gsv_copy"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_copy()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_deallocate" title="f/gridstatevector_mod/gsv_deallocate"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_deallocate()</span></code></a>, <a class="reference internal" href="#f/statetocolumn_mod/pressureprofilemonotonicitycheck" title="f/statetocolumn_mod/pressureprofilemonotonicitycheck"><code class="xref f f-func docutils literal notranslate"><span class="pre">pressureprofilemonotonicitycheck()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/statetocolumn_mod/s2c_nl">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">statetocolumn_mod/</span></span><span class="sig-name descname"><span class="pre">s2c_nl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">statevector</span></em>, <em class="sig-param"><span class="pre">obsspacedata</span></em>, <em class="sig-param"><span class="pre">column</span></em>, <em class="sig-param"><span class="pre">hco_core</span></em>, <em class="sig-param"><span class="pre">timeinterptype</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">varname_opt</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">numobsbatches_opt</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">dealloc_opt</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">moveobsatpole_opt</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">besilent_opt</span></em><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/statetocolumn_mod/s2c_nl" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Non-linear version of the horizontal interpolation,
+used for a full field (usually the background state when computing
+the innovation vector).</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>statevector</strong><em> [</em><em>struct_gsv </em><em>]</em></p></li>
+<li><p><strong>obsspacedata</strong><em> [</em><em>struct_obs </em><em>]</em></p></li>
+<li><p><strong>column</strong><em> [</em><em>struct_columndata </em><em>]</em></p></li>
+<li><p><strong>hco_core</strong><em> [</em><em>struct_hco </em><em>,</em><em>pointer</em><em>]</em></p></li>
+<li><p><strong>timeinterptype</strong><em> [</em><em>character </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Options</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>varname_opt</strong><em> [</em><em>character </em><em>]</em></p></li>
+<li><p><strong>numobsbatches_opt</strong><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><strong>dealloc_opt</strong><em> [</em><em>logical </em><em>]</em></p></li>
+<li><p><strong>moveobsatpole_opt</strong><em> [</em><em>logical </em><em>]</em></p></li>
+<li><p><strong>besilent_opt</strong><em> [</em><em>logical </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="bgckocean_mod.html#f/bgckocean_mod/ocebg_bgchecksst" title="f/bgckocean_mod/ocebg_bgchecksst"><code class="xref f f-func docutils literal notranslate"><span class="pre">ocebg_bgchecksst()</span></code></a>, <a class="reference internal" href="biascorrectionsat_mod.html#f/biascorrectionsat_mod/bcs_getradiosondeweight" title="f/biascorrectionsat_mod/bcs_getradiosondeweight"><code class="xref f f-func docutils literal notranslate"><span class="pre">bcs_getradiosondeweight()</span></code></a>, <a class="reference internal" href="bmatrix1dvar_mod.html#f/bmatrix1dvar_mod/bmat1d_setupbens" title="f/bmatrix1dvar_mod/bmat1d_setupbens"><code class="xref f f-func docutils literal notranslate"><span class="pre">bmat1d_setupbens()</span></code></a>, <a class="reference internal" href="innovation_mod.html#f/innovation_mod/inn_setupcolumnsontrllev" title="f/innovation_mod/inn_setupcolumnsontrllev"><code class="xref f f-func docutils literal notranslate"><span class="pre">inn_setupcolumnsontrllev()</span></code></a>, <a class="reference internal" href="obserrors_mod.html#f/obserrors_mod/oer_seterrbackscatanisice" title="f/obserrors_mod/oer_seterrbackscatanisice"><code class="xref f f-func docutils literal notranslate"><span class="pre">oer_seterrbackscatanisice()</span></code></a>, <a class="reference internal" href="ominusf_mod.html#f/ominusf_mod/omf_ominusfens" title="f/ominusf_mod/omf_ominusfens"><code class="xref f f-func docutils literal notranslate"><span class="pre">omf_ominusfens()</span></code></a>, <a class="reference internal" href="sstbias_mod.html#f/sstbias_mod/sstb_getbiascorrection" title="f/sstbias_mod/sstb_getbiascorrection"><code class="xref f f-func docutils literal notranslate"><span class="pre">sstb_getbiascorrection()</span></code></a>, <a class="reference internal" href="../programs/midas_ensembleh.html#f/midas_ensembleh" title="f/midas_ensembleh"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_ensembleh</span></code></a>, <a class="reference internal" href="../programs/midas_letkf.html#f/midas_letkf" title="f/midas_letkf"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_letkf</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_start" title="f/utilities_mod/utl_tmg_start"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_start()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_isallocated" title="f/gridstatevector_mod/gsv_isallocated"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_isallocated()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="horizontalcoord_mod.html#f/horizontalcoord_mod/hco_equal" title="f/horizontalcoord_mod/hco_equal"><code class="xref f f-func docutils literal notranslate"><span class="pre">hco_equal()</span></code></a>, <a class="reference internal" href="#f/statetocolumn_mod/s2c_deallocinterpinfo" title="f/statetocolumn_mod/s2c_deallocinterpinfo"><code class="xref f f-func docutils literal notranslate"><span class="pre">s2c_deallocinterpinfo()</span></code></a>, <a class="reference internal" href="#f/statetocolumn_mod/checkcolumnstatevectormatch" title="f/statetocolumn_mod/checkcolumnstatevectormatch"><code class="xref f f-func docutils literal notranslate"><span class="pre">checkcolumnstatevectormatch()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_varnameslist" title="f/gridstatevector_mod/gsv_varnameslist"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_varnameslist()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_allocate" title="f/gridstatevector_mod/gsv_allocate"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_allocate()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_zero" title="f/gridstatevector_mod/gsv_zero"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_zero()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_transposetilestovarslevs" title="f/gridstatevector_mod/gsv_transposetilestovarslevs"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_transposetilestovarslevs()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_stop" title="f/utilities_mod/utl_tmg_stop"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_stop()</span></code></a>, <a class="reference internal" href="#f/statetocolumn_mod/latlonchecksanlgrid" title="f/statetocolumn_mod/latlonchecksanlgrid"><code class="xref f f-func docutils literal notranslate"><span class="pre">latlonchecksanlgrid()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_getallcolumns" title="f/columndata_mod/col_getallcolumns"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_getallcolumns()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_numheader" title="f/obsspacedata_mod/obs_numheader"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_numheader()</span></code></a>, <a class="reference internal" href="#f/statetocolumn_mod/s2c_setupinterpinfo" title="f/statetocolumn_mod/s2c_setupinterpinfo"><code class="xref f f-func docutils literal notranslate"><span class="pre">s2c_setupinterpinfo()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_getvarnamefromk" title="f/gridstatevector_mod/gsv_getvarnamefromk"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_getvarnamefromk()</span></code></a>, <a class="reference internal" href="#f/statetocolumn_mod/myezuvint_nl" title="f/statetocolumn_mod/myezuvint_nl"><code class="xref f f-func docutils literal notranslate"><span class="pre">myezuvint_nl()</span></code></a>, <a class="reference internal" href="#f/statetocolumn_mod/myezsint_nl" title="f/statetocolumn_mod/myezsint_nl"><code class="xref f f-func docutils literal notranslate"><span class="pre">myezsint_nl()</span></code></a>, <a class="reference internal" href="obstimeinterp_mod.html#f/obstimeinterp_mod/oti_gettimeinterpweightmpiglobal" title="f/obstimeinterp_mod/oti_gettimeinterpweightmpiglobal"><code class="xref f f-func docutils literal notranslate"><span class="pre">oti_gettimeinterpweightmpiglobal()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_varexist" title="f/columndata_mod/col_varexist"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_varexist()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_getcolumn" title="f/columndata_mod/col_getcolumn"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_getcolumn()</span></code></a>, <a class="reference internal" href="humiditylimits_mod.html#f/humiditylimits_mod/qlim_getminvaluecloud" title="f/humiditylimits_mod/qlim_getminvaluecloud"><code class="xref f f-func docutils literal notranslate"><span class="pre">qlim_getminvaluecloud()</span></code></a>, <a class="reference internal" href="humiditylimits_mod.html#f/humiditylimits_mod/qlim_getmaxvaluecloud" title="f/humiditylimits_mod/qlim_getmaxvaluecloud"><code class="xref f f-func docutils literal notranslate"><span class="pre">qlim_getmaxvaluecloud()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_getheightsfc" title="f/gridstatevector_mod/gsv_getheightsfc"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_getheightsfc()</span></code></a>, <a class="reference internal" href="#f/statetocolumn_mod/myezsint_r8_nl" title="f/statetocolumn_mod/myezsint_r8_nl"><code class="xref f f-func docutils literal notranslate"><span class="pre">myezsint_r8_nl()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_setheightsfc" title="f/columndata_mod/col_setheightsfc"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_setheightsfc()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_deallocate" title="f/gridstatevector_mod/gsv_deallocate"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_deallocate()</span></code></a>, <a class="reference internal" href="#f/statetocolumn_mod/pressureprofilemonotonicitycheck" title="f/statetocolumn_mod/pressureprofilemonotonicitycheck"><code class="xref f f-func docutils literal notranslate"><span class="pre">pressureprofilemonotonicitycheck()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/statetocolumn_mod/myezsint_nl">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">statetocolumn_mod/</span></span><span class="sig-name descname"><span class="pre">myezsint_nl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">column_out</span></em>, <em class="sig-param"><span class="pre">field_in</span></em>, <em class="sig-param"><span class="pre">interpinfo</span></em>, <em class="sig-param"><span class="pre">kindex</span></em>, <em class="sig-param"><span class="pre">stepindex</span></em>, <em class="sig-param"><span class="pre">procindex</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/statetocolumn_mod/myezsint_nl" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Scalar horizontal interpolation, replaces the
+ezsint routine from rmnlib.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>column_out</strong> (*)<em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>field_in</strong> (*,*)<em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>interpinfo</strong><em> [</em><em>struct_interpinfo </em><em>]</em></p></li>
+<li><p><strong>kindex</strong><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><strong>stepindex</strong><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><strong>procindex</strong><em> [</em><em>integer </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/statetocolumn_mod/s2c_nl" title="f/statetocolumn_mod/s2c_nl"><code class="xref f f-func docutils literal notranslate"><span class="pre">s2c_nl()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/statetocolumn_mod/myezsint_r8_nl">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">statetocolumn_mod/</span></span><span class="sig-name descname"><span class="pre">myezsint_r8_nl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">column_out</span></em>, <em class="sig-param"><span class="pre">field_in</span></em>, <em class="sig-param"><span class="pre">interpinfo</span></em>, <em class="sig-param"><span class="pre">kindex</span></em>, <em class="sig-param"><span class="pre">stepindex</span></em>, <em class="sig-param"><span class="pre">procindex</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/statetocolumn_mod/myezsint_r8_nl" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Scalar horizontal interpolation, replaces the
+ezsint routine from rmnlib.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>column_out</strong> (*)<em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>field_in</strong> (*,*)<em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>interpinfo</strong><em> [</em><em>struct_interpinfo </em><em>]</em></p></li>
+<li><p><strong>kindex</strong><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><strong>stepindex</strong><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><strong>procindex</strong><em> [</em><em>integer </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/statetocolumn_mod/s2c_nl" title="f/statetocolumn_mod/s2c_nl"><code class="xref f f-func docutils literal notranslate"><span class="pre">s2c_nl()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/statetocolumn_mod/myezsint_tl">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">statetocolumn_mod/</span></span><span class="sig-name descname"><span class="pre">myezsint_tl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">column_out</span></em>, <em class="sig-param"><span class="pre">field_in</span></em>, <em class="sig-param"><span class="pre">interpinfo</span></em>, <em class="sig-param"><span class="pre">kindex</span></em>, <em class="sig-param"><span class="pre">stepindex</span></em>, <em class="sig-param"><span class="pre">procindex</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/statetocolumn_mod/myezsint_tl" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Scalar horizontal interpolation, replaces the
+ezsint routine from rmnlib.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>column_out</strong> (*)<em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>field_in</strong> (*,*)<em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>interpinfo</strong><em> [</em><em>struct_interpinfo </em><em>]</em></p></li>
+<li><p><strong>kindex</strong><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><strong>stepindex</strong><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><strong>procindex</strong><em> [</em><em>integer </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/statetocolumn_mod/s2c_tl" title="f/statetocolumn_mod/s2c_tl"><code class="xref f f-func docutils literal notranslate"><span class="pre">s2c_tl()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/statetocolumn_mod/myezsint_ad">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">statetocolumn_mod/</span></span><span class="sig-name descname"><span class="pre">myezsint_ad</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">column_in</span></em>, <em class="sig-param"><span class="pre">field_out</span></em>, <em class="sig-param"><span class="pre">interpinfo</span></em>, <em class="sig-param"><span class="pre">kindex</span></em>, <em class="sig-param"><span class="pre">stepindex</span></em>, <em class="sig-param"><span class="pre">procindex</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/statetocolumn_mod/myezsint_ad" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Adjoint of the scalar horizontal interpolation.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>column_in</strong> (*)<em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>field_out</strong> (*,*)<em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>interpinfo</strong><em> [</em><em>struct_interpinfo </em><em>]</em></p></li>
+<li><p><strong>kindex</strong><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><strong>stepindex</strong><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><strong>procindex</strong><em> [</em><em>integer </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/statetocolumn_mod/s2c_ad" title="f/statetocolumn_mod/s2c_ad"><code class="xref f f-func docutils literal notranslate"><span class="pre">s2c_ad()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/statetocolumn_mod/myezuvint_nl">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">statetocolumn_mod/</span></span><span class="sig-name descname"><span class="pre">myezuvint_nl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">column_out</span></em>, <em class="sig-param"><span class="pre">varname</span></em>, <em class="sig-param"><span class="pre">fielduu_in</span></em>, <em class="sig-param"><span class="pre">fieldvv_in</span></em>, <em class="sig-param"><span class="pre">interpinfo</span></em>, <em class="sig-param"><span class="pre">kindex</span></em>, <em class="sig-param"><span class="pre">stepindex</span></em>, <em class="sig-param"><span class="pre">procindex</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/statetocolumn_mod/myezuvint_nl" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Vector horizontal interpolation, replaces the
+ezuvint routine from rmnlib.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>column_out</strong> (*)<em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>varname</strong><em> [</em><em>character </em><em>]</em></p></li>
+<li><p><strong>fielduu_in</strong> (*,*)<em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>fieldvv_in</strong> (*,*)<em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>interpinfo</strong><em> [</em><em>struct_interpinfo </em><em>]</em></p></li>
+<li><p><strong>kindex</strong><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><strong>stepindex</strong><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><strong>procindex</strong><em> [</em><em>integer </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/statetocolumn_mod/s2c_nl" title="f/statetocolumn_mod/s2c_nl"><code class="xref f f-func docutils literal notranslate"><span class="pre">s2c_nl()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="windrotation_mod.html#f/windrotation_mod/uvr_rotatewind_nl" title="f/windrotation_mod/uvr_rotatewind_nl"><code class="xref f f-func docutils literal notranslate"><span class="pre">uvr_rotatewind_nl()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/statetocolumn_mod/myezuvint_tl">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">statetocolumn_mod/</span></span><span class="sig-name descname"><span class="pre">myezuvint_tl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">column_out</span></em>, <em class="sig-param"><span class="pre">varname</span></em>, <em class="sig-param"><span class="pre">fielduu_in</span></em>, <em class="sig-param"><span class="pre">fieldvv_in</span></em>, <em class="sig-param"><span class="pre">interpinfo</span></em>, <em class="sig-param"><span class="pre">kindex</span></em>, <em class="sig-param"><span class="pre">stepindex</span></em>, <em class="sig-param"><span class="pre">procindex</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/statetocolumn_mod/myezuvint_tl" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Vector horizontal interpolation, replaces the
+ezuvint routine from rmnlib.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>column_out</strong> (*)<em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>varname</strong><em> [</em><em>character </em><em>]</em></p></li>
+<li><p><strong>fielduu_in</strong> (*,*)<em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>fieldvv_in</strong> (*,*)<em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>interpinfo</strong><em> [</em><em>struct_interpinfo </em><em>]</em></p></li>
+<li><p><strong>kindex</strong><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><strong>stepindex</strong><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><strong>procindex</strong><em> [</em><em>integer </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/statetocolumn_mod/s2c_tl" title="f/statetocolumn_mod/s2c_tl"><code class="xref f f-func docutils literal notranslate"><span class="pre">s2c_tl()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="windrotation_mod.html#f/windrotation_mod/uvr_rotatewind_tl" title="f/windrotation_mod/uvr_rotatewind_tl"><code class="xref f f-func docutils literal notranslate"><span class="pre">uvr_rotatewind_tl()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/statetocolumn_mod/myezuvint_ad">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">statetocolumn_mod/</span></span><span class="sig-name descname"><span class="pre">myezuvint_ad</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">column_in</span></em>, <em class="sig-param"><span class="pre">varname</span></em>, <em class="sig-param"><span class="pre">fielduu_out</span></em>, <em class="sig-param"><span class="pre">fieldvv_out</span></em>, <em class="sig-param"><span class="pre">interpinfo</span></em>, <em class="sig-param"><span class="pre">kindex</span></em>, <em class="sig-param"><span class="pre">stepindex</span></em>, <em class="sig-param"><span class="pre">procindex</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/statetocolumn_mod/myezuvint_ad" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Adjoint of the vector horizontal interpolation.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>column_in</strong> (*)<em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>varname</strong><em> [</em><em>character </em><em>]</em></p></li>
+<li><p><strong>fielduu_out</strong> (*,*)<em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>fieldvv_out</strong> (*,*)<em> [</em><em>real </em><em>]</em></p></li>
+<li><p><strong>interpinfo</strong><em> [</em><em>struct_interpinfo </em><em>]</em></p></li>
+<li><p><strong>kindex</strong><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><strong>stepindex</strong><em> [</em><em>integer </em><em>]</em></p></li>
+<li><p><strong>procindex</strong><em> [</em><em>integer </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/statetocolumn_mod/s2c_ad" title="f/statetocolumn_mod/s2c_ad"><code class="xref f f-func docutils literal notranslate"><span class="pre">s2c_ad()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="windrotation_mod.html#f/windrotation_mod/uvr_rotatewind_ad" title="f/windrotation_mod/uvr_rotatewind_ad"><code class="xref f f-func docutils literal notranslate"><span class="pre">uvr_rotatewind_ad()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/statetocolumn_mod/s2c_bgcheck_bilin">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">statetocolumn_mod/</span></span><span class="sig-name descname"><span class="pre">s2c_bgcheck_bilin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">column</span></em>, <em class="sig-param"><span class="pre">statevector</span></em>, <em class="sig-param"><span class="pre">obsspacedata</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/statetocolumn_mod/s2c_bgcheck_bilin" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Special version of s2c_tl used for background check. This should
+be replaced by direct call to s2c_tl. It is not general enough to
+be used for new analysis variables.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>column</strong><em> [</em><em>struct_columndata </em><em>]</em></p></li>
+<li><p><strong>statevector</strong><em> [</em><em>struct_gsv </em><em>]</em></p></li>
+<li><p><strong>obsspacedata</strong><em> [</em><em>struct_obs </em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="obsspaceerrorstddev_mod.html#f/obsspaceerrorstddev_mod/ose_compute_hbht_static" title="f/obsspaceerrorstddev_mod/ose_compute_hbht_static"><code class="xref f f-func docutils literal notranslate"><span class="pre">ose_compute_hbht_static()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_start" title="f/utilities_mod/utl_tmg_start"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_start()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_getnumcol" title="f/columndata_mod/col_getnumcol"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_getnumcol()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_headelem_r" title="f/obsspacedata_mod/obs_headelem_r"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_headelem_r()</span></code></a>, <a class="reference internal" href="getgridposition_mod.html#f/getgridposition_mod/gpos_getpositionxy" title="f/getgridposition_mod/gpos_getpositionxy"><code class="xref f f-func docutils literal notranslate"><span class="pre">gpos_getpositionxy()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_varexist" title="f/columndata_mod/col_varexist"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_varexist()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_getcolumn" title="f/columndata_mod/col_getcolumn"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_getcolumn()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_varexist" title="f/gridstatevector_mod/gsv_varexist"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_varexist()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_getnumlevfromvarname" title="f/gridstatevector_mod/gsv_getnumlevfromvarname"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_getnumlevfromvarname()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_getoffsetfromvarname" title="f/gridstatevector_mod/gsv_getoffsetfromvarname"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_getoffsetfromvarname()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_stop" title="f/utilities_mod/utl_tmg_stop"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_stop()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/statetocolumn_mod/s2c_setuphorizinterp">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">statetocolumn_mod/</span></span><span class="sig-name descname"><span class="pre">s2c_setuphorizinterp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">footprintradius_r4</span></em>, <em class="sig-param"><span class="pre">interpinfo</span></em>, <em class="sig-param"><span class="pre">statevector</span></em>, <em class="sig-param"><span class="pre">headerindex</span></em>, <em class="sig-param"><span class="pre">kindex</span></em>, <em class="sig-param"><span class="pre">stepindex</span></em>, <em class="sig-param"><span class="pre">procindex</span></em>, <em class="sig-param"><span class="pre">numgridpt</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/statetocolumn_mod/s2c_setuphorizinterp" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>To identify the appropriate horizontal interpolation scheme based
+on footprint radius value. Then to call the corresponding
+subroutine to determine the grid points and their associated
+weights.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>footprintradius_r4</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: (metres)</p></li>
+<li><p><strong>interpinfo</strong><em> [</em><em>struct_interpinfo </em><em>,</em><em>inout</em><em>]</em></p></li>
+<li><p><strong>statevector</strong><em> [</em><em>struct_gsv </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>headerindex</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>kindex</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>stepindex</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>procindex</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>numgridpt</strong> (interpinfo%hco%numsubgrid)<em> [</em><em>integer </em><em>,</em><em>out</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/statetocolumn_mod/s2c_setupinterpinfo" title="f/statetocolumn_mod/s2c_setupinterpinfo"><code class="xref f f-func docutils literal notranslate"><span class="pre">s2c_setupinterpinfo()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/statetocolumn_mod/s2c_setupfootprintinterp" title="f/statetocolumn_mod/s2c_setupfootprintinterp"><code class="xref f f-func docutils literal notranslate"><span class="pre">s2c_setupfootprintinterp()</span></code></a>, <a class="reference internal" href="#f/statetocolumn_mod/s2c_setupbilinearinterp" title="f/statetocolumn_mod/s2c_setupbilinearinterp"><code class="xref f f-func docutils literal notranslate"><span class="pre">s2c_setupbilinearinterp()</span></code></a>, <a class="reference internal" href="#f/statetocolumn_mod/s2c_setuplakeinterp" title="f/statetocolumn_mod/s2c_setuplakeinterp"><code class="xref f f-func docutils literal notranslate"><span class="pre">s2c_setuplakeinterp()</span></code></a>, <a class="reference internal" href="#f/statetocolumn_mod/s2c_setupnearestneighbor" title="f/statetocolumn_mod/s2c_setupnearestneighbor"><code class="xref f f-func docutils literal notranslate"><span class="pre">s2c_setupnearestneighbor()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/statetocolumn_mod/s2c_getfootprintradius">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">statetocolumn_mod/</span></span><span class="sig-name descname"><span class="pre">s2c_getfootprintradius</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">obsspacedata</span></em>, <em class="sig-param"><span class="pre">statevector</span></em>, <em class="sig-param"><span class="pre">headerindex</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/statetocolumn_mod/s2c_getfootprintradius" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>To determine the footprint radius (metres) of the observation.
+In the case of bilinear horizontal interpolation,
+the returned footprint is zero (default).</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>obsspacedata</strong><em> [</em><em>struct_obs </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>statevector</strong><em> [</em><em>struct_gsv </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>headerindex</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Return</dt>
+<dd class="field-odd"><p><strong>fpr</strong><em> [</em><em>real </em><em>]</em></p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="analysiserroroi_mod.html#f/analysiserroroi_mod/findobs" title="f/analysiserroroi_mod/findobs"><code class="xref f f-func docutils literal notranslate"><span class="pre">findobs()</span></code></a>, <a class="reference internal" href="#f/statetocolumn_mod/s2c_setupinterpinfo" title="f/statetocolumn_mod/s2c_setupinterpinfo"><code class="xref f f-func docutils literal notranslate"><span class="pre">s2c_setupinterpinfo()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_getfamily" title="f/obsspacedata_mod/obs_getfamily"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_getfamily()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_elem_c" title="f/obsspacedata_mod/obs_elem_c"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_elem_c()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_headelem_i" title="f/obsspacedata_mod/obs_headelem_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_headelem_i()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="codtyp_mod.html#f/codtyp_mod/codtyp_get_name" title="f/codtyp_mod/codtyp_get_name"><code class="xref f f-func docutils literal notranslate"><span class="pre">codtyp_get_name()</span></code></a>, <a class="reference internal" href="#f/statetocolumn_mod/gettovsfootprintradius" title="f/statetocolumn_mod/gettovsfootprintradius"><code class="xref f f-func docutils literal notranslate"><span class="pre">gettovsfootprintradius()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/statetocolumn_mod/s2c_rejectzeroweightobs">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">statetocolumn_mod/</span></span><span class="sig-name descname"><span class="pre">s2c_rejectzeroweightobs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">interpinfo</span></em>, <em class="sig-param"><span class="pre">obsspacedata</span></em>, <em class="sig-param"><span class="pre">mykbeg</span></em>, <em class="sig-param"><span class="pre">mykend</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/statetocolumn_mod/s2c_rejectzeroweightobs" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>To flag an observation in obsSpaceData as being rejected if
+it has zero interpolation weight (usually because an ocean
+obs is touching land) on any mpi task.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>interpinfo</strong><em> [</em><em>struct_interpinfo </em><em>,</em><em>inout</em><em>]</em></p></li>
+<li><p><strong>obsspacedata</strong><em> [</em><em>struct_obs </em><em>,</em><em>inout</em><em>]</em></p></li>
+<li><p><strong>mykbeg</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>mykend</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/statetocolumn_mod/s2c_setupinterpinfo" title="f/statetocolumn_mod/s2c_setupinterpinfo"><code class="xref f f-func docutils literal notranslate"><span class="pre">s2c_setupinterpinfo()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_numheader" title="f/obsspacedata_mod/obs_numheader"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_numheader()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_headelem_i" title="f/obsspacedata_mod/obs_headelem_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_headelem_i()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyset_i" title="f/obsspacedata_mod/obs_bodyset_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyset_i()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_headset_i" title="f/obsspacedata_mod/obs_headset_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_headset_i()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/statetocolumn_mod/s2c_setupbilinearinterp">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">statetocolumn_mod/</span></span><span class="sig-name descname"><span class="pre">s2c_setupbilinearinterp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">interpinfo</span></em>, <em class="sig-param"><span class="pre">statevector</span></em>, <em class="sig-param"><span class="pre">headerindex</span></em>, <em class="sig-param"><span class="pre">kindex</span></em>, <em class="sig-param"><span class="pre">stepindex</span></em>, <em class="sig-param"><span class="pre">procindex</span></em>, <em class="sig-param"><span class="pre">numgridpt</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/statetocolumn_mod/s2c_setupbilinearinterp" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>To determine the grid points and their associated weights
+for the bilinear horizontal interpolation. If mask is present
+we currently can only handle a single 2D mask (like for sea
+ice or SST analysis). Will abort if multiple ocean levels present.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>interpinfo</strong><em> [</em><em>struct_interpinfo </em><em>,</em><em>inout</em><em>]</em></p></li>
+<li><p><strong>statevector</strong><em> [</em><em>struct_gsv </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>headerindex</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>kindex</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>stepindex</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>procindex</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>numgridpt</strong> (interpinfo%hco%numsubgrid)<em> [</em><em>integer </em><em>,</em><em>out</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/statetocolumn_mod/s2c_setuphorizinterp" title="f/statetocolumn_mod/s2c_setuphorizinterp"><code class="xref f f-func docutils literal notranslate"><span class="pre">s2c_setuphorizinterp()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="getgridposition_mod.html#f/getgridposition_mod/gpos_getpositionxy" title="f/getgridposition_mod/gpos_getpositionxy"><code class="xref f f-func docutils literal notranslate"><span class="pre">gpos_getpositionxy()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/statetocolumn_mod/s2c_setupfootprintinterp">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">statetocolumn_mod/</span></span><span class="sig-name descname"><span class="pre">s2c_setupfootprintinterp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">fpr</span></em>, <em class="sig-param"><span class="pre">interpinfo</span></em>, <em class="sig-param"><span class="pre">statevector</span></em>, <em class="sig-param"><span class="pre">headerindex</span></em>, <em class="sig-param"><span class="pre">kindex</span></em>, <em class="sig-param"><span class="pre">stepindex</span></em>, <em class="sig-param"><span class="pre">procindex</span></em>, <em class="sig-param"><span class="pre">numgridpt</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/statetocolumn_mod/s2c_setupfootprintinterp" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>To determine the grid points and their associated weights
+for the footprint horizontal interpolation.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>fpr</strong><em> [</em><em>real </em><em>,</em><em>in</em><em>]</em> :: footprint radius (metres)</p></li>
+<li><p><strong>interpinfo</strong><em> [</em><em>struct_interpinfo </em><em>,</em><em>inout</em><em>]</em></p></li>
+<li><p><strong>statevector</strong><em> [</em><em>struct_gsv </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>headerindex</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>kindex</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>stepindex</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>procindex</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>numgridpt</strong> (interpinfo%hco%numsubgrid)<em> [</em><em>integer </em><em>,</em><em>out</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/statetocolumn_mod/s2c_setuphorizinterp" title="f/statetocolumn_mod/s2c_setuphorizinterp"><code class="xref f f-func docutils literal notranslate"><span class="pre">s2c_setuphorizinterp()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="getgridposition_mod.html#f/getgridposition_mod/gpos_getpositionxy" title="f/getgridposition_mod/gpos_getpositionxy"><code class="xref f f-func docutils literal notranslate"><span class="pre">gpos_getpositionxy()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="kdtree2_mod.html#f/kdtree2_mod/kdtree2_3dposition" title="f/kdtree2_mod/kdtree2_3dposition"><code class="xref f f-func docutils literal notranslate"><span class="pre">kdtree2_3dposition()</span></code></a>, <a class="reference internal" href="kdtree2_mod.html#f/kdtree2_mod/kdtree2_r_nearest" title="f/kdtree2_mod/kdtree2_r_nearest"><code class="xref f f-func docutils literal notranslate"><span class="pre">kdtree2_r_nearest()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/statetocolumn_mod/s2c_setuplakeinterp">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">statetocolumn_mod/</span></span><span class="sig-name descname"><span class="pre">s2c_setuplakeinterp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">interpinfo</span></em>, <em class="sig-param"><span class="pre">statevector</span></em>, <em class="sig-param"><span class="pre">headerindex</span></em>, <em class="sig-param"><span class="pre">kindex</span></em>, <em class="sig-param"><span class="pre">stepindex</span></em>, <em class="sig-param"><span class="pre">procindex</span></em>, <em class="sig-param"><span class="pre">numgridpt</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/statetocolumn_mod/s2c_setuplakeinterp" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>To determine the grid points and their associated weights
+for the lake horizontal interpolation.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>interpinfo</strong><em> [</em><em>struct_interpinfo </em><em>,</em><em>inout</em><em>]</em></p></li>
+<li><p><strong>statevector</strong><em> [</em><em>struct_gsv </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>headerindex</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>kindex</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>stepindex</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>procindex</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>numgridpt</strong> (interpinfo%hco%numsubgrid)<em> [</em><em>integer </em><em>,</em><em>out</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/statetocolumn_mod/s2c_setuphorizinterp" title="f/statetocolumn_mod/s2c_setuphorizinterp"><code class="xref f f-func docutils literal notranslate"><span class="pre">s2c_setuphorizinterp()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="getgridposition_mod.html#f/getgridposition_mod/gpos_getpositionxy" title="f/getgridposition_mod/gpos_getpositionxy"><code class="xref f f-func docutils literal notranslate"><span class="pre">gpos_getpositionxy()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/statetocolumn_mod/s2c_setupnearestneighbor">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">statetocolumn_mod/</span></span><span class="sig-name descname"><span class="pre">s2c_setupnearestneighbor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">interpinfo</span></em>, <em class="sig-param"><span class="pre">statevector</span></em>, <em class="sig-param"><span class="pre">headerindex</span></em>, <em class="sig-param"><span class="pre">kindex</span></em>, <em class="sig-param"><span class="pre">stepindex</span></em>, <em class="sig-param"><span class="pre">procindex</span></em>, <em class="sig-param"><span class="pre">numgridpt</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/statetocolumn_mod/s2c_setupnearestneighbor" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Determine the nearest grid points to the observations location</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>interpinfo</strong><em> [</em><em>struct_interpinfo </em><em>,</em><em>inout</em><em>]</em></p></li>
+<li><p><strong>statevector</strong><em> [</em><em>struct_gsv </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>headerindex</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>kindex</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>stepindex</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>procindex</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>numgridpt</strong> (interpinfo%hco%numsubgrid)<em> [</em><em>integer </em><em>,</em><em>out</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/statetocolumn_mod/s2c_setuphorizinterp" title="f/statetocolumn_mod/s2c_setuphorizinterp"><code class="xref f f-func docutils literal notranslate"><span class="pre">s2c_setuphorizinterp()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="getgridposition_mod.html#f/getgridposition_mod/gpos_getpositionxy" title="f/getgridposition_mod/gpos_getpositionxy"><code class="xref f f-func docutils literal notranslate"><span class="pre">gpos_getpositionxy()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/statetocolumn_mod/checkcolumnstatevectormatch">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">statetocolumn_mod/</span></span><span class="sig-name descname"><span class="pre">checkcolumnstatevectormatch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">column</span></em>, <em class="sig-param"><span class="pre">statevector</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/statetocolumn_mod/checkcolumnstatevectormatch" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>To check column and statevector have identical nk and variables.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>column</strong><em> [</em><em>struct_columndata </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>statevector</strong><em> [</em><em>struct_gsv </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/statetocolumn_mod/s2c_tl" title="f/statetocolumn_mod/s2c_tl"><code class="xref f f-func docutils literal notranslate"><span class="pre">s2c_tl()</span></code></a>, <a class="reference internal" href="#f/statetocolumn_mod/s2c_nl" title="f/statetocolumn_mod/s2c_nl"><code class="xref f f-func docutils literal notranslate"><span class="pre">s2c_nl()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_getnumk" title="f/gridstatevector_mod/gsv_getnumk"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_getnumk()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod/gsv_getvarnamefromk" title="f/gridstatevector_mod/gsv_getvarnamefromk"><code class="xref f f-func docutils literal notranslate"><span class="pre">gsv_getvarnamefromk()</span></code></a>, <a class="reference internal" href="columndata_mod.html#f/columndata_mod/col_getvarnamefromk" title="f/columndata_mod/col_getvarnamefromk"><code class="xref f f-func docutils literal notranslate"><span class="pre">col_getvarnamefromk()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/statetocolumn_mod/latlonchecks">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">statetocolumn_mod/</span></span><span class="sig-name descname"><span class="pre">latlonchecks</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">obsspacedata</span></em>, <em class="sig-param"><span class="pre">hco</span></em>, <em class="sig-param"><span class="pre">headerindex</span></em>, <em class="sig-param"><span class="pre">rejectoutsideobs</span></em>, <em class="sig-param"><span class="pre">latlev_t</span></em>, <em class="sig-param"><span class="pre">lonlev_t</span></em>, <em class="sig-param"><span class="pre">latlev_m</span></em>, <em class="sig-param"><span class="pre">lonlev_m</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">latlev_s</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">lonlev_s</span></em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/statetocolumn_mod/latlonchecks" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>To check if the obs are inside the domain.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>obsspacedata</strong><em> [</em><em>struct_obs </em><em>,</em><em>inout</em><em>]</em></p></li>
+<li><p><strong>hco</strong><em> [</em><em>struct_hco </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>headerindex</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>rejectoutsideobs</strong><em> [</em><em>logical </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>latlev_t</strong> (*)<em> [</em><em>real </em><em>,</em><em>inout</em><em>]</em></p></li>
+<li><p><strong>lonlev_t</strong> (*)<em> [</em><em>real </em><em>,</em><em>inout</em><em>]</em></p></li>
+<li><p><strong>latlev_m</strong> (*)<em> [</em><em>real </em><em>,</em><em>inout</em><em>]</em></p></li>
+<li><p><strong>lonlev_m</strong> (*)<em> [</em><em>real </em><em>,</em><em>inout</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Options</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>latlev_s</strong><em> [</em><em>real </em><em>,</em><em>inout,</em><em>]</em></p></li>
+<li><p><strong>lonlev_s</strong><em> [</em><em>real </em><em>,</em><em>inout,</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/statetocolumn_mod/s2c_setupinterpinfo" title="f/statetocolumn_mod/s2c_setupinterpinfo"><code class="xref f f-func docutils literal notranslate"><span class="pre">s2c_setupinterpinfo()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="getgridposition_mod.html#f/getgridposition_mod/gpos_getpositionxy" title="f/getgridposition_mod/gpos_getpositionxy"><code class="xref f f-func docutils literal notranslate"><span class="pre">gpos_getpositionxy()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_headelem_i" title="f/obsspacedata_mod/obs_headelem_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_headelem_i()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_bodyset_i" title="f/obsspacedata_mod/obs_bodyset_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_bodyset_i()</span></code></a>, <a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_headset_i" title="f/obsspacedata_mod/obs_headset_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_headset_i()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/statetocolumn_mod/gettovsfootprintradius">
+<em class="property"><span class="pre">function</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">statetocolumn_mod/</span></span><span class="sig-name descname"><span class="pre">gettovsfootprintradius</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">obsspacedata</span></em>, <em class="sig-param"><span class="pre">headerindex</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">besilent_opt</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/statetocolumn_mod/gettovsfootprintradius" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>calculate foot-print radius for TOVS observations</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>obsspacedata</strong><em> [</em><em>struct_obs </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>headerindex</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Options</dt>
+<dd class="field-odd"><p><strong>besilent_opt</strong><em> [</em><em>logical </em><em>,</em><em>in,</em><em>]</em></p>
+</dd>
+<dt class="field-even">Return</dt>
+<dd class="field-even"><p><strong>footprintradius_r4</strong><em> [</em><em>real </em><em>]</em></p>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/statetocolumn_mod/s2c_getfootprintradius" title="f/statetocolumn_mod/s2c_getfootprintradius"><code class="xref f f-func docutils literal notranslate"><span class="pre">s2c_getfootprintradius()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="obsspacedata_mod.html#f/obsspacedata_mod/obs_headelem_i" title="f/obsspacedata_mod/obs_headelem_i"><code class="xref f f-func docutils literal notranslate"><span class="pre">obs_headelem_i()</span></code></a>, <a class="reference internal" href="codtyp_mod.html#f/codtyp_mod/codtyp_get_name" title="f/codtyp_mod/codtyp_get_name"><code class="xref f f-func docutils literal notranslate"><span class="pre">codtyp_get_name()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/statetocolumn_mod/s2c_getweightsandgridpointindexes">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">statetocolumn_mod/</span></span><span class="sig-name descname"><span class="pre">s2c_getweightsandgridpointindexes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">headerindex</span></em>, <em class="sig-param"><span class="pre">kindex</span></em>, <em class="sig-param"><span class="pre">stepindex</span></em>, <em class="sig-param"><span class="pre">procindex</span></em>, <em class="sig-param"><span class="pre">interpweight</span></em>, <em class="sig-param"><span class="pre">latindex</span></em>, <em class="sig-param"><span class="pre">lonindex</span></em>, <em class="sig-param"><span class="pre">gridptcount</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/statetocolumn_mod/s2c_getweightsandgridpointindexes" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Returns the weights and grid point indexes for a single observation.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>headerindex</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>kindex</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>stepindex</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>procindex</strong><em> [</em><em>integer </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>interpweight</strong> (*)<em> [</em><em>real </em><em>,</em><em>out</em><em>]</em></p></li>
+<li><p><strong>latindex</strong> (*)<em> [</em><em>integer </em><em>,</em><em>out</em><em>]</em></p></li>
+<li><p><strong>lonindex</strong> (*)<em> [</em><em>integer </em><em>,</em><em>out</em><em>]</em></p></li>
+<li><p><strong>gridptcount</strong><em> [</em><em>integer </em><em>,</em><em>out</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="analysiserroroi_mod.html#f/analysiserroroi_mod/aer_analysiserror" title="f/analysiserroroi_mod/aer_analysiserror"><code class="xref f f-func docutils literal notranslate"><span class="pre">aer_analysiserror()</span></code></a>, <a class="reference internal" href="analysiserroroi_mod.html#f/analysiserroroi_mod/findobs" title="f/analysiserroroi_mod/findobs"><code class="xref f f-func docutils literal notranslate"><span class="pre">findobs()</span></code></a>, <a class="reference internal" href="analysiserroroi_mod.html#f/analysiserroroi_mod/aer_dayssincelastobs" title="f/analysiserroroi_mod/aer_dayssincelastobs"><code class="xref f f-func docutils literal notranslate"><span class="pre">aer_dayssincelastobs()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_start" title="f/utilities_mod/utl_tmg_start"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_start()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_tmg_stop" title="f/utilities_mod/utl_tmg_stop"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_tmg_stop()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/statetocolumn_mod/s2c_deallocinterpinfo">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">statetocolumn_mod/</span></span><span class="sig-name descname"><span class="pre">s2c_deallocinterpinfo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">inputstatevectortype</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/statetocolumn_mod/s2c_deallocinterpinfo" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>Deallocate interpInfo_nl/tlad object.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><p><strong>inputstatevectortype</strong><em> [</em><em>character </em><em>,</em><em>in</em><em>]</em></p>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/statetocolumn_mod/s2c_tl" title="f/statetocolumn_mod/s2c_tl"><code class="xref f f-func docutils literal notranslate"><span class="pre">s2c_tl()</span></code></a>, <a class="reference internal" href="#f/statetocolumn_mod/s2c_ad" title="f/statetocolumn_mod/s2c_ad"><code class="xref f f-func docutils literal notranslate"><span class="pre">s2c_ad()</span></code></a>, <a class="reference internal" href="#f/statetocolumn_mod/s2c_nl" title="f/statetocolumn_mod/s2c_nl"><code class="xref f f-func docutils literal notranslate"><span class="pre">s2c_nl()</span></code></a>, <a class="reference internal" href="../programs/midas_var.html#f/midas_var" title="f/midas_var"><code class="xref f f-prog docutils literal notranslate"><span class="pre">midas_var</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a>, <a class="reference internal" href="obstimeinterp_mod.html#f/obstimeinterp_mod/oti_deallocate" title="f/obstimeinterp_mod/oti_deallocate"><code class="xref f f-func docutils literal notranslate"><span class="pre">oti_deallocate()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div></blockquote>
+</section>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="var1d_mod.html" title="var1d_mod"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="obsvariabletransforms_mod.html" title="obsvariabletransforms_mod"
+             >previous</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2018, ECCC.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.
+    </div>
+  </body>
+</html>

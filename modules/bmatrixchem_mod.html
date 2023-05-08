@@ -1,0 +1,471 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>bmatrixchem_mod &mdash; MIDAS  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="MIDAS  documentation" href="../index.html" />
+    <link rel="next" title="bmatrixdiff_mod" href="bmatrixdiff_mod.html" />
+    <link rel="prev" title="bmatrix1dvar_mod" href="bmatrix1dvar_mod.html" /> 
+  </head>
+  <body>
+  <div>
+    <img src="../_static/MIDAS_header.png" alt="MIDAS" />
+  </div>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="bmatrixdiff_mod.html" title="bmatrixdiff_mod"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="bmatrix1dvar_mod.html" title="bmatrix1dvar_mod"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="bmatrix1dvar_mod.html"
+                          title="previous chapter">bmatrix1dvar_mod</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="bmatrixdiff_mod.html"
+                          title="next chapter">bmatrixdiff_mod</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/modules/bmatrixchem_mod.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <section id="bmatrixchem-mod">
+<h1>bmatrixchem_mod<a class="headerlink" href="#bmatrixchem-mod" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><p><a class="reference internal" href="bmatrixchem_mod_src.html"><span class="doc">link to source code</span></a></p>
+<p><strong>Dependency Diagrams:</strong></p>
+<figure class="align-default" id="id1">
+<a class="reference internal image-reference" href="bmatrixchem_mod.svg"><img alt="bmatrixchem_mod.svg" height="100px" src="bmatrixchem_mod.svg" /></a>
+<figcaption>
+<p><span class="caption-text">Direct Dependency Diagram</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id2">
+<a class="reference internal image-reference" href="bmatrixchem_mod_rev.svg"><img alt="bmatrixchem_mod_rev.svg" height="100px" src="bmatrixchem_mod_rev.svg" /></a>
+<figcaption>
+<p><span class="caption-text">Reverse Dependency Diagram</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<span class="target" id="f/bmatrixchem_mod"></span><p class="rubric">Description</p>
+<p>MODULE BmatrixChem_mod (prefix=’bchm’ category=’2. B and R matrices’)</p>
+<dl class="field-list">
+<dt class="field-odd">Purpose</dt>
+<dd class="field-odd"><p>Contains routines involving the application of
+background-error covariance matrix(ces). Matrix based on
+horizontally homogeneous/isotropic correlations. This module
+includes the transform from control vector (spectral space) to
+analysis increments, related utilites, and the transform’s adjoint.</p>
+<p>Based on elements of bmatrixHI_mod.ftn90</p>
+</dd>
+<dt class="field-even">Comments</dt>
+<dd class="field-even"><ol class="arabic simple">
+<li><p>Covariances uncoupled from weather variable.</p></li>
+<li><p>One could potentially make public the functions/routines which are
+identical to those in bmatrixhi_mod.ftn90 (except possibly in name) so
+that one copy is present in the code.</p></li>
+</ol>
+</dd>
+</dl>
+<p>Public Subroutines:</p>
+<blockquote>
+<div><dl class="simple">
+<dt>bchm_setupCH:  Must be called first.</dt><dd><p>Acquire constituents backgound error standard
+deviations and spectral space correlations which are
+read and prepared by bcsc_setupCH.</p>
+</dd>
+</dl>
+<p>bchm_finalize: Deallocate internal module arrays.
+bchm_BSqrt:    Transformations from control vector to analysis</p>
+<blockquote>
+<div><p>increments in the minimization process.</p>
+</div></blockquote>
+<p>bchm_BSqrtAd:  Adjoint of bchm_BSqrt.
+bchm_expand*   MPI manipulations of contol vector(s)
+bchm_reduce*   MPI manipulations related to contol vector(s)</p>
+</div></blockquote>
+<p class="rubric">Quick access</p>
+<dl class="field-list simple">
+<dt class="field-odd">Routines</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/bmatrixchem_mod/bchm_bsqrt" title="f/bmatrixchem_mod/bchm_bsqrt"><code class="xref f f-func docutils literal notranslate"><span class="pre">bchm_bsqrt()</span></code></a>, <a class="reference internal" href="#f/bmatrixchem_mod/bchm_bsqrtad" title="f/bmatrixchem_mod/bchm_bsqrtad"><code class="xref f f-func docutils literal notranslate"><span class="pre">bchm_bsqrtad()</span></code></a>, <a class="reference internal" href="#f/bmatrixchem_mod/bchm_cain" title="f/bmatrixchem_mod/bchm_cain"><code class="xref f f-func docutils literal notranslate"><span class="pre">bchm_cain()</span></code></a>, <a class="reference internal" href="#f/bmatrixchem_mod/bchm_cainad" title="f/bmatrixchem_mod/bchm_cainad"><code class="xref f f-func docutils literal notranslate"><span class="pre">bchm_cainad()</span></code></a>, <a class="reference internal" href="#f/bmatrixchem_mod/bchm_copyfromstatevector" title="f/bmatrixchem_mod/bchm_copyfromstatevector"><code class="xref f f-func docutils literal notranslate"><span class="pre">bchm_copyfromstatevector()</span></code></a>, <a class="reference internal" href="#f/bmatrixchem_mod/bchm_copytostatevector" title="f/bmatrixchem_mod/bchm_copytostatevector"><code class="xref f f-func docutils literal notranslate"><span class="pre">bchm_copytostatevector()</span></code></a>, <a class="reference internal" href="#f/bmatrixchem_mod/bchm_expandtompiglobal" title="f/bmatrixchem_mod/bchm_expandtompiglobal"><code class="xref f f-func docutils literal notranslate"><span class="pre">bchm_expandtompiglobal()</span></code></a>, <a class="reference internal" href="#f/bmatrixchem_mod/bchm_expandtompiglobal_r4" title="f/bmatrixchem_mod/bchm_expandtompiglobal_r4"><code class="xref f f-func docutils literal notranslate"><span class="pre">bchm_expandtompiglobal_r4()</span></code></a>, <a class="reference internal" href="#f/bmatrixchem_mod/bchm_finalize" title="f/bmatrixchem_mod/bchm_finalize"><code class="xref f f-func docutils literal notranslate"><span class="pre">bchm_finalize()</span></code></a>, <a class="reference internal" href="#f/bmatrixchem_mod/bchm_reducetompilocal" title="f/bmatrixchem_mod/bchm_reducetompilocal"><code class="xref f f-func docutils literal notranslate"><span class="pre">bchm_reducetompilocal()</span></code></a>, <a class="reference internal" href="#f/bmatrixchem_mod/bchm_reducetompilocal_r4" title="f/bmatrixchem_mod/bchm_reducetompilocal_r4"><code class="xref f f-func docutils literal notranslate"><span class="pre">bchm_reducetompilocal_r4()</span></code></a>, <a class="reference internal" href="#f/bmatrixchem_mod/bchm_setupch" title="f/bmatrixchem_mod/bchm_setupch"><code class="xref f f-func docutils literal notranslate"><span class="pre">bchm_setupch()</span></code></a>, <a class="reference internal" href="#f/bmatrixchem_mod/bchm_spa2gd" title="f/bmatrixchem_mod/bchm_spa2gd"><code class="xref f f-func docutils literal notranslate"><span class="pre">bchm_spa2gd()</span></code></a>, <a class="reference internal" href="#f/bmatrixchem_mod/bchm_spa2gdad" title="f/bmatrixchem_mod/bchm_spa2gdad"><code class="xref f f-func docutils literal notranslate"><span class="pre">bchm_spa2gdad()</span></code></a></p>
+</dd>
+</dl>
+<p class="rubric">Needed modules</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="midasmpi_mod.html#f/midasmpi_mod" title="f/midasmpi_mod: MODULE midasMpi_mod (prefix='mmpi' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">midasmpi_mod</span></code></a>: MODULE midasMpi_mod (prefix=’mmpi’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="gridstatevector_mod.html#f/gridstatevector_mod" title="f/gridstatevector_mod: MODULE gridStateVector_mod (prefix='gsv' category='6. High-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">gridstatevector_mod</span></code></a>: MODULE gridStateVector_mod (prefix=’gsv’ category=’6. High-level data objects’)</p></li>
+<li><p><a class="reference internal" href="gridvariabletransforms_mod.html#f/gridvariabletransforms_mod" title="f/gridvariabletransforms_mod: MODULE gridVariableTransforms (prefix='gvt' category='4. Data Object transformations')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">gridvariabletransforms_mod</span></code></a>: MODULE gridVariableTransforms (prefix=’gvt’ category=’4. Data Object transformations’)</p></li>
+<li><p><a class="reference internal" href="globalspectraltransform_mod.html#f/globalspectraltransform_mod" title="f/globalspectraltransform_mod: MODULE globalSpectralTransform_mod (prefix='gst' category='4. Data Object transformations')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">globalspectraltransform_mod</span></code></a>: MODULE globalSpectralTransform_mod (prefix=’gst’ category=’4. Data Object transformations’)</p></li>
+<li><p><a class="reference internal" href="horizontalcoord_mod.html#f/horizontalcoord_mod" title="f/horizontalcoord_mod: MODULE HorizontalCoord_mod (prefix='hco' category='7. Low-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">horizontalcoord_mod</span></code></a>: MODULE HorizontalCoord_mod (prefix=’hco’ category=’7. Low-level data objects’)</p></li>
+<li><p><a class="reference internal" href="verticalcoord_mod.html#f/verticalcoord_mod" title="f/verticalcoord_mod: MODULE verticalcoord (prefix='vco' category='7. Low-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">verticalcoord_mod</span></code></a>: MODULE verticalcoord (prefix=’vco’ category=’7. Low-level data objects’)</p></li>
+<li><p><a class="reference internal" href="varnamelist_mod.html#f/varnamelist_mod" title="f/varnamelist_mod: MODULE varNameList (prefix='vnl' category='7. Low-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">varnamelist_mod</span></code></a>: MODULE varNameList (prefix=’vnl’ category=’7. Low-level data objects’)</p></li>
+<li><p><a class="reference internal" href="utilities_mod.html#f/utilities_mod" title="f/utilities_mod: MODULE utilities_mod (prefix='utl' category='8. Low-level utilities and constants')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">utilities_mod</span></code></a>: MODULE utilities_mod (prefix=’utl’ category=’8. Low-level utilities and constants’)</p></li>
+<li><p><a class="reference internal" href="bcovarsetupchem_mod.html#f/bcovarsetupchem_mod" title="f/bcovarsetupchem_mod: MODULE BCovarSetupChem_mod (prefix='bcsc' category='6. High-level data objects')"><code class="xref f f-mod docutils literal notranslate"><span class="pre">bcovarsetupchem_mod</span></code></a>: MODULE BCovarSetupChem_mod (prefix=’bcsc’ category=’6. High-level data objects’)</p></li>
+</ul>
+<p class="rubric">Variables</p>
+<p class="rubric">Subroutines and functions</p>
+<dl>
+<dt class="sig sig-object f" id="f/bmatrixchem_mod/bchm_setupch">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">bmatrixchem_mod/</span></span><span class="sig-name descname"><span class="pre">bchm_setupch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">hco_in</span></em>, <em class="sig-param"><span class="pre">vco_in</span></em>, <em class="sig-param"><span class="pre">cvdim_out</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/bmatrixchem_mod/bchm_setupch" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>hco_in</strong><em> [</em><em>struct_hco </em><em>,</em><em>in,pointer</em><em>]</em></p></li>
+<li><p><strong>vco_in</strong><em> [</em><em>struct_vco </em><em>,</em><em>in,pointer</em><em>]</em></p></li>
+<li><p><strong>cvdim_out</strong><em> [</em><em>integer </em><em>,</em><em>out</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="bmatrix_mod.html#f/bmatrix_mod/bmat_setup" title="f/bmatrix_mod/bmat_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">bmat_setup()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="bcovarsetupchem_mod.html#f/bcovarsetupchem_mod/bcsc_setupch" title="f/bcovarsetupchem_mod/bcsc_setupch"><code class="xref f f-func docutils literal notranslate"><span class="pre">bcsc_setupch()</span></code></a>, <a class="reference internal" href="bcovarsetupchem_mod.html#f/bcovarsetupchem_mod/bcsc_getcovarch" title="f/bcovarsetupchem_mod/bcsc_getcovarch"><code class="xref f f-func docutils literal notranslate"><span class="pre">bcsc_getcovarch()</span></code></a>, <a class="reference internal" href="globalspectraltransform_mod.html#f/globalspectraltransform_mod/gst_setup" title="f/globalspectraltransform_mod/gst_setup"><code class="xref f f-func docutils literal notranslate"><span class="pre">gst_setup()</span></code></a>, <a class="reference internal" href="midasmpi_mod.html#f/midasmpi_mod/mmpi_setup_latbands" title="f/midasmpi_mod/mmpi_setup_latbands"><code class="xref f f-func docutils literal notranslate"><span class="pre">mmpi_setup_latbands()</span></code></a>, <a class="reference internal" href="midasmpi_mod.html#f/midasmpi_mod/mmpi_setup_lonbands" title="f/midasmpi_mod/mmpi_setup_lonbands"><code class="xref f f-func docutils literal notranslate"><span class="pre">mmpi_setup_lonbands()</span></code></a>, <a class="reference internal" href="midasmpi_mod.html#f/midasmpi_mod/mmpi_setup_m" title="f/midasmpi_mod/mmpi_setup_m"><code class="xref f f-func docutils literal notranslate"><span class="pre">mmpi_setup_m()</span></code></a>, <a class="reference internal" href="midasmpi_mod.html#f/midasmpi_mod/mmpi_setup_n" title="f/midasmpi_mod/mmpi_setup_n"><code class="xref f f-func docutils literal notranslate"><span class="pre">mmpi_setup_n()</span></code></a>, <a class="reference internal" href="globalspectraltransform_mod.html#f/globalspectraltransform_mod/gst_ilalist_mpiglobal" title="f/globalspectraltransform_mod/gst_ilalist_mpiglobal"><code class="xref f f-func docutils literal notranslate"><span class="pre">gst_ilalist_mpiglobal()</span></code></a>, <a class="reference internal" href="globalspectraltransform_mod.html#f/globalspectraltransform_mod/gst_ilalist_mpilocal" title="f/globalspectraltransform_mod/gst_ilalist_mpilocal"><code class="xref f f-func docutils literal notranslate"><span class="pre">gst_ilalist_mpilocal()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/bmatrixchem_mod/bchm_bsqrt">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">bmatrixchem_mod/</span></span><span class="sig-name descname"><span class="pre">bchm_bsqrt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">controlvector_in</span></em>, <em class="sig-param"><span class="pre">statevector</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">statevectorref_opt</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/bmatrixchem_mod/bchm_bsqrt" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>To apply B_CHM^1/2 to a control vector.</p>
+<p>Based on bhi_bsqrt</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>controlvector_in</strong> (cvdim_mpilocal)<em> [</em><em>real </em><em>,</em><em>inout</em><em>]</em></p></li>
+<li><p><strong>statevector</strong><em> [</em><em>struct_gsv </em><em>,</em><em>inout</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Options</dt>
+<dd class="field-odd"><p><strong>statevectorref_opt</strong><em> [</em><em>struct_gsv </em><em>,</em><em>in,</em><em>]</em></p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="bmatrix_mod.html#f/bmatrix_mod/bmat_sqrtb" title="f/bmatrix_mod/bmat_sqrtb"><code class="xref f f-func docutils literal notranslate"><span class="pre">bmat_sqrtb()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/bmatrixchem_mod/bchm_cain" title="f/bmatrixchem_mod/bchm_cain"><code class="xref f f-func docutils literal notranslate"><span class="pre">bchm_cain()</span></code></a>, <a class="reference internal" href="#f/bmatrixchem_mod/bchm_spa2gd" title="f/bmatrixchem_mod/bchm_spa2gd"><code class="xref f f-func docutils literal notranslate"><span class="pre">bchm_spa2gd()</span></code></a>, <a class="reference internal" href="#f/bmatrixchem_mod/bchm_copytostatevector" title="f/bmatrixchem_mod/bchm_copytostatevector"><code class="xref f f-func docutils literal notranslate"><span class="pre">bchm_copytostatevector()</span></code></a>, <a class="reference internal" href="varnamelist_mod.html#f/varnamelist_mod/vnl_varkindfromvarname" title="f/varnamelist_mod/vnl_varkindfromvarname"><code class="xref f f-func docutils literal notranslate"><span class="pre">vnl_varkindfromvarname()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/bmatrixchem_mod/bchm_bsqrtad">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">bmatrixchem_mod/</span></span><span class="sig-name descname"><span class="pre">bchm_bsqrtad</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">statevector</span></em>, <em class="sig-param"><span class="pre">controlvector_out</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">statevectorref_opt</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#f/bmatrixchem_mod/bchm_bsqrtad" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list">
+<dt class="field-odd">Purpose </dt>
+<dd class="field-odd"><p>To apply adjoint of B_CHM^1/2 to a statevector.</p>
+<p>Based on bhi_bSqrtAd.</p>
+</dd>
+<dt class="field-even">Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>statevector</strong><em> [</em><em>struct_gsv </em><em>,</em><em>inout</em><em>]</em></p></li>
+<li><p><strong>controlvector_out</strong> (cvdim_mpilocal)<em> [</em><em>real </em><em>,</em><em>inout</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Options</dt>
+<dd class="field-odd"><p><strong>statevectorref_opt</strong><em> [</em><em>struct_gsv </em><em>,</em><em>in,</em><em>]</em></p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="bmatrix_mod.html#f/bmatrix_mod/bmat_sqrtbt" title="f/bmatrix_mod/bmat_sqrtbt"><code class="xref f f-func docutils literal notranslate"><span class="pre">bmat_sqrtbt()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="varnamelist_mod.html#f/varnamelist_mod/vnl_varkindfromvarname" title="f/varnamelist_mod/vnl_varkindfromvarname"><code class="xref f f-func docutils literal notranslate"><span class="pre">vnl_varkindfromvarname()</span></code></a>, <a class="reference internal" href="#f/bmatrixchem_mod/bchm_copyfromstatevector" title="f/bmatrixchem_mod/bchm_copyfromstatevector"><code class="xref f f-func docutils literal notranslate"><span class="pre">bchm_copyfromstatevector()</span></code></a>, <a class="reference internal" href="#f/bmatrixchem_mod/bchm_spa2gdad" title="f/bmatrixchem_mod/bchm_spa2gdad"><code class="xref f f-func docutils literal notranslate"><span class="pre">bchm_spa2gdad()</span></code></a>, <a class="reference internal" href="#f/bmatrixchem_mod/bchm_cainad" title="f/bmatrixchem_mod/bchm_cainad"><code class="xref f f-func docutils literal notranslate"><span class="pre">bchm_cainad()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/bmatrixchem_mod/bchm_cain">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">bmatrixchem_mod/</span></span><span class="sig-name descname"><span class="pre">bchm_cain</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">controlvector_in</span></em>, <em class="sig-param"><span class="pre">hicontrolvector_out</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/bmatrixchem_mod/bchm_cain" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>controlvector_in</strong> (cvdim_mpilocal)<em> [</em><em>real </em><em>,</em><em>inout</em><em>]</em></p></li>
+<li><p><strong>hicontrolvector_out</strong> (nla_mpilocal,2,bgstats%nkgdim)<em> [</em><em>real </em><em>,</em><em>inout</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/bmatrixchem_mod/bchm_bsqrt" title="f/bmatrixchem_mod/bchm_bsqrt"><code class="xref f f-func docutils literal notranslate"><span class="pre">bchm_bsqrt()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="globalspectraltransform_mod.html#f/globalspectraltransform_mod/gst_getnind" title="f/globalspectraltransform_mod/gst_getnind"><code class="xref f f-func docutils literal notranslate"><span class="pre">gst_getnind()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/bmatrixchem_mod/bchm_cainad">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">bmatrixchem_mod/</span></span><span class="sig-name descname"><span class="pre">bchm_cainad</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">hicontrolvector_in</span></em>, <em class="sig-param"><span class="pre">controlvector_out</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/bmatrixchem_mod/bchm_cainad" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>hicontrolvector_in</strong> (nla_mpilocal,2,bgstats%nkgdim)<em> [</em><em>real </em><em>,</em><em>inout</em><em>]</em></p></li>
+<li><p><strong>controlvector_out</strong> (cvdim_mpilocal)<em> [</em><em>real </em><em>,</em><em>inout</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/bmatrixchem_mod/bchm_bsqrtad" title="f/bmatrixchem_mod/bchm_bsqrtad"><code class="xref f f-func docutils literal notranslate"><span class="pre">bchm_bsqrtad()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="globalspectraltransform_mod.html#f/globalspectraltransform_mod/gst_getnind" title="f/globalspectraltransform_mod/gst_getnind"><code class="xref f f-func docutils literal notranslate"><span class="pre">gst_getnind()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/bmatrixchem_mod/bchm_spa2gd">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">bmatrixchem_mod/</span></span><span class="sig-name descname"><span class="pre">bchm_spa2gd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">hicontrolvector_in</span></em>, <em class="sig-param"><span class="pre">gd_out</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/bmatrixchem_mod/bchm_spa2gd" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>hicontrolvector_in</strong> (nla_mpilocal,2,bgstats%nkgdim)<em> [</em><em>real </em><em>,</em><em>inout</em><em>]</em></p></li>
+<li><p><strong>gd_out</strong> (mylonend-(mylonbeg)+1,mylatend-(mylatbeg)+1,bgstats%nkgdim)<em> [</em><em>real </em><em>,</em><em>inout</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/bmatrixchem_mod/bchm_bsqrt" title="f/bmatrixchem_mod/bchm_bsqrt"><code class="xref f f-func docutils literal notranslate"><span class="pre">bchm_bsqrt()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="globalspectraltransform_mod.html#f/globalspectraltransform_mod/gst_getnind" title="f/globalspectraltransform_mod/gst_getnind"><code class="xref f f-func docutils literal notranslate"><span class="pre">gst_getnind()</span></code></a>, <a class="reference internal" href="globalspectraltransform_mod.html#f/globalspectraltransform_mod/gst_setid" title="f/globalspectraltransform_mod/gst_setid"><code class="xref f f-func docutils literal notranslate"><span class="pre">gst_setid()</span></code></a>, <a class="reference internal" href="globalspectraltransform_mod.html#f/globalspectraltransform_mod/gst_speree" title="f/globalspectraltransform_mod/gst_speree"><code class="xref f f-func docutils literal notranslate"><span class="pre">gst_speree()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/bmatrixchem_mod/bchm_spa2gdad">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">bmatrixchem_mod/</span></span><span class="sig-name descname"><span class="pre">bchm_spa2gdad</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">gd_in</span></em>, <em class="sig-param"><span class="pre">hicontrolvector_out</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/bmatrixchem_mod/bchm_spa2gdad" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>gd_in</strong> (mylonend-(mylonbeg)+1,mylatend-(mylatbeg)+1,bgstats%nkgdim)<em> [</em><em>real </em><em>,</em><em>inout</em><em>]</em></p></li>
+<li><p><strong>hicontrolvector_out</strong> (nla_mpilocal,2,bgstats%nkgdim)<em> [</em><em>real </em><em>,</em><em>inout</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/bmatrixchem_mod/bchm_bsqrtad" title="f/bmatrixchem_mod/bchm_bsqrtad"><code class="xref f f-func docutils literal notranslate"><span class="pre">bchm_bsqrtad()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="globalspectraltransform_mod.html#f/globalspectraltransform_mod/gst_setid" title="f/globalspectraltransform_mod/gst_setid"><code class="xref f f-func docutils literal notranslate"><span class="pre">gst_setid()</span></code></a>, <a class="reference internal" href="globalspectraltransform_mod.html#f/globalspectraltransform_mod/gst_speree_ad" title="f/globalspectraltransform_mod/gst_speree_ad"><code class="xref f f-func docutils literal notranslate"><span class="pre">gst_speree_ad()</span></code></a>, <a class="reference internal" href="globalspectraltransform_mod.html#f/globalspectraltransform_mod/gst_getnind" title="f/globalspectraltransform_mod/gst_getnind"><code class="xref f f-func docutils literal notranslate"><span class="pre">gst_getnind()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/bmatrixchem_mod/bchm_copytostatevector">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">bmatrixchem_mod/</span></span><span class="sig-name descname"><span class="pre">bchm_copytostatevector</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">statevector</span></em>, <em class="sig-param"><span class="pre">gd</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/bmatrixchem_mod/bchm_copytostatevector" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>statevector</strong><em> [</em><em>struct_gsv </em><em>,</em><em>inout</em><em>]</em></p></li>
+<li><p><strong>gd</strong> (mylonend-(mylonbeg)+1,mylatend-(mylatbeg)+1,bgstats%nkgdim)<em> [</em><em>real </em><em>,</em><em>inout</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/bmatrixchem_mod/bchm_bsqrt" title="f/bmatrixchem_mod/bchm_bsqrt"><code class="xref f f-func docutils literal notranslate"><span class="pre">bchm_bsqrt()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/bmatrixchem_mod/bchm_copyfromstatevector">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">bmatrixchem_mod/</span></span><span class="sig-name descname"><span class="pre">bchm_copyfromstatevector</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">statevector</span></em>, <em class="sig-param"><span class="pre">gd</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/bmatrixchem_mod/bchm_copyfromstatevector" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>statevector</strong><em> [</em><em>struct_gsv </em><em>,</em><em>inout</em><em>]</em></p></li>
+<li><p><strong>gd</strong> (mylonend-(mylonbeg)+1,mylatend-(mylatbeg)+1,bgstats%nkgdim)<em> [</em><em>real </em><em>,</em><em>inout</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/bmatrixchem_mod/bchm_bsqrtad" title="f/bmatrixchem_mod/bchm_bsqrtad"><code class="xref f f-func docutils literal notranslate"><span class="pre">bchm_bsqrtad()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/bmatrixchem_mod/bchm_reducetompilocal">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">bmatrixchem_mod/</span></span><span class="sig-name descname"><span class="pre">bchm_reducetompilocal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">cv_mpilocal</span></em>, <em class="sig-param"><span class="pre">cv_mpiglobal</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/bmatrixchem_mod/bchm_reducetompilocal" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>cv_mpilocal</strong> (cvdim_mpilocal)<em> [</em><em>real </em><em>,</em><em>out</em><em>]</em></p></li>
+<li><p><strong>cv_mpiglobal</strong> (*)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="bmatrix_mod.html#f/bmatrix_mod/bmat_reducetompilocal" title="f/bmatrix_mod/bmat_reducetompilocal"><code class="xref f f-func docutils literal notranslate"><span class="pre">bmat_reducetompilocal()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="globalspectraltransform_mod.html#f/globalspectraltransform_mod/gst_getnind" title="f/globalspectraltransform_mod/gst_getnind"><code class="xref f f-func docutils literal notranslate"><span class="pre">gst_getnind()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/bmatrixchem_mod/bchm_reducetompilocal_r4">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">bmatrixchem_mod/</span></span><span class="sig-name descname"><span class="pre">bchm_reducetompilocal_r4</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">cv_mpilocal</span></em>, <em class="sig-param"><span class="pre">cv_mpiglobal</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/bmatrixchem_mod/bchm_reducetompilocal_r4" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>cv_mpilocal</strong> (cvdim_mpilocal)<em> [</em><em>real </em><em>,</em><em>out</em><em>]</em></p></li>
+<li><p><strong>cv_mpiglobal</strong> (*)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="bmatrix_mod.html#f/bmatrix_mod/bmat_reducetompilocal_r4" title="f/bmatrix_mod/bmat_reducetompilocal_r4"><code class="xref f f-func docutils literal notranslate"><span class="pre">bmat_reducetompilocal_r4()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="globalspectraltransform_mod.html#f/globalspectraltransform_mod/gst_getnind" title="f/globalspectraltransform_mod/gst_getnind"><code class="xref f f-func docutils literal notranslate"><span class="pre">gst_getnind()</span></code></a>, <a class="reference internal" href="utilities_mod.html#f/utilities_mod/utl_abort" title="f/utilities_mod/utl_abort"><code class="xref f f-func docutils literal notranslate"><span class="pre">utl_abort()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/bmatrixchem_mod/bchm_expandtompiglobal">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">bmatrixchem_mod/</span></span><span class="sig-name descname"><span class="pre">bchm_expandtompiglobal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">cv_mpilocal</span></em>, <em class="sig-param"><span class="pre">cv_mpiglobal</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/bmatrixchem_mod/bchm_expandtompiglobal" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>cv_mpilocal</strong> (cvdim_mpilocal)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>cv_mpiglobal</strong> (*)<em> [</em><em>real </em><em>,</em><em>out</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="bmatrix_mod.html#f/bmatrix_mod/bmat_expandtompiglobal" title="f/bmatrix_mod/bmat_expandtompiglobal"><code class="xref f f-func docutils literal notranslate"><span class="pre">bmat_expandtompiglobal()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="globalspectraltransform_mod.html#f/globalspectraltransform_mod/gst_getnind" title="f/globalspectraltransform_mod/gst_getnind"><code class="xref f f-func docutils literal notranslate"><span class="pre">gst_getnind()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/bmatrixchem_mod/bchm_expandtompiglobal_r4">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">bmatrixchem_mod/</span></span><span class="sig-name descname"><span class="pre">bchm_expandtompiglobal_r4</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">cv_mpilocal</span></em>, <em class="sig-param"><span class="pre">cv_mpiglobal</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/bmatrixchem_mod/bchm_expandtompiglobal_r4" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>cv_mpilocal</strong> (cvdim_mpilocal)<em> [</em><em>real </em><em>,</em><em>in</em><em>]</em></p></li>
+<li><p><strong>cv_mpiglobal</strong> (*)<em> [</em><em>real </em><em>,</em><em>out</em><em>]</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="bmatrix_mod.html#f/bmatrix_mod/bmat_expandtompiglobal_r4" title="f/bmatrix_mod/bmat_expandtompiglobal_r4"><code class="xref f f-func docutils literal notranslate"><span class="pre">bmat_expandtompiglobal_r4()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><a class="reference internal" href="globalspectraltransform_mod.html#f/globalspectraltransform_mod/gst_getnind" title="f/globalspectraltransform_mod/gst_getnind"><code class="xref f f-func docutils literal notranslate"><span class="pre">gst_getnind()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object f" id="f/bmatrixchem_mod/bchm_finalize">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">bmatrixchem_mod/</span></span><span class="sig-name descname"><span class="pre">bchm_finalize</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#f/bmatrixchem_mod/bchm_finalize" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="bmatrix_mod.html#f/bmatrix_mod/bmat_finalize" title="f/bmatrix_mod/bmat_finalize"><code class="xref f f-func docutils literal notranslate"><span class="pre">bmat_finalize()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="bcovarsetupchem_mod.html#f/bcovarsetupchem_mod/bcsc_finalize" title="f/bcovarsetupchem_mod/bcsc_finalize"><code class="xref f f-func docutils literal notranslate"><span class="pre">bcsc_finalize()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div></blockquote>
+</section>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |</li>
+        <li class="right" >
+          <a href="bmatrixdiff_mod.html" title="bmatrixdiff_mod"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="bmatrix1dvar_mod.html" title="bmatrix1dvar_mod"
+             >previous</a> |</li>
+        <li><a href="../index.html">MIDAS  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2018, ECCC.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,22 @@
+==========================================
+earthconstants_mod
+==========================================
+
+    :doc:`link to source code <earthconstants_mod_src>`
+
+
+    **Dependency Diagrams:**
+
+    .. figure:: /earthconstants_mod.svg
+        :height: 100px
+
+        Direct Dependency Diagram
+
+    .. figure:: /earthconstants_mod_rev.svg
+        :height: 100px
+
+        Reverse Dependency Diagram
+
+
+    .. f:automodule:: earthconstants_mod
+
